@@ -777,6 +777,8 @@
     $$g(0) = f(x_2) - f(x_1) > 0, \qquad g(1) = f(y_2) - f(y_1) < 0.$$
     By the IVT there is $t_0 \in (0,1)$ with $g(t_0) = 0$, i.e. $f(u(t_0)) = f(v(t_0))$. But $u(t_0) < v(t_0)$, contradicting injectivity. Hence $f$ is strictly monotone. $\blacksquare$
 
+    (Only continuity, injectivity, and the fact that $I$ is an interval were used. The hypotheses that $f$ is onto and that $J$ is an interval are not needed.)
+
 - id: lebl-7.5.8
   hints:
     - |

@@ -297,7 +297,7 @@
     - |
       For (b), write down an explicit candidate inverse $g \colon \mathbb{N} \to \{q > 0\}$. It halves even exponents and sends odd exponents $e$ to the denominator with exponent $(e+1)/2$. Then check $g \circ f = \mathrm{id}$ and $f \circ g = \mathrm{id}$, using the uniqueness in the Theorem each time.
   solution: |
-    Write $\mathbb{Q}_{>0} = \{q \in \mathbb{Q} : q > 0\}$.
+    Write $\mathbb{Q}_{>0} = \{q \in \mathbb{Q} : q > 0\}$. In part 2) of the Theorem we read $N = 0$ as allowed, with the numerator then the empty product $1$; this is needed for numbers such as $1/3 = 1/3^1$.
 
     **(a)** $4/15 = 2^2/(3^1 \cdot 5^1)$ is not an integer, and this is its form $(\ddagger)$ with $p_1 = 2$, $r_1 = 2$ and $q_1 = 3$, $q_2 = 5$, $s_1 = s_2 = 1$. Hence
     $$f(4/15) = 2^{4} \cdot 3^{1} \cdot 5^{1} = 240.$$
@@ -328,7 +328,7 @@
     - |
       For surjectivity, start from $S \subset \mathbb{N}$. Write down the digits ($2$ at positions in $S$, $1$ elsewhere), and check that the resulting number lies in $(0, 1)$.
   solution: |
-    Here $x = 0.d_{-1}d_{-2}\ldots$ means $x = \sum_{j=1}^\infty d_{-j} 10^{-j}$. For any digits in $\{1, 2\}$ this series converges, since its partial sums are increasing and bounded by $\sum 2 \cdot 10^{-j} = 2/9$.
+    We read the definition of $E$ as: $x \in E$ if and only if $x \in (0,1)$ and there is a digit sequence $(d_{-j})_{j \ge 1}$ with every $d_{-j} \in \{1, 2\}$ such that $x = 0.d_{-1}d_{-2}\ldots$. (The quantifiers as printed, "$\forall j\ \exists d_{-j}$ such that $x = \ldots$", are meant this way.) Here $x = 0.d_{-1}d_{-2}\ldots$ means $x = \sum_{j=1}^\infty d_{-j} 10^{-j}$. For any digits in $\{1, 2\}$ this series converges, since its partial sums are increasing and bounded by $\sum 2 \cdot 10^{-j} = 2/9$.
 
     **Key lemma.** *If $(d_{-j})$ and $(d'_{-j})$ are digit sequences in $\{1, 2\}$ that are not identical, then $\sum d_{-j} 10^{-j} \ne \sum d'_{-j} 10^{-j}$.*
 

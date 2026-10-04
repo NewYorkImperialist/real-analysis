@@ -384,7 +384,7 @@
     - |
       A term $x^p\sin(1/x)$ or $x^p\cos(1/x)$ tends to $0$ at $0$ if $p>0$, and oscillates without a limit if $p\le0$ (it is unbounded if $p<0$). Use this to find the range of $a$ for each property.
     - |
-      You should find: (a) any $1<a<2$; (b) any $2<a\le3$; (c) any $3<a\le4$. For non-integer $a$, choose one for which $x^a$ makes sense for negative $x$.
+      Turn each property into a condition on $a$. For example, in (a) you need $g_a'(0)$ to exist, but you also need a term in $g_a'(x)$ that blows up as $x\to0$. In (b) and (c), do the same with the difference quotient of $g_a'$ at $0$ and with $g_a''(x)$ for $x\neq0$. If you pick a non-integer $a$, make sure $x^a$ is defined for negative $x$.
   solution: |
     For a non-integer exponent we need $x^a$ to be defined for $x<0$, so we use odd-denominator exponents, e.g. $x^{4/3} = (\sqrt[3]{x})^4$. For such $a$, and for integers, the power rule $\frac{d}{dx}x^a = a x^{a-1}$ holds for $x\neq0$.
 
@@ -544,7 +544,7 @@
     - |
       If $f$ were increasing (non-decreasing) on an open interval, every difference quotient, and hence every derivative, would be $\ge0$ there. Look for points arbitrarily close to $0$ where $f'<0$.
     - |
-      For (c), what is the hypothesis of Corollary 29.7(i), and at how many points does this $f$ satisfy $f'>0$ near $0$?
+      For (c), what is the hypothesis of Corollary 29.7(i), and does this $f$ satisfy $f'>0$ on a whole open interval around $0$?
   solution: |
     Let $F(x) = x^2\sin(1/x)$ for $x\ne0$, $F(0)=0$, as in Exercise 28.4, so $f(x) = F(x) + \frac x2$. Recall from Exercise 28.4 that $F'(0) = 0$ and $F'(x) = 2x\sin(1/x) - \cos(1/x)$ for $x\ne0$. ("Increasing" here means non-decreasing, as in Ross's Definition 29.6.)
 
@@ -556,7 +556,7 @@
     $$f'(x_n) = 2x_n\sin(2\pi n) - \cos(2\pi n) + \tfrac12 = 0 - 1 + \tfrac12 = -\tfrac12 < 0.$$
     By the previous paragraph, $f$ is not increasing on $J$.
 
-    **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here we only know $f'>0$ at the single point $0$. Every neighborhood of $0$ contains points where $f'<0$, because $f'$ is not continuous at $0$: the term $-\cos(1/x)$ oscillates between $-1$ and $1$. So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
+    **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here $f'(0)>0$, but $f'$ is not positive on any open interval around $0$. Every neighborhood of $0$ contains points where $f'<0$, because $f'$ is not continuous at $0$: the term $-\cos(1/x)$ oscillates between $-1$ and $1$. So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
 - id: ross-30.6
   hints:
     - |

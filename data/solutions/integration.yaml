@@ -479,7 +479,7 @@
 
     *Oscillation.* For a bounded $\varphi$ on an interval $I$,
     $$\sup_I \varphi - \inf_I \varphi = \sup_{x,y\in I}\bigl(\varphi(x) - \varphi(y)\bigr).$$
-    "$\ge$" is clear. For "$\le$", choose $x, y$ with $\varphi(x) > \sup\varphi - \eta$ and $\varphi(y) < \inf\varphi + \eta$. For $x, y \in I$, the reverse triangle inequality gives
+    "$\ge$" is clear. For "$\le$", given $\eta > 0$ choose $x, y$ with $\varphi(x) > \sup\varphi - \eta$ and $\varphi(y) < \inf\varphi + \eta$; then $\varphi(x) - \varphi(y) > \sup\varphi - \inf\varphi - 2\eta$, and $\eta$ is arbitrary. For $x, y \in I$, the reverse triangle inequality gives
     $$|f(x)| - |f(y)| \le |f(x) - f(y)| \le \sup_I f - \inf_I f.$$
     Taking the sup over $x, y$ and applying the identity with $\varphi = |f|$ gives $\sup_I|f| - \inf_I|f| \le \sup_I f - \inf_I f$. Multiplying by $\Delta x_i$ and summing over the subintervals of a partition $P$,
     $$U(P,|f|) - L(P,|f|) \le U(P,f) - L(P,f).$$
