@@ -32,12 +32,30 @@ function blockHtml(tokens: Token[]): string {
   return renderText(text).replace(/\u0000(\d+)\u0000/g, (_, i) => math[Number(i)]);
 }
 
+// List previews: an opening like "Let" or "Compute:" says nothing on its own, so keep joining
+// paragraphs (display math shown inline) until there is about a line of content.
+const PREVIEW_CHARS = 70;
+function previewTokens(blocks: { tokens: Token[] }[]): Token[] {
+  const out: Token[] = [];
+  let len = 0;
+  for (const b of blocks) {
+    if (out.length) out.push({ kind: 'text', value: ' ' });
+    for (const t of b.tokens) {
+      out.push(t.kind === 'math' ? { ...t, display: false } : t);
+      len += t.kind === 'text' ? t.value.trim().length : Math.min(t.value.length, 20);
+    }
+    if (len >= PREVIEW_CHARS) break;
+  }
+  return out;
+}
+
 /** Renders the canonical problem-text format (LaTeX in $…$/$$…$$, paragraphs, parts). */
 export function RichText({ src, class: cls, firstBlock }: { src: string; class?: string; firstBlock?: boolean }) {
   const html = useMemo(() => {
     const blocks = toBlocks(tokenize(src));
     // List previews show only the opening paragraph, which keeps long lists light.
-    return (firstBlock ? blocks.slice(0, 1) : blocks).map((b) => `<p>${blockHtml(b.tokens)}</p>`).join('');
+    if (firstBlock) return `<p>${blockHtml(previewTokens(blocks))}</p>`;
+    return blocks.map((b) => `<p>${blockHtml(b.tokens)}</p>`).join('');
   }, [src, firstBlock]);
   return <div class={`rich ${cls ?? ''}`} dangerouslySetInnerHTML={{ __html: html }} />;
 }
