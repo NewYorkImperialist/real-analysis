@@ -497,7 +497,7 @@
   - contradiction
   - subsequence-extraction
   concept: uniformly continuous on a bounded set implies bounded
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: proof
   tags:
@@ -596,7 +596,7 @@
   - subsequence-extraction
   - epsilon-N-proof
   concept: s_{n+1} - s_n -> 0 implies set of subsequential limits is an interval [liminf, limsup]
-  difficulty: hard
+  difficulty: medium
   category: challenge
   type: proof
   tags:

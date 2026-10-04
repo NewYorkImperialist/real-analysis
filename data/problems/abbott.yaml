@@ -976,7 +976,7 @@
   - construct-counterexample
   - comparison-estimate
   concept: 'true/false: sum a_n abs. conv ⇒ sum a_n^2 conv; sum a_n conv and b_n conv ⇏ sum a_n b_n conv'
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: counterexample
   tags:
@@ -1148,7 +1148,7 @@
   skills:
   - epsilon-neighborhood-argument
   concept: set of limit points is closed; closure is the smallest closed set containing A
-  difficulty: easy
+  difficulty: medium
   category: canonical
   type: proof
   tags:
@@ -1386,7 +1386,7 @@
   - nested-intervals
   - induction
   concept: 'Baire category theorem: countable intersection of dense open sets is nonempty'
-  difficulty: hard
+  difficulty: medium
   category: challenge
   type: proof
   tags:
@@ -1415,7 +1415,7 @@
   - contradiction
   - theorem-application
   concept: Q is not a G_delta set; irrationals are not F_sigma
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: theorem-application
   tags:
@@ -1447,7 +1447,7 @@
   - negate-definition
   - construct-counterexample
   concept: variations of the epsilon-delta definition (onetinuous/equaltinuous/lesstinuous)
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: definition
   tags:
@@ -2092,7 +2092,7 @@
   - interior-extremum
   - sign-of-difference-quotient
   concept: Darboux's theorem (derivatives have the intermediate value property)
-  difficulty: hard
+  difficulty: medium
   category: challenge
   type: proof
   tags:
@@ -2188,7 +2188,7 @@
   - convex-combination-estimate
   - construct-counterexample
   concept: 'continuous nowhere-differentiable function (sawtooth/Takagi-type series): non-dyadic points'
-  difficulty: very-hard
+  difficulty: hard
   category: challenge
   type: proof
   tags:
@@ -2331,7 +2331,7 @@
   - nested-compact-sets
   - open-cover-argument
   concept: Dini's theorem
-  difficulty: hard
+  difficulty: medium
   category: challenge
   type: proof
   tags:

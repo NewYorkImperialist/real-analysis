@@ -507,7 +507,7 @@
   subtopics: [continuity-and-topology]
   skills: [epsilon-delta-proof, preimage-manipulation]
   concept: "topological characterization of continuity (preimages of open sets)"
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: proof
   tags: [continuity, open-set, preimage, topology, characterization, machinery, canonical]
@@ -1064,7 +1064,7 @@
   subtopics: [sequential-compactness, compactness]
   skills: [Bolzano-Weierstrass, closed-sets-contain-limits, subsequence-extraction, continuity-sequential]
   concept: "[a,b] is (sequentially) compact; continuous image of [a,b] is compact"
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: proof
   tags: [compactness, sequential-compactness, Bolzano-Weierstrass, continuity, machinery, canonical]

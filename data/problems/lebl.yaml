@@ -816,7 +816,7 @@
   - triangle-inequality
   - geometric-series-bound
   concept: contractive sequence |x_{n+1} − x_n| ≤ C|x_n − x_{n−1}|, C < 1, is Cauchy
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: proof
   tags:
@@ -1195,7 +1195,7 @@
   - construct-counterexample
   - grouping
   concept: alternating series test fails without monotonicity
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: counterexample
   tags:
@@ -2749,7 +2749,7 @@
   skills:
   - sequential-characterization
   concept: closed subset of a complete metric space is complete
-  difficulty: introductory
+  difficulty: easy
   category: canonical
   type: proof
   tags:
@@ -2895,7 +2895,7 @@
   - construct-counterexample
   - sup-norm-estimate
   concept: derivative operator continuous in the C^1 metric, discontinuous in the sup metric (sin(nx)/n)
-  difficulty: medium
+  difficulty: easy
   category: synthesis
   type: counterexample
   tags:

@@ -118,7 +118,7 @@
   - density-of-Q
   - closed-set-limit
   concept: Darboux (IVP) function with closed rational level sets is continuous (N. J. Fine)
-  difficulty: hard
+  difficulty: medium
   category: challenge
   type: proof
   tags:
@@ -157,7 +157,7 @@
   - construct-counterexample
   - case-analysis
   concept: 'Tietze extension on R: continuous f on closed E ⊂ R extends continuously to R; fails for non-closed E'
-  difficulty: medium
+  difficulty: hard
   category: synthesis
   type: construction
   tags:

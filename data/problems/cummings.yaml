@@ -73,7 +73,7 @@
   - nested-intervals
   - sup-approximation
   concept: Nested interval property
-  difficulty: medium
+  difficulty: easy
   category: canonical
   type: proof
   tags:
