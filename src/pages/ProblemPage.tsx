@@ -286,7 +286,7 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
 
   return (
     <article class="stack-lg" key={p.id}>
-      <header class="stack-sm">
+      <header class={`stack-sm problem-header${timerOn ? ' has-menu' : ''}`}>
         <p class="section-title" style="margin:0">
           {inPractice ? `Practice · ${idx + 1} of ${nav.list.length}` : sourceLine(p)}
         </p>
@@ -301,6 +301,9 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
           <span>{label(p.category)}</span>
           <span>{label(p.type)}</span>
         </p>
+        {timerOn && (
+          <ProblemTimer key={p.id} id={p.id} storedMs={pr?.timeSpentMs ?? 0} completed={pr?.status === 'completed'} />
+        )}
       </header>
 
       <SourceBlock p={p} />
@@ -315,9 +318,6 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
             {workspace ? 'Close workspace' : 'Attempt'}
           </button>
         </div>
-        {timerOn && (
-          <ProblemTimer key={p.id} id={p.id} storedMs={pr?.timeSpentMs ?? 0} completed={pr?.status === 'completed'} />
-        )}
         {workspace && <Workspace p={p} notes={notes} personal={personal} focusSolution={focusSol} />}
         <div class="controls"><Hints key={p.id} p={p} extras={extras} /></div>
         <div class="controls"><Solution key={p.id} extras={extras} personal={personal} openEditor={openEditor} /></div>

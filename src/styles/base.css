@@ -317,6 +317,22 @@ dl.defs dd { color: var(--ink-2); }
   .clamp-2 { -webkit-line-clamp: unset; line-clamp: none; display: block; overflow: visible; }
 }
 
-/* optional problem timer */
+/* optional problem timer: a quiet "⋯" menu in the problem header's top-right corner */
+.problem-header { position: relative; }
+.problem-header.has-menu { padding-right: 2.75rem; }
+.timer-bar { position: absolute; top: -0.2rem; right: 0; display: flex; align-items: center; gap: 0.35rem; }
+.timer-menu-btn {
+  border: 0; background: none; color: var(--muted); font-size: 1.3rem; line-height: 1;
+  padding: 0.15rem 0.45rem 0.35rem; border-radius: var(--radius); cursor: pointer;
+}
+.timer-menu-btn:hover, .timer-menu-btn[aria-expanded="true"] { background: var(--accent-soft); color: var(--ink); }
+.timer-mini { font-family: var(--font-ui); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.timer-pop {
+  position: absolute; top: 2.1rem; right: 0; z-index: 20; min-width: 15rem;
+  background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 6px;
+  padding: 0.75rem 0.9rem; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
 .timer-readout { font-family: var(--font-ui); color: var(--ink-2); }
 .timer-digits { font-variant-numeric: tabular-nums; }
+.timer-gap { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; color: var(--muted); margin-top: 0.25rem; }
+.timer-gap .row { gap: 0.75rem; }

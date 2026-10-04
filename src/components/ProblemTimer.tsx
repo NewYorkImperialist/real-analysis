@@ -99,39 +99,88 @@ export function ProblemTimer({ id, storedMs, completed }: { id: string; storedMs
   const live = segStart.current !== null ? Date.now() - segStart.current : 0;
   const total = storedMs + live;
 
+  // The menu closes on an outside click or Escape.
+  const [open, setOpen] = useState(false);
+  const wrap = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: MouseEvent) => {
+      if (wrap.current && !wrap.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    document.addEventListener('mousedown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
   return (
-    <div class="timer stack-sm">
-      <div class="row">
-        <span class="timer-readout" aria-label={`Time on this problem: ${formatDuration(total)}`}>
-          ⏱ <span class="timer-digits">{formatDuration(total)}</span>
-        </span>
-        {running ? (
-          <button type="button" class="btn" onClick={pause}>Pause</button>
-        ) : (
-          <button type="button" class="btn" onClick={start} disabled={!!gap}>
-            {total > 0 ? 'Resume timer' : 'Start timer'}
-          </button>
+    <div class="timer" ref={wrap}>
+      <div class="timer-bar">
+        {running && (
+          <span class="timer-mini" title="Timer running">
+            <span class="visually-hidden">Timer running: </span>
+            {formatDuration(total)}
+          </span>
         )}
-        {!running && !gap && total > 0 && (
-          <button type="button" class="link small" onClick={() => setEditing(!editing)}>
-            {editing ? 'Cancel' : 'Edit time'}
-          </button>
-        )}
+        <button
+          type="button"
+          class="timer-menu-btn"
+          aria-label="Problem options"
+          aria-haspopup="true"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+        >
+          ⋯
+        </button>
       </div>
 
-      {gap && (
-        <div class="note" role="status">
-          <p class="small" style="margin:0 0 0.4rem">
-            {gap.reason === 'idle'
-              ? `The timer stopped after 10 minutes with no activity on this page.`
-              : `The timer stopped when you left this tab.`}{' '}
-            You were away for <strong>{formatDuration(Date.now() - gap.since)}</strong>. Were you still working on this
-            problem (for example, on paper)?
-          </p>
+      {open && (
+        <div class="timer-pop stack-sm" role="dialog" aria-label="Problem timer">
+          <div class="spread">
+            <span class="small muted">Time on this problem</span>
+            <span class="timer-readout">
+              <span class="timer-digits">{formatDuration(total)}</span>
+            </span>
+          </div>
           <div class="row">
+            {running ? (
+              <button type="button" class="btn" onClick={pause}>Pause timer</button>
+            ) : (
+              <button type="button" class="btn" onClick={start} disabled={!!gap}>
+                {total > 0 ? 'Resume timer' : 'Start timer'}
+              </button>
+            )}
+            {!running && !gap && total > 0 && (
+              <button type="button" class="link small" onClick={() => setEditing(!editing)}>
+                {editing ? 'Cancel' : 'Edit time'}
+              </button>
+            )}
+          </div>
+          {editing && !running && (
+            <EditTime
+              ms={storedMs}
+              onSave={(ms) => {
+                setTime(id, ms);
+                setEditing(false);
+              }}
+            />
+          )}
+        </div>
+      )}
+
+      {gap && (
+        <div class="timer-gap small" role="status">
+          <span>
+            {gap.reason === 'idle' ? 'Timer stopped: no activity for 10 min.' : 'Timer stopped when you left the tab.'}{' '}
+            Away <strong>{formatDuration(Date.now() - gap.since)}</strong>. Still working on it (e.g. on paper)?
+          </span>
+          <span class="row">
             <button
               type="button"
-              class="btn"
+              class="link"
               onClick={() => {
                 addTime(id, Date.now() - gap.since);
                 start();
@@ -139,20 +188,10 @@ export function ProblemTimer({ id, storedMs, completed }: { id: string; storedMs
             >
               Count it and resume
             </button>
-            <button type="button" class="btn" onClick={start}>Discard it and resume</button>
-            <button type="button" class="btn btn-quiet" onClick={() => setGap(null)}>Discard and stay paused</button>
-          </div>
+            <button type="button" class="link" onClick={start}>Discard and resume</button>
+            <button type="button" class="link" onClick={() => setGap(null)}>Stay paused</button>
+          </span>
         </div>
-      )}
-
-      {editing && !running && (
-        <EditTime
-          ms={storedMs}
-          onSave={(ms) => {
-            setTime(id, ms);
-            setEditing(false);
-          }}
-        />
       )}
     </div>
   );
