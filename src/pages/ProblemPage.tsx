@@ -227,7 +227,7 @@ function Solution({ extras, personal, openEditor }: { extras: Extras | null | un
 function neighbours(p: Problem, practice: boolean): { list: string[]; label: string } {
   if (practice) {
     const ids = readPracticeIds();
-    if (ids && ids.includes(p.id)) return { list: ids, label: 'practice set' };
+    if (ids && ids.includes(p.id)) return { list: ids, label: 'this practice set' };
   }
   // The learning path runs across topics in bank order (data/curriculum.yaml). From a core problem,
   // Next follows the core path; from an upper-tier detour, it follows the full path, which rejoins the
