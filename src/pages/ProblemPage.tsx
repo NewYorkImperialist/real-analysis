@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import type { Problem } from '../lib/types';
+import type { Hint, Problem } from '../lib/types';
 import { byId, problems, sourceByKey, topicLabel, subtopicLabel, label, sourceLine, titleOf } from '../lib/bank';
 import { href } from '../lib/router';
 import { useProgress } from '../lib/useProgress';
@@ -9,6 +9,7 @@ import { StatusControl } from '../components/StatusControl';
 import { ProblemList } from '../components/ProblemRow';
 import { ProblemTimer } from '../components/ProblemTimer';
 import { useTimerEnabled } from '../lib/timerSetting';
+import { useExtras, type Extras } from '../lib/extras';
 
 const PRACTICE_KEY = 'rapb.practice.current';
 
@@ -66,9 +67,12 @@ function SourceBlock({ p }: { p: Problem }) {
   );
 }
 
-function Hints({ p }: { p: Problem }) {
-  const hints = p.hints ?? [];
+function Hints({ p, extras }: { p: Problem; extras: Extras | null | undefined }) {
+  const hints: Hint[] = extras?.hints ?? [];
   const [shown, setShown] = useState(0);
+  if (extras === undefined) return <button type="button" class="btn" disabled>Loading hints…</button>;
+  if (extras === null)
+    return <span class="small muted">Hints could not be loaded. Check your connection and reload the page.</span>;
   if (!hints.length)
     return (
       <span class="row">
@@ -177,9 +181,11 @@ function Workspace({ p, notes, personal, focusSolution }: { p: Problem; notes: s
   );
 }
 
-function Solution({ p, personal, openEditor }: { p: Problem; personal: string; openEditor: () => void }) {
+function Solution({ extras, personal, openEditor }: { extras: Extras | null | undefined; personal: string; openEditor: () => void }) {
   const [open, setOpen] = useState(false);
-  const sol = p.solution;
+  const sol = extras?.solution ?? undefined;
+  if (extras === undefined) return <button type="button" class="btn" disabled>Loading solution…</button>;
+  if (extras === null) return <span class="small muted">The solution could not be loaded. Check your connection and reload the page.</span>;
   const has = !!(sol?.available && sol.latex);
   return (
     <div class="stack-sm" style="flex-basis:100%;min-width:0">
@@ -232,6 +238,7 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
   const [workspace, setWorkspace] = useState(false);
   const [focusSol, setFocusSol] = useState(false);
   const timerOn = useTimerEnabled();
+  const extras = useExtras(p);
 
   useEffect(() => {
     setWorkspace(false);
@@ -305,8 +312,8 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
           <ProblemTimer key={p.id} id={p.id} storedMs={pr?.timeSpentMs ?? 0} completed={pr?.status === 'completed'} />
         )}
         {workspace && <Workspace p={p} notes={notes} personal={personal} focusSolution={focusSol} />}
-        <div class="controls"><Hints key={p.id} p={p} /></div>
-        <div class="controls"><Solution key={p.id} p={p} personal={personal} openEditor={openEditor} /></div>
+        <div class="controls"><Hints key={p.id} p={p} extras={extras} /></div>
+        <div class="controls"><Solution key={p.id} extras={extras} personal={personal} openEditor={openEditor} /></div>
         <hr class="rule" style="margin:0.5rem 0" />
         <StatusControl id={p.id} />
       </section>

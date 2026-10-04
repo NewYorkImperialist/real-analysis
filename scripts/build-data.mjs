@@ -217,8 +217,24 @@ if (!checkOnly) {
     types: taxonomy.types,
     problems,
   };
-  const out = path.join(root, 'src', 'generated', 'bank.json');
-  fs.mkdirSync(path.dirname(out), { recursive: true });
+  const gen = path.join(root, 'src', 'generated');
+  fs.mkdirSync(gen, { recursive: true });
+  // Full bank: read by the curation scripts.
+  const out = path.join(gen, 'bank.json');
   fs.writeFileSync(out, JSON.stringify(bank));
   console.log(`→ ${path.relative(root, out)}`);
+
+  // The site loads statements and metadata up front (site-bank.json) and fetches hints and
+  // solutions per topic only when a problem page needs them (extras/<topic>.json).
+  const extrasDir = path.join(gen, 'extras');
+  fs.rmSync(extrasDir, { recursive: true, force: true });
+  fs.mkdirSync(extrasDir);
+  const extras = {};
+  const lean = problems.map(({ hints, solution, ...rest }) => {
+    (extras[rest.topic] ??= {})[rest.id] = { hints: hints ?? [], solution: solution ?? null };
+    return rest;
+  });
+  fs.writeFileSync(path.join(gen, 'site-bank.json'), JSON.stringify({ ...bank, problems: lean }));
+  for (const [topic, map] of Object.entries(extras)) fs.writeFileSync(path.join(extrasDir, `${topic}.json`), JSON.stringify(map));
+  console.log(`→ src/generated/site-bank.json + extras/ (${Object.keys(extras).length} topics)`);
 }

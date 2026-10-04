@@ -1,4 +1,5 @@
-import bankJson from '../generated/bank.json';
+// Statements and metadata only; hints and solutions load per topic (lib/extras.ts).
+import bankJson from '../generated/site-bank.json';
 import type { Bank, Problem, Source, Topic, Difficulty, Category, ProblemType } from './types';
 import { DIFFICULTIES } from './types';
 
