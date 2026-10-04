@@ -1,6 +1,6 @@
 # Unselected candidates
 
-555 candidates were transcribed and classified but not selected for the bank (66 core, 251 strong, 238 consider). Most "core"/"strong" ones lost only to a near-identical
+551 candidates were transcribed and classified but not selected for the bank (66 core, 248 strong, 237 consider). Most "core"/"strong" ones lost only to a near-identical
 version from another source that is already in the bank. Full text and metadata: `curation/candidates/*.yaml`.
 
 Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see curation/README.md).
@@ -90,7 +90,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-2.4.4 | consider | medium | proof | Monotone Convergence Theorem implies Archimedean Property and Nested Interval Property | no |
 | lebl-1.2.15 | consider | medium | proof | sup{x in Q : x < y} = y; Dedekind cuts correspond to reals | yes |
 
-## sequences (87)
+## sequences (85)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -112,8 +112,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-2.4.1 | strong | easy | proof | recursive sequence x_{n+1} = 1/(4 - x_n) converges (MCT + fixed point) | no |
 | abbott-2.6.5 | strong | easy | counterexample | \|s_{n+1} - s_n\| -> 0 does not imply Cauchy/bounded (e.g. sqrt n, partial sums of harmonic series) | no |
 | cummings-3.4 | strong | easy | definition | Quantifier variants of the definition of convergence | yes |
-| cummings-3.6 | strong | easy | proof | Convergent sequence of integers is eventually constant | yes |
-| cummings-3.8 | strong | easy | proof | Limit laws: difference and quotient | yes |
 | lebl-2.1.16 | strong | easy | proof | two subsequences with different limits ⇒ divergence | yes |
 | lebl-2.2.12 | strong | easy | proof | bounded sequence times null sequence → 0 | yes |
 | ross-10.10 | strong | easy | proof | recursive sequence s_{n+1} = (s_n+1)/3: bounded below, decreasing, limit 1/2 | no |
@@ -424,7 +422,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | tao-9.3.4 | consider | medium | definition | limsup/liminf of a function at a point and sequential characterization | no |
 | tao-9.9.2 | consider | medium | proof | f uniformly continuous iff \|x_n - y_n\| -> 0 implies \|f(x_n) - f(y_n)\| -> 0 | no |
 
-## differentiation (58)
+## differentiation (57)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -473,7 +471,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | tao-10.4.1 | consider | easy | theorem-application | x^{1/n} is continuous and differentiable with derivative (1/n)x^{1/n-1} | no |
 | tao-10.5.1 | consider | easy | proof | L'Hôpital's rule (0/0, g'(x0) != 0 version) | no |
 | tao-11.9.2 | consider | easy | theorem-application | two antiderivatives differ by a constant | no |
-| cummings-7.16 | consider | hard | proof | L'Hopital's rule, infinity/infinity case | yes |
 | ross-28.5 | consider | introductory | conceptual | the faulty proof of the chain rule (f(x)-f(a) can vanish arbitrarily close to a) | no |
 | ross-28.7 | consider | introductory | counterexample | x^2 for x>=0, 0 for x<0: C^1 but not twice differentiable | no |
 | ross-29.13 | consider | introductory | theorem-application | f(0)=g(0) and f' <= g' imply f <= g on [0, infinity) | no |
@@ -487,7 +484,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-4.4.8 | consider | medium | proof | differentiability of f from that of its inverse g; g'(y)=0 obstructs | yes |
 | ross-30.7 | consider | medium | counterexample | Stolz counterexample: f'/g' -> 0 but f/g has no limit when g' vanishes | no |
 
-## integration (55)
+## integration (54)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -515,7 +512,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-5.1.2 | strong | introductory | proof | integral of x on [0,1] from the definition (Darboux sums) | no |
 | abbott-7.5.8 | strong | medium | proof | natural logarithm via ∫1/t; Euler's constant exists; alternating harmonic series = log 2 | no |
 | cummings-8.20 | strong | medium | proof | nonnegative f with positive integral is positive at infinitely many points; converse fails (Thomae) | yes |
-| cummings-8.28 | strong | medium | proof | f integrable iff squeezed between step functions with integrals within ε | yes |
 | lebl-5.1.11 | strong | medium | proof | right-endpoint Riemann sums converge to the integral; converse fails | no |
 | lebl-5.2.18 | strong | medium | proof | Riemann–Lebesgue lemma for continuous functions | no |
 | lebl-5.5.8 | strong | medium | proof | Cauchy criterion for convergence of improper integrals | no |

@@ -18,7 +18,7 @@ npm run check     # validate the problem data only
 
 ## The bank
 
-There are **378 problems**: a **core** of 342 and an optional **upper tier** of 36 harder problems.
+There are **383 problems**: a **core** of 347 and an optional **upper tier** of 36 harder problems.
 
 | Source | Core | Upper tier |
 |---|---|---|
@@ -26,9 +26,9 @@ There are **378 problems**: a **core** of 342 and an optional **upper tier** of 
 | Abbott, *Understanding Analysis* (2nd ed.) | 99 | — |
 | Lebl, *Basic Analysis I* (v6.3) | 105 | — |
 | Ross, *Elementary Analysis* (2nd ed.) | 39 | — |
-| Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 23 | — |
+| Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 27 | — |
 | Tao, *Analysis I* (3rd ed.) | 15 | — |
-| Pugh, *Real Mathematical Analysis* (2nd ed.) | 1 | 22 |
+| Pugh, *Real Mathematical Analysis* (2nd ed.) | 2 | 22 |
 | Rudin, *Principles of Mathematical Analysis* (3rd ed.) | 4 | 13 |
 | MIT 18.100B (2006, Fall 2010, Spring 2025) | 2 | 1 |
 
@@ -112,5 +112,5 @@ worksheet built from the same LaTeX.
 
 ## Curation materials
 
-`curation/` keeps all 836 candidates (555 not selected, indexed in `curation/UNSELECTED.md`), the
+`curation/` keeps all 836 candidates (551 not selected, indexed in `curation/UNSELECTED.md`), the
 selection decisions, and a safe script for adding more problems later. See `curation/README.md`.

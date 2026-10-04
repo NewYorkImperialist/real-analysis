@@ -701,3 +701,131 @@
     Suppose $a \le b < c \le d$ and that $f$ is integrable on $[a,d]$. Prove that $f$ is also integrable on $[b,c]$.
   curation:
     why: Integrability restricts to subintervals, the first step toward additivity of the integral over [a,c] ∪ [c,b].
+
+- id: cummings-3.6
+  source:
+    key: cummings
+    chapter: 3 Sequences
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 3.6
+    page: '104'
+  topic: sequences
+  subtopics:
+  - convergence
+  skills:
+  - choose-epsilon
+  - epsilon-N-proof
+  concept: Convergent sequence of integers is eventually constant
+  title: Convergence of integer-valued sequences
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - convergence
+  - integers
+  - eventually-constant
+  problemLatex: |
+    Each of the following is an independent question, but for each suppose that the sequence $(a_n)$ has the property that $a_n \in \mathbb{Z}$ for all $n$.
+    (a) Is it possible that $a_n \to 3.5$?
+    (b) If $a_n \ne a_m$ for all $n \ne m$, prove that $(a_n)$ does not converge.
+    (c) If $(a_n)$ converges, what can be said about this sequence?
+  notes: Verbatim.
+  curation:
+    why: 'Convergence with a fixed ε: an integer-valued sequence that converges must be eventually constant.'
+
+- id: cummings-3.8
+  source:
+    key: cummings
+    chapter: 3 Sequences
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 3.8
+    page: '104'
+  topic: sequences
+  subtopics:
+  - limit-laws
+  skills:
+  - epsilon-N-proof
+  - triangle-inequality
+  concept: 'Limit laws: difference and quotient'
+  title: Limit laws for differences and quotients
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - limit-laws
+  - quotient
+  - epsilon-N
+  - machinery
+  problemLatex: |
+    Assume that $(a_n)$ converges to $a$ and $(b_n)$ converges to $b$. Also assume $c \in \mathbb{R}$.
+    (a) Prove that $(a_n - b_n)$ converges to $a - b$.
+    (b) Prove that $\left(\dfrac{a_n}{b_n}\right) \to \dfrac{a}{b}$, provided $b \ne 0$ and each $b_n \ne 0$.
+  notes: Verbatim (the 'Also assume c in R' sentence is in the book although c is unused).
+  curation:
+    why: Prove the difference and quotient limit laws from the definition, including keeping the denominators away from 0.
+
+- id: cummings-7.16
+  source:
+    key: cummings
+    chapter: 7 Differentiation
+    section: Chapter 7 Exercises
+    problemNumber: Exercise 7.16
+    page: '221'
+  topic: differentiation
+  subtopics:
+  - lhopital
+  skills:
+  - MVT-application
+  - epsilon-delta-proof
+  - comparison-estimate
+  concept: L'Hopital's rule, infinity/infinity case
+  title: The $\infty/\infty$ case of L'Hôpital's rule
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - LHopital
+  - Cauchy-mean-value-theorem
+  - limits
+  - infinity
+  problemLatex: |
+    Prove the following "$\infty/\infty$" case of l'Hôpital's rule. Prove that if $f\colon (a,b) \to \mathbb{R}$ and $g\colon (a,b) \to \mathbb{R}$ are differentiable functions and $\lim_{x\to a} f(x) = \lim_{x\to a} g(x) = \infty$, then
+    $$\lim_{x\to a} \frac{f'(x)}{g'(x)} = L \quad\text{implies}\quad \lim_{x\to a} \frac{f(x)}{g(x)} = L.$$
+  notes: Since the domain is (a,b), the limits x -> a are one-sided (from the right). Hypothesis g' ≠ 0 near a is implicit.
+  curation:
+    why: 'L''Hôpital''s rule when both functions blow up: the Cauchy mean value theorem plus a two-stage estimate, since nothing can be evaluated at a.'
+
+- id: cummings-8.28
+  source:
+    key: cummings
+    chapter: 8 Integration
+    section: Chapter 8 Exercises
+    problemNumber: Exercise 8.28
+    page: '274'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  skills:
+  - partition-refinement
+  concept: f integrable iff squeezed between step functions with integrals within ε
+  title: Integrability by squeezing between step functions
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - step-function
+  - Darboux-sums
+  - characterization
+  problemLatex: |
+    A function $s\colon [a,b] \to \mathbb{R}$ is called a *step function* if there is a partition $P = \{x_0, x_1, \dots, x_n\}$ of $[a,b]$ such that $s$ is constant on each interval $(x_{i-1}, x_i)$.
+
+    (a) Prove that if $f$ is integrable on $[a,b]$, then for any $\varepsilon > 0$ there is a pair of step functions $s_1$ and $s_2$ where $s_1(x) \le f(x) \le s_2(x)$ for all $x$, and
+    $$\int_a^b [f(x) - s_1(x)]\,dx < \varepsilon \quad\text{and}\quad \int_a^b [s_2(x) - f(x)]\,dx < \varepsilon.$$
+
+    (b) Suppose that for any $\varepsilon > 0$ there is a pair of step functions $s_1$ and $s_2$ where $s_1(x) \le f(x) \le s_2(x)$ for all $x$, and
+    $$\int_a^b [f(x) - s_1(x)]\,dx < \varepsilon \quad\text{and}\quad \int_a^b [s_2(x) - f(x)]\,dx < \varepsilon.$$
+    Prove that $f$ is integrable.
+  notes: Book omits '< ε' after the second integral in both (a) and (b) (prints '∫[s_2(x) - f(x)] dx.'); restored as the evident intent. Note (b) as printed presupposes the integrals of f - s_1 and s_2 - f make sense; a cleaner reading is ∫(s_2 - s_1) < 2ε or using upper/lower integrals.
+  curation:
+    why: 'Riemann integrability is equivalent to being squeezed between step functions: the bridge from Darboux sums to general integration theory.'

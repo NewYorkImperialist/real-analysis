@@ -1,0 +1,27 @@
+batch: b20-latest-additions
+reviewed: [pugh-1.38, cummings-3.6, cummings-3.8, cummings-7.16, cummings-8.28]
+findings: []
+# Checks run (no findings):
+# - Statements vs page images: Pugh printed p.51 (PDF 63); Cummings p.104 (PDF 120), p.221 (PDF 237),
+#   pp.274-275 (PDF 290-291). All five match. The only editorial change is in cummings-8.28, where
+#   "< eps" is missing after the second integral in (a) and (b) in the book; restoring it is disclosed
+#   in notes. In pugh-1.38 the starred (b) and the moved hint are disclosed. In cummings-3.8 the
+#   unused "c" really is printed in the book.
+# - cummings-8.28(b): the book's (b) hypothesis, read literally, asserts that int(f - s1) exists, so f = s1 + (f - s1)
+#   is integrable and there is nothing to prove; the solution says so correctly. Its intended version
+#   (int s2 - int s1 < 2eps) assumes less than the literal one (the literal hypotheses give it by adding them), so the proof
+#   covers the printed statement too. This matches the standard Spivak-style result and the notes. The reading is
+#   stated explicitly before the proof. Lemma (step functions integrable, U <= S + 4nM delta) checked;
+#   (a) values at partition points set to f(x_j) keep s1 <= f <= s2; (b) L(s1,Q) <= L(f,Q) etc. correct.
+# - cummings-7.16: one-sided limits are forced by the domain (a,b). g' != 0 near a is implicit in
+#   f'/g' having a limit (standard; also stated in notes). Treating L as finite matches the book's
+#   "= L", which, as in 7.15, denotes a real number. So the solution does not prove less than asked.
+#   Checked: the Rolle argument for g(x) != g(y), the identity f/g = Q(1 - g(y)/g(x)) + f(y)/g(x),
+#   the Stage-2 bounds (each error term < eps; delta < y - a keeps x < y), and the remark that f -> infinity is unused.
+# - pugh-1.38: two-sided inverse check in (a); injection s -> {s}; diagonal set; empty-set case.
+#   Pugh defines only equal cardinality, so reading (b) as "injection, no bijection" is the usual one
+#   and is disclosed in notes.
+# - cummings-3.6 / 3.8: eps = 1/2 arguments; quotient bound with |b_n| > |b|/2 and |a|+1 guard.
+# - Titles: none spoil an answer (cummings-3.6 "Convergence of integer-valued sequences" does not
+#   reveal "eventually constant"; the other titles restate what is to be proved).
+# - Hints: all true and pointing the right way; none alone gives the whole proof.

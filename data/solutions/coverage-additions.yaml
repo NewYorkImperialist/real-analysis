@@ -275,3 +275,159 @@
     So every neighborhood of $x$ contains a point of $E$ other than $x$, and $x$ is a limit point of $E$. Hence $E$ is perfect. $\blacksquare$
 
     (Remark: since $E$ is a nonempty perfect set in $\mathbb{R}$, Rudin's Theorem 2.43 gives a second proof that $E$ is uncountable. The digit expansion is unambiguous here: numbers with two decimal expansions end in repeating $0$'s or $9$'s, so neither expansion uses only $4$'s and $7$'s.)
+
+- id: pugh-1.38
+  hints:
+    - |
+      For (a), a bijection is easiest to verify by writing down its inverse: starting from a subset $A \subseteq S$, which function $S \to \{0,1\}$ should it come from? For (b), "greater cardinality" has two halves: some injection $S \to \mathcal{P}$ exists, and no bijection does. The first half needs only a very simple subset attached to each $s \in S$.
+    - |
+      For the second half, prove something stronger: no map $g\colon S \to \mathcal{P}$ is onto, whatever $g$ is. You need a subset of $S$ that is different from every $g(s)$, and the cheapest way to make it differ from $g(s)$ is to make it disagree with $g(s)$ about one particular element. Which element of $S$ is naturally tied to $g(s)$?
+    - |
+      Build a set $B \subseteq S$ by deciding, for each $s$, whether $s \in B$ by looking at whether $s \in g(s)$, in the opposite way. If $B = g(t)$ for some $t$, ask whether $t \in B$; both answers lead to a contradiction. Check that nothing in this argument needs $S$ to be infinite or nonempty.
+  solution: |
+    **(a)** Define $\Phi\colon \mathcal{F} \to \mathcal{P}$ by $\Phi(f) = \{s \in S : f(s) = 1\}$. This is a subset of $S$, so $\Phi$ is well defined. For $A \subseteq S$ let $\chi_A\colon S \to \{0,1\}$ be its indicator function,
+    $$\chi_A(s) = \begin{cases} 1, & s \in A, \\ 0, & s \notin A, \end{cases}$$
+    and define $\Psi\colon \mathcal{P} \to \mathcal{F}$ by $\Psi(A) = \chi_A$. We check that $\Psi$ is a two-sided inverse of $\Phi$.
+
+    - For $A \subseteq S$: $\Phi(\chi_A) = \{s : \chi_A(s) = 1\} = A$, so $\Phi \circ \Psi = \mathrm{id}_{\mathcal{P}}$.
+    - For $f \in \mathcal{F}$, let $A = \Phi(f)$. If $s \in A$ then $f(s) = 1 = \chi_A(s)$. If $s \notin A$ then $f(s) \ne 1$, and since $f$ takes only the values $0$ and $1$, $f(s) = 0 = \chi_A(s)$. So $\chi_A = f$, that is, $\Psi \circ \Phi = \mathrm{id}_{\mathcal{F}}$.
+
+    A map with a two-sided inverse is a bijection, so $\Phi$ is a bijection from $\mathcal{F}$ onto $\mathcal{P}$.
+
+    **(b)** We show that there is an injection $S \to \mathcal{P}$ but no bijection; in fact no map $S \to \mathcal{P}$ is even onto.
+
+    *An injection.* Define $j\colon S \to \mathcal{P}$ by $j(s) = \{s\}$. If $\{s\} = \{s'\}$ then $s \in \{s'\}$, so $s = s'$. Thus $j$ is injective, and the cardinality of $S$ is at most that of $\mathcal{P}$.
+
+    *No surjection (Cantor's argument).* Let $g\colon S \to \mathcal{P}$ be any map, so $g(s)$ is a subset of $S$ for each $s \in S$. Define
+    $$B = \{s \in S : s \notin g(s)\}.$$
+    Then $B \subseteq S$, so $B \in \mathcal{P}$. Suppose, for contradiction, that $B = g(t)$ for some $t \in S$. Either $t \in B$ or $t \notin B$.
+
+    - If $t \in B$, then by the definition of $B$, $t \notin g(t) = B$. Contradiction.
+    - If $t \notin B$, then $t \notin g(t)$ (because $g(t) = B$), and so $t$ satisfies the condition defining $B$, that is, $t \in B$. Contradiction.
+
+    Hence $B \ne g(t)$ for every $t \in S$, so $B$ is not in the range of $g$ and $g$ is not onto. In particular, no map $S \to \mathcal{P}$ is a bijection, so $S$ and $\mathcal{P}$ do not have equal cardinality.
+
+    Together with the injection $j$, this shows that the cardinality of $\mathcal{P}$ is greater than that of $S$.
+
+    *Empty and finite $S$.* Nothing above used that $S$ is infinite or nonempty. For $S = \emptyset$, the construction gives $B = \emptyset$, which belongs to $\mathcal{P}(\emptyset) = \{\emptyset\}$, while the only map $\emptyset \to \mathcal{P}$ (the empty map) has empty range; so it is not onto, exactly as the argument says, and $j$ is the empty map, which is injective. Concretely, $\#\emptyset = 0 < 1 = \#\mathcal{P}(\emptyset)$. (For finite $S$ with $n$ elements one also has $\#\mathcal{P} = 2^n > n$, but the argument above does not need this count.)
+
+    By (a), the same statement can be read as $\#(S) < \#(\{0,1\}^S)$: a bijection $S \to \mathcal{F}$ composed with $\Phi$ would be a bijection $S \to \mathcal{P}$, which we have just ruled out. $\blacksquare$
+
+- id: cummings-3.6
+  hints:
+    - |
+      Distinct integers are always at least $1$ apart. The definition of convergence lets you pick any $\epsilon > 0$ you like. Which $\epsilon$ makes "being within $\epsilon$ of the limit" incompatible with that spacing?
+    - |
+      Try $\epsilon = \tfrac12$. For (a), which integers lie within $\tfrac12$ of $3.5$? For (b) and (c), if two terms are both within $\tfrac12$ of the same limit, how far apart can they be?
+    - |
+      For (b) and (c): once $n, m \ge N$, the triangle inequality gives $|a_n - a_m| < 1$. Since $a_n - a_m$ is an integer, what must it equal?
+  solution: |
+    Throughout, $(a_n)$ is a sequence of integers. The key fact is that two different integers differ by at least $1$.
+
+    **(a)** No. Suppose $a_n \to 3.5$. Taking $\epsilon = \tfrac12$ in the definition of convergence, there is $N$ such that $|a_n - 3.5| < \tfrac12$ for all $n \ge N$, that is, $3 < a_n < 4$. But there is no integer strictly between $3$ and $4$, so $a_N$ cannot be an integer, a contradiction. Hence $a_n \not\to 3.5$.
+
+    **(b)** Suppose, for contradiction, that $a_n \to a$ for some $a \in \mathbb{R}$. With $\epsilon = \tfrac12$ there is $N$ such that $|a_n - a| < \tfrac12$ for all $n \ge N$. Then by the triangle inequality
+    $$|a_N - a_{N+1}| \le |a_N - a| + |a - a_{N+1}| < \tfrac12 + \tfrac12 = 1.$$
+    But $a_N \ne a_{N+1}$ by hypothesis, and they are integers, so $|a_N - a_{N+1}| \ge 1$. This contradiction shows that $(a_n)$ does not converge.
+
+    **(c)** A convergent integer sequence is *eventually constant*, and its limit is an integer: there are $N \in \mathbb{N}$ and $k \in \mathbb{Z}$ with $a_n = k$ for all $n \ge N$, and then $a_n \to k$.
+
+    *Proof.* Let $a_n \to a$. With $\epsilon = \tfrac12$ choose $N$ so that $|a_n - a| < \tfrac12$ for all $n \ge N$. For $n, m \ge N$, as in (b), $|a_n - a_m| < 1$; since $a_n - a_m$ is an integer, $a_n = a_m$. So with $k = a_N \in \mathbb{Z}$ we have $a_n = k$ for all $n \ge N$. An eventually constant sequence converges to that constant (for any $\epsilon > 0$, $|a_n - k| = 0 < \epsilon$ for $n \ge N$), and limits are unique, so $a = k$.
+
+    Conversely, every eventually constant integer sequence converges, so (c) gives an exact description of the convergent integer sequences. (Part (a) is the special case "the limit must be an integer", and (b) is the special case "a sequence with no repeated values is not eventually constant".) $\blacksquare$
+
+- id: cummings-3.8
+  hints:
+    - |
+      For (a), the difference $(a_n - b_n) - (a - b)$ splits into two pieces you already control. For (b), put $\frac{a_n}{b_n} - \frac{a}{b}$ over a common denominator and look separately at the numerator and the denominator.
+    - |
+      The numerator $a_n b - a b_n$ can be rewritten as $b(a_n - a) - a(b_n - b)$ by adding and subtracting $ab$. The danger is the denominator $b_n b$: you need a lower bound on $|b_n|$.
+    - |
+      Apply the definition of $b_n \to b$ with $\epsilon = |b|/2$ to show $|b_n| > |b|/2$ for all large $n$. Then bound the whole expression by a constant times $|a_n - a| + |b_n - b|$, and choose $N$ to make each piece small.
+  solution: |
+    **(a)** Let $\epsilon > 0$. Since $a_n \to a$ and $b_n \to b$, there are $N_1, N_2$ with $|a_n - a| < \epsilon/2$ for $n \ge N_1$ and $|b_n - b| < \epsilon/2$ for $n \ge N_2$. Let $N = \max\{N_1, N_2\}$. For $n \ge N$, by the triangle inequality,
+    $$\big|(a_n - b_n) - (a - b)\big| = \big|(a_n - a) - (b_n - b)\big| \le |a_n - a| + |b_n - b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.$$
+    Hence $a_n - b_n \to a - b$. $\blacksquare$
+
+    **(b)** Assume $b \ne 0$ and $b_n \ne 0$ for all $n$, so every quotient $a_n/b_n$ is defined.
+
+    *Step 1: the denominators stay away from $0$.* Apply the definition of $b_n \to b$ with $\epsilon = |b|/2 > 0$: there is $N_0$ with $|b_n - b| < |b|/2$ for $n \ge N_0$. For such $n$, by the reverse triangle inequality,
+    $$|b_n| \ge |b| - |b - b_n| > |b| - \frac{|b|}{2} = \frac{|b|}{2}.$$
+
+    *Step 2: the estimate.* For $n \ge N_0$,
+    $$\left|\frac{a_n}{b_n} - \frac{a}{b}\right| = \frac{|a_n b - a b_n|}{|b_n|\,|b|} = \frac{|b(a_n - a) - a(b_n - b)|}{|b_n|\,|b|} \le \frac{|b|\,|a_n - a| + |a|\,|b_n - b|}{|b|^2/2} = \frac{2}{|b|}|a_n - a| + \frac{2|a|}{|b|^2}|b_n - b|.$$
+
+    *Step 3: choosing $N$.* Let $\epsilon > 0$. Choose $N_1$ with $|a_n - a| < \dfrac{\epsilon |b|}{4}$ for $n \ge N_1$, and $N_2$ with $|b_n - b| < \dfrac{\epsilon |b|^2}{4(|a| + 1)}$ for $n \ge N_2$ (both right-hand sides are positive). For $n \ge N = \max\{N_0, N_1, N_2\}$, Step 2 gives
+    $$\left|\frac{a_n}{b_n} - \frac{a}{b}\right| < \frac{2}{|b|}\cdot\frac{\epsilon|b|}{4} + \frac{2|a|}{|b|^2}\cdot\frac{\epsilon|b|^2}{4(|a|+1)} = \frac{\epsilon}{2} + \frac{\epsilon}{2}\cdot\frac{|a|}{|a|+1} < \epsilon.$$
+    Hence $a_n/b_n \to a/b$. $\blacksquare$
+
+    (The "$|a| + 1$" avoids dividing by zero when $a = 0$. The real $c$ in the statement plays no role in this exercise.)
+
+- id: cummings-7.16
+  hints:
+    - |
+      In the $0/0$ case you could apply the Cauchy mean value theorem on $[a, x]$ because $f(a) = g(a) = 0$. Here $f$ and $g$ blow up at $a$, so there is nothing to evaluate at $a$. Instead, fix a second point $y$ close to $a$ and work on $[x, y]$ with $a < x < y$.
+    - |
+      The Cauchy mean value theorem on $[x, y]$ says that $\dfrac{f(x) - f(y)}{g(x) - g(y)}$ is a value of $f'/g'$ at some point of $(x, y)$, so it is within $\epsilon$ of $L$ once $y$ is close enough to $a$. Now relate this quotient to $f(x)/g(x)$.
+    - |
+      Check the identity $\dfrac{f(x)}{g(x)} = \dfrac{f(x) - f(y)}{g(x) - g(y)}\left(1 - \dfrac{g(y)}{g(x)}\right) + \dfrac{f(y)}{g(x)}$. Keep $y$ fixed and let $x \to a^+$: since $g(x) \to \infty$, the error terms involving $g(y)/g(x)$ and $f(y)/g(x)$ go to $0$. This is the two-stage argument: first choose $y$, then choose $x$ closer still.
+  solution: |
+    Since the domain is $(a,b)$, all limits $x \to a$ are from the right. We take $L \in \mathbb{R}$. The hypothesis $\lim_{x\to a} f'(x)/g'(x) = L$ includes that the quotient $f'/g'$ is defined near $a$, that is, $g'(x) \ne 0$ for all $x$ in some interval $(a, c_1)$.
+
+    We use the Cauchy mean value theorem (Exercise 7.14): if $f, g$ are continuous on $[x,y]$ and differentiable on $(x,y)$, there is $\xi \in (x,y)$ with $[f(y) - f(x)]\,g'(\xi) = [g(y) - g(x)]\,f'(\xi)$.
+
+    **Proof.** Let $\epsilon > 0$.
+
+    *Stage 1: choose $y$.* Choose $c \in (a, b)$ with $c \le c_1$ such that for all $x \in (a, c)$:
+    $$g'(x) \ne 0, \qquad \left|\frac{f'(x)}{g'(x)} - L\right| < \epsilon, \qquad g(x) > 0.$$
+    This is possible by the remark above, the definition of $\lim f'/g' = L$, and $g(x) \to \infty$. Fix any $y \in (a, c)$.
+
+    *The quotient on $[x,y]$.* Let $x \in (a, y)$. Since $f$ and $g$ are differentiable on $(a,b)$, they are continuous on $[x, y]$ and differentiable on $(x, y)$. If $g(x) = g(y)$, Rolle's theorem would give a point of $(x, y) \subseteq (a,c)$ where $g' = 0$, which is impossible; so $g(x) \ne g(y)$. By the Cauchy mean value theorem there is $\xi \in (x, y)$ with $[f(y) - f(x)]\,g'(\xi) = [g(y) - g(x)]\,f'(\xi)$. Dividing by the nonzero numbers $g'(\xi)$ and $g(y) - g(x)$,
+    $$Q(x) := \frac{f(x) - f(y)}{g(x) - g(y)} = \frac{f'(\xi)}{g'(\xi)}, \quad\text{so}\quad |Q(x) - L| < \epsilon \ \text{ and } \ |Q(x)| < |L| + \epsilon,$$
+    because $\xi \in (a, c)$.
+
+    *An identity.* Since $g(x) > 0$,
+    $$Q(x)\left(1 - \frac{g(y)}{g(x)}\right) + \frac{f(y)}{g(x)} = \frac{f(x) - f(y)}{g(x) - g(y)}\cdot\frac{g(x) - g(y)}{g(x)} + \frac{f(y)}{g(x)} = \frac{f(x)}{g(x)}.$$
+    Hence
+    $$\frac{f(x)}{g(x)} - L = \big(Q(x) - L\big) - Q(x)\,\frac{g(y)}{g(x)} + \frac{f(y)}{g(x)},$$
+    and so, for every $x \in (a, y)$,
+    $$\left|\frac{f(x)}{g(x)} - L\right| < \epsilon + (|L| + \epsilon)\,\frac{|g(y)|}{g(x)} + \frac{|f(y)|}{g(x)}.$$
+
+    *Stage 2: choose $x$ close to $a$.* Now $y$ is fixed, so $|g(y)|$ and $|f(y)|$ are fixed numbers. Since $g(x) \to \infty$ as $x \to a^+$, there is $\delta \in (0, y - a)$ such that for $a < x < a + \delta$,
+    $$g(x) > \frac{(|L| + \epsilon)\,|g(y)|}{\epsilon} \quad\text{and}\quad g(x) > \frac{|f(y)|}{\epsilon}.$$
+    (If $g(y) = 0$ or $f(y) = 0$, the corresponding condition just says $g(x) > 0$.) Then the last two terms are each at most $\epsilon$, and for all $a < x < a + \delta$,
+    $$\left|\frac{f(x)}{g(x)} - L\right| < 3\epsilon.$$
+    Since $\epsilon > 0$ was arbitrary, $\lim_{x \to a} f(x)/g(x) = L$. $\blacksquare$
+
+    *Remark.* The proof never used $f(x) \to \infty$; only $g(x) \to \infty$ matters.
+
+- id: cummings-8.28
+  hints:
+    - |
+      A step function is the simplest thing you can integrate: on each piece of its partition it is a constant. Lower and upper sums of $f$ are exactly the integrals of step functions built from the infima and suprema of $f$ on the pieces of a partition.
+    - |
+      First check that a step function $s$ that equals $c_i$ on $(x_{i-1}, x_i)$ is integrable with $\int_a^b s = \sum c_i (x_i - x_{i-1})$, whatever its values at the partition points. Cut out tiny intervals of length $\delta$ around the partition points.
+    - |
+      For (a), take a partition $P$ with $U(f,P) - L(f,P) < \epsilon$ and let $s_1$ be $m_i = \inf f$ on each open piece; choose the values at the partition points so that $s_1 \le f$ still holds. For (b), compare lower sums: $s_1 \le f$ gives $L(s_1, Q) \le L(f, Q)$ for every partition $Q$, so the lower integral of $f$ is at least $\int s_1$.
+  solution: |
+    Notation: for a bounded $h$ and a partition $Q$, $L(h,Q)$ and $U(h,Q)$ are the lower and upper sums, $\underline{\int_a^b} h = \sup_Q L(h,Q)$ and $\overline{\int_a^b} h = \inf_Q U(h,Q)$ are the lower and upper integrals, and $h$ is integrable iff these are equal. Always $L(h,Q) \le \underline{\int_a^b} h \le \overline{\int_a^b} h \le U(h,Q)$.
+
+    **Lemma.** Let $s$ be a step function with partition $P = \{x_0 < x_1 < \dots < x_n\}$, equal to $c_i$ on $(x_{i-1}, x_i)$. Then $s$ is integrable and $\int_a^b s = S := \sum_{i=1}^n c_i (x_i - x_{i-1})$.
+
+    *Proof.* $s$ takes only finitely many values (the $c_i$ and the $s(x_j)$), so $|s| \le M$ for some $M$. Let $0 < \delta < \frac12 \min_i (x_i - x_{i-1})$ and let $Q_\delta$ be $P$ together with the points $x_{i-1} + \delta$ and $x_i - \delta$ for $i = 1, \dots, n$. The subintervals of $Q_\delta$ are the $n$ "middle" intervals $[x_{i-1} + \delta, x_i - \delta]$, on which $s \equiv c_i$, and $2n$ "short" intervals of length $\delta$, on which $\sup s$ and $\inf s$ lie in $[-M, M]$. Hence
+    $$U(s, Q_\delta) \le \sum_{i=1}^n c_i(x_i - x_{i-1} - 2\delta) + 2nM\delta \le S + 4nM\delta,$$
+    using $|c_i| \le M$, and similarly $L(s, Q_\delta) \ge S - 4nM\delta$. So the lower and upper integrals of $s$ both lie in $[S - 4nM\delta,\, S + 4nM\delta]$ for every small $\delta > 0$. Letting $\delta \to 0$, both equal $S$. $\square$
+
+    **(a)** Let $f$ be integrable and $\epsilon > 0$. By the integrability criterion there is a partition $P = \{x_0 < \dots < x_n\}$ with $U(f,P) - L(f,P) < \epsilon$. Let $m_i = \inf_{[x_{i-1}, x_i]} f$ and $M_i = \sup_{[x_{i-1}, x_i]} f$. Define
+    $$s_1(x) = \begin{cases} m_i, & x \in (x_{i-1}, x_i), \\ f(x_j), & x = x_j, \end{cases} \qquad s_2(x) = \begin{cases} M_i, & x \in (x_{i-1}, x_i), \\ f(x_j), & x = x_j. \end{cases}$$
+    These are step functions. If $x \in (x_{i-1}, x_i)$ then $m_i \le f(x) \le M_i$, and at the partition points $s_1 = f = s_2$; so $s_1 \le f \le s_2$ on $[a,b]$. By the Lemma, $\int_a^b s_1 = \sum m_i (x_i - x_{i-1}) = L(f,P)$ and $\int_a^b s_2 = U(f,P)$. By linearity of the integral, $f - s_1$ and $s_2 - f$ are integrable, and
+    $$\int_a^b (f - s_1) = \int_a^b f - L(f,P) \le U(f,P) - L(f,P) < \epsilon, \qquad \int_a^b (s_2 - f) = U(f,P) - \int_a^b f \le U(f,P) - L(f,P) < \epsilon,$$
+    using $L(f,P) \le \int_a^b f \le U(f,P)$. $\blacksquare$
+
+    **(b)** *Reading of the hypothesis.* Taken literally, the hypothesis already says $f - s_1$ is integrable, and then $f = s_1 + (f - s_1)$ is integrable by the Lemma and linearity, so there is nothing to prove. The intended statement does not assume anything about $f$ beyond the squeeze, so we use only the following: for every $\epsilon > 0$ there are step functions $s_1 \le f \le s_2$ with $\int_a^b s_2 - \int_a^b s_1 < 2\epsilon$. (This is what the two printed inequalities give when added, and both integrals exist by the Lemma.)
+
+    *Proof.* Step functions are bounded, so $s_1 \le f \le s_2$ makes $f$ bounded, and its lower and upper integrals are defined. Let $Q$ be any partition. On each subinterval $I$ of $Q$, $s_1 \le f$ gives $\inf_I s_1 \le \inf_I f$, so $L(s_1, Q) \le L(f, Q) \le \underline{\int_a^b} f$. Taking the supremum over $Q$ and using the Lemma,
+    $$\int_a^b s_1 \le \underline{\int_a^b} f.$$
+    In the same way $\sup_I f \le \sup_I s_2$ gives $\overline{\int_a^b} f \le U(f,Q) \le U(s_2, Q)$ for every $Q$, so $\overline{\int_a^b} f \le \int_a^b s_2$. Therefore
+    $$0 \le \overline{\int_a^b} f - \underline{\int_a^b} f \le \int_a^b s_2 - \int_a^b s_1 < 2\epsilon.$$
+    Since $\epsilon > 0$ was arbitrary, the upper and lower integrals of $f$ are equal, so $f$ is integrable. $\blacksquare$

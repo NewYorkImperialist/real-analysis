@@ -895,3 +895,45 @@
   notes: 'Merged at curation: Pugh''s Exercises 93 and 94 form one two-direction item, (a) = Exercise 93 and (b) = Exercise 94, both transcribed from the page image (printed p. 134) with their printed hints. Edits: the opening "Generalize Exercise 92 as follows" of Exercise 93 is dropped (Exercise 92 asks for a direct proof that a nested decreasing sequence of nonempty covering compact sets has nonempty intersection), the parenthetical definition of the finite intersection property is moved into the framing sentence, and the framing "if and only if" sentence is editorial. The definition of covering compact is quoted from the text. The book''s hint in (a) has a missing closing brace; fixed. M is a (nonempty) metric space and collections are nonempty.'
   curation:
     why: 'Compactness characterized by the finite intersection property for closed sets.'
+
+- id: pugh-1.38
+  source:
+    key: pugh
+    chapter: 1 Real Numbers
+    section: Chapter 1 Exercises
+    problemNumber: Exercise 38
+    page: '51'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - diagonal-argument
+  - contradiction
+  - construct-bijection
+  concept: 'Cantor''s theorem: no surjection S → P(S), so #S < #P(S) (diagonal-set proof)'
+  title: The power set of $S$ has greater cardinality than $S$
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Cantor
+  - power-set
+  - cardinality
+  - diagonal-argument
+  - indicator-function
+  problemLatex: |
+    Let $S$ be a set and let $\mathcal{P} = \mathcal{P}(S)$ be the collection of all subsets of $S$. [$\mathcal{P}(S)$ is called the **power set** of $S$.] Let $\mathcal{F}$ be the set of functions $f : S \to \{0, 1\}$.
+
+    (a) Prove that there is a natural bijection from $\mathcal{F}$ onto $\mathcal{P}$ defined by
+    $$f \mapsto \{s \in S : f(s) = 1\}.$$
+
+    (b) Prove that the cardinality of $\mathcal{P}$ is greater than the cardinality of $S$, even when $S$ is empty or finite.
+  textbookHintsLast: true  # printed hint gives most of the solution away
+  hints:
+  - text: |
+      The notation $Y^X$ is sometimes used for the set of all functions $X \to Y$. In this notation $\mathcal{F} = \{0, 1\}^S$ and assertion (b) becomes $\#(S) < \#(\{0, 1\}^S)$. The empty set has one subset, itself, whereas it has no elements, so $\#(\emptyset) = 0$, while $\#(\{0, 1\}^{\emptyset}) = 1$, which proves (b) for the empty set. Assume there is a bijection from $S$ onto $\mathcal{P}$. Then there is a bijection $\beta : S \to \mathcal{F}$, and for each $s \in S$, $\beta(s)$ is a function, say $f_s : S \to \{0, 1\}$. Think like Cantor and try to find a function which corresponds to no $s$. Infer that $\beta$ could not have been onto.
+    source: Pugh, Real Mathematical Analysis (2nd ed.), hints printed with Exercise 1.38
+    kind: textbook
+  notes: 'Transcribed from the page image (printed p. 51, pdf 63). Part (b) is starred (*) in the book. The bracketed "Hints:" paragraph printed after part (b) is moved verbatim into the hints (shown after the AI hints, since it outlines the proof). Pugh defines equal cardinality (#A = #B) by a bijection but gives no formal definition of "greater"; as the printed hint shows, (b) means that $S \to \mathcal{P}$ is never a bijection. The usual reading of #S < #P (an injection $S \to \mathcal{P}$ exists, but no bijection) is what the solution proves.'
+  curation:
+    why: 'The bank used Cantor''s theorem (tao-8.3.4) but never asked for its proof; this is the diagonal-set argument itself, plus the identification of subsets with 0–1 functions.'
