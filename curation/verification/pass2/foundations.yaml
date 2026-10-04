@@ -1,0 +1,12 @@
+file: foundations.yaml
+decisions:
+  - id: lebl-0.3.19
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      The problem asks for one example, and hint 2 names both standard examples outright, so it is the answer.
+      The suggested replacement is true and still gives a clear structural nudge after hint 1.
+    change: |
+      hint 2: "Try singletons $A_n=\{n\}$, or initial segments $A_n=\{1,\ldots,n\}$. What is the union?" →
+      "The sets $A_n$ can all be subsets of $\mathbb{N}$. Choose them so that every natural number lies in at
+      least one $A_n$. What is the union then?"

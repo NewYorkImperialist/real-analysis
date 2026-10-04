@@ -1,0 +1,3 @@
+batch: b08-topology-hard
+reviewed: [abbott-3.3.7, abbott-3.5.4, lebl-7.4.12, ross-13.7, ross-22.4, pugh-2.49, pugh-2.76, pugh-2.148, pugh-prelim-31, pugh-prelim-43, rudin-2.27]
+findings: []

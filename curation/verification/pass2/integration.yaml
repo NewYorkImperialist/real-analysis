@@ -1,0 +1,22 @@
+file: integration.yaml
+decisions:
+  - id: abbott-7.5.2
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 names the counterexample for (a), the full proof for (b) and the counterexample idea for (c);
+      combined with hint 1 it settles every verdict. Rewrote it as pointers to the key idea per part,
+      following the pass-1 suggestion with a small nudge for (a) about damping the oscillation.
+    change: |
+      hint 2: "recall $x^2\sin(1/x)$ ... use FTC with $h=\int_a^x g$ ... changing $h$ at one point does not change $H$"
+      → "look for a differentiable function whose derivative oscillates near a point (damped) ... which theorem
+      produces a prescribed derivative? ... how sensitive is $H$ to $h$ at a single point?"
+  - id: ross-33.4
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 states the exact function of the solution (values 1 and -1), leaving only two trivial checks.
+      Replaced with a pointer to choose two values of equal absolute value; still true and progressive after hint 1.
+    change: |
+      hint 2: "Modify Example 2 so that $f$ takes the values 1 and -1" → "Keep the rational/irrational split from
+      Example 2, but change the two values so that they have the same absolute value while the upper and lower sums still disagree."

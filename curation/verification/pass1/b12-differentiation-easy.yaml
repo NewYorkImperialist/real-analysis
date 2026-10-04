@@ -1,0 +1,25 @@
+batch: b12-differentiation-easy
+reviewed: [mit20-a11-2, mit20-final-4a, mit20-final-4b, mit20-a10-1, mit20-a10-3, mit20-a11-1, mit20-a11-3, mit20-final-5a, lebl-4.1.5, lebl-4.1.11, lebl-4.2.7, lebl-4.2.10, ross-28.4, ross-29.4, ross-31.4, cummings-7.10, tao-10.1.2, tao-10.2.1, tao-10.2.5, tao-10.3.5]
+findings:
+  - id: cummings-7.10
+    severity: hint
+    where: "hint 2"
+    quote: |
+      For (a), a function with $f(a) \ne f(b)$ and constant nonzero slope. For (b), a function with a corner at its minimum. For (c), a function that is linear on $[a,b)$ and jumps at $b$.
+    issue: |
+      The exercise is only to produce three examples. This one hint describes all three of them almost exactly, with the same shapes the solution uses: a line, $|x|$, and a line on $[0,1)$ with a jump at $1$. Nothing is left for the student to do.
+    evidence: |
+      Compare the solution: (a) $f(x)=x$; (b) $f(x)=|x|$; (c) $f(x)=x$ on $[0,1)$ with $f(1)=0$. Each one is just what hint 2 describes.
+    suggested_fix: |
+      Make it less specific: "In each part, ask what the missing hypothesis was protecting against: unequal endpoint values, a point where $f'$ fails to exist, or a jump at an endpoint. Then build the simplest function that does exactly that."
+  - id: tao-10.3.5
+    severity: hint
+    where: "hint 2"
+    quote: |
+      Take $X = \mathbf{R}\setminus\{0\}$ and look for a function that is increasing on each half but drops when you cross from the left half to the right half.
+    issue: |
+      The whole point of the exercise, which the book's own hint asks the student to find, is that the domain need not be an interval. This hint gives the exact domain and the exact behaviour the function must have, so what is left is routine (e.g. $-1/x$).
+    evidence: |
+      The book's hint asks "What is the difference, and how can one exploit that difference?" Hint 1 already points to the interval hypothesis. Hint 2 then answers the question outright, with the same $X$ the solution uses.
+    suggested_fix: |
+      "Try a domain made of two disjoint open intervals. Can $f$ increase on each piece and still take a smaller value on the right piece than on the left?"

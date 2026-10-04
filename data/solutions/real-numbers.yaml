@@ -296,7 +296,7 @@
     - |
       (a) means checking trichotomy and transitivity; split into cases by whether each element is an $a$ or a $b$. (b): find a largest and a smallest element of $S$.
     - |
-      (c): take $A = \{a_k : k \in \mathbb{N}\}$. Determine exactly which elements of $S$ are upper bounds of $A$ and whether that set has a least element.
+      (c): look for a subset whose upper bounds all lie on the other side of the gap. Determine exactly which elements of $S$ are upper bounds of it, and whether that set has a least element.
   solution: |
     The elements $a_k$, $b_j$ are understood to be pairwise distinct, and the order is the relation $<$ defined by: $a_k < a_m \iff k < m$; $b_k < b_m \iff k > m$; $a_k < b_j$ for all $k, j$; and never $b_j < a_k$.
 
@@ -349,7 +349,7 @@
     - |
       Fix $y$: then $g(y)$ is an upper bound for all values of $f$, so $\sup f \le g(y)$. Now let $y$ vary.
     - |
-      For (b), the pointwise inequality $f(x) \le g(x)$ allows $f$ to be large where $g$ is large and small where $g$ is small. Even $f = g$ works on a two-point set.
+      For (b), the pointwise inequality $f(x) \le g(x)$ allows $f$ to be large where $g$ is large and small where $g$ is small. Look for an example on a very small domain.
   solution: |
     **a)** First, the quantities exist: fixing any $y_0 \in D$, every $f(x) \le g(y_0)$, so $f$ is bounded above; fixing any $x_0 \in D$, every $g(y) \ge f(x_0)$, so $g$ is bounded below. Since $D \ne \emptyset$, $\sup_D f$ and $\inf_D g$ exist.
 

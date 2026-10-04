@@ -1,0 +1,47 @@
+batch: b16-function-sequences-easy
+reviewed: [mit20-final-7a, lebl-6.1.2, lebl-6.1.5, lebl-6.2.2, mit20-final-7b, abbott-6.2.1, abbott-6.4.1, abbott-6.4.7, lebl-6.1.6, lebl-6.1.10, lebl-6.1.14, lebl-6.2.1, lebl-6.2.22, lebl-7.6.6, ross-23.9, ross-24.12, ross-24.13, ross-24.17, ross-26.7, cummings-9.12, cummings-9.16]
+findings:
+  - id: lebl-7.6.6
+    severity: hint
+    where: "hint 2"
+    quote: |
+      For (a), think of $x \mapsto x/2$ on a space that omits $0$. For (b), a translation of $\mathbb{R}$.
+    issue: |
+      This one hint gives the complete answer to both parts. Once you have these examples, checking them takes one line each.
+    evidence: |
+      The solution is exactly $f(x)=x/2$ on $(0,1)$ and $f(x)=x+1$ on $\mathbb{R}$, both named here.
+    suggested_fix: |
+      For (a), a fixed point of a contraction on $\mathbb{R}$ always exists, so remove it from the space. For (b), which isometries of $\mathbb{R}$ move every point?
+  - id: lebl-6.2.22
+    severity: hint
+    where: "hint 2"
+    quote: |
+      Try a function of height $1/n$ on an interval of length $n$.
+    issue: |
+      This gives away the whole counterexample. What remains is a routine check.
+    evidence: |
+      The solution is $f_n = \frac1n \chi_{[0,n]}$, which is exactly what the hint describes.
+    suggested_fix: |
+      If $\sup|f_n| \to 0$ but $\int f_n = 1$, how must the length of the region where $f_n \ne 0$ behave as $n \to \infty$?
+  - id: cummings-9.12
+    severity: hint
+    where: "hint 2"
+    quote: |
+      Use $f_n(x) = x^n$ on $[0,1]$ and let $a_n$ approach the point where its limit jumps.
+    issue: |
+      This hint states the full example ($f_n$, $a$, and how to choose $a_n$). Nothing is left for the student to find.
+    evidence: |
+      The solution is $f_n=x^n$, $a=1$, $a_n=1-1/n$.
+    suggested_fix: |
+      Recall a standard sequence of polynomials on $[0,1]$ whose pointwise limit has a jump. Where is the jump?
+  - id: mit20-final-7a
+    severity: hint
+    where: "hint 2 (together with hint 3)"
+    quote: |
+      Try the simplest family you know that converges pointwise but "slowly" near $x = 1$: powers $x^n$.
+    issue: |
+      Hint 2 names the example, and hint 3 then names the witness points $x_n$ with $x_n^n=\tfrac12$. Hint 2 alone gives the final answer to an "give an example" problem (borderline).
+    evidence: |
+      The solution is $f_n=x^n$ with $x_n=2^{-1/n}$.
+    suggested_fix: |
+      Look for a familiar sequence on $[0,1]$ whose pointwise limit jumps at $x=1$. What happens to it when you delete the endpoint?

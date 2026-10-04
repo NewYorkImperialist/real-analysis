@@ -1,0 +1,15 @@
+batch: b15-integration-hard
+reviewed: [mit20-a12-1, abbott-7.2.5, abbott-7.3.9, abbott-7.4.6, abbott-7.4.10, lebl-5.2.11, lebl-5.2.14, lebl-5.2.15, lebl-5.4.6, ross-36.8, cummings-8.25, cummings-8.27, tao-11.9.3, pugh-prelim-7, pugh-prelim-45, abbott-7.4.4, lebl-5.1.13, pugh-3.50, pugh-prelim-56]
+findings: []
+# No findings. Checks run on the hardest three:
+# - pugh-3.50: checked that g=(x+phi)/2 is strictly increasing and halves each gap (|[0,1]\F| = 1/2); that
+#   sigma maps C to C via C∩[2/3,1] = 2/3 + C∩[0,1/3] and has no fixed point; that f is a bijection, continuous off C;
+#   that f^{-1} is discontinuous on all of F (density of the complement of F plus continuity of g^{-1});
+#   that F is not a zero set (cover of F plus the gaps of F covers [0,1], and 0,1 lie in F, so the gaps are open intervals);
+#   and that fact 4's Heine-Borel reduction is valid.
+# - lebl-5.1.13: checked the arithmetic delta = eps/(4mB) (at most m-1 subintervals of P change, each by at most 2B*Delta x_i);
+#   the tag choice in the converse; and the remark that the Riemann-sum condition forces f to be bounded.
+# - pugh-prelim-7: checked the sup argument (s is good, s=b), the count of 2n short intervals around the t_j,
+#   eta < eps/(4nB+1), and that (*) on open subintervals is enough for closed subintervals inside them.
+# Also checked: the endpoint caveat in tao-11.9.3 (counterexamples at a and at b are valid under Tao's one-sided derivative);
+# Theorem 7.3.2 and the MVT bound kappa in abbott-7.4.10, Step 1; and the epsilon bookkeeping in abbott-7.4.10, abbott-7.3.9(a)/(c), and pugh-prelim-56.

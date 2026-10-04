@@ -1,0 +1,12 @@
+batch: b06-topology-easy
+reviewed: [mit20-a3-5, mit20-a4-1, mit20-a4-2, mit20-a7-4, lebl-7.4.16, cummings-5.3, mit20-a4-3, mit20-mid-2, mit20-mid-4b, abbott-3.2.5, abbott-3.2.6, abbott-3.2.7, abbott-3.3.5, abbott-8.2.2, lebl-7.1.5, lebl-7.2.7, lebl-7.2.10, lebl-7.2.13, lebl-7.3.2, lebl-7.4.2, lebl-7.4.6, cummings-5.8, pugh-2.93]
+findings: []
+# No findings. Checks run on the hardest items:
+# - abbott-3.2.7: Lemma radius eps' = min{eps-|l-x|, |l-x|}; verified |a-x| < eps and a != x (a = x would give |x-l| < |l-x|);
+#   minimality argument uses only A subset F and F closed. Theorem not used circularly.
+# - abbott-3.2.6: truth values F,F,T,F,T match hint 1's "two true, three false"; (d) A = {sqrt2+1/n} U {sqrt2}:
+#   for y != sqrt2, delta = |y-sqrt2|/2 gives |z-sqrt2| > delta on V_delta(y), so only finitely many points with 1/n > delta; closedness holds.
+# - abbott-8.2.2(c): J of length min{delta/2, 1/2} on the side of x0 inside [0,1] exists since max(x0, 1-x0) >= 1/2, and J lies within distance < delta of x0.
+# - pugh-2.93: both directions via De Morgan; nonempty M / nonempty collection edge cases covered by notes.
+# - mit20-mid-4b: x_n - 1/9 = 10^{-n}/9 checked; x_n <= 2/9 < 1; 10^{-n} <= 1/n for n >= 1.
+# - lebl-7.4.2(a): U_n = (1/(n+1), 2) covers A, nested, union of finite subfamily is U_N missing 1/(N+1).

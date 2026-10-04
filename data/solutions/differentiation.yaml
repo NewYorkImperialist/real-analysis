@@ -249,7 +249,7 @@
     - |
       In each part, drop one hypothesis and look for the simplest function that breaks the conclusion. Linear functions and $|x|$ are good candidates.
     - |
-      For (a), a function with $f(a) \ne f(b)$ and constant nonzero slope. For (b), a function with a corner at its minimum. For (c), a function that is linear on $[a,b)$ and jumps at $b$.
+      In each part, ask what the missing hypothesis was protecting against: unequal endpoint values in (a), a point where $f'$ fails to exist in (b) (where would Rolle's $c$ have been?), and a break at an endpoint in (c). Then build the simplest function that does exactly that.
   solution: |
     As the NOTES indicate, in (b) we read "$f'(c)\ne0$" as "$f'(c)$ is never $0$ at points where it exists."
 
@@ -317,7 +317,7 @@
     - |
       In Proposition 10.3.3 the domain is an interval $[a,b]$. What can go wrong if the domain has a gap?
     - |
-      Take $X = \mathbf{R}\setminus\{0\}$ and look for a function that is increasing on each half but drops when you cross from the left half to the right half.
+      The MVT argument compares $f(x)$ and $f(y)$ only when all of $[x,y]$ lies in the domain. If the domain is two disjoint pieces, nothing ties the values on one piece to those on the other. Can $f$ increase on each piece and still be smaller somewhere on the right piece than somewhere on the left?
   solution: |
     The key difference is that Proposition 10.3.3 requires the domain to be an interval; the proof uses the Mean Value Theorem on $[x,y]$, which needs every point between $x$ and $y$ to be in the domain. We exploit a domain with a gap.
 
@@ -556,7 +556,7 @@
     $$f'(x_n) = 2x_n\sin(2\pi n) - \cos(2\pi n) + \tfrac12 = 0 - 1 + \tfrac12 = -\tfrac12 < 0.$$
     By the previous paragraph, $f$ is not increasing on $J$.
 
-    **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here $f'(0)>0$, but $f'$ is not positive on any open interval around $0$. Every neighborhood of $0$ contains points where $f'<0$, because $f'$ is not continuous at $0$: the term $-\cos(1/x)$ oscillates between $-1$ and $1$. So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
+    **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here $f'(0)>0$, but $f'$ is not positive on any open interval around $0$. Every neighborhood of $0$ contains points where $f'<0$: by (b), $f'(\frac{1}{2\pi n}) = -\frac12$ for every $n$. (This can happen only because $f'$ is not continuous at $0$; the term $-\cos(1/x)$ oscillates between $-1$ and $1$.) So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
 - id: ross-30.6
   hints:
     - |
@@ -604,7 +604,7 @@
     - |
       Mimic the proof of the MVT from Rolle's theorem: build an auxiliary function that combines $f$ and $g$ and has equal values at $a$ and $b$.
     - |
-      Try $h(x) = [f(b)-f(a)]\,g(x) - [g(b)-g(a)]\,f(x)$. Compute $h(a)$ and $h(b)$.
+      Look for constants $\alpha,\beta$, not both zero, such that $h(x) = \alpha\,g(x) - \beta\,f(x)$ satisfies $h(a) = h(b)$. What condition must $\alpha,\beta$ satisfy, and what does Rolle's theorem then give?
   solution: |
     **Proof.** Define $h\colon[a,b]\to\mathbb{R}$ by
     $$h(x) = [f(b)-f(a)]\,g(x) - [g(b)-g(a)]\,f(x).$$

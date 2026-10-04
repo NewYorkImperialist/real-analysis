@@ -1,0 +1,15 @@
+batch: b05-series-hard
+reviewed: [mit20-a7-3, abbott-2.7.1, abbott-2.7.8, abbott-2.7.14, lebl-2.5.7, lebl-2.5.15, lebl-2.6.10, lebl-2.6.12, cummings-4.18, tao-7.5.1, tao-11.6.3, pugh-3.68, lebl-2.6.3, pugh-3.73, pugh-prelim-63]
+findings: []
+# No findings. Checks on the hardest problems:
+# - lebl-2.6.3: verified both p- and q-subsequences are infinite with divergent sums (zeros counted as p's),
+#   that the greedy rule uses every term (no tail of only p's / only q's), the first-crossing argument
+#   (t_{n-1} <= x for n = n' via the choice rule), and both cases of the "staying close" induction incl. strictness.
+# - pugh-3.73: checked C_n = sum a_i B_{n-i}, the split at i = n-N (n-i >= N on the first piece, tail of sum|a_i|
+#   on the second), and the counterexample: AM-GM gives sqrt((i+1)(k-i+1)) <= (k+2)/2, so |c_k| >= 2(k+1)/(k+2) >= 1 for k >= 0.
+# - pugh-prelim-63: c_n = r_n^{-1/2} -> infinity, c_n a_n <= 2(sqrt r_n - sqrt r_{n+1}) checked; hint-3 Phi(r) = -2 sqrt r is bounded and fits.
+# - pugh-3.68: re-derived g(x) = int_0^x t^2/(1+t) dt, the bound g(x) <= x^3/3 for x > -1 in both sign cases,
+#   |g| <= (2/3)|x|^3 for |x| <= 1/2, positivity of factors from k = 2, and b_k - b_k^2/2 algebra via e_k - 1/2 = (-1)^k/2; |b_k| <= 4/9 for k >= 9.
+# - Also checked: Abel summation-by-parts index shift (abbott-2.7.14), dyadic block partitions and the x_1 term
+#   (lebl-2.5.15), integer-vs-real sup and the inequality (*) (tao-11.6.3), M >= N and P,Q containment (cummings-4.18),
+#   limsup scaling incl. L = 0 and L = infinity (lebl-2.6.10), parity of the final index bound (abbott-2.7.1(c)).

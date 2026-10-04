@@ -1,0 +1,30 @@
+batch: b14-integration-easy
+reviewed: [mit20-final-6b, lebl-5.3.1, mit20-a11-5, mit20-final-5b, mit20-final-6a, mit20-final-6c, abbott-7.2.3, abbott-7.3.5, abbott-7.3.7, abbott-7.5.2, abbott-7.5.10, lebl-5.1.15, lebl-5.3.9, lebl-5.5.10, ross-32.2, ross-33.4, ross-34.12, ross-36.3]
+findings:
+  - id: abbott-7.5.2
+    severity: hint
+    where: "hint 2"
+    quote: |
+      For (a), recall the standard function $x^2\sin(1/x)$. For (b), use the FTC with $h(x) = \int_a^x g$. For (c), changing $h$ at one point does not change $H$.
+    issue: |
+      This single hint settles all three true/false verdicts and supplies the counterexample or proof for each part.
+      Read together with hint 1 ("Two of the three statements are false"), nothing is left for the student to do
+      except write the details.
+    evidence: |
+      (a) Naming $x^2\sin(1/x)$ tells the student (a) is false and gives the counterexample. (b) "Use the FTC with $h=\int_a^x g$"
+      is the whole proof that (b) is true. (c) "Changing $h$ at one point does not change $H$" is the whole counterexample idea.
+    suggested_fix: |
+      Make hint 2 less specific, e.g.: "For (a), look for a differentiable function whose derivative oscillates near a point.
+      For (b), which theorem produces functions with a prescribed derivative? For (c), how sensitive is $H$ to the value of $h$ at a single point?"
+  - id: ross-33.4
+    severity: hint
+    where: "hint 2"
+    quote: |
+      Modify Example 2 so that $f$ takes the values $1$ and $-1$ instead of $1$ and $0$.
+    issue: |
+      The hint states the final answer, the function $f = 1$ on $\mathbb{Q}$ and $-1$ off $\mathbb{Q}$. Both remaining checks
+      ($U=1$, $L=-1$; $|f|\equiv 1$) are immediate, so the hint is the whole solution.
+    evidence: |
+      The solution's function is exactly the one named in the hint, and the verification takes two lines.
+    suggested_fix: |
+      "Keep the 'rational vs. irrational' split from Example 2, but choose the two values so that they have the same absolute value."

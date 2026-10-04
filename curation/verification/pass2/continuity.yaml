@@ -1,0 +1,61 @@
+file: continuity.yaml
+decisions:
+  - id: lebl-3.3.11
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      The task is to find an example. Hint 2 named a complete answer ($\arctan x$) and described the solution's
+      own $x/(1+|x|)$, so nothing was left to find.
+    change: |
+      hint 2: "Try $\arctan x$, or ... rational expression in $x$ and $|x|$ that tends to $\pm 1$" → look for a
+      continuous function with a horizontal asymptote in each direction that it never reaches; elementary
+      algebraic expressions suffice.
+  - id: ross-18.4
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 gave the exact function from the solution and both checks. The construction is the whole exercise.
+    change: |
+      hint 2: "Try $f(x) = 1/|x-x_0|$ ..." → use the distance $|x-x_0|$ (positive on $S$, arbitrarily small);
+      which continuous operation turns small positives into large numbers?
+  - id: lebl-3.2.11
+    pass1_severity: hint
+    verdict: modified
+    reason: |
+      Real: hint 2 stated $\epsilon = f(c)$ and $\alpha = \delta$, which is the entire proof. But the pass-1 fix
+      just repeats hint 1's question ("which epsilon keeps f(x) positive?"), so it adds no step. The new hint
+      gives the structural step instead (unpack the inequality, only the lower bound matters) and leaves the
+      choice of $\epsilon$ to the student.
+    change: |
+      hint 2: "Take $\epsilon = f(c)$ (or $f(c)/2$) ..." → unpack $|f(x)-f(c)|<\epsilon$ into two-sided bounds;
+      how large may $\epsilon$ be with $f(c)-\epsilon \ge 0$; then take $\alpha$ to be the resulting $\delta$.
+  - id: abbott-4.5.7
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 named $g(x) = f(x) - x$, the IVT and the endpoint check, so it was the full proof and answered
+      hint 1's question outright.
+    change: |
+      hint 2: "Apply the IVT to $g(x) = f(x) - x$ ..." → compare $f(0)$ with $0$ and $f(1)$ with $1$; which
+      continuous function has weakly opposite signs at the endpoints, and which theorem gives a zero?
+  - id: mit20-a7-6
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Each part is one choice of $\epsilon$, and hint 2 made that choice for (a) and nearly for (b).
+      The pass-1 replacement is true (for $\epsilon = L$ the strict bound $f(x) > L - \epsilon = 0$ still holds).
+    change: |
+      hint 2: "$\epsilon = 1$ ... interval in $(0,\infty)$" → any fixed $\epsilon$ works for (a), so bound $|f(x)|$;
+      for (b), how large may $\epsilon$ be with $L - \epsilon \ge 0$?
+  - id: abbott-4.6.5
+    pass1_severity: minor
+    verdict: confirmed
+    reason: |
+      At an endpoint of the domain the only one-sided limit is $\lim_{x\to c} f(x)$. If it differs from $f(c)$,
+      that is a removable discontinuity under Abbott's definitions, not a jump. Calling it a "one-sided jump"
+      invents a category. Counterexample: $f(0) = -1$, $f(x) = x$ on $(0,1]$. (The problem text does not quote
+      the classification as pass 1 says; Abbott's definitions in 4.6 are what apply. The point stands anyway.)
+    change: |
+      final parenthetical: "... a one-sided jump." → the statement concerns interior points (f on R or an open
+      interval); at an endpoint the one-sided limit equals $\lim_{x\to c} f(x)$, so a discontinuity there is
+      removable in the strict sense, with the example above.

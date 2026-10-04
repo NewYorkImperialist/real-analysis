@@ -1,0 +1,42 @@
+file: differentiation.yaml
+decisions:
+  - id: cummings-7.10
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      The exercise is only to produce three examples. Hint 2 described all three (constant nonzero slope, a corner
+      at the minimum, linear with a jump at b), which is exactly what the solution uses. Pass-1's fix is sound.
+      I added a small pointer for (b), asking where Rolle's c would have been, so the hint still moves toward structure.
+    change: |
+      Hint 2: explicit description of the three functions → "ask what the missing hypothesis was protecting
+      against ... then build the simplest function that does exactly that".
+  - id: tao-10.3.5
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 named the exact domain R\{0} and the exact shape of f. That answers the book's own hint question
+      outright. The new hint explains why a gap breaks the MVT argument and leaves the domain and the function
+      for the student to choose. It is still true and still progressive after hint 1.
+    change: |
+      Hint 2: "Take X = R\{0} and look for ..." → MVT compares only points whose whole segment lies in the domain;
+      on two disjoint pieces, can f increase on each and still be smaller somewhere on the right piece?
+  - id: ross-29.10
+    pass1_severity: minor
+    verdict: confirmed
+    reason: |
+      "f' is not continuous at 0, therefore f'<0 in every neighbourhood" is a non sequitur. Pass-1's counterexample
+      x^2 sin(1/x) + 2x shows this: its derivative is discontinuous at 0 but positive near 0. The claim does hold
+      here, by the explicit values f'(1/(2πn)) = -1/2 from (b). Pass-1's fix is correct and minimal.
+    change: |
+      Part (c) sentence now cites f'(1/(2πn)) = -1/2 from (b). The discontinuity of f' is kept as a parenthetical
+      necessary condition, not given as the reason.
+  - id: cummings-7.14
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      The whole proof is the choice of the auxiliary h. Hint 2 stated it verbatim, so all that was left was arithmetic.
+      Pass-1's replacement makes the student solve one linear condition on (α, β) to find h. It remains true:
+      h(a)=h(b) iff α(g(b)-g(a)) = β(f(b)-f(a)), and a nonzero solution always exists.
+    change: |
+      Hint 2: explicit h(x) = [f(b)-f(a)]g(x) - [g(b)-g(a)]f(x) → find α, β not both zero with h = αg - βf,
+      h(a)=h(b); what condition, and what does Rolle give?

@@ -1,0 +1,15 @@
+batch: b01-foundations
+reviewed: [mit20-final-1, mit20-mid-1a, mit20-mid-1bc, lebl-0.3.6, lebl-0.3.10, lebl-0.3.11, lebl-0.3.15, lebl-0.3.19, tao-a.5.1, mit20-a3-3, abbott-1.2.11, abbott-1.5.6, lebl-0.3.12, lebl-0.3.27, tao-3.4.5, mit20-a1-6, mit20-a3-2, abbott-1.5.3, abbott-1.5.8, abbott-1.5.9, lebl-1.4.5, ross-16.8, tao-8.3.2]
+findings:
+  - id: lebl-0.3.19
+    severity: hint
+    where: "hint 2"
+    quote: |
+      Try singletons $A_n = \{n\}$, or initial segments $A_n = \{1, 2, \ldots, n\}$. What is the union?
+    issue: |
+      The problem only asks for one example. This hint states two complete examples, both of which the
+      solution uses, so it gives away the whole answer.
+    evidence: |
+      The solution uses $A_n = \{1, \ldots, n\}$ and notes that $A_n = \{n\}$ works too. Both appear in the hint.
+    suggested_fix: |
+      The sets $A_n$ can all be subsets of $\mathbb{N}$. Choose them so that every natural number lies in at least one $A_n$.

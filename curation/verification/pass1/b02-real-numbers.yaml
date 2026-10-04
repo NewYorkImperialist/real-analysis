@@ -1,0 +1,26 @@
+batch: b02-real-numbers
+reviewed: [mit20-a3-4, abbott-1.2.6, lebl-1.1.1, lebl-1.1.5, lebl-1.2.7, cummings-1.9, cummings-1.19, mit20-a3-1, mit20-a4-6, abbott-1.3.3, abbott-1.3.5, abbott-1.3.9, abbott-1.3.11, abbott-1.4.4, abbott-1.4.8, lebl-1.1.2, lebl-1.1.6, lebl-1.1.14, lebl-1.2.9, lebl-1.2.13, lebl-1.3.5, lebl-1.3.7, mit20-a2-7, abbott-2.5.4, cummings-1.22, lebl-2.4.3]
+findings:
+  - id: lebl-1.3.5
+    severity: hint
+    where: "hint 3, last sentence"
+    quote: |
+      Even $f = g$ works on a two-point set.
+    issue: |
+      This hint gives away the whole answer to part (b). The solution's example is exactly $D=\{0,1\}$, $f=g=x$.
+      Once a student is told "$f=g$ on a two-point set", there is nothing left to find.
+    evidence: |
+      For any non-constant $f=g$ on $D=\{p,q\}$, $\sup f = \max > \min = \inf g$. The hint already settles part (b).
+    suggested_fix: |
+      For (b), the pointwise inequality $f(x) \le g(x)$ allows $f$ to be large where $g$ is large and small where $g$ is small. Look for an example on a very small domain.
+  - id: lebl-1.1.14
+    severity: hint
+    where: "hint 3"
+    quote: |
+      (c): take $A = \{a_k : k \in \mathbb{N}\}$.
+    issue: |
+      The hint names the subset that part (c) asks the student to find, so it gives away the final answer to (c).
+    evidence: |
+      The solution to (c) uses exactly $A = \{a_k\}$. All that is left is the routine check of its upper bounds.
+    suggested_fix: |
+      (c): look for a subset whose upper bounds all lie on the "other side of the gap". Determine exactly which elements of $S$ are upper bounds of it, and whether that set has a least element.

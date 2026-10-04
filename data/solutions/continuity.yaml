@@ -50,7 +50,7 @@
     - |
       Continuity at $c$ lets you keep $f(x)$ within any prescribed distance $\epsilon$ of $f(c)$. Which $\epsilon$ guarantees that $f(x)$ stays positive?
     - |
-      Take $\epsilon = f(c)$ (or $f(c)/2$) in the $\epsilon$–$\delta$ definition and let $\alpha$ be the resulting $\delta$.
+      Unpack $|f(x) - f(c)| < \epsilon$ as $f(c) - \epsilon < f(x) < f(c) + \epsilon$. Only the lower bound matters here: how large may $\epsilon$ be so that it is still at least $0$? Then take $\alpha$ to be the $\delta$ that continuity gives for that $\epsilon$.
   solution: |
     **Proof.** Let $\epsilon = f(c) > 0$. Since $f$ is continuous at $c$, there is $\delta > 0$ such that $|x - c| < \delta$ implies $|f(x) - f(c)| < f(c)$. Set $\alpha = \delta$. For $x \in (c-\alpha, c+\alpha)$ we have $|x - c| < \delta$, so
     $$f(x) > f(c) - f(c) = 0.$$
@@ -61,7 +61,7 @@
     - |
       A strictly increasing function cannot achieve a maximum or a minimum on $\mathbb{R}$, since there is always a point further right (or left). So look for a bounded, continuous, strictly increasing function.
     - |
-      Try $\arctan x$, or, to avoid trigonometric facts, a rational expression in $x$ and $|x|$ that tends to $\pm 1$.
+      Look for a continuous function whose graph has a horizontal asymptote in each direction but never reaches either one. No trigonometry is needed: elementary algebraic expressions can do this.
   solution: |
     Let
     $$f(x) = \frac{x}{1 + |x|}.$$
@@ -136,7 +136,7 @@
     - |
       Both parts come from applying the definition of $\lim_{x\to c} f(x) = L$ with one well-chosen, fixed value of $\epsilon$.
     - |
-      For (a), $\epsilon = 1$ keeps $f(x)$ within $1$ of $L$. For (b), choose $\epsilon$ so that the interval $(L - \epsilon, L + \epsilon)$ lies in $(0, \infty)$.
+      For (a), any fixed $\epsilon$ will do. Once $f(x)$ is within $\epsilon$ of $L$, how big can $|f(x)|$ be? For (b), how large may $\epsilon$ be if $L - \epsilon$ must stay $\ge 0$?
   solution: |
     **(a)** Let $L = \lim_{x\to c} f(x)$. Applying the definition with $\epsilon = 1$ gives $\delta > 0$ such that $x \in S$ and $0 < |x - c| < \delta$ imply $|f(x) - L| < 1$. For such $x$,
     $$|f(x)| \le |f(x) - L| + |L| < 1 + |L|.$$
@@ -315,7 +315,7 @@
     - |
       A fixed point of $f$ is a zero of some related function. Which one?
     - |
-      Apply the Intermediate Value Theorem to $g(x) = f(x) - x$. What are the signs of $g(0)$ and $g(1)$?
+      Since $f$ maps into $[0,1]$, compare $f(0)$ with $0$ and $f(1)$ with $1$. Which continuous function of $x$ then has (weakly) opposite signs at the two endpoints, and which theorem produces a zero of it?
   solution: |
     **Proof.** Let $g(x) = f(x) - x$ on $[0,1]$. It is continuous, as a difference of continuous functions. Since $f(0) \in [0,1]$ and $f(1) \in [0,1]$,
     $$g(0) = f(0) \ge 0, \qquad g(1) = f(1) - 1 \le 0.$$
@@ -454,7 +454,7 @@
     - |
       The point $x_0$ is not in $S$, but points of $S$ come arbitrarily close to it. Look for a function that blows up near $x_0$.
     - |
-      Try $f(x) = \frac{1}{|x - x_0|}$. Why is it defined and continuous on $S$, and what happens along the sequence $(x_n)$?
+      Use the distance $|x - x_0|$, which is positive on $S$ but can be made as small as you like. Which simple continuous operation turns small positive numbers into large ones?
   solution: |
     Define $f(x) = \dfrac{1}{|x - x_0|}$ for $x \in S$.
 
@@ -703,7 +703,7 @@
     - a removable discontinuity is impossible, because if $\lim_{x\to c} f(x)$ exists it forces $L^- = L^+ = f(c)$;
     - an essential discontinuity is impossible, because both one-sided limits always exist, so the limit can fail to exist only because they differ.
 
-    (At an endpoint of $I$ that belongs to $I$, only one one-sided limit is relevant. The same argument shows that it exists, and a discontinuity there means it differs from the value of $f$, a one-sided jump.) $\blacksquare$
+    (The statement concerns interior points, as for $f$ monotone on $\mathbb{R}$ or on an open interval. At an endpoint $c$ of $I$ that belongs to $I$, only one one-sided limit exists; the same argument shows it exists, and it equals $\lim_{x\to c} f(x)$, so a discontinuity there is removable in the strict sense of the definitions. For example, $f(0) = -1$ and $f(x) = x$ on $(0,1]$ is increasing on $[0,1]$ with such a discontinuity at $0$.) $\blacksquare$
 
 - id: abbott-4.6.6
   hints:

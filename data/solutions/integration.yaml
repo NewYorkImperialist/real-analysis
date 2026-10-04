@@ -166,7 +166,7 @@
     - |
       Two of the three statements are false. For each one, ask whether a derivative or an integral can "ignore" bad behavior of the function at a single point.
     - |
-      For (a), recall the standard function $x^2\sin(1/x)$. For (b), use the FTC with $h(x) = \int_a^x g$. For (c), changing $h$ at one point does not change $H$.
+      For (a), look for a differentiable function whose derivative oscillates near a point, with the oscillation damped enough that the function itself stays differentiable there. For (b), which theorem produces a function with a prescribed derivative? For (c), how sensitive is $H$ to the value of $h$ at a single point?
   solution: |
     **(a) False.** On $[-1,1]$ let $h(x) = x^2\sin(1/x)$ for $x \ne 0$ and $h(0) = 0$. For $x \ne 0$, $h'(x) = 2x\sin(1/x) - \cos(1/x)$ by the product and chain rules. At $0$,
     $$h'(0) = \lim_{x\to0}\frac{x^2\sin(1/x)}{x} = \lim_{x\to0} x\sin(1/x) = 0,$$
@@ -265,7 +265,7 @@
     - |
       Taking absolute values destroys sign information. Find a function that is badly non-integrable because of its sign, but whose absolute value is constant.
     - |
-      Modify Example 2 so that $f$ takes the values $1$ and $-1$ instead of $1$ and $0$.
+      Keep the rational/irrational split from Example 2, but change the two values so that they have the same absolute value while the upper and lower sums still disagree.
   solution: |
     On $[0,1]$ let
     $$f(x) = \begin{cases} 1 & x \in \mathbb{Q}, \\ -1 & x \notin \mathbb{Q}. \end{cases}$$

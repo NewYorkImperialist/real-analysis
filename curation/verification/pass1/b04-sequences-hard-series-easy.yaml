@@ -1,0 +1,13 @@
+batch: b04-sequences-hard-series-easy
+reviewed: [abbott-2.3.11, abbott-2.3.13, abbott-2.4.6, abbott-2.4.7, abbott-2.5.5, lebl-2.1.17, lebl-2.3.9, lebl-2.3.10, lebl-2.4.2, ross-12.13, cummings-3.25, tao-6.4.3, ross-22.14, rudin-3.14, lebl-2.5.10, tao-7.3.2, mit20-a7-2, mit20-mid-5a, mit20-mid-5b, abbott-2.7.4, abbott-2.7.9, lebl-2.5.3, lebl-2.5.4, lebl-2.6.1, lebl-2.6.2, lebl-2.6.13, ross-14.10, ross-14.12, ross-15.3, cummings-4.2, cummings-4.5, tao-7.2.2]
+findings: []
+# Checks run on the hardest three (no findings):
+# rudin-3.14: (a) recomputed the cube example: s_0 = 1, non-cube mass <= 2, cube mass K(K+1)/2 <= K^2 <= n^{2/3} for K >= 1,
+#   so sigma_n <= 2/n + n^{-1/3}. (b) re-derived the telescoping identity term by term. (c) checked m(n) >= 0 needs n >= eps,
+#   m < n, both cleared-denominator equivalences, the monotonicity of (n-i)/(i+1) in i, and that m(n) -> infinity.
+# ross-22.14: checked the first-crossing index r (r-1 >= p > K >= N, so the step bound applies), the strict/non-strict
+#   bounds a + (c-a) = c, and that closedness of S (Ross Thm 11.9) gives the endpoints; singleton S is covered.
+# tao-6.4.3: checked the extended-real cases (L^+ = -inf in (d), L^+ = +inf impossible when c > L^+), the indexing
+#   max(N, N_1) in (e), and that (f) forward direction shows L^+- are finite before concluding.
+# Also verified numerically: ross-14.10 sequence/ratios (2,1,8,4,32,16; ratios 1/2, 8), cummings-3.25 closed form at n = 1, 2
+#   and the example -> 2/3, lebl-2.6.1(a) sum = 1/6, abbott-2.3.13(b) a_{2n,n} = 2/5, mit20-mid-5b boundary points x = 9, 11.

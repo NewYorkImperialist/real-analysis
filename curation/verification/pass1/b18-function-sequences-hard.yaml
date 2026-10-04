@@ -1,0 +1,17 @@
+batch: b18-function-sequences-hard
+reviewed: [abbott-6.2.11, abbott-6.2.12, rudin-7.10, rudin-7.13, mit18100b-2006-ps10-x1, abbott-6.2.15, pugh-3.23, pugh-4.37]
+findings: []
+# No findings. Checks run on the hardest three:
+# - pugh-4.37: re-derived the Leibniz expansion of (x^k eta(x/eps))^(j), checked |x|^{k-j+i} eps^{-i} <= 2^k eps
+#   on |x| <= 2 eps for j < k and eps <= 1, checked that the denominator of eta never vanishes, that eta = 1 on [-1,1] and
+#   is smooth at 0, the M-test bound for k > j, term-by-term differentiation, phi_k^(j)(0) = a_k delta_jk, and
+#   that (b) gives terms b_r r! x^r with |b_r r! x^r| -> infinity.
+# - pugh-3.23: checked (b) osc bound, closedness in (c) including the empty case, both inclusions in (d)
+#   (m with 2/m margin), Baire applied inside [alpha',beta'] in (e), the Baire argument for (g), and in (h) that
+#   f_n(b) = g'(b) exactly under the linear extension and that one-sided differentiability at a is enough.
+# - mit18100b-2006-ps10-x1: checked that the lemma's support lies in (alpha,beta) for n >= 4, that sigma_n -> 0 pointwise
+#   (including x <= alpha), that I_k sits inside I_{k-1} with tau_k >= 1/2 on I_k, and that both directions of the
+#   equivalence are used correctly; Theorem 2 rescaling ||g_n|| = n.
+# Also checked: rudin-7.10 left/right limits of (t) at integers, the jump sum 1/q^2 * sum 1/m^2, and that 6.10/7.16
+# are applicable; rudin-7.13 squeeze at continuity points and the partition inequalities in (b); abbott-6.2.12 the
+# self-similarity C_{n+1} cap [0,1/3] = C_n/3 used in the claim, and the 2^{1-n} Cauchy bound.

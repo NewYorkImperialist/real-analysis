@@ -1,0 +1,25 @@
+batch: b17-function-sequences-medium
+reviewed: [abbott-4.3.11, abbott-6.2.5, abbott-6.2.6, abbott-6.3.4, abbott-6.3.7, abbott-6.4.2, abbott-6.5.10, abbott-6.7.2, ross-24.9, ross-26.8, ross-27.3, pugh-prelim-28, rudin-7.16, rudin-7.20]
+findings:
+  - id: ross-24.9
+    severity: hint
+    where: "hint 1 (textbook), shown first"
+    quote: |
+      (a) $f(x) = 0$ ... (b) ... $\sup\{|f_n(x)|\} = f_n(\frac{n}{n+1}) = (\frac{n}{n+1})^{n+1}$ ... does not converge uniformly to 0. (c) $\int_0^1 f_n = \frac{n}{(n+1)(n+2)} \to 0$
+    issue: |
+      The first hint a student sees gives all three final answers and the complete computation for (b) and (c), so it gives the whole solution away. The gentler AI hints 2–4 come after it and are never needed.
+    evidence: |
+      Compare hint 1 with the solution: every answer and key computation is the same (peak at $n/(n+1)$, peak value $\to 1/e$, integral $n/((n+1)(n+2))$).
+    suggested_fix: |
+      Keep the textbook hint verbatim but show it last, after the AI hints (or behind a "full textbook hint" label), so the graded hints come first.
+  - id: ross-27.3
+    severity: hint
+    where: "hint 1 (textbook), shown first"
+    quote: |
+      (a) Assume a polynomial $p$ satisfies $|p(x) - \sin x| < 1$ ... if $p$ is nonconstant, then $p$ is unbounded on $\mathbb{R}$ and the same is true for $p(x) - \sin x$, a contradiction.
+    issue: |
+      The first hint is a complete proof of (a) and a near-complete proof of (b), and it comes before the gentler AI hint 2 ("some single polynomial $p$ would satisfy $|p - f| < 1$"), which it makes redundant.
+    evidence: |
+      Hint 1 (a) contains every step of the solution's part (a) except the constant case, which it calls "clear".
+    suggested_fix: |
+      Show the textbook hint after the AI hints 2 and 3.

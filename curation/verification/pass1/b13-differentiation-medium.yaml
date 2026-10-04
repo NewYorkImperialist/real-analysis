@@ -1,0 +1,30 @@
+batch: b13-differentiation-medium
+reviewed: [mit20-a11-4, abbott-5.2.4, abbott-5.2.7, abbott-5.2.12, abbott-5.3.12, lebl-4.2.9, lebl-4.2.13, lebl-4.3.11, lebl-4.4.6, ross-29.10, ross-30.6, ross-31.5, cummings-7.14, rudin-5.14, rudin-5.17, rudin-5.26]
+findings:
+  - id: ross-29.10
+    severity: minor
+    where: "solution, part (c), third sentence"
+    quote: |
+      Every neighborhood of $0$ contains points where $f'<0$, because $f'$ is not continuous at $0$: the term $-\cos(1/x)$ oscillates between $-1$ and $1$.
+    issue: |
+      The inference "f' is not continuous at 0, therefore f' < 0 somewhere in every neighborhood" is invalid.
+      A derivative can be discontinuous at 0 and still be positive on a whole neighborhood. The conclusion is
+      true here, but only because of the specific values computed in (b), where $f'(x_n) = -\tfrac12$.
+    evidence: |
+      $k(x) = x^2\sin(1/x) + 2x$ (with $k(0)=0$) has $k'(x) = 2 + 2x\sin(1/x) - \cos(1/x) \ge 1 - 2|x| > 0$ for $|x|<1/2$,
+      yet $k'$ is discontinuous at $0$, because $k'(0)=2$ and $\cos(1/x)$ has no limit.
+    suggested_fix: |
+      Every neighborhood of $0$ contains points where $f'<0$: by (b), $f'(\frac{1}{2\pi n}) = -\frac12$ for every $n$. (This can happen
+      only because $f'$ is not continuous at $0$, since the $-\cos(1/x)$ term oscillates between $-1$ and $1$.)
+  - id: cummings-7.14
+    severity: hint
+    where: "hint 2"
+    quote: |
+      Try $h(x) = [f(b)-f(a)]\,g(x) - [g(b)-g(a)]\,f(x)$. Compute $h(a)$ and $h(b)$.
+    issue: |
+      This hint gives away the whole proof. The only idea in the solution is this auxiliary function. After it,
+      all that is left is to compute two values and apply Rolle's theorem.
+    evidence: |
+      The solution is exactly: define this $h$, check $h(a)=h(b)$, apply Rolle.
+    suggested_fix: |
+      Look for constants $\alpha,\beta$, not both zero, such that $h(x) = \alpha\,g(x) - \beta\,f(x)$ satisfies $h(a) = h(b)$. What condition must $\alpha,\beta$ satisfy, and what does Rolle's theorem then give?

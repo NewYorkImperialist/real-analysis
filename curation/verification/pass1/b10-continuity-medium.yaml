@@ -1,0 +1,23 @@
+batch: b10-continuity-medium
+reviewed: [mit20-a8-5, abbott-4.3.2, abbott-4.3.4, abbott-4.3.7, abbott-4.3.13, abbott-4.4.13, abbott-4.4.14, abbott-4.5.3, abbott-4.5.8, abbott-4.6.5, abbott-4.6.6, lebl-3.1.11, lebl-3.3.3, lebl-3.6.8, lebl-7.5.8, lebl-7.5.12, ross-19.1, ross-19.4, pugh-2.44, rudin-4.5]
+findings:
+  - id: abbott-4.6.5
+    severity: minor
+    where: "solution, final parenthetical about endpoints"
+    quote: |
+      (At an endpoint of $I$ that belongs to $I$, only one one-sided limit is relevant. The same argument shows that it exists, and a discontinuity there means it differs from the value of $f$, a one-sided jump.)
+    issue: |
+      Under the classification quoted in the problem, a discontinuity at an endpoint of the domain is not a jump: there
+      $\lim_{x\to c} f(x)$ is the single one-sided limit, which exists, and if it differs from $f(c)$ that is by definition (i)
+      a *removable* discontinuity. Calling it a "one-sided jump" invents a category and quietly contradicts the claim being
+      proved. The theorem as stated holds only at interior points (or for $f$ defined on an open interval or on $\mathbb{R}$),
+      and the solution should say so instead of relabelling.
+    evidence: |
+      $f\colon[0,1]\to\mathbb{R}$, $f(0) = -1$, $f(x) = x$ for $x > 0$. $f$ is increasing and discontinuous at $0$, and
+      $\lim_{x\to 0} f(x) = 0 \ne f(0) = -1$ exists. By Abbott's definition (i) this is a removable discontinuity, not a jump
+      (definition (ii) needs two one-sided limits that differ).
+    suggested_fix: |
+      Replace the parenthetical with: "(The statement concerns interior points of the domain, e.g. $f$ monotone on an open
+      interval or on $\mathbb{R}$. At an endpoint $c$ of a closed domain only one one-sided limit exists; it equals
+      $\lim_{x\to c} f(x)$, so a discontinuity there is *removable* in the sense of (i). For example $f(0) = -1$, $f(x) = x$
+      on $(0,1]$ is increasing with a removable discontinuity at $0$.)"

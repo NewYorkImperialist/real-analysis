@@ -1,0 +1,21 @@
+file: real-numbers.yaml
+decisions:
+  - id: lebl-1.3.5
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      "Even $f = g$ works on a two-point set" leaves nothing to find in (b): any non-constant $f=g$ on two
+      points is the solution's example. The first sentence of the hint (pointwise vs. cross comparison) is
+      a fair nudge; only the last sentence needs replacing.
+    change: |
+      hint 3 last sentence: "Even $f = g$ works on a two-point set." → "Look for an example on a very small domain."
+  - id: lebl-1.1.14
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Part (c) asks the student to find the subset; hint 3 names it ($A=\{a_k\}$), leaving only a routine check.
+      Hint 1 already pictures the gap, so pointing at "the other side of the gap" is a fair, true nudge.
+    change: |
+      hint 3: "(c): take $A = \{a_k : k \in \mathbb{N}\}$. Determine exactly which elements of $S$ are upper bounds
+      of $A$ and whether ..." → "(c): look for a subset whose upper bounds all lie on the other side of the gap.
+      Determine exactly which elements of $S$ are upper bounds of it, and whether ..."

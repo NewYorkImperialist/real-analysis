@@ -123,7 +123,7 @@
     - |
       Each set has to be finite, but nothing stops the sets from growing, or from simply being different from each other.
     - |
-      Try singletons $A_n = \{n\}$, or initial segments $A_n = \{1, 2, \ldots, n\}$. What is the union?
+      The sets $A_n$ can all be subsets of $\mathbb{N}$. Choose them so that every natural number lies in at least one $A_n$. What is the union then?
   solution: |
     For $n \in \mathbb{N}$, let $A_n = \{1, 2, \ldots, n\}$. Each $A_n$ is finite, with $n$ elements.
 

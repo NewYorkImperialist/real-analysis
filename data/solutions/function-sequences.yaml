@@ -3,9 +3,9 @@
     - |
       Uniform convergence fails exactly when, for every $n$, some point of the domain still has $|f_n(x) - f(x)|$ not small. On an open interval you can push such points toward an endpoint.
     - |
-      Try the simplest family you know that converges pointwise but "slowly" near $x = 1$: powers $x^n$. What is the pointwise limit on $(0,1)$ itself (not on $[0,1]$)?
+      Recall a familiar sequence of continuous functions on $[0,1]$ whose pointwise limit jumps at $x = 1$. What happens to its pointwise limit when you delete the endpoint and work on $(0,1)$ only?
     - |
-      For each $n$, find a point $x_n \in (0,1)$ with $x_n^n = \tfrac12$.
+      For each $n$, find a point $x_n \in (0,1)$, close to $1$, where $|f_n(x_n) - f(x_n)|$ is still at least a fixed amount such as $\tfrac12$.
   solution: |
     **Example.** $f_n(x) = x^n$ on $(0,1)$.
 
@@ -211,7 +211,7 @@
     - |
       Uniform convergence controls the height of $f_n$ but not the length of the set where it lives. With an infinite interval available, spread the mass out.
     - |
-      Try a function of height $1/n$ on an interval of length $n$.
+      Let $f_n$ be a constant $c_n$ on an interval of length $L_n$ and $0$ elsewhere. What must $c_n L_n$ equal, and what does $c_n \to 0$ force $L_n$ to do?
   solution: |
     **Example.** Define
     $$f_n(x) = \begin{cases} \frac1n & 0 \le x \le n, \\ 0 & \text{otherwise.} \end{cases}$$
@@ -229,7 +229,7 @@
     - |
       In (a), the natural candidate for a fixed point should be missing from the space. In (b), the contraction constant is allowed to be exactly $1$.
     - |
-      For (a), think of $x \mapsto x/2$ on a space that omits $0$. For (b), a translation of $\mathbb{R}$.
+      For (a), start from a simple linear contraction of $\mathbb{R}$, whose fixed point exists, and remove that point from the space, making sure the map still sends the smaller space into itself. For (b), which distance-preserving maps of $\mathbb{R}$ move every point?
   solution: |
     **(a)** Let $X = (0,1)$ with the metric $d(x,y) = |x-y|$, and $f(x) = x/2$. Then $f(X) = (0, \tfrac12) \subseteq X$, and
     $$|f(x) - f(y)| = \tfrac12 |x - y|,$$
@@ -323,7 +323,7 @@
     - |
       Condition (iii) says $f$ is discontinuous at $a$, at least along the sequence $(a_n)$. So you need continuous $f_n$ whose pointwise limit is discontinuous.
     - |
-      Use $f_n(x) = x^n$ on $[0,1]$ and let $a_n$ approach the point where its limit jumps.
+      Recall a standard sequence of polynomials on $[0,1]$ whose pointwise limit has a jump. Take $a$ to be the jump point and let $a_n$ approach it from the side where the limit takes a different value.
   solution: |
     **Example.** Let $f_n(x) = x^n$ on $[0,1]$,
     $$f(x) = \begin{cases} 0 & 0 \le x < 1, \\ 1 & x = 1, \end{cases} \qquad a_n = 1 - \frac1n, \qquad a = 1.$$

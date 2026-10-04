@@ -1,0 +1,37 @@
+file: function-sequences.yaml
+decisions:
+  - id: lebl-7.6.6
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 names both complete examples (x/2 on a space without 0, a translation of R); only one-line checks remain.
+    change: |
+      hint 2: "think of x -> x/2 on a space that omits 0 / a translation of R" -> "start from a simple linear
+      contraction of R, remove its fixed point, keep the map into the smaller space / which distance-preserving
+      maps of R move every point?"
+  - id: lebl-6.2.22
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 states the full counterexample (height 1/n on an interval of length n).
+    change: |
+      hint 2: "height 1/n on an interval of length n" -> "f_n = c_n on an interval of length L_n; what must
+      c_n L_n equal, and what does c_n -> 0 force L_n to do?"
+  - id: cummings-9.12
+    pass1_severity: hint
+    verdict: confirmed
+    reason: |
+      Hint 2 names f_n = x^n on [0,1] and how to choose a_n, i.e. the whole example.
+    change: |
+      hint 2: "Use f_n(x) = x^n ... let a_n approach the jump" -> "Recall a standard sequence of polynomials on
+      [0,1] whose pointwise limit has a jump; take a to be the jump point and approach it from the other side."
+  - id: mit20-final-7a
+    pass1_severity: hint
+    verdict: modified
+    reason: |
+      Real: hint 2 names x^n, the final example. The suggested fix covers only hint 2, but hint 3
+      ("x_n^n = 1/2") also names x^n and the witness points, so it must be softened as well.
+    change: |
+      hint 2: "powers x^n" -> "a familiar sequence on [0,1] whose pointwise limit jumps at 1; what happens on
+      (0,1)?"; hint 3: "x_n with x_n^n = 1/2" -> "x_n in (0,1) near 1 where |f_n(x_n) - f(x_n)| stays at least,
+      e.g., 1/2".
