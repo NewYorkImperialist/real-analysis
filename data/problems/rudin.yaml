@@ -32,13 +32,13 @@
 
     *(Rudin's parts (a)–(b), omitted here: if $\lim s_n = s$ then $\lim \sigma_n = s$; and there are divergent sequences $\{s_n\}$ with $\lim \sigma_n = 0$.)*
 
-    (a) Can it happen that $s_n > 0$ for all $n$ and that $\limsup s_n = \infty$, although $\lim \sigma_n = 0$?
+    (c) Can it happen that $s_n > 0$ for all $n$ and that $\limsup s_n = \infty$, although $\lim \sigma_n = 0$?
 
-    (b) Put $a_n = s_n - s_{n-1}$, for $n \ge 1$. Show that
+    (d) Put $a_n = s_n - s_{n-1}$, for $n \ge 1$. Show that
     $$s_n - \sigma_n = \frac{1}{n+1} \sum_{k=1}^{n} k a_k.$$
     Assume that $\lim (n a_n) = 0$ and that $\{\sigma_n\}$ converges. Prove that $\{s_n\}$ converges. [This gives a converse of the fact that $\lim s_n = s$ implies $\lim \sigma_n = s$, but under the additional assumption that $n a_n \to 0$.]
 
-    (c) Derive the last conclusion from a weaker hypothesis: Assume $M < \infty$, $|n a_n| \le M$ for all $n$, and $\lim \sigma_n = \sigma$. Prove that $\lim s_n = \sigma$, by completing the following outline:
+    (e) Derive the last conclusion from a weaker hypothesis: Assume $M < \infty$, $|n a_n| \le M$ for all $n$, and $\lim \sigma_n = \sigma$. Prove that $\lim s_n = \sigma$, by completing the following outline:
 
     If $m < n$, then
     $$s_n - \sigma_n = \frac{m+1}{n-m}(\sigma_n - \sigma_m) + \frac{1}{n-m} \sum_{i=m+1}^{n} (s_n - s_i).$$
@@ -49,7 +49,7 @@
     Then $(m+1)/(n-m) \le 1/\varepsilon$ and $|s_n - s_i| < M\varepsilon$. Hence
     $$\limsup_{n\to\infty} |s_n - \sigma| \le M\varepsilon.$$
     Since $\varepsilon$ was arbitrary, $\lim s_n = \sigma$.
-  notes: 'Trimmed to Rudin''s parts (c)–(e), relabelled (a)–(c); Rudin''s (a)–(b) duplicate abbott-2.3.11 and are summarized in the marked parenthetical. The bracketed remark in (b) originally read "a converse of (a)" and was reworded to name the fact. The definitions of sigma_n and a_n are kept verbatim.'
+  notes: 'Trimmed to Rudin''s parts (c)–(e), keeping Rudin''s labels; Rudin''s (a)–(b) duplicate abbott-2.3.11 and are summarized in the marked parenthetical. The bracketed remark in (b) originally read "a converse of (a)" and was reworded to name the fact. The definitions of sigma_n and a_n are kept verbatim.'
   curation:
     why: 'Beyond ''Cesàro means are regular'': how badly Cesàro convergence can fail to imply convergence, and Hardy''s Tauberian theorem.'
   tier: upper
