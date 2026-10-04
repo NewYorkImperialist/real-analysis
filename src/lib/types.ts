@@ -69,6 +69,7 @@ export type Problem = {
   subtopics: string[];
   skills: string[];
   concept: string; // short name of the underlying standard result; used to avoid near-duplicates
+  title?: string; // display title (may contain $…$ math); falls back to the concept
   difficulty: Difficulty;
   category: Category;
   type: ProblemType;

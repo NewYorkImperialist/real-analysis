@@ -83,6 +83,13 @@ for (const f of files) {
     if (!TYPE.includes(p.type)) err(where, `bad type "${p.type}"`);
     for (const k of ['skills', 'tags']) if (!Array.isArray(p[k])) err(where, `${k} must be a list`);
     if (!p.concept) err(where, 'concept required');
+    if (p.title !== undefined) {
+      if (typeof p.title !== 'string' || !p.title.trim()) err(where, 'title must be non-empty text');
+      else {
+        checkLatex(`${where} title`, p.title);
+        if (p.title.length > 90) warn(where, `title is long (${p.title.length} chars)`);
+      }
+    }
     if (typeof p.problemLatex !== 'string' || !p.problemLatex.trim()) err(where, 'problemLatex required');
     else checkLatex(where, p.problemLatex);
 

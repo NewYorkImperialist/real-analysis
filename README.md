@@ -71,6 +71,7 @@ escaping. Put a blank line between paragraphs, and start a new line for each par
   subtopics: [subsequences]
   skills: [subsequence-extraction]
   concept: "bounded + all convergent subsequences share a limit ⇒ convergent"
+  title: "Bounded sequences whose convergent subsequences share a limit"   # display title; $…$ math allowed, no spoilers
   difficulty: medium          # introductory | easy | medium | hard | very-hard
   category: canonical         # canonical | synthesis | challenge
   type: proof                 # definition | proof | theorem-application | counterexample | construction | computation | conceptual

@@ -1,8 +1,8 @@
 import type { Problem } from '../lib/types';
-import { label, sourceLine, topicLabel } from '../lib/bank';
+import { label, sourceLine, titleOf, topicLabel } from '../lib/bank';
 import { href } from '../lib/router';
 import { useProgress } from '../lib/useProgress';
-import { RichText } from './RichText';
+import { InlineRich, RichText } from './RichText';
 
 const STATUS_TEXT = { unseen: 'Unseen', attempted: 'Attempted', completed: 'Completed' } as const;
 
@@ -22,7 +22,7 @@ export function ProblemRow({ problem: p, index, linkQuery }: { problem: Problem;
             <span class="problem-row-source">{sourceLine(p)}</span>
             {pr?.bookmarked && <span class="problem-row-bookmark" title="Bookmarked">★<span class="visually-hidden"> Bookmarked</span></span>}
           </div>
-          <div class="problem-row-title">{p.concept.charAt(0).toUpperCase() + p.concept.slice(1)}</div>
+          <div class="problem-row-title"><InlineRich src={titleOf(p)} /></div>
           <RichText src={p.problemLatex} class="problem-row-preview clamp-2" firstBlock />
           <p class="meta-line">
             <span>{topicLabel(p.topic)}</span>

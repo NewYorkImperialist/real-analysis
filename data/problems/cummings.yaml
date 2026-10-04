@@ -14,6 +14,7 @@
   - contradiction
   - choose-epsilon
   concept: if a < b + ε for all ε>0 then a ≤ b; if |a−b|<ε for all ε then a=b
+  title: If $a < b + \varepsilon$ for every $\varepsilon > 0$ then $a \le b$
   difficulty: introductory
   category: canonical
   type: proof
@@ -45,6 +46,7 @@
   - sup-approximation
   - archimedean-argument
   concept: sup{n/(n+1)} = 1, inf = 1/2 via ε-characterization
+  title: Supremum and infimum of $\{n/(n+1)\}$
   difficulty: introductory
   category: canonical
   type: proof
@@ -73,6 +75,7 @@
   - nested-intervals
   - sup-approximation
   concept: Nested interval property
+  title: Nested interval property
   difficulty: easy
   category: canonical
   type: proof
@@ -103,6 +106,7 @@
   - choose-epsilon
   - finite-max-argument
   concept: Cauchy sequences are bounded
+  title: Cauchy sequences are bounded
   difficulty: easy
   category: canonical
   type: proof
@@ -130,6 +134,7 @@
   - sup-approximation
   - epsilon-N-proof
   concept: Monotone convergence theorem
+  title: Monotone convergence theorem, decreasing case
   difficulty: easy
   category: canonical
   type: proof
@@ -163,6 +168,7 @@
   - monotone-convergence
   - pass-to-limit
   concept: a_1=√2, a_{n+1}=√(2+a_n) → 2
+  title: Limit of $a_{n+1} = \sqrt{2 + a_n}$
   difficulty: easy
   category: canonical
   type: proof
@@ -194,6 +200,7 @@
   - geometric-estimate
   - cauchy-criterion
   concept: a_n = (a_{n-1}+a_{n-2})/2 converges (to (a_1+2a_2)/3)
+  title: Does the averaging recursion $a_n = (a_{n-1} + a_{n-2})/2$ converge?
   difficulty: medium
   category: synthesis
   type: proof
@@ -223,6 +230,7 @@
   - cauchy-criterion
   - triangle-inequality
   concept: Absolute convergence implies convergence
+  title: Absolute convergence implies convergence
   difficulty: easy
   category: canonical
   type: proof
@@ -252,6 +260,7 @@
   - bernoulli-inequality
   - case-analysis
   concept: r^n → 0 for |r|<1, diverges for r ≤ −1 or r > 1
+  title: Convergence of the geometric sequence $(r^n)$
   difficulty: easy
   category: canonical
   type: proof
@@ -279,6 +288,7 @@
   - comparison-estimate
   - construct-counterexample
   concept: Σa_k (a_k>0) converges ⇒ Σa_k² converges; false without positivity
+  title: When does $\sum a_k$ converging force $\sum a_k^2$ to converge?
   difficulty: easy
   category: canonical
   type: proof
@@ -307,6 +317,7 @@
   - tail-estimate
   - epsilon-N-proof
   concept: Rearrangements of absolutely convergent series have the same sum
+  title: Rearranging absolutely convergent series
   difficulty: medium
   category: canonical
   type: proof
@@ -334,6 +345,7 @@
   skills:
   - construct-counterexample
   concept: Infinite intersection of open sets need not be open; infinite union of closed sets need not be closed
+  title: Infinite intersections of open sets and unions of closed sets
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -365,6 +377,7 @@
   - contrapositive
   - sequential-characterization
   concept: Closed and bounded ⇔ sequentially compact (in R)
+  title: Closed and bounded iff sequentially compact
   difficulty: medium
   category: canonical
   type: proof
@@ -392,6 +405,7 @@
   skills:
   - open-cover-argument
   concept: Closed subset of a compact set is compact
+  title: Closed subsets of compact sets are compact
   difficulty: easy
   category: canonical
   type: proof
@@ -422,6 +436,7 @@
   - case-analysis
   - construct-counterexample
   concept: no continuous function on R takes every value exactly twice
+  title: Continuous functions hitting each value once, twice or three times
   difficulty: hard
   category: challenge
   type: proof
@@ -453,6 +468,7 @@
   - IVT-application
   - contradiction
   concept: 'no continuous f: R -> R with f(R) = Q'
+  title: Can a continuous function have range $\mathbb{Q}$?
   difficulty: easy
   category: canonical
   type: conceptual
@@ -477,6 +493,7 @@
   skills:
   - construct-counterexample
   concept: Rolle's theorem hypotheses are sharp (counterexamples)
+  title: Why each hypothesis of Rolle's theorem is needed
   difficulty: easy
   category: canonical
   type: counterexample
@@ -509,6 +526,7 @@
   - auxiliary-function
   - rolle-application
   concept: Cauchy mean value theorem
+  title: Cauchy mean value theorem
   difficulty: medium
   category: canonical
   type: proof
@@ -541,6 +559,7 @@
   - partition-refinement
   - epsilon-over-3
   concept: bounded function with one discontinuity is integrable
+  title: Integrability with a single discontinuity
   difficulty: medium
   category: canonical
   type: proof
@@ -569,6 +588,7 @@
   - EVT-application
   - comparison-estimate
   concept: mean value theorem for integrals (including weighted version)
+  title: Mean value theorems for integrals
   difficulty: medium
   category: canonical
   type: proof
@@ -607,6 +627,7 @@
   - construct-counterexample
   - sequential-characterization
   concept: pointwise limit of continuous functions need not be continuous (x^n on [0,1])
+  title: A pointwise limit that breaks sequential continuity
   difficulty: easy
   category: canonical
   type: counterexample
@@ -640,6 +661,7 @@
   skills:
   - M-test
   concept: power series absolutely convergent at x0 converges uniformly on [-|x0|,|x0|]
+  title: Uniform convergence of power series from absolute convergence
   difficulty: easy
   category: canonical
   type: proof
@@ -666,6 +688,7 @@
   skills:
   - partition-refinement
   concept: integrable on [a,d] implies integrable on subinterval [b,c]
+  title: Integrability on subintervals
   difficulty: easy
   category: canonical
   type: proof

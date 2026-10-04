@@ -13,6 +13,7 @@
   - element-chasing
   - contrapositive
   concept: f(f^{-1}(S))=S ∀S iff f surjective; f^{-1}(f(S))=S ∀S iff f injective
+  title: Images of preimages, surjectivity and injectivity
   difficulty: easy
   category: canonical
   type: proof
@@ -39,6 +40,7 @@
   skills:
   - quantifier-order
   concept: order of quantifiers matters (∀∃ vs ∃∀)
+  title: Order of quantifiers in statements about $y^2 = x$
   difficulty: introductory
   category: canonical
   type: conceptual
@@ -70,6 +72,7 @@
   - contradiction
   - limit-laws
   concept: x^n diverges for x>1; fallacy of assuming the limit exists
+  title: Divergence of $x^n$ for $x > 1$
   difficulty: easy
   category: canonical
   type: conceptual
@@ -102,6 +105,7 @@
   - epsilon-N-proof
   - unwrap-definition
   concept: limsup/liminf are the largest/smallest limit points; a_n → c iff limsup = liminf = c
+  title: Limit points and the limit superior and inferior
   difficulty: medium
   category: canonical
   type: proof
@@ -148,6 +152,7 @@
   - cauchy-criterion
   - partial-sums
   concept: Cauchy criterion for series
+  title: Cauchy criterion for series
   difficulty: easy
   category: canonical
   type: proof
@@ -178,6 +183,7 @@
   - partial-sums
   - term-test
   concept: geometric series Σx^n = 1/(1−x) iff |x|<1
+  title: The geometric series
   difficulty: introductory
   category: canonical
   type: proof
@@ -210,6 +216,7 @@
   - epsilon-argument
   - induction
   concept: liminf c_{n+1}/c_n ≤ liminf c_n^{1/n} (ratio test implies root test)
+  title: Comparing ratios and roots via $\liminf$
   difficulty: medium
   category: canonical
   type: proof
@@ -240,6 +247,7 @@
   - construct-bijection
   - induction
   concept: 'Schröder–Bernstein lemma: A ⊆ B ⊆ C with injection C → A gives A ~ B'
+  title: A Schröder–Bernstein construction for nested sets
   difficulty: medium
   category: synthesis
   type: proof
@@ -266,6 +274,7 @@
   skills:
   - epsilon-delta-proof
   concept: differentiability iff f(x) = f(x0) + L(x-x0) + o(|x-x0|)
+  title: Newton's approximation characterizes differentiability
   difficulty: easy
   category: canonical
   type: proof
@@ -299,6 +308,7 @@
   - one-sided-limits
   - sign-argument
   concept: 'Fermat: local extremum at interior differentiable point implies f''=0'
+  title: Local extrema are stationary
   difficulty: easy
   category: canonical
   type: proof
@@ -328,6 +338,7 @@
   - auxiliary-function
   - theorem-application
   concept: mean value theorem from Rolle's theorem
+  title: Mean value theorem from Rolle's theorem
   difficulty: easy
   category: canonical
   type: proof
@@ -356,6 +367,7 @@
   skills:
   - construct-counterexample
   concept: f'>0 on a non-interval domain need not give monotone (e.g. -1/x on R\{0})
+  title: A function with $f' > 0$ that is not strictly increasing
   difficulty: easy
   category: canonical
   type: counterexample
@@ -387,6 +399,7 @@
   - comparison-estimate
   - monotone-bounds
   concept: integral test for series
+  title: Integral test for series
   difficulty: medium
   category: synthesis
   type: proof
@@ -417,6 +430,7 @@
   - contradiction
   - comparison-estimate
   concept: for monotone f, F(x)=int_a^x f is differentiable at x0 iff f continuous at x0
+  title: Differentiability of the integral of a monotone function
   difficulty: medium
   category: synthesis
   type: proof
@@ -447,6 +461,7 @@
   - theorem-reuse
   - contradiction
   concept: '|X| < |2^X|; transitivity of strict cardinality'
+  title: Cantor's theorem and strict cardinality
   difficulty: easy
   category: canonical
   type: proof

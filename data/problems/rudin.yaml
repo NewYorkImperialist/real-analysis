@@ -16,6 +16,7 @@
   - block-estimate
   - limsup-argument
   concept: 'Cesàro means: a positive unbounded Cesàro-null sequence; Tauberian converses (n a_n → 0, and Hardy''s n a_n bounded)'
+  title: Cesàro means and Tauberian converses
   difficulty: hard
   category: challenge
   type: proof
@@ -69,6 +70,7 @@
   - rational-approximation
   - case-analysis
   concept: any real function has at most countably many simple (first-kind) discontinuities
+  title: Simple discontinuities are at most countable
   difficulty: hard
   category: challenge
   type: proof
@@ -119,6 +121,7 @@
   - density-of-Q
   - closed-set-limit
   concept: Darboux (IVP) function with closed rational level sets is continuous (N. J. Fine)
+  title: Intermediate value property with closed rational level sets
   difficulty: medium
   category: challenge
   type: proof
@@ -158,6 +161,7 @@
   - construct-counterexample
   - case-analysis
   concept: 'Tietze extension on R: continuous f on closed E ⊂ R extends continuously to R; fails for non-closed E'
+  title: Continuous extensions from closed subsets of $\mathbb{R}$
   difficulty: hard
   category: synthesis
   type: construction
@@ -192,6 +196,7 @@
   - verify-extremal-example
   - tail-argument
   concept: 'Landau–Kolmogorov inequality M_1^2 ≤ 4 M_0 M_2 on a half-line; consequence: f → 0 and f'''' bounded ⇒ f'' → 0'
+  title: Landau's inequality $M_1^2 \le 4M_0M_2$ on a half-line
   difficulty: hard
   category: challenge
   type: proof
@@ -237,6 +242,7 @@
   - cancellation
   - averaging-argument
   concept: f(−1)=f(0)=0, f(1)=1, f'(0)=0 ⇒ f'''(x) ≥ 3 for some x ∈ (−1,1)
+  title: Some third derivative is at least 3
   difficulty: medium
   category: challenge
   type: theorem-application
@@ -277,6 +283,7 @@
   - smooth-bump-construction
   - series-with-derivative-bounds
   concept: every closed subset of R is the zero set of a C^∞ function
+  title: How smooth can a function with zero set $E$ be?
   difficulty: hard
   category: challenge
   type: construction
@@ -309,6 +316,7 @@
   - sup-bootstrapping
   - interval-stepping
   concept: differential inequality |f'| ≤ A|f|, f(a) = 0 ⇒ f ≡ 0 (Gronwall-type uniqueness)
+  title: Uniqueness from the inequality $|f'| \le A|f|$
   difficulty: medium
   category: synthesis
   type: proof
@@ -346,6 +354,7 @@
   - open-cover-argument
   - uniform-cauchy-criterion
   concept: equicontinuous + pointwise convergent on compact K ⇒ uniformly convergent
+  title: Equicontinuity upgrades pointwise to uniform convergence
   difficulty: medium
   category: synthesis
   type: proof
@@ -381,6 +390,7 @@
   - sup-approximation
   - monotonicity-squeeze
   concept: Helly's selection theorem
+  title: Helly's selection theorem
   difficulty: hard
   category: synthesis
   type: proof
@@ -424,6 +434,7 @@
   - jump-computation
   - uniform-limit-integrability
   concept: 'Σ (nx)/n²: discontinuous exactly at the rationals, yet Riemann integrable'
+  title: Discontinuities and integrability of $\sum (nx)/n^2$
   difficulty: hard
   category: challenge
   type: proof
@@ -462,6 +473,7 @@
   - contradiction
   - complement-characterization
   concept: 'condensation points of an uncountable E ⊂ R^k form a perfect set P with E \ P countable; Cantor–Bendixson: closed = perfect ∪ countable' 
+  title: Condensation points and perfect sets
   difficulty: hard
   category: challenge
   type: proof
@@ -504,6 +516,7 @@
   - construct-counterexample
   - open-ball-argument
   concept: K + C closed for K compact, C closed; Z + αZ (α irrational) is dense, so sum of closed sets need not be closed
+  title: Sums of compact and closed sets in $\mathbb{R}^k$
   difficulty: medium
   category: synthesis
   type: counterexample
@@ -544,6 +557,7 @@
   - slope-comparison
   - contradiction
   concept: differentiable f is convex iff f' is increasing iff (when f'' exists) f'' ≥ 0
+  title: Convexity via a monotone derivative
   difficulty: medium
   category: canonical
   type: proof
@@ -575,6 +589,7 @@
   - uniform-limit-integral
   - positivity-argument
   concept: 'vanishing moments: ∫_0^1 f(x)x^n dx = 0 for all n ⇒ f ≡ 0 (via Weierstrass approximation)'
+  title: A continuous function with vanishing moments is zero
   difficulty: medium
   category: canonical
   type: theorem-application
@@ -608,6 +623,7 @@
   - nested-intervals
   - double-inclusion
   concept: 'Cantor set = {Σ α_n/3^n : α_n ∈ {0,2}}'
+  title: The Cantor set as ternary expansions with digits 0 and 2
   difficulty: medium
   category: canonical
   type: proof
@@ -644,6 +660,7 @@
   - diagonal-argument
   - sequential-characterization
   concept: 'set of x in [0,1] with decimal digits only 4 and 7: uncountable, not dense, compact, perfect'
+  title: Decimals using only the digits 4 and 7
   difficulty: medium
   category: synthesis
   type: conceptual

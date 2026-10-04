@@ -15,6 +15,7 @@
   - telescoping
   - block-argument
   concept: 'no slowest convergent series: Σa_n < ∞ ⇒ ∃ c_n → ∞ with Σ c_n a_n < ∞'
+  title: Multiplying a convergent series by weights tending to infinity
   difficulty: hard
   category: challenge
   type: construction
@@ -50,6 +51,7 @@
   - construct-counterexample
   - AM-GM
   concept: Mertens' theorem (one series absolutely convergent suffices) and divergent Cauchy square of (-1)^n/sqrt(n+1)
+  title: Mertens' theorem and Cauchy products
   difficulty: hard
   category: challenge
   type: proof
@@ -91,6 +93,7 @@
   - logarithm-trick
   - construct-counterexample
   concept: sum a_k and prod(1+a_k) can converge/diverge independently when a_k changes sign ((-1)^k/sqrt k examples)
+  title: Infinite products versus series with sign changes
   difficulty: medium
   category: synthesis
   type: counterexample
@@ -130,6 +133,7 @@
   - subsequence-extraction
   - construct-counterexample
   concept: closed graph / compact graph vs continuity
+  title: Closed and compact graphs versus continuity
   difficulty: medium
   category: synthesis
   type: proof
@@ -169,6 +173,7 @@
   - construct-counterexample
   - case-analysis
   concept: classify (α,β) for which x^α sin(x^β) is uniformly continuous on (0,∞)
+  title: Uniform continuity of $x^\alpha\sin(x^\beta)$
   difficulty: hard
   category: challenge
   type: counterexample
@@ -203,6 +208,7 @@
   - one-sided-derivatives
   - countability-argument
   concept: convex function is differentiable except at countably many points
+  title: Convex functions are differentiable off a countable set
   difficulty: hard
   category: synthesis
   type: proof
@@ -240,6 +246,7 @@
   - choose-delta
   - cauchy-criterion
   concept: uniformly continuous f with convergent ∫_0^∞ f has f(x) → 0 (Barbalat's lemma)
+  title: Uniformly continuous with convergent integral implies $f \to 0$
   difficulty: medium
   category: synthesis
   type: proof
@@ -274,6 +281,7 @@
   - lhopital-infinity-over-infinity
   - epsilon-estimate
   concept: if f + ∫_0^x f has a finite limit then f → 0 (F' + F → L ⇒ F → L)
+  title: If $f(x) + \int_0^x f$ converges then $f \to 0$
   difficulty: hard
   category: challenge
   type: proof
@@ -308,6 +316,7 @@
   - partition-refinement
   - epsilon-argument
   concept: regulated functions (one-sided limits everywhere) are Riemann integrable
+  title: Functions with one-sided limits are Riemann integrable
   difficulty: medium
   category: synthesis
   type: proof
@@ -340,6 +349,7 @@
   - finite-dimensional-argument
   - uniform-estimate
   concept: pointwise convergence of polynomials of bounded degree on [0,1] is uniform on every bounded set
+  title: Pointwise convergence of polynomials of bounded degree
   difficulty: medium
   category: challenge
   type: proof
@@ -375,6 +385,7 @@
   - oscillation-argument
   - difference-quotient-approximation
   concept: 'Baire class 1 ⇒ continuity points are dense (the sets {osc ≥ 1/k} are closed and nowhere dense); hence every derivative is continuous on a dense set'
+  title: Continuity points of a Baire class 1 function are dense
   difficulty: very-hard
   category: challenge
   type: proof
@@ -443,6 +454,7 @@
   - bump-function-cutoff
   - induction
   concept: 'Borel''s lemma: every real sequence is the Taylor coefficient sequence of some smooth function'
+  title: Borel's lemma on Taylor coefficients
   difficulty: very-hard
   category: challenge
   type: construction
@@ -480,6 +492,7 @@
   - iterate-the-map
   - subsequence-extraction
   concept: an isometry of a compact metric space into itself is onto
+  title: Isometries of a compact metric space are onto
   difficulty: hard
   category: challenge
   type: proof
@@ -510,6 +523,7 @@
   - construct-counterexample
   - hypothesis-removal
   concept: continuous bijection A → A (A ⊂ R) that is not a homeomorphism
+  title: A continuous bijection that is not a homeomorphism
   difficulty: hard
   category: challenge
   type: construction
@@ -543,6 +557,7 @@
   - open-cover-argument
   - separation-by-open-sets
   concept: nested intersection of compact connected sets is connected; fails for closed sets and for path-connectedness
+  title: Intersections of nested connected sets
   difficulty: hard
   category: challenge
   type: proof
@@ -579,6 +594,7 @@
   - construct-counterexample
   - hypothesis-removal
   concept: 'chain-connected vs connected: equivalent for compact metric spaces'
+  title: Chain-connected versus connected metric spaces
   difficulty: medium
   category: synthesis
   type: proof
@@ -615,6 +631,7 @@
   - nested-intervals
   - contradiction
   concept: '[0,1] is not a countably infinite union of disjoint closed intervals (Sierpiński-type)'
+  title: $[0,1]$ is not a countable union of disjoint closed intervals
   difficulty: hard
   category: challenge
   type: proof
@@ -649,6 +666,7 @@
   - monotonicity-of-closure
   - case-analysis
   concept: Kuratowski closure-complement problem (chain S, cl S, (cl S)^c, ... stabilizes; at most 14 sets overall)
+  title: Kuratowski closure-complement problem
   difficulty: hard
   category: challenge
   type: construction
@@ -684,6 +702,7 @@
   - construct-counterexample
   - contradiction
   concept: weak contraction (d(fx,fy) < d(x,y)) on a compact metric space has a unique fixed point (Edelstein); |f'| < 1 on R gives only a weak contraction, possibly fixed-point-free
+  title: Weak contractions and fixed points
   difficulty: medium
   category: synthesis
   type: proof
@@ -722,6 +741,7 @@
   - contradiction
   - well-ordering
   concept: '[a,b] is not a zero set (measure zero): proof via minimal bad finite cover'
+  title: The interval $[a,b]$ is not a zero set
   difficulty: medium
   category: canonical
   type: proof
@@ -774,6 +794,7 @@
   - covering-argument
   - epsilon-argument
   concept: 'Morse–Sard theorem in dimension one: critical values of a C^1 function form a measure-zero set'
+  title: Morse–Sard theorem in dimension one
   difficulty: hard
   category: synthesis
   type: proof
@@ -814,6 +835,7 @@
   - theorem-application
   - piecewise-construction
   concept: the inverse of a Riemann integrable bijection need not be Riemann integrable
+  title: Riemann integrability of inverse bijections
   difficulty: hard
   category: challenge
   type: counterexample
@@ -852,6 +874,7 @@
   - contradiction
   - contrapositive
   concept: M is covering compact ⇔ every family of closed sets with the finite intersection property has nonempty intersection
+  title: Compactness via the finite intersection property
   difficulty: easy
   category: canonical
   type: proof

@@ -15,6 +15,7 @@
   - triangle-inequality
   - add-and-subtract
   concept: triangle inequality and reverse triangle inequality ||a|-|b|| <= |a-b|
+  title: 'Triangle inequality and reverse triangle inequality'
   difficulty: introductory
   category: canonical
   type: proof
@@ -44,6 +45,7 @@
   skills:
   - negate-definition
   concept: negating quantified statements (Archimedean / density)
+  title: 'Negating quantified statements about real numbers'
   difficulty: easy
   category: canonical
   type: definition
@@ -75,6 +77,7 @@
   - sup-definition-two-parts
   - upper-bound-argument
   concept: inf A = sup of the set of lower bounds of A (infima exist from AoC)
+  title: 'Infimum as the supremum of the lower bounds'
   difficulty: easy
   category: canonical
   type: proof
@@ -102,6 +105,7 @@
   skills:
   - sup-definition-two-parts
   concept: sup(cA) = c sup A for c >= 0; sup(cA) = c inf A for c < 0
+  title: 'Supremum of a scaled set $cA$'
   difficulty: easy
   category: canonical
   type: proof
@@ -130,6 +134,7 @@
   - sup-approximation
   - construct-counterexample
   concept: sup A < sup B implies some b in B is an upper bound for A
+  title: 'An element of $B$ bounding $A$ when $\sup A < \sup B$'
   difficulty: easy
   category: canonical
   type: proof
@@ -156,6 +161,7 @@
   - construct-counterexample
   - sup-definition-two-parts
   concept: A subset B implies sup A <= sup B; sup A < inf B vs. separating constant
+  title: 'True or false: suprema, infima and separating points'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -186,6 +192,7 @@
   - density-argument
   - sup-definition-two-parts
   concept: sup(Q ∩ [a,b]) = b (density of rationals)
+  title: 'The rationals in $[a,b]$ have supremum $b$'
   difficulty: easy
   category: canonical
   type: proof
@@ -212,6 +219,7 @@
   - construct-counterexample
   - nested-intervals
   concept: sharpness of the Nested Interval Property hypotheses
+  title: 'Disjoint sets and nested intervals: examples or impossibility'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -242,6 +250,7 @@
   - explicit-bijection
   - diagonal-enumeration
   concept: countable union of countable sets is countable
+  title: 'A countable union of countable sets is countable'
   difficulty: medium
   category: canonical
   type: proof
@@ -280,6 +289,7 @@
   - density-argument
   - injection-into-Q
   concept: any collection of disjoint open intervals is countable
+  title: 'Collections of disjoint open intervals'
   difficulty: easy
   category: canonical
   type: proof
@@ -307,6 +317,7 @@
   - countable-union-decomposition
   - pigeonhole
   concept: a set of positive reals with bounded finite sums is countable
+  title: 'Positive reals with bounded finite sums form a countable set'
   difficulty: medium
   category: synthesis
   type: proof
@@ -332,6 +343,7 @@
   skills:
   - countable-union-decomposition
   concept: algebraic numbers are countable; transcendental numbers exist (uncountably many)
+  title: 'Countability of the algebraic numbers'
   difficulty: medium
   category: canonical
   type: proof
@@ -364,6 +376,7 @@
   - quantifier-analysis
   - construct-counterexample
   concept: quantifier order in definition of limit ('vercongence' = boundedness)
+  title: 'Reversing the quantifiers in the definition of a limit'
   difficulty: introductory
   category: canonical
   type: definition
@@ -397,6 +410,7 @@
   - epsilon-N-proof
   - comparison-estimate
   concept: epsilon-N verification of specific limits
+  title: 'Verifying limits from the $\epsilon$–$N$ definition'
   difficulty: introductory
   category: canonical
   type: proof
@@ -427,6 +441,7 @@
   - triangle-inequality
   - epsilon-over-2
   concept: uniqueness of limits of sequences
+  title: 'Uniqueness of limits'
   difficulty: introductory
   category: canonical
   type: proof
@@ -456,6 +471,7 @@
   - epsilon-N-proof
   - bound-away-from-zero
   concept: x_n -> 2 implies 1/x_n -> 1/2 from the definition (bounding away from 0)
+  title: 'Limits from the definition when $x_n \to 2$'
   difficulty: easy
   category: canonical
   type: proof
@@ -490,6 +506,7 @@
   - construct-counterexample
   - theorem-citation
   concept: examples/impossibility for sums and products of divergent and convergent sequences
+  title: 'Sums and products of divergent sequences'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -522,6 +539,7 @@
   - epsilon-N-proof
   - bound-then-scale-epsilon
   concept: bounded sequence times sequence tending to 0 tends to 0
+  title: 'A bounded sequence times a sequence tending to zero'
   difficulty: easy
   category: canonical
   type: proof
@@ -556,6 +574,7 @@
   - reverse-triangle-inequality
   - epsilon-N-proof
   concept: true/false conjectures about limits (|b_n| -> |b|, lim(a_n - b_n)=0, etc.)
+  title: 'True or false: conjectures about limits'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -589,6 +608,7 @@
   - epsilon-over-2
   - construct-counterexample
   concept: 'Cesàro means: x_n -> x implies averages -> x; converse fails'
+  title: 'Cesàro means'
   difficulty: medium
   category: canonical
   type: proof
@@ -621,6 +641,7 @@
   - construct-counterexample
   - contradiction
   concept: limits preserve non-strict inequalities / closed sets but not rationality
+  title: 'Which properties of the terms pass to the limit?'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -651,6 +672,7 @@
   - epsilon-N-proof
   - interchange-of-limits
   concept: iterated limits vs double limit (m/(m+n), mn/(m^2+n^2))
+  title: 'Iterated limits versus double limits'
   difficulty: medium
   category: synthesis
   type: proof
@@ -687,6 +709,7 @@
   - induction
   - limit-of-recursion
   concept: x_{n+1} = (x_n + 2/x_n)/2 converges to sqrt 2
+  title: 'Computing square roots with a recursive sequence'
   difficulty: easy
   category: canonical
   type: proof
@@ -718,6 +741,7 @@
   - induction
   - AM-GM
   concept: 'arithmetic–geometric mean: coupled sequences converge to a common limit'
+  title: 'The arithmetic–geometric mean'
   difficulty: medium
   category: canonical
   type: proof
@@ -750,6 +774,7 @@
   - sup-definition-two-parts
   - squeeze
   concept: lim sup / lim inf exist for bounded sequences; lim exists iff lim inf = lim sup
+  title: 'Limit superior and limit inferior'
   difficulty: medium
   category: canonical
   type: proof
@@ -785,6 +810,7 @@
   - construct-counterexample
   - subsequence-extraction
   concept: true/false about subsequences (bounded divergent has two subsequential limits; monotone + convergent subsequence)
+  title: 'True or false: subsequences and convergence'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -816,6 +842,7 @@
   - bisection
   - nested-intervals
   concept: Nested Interval Property (with Archimedean property) implies Axiom of Completeness
+  title: 'The nested interval property implies the axiom of completeness'
   difficulty: medium
   category: synthesis
   type: proof
@@ -847,6 +874,7 @@
   - subsequence-extraction
   - negate-definition
   concept: bounded sequence whose convergent subsequences all share limit a converges to a
+  title: 'A bounded sequence whose convergent subsequences share a limit'
   difficulty: medium
   category: canonical
   type: proof
@@ -875,6 +903,7 @@
   - construct-counterexample
   - theorem-citation
   concept: examples/impossibility for Cauchy sequences (Cauchy ⇒ bounded; monotone + Cauchy subsequence ⇒ convergent)
+  title: 'Cauchy sequences: examples or impossibility'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -908,6 +937,7 @@
   - monotone-convergence
   - even-odd-subsequences
   concept: Alternating Series Test
+  title: 'Two proofs of the alternating series test'
   difficulty: medium
   category: canonical
   type: proof
@@ -944,6 +974,7 @@
   - construct-counterexample
   - theorem-citation
   concept: examples/impossibility for products and sums of series
+  title: 'Products and sums of series: examples or impossibility'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -976,6 +1007,7 @@
   - construct-counterexample
   - comparison-estimate
   concept: 'true/false: sum a_n abs. conv ⇒ sum a_n^2 conv; sum a_n conv and b_n conv ⇏ sum a_n b_n conv'
+  title: 'True or false: absolute and conditional convergence'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1008,6 +1040,7 @@
   - geometric-series
   - induction
   concept: Ratio Test proof
+  title: 'Proof of the ratio test'
   difficulty: easy
   category: canonical
   type: proof
@@ -1043,6 +1076,7 @@
   - telescoping
   - comparison-estimate
   concept: Dirichlet's Test (and AST as a special case)
+  title: 'Dirichlet''s test'
   difficulty: medium
   category: synthesis
   type: proof
@@ -1077,6 +1111,7 @@
   - sequential-characterization
   - contrapositive
   concept: F closed iff every Cauchy sequence in F converges to a point of F
+  title: 'Closed sets and Cauchy sequences'
   difficulty: easy
   category: canonical
   type: proof
@@ -1109,6 +1144,7 @@
   - construct-counterexample
   - density-argument
   concept: 'open/closed set true-false: open dense set need not be R; nested closed sets can have empty intersection'
+  title: 'True or false: open sets, closed sets and rationals'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1148,6 +1184,7 @@
   skills:
   - epsilon-neighborhood-argument
   concept: set of limit points is closed; closure is the smallest closed set containing A
+  title: 'The set of limit points is closed'
   difficulty: medium
   category: canonical
   type: proof
@@ -1180,6 +1217,7 @@
   - bolzano-weierstrass
   - rational-interval-injection
   concept: countable set with no isolated points (Q∩[0,1]); no set has uncountably many isolated points
+  title: 'Countable sets, limit points and isolated points'
   difficulty: medium
   category: synthesis
   type: counterexample
@@ -1214,6 +1252,7 @@
   - sup-approximation
   - contradiction
   concept: only clopen subsets of R are R and the empty set
+  title: 'Sets that are both open and closed'
   difficulty: medium
   category: canonical
   type: proof
@@ -1240,6 +1279,7 @@
   skills:
   - construct-counterexample
   concept: intersections/unions of compact sets; nested closed sets [n,∞) with empty intersection
+  title: 'True or false: unions and intersections of compact sets'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1275,6 +1315,7 @@
   - subsequence-extraction
   - induction
   concept: C + C = [0,2] for the Cantor set
+  title: 'The sum of the Cantor set with itself is $[0,2]$'
   difficulty: hard
   category: challenge
   type: proof
@@ -1312,6 +1353,7 @@
   - sup-approximation
   - construct-counterexample
   concept: distance between disjoint compact sets is positive and attained
+  title: 'Distance between disjoint compact sets'
   difficulty: medium
   category: canonical
   type: proof
@@ -1347,6 +1389,7 @@
   - open-cover-argument
   - contradiction
   concept: Heine–Borel theorem (closed bounded ⇒ open-cover compact) by bisection
+  title: 'Heine–Borel: closed bounded sets have finite subcovers'
   difficulty: medium
   category: canonical
   type: proof
@@ -1386,6 +1429,7 @@
   - nested-intervals
   - induction
   concept: 'Baire category theorem: countable intersection of dense open sets is nonempty'
+  title: 'Proof of the Baire category theorem'
   difficulty: medium
   category: challenge
   type: proof
@@ -1415,6 +1459,7 @@
   - contradiction
   - theorem-application
   concept: Q is not a G_delta set; irrationals are not F_sigma
+  title: '$\mathbb{Q}$ is not a $G_\delta$ set'
   difficulty: easy
   category: canonical
   type: theorem-application
@@ -1447,6 +1492,7 @@
   - negate-definition
   - construct-counterexample
   concept: variations of the epsilon-delta definition (onetinuous/equaltinuous/lesstinuous)
+  title: 'Variations on the $\epsilon$–$\delta$ definition of continuity'
   difficulty: easy
   category: canonical
   type: definition
@@ -1485,6 +1531,7 @@
   - construct-counterexample
   - epsilon-delta-proof
   concept: limit of composition can fail unless outer function is continuous
+  title: 'Limits of compositions of functions'
   difficulty: medium
   category: canonical
   type: counterexample
@@ -1518,6 +1565,7 @@
   skills:
   - construct-counterexample
   concept: 'examples: sums/products of discontinuous functions that are continuous'
+  title: 'Sums and products of discontinuous functions'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1556,6 +1604,7 @@
   - density-argument
   - finiteness-argument
   concept: Dirichlet function nowhere continuous; Thomae's function continuous exactly on the irrationals
+  title: 'Continuity of Dirichlet''s and Thomae''s functions'
   difficulty: medium
   category: canonical
   type: proof
@@ -1593,6 +1642,7 @@
   - triangle-inequality
   - cauchy-criterion
   concept: contraction mapping theorem on R
+  title: 'Contraction mapping theorem'
   difficulty: medium
   category: canonical
   type: proof
@@ -1633,6 +1683,7 @@
   - triangle-inequality
   - sup-approximation
   concept: distance function to a closed set is continuous and positive off the set
+  title: 'Distance to a closed set is continuous'
   difficulty: easy
   category: canonical
   type: proof
@@ -1661,6 +1712,7 @@
   - density-argument
   - sequential-characterization
   concept: additive function continuous at 0 is linear (Cauchy functional equation)
+  title: 'Additive functions continuous at 0 are linear'
   difficulty: medium
   category: synthesis
   type: proof
@@ -1693,6 +1745,7 @@
   - sequential-characterization
   - theorem-application
   concept: 1/x not UC on (0,1); x sin(1/x) UC on (0,1)
+  title: 'Uniform continuity of three functions on $(0,1)$'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1722,6 +1775,7 @@
   - construct-counterexample
   - theorem-application
   concept: continuous image of compact is compact; ranges on (0,1), (0,1]
+  title: 'Continuous images of intervals: examples or impossibility'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1754,6 +1808,7 @@
   - epsilon-delta-proof
   - construct-counterexample
   concept: sum/composition of UC functions are UC; product/quotient need not be
+  title: 'Combinations of uniformly continuous functions'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1781,6 +1836,7 @@
   - sequential-characterization
   - cauchy-criterion
   concept: 'continuous extension theorem: UC on (a,b) iff extends continuously to [a,b]'
+  title: 'Continuous extension theorem'
   difficulty: medium
   category: synthesis
   type: proof
@@ -1811,6 +1867,7 @@
   - open-cover-argument
   - choose-delta
   concept: continuous on compact ⇒ uniformly continuous (open-cover proof)
+  title: 'Uniform continuity on compact sets via open covers'
   difficulty: medium
   category: canonical
   type: proof
@@ -1841,6 +1898,7 @@
   - epsilon-delta-proof
   - contradiction
   concept: monotone function with the intermediate value property is continuous
+  title: 'Increasing functions with the intermediate value property'
   difficulty: medium
   category: canonical
   type: proof
@@ -1870,6 +1928,7 @@
   - telescoping
   - construct-counterexample
   concept: universal chord theorem (horizontal chords of length 1/n)
+  title: 'Horizontal chords of a continuous function'
   difficulty: hard
   category: challenge
   type: proof
@@ -1902,6 +1961,7 @@
   - auxiliary-function
   - theorem-application
   concept: continuous f:[0,1]→[0,1] has a fixed point
+  title: 'Continuous maps of $[0,1]$ into itself have fixed points'
   difficulty: easy
   category: canonical
   type: theorem-application
@@ -1929,6 +1989,7 @@
   - subsequence-extraction
   - sequential-characterization
   concept: inverse of a continuous one-to-one function on [a,b] is continuous
+  title: 'Continuity of the inverse of a continuous injection'
   difficulty: medium
   category: canonical
   type: proof
@@ -1958,6 +2019,7 @@
   - sup-approximation
   - epsilon-delta-proof
   concept: monotone functions have only jump discontinuities
+  title: 'Monotone functions have only jump discontinuities'
   difficulty: medium
   category: canonical
   type: proof
@@ -1990,6 +2052,7 @@
   - rational-interval-injection
   - density-argument
   concept: monotone function has at most countably many discontinuities
+  title: 'Monotone functions have countably many discontinuities'
   difficulty: medium
   category: canonical
   type: proof
@@ -2020,6 +2083,7 @@
   - epsilon-delta-proof
   - functional-limits
   concept: Carathéodory criterion for differentiability; proof of the Chain Rule
+  title: 'The chain rule via Carathéodory''s criterion'
   difficulty: medium
   category: synthesis
   type: proof
@@ -2056,6 +2120,7 @@
   - difference-quotient-estimate
   - squeeze
   concept: 'x^a sin(1/x): differentiable with unbounded / continuous-not-differentiable / discontinuous second derivative'
+  title: 'Tuning the exponent in $x^a\sin(1/x)$'
   difficulty: medium
   category: canonical
   type: counterexample
@@ -2092,6 +2157,7 @@
   - interior-extremum
   - sign-of-difference-quotient
   concept: Darboux's theorem (derivatives have the intermediate value property)
+  title: 'Darboux''s theorem'
   difficulty: medium
   category: challenge
   type: proof
@@ -2126,6 +2192,7 @@
   - functional-limits
   - composition-of-limits
   concept: 'inverse function theorem in one variable: (f^{-1})''(y) = 1/f''(x)'
+  title: 'Derivative of an inverse function'
   difficulty: medium
   category: canonical
   type: proof
@@ -2155,6 +2222,7 @@
   - MVT-application
   - LHospital-application
   concept: second symmetric derivative equals f''(a) when f'' continuous
+  title: 'Second symmetric difference quotient and $f''''(a)$'
   difficulty: medium
   category: canonical
   type: proof
@@ -2188,6 +2256,7 @@
   - convex-combination-estimate
   - construct-counterexample
   concept: 'continuous nowhere-differentiable function (sawtooth/Takagi-type series): non-dyadic points'
+  title: 'A continuous nowhere-differentiable function'
   difficulty: hard
   category: challenge
   type: proof
@@ -2224,6 +2293,7 @@
   - sup-norm-estimate
   - negate-definition
   concept: 'nx/(1+nx^2): uniform on (1,inf), not on (0,1)'
+  title: 'Uniform convergence of $nx/(1+nx^2)$'
   difficulty: easy
   category: canonical
   type: computation
@@ -2259,6 +2329,7 @@
   - epsilon-N-proof
   - limit-in-inequality
   concept: Cauchy criterion for uniform convergence
+  title: 'Cauchy criterion for uniform convergence'
   difficulty: medium
   category: canonical
   type: proof
@@ -2290,6 +2361,7 @@
   - construct-counterexample
   - epsilon-over-3
   concept: 'properties inherited under uniform (not pointwise) limits: uniform continuity, boundedness, discontinuity counts'
+  title: 'Which properties pass to pointwise and uniform limits?'
   difficulty: medium
   category: synthesis
   type: counterexample
@@ -2331,6 +2403,7 @@
   - nested-compact-sets
   - open-cover-argument
   concept: Dini's theorem
+  title: 'Dini''s theorem'
   difficulty: medium
   category: challenge
   type: proof
@@ -2363,6 +2436,7 @@
   - uniform-cauchy
   - induction
   concept: Cantor function (devil's staircase) construction
+  title: 'Constructing the Cantor function'
   difficulty: hard
   category: challenge
   type: construction
@@ -2403,6 +2477,7 @@
   - finite-net
   - uniform-cauchy
   concept: Arzelà–Ascoli theorem on [0,1]
+  title: 'Arzelà–Ascoli theorem'
   difficulty: very-hard
   category: challenge
   type: proof
@@ -2448,6 +2523,7 @@
   - construct-counterexample
   - divergence-proof
   concept: sin(nx)/sqrt(n) -> 0 uniformly, derivatives diverge everywhere
+  title: '$\sin(nx)/\sqrt{n}$ converges uniformly but derivatives diverge'
   difficulty: medium
   category: canonical
   type: counterexample
@@ -2478,6 +2554,7 @@
   - uniform-cauchy
   - triangle-inequality
   concept: f_n' uniformly convergent and f_n(x0) convergent => f_n uniformly convergent
+  title: 'Uniformly convergent derivatives and uniform convergence'
   difficulty: medium
   category: synthesis
   type: proof
@@ -2511,6 +2588,7 @@
   - uniform-cauchy
   - comparison-estimate
   concept: Weierstrass M-test proof
+  title: 'Weierstrass M-test'
   difficulty: easy
   category: canonical
   type: proof
@@ -2541,6 +2619,7 @@
   - construct-counterexample
   - uniform-cauchy
   concept: 'uniform convergence of series: term test, comparison, M-test converse fails'
+  title: 'True or false: uniform convergence of series'
   difficulty: medium
   category: synthesis
   type: counterexample
@@ -2575,6 +2654,7 @@
   - M-test
   - term-by-term-differentiation
   concept: sum sin(kx)/k^3 is C^1 by term-by-term differentiation
+  title: 'Differentiability of $\sum \sin(kx)/k^3$'
   difficulty: easy
   category: canonical
   type: theorem-application
@@ -2606,6 +2686,7 @@
   - induction
   - continuity-argument
   concept: identity theorem for power series (zeros accumulating at center)
+  title: 'A power series vanishing on a sequence tending to 0'
   difficulty: medium
   category: canonical
   type: proof
@@ -2632,6 +2713,7 @@
   - uniform-continuity
   - partition-argument
   concept: continuous functions on [a,b] are uniform limits of polygonal (piecewise linear) functions
+  title: 'Approximating continuous functions by polygonal functions'
   difficulty: medium
   category: canonical
   type: proof
@@ -2663,6 +2745,7 @@
   - squeeze
   - partition-refinement
   concept: sequential criterion for Riemann integrability; integral of x from the definition
+  title: 'Sequential criterion for integrability'
   difficulty: easy
   category: canonical
   type: proof
@@ -2698,6 +2781,7 @@
   - epsilon-over-3
   - sup-norm-estimate
   concept: uniform limit of integrable functions is integrable
+  title: 'Uniform limits of integrable functions are integrable'
   difficulty: medium
   category: canonical
   type: proof
@@ -2723,6 +2807,7 @@
   - construct-counterexample
   - theorem-recognition
   concept: pointwise limit of integrable functions need not be integrable (Dirichlet); uniform limit is
+  title: 'Integrability of limits: examples or impossibility'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2756,6 +2841,7 @@
   - partition-construction
   - construct-counterexample
   concept: integrability is unchanged by altering finitely many values; not countably many
+  title: 'Changing an integrable function at a few points'
   difficulty: easy
   category: canonical
   type: proof
@@ -2787,6 +2873,7 @@
   - compactness
   - covering-argument
   concept: discontinuity set of content zero => integrable; Cantor set indicator integrable
+  title: 'Content zero and integrability'
   difficulty: medium
   category: synthesis
   type: proof
@@ -2826,6 +2913,7 @@
   - contradiction
   - partition-construction
   concept: f>0 everywhere and integrable => ∫f > 0
+  title: 'A positive integrable function has positive integral'
   difficulty: hard
   category: challenge
   type: proof
@@ -2853,6 +2941,7 @@
   - oscillation-estimate
   - polarization-identity
   concept: product of Riemann integrable functions is integrable
+  title: 'The product of integrable functions is integrable'
   difficulty: medium
   category: canonical
   type: proof
@@ -2886,6 +2975,7 @@
   - split-the-domain
   - epsilon-delta-proof
   concept: lim ∫_0^1 g(x^n) dx = g(0) for g integrable and continuous at 0
+  title: 'The limit of $\int_0^1 g(x^n)\,dx$'
   difficulty: medium
   category: synthesis
   type: proof
@@ -2913,6 +3003,7 @@
   - construct-counterexample
   - theorem-recognition
   concept: 'FTC true/false: derivatives need not be continuous; continuous functions are derivatives; H differentiable does not force h continuous'
+  title: 'True or false: derivatives and the fundamental theorem'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2944,6 +3035,7 @@
   - theorem-application
   - chain-rule
   concept: change-of-variable (substitution) formula
+  title: 'Change-of-variable formula'
   difficulty: easy
   category: canonical
   type: proof
@@ -2975,6 +3067,7 @@
   - verify-axioms
   - construct-counterexample
   concept: 'metrics on C[0,1]: sup metric and L^1 metric are metrics; evaluation at 1 is not'
+  title: 'Which functions are metrics on $C[0,1]$?'
   difficulty: easy
   category: canonical
   type: definition
@@ -3011,6 +3104,7 @@
   - uniform-cauchy
   - construct-counterexample
   concept: C[0,1] with sup metric is complete; C^1[0,1] with sup metric is not
+  title: 'Completeness of function spaces and the discrete metric'
   difficulty: medium
   category: canonical
   type: proof
@@ -3045,6 +3139,7 @@
   - epsilon-over-2
   - triangle-inequality
   concept: every convergent sequence is Cauchy
+  title: 'Every convergent sequence is Cauchy'
   difficulty: introductory
   category: canonical
   type: proof
@@ -3077,6 +3172,7 @@
   - comparison-estimate
   - bounded-sequence
   concept: term-by-term differentiated power series converges on (-R,R)
+  title: 'Differentiating power series term by term'
   difficulty: medium
   category: canonical
   type: proof
@@ -3108,6 +3204,7 @@
   - geometric-series-estimate
   - covering-argument
   concept: countable sets have measure zero
+  title: 'Countable sets have measure zero'
   difficulty: easy
   category: canonical
   type: proof
@@ -3138,6 +3235,7 @@
   - negate-definition
   - sequential-characterization
   concept: sequential characterization of connected sets
+  title: 'Sequential characterization of connected sets'
   difficulty: easy
   category: canonical
   type: proof
@@ -3170,6 +3268,7 @@
   - epsilon-delta-proof
   - write-definition
   concept: limit exists iff both one-sided limits exist and agree
+  title: 'Right-hand and left-hand limits'
   difficulty: easy
   category: canonical
   type: proof

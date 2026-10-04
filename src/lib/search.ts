@@ -43,7 +43,7 @@ function toDoc(p: Problem): Doc {
     text: latexToPlain(p.problemLatex),
     meta: [
       s?.name, s?.author, s?.title, p.source.chapter, p.source.section, ...(p.assignedIn ?? []),
-      topicLabel(p.topic), ...p.subtopics.map((x) => subtopicLabel(p.topic, x)), p.concept,
+      topicLabel(p.topic), ...p.subtopics.map((x) => subtopicLabel(p.topic, x)), p.concept, p.title && latexToPlain(p.title),
       p.difficulty, p.category, humanize(p.type),
     ].filter(Boolean).join(' '),
     tags: [...p.tags, ...p.skills, ...p.subtopics].map(humanize).join(' '),

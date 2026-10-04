@@ -14,6 +14,7 @@
   - triangle-inequality
   - contradiction
   concept: proving a sequence does not converge
+  title: Showing oscillating sequences diverge
   difficulty: easy
   category: canonical
   type: proof
@@ -57,6 +58,7 @@
   skills:
   - construct-counterexample
   concept: monotone convergence theorem and Cauchy criterion fail in Q
+  title: Why monotone convergence and the Cauchy criterion fail in $\mathbb{Q}$
   difficulty: easy
   category: canonical
   type: conceptual
@@ -87,6 +89,7 @@
   - triangle-inequality
   - construct-counterexample
   concept: '|s_{n+1}-s_n| < 2^{-n} ⇒ Cauchy; 1/n increments not sufficient'
+  title: Sequences with small successive differences
   difficulty: easy
   category: canonical
   type: proof
@@ -116,6 +119,7 @@
   skills:
   - sequential-characterization
   concept: set of subsequential limits is closed; (0,1) cannot be such a set
+  title: Can $(0,1)$ be a set of subsequential limits?
   difficulty: easy
   category: synthesis
   type: conceptual
@@ -153,6 +157,7 @@
   - tail-sup
   - two-inequalities
   concept: 'liminf s_n = sup{a : s_n ≥ a eventually}, limsup = inf{b : s_n ≤ b eventually}'
+  title: $\liminf$ and $\limsup$ via eventual bounds
   difficulty: medium
   category: canonical
   type: proof
@@ -186,6 +191,7 @@
   - maximal-interval
   - countability-via-rationals
   concept: every open set in R is a countable disjoint union of open intervals
+  title: Open sets in $\mathbb{R}$ as disjoint unions of open intervals
   difficulty: hard
   category: challenge
   type: proof
@@ -223,6 +229,7 @@
   - construct-counterexample
   - limsup-computation
   concept: root test decides where ratio test is inconclusive
+  title: A series the ratio test cannot decide but the root test can
   difficulty: easy
   category: canonical
   type: construction
@@ -252,6 +259,7 @@
   - comparison-estimate
   - induction
   concept: liminf |a_n| = 0 ⇒ some subseries converges
+  title: A convergent subseries when $\liminf |a_n| = 0$
   difficulty: easy
   category: synthesis
   type: construction
@@ -278,6 +286,7 @@
   - integral-test
   - substitution
   concept: sum 1/(n (log n)^p) converges iff p > 1
+  title: Convergence of $\sum 1/(n(\log n)^p)$
   difficulty: easy
   category: canonical
   type: proof
@@ -309,6 +318,7 @@
   skills:
   - diagonal-argument
   concept: (0,1) is uncountable (diagonal argument)
+  title: Cantor's diagonal argument for $(0,1)$
   difficulty: medium
   category: canonical
   type: proof
@@ -336,6 +346,7 @@
   - choose-delta
   - triangle-inequality
   concept: epsilon-delta continuity proofs (x^2, sqrt x at 0, x sin(1/x) at 0, x^3)
+  title: Epsilon–delta continuity proofs for four functions
   difficulty: easy
   category: canonical
   type: proof
@@ -375,6 +386,7 @@
   skills:
   - construct-counterexample
   concept: non-closed set admits unbounded continuous function (1/|x - x0|)
+  title: Unbounded continuous functions on non-closed sets
   difficulty: easy
   category: canonical
   type: construction
@@ -404,6 +416,7 @@
   - construct-counterexample
   - IVT-application
   concept: 'sin(1/x): intermediate value property but discontinuous'
+  title: Intermediate value property of $\sin(1/x)$
   difficulty: easy
   category: canonical
   type: counterexample
@@ -434,6 +447,7 @@
   - theorem-recognition
   - sequential-characterization
   concept: classifying uniform continuity of x^3, 1/x^3, sin(1/x^2), x^2 sin(1/x) on various sets
+  title: Which functions are uniformly continuous?
   difficulty: medium
   category: canonical
   type: conceptual
@@ -473,6 +487,7 @@
   - epsilon-delta-proof
   - choose-delta
   concept: direct epsilon-delta proofs of uniform continuity (linear, x^2 on bounded interval, 1/x away from 0)
+  title: Direct epsilon–delta proofs of uniform continuity
   difficulty: introductory
   category: canonical
   type: proof
@@ -503,6 +518,7 @@
   - contradiction
   - subsequence-extraction
   concept: uniformly continuous on a bounded set implies bounded
+  title: Uniform continuity on bounded sets implies boundedness
   difficulty: easy
   category: canonical
   type: proof
@@ -532,6 +548,7 @@
   - construct-counterexample
   - case-analysis
   concept: E compact iff every continuous function on E is bounded / attains its max
+  title: Continuous functions on noncompact sets
   difficulty: medium
   category: canonical
   type: construction
@@ -570,6 +587,7 @@
   - sequential-characterization
   - contradiction
   concept: topologist's sine curve is connected but not path-connected
+  title: The topologist's sine curve is connected but not path-connected
   difficulty: hard
   category: challenge
   type: counterexample
@@ -603,6 +621,7 @@
   - subsequence-extraction
   - epsilon-N-proof
   concept: s_{n+1} - s_n -> 0 implies set of subsequential limits is an interval [liminf, limsup]
+  title: Subsequential limits form an interval when $s_{n+1} - s_n \to 0$
   difficulty: medium
   category: challenge
   type: proof
@@ -632,6 +651,7 @@
   - ratio-limit-lemma
   - construct-counterexample
   concept: n x^n -> 0 pointwise on [0,1) but integrals -> 1 (limit/integral interchange fails)
+  title: Limits of integrals of $nx^n$ on $[0,1]$
   difficulty: easy
   category: canonical
   type: counterexample
@@ -672,6 +692,7 @@
   - sup-norm-estimate
   - calculus-maximization
   concept: 'n x^n (1-x): not uniformly convergent, yet integrals converge (uniform convergence sufficient, not necessary)'
+  title: Uniform convergence and integrals of $nx^n(1-x)$
   difficulty: medium
   category: synthesis
   type: counterexample
@@ -716,6 +737,7 @@
   - sup-approximation
   - definition-unpacking
   concept: f_n -> f uniformly on S iff sup_S |f - f_n| -> 0
+  title: Uniform convergence via the supremum of $|f - f_n|$
   difficulty: easy
   category: canonical
   type: definition
@@ -747,6 +769,7 @@
   - epsilon-over-3
   - triangle-inequality
   concept: uniform limit of uniformly continuous functions is uniformly continuous
+  title: Uniform limits of uniformly continuous functions
   difficulty: easy
   category: canonical
   type: proof
@@ -777,6 +800,7 @@
   - triangle-inequality
   - sequential-continuity
   concept: f_n -> f uniformly with f_n continuous and x_n -> x implies f_n(x_n) -> f(x)
+  title: Uniform convergence and $f_n(x_n) \to f(x)$
   difficulty: easy
   category: canonical
   type: proof
@@ -810,6 +834,7 @@
   - contradiction
   - structural-property
   concept: '|x| is not represented by a power series on R'
+  title: Can $|x|$ be a power series on $\mathbb{R}$?
   difficulty: easy
   category: canonical
   type: conceptual
@@ -845,6 +870,7 @@
   - abel-theorem
   - alternating-series-test
   concept: arctan series and Leibniz formula pi/4 = 1 - 1/3 + 1/5 - ... via Abel's theorem
+  title: Power series for $\arctan$ and a formula for $\pi$
   difficulty: medium
   category: synthesis
   type: theorem-application
@@ -880,6 +906,7 @@
   - growth-comparison
   - contradiction
   concept: sin x and e^x are not uniform limits of polynomials on R
+  title: No polynomials converge uniformly to $\sin x$ or $e^x$ on $\mathbb{R}$
   difficulty: medium
   category: canonical
   type: counterexample
@@ -922,6 +949,7 @@
   - squeeze
   - sequential-criterion
   concept: 'x^2 sin(1/x): differentiable everywhere, f'' discontinuous at 0'
+  title: Differentiability of $x^2\sin(1/x)$ and continuity of $f'$
   difficulty: easy
   category: canonical
   type: counterexample
@@ -960,6 +988,7 @@
   - auxiliary-function
   - MVT-application
   concept: Rolle with auxiliary function h = f e^g gives f' + f g' = 0 somewhere
+  title: Showing $f' + fg' = 0$ via Rolle's theorem
   difficulty: easy
   category: canonical
   type: theorem-application
@@ -987,6 +1016,7 @@
   - construct-counterexample
   - sequential-criterion
   concept: f'(0) > 0 but f not increasing on any neighborhood of 0 (x^2 sin(1/x) + x/2)
+  title: Positive derivative at a point without local increase
   difficulty: medium
   category: canonical
   type: counterexample
@@ -1022,6 +1052,7 @@
   - auxiliary-function
   - lhopital-infinity-over-infinity
   concept: f + f' -> L implies f -> L and f' -> 0
+  title: If $f + f' \to L$ then $f \to L$
   difficulty: medium
   category: challenge
   type: theorem-application
@@ -1048,6 +1079,7 @@
   - construction-from-building-blocks
   - composition
   concept: smooth bump functions and smooth step functions from e^{-1/x}
+  title: Smooth bump and step functions
   difficulty: easy
   category: canonical
   type: construction
@@ -1085,6 +1117,7 @@
   - induction
   - composition-with-known-example
   concept: 'e^{-1/x^2}: C-infinity, all derivatives 0 at 0, Taylor series agrees only at 0'
+  title: Taylor series of $e^{-1/x^2}$ at 0
   difficulty: medium
   category: canonical
   type: counterexample
@@ -1126,6 +1159,7 @@
   - density-argument
   - darboux-sum-computation
   concept: f(x)=x on Q, 0 off Q is not Riemann integrable on [0,b] (U = b^2/2, L = 0)
+  title: Integrability of $x$ on rationals and $0$ on irrationals
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1158,6 +1192,7 @@
   - construct-counterexample
   - darboux-sum-computation
   concept: f not Riemann integrable but |f| integrable (e.g. 1 on Q, -1 off Q)
+  title: A non-integrable $f$ with $|f|$ integrable
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1186,6 +1221,7 @@
   skills:
   - test-function-choice
   concept: if integral of f g = 0 for all continuous g then f = 0
+  title: If $\int fg = 0$ for every continuous $g$ then $f = 0$
   difficulty: easy
   category: canonical
   type: proof
@@ -1212,6 +1248,7 @@
   - limit-of-integrals
   - antiderivative
   concept: 'p-integrals: integral of x^{-p} on (0,1] finite iff p<1; on (0,infinity) always infinite'
+  title: Improper integrals of $x^{-p}$
   difficulty: easy
   category: canonical
   type: computation
@@ -1247,6 +1284,7 @@
   - comparison-estimate
   - cauchy-criterion
   concept: absolutely convergent improper integral converges
+  title: Absolutely convergent improper integrals converge
   difficulty: medium
   category: canonical
   type: proof
@@ -1276,6 +1314,7 @@
   - darboux-sum-estimate
   - partition-estimate
   concept: uniform limit of Riemann integrable functions is integrable and integral of limit = limit of integrals
+  title: Uniform limits of integrable functions are integrable
   difficulty: medium
   category: canonical
   type: proof

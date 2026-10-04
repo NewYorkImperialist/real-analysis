@@ -14,6 +14,7 @@
   subtopics: [cardinality, functions]
   skills: [construct-bijection, injectivity-surjectivity, unique-factorization]
   concept: "Q is countable (explicit bijection via prime factorizations)"
+  title: Countability of the positive rationals via prime factorizations
   difficulty: medium
   category: canonical
   type: proof
@@ -54,6 +55,7 @@
   subtopics: [completeness, supremum-infimum]
   skills: [sup-approximation, contradiction, algebraic-estimate]
   concept: "existence of roots via the least upper bound property"
+  title: Existence of $\sqrt[3]{2}$ via the least upper bound property
   difficulty: medium
   category: canonical
   type: proof
@@ -81,6 +83,7 @@
   subtopics: [density-of-Q, archimedean-property]
   skills: [use-density-of-Q, shift-by-irrational]
   concept: "density of the irrationals"
+  title: The irrationals are dense in $\mathbb{R}$
   difficulty: easy
   category: canonical
   type: proof
@@ -101,6 +104,7 @@
   subtopics: [cardinality]
   skills: [construct-bijection, decimal-expansions]
   concept: "uncountable sets via a bijection with the power set of N"
+  title: Cardinality of decimals using only the digits 1 and 2
   difficulty: medium
   category: canonical
   type: proof
@@ -124,6 +128,7 @@
   subtopics: [cardinality]
   skills: [construct-bijection, contradiction]
   concept: "irrationals are uncountable"
+  title: The irrationals are uncountable
   difficulty: easy
   category: canonical
   type: proof
@@ -146,6 +151,7 @@
   subtopics: [supremum-infimum]
   skills: [sup-approximation, negate-definition, epsilon-argument]
   concept: "ε-characterization of the supremum"
+  title: An $\varepsilon$-characterization of the supremum
   difficulty: introductory
   category: canonical
   type: definition
@@ -166,6 +172,7 @@
   subtopics: [open-sets]
   skills: [choose-epsilon, unions-intersections, counterexample-via-density]
   concept: "open sets in R: intervals, unions, finite intersections; Q is not open"
+  title: Open sets in $\mathbb{R}$, their unions and intersections
   difficulty: introductory
   category: canonical
   type: definition
@@ -200,6 +207,7 @@
   subtopics: [convergence]
   skills: [epsilon-N-proof, Archimedean-property, crude-bound]
   concept: "ε–N proof of a limit"
+  title: $\varepsilon$–$N$ proof that $1/(20n^2+20n+2020)\to 0$
   difficulty: introductory
   category: canonical
   type: proof
@@ -221,6 +229,7 @@
   subtopics: [closed-sets]
   skills: [complement-argument, counterexample-via-density]
   concept: "closed sets in R: [a,b], Z closed; Q not closed"
+  title: 'Closed sets in $\mathbb{R}$: intervals, integers, rationals'
   difficulty: introductory
   category: canonical
   type: definition
@@ -248,6 +257,7 @@
   subtopics: [closed-sets]
   skills: [de-morgan, complement-argument]
   concept: "arbitrary intersections / finite unions of closed sets are closed"
+  title: Intersections and finite unions of closed sets are closed
   difficulty: introductory
   category: canonical
   type: proof
@@ -272,6 +282,7 @@
   subtopics: [closed-sets]
   skills: [contradiction, epsilon-ball-argument, sequential-characterization]
   concept: "closed sets contain the limits of their convergent sequences"
+  title: Closed sets contain the limits of their sequences
   difficulty: easy
   category: canonical
   type: proof
@@ -294,6 +305,7 @@
   subtopics: [supremum-infimum]
   skills: [sup-approximation, sequential-characterization]
   concept: "sequential characterization of the supremum"
+  title: Sequential characterization of the supremum
   difficulty: easy
   category: canonical
   type: proof
@@ -318,6 +330,7 @@
   subtopics: [limit-points, closed-sets]
   skills: [sequential-characterization, epsilon-ball-argument, triangle-inequality]
   concept: "cluster points: sequential characterization; the derived set is closed"
+  title: Cluster points via sequences, and the derived set is closed
   difficulty: medium
   category: canonical
   type: proof
@@ -347,6 +360,7 @@
   subtopics: [limsup-liminf]
   skills: [limsup-characterization, squeeze]
   concept: "x_n → 0 iff limsup |x_n| = 0"
+  title: $x_n \to 0$ if and only if $\limsup |x_n| = 0$
   difficulty: easy
   category: canonical
   type: proof
@@ -370,6 +384,7 @@
   subtopics: [limsup-liminf]
   skills: [limsup-characterization]
   concept: "a sequence converges iff liminf = limsup"
+  title: Is there a sequence with $\liminf -1$, limit 0 and $\limsup 1$?
   difficulty: introductory
   category: canonical
   type: conceptual
@@ -392,6 +407,7 @@
   subtopics: [power-series, convergence-tests]
   skills: [ratio-test, root-test, endpoint-analysis]
   concept: "interval of convergence of power series"
+  title: Intervals of convergence of four power series
   difficulty: easy
   category: canonical
   type: computation
@@ -420,6 +436,7 @@
   subtopics: [absolute-convergence, comparison]
   skills: [AM-GM-estimate, comparison-test, partial-sums, limit-of-inequality]
   concept: "Cauchy–Schwarz inequality for series (ℓ²)"
+  title: Cauchy–Schwarz inequality for series
   difficulty: medium
   category: synthesis
   type: proof
@@ -441,6 +458,7 @@
   subtopics: [limit-points, dense-sets]
   skills: [density-argument]
   concept: "every real is a cluster point of the irrationals"
+  title: Every real number is a cluster point of the irrationals
   difficulty: introductory
   category: canonical
   type: proof
@@ -461,6 +479,7 @@
   subtopics: [functional-limits]
   skills: [epsilon-delta-proof, choose-epsilon]
   concept: "local boundedness and sign-preservation of functional limits"
+  title: Local boundedness and sign of functional limits
   difficulty: easy
   category: canonical
   type: proof
@@ -485,6 +504,7 @@
   subtopics: [epsilon-delta-continuity, discontinuities, sequential-continuity]
   skills: [epsilon-delta-proof, sequential-criterion-for-discontinuity, density-argument]
   concept: "Dirichlet-type function continuous at exactly one point"
+  title: Continuity of a Dirichlet-type function at 0 and 1
   difficulty: easy
   category: canonical
   type: proof
@@ -507,6 +527,7 @@
   subtopics: [continuity-and-topology]
   skills: [epsilon-delta-proof, preimage-manipulation]
   concept: "topological characterization of continuity (preimages of open sets)"
+  title: Continuity via preimages of open sets
   difficulty: easy
   category: canonical
   type: proof
@@ -529,6 +550,7 @@
   subtopics: [uniform-continuity, lipschitz-holder]
   skills: [choose-delta]
   concept: "Lipschitz implies uniformly continuous"
+  title: Lipschitz functions are uniformly continuous
   difficulty: introductory
   category: canonical
   type: proof
@@ -551,6 +573,7 @@
   subtopics: [lipschitz-holder, uniform-continuity]
   skills: [MVT-application, Heine-Cantor, negate-definition]
   concept: "uniformly continuous but not Lipschitz (cube root)"
+  title: 'Lipschitz versus uniform continuity: $\cos x$ and $x^{1/3}$'
   difficulty: easy
   category: canonical
   type: counterexample
@@ -573,6 +596,7 @@
   subtopics: [limits-at-infinity]
   skills: [epsilon-M-proof, sequential-criterion-for-divergence]
   concept: "limits at infinity: proof and non-existence"
+  title: Limits at infinity of $x^2/(x^2+1)$ and $\sin x$
   difficulty: introductory
   category: canonical
   type: definition
@@ -602,6 +626,7 @@
   subtopics: [derivative-definition, mvt-applications]
   skills: [choose-delta, difference-quotient-estimate]
   concept: "Hölder condition with exponent > 1 forces constant"
+  title: Hölder conditions, and exponents above 1 force constancy
   difficulty: easy
   category: canonical
   type: proof
@@ -627,6 +652,7 @@
   subtopics: [mvt-applications]
   skills: [MVT-application, derivative-from-definition]
   concept: "differentiable f is Lipschitz iff f' is bounded"
+  title: 'A differentiable function is Lipschitz iff $f''$ is bounded'
   difficulty: easy
   category: canonical
   type: proof
@@ -647,6 +673,7 @@
   subtopics: [rolle-mvt]
   skills: [IVT-application, Rolle-application, monotonicity-via-derivative]
   concept: "existence and uniqueness of a root via IVT + Rolle/monotonicity"
+  title: A polynomial equation with exactly one real root
   difficulty: easy
   category: synthesis
   type: theorem-application
@@ -667,6 +694,7 @@
   subtopics: [taylor]
   skills: [compute-derivatives]
   concept: "computing Taylor polynomials"
+  title: Fourth Taylor polynomials of $\sin x$ and $1/(1-x)$
   difficulty: introductory
   category: canonical
   type: computation
@@ -691,6 +719,7 @@
   subtopics: [taylor]
   skills: [taylor-remainder-estimate]
   concept: "limits via Taylor's theorem"
+  title: 'Computing limits with Taylor''s theorem'
   difficulty: easy
   category: canonical
   type: computation
@@ -717,6 +746,7 @@
   subtopics: [taylor, local-extrema]
   skills: [taylor-remainder-sign, continuity-sign-preservation]
   concept: "third-derivative test via Taylor's theorem"
+  title: A third-derivative test for local extrema
   difficulty: medium
   category: canonical
   type: proof
@@ -738,6 +768,7 @@
   subtopics: [partitions-darboux-sums]
   skills: [riemann-sum-computation, telescoping]
   concept: "Riemann sums of a linear function without the FTC"
+  title: Riemann sums of a linear function without the FTC
   difficulty: easy
   category: canonical
   type: computation
@@ -767,6 +798,7 @@
   subtopics: [integral-properties]
   skills: [continuity-sign-preservation, integration-by-parts, contradiction]
   concept: "nonnegative continuous function with zero integral vanishes; energy uniqueness argument"
+  title: 'Vanishing integrals and uniqueness for $-u''''+Vu=0$'
   difficulty: medium
   category: synthesis
   type: proof
@@ -793,6 +825,7 @@
   subtopics: [functions, sets]
   skills: [element-chasing]
   concept: "preimages commute with intersections"
+  title: Preimages commute with intersections
   difficulty: introductory
   category: canonical
   type: proof
@@ -813,6 +846,7 @@
   subtopics: [cardinality]
   skills: [contradiction, construct-counterexample]
   concept: "complements of countable / uncountable subsets of R"
+  title: Complements of countable and uncountable subsets of $\mathbb{R}$
   difficulty: introductory
   category: canonical
   type: conceptual
@@ -834,6 +868,7 @@
   subtopics: [open-sets, closed-sets]
   skills: [negate-definition, sequential-characterization, contradiction]
   concept: "sequentially closed implies closed (negating openness)"
+  title: Sequentially closed sets are closed
   difficulty: easy
   category: canonical
   type: proof
@@ -862,6 +897,7 @@
   subtopics: [convergence]
   skills: [epsilon-N-proof, crude-bound]
   concept: "ε–N proof of a rational-function limit"
+  title: $\varepsilon$–$N$ proof that $10n^2/(n^2+16n+1)\to 10$
   difficulty: introductory
   category: canonical
   type: proof
@@ -882,6 +918,7 @@
   subtopics: [monotone-sequences, subsequences]
   skills: [construct-counterexample]
   concept: "examples: convergent non-monotone; unbounded with convergent subsequence"
+  title: Examples of non-monotone and unbounded sequences
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -905,6 +942,7 @@
   subtopics: [limsup-liminf, bounded-sequences]
   skills: [tail-sup-argument, limit-of-inequality]
   concept: "subadditivity of limsup"
+  title: Subadditivity of $\limsup$
   difficulty: easy
   category: canonical
   type: proof
@@ -929,6 +967,7 @@
   subtopics: [limit-points]
   skills: [construct-sequence, decimal-expansions]
   concept: "cluster point of a digit-restricted set"
+  title: $0.111\ldots$ is a cluster point of a digit-restricted set
   difficulty: easy
   category: canonical
   type: proof
@@ -950,6 +989,7 @@
   subtopics: [comparison]
   skills: [comparison-test, epsilon-argument]
   concept: "limit comparison test"
+  title: The limit comparison test
   difficulty: easy
   category: canonical
   type: proof
@@ -971,6 +1011,7 @@
   subtopics: [power-series, absolute-convergence, conditional-convergence]
   skills: [ratio-test, endpoint-analysis]
   concept: "convergence vs absolute convergence of power series"
+  title: Convergence and absolute convergence of two power series
   difficulty: easy
   category: canonical
   type: computation
@@ -997,6 +1038,7 @@
   subtopics: [logic-quantifiers]
   skills: [negate-definition]
   concept: "negating continuity, uniform continuity, uniform convergence"
+  title: Negating continuity, uniform continuity and uniform convergence
   difficulty: introductory
   category: canonical
   type: definition
@@ -1022,6 +1064,7 @@
   subtopics: [EVT, IVT]
   skills: [construct-counterexample]
   concept: "EVT needs compactness; IVT needs continuity"
+  title: Why the extreme and intermediate value theorems need hypotheses
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -1045,6 +1088,7 @@
   subtopics: [epsilon-delta-continuity]
   skills: [epsilon-delta-proof, add-and-subtract, local-boundedness]
   concept: "product of continuous functions is continuous (ε–δ)"
+  title: The product of continuous functions is continuous
   difficulty: easy
   category: canonical
   type: proof
@@ -1064,6 +1108,7 @@
   subtopics: [sequential-compactness, compactness]
   skills: [Bolzano-Weierstrass, closed-sets-contain-limits, subsequence-extraction, continuity-sequential]
   concept: "[a,b] is (sequentially) compact; continuous image of [a,b] is compact"
+  title: Compactness of $[a,b]$ and of its continuous images
   difficulty: easy
   category: canonical
   type: proof
@@ -1089,6 +1134,7 @@
   subtopics: [differentiability]
   skills: [difference-quotient-estimate, construct-counterexample]
   concept: "differentiable ⇒ continuous; converse false"
+  title: Differentiable implies continuous, but not conversely
   difficulty: introductory
   category: canonical
   type: proof
@@ -1110,6 +1156,7 @@
   subtopics: [derivative-definition]
   skills: [difference-quotient-estimate, squeeze]
   concept: "x² sin(1/x) is differentiable at 0"
+  title: Differentiability of $x^2\sin(1/x)$ at 0
   difficulty: introductory
   category: canonical
   type: proof
@@ -1131,6 +1178,7 @@
   subtopics: [taylor]
   skills: [taylor-remainder-estimate]
   concept: "Taylor remainder estimate for e^x"
+  title: Taylor remainder estimate for $e^x$
   difficulty: easy
   category: canonical
   type: theorem-application
@@ -1151,6 +1199,7 @@
   subtopics: [fundamental-theorem]
   skills: [integration-by-parts, FTC]
   concept: "Taylor's theorem with integral remainder (first order)"
+  title: 'Taylor''s theorem with integral remainder'
   difficulty: easy
   category: synthesis
   type: proof
@@ -1172,6 +1221,7 @@
   subtopics: [improper-integrals]
   skills: [FTC, integration-by-parts, lhopital]
   concept: "improper integral ∫₀¹ x log x as a limit"
+  title: The improper integral $\int_0^1 x\log x\,dx$
   difficulty: easy
   category: canonical
   type: computation
@@ -1193,6 +1243,7 @@
   subtopics: [integral-inequalities]
   skills: [integral-estimate, squeeze]
   concept: "lim ∫₀¹ xⁿ sin x dx = 0 by direct estimate"
+  title: $\int_0^1 x^n \sin x\,dx$ tends to 0
   difficulty: introductory
   category: canonical
   type: proof
@@ -1213,6 +1264,7 @@
   subtopics: [integral-inequalities, fundamental-theorem]
   skills: [integration-by-parts, EVT-bound]
   concept: "Riemann–Lebesgue lemma for C¹ functions"
+  title: Riemann–Lebesgue lemma for $C^1$ functions
   difficulty: easy
   category: synthesis
   type: proof
@@ -1234,6 +1286,7 @@
   subtopics: [pointwise-convergence, uniform-convergence]
   skills: [construct-counterexample]
   concept: "pointwise but not uniform convergence to a continuous limit"
+  title: Pointwise but not uniform convergence to a continuous limit
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -1253,6 +1306,7 @@
   subtopics: [uniform-convergence]
   skills: [MVT-application, sup-norm-estimate]
   concept: "bounded derivative ⇒ Lipschitz ⇒ translates converge uniformly"
+  title: Lipschitz bounds and uniform convergence of translates
   difficulty: easy
   category: synthesis
   type: proof

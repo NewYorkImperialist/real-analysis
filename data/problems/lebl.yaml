@@ -16,6 +16,7 @@
   - double-inclusion
   - element-chasing
   concept: distributive laws for union and intersection
+  title: Distributive laws for union and intersection
   difficulty: introductory
   category: canonical
   type: proof
@@ -44,6 +45,7 @@
   - unwind-definition
   - construct-counterexample
   concept: g∘f injective ⇒ f injective; g∘f surjective ⇒ g surjective
+  title: Injectivity and surjectivity of a composition
   difficulty: introductory
   category: canonical
   type: proof
@@ -74,6 +76,7 @@
   skills:
   - induction
   concept: n < 2^n by induction
+  title: '$n < 2^n$ by induction'
   difficulty: introductory
   category: canonical
   type: proof
@@ -104,6 +107,7 @@
   - induction
   - bijection-counting
   concept: '|P(A)| = 2^n for |A| = n'
+  title: The power set of an $n$-element set has $2^n$ elements
   difficulty: easy
   category: canonical
   type: proof
@@ -131,6 +135,7 @@
   skills:
   - induction
   concept: 6 divides n^3 + 5n by induction
+  title: '$n^3 + 5n$ is divisible by 6'
   difficulty: introductory
   category: canonical
   type: proof
@@ -158,6 +163,7 @@
   skills:
   - construct-counterexample
   concept: countable union of finite sets can be infinite
+  title: A countable union of finite sets that is infinite
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -185,6 +191,7 @@
   - element-chasing
   - double-inclusion
   concept: preimage preserves arbitrary unions/intersections; image preserves unions, only ⊂ for intersections
+  title: Images and preimages of unions and intersections
   difficulty: easy
   category: canonical
   type: proof
@@ -216,6 +223,7 @@
   skills:
   - axiomatic-derivation
   concept: in an ordered field, x < 0 and y < z imply xy > xz
+  title: Multiplying an inequality by a negative element
   difficulty: introductory
   category: canonical
   type: proof
@@ -243,6 +251,7 @@
   skills:
   - induction
   concept: nonempty finite subset of an ordered set has max and min
+  title: Finite subsets of an ordered set have a max and min
   difficulty: easy
   category: canonical
   type: proof
@@ -271,6 +280,7 @@
   skills:
   - unwind-definition
   concept: an upper bound that belongs to the set is its supremum
+  title: An upper bound that lies in the set is its supremum
   difficulty: introductory
   category: canonical
   type: definition
@@ -299,6 +309,7 @@
   - sup-approximation
   - recursive-construction
   concept: if sup A is not in A, A contains a strictly increasing sequence (countably infinite subset)
+  title: A set not containing its supremum has a countably infinite subset
   difficulty: easy
   category: canonical
   type: proof
@@ -326,6 +337,7 @@
   - construct-counterexample
   - unwind-definition
   concept: ordered set without the least-upper-bound property
+  title: An ordered set without the least-upper-bound property
   difficulty: easy
   category: canonical
   type: counterexample
@@ -356,6 +368,7 @@
   - algebraic-manipulation
   - squares-nonnegative
   concept: AM-GM inequality for two numbers
+  title: The AM-GM inequality for two numbers
   difficulty: introductory
   category: canonical
   type: proof
@@ -385,6 +398,7 @@
   - sup-approximation
   - epsilon-argument
   concept: sup(A + B) = sup A + sup B
+  title: Supremum and infimum of the sum set $A + B$
   difficulty: easy
   category: canonical
   type: proof
@@ -412,6 +426,7 @@
   skills:
   - induction
   concept: Bernoulli's inequality
+  title: Bernoulli's inequality
   difficulty: easy
   category: canonical
   type: proof
@@ -437,6 +452,7 @@
   - unwind-definition
   - construct-counterexample
   concept: f(x) ≤ g(y) for all x,y ⇒ sup f ≤ inf g; pointwise f ≤ g is not enough
+  title: Comparing the supremum of $f$ with the infimum of $g$
   difficulty: easy
   category: canonical
   type: counterexample
@@ -468,6 +484,7 @@
   - sup-bound-argument
   - construct-counterexample
   concept: sup(f+g) ≤ sup f + sup g, with strict inequality possible
+  title: Supremum and infimum of a sum of functions
   difficulty: easy
   category: canonical
   type: proof
@@ -497,6 +514,7 @@
   - explicit-bijection
   - hilbert-hotel-shift
   concept: explicit bijection [0,1] → (0,1)
+  title: An explicit bijection from $[0,1]$ to $(0,1)$
   difficulty: medium
   category: canonical
   type: construction
@@ -524,6 +542,7 @@
   - density-argument
   - recursive-construction
   concept: a sequence whose subsequential limits are all of R (enumeration of Q)
+  title: A sequence with every real number as a subsequential limit
   difficulty: medium
   category: challenge
   type: construction
@@ -552,6 +571,7 @@
   - subsequence-argument
   - epsilon-N-proof
   concept: x_{2n}, x_{2n-1}, x_{3n} convergent ⇒ x_n convergent
+  title: Convergence from the subsequences $x_{2n}$, $x_{2n-1}$ and $x_{3n}$
   difficulty: easy
   category: canonical
   type: proof
@@ -578,6 +598,7 @@
   - induction
   - theorem-application
   concept: lim x_n^k = (lim x_n)^k
+  title: Limit of the $k$th power of a convergent sequence
   difficulty: introductory
   category: canonical
   type: proof
@@ -608,6 +629,7 @@
   skills:
   - squeeze
   concept: 'squeeze lemma: (n − cos n)/n → 1'
+  title: Squeeze lemma for $(n - \cos n)/n$
   difficulty: introductory
   category: canonical
   type: theorem-application
@@ -635,6 +657,7 @@
   - geometric-domination
   - epsilon-N-proof
   concept: '|x_{n+1} − x|/|x_n − x| → L < 1 ⇒ x_n → x'
+  title: A ratio condition that forces convergence to $x$
   difficulty: easy
   category: canonical
   type: proof
@@ -665,6 +688,7 @@
   - compute-tail-sup
   - subsequence-extraction
   concept: computing limsup and liminf of simple oscillating sequences
+  title: Computing $\limsup$ and $\liminf$ of oscillating sequences
   difficulty: introductory
   category: canonical
   type: computation
@@ -694,6 +718,7 @@
   - tail-sup-comparison
   - limits-preserve-inequalities
   concept: x_n ≤ y_n ⇒ limsup x_n ≤ limsup y_n, liminf x_n ≤ liminf y_n
+  title: Monotonicity of $\limsup$ and $\liminf$
   difficulty: easy
   category: canonical
   type: proof
@@ -724,6 +749,7 @@
   - subsequence-extraction
   - construct-counterexample
   concept: liminf x_n + liminf y_n ≤ liminf (x_n + y_n), strict in general
+  title: The $\liminf$ of a sum of two sequences
   difficulty: easy
   category: canonical
   type: proof
@@ -758,6 +784,7 @@
   - subsequence-extraction
   - distinct-terms-argument
   concept: Bolzano–Weierstrass for sets (bounded infinite set has a limit point)
+  title: Bolzano–Weierstrass for bounded infinite sets
   difficulty: medium
   category: canonical
   type: proof
@@ -788,6 +815,7 @@
   - subsequence-extraction
   - case-analysis
   concept: every sequence has a monotone subsequence (peak lemma) ⇒ Bolzano–Weierstrass
+  title: Every sequence has a monotone subsequence
   difficulty: medium
   category: canonical
   type: proof
@@ -816,6 +844,7 @@
   - triangle-inequality
   - geometric-series-bound
   concept: contractive sequence |x_{n+1} − x_n| ≤ C|x_n − x_{n−1}|, C < 1, is Cauchy
+  title: Contractive sequences are Cauchy
   difficulty: easy
   category: canonical
   type: proof
@@ -847,6 +876,7 @@
   - nested-intervals
   - density-argument
   concept: Cauchy completeness + density of Q ⇒ least-upper-bound property
+  title: Cauchy completeness implies the least-upper-bound property
   difficulty: hard
   category: challenge
   type: proof
@@ -874,6 +904,7 @@
   skills:
   - construct-counterexample
   concept: Cauchy sequences need not have eventually decreasing consecutive gaps
+  title: Must consecutive gaps of a Cauchy sequence shrink?
   difficulty: easy
   category: canonical
   type: counterexample
@@ -904,6 +935,7 @@
   - telescoping
   - test-selection
   concept: deciding convergence of standard series by comparison/telescoping/p-series
+  title: Deciding convergence of some basic series
   difficulty: easy
   category: canonical
   type: computation
@@ -938,6 +970,7 @@
   - subsequence-of-partial-sums
   - construct-counterexample
   concept: inserting parentheses preserves convergence; removing them does not
+  title: Grouping the terms of a series in pairs
   difficulty: easy
   category: canonical
   type: counterexample
@@ -967,6 +1000,7 @@
   - block-estimate
   - monotonicity-bound
   concept: decreasing summable sequence satisfies n x_n → 0
+  title: For decreasing summable $x_n$, $n x_n \to 0$
   difficulty: medium
   category: canonical
   type: proof
@@ -995,6 +1029,7 @@
   - limits-preserve-inequalities
   - triangle-inequality
   concept: triangle inequality for absolutely convergent series
+  title: Triangle inequality for absolutely convergent series
   difficulty: introductory
   category: canonical
   type: proof
@@ -1023,6 +1058,7 @@
   - negate-definition
   - block-estimate
   concept: 'harmonic partial sums: x_{n+k} − x_n → 0 for each fixed k but not Cauchy'
+  title: Harmonic partial sums are not Cauchy
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1051,6 +1087,7 @@
   - comparison-estimate
   - monotonicity-bound
   concept: Cauchy condensation test
+  title: Cauchy condensation test
   difficulty: medium
   category: canonical
   type: proof
@@ -1080,6 +1117,7 @@
   - test-selection
   - root-test
   concept: deciding convergence with root/alternating/divergence tests
+  title: Deciding convergence of four series
   difficulty: easy
   category: canonical
   type: computation
@@ -1113,6 +1151,7 @@
   - partial-sum-bound
   - triangle-inequality
   concept: Cauchy product of absolutely convergent series converges absolutely
+  title: The Cauchy product of absolutely convergent series
   difficulty: easy
   category: canonical
   type: proof
@@ -1139,6 +1178,7 @@
   - greedy-construction
   - epsilon-N-proof
   concept: Riemann rearrangement theorem
+  title: Riemann rearrangement theorem
   difficulty: hard
   category: challenge
   type: construction
@@ -1166,6 +1206,7 @@
   - limsup-product
   - root-test
   concept: n^{1/n} → 1; ∑ n a_n x^n has the same radius as ∑ a_n x^n
+  title: '$n^{1/n} \to 1$ and the radius of $\sum n a_n x^n$'
   difficulty: medium
   category: canonical
   type: proof
@@ -1195,6 +1236,7 @@
   - construct-counterexample
   - grouping
   concept: alternating series test fails without monotonicity
+  title: Monotonicity is needed in the alternating series test
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1222,6 +1264,7 @@
   skills:
   - construct-counterexample
   concept: ∑x_n converges but ∑x_n^2 diverges (e.g. (-1)^n/sqrt n)
+  title: A convergent series $\sum x_n$ with $\sum x_n^2$ divergent
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1251,6 +1294,7 @@
   - epsilon-delta-proof
   - sequential-characterization
   concept: squeeze theorem for function limits
+  title: Squeeze theorem for limits of functions
   difficulty: easy
   category: canonical
   type: proof
@@ -1287,6 +1331,7 @@
   - sequential-characterization
   - contradiction
   concept: sequential criterion for existence of a function limit (convergence of f(x_n) for every x_n -> c suffices)
+  title: Sequential criterion for the existence of a function limit
   difficulty: medium
   category: canonical
   type: proof
@@ -1317,6 +1362,7 @@
   - subsequence-extraction
   - cluster-point-sequence
   concept: 'bounded f: some sequence x_n -> c has f(x_n) convergent (Bolzano–Weierstrass)'
+  title: Bounded functions have convergent values along some $x_n \to c$
   difficulty: easy
   category: canonical
   type: proof
@@ -1344,6 +1390,7 @@
   - sequential-characterization
   - density-argument
   concept: continuous functions agreeing on Q agree everywhere
+  title: Continuous functions agreeing on $\mathbb{Q}$ agree everywhere
   difficulty: easy
   category: canonical
   type: proof
@@ -1372,6 +1419,7 @@
   - epsilon-delta-proof
   - choose-epsilon
   concept: continuous f with f(c)>0 is positive on a neighborhood of c
+  title: A continuous function stays positive near a positive value
   difficulty: introductory
   category: canonical
   type: proof
@@ -1401,6 +1449,7 @@
   - epsilon-delta-proof
   - case-analysis
   concept: pasting lemma for continuous functions on adjacent closed intervals
+  title: Pasting continuous functions on adjacent intervals
   difficulty: easy
   category: canonical
   type: proof
@@ -1429,6 +1478,7 @@
   - squeeze
   - construct-counterexample
   concept: convex function on an open interval is continuous
+  title: Continuity of convex functions
   difficulty: hard
   category: challenge
   type: proof
@@ -1460,6 +1510,7 @@
   - compact-subinterval-reduction
   - case-analysis
   concept: continuous f on (0,1) vanishing at both ends attains a max or a min
+  title: Extrema of a continuous function vanishing at the ends of $(0,1)$
   difficulty: medium
   category: synthesis
   type: proof
@@ -1487,6 +1538,7 @@
   skills:
   - construct-counterexample
   concept: bounded continuous function on R with no max or min (e.g. arctan)
+  title: A bounded continuous function with no maximum or minimum
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -1514,6 +1566,7 @@
   - contradiction
   - EVT-application
   concept: no continuous bijection [0,1] -> (0,1)
+  title: No continuous bijection from $[0,1]$ to $(0,1)$
   difficulty: easy
   category: canonical
   type: proof
@@ -1541,6 +1594,7 @@
   skills:
   - algebraic-estimate
   concept: 1/x is Lipschitz on (c, infinity) for c > 0
+  title: '$1/x$ is Lipschitz on $(c, \infty)$'
   difficulty: introductory
   category: canonical
   type: proof
@@ -1569,6 +1623,7 @@
   - negate-definition
   - sequential-characterization
   concept: sin(1/x) is not uniformly continuous on (0, infinity)
+  title: '$\sin(1/x)$ is not uniformly continuous on $(0, \infty)$'
   difficulty: easy
   category: canonical
   type: proof
@@ -1597,6 +1652,7 @@
   - well-definedness
   - density-argument
   concept: uniformly continuous function on Q extends uniquely to a uniformly continuous function on R
+  title: Extending a uniformly continuous function from $\mathbb{Q}$ to $\mathbb{R}$
   difficulty: hard
   category: challenge
   type: construction
@@ -1624,6 +1680,7 @@
   - periodicity-reduction
   - compactness-argument
   concept: continuous periodic function is uniformly continuous
+  title: Continuous periodic functions are uniformly continuous
   difficulty: easy
   category: canonical
   type: proof
@@ -1651,6 +1708,7 @@
   - contradiction
   - case-analysis
   concept: continuous injection on an interval is strictly monotone
+  title: Continuous bijections between intervals are strictly monotone
   difficulty: medium
   category: canonical
   type: proof
@@ -1679,6 +1737,7 @@
   - series-construction
   - construct-counterexample
   concept: 'increasing function discontinuous exactly at (every) rational: sum of 2^{-n} over q_n < x'
+  title: An increasing function discontinuous at every rational
   difficulty: hard
   category: challenge
   type: construction
@@ -1709,6 +1768,7 @@
   - density-argument
   - sequential-characterization
   concept: 'x^2 on Q, 0 off Q: differentiable only at 0'
+  title: Differentiable at 0 but continuous nowhere else
   difficulty: easy
   category: canonical
   type: counterexample
@@ -1739,6 +1799,7 @@
   - squeeze
   - comparison-estimate
   concept: bounded times function with g(c)=g'(c)=0 is differentiable at c
+  title: A bounded function times $g$ with $g(c) = g'(c) = 0$
   difficulty: easy
   category: canonical
   type: proof
@@ -1765,6 +1826,7 @@
   - theorem-application
   - contradiction
   concept: nonvanishing derivative has constant sign (Darboux)
+  title: A nonvanishing derivative has constant sign
   difficulty: easy
   category: canonical
   type: theorem-application
@@ -1794,6 +1856,7 @@
   - MVT-application
   - sequential-characterization
   concept: L'Hôpital's rule via Cauchy MVT
+  title: L'Hôpital's rule
   difficulty: medium
   category: canonical
   type: proof
@@ -1822,6 +1885,7 @@
   - MVT-application
   - contrapositive
   concept: unbounded differentiable function on bounded interval has unbounded derivative
+  title: Unbounded functions on $(a,b)$ have unbounded derivatives
   difficulty: easy
   category: canonical
   type: proof
@@ -1850,6 +1914,7 @@
   - MVT-application
   - squeeze
   concept: if f continuous and lim f'(x) = L at c, then f'(c) = L
+  title: The derivative at a point from the limit of $f'$
   difficulty: medium
   category: canonical
   type: proof
@@ -1883,6 +1948,7 @@
   - MVT-application
   - sign-analysis
   concept: second derivative test assuming only that f''(x0) exists
+  title: Second derivative test assuming only that $f''(x_0)$ exists
   difficulty: medium
   category: canonical
   type: proof
@@ -1911,6 +1977,7 @@
   - construct-counterexample
   - sign-analysis
   concept: 'x + 2x^2 sin(1/x): f''(0)>0 but not locally invertible'
+  title: Positive derivative at 0 without local invertibility
   difficulty: medium
   category: canonical
   type: counterexample
@@ -1939,6 +2006,7 @@
   - epsilon-argument
   - sup-approximation
   concept: Darboux integrable iff Riemann integrable (mesh definition), same value
+  title: Darboux and Riemann-sum definitions of the integral agree
   difficulty: hard
   category: synthesis
   type: proof
@@ -1970,6 +2038,7 @@
   skills:
   - definition-unpacking
   concept: L(P,f)=U(P,f) for a single partition implies f constant
+  title: If $L(P,f) = U(P,f)$, then $f$ is constant
   difficulty: easy
   category: canonical
   type: proof
@@ -1997,6 +2066,7 @@
   - choose-partition
   - epsilon-argument
   concept: Thomae's (popcorn) function is Riemann integrable with integral 0
+  title: Thomae's function is Riemann integrable
   difficulty: medium
   category: canonical
   type: proof
@@ -2029,6 +2099,7 @@
   - uniform-partition
   - telescoping
   concept: monotone functions are Riemann integrable
+  title: Monotone functions are Riemann integrable
   difficulty: medium
   category: canonical
   type: proof
@@ -2060,6 +2131,7 @@
   - triangle-inequality
   - sup-inf-inequalities
   concept: f integrable implies |f| integrable and |∫f| <= ∫|f|
+  title: Integrability of $|f|$ and $\left|\int f\right| \le \int |f|$
   difficulty: medium
   category: canonical
   type: proof
@@ -2092,6 +2164,7 @@
   - FTC-application
   - chain-rule
   concept: derivative of an integral with variable limits (FTC + chain rule)
+  title: Differentiating $\int_{-x}^{x} e^{s^2}\,ds$
   difficulty: introductory
   category: canonical
   type: computation
@@ -2121,6 +2194,7 @@
   - FTC-application
   - sequential-continuity
   concept: ∫_a^x f = 0 for rational x implies f ≡ 0 (density + FTC)
+  title: A continuous function whose integrals vanish at rational endpoints
   difficulty: easy
   category: canonical
   type: proof
@@ -2148,6 +2222,7 @@
   - integral-comparison
   - monotone-bounded
   concept: harmonic sums vs ln n; existence of the Euler–Mascheroni constant
+  title: Harmonic sums, $\ln n$ and the Euler–Mascheroni constant
   difficulty: medium
   category: synthesis
   type: proof
@@ -2179,6 +2254,7 @@
   - construct-counterexample
   - geometric-series
   concept: unbounded continuous nonnegative function with finite improper integral
+  title: An unbounded continuous function with finite improper integral
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2208,6 +2284,7 @@
   - sup-norm-estimate
   - negate-definition
   concept: 'e^{x/n}/n: pointwise to 0, not uniform on R, uniform on [0,1]'
+  title: Pointwise and uniform convergence of $e^{x/n}/n$
   difficulty: introductory
   category: canonical
   type: computation
@@ -2239,6 +2316,7 @@
   - triangle-inequality
   - epsilon-over-2
   concept: uniform limit of a sum is the sum of uniform limits
+  title: Uniform limits of sums
   difficulty: introductory
   category: canonical
   type: proof
@@ -2265,6 +2343,7 @@
   - construct-counterexample
   - negate-definition
   concept: product of uniformly convergent sequences need not converge uniformly
+  title: Products of uniformly convergent sequences
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2291,6 +2370,7 @@
   - construct-counterexample
   - negate-definition
   concept: 'moving bump: pointwise to 0 possible, uniform to 0 impossible when f_n(x_n)=1'
+  title: Can functions with $f_n(x_n) = 1$ converge to 0?
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2323,6 +2403,7 @@
   - tail-estimate
   - negate-definition
   concept: geometric series converges uniformly on [-c,c], c<1, but not on (-1,1)
+  title: Uniform convergence of the geometric series
   difficulty: easy
   category: canonical
   type: proof
@@ -2352,6 +2433,7 @@
   - construct-counterexample
   - sup-norm-estimate
   concept: differentiable functions converging uniformly to |x| (non-differentiable limit)
+  title: Differentiable functions with a non-differentiable uniform limit
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2379,6 +2461,7 @@
   - construct-counterexample
   - sup-norm-estimate
   concept: 'x^n/n: uniform limit 0 but f_n''(1)=1 does not converge to f''(1)=0'
+  title: Uniform convergence of $x^n/n$ and derivatives at 1
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -2405,6 +2488,7 @@
   skills:
   - construct-counterexample
   concept: uniform convergence to 0 with improper integrals all equal to 1
+  title: Uniform convergence and improper integrals
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2431,6 +2515,7 @@
   - verify-axioms
   - triangle-inequality
   concept: φ∘d is a metric for increasing subadditive φ with φ(0)=0
+  title: New metrics from subadditive functions of a metric
   difficulty: easy
   category: canonical
   type: proof
@@ -2458,6 +2543,7 @@
   - definition-unpacking
   - set-identities
   concept: E closed iff ∂E ⊂ E; U open iff ∂U ∩ U = ∅
+  title: Open and closed sets via the boundary
   difficulty: easy
   category: canonical
   type: proof
@@ -2488,6 +2574,7 @@
   - contradiction
   - subspace-topology
   concept: union of connected sets with a common point is connected
+  title: Union of connected sets with a common point is connected
   difficulty: easy
   category: canonical
   type: proof
@@ -2514,6 +2601,7 @@
   - construct-counterexample
   - contradiction
   concept: closure of a connected set is connected; interior need not be
+  title: Are the closure and interior of a connected set connected?
   difficulty: medium
   category: canonical
   type: counterexample
@@ -2545,6 +2633,7 @@
   - closure-minimality
   - construct-counterexample
   concept: closure of open ball ⊂ closed ball, with strict inclusion possible
+  title: Closure of an open ball versus the closed ball
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2578,6 +2667,7 @@
   - verify-axioms
   - construct-counterexample
   concept: 'min(1,|x-y|): same convergence as usual metric, but bounded sequences need not have convergent subsequences'
+  title: The bounded metric $\min\{1, |x-y|\}$ on $\mathbb{R}$
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2606,6 +2696,7 @@
   - open-cover-argument
   - construct-counterexample
   concept: '{1/n} is not compact but {1/n} ∪ {0} is compact (open cover definition)'
+  title: Compactness of $\{1/n\}$ and $\{1/n\} \cup \{0\}$ from the definition
   difficulty: easy
   category: canonical
   type: proof
@@ -2636,6 +2727,7 @@
   - subsequence-extraction
   - epsilon-over-2
   concept: compact metric spaces are complete
+  title: Compact metric spaces are complete
   difficulty: easy
   category: canonical
   type: proof
@@ -2663,6 +2755,7 @@
   - construct-counterexample
   - sequential-characterization
   concept: closed unit ball in C[0,1] is closed and bounded but not compact
+  title: The closed unit ball in $C([0,1])$ is not compact
   difficulty: medium
   category: canonical
   type: counterexample
@@ -2693,6 +2786,7 @@
   - open-cover-argument
   - subsequence-extraction
   concept: Cantor intersection theorem for nested nonempty compact sets
+  title: Cantor intersection theorem for nested compact sets
   difficulty: medium
   category: canonical
   type: proof
@@ -2723,6 +2817,7 @@
   - subsequence-extraction
   - open-cover-argument
   concept: in a complete metric space, compact iff closed and totally bounded
+  title: Compact iff closed and totally bounded
   difficulty: hard
   category: challenge
   type: proof
@@ -2749,6 +2844,7 @@
   skills:
   - sequential-characterization
   concept: closed subset of a complete metric space is complete
+  title: Closed subsets of complete metric spaces are complete
   difficulty: easy
   category: canonical
   type: proof
@@ -2777,6 +2873,7 @@
   - construct-counterexample
   - ball-containment
   concept: 'completeness is not a topological property: d''(x,y)=|x/(1+|x|) - y/(1+|y|)| on R'
+  title: Completeness is not a topological property
   difficulty: medium
   category: synthesis
   type: counterexample
@@ -2812,6 +2909,7 @@
   - sequential-characterization
   - construct-counterexample
   concept: 'xy/(x^2+y^2): separately continuous but not continuous at the origin'
+  title: '$xy/(x^2+y^2)$ is separately continuous but not continuous'
   difficulty: introductory
   category: canonical
   type: counterexample
@@ -2843,6 +2941,7 @@
   - contradiction
   - subspace-topology
   concept: continuous image of a connected space is connected
+  title: Continuous images of connected spaces are connected
   difficulty: easy
   category: canonical
   type: proof
@@ -2869,6 +2968,7 @@
   - preimage-of-open-sets
   - compactness-argument
   concept: continuous bijection from a compact space has continuous inverse
+  title: Continuous bijections from compact spaces have continuous inverses
   difficulty: medium
   category: canonical
   type: proof
@@ -2895,6 +2995,7 @@
   - construct-counterexample
   - sup-norm-estimate
   concept: derivative operator continuous in the C^1 metric, discontinuous in the sup metric (sin(nx)/n)
+  title: Continuity of the derivative operator in two metrics
   difficulty: easy
   category: synthesis
   type: counterexample
@@ -2926,6 +3027,7 @@
   skills:
   - construct-counterexample
   concept: contraction on incomplete space without fixed point; 1-Lipschitz map on complete space without fixed point
+  title: Sharpness of the hypotheses in the contraction mapping theorem
   difficulty: easy
   category: canonical
   type: counterexample
@@ -2957,6 +3059,7 @@
   - epsilon-N-proof
   - unwind-definition
   concept: Cauchy sequence with a convergent (constant) subsequence converges to its limit
+  title: A Cauchy sequence equal to $c$ infinitely often converges to $c$
   difficulty: easy
   category: canonical
   type: proof
@@ -2984,6 +3087,7 @@
   - partition-refinement
   - sup-inf-inequalities
   concept: 'linearity of the Riemann integral: f+g integrable and ∫(f+g)=∫f+∫g'
+  title: Linearity of the Riemann integral
   difficulty: easy
   category: canonical
   type: proof
@@ -3020,6 +3124,7 @@
   - FTC-application
   - product-rule
   concept: integration by parts
+  title: Integration by parts
   difficulty: easy
   category: canonical
   type: proof

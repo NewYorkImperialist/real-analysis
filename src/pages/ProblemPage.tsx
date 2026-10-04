@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { Problem } from '../lib/types';
-import { byId, problems, sourceByKey, topicLabel, subtopicLabel, label, sourceLine } from '../lib/bank';
+import { byId, problems, sourceByKey, topicLabel, subtopicLabel, label, sourceLine, titleOf } from '../lib/bank';
 import { href } from '../lib/router';
 import { useProgress } from '../lib/useProgress';
 import { setNotes, setPersonalSolution, recordHintViewed } from '../lib/progress';
@@ -264,7 +264,6 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
   const nextId = idx >= 0 && idx < nav.list.length - 1 ? nav.list[idx + 1] : undefined;
   const linkQ = inPractice ? 'set=practice' : undefined;
   const related = (p.related ?? []).map((r) => byId.get(r)).filter(Boolean) as Problem[];
-  const title = p.concept.charAt(0).toUpperCase() + p.concept.slice(1);
 
   const openEditor = () => {
     setWorkspace(true);
@@ -277,7 +276,7 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
         <p class="section-title" style="margin:0">
           {inPractice ? `Practice · ${idx + 1} of ${nav.list.length}` : sourceLine(p)}
         </p>
-        <h1>{title}</h1>
+        <h1><InlineRich src={titleOf(p)} /></h1>
         <p class="meta-line">
           <a href={href('browse', `topic=${encodeURIComponent(p.topic)}`)}>{topicLabel(p.topic)}</a>
           {p.subtopics.map((s) => <span key={s}>{subtopicLabel(p.topic, s)}</span>)}

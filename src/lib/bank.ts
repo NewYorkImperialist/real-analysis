@@ -28,9 +28,17 @@ export const difficultyRank = (d: Difficulty) => DIFFICULTIES.indexOf(d);
 // "Assigned in MIT 18.100A (2020)" counts toward the MIT source filter.
 export const isMitAssigned = (p: Problem) => (p.assignedIn ?? []).some((a) => a.startsWith('MIT 18.100A'));
 
+/** Display title: the curated title, else the concept with a capital first letter. */
+export const titleOf = (p: Problem): string => p.title ?? p.concept.charAt(0).toUpperCase() + p.concept.slice(1);
+
 export function sourceLine(p: Problem): string {
   const s = sourceByKey.get(p.source.key);
-  return [s?.shortName, p.source.problemNumber].filter(Boolean).join(', ');
+  // MIT numbers restart in every assignment, so name the assignment too ("Assignment 5", "Midterm", "Final").
+  const part =
+    p.source.key === 'mit' && p.source.chapter
+      ? p.source.chapter.replace(/\s*\(.*\)$/, '').replace('Final Assignment', 'Final').replace('Midterm Exam', 'Midterm')
+      : undefined;
+  return [s?.shortName, part, p.source.problemNumber].filter(Boolean).join(', ');
 }
 
 // Distinct values across the bank, for filter UIs.
