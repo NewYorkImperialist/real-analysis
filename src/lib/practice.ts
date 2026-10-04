@@ -442,7 +442,7 @@ export function parseRequest(text: string, vocab: Vocabulary, seed = 1): Practic
   // Count: first small number (digits or number word).
   for (let i = 0; i < ws.length; i++) {
     const w = ws[i];
-    const n = /^\d{1,2}$/.test(w) ? Number(w) : NUMBER_WORDS[w];
+    const n = /^\d+$/.test(w) ? Number(w) : NUMBER_WORDS[w]; // capped at MAX_COUNT below
     if (n !== undefined && n > 0) {
       req.count = Math.min(MAX_COUNT, n);
       used[i] = true;
@@ -660,9 +660,17 @@ function textToTex(s: string): string {
 
 /** Convert the canonical problem format to LaTeX body text. Math is kept verbatim. */
 export function problemToTex(src: string): string {
-  return tokenize(src)
-    .map((t) => (t.kind === 'math' ? (t.display ? `\n$$${t.value}$$\n` : `$${t.value}$`) : textToTex(t.value)))
-    .join('')
+  // Emphasis may span math (*… $x$ …*), so convert the text with math held in placeholders.
+  const math: string[] = [];
+  const text = tokenize(src)
+    .map((t) =>
+      t.kind === 'math'
+        ? `\u0000${math.push(t.display ? `\n$$${t.value}$$\n` : `$${t.value}$`) - 1}\u0000`
+        : t.value,
+    )
+    .join('');
+  return textToTex(text)
+    .replace(/\u0000(\d+)\u0000/g, (_, i: string) => math[Number(i)])
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -675,7 +683,7 @@ export function toLatexDocument(items: TexItem[], opts: { title?: string; date?:
     '\\documentclass[11pt]{article}',
     '\\usepackage[utf8]{inputenc}',
     '\\usepackage[margin=1in]{geometry}',
-    '\\usepackage{amsmath,amssymb}',
+    '\\usepackage{amsmath,amssymb,mathrsfs}',
     '\\setlength{\\parindent}{0pt}',
     '\\setlength{\\parskip}{0.6em}',
     `\\title{${escapeTex(title)}}`,

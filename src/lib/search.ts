@@ -68,6 +68,16 @@ function getIndex() {
   return index;
 }
 
+// Exact references ("abbott-2.5.5", "Exercise 2.5.5", "ross 8.7") go first: the tokenizer splits
+// "2.5.5" into separate numbers, so full-text ranking alone buries them.
+function exactMatches(q: string): string[] {
+  const t = q.trim().toLowerCase();
+  const num = t.match(/\d+(?:\.\d+)+[a-z]?/)?.[0]; // dotted numbers only, e.g. 2.5.5
+  const hits = problems.filter((p) => p.id === t || (num && p.id.endsWith('-' + num)));
+  const named = hits.filter((p) => t.includes(p.source.key) || t.includes(p.id));
+  return (named.length ? named : hits).map((p) => p.id);
+}
+
 export function search(q: string): { id: string; score: number }[] {
   const query = expand(q.trim());
   if (!query) return [];
@@ -75,5 +85,10 @@ export function search(q: string): { id: string; score: number }[] {
   let res = idx.search(query);
   // Fall back to OR when AND finds nothing — wording shouldn't need to be exact.
   if (!res.length) res = idx.search(query, { combineWith: 'OR' });
-  return res.map((r) => ({ id: r.id as string, score: r.score }));
+  const pinned = exactMatches(q);
+  const top = res.length ? res[0].score : 1;
+  return [
+    ...pinned.map((id) => ({ id, score: top + 1 })),
+    ...res.filter((r) => !pinned.includes(r.id as string)).map((r) => ({ id: r.id as string, score: r.score })),
+  ];
 }

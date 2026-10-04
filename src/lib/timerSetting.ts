@@ -48,6 +48,7 @@ export function formatDuration(ms: number): string {
 
 /** "45 min", "1 h 20 min" — for averages. */
 export function formatMinutes(ms: number): string {
+  if (ms > 0 && ms < 30000) return '<1 min';
   const min = Math.round(ms / 60000);
   if (min < 60) return `${min} min`;
   return `${Math.floor(min / 60)} h ${min % 60} min`;

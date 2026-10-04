@@ -77,10 +77,10 @@ function Hints({ p }: { p: Problem }) {
       </span>
     );
   return (
-    <div class="stack-sm" style="flex-basis:100%">
+    <div class="stack-sm" style="flex-basis:100%;min-width:0">
       {hints.slice(0, shown).map((h, i) => (
         <div key={i} class="note">
-          <div class="provenance">Hint {i + 1} of {hints.length} · {KIND_LABEL[h.kind] ?? h.kind} — {h.source}</div>
+          <div class="provenance">Hint {i + 1} of {hints.length} · {KIND_LABEL[h.kind] ?? h.kind}{h.kind === 'ai' ? '' : ` — ${h.source}`}</div>
           <RichText src={h.text} />
         </div>
       ))}
@@ -182,7 +182,7 @@ function Solution({ p, personal, openEditor }: { p: Problem; personal: string; o
   const sol = p.solution;
   const has = !!(sol?.available && sol.latex);
   return (
-    <div class="stack-sm" style="flex-basis:100%">
+    <div class="stack-sm" style="flex-basis:100%;min-width:0">
       <button type="button" class="btn" aria-expanded={open} onClick={() => setOpen(!open)}>
         {open ? 'Hide solution' : 'Show solution'}
       </button>
@@ -191,7 +191,7 @@ function Solution({ p, personal, openEditor }: { p: Problem; personal: string; o
           {has ? (
             <div class="note">
               <div class="provenance">
-                Solution · {KIND_LABEL[sol!.type ?? ''] ?? 'Source'}{sol!.source ? ` — ${sol!.source}` : ''}
+                Solution · {KIND_LABEL[sol!.type ?? ''] ?? 'Source'}{sol!.source && sol!.type !== 'ai' ? ` — ${sol!.source}` : ''}
               </div>
               {sol!.lowConfidence && (
                 <p class="small"><strong>Low confidence:</strong> {sol!.lowConfidence}</p>
