@@ -1,0 +1,481 @@
+- id: mit20-a3-4
+  hints:
+    - |
+      There are two directions. Recall that $\sup A$ is the upper bound that is *least*: no number smaller than it is an upper bound. Rephrase "$a_0 - \epsilon$ is not an upper bound" in terms of elements of $A$.
+    - |
+      For ($\Rightarrow$): $a_0 - \epsilon < a_0 = \sup A$, so $a_0 - \epsilon$ cannot be an upper bound. For ($\Leftarrow$): take an arbitrary upper bound $b$ and argue by contradiction that $b < a_0$ is impossible, choosing $\epsilon$ in terms of $b$.
+    - |
+      In the converse, the natural choice is $\epsilon = a_0 - b$ when $b < a_0$.
+  solution: |
+    Recall that $a_0 = \sup A$ means: $a_0$ is an upper bound for $A$, and $a_0 \le b$ for every upper bound $b$ of $A$. We are given that $a_0$ is an upper bound.
+
+    **($\Rightarrow$)** Suppose $a_0 = \sup A$ and let $\epsilon > 0$. Then $a_0 - \epsilon < a_0$. If $a_0 - \epsilon$ were an upper bound for $A$, then by leastness $a_0 \le a_0 - \epsilon$, which is false. So $a_0 - \epsilon$ is not an upper bound, i.e. there is some $a \in A$ with $a > a_0 - \epsilon$.
+
+    **($\Leftarrow$)** Suppose that for every $\epsilon > 0$ there is $a \in A$ with $a_0 - \epsilon < a$. Let $b$ be any upper bound for $A$; we must show $a_0 \le b$. Suppose instead $b < a_0$, and put $\epsilon = a_0 - b > 0$. By hypothesis there is $a \in A$ with $a > a_0 - \epsilon = b$, contradicting that $b$ is an upper bound for $A$. Hence $a_0 \le b$. Since $a_0$ is itself an upper bound and is $\le$ every upper bound, $a_0 = \sup A$. $\blacksquare$
+
+- id: abbott-1.2.6
+  hints:
+    - |
+      For (a), "same sign" means you can drop the absolute values explicitly in each of the two cases. For (b), both sides of $|a+b| \le |a|+|b|$ are nonnegative, so comparing their squares is enough.
+    - |
+      Expand $(a+b)^2$ and use $ab \le |ab| = |a||b|$ and $a^2 = |a|^2$. For (c), write $a - b$ as a sum of three differences.
+    - |
+      For (d), the given identity yields $|a| - |b| \le |a-b|$; get the other inequality by swapping the roles of $a$ and $b$, then combine the two using what $\bigl||a|-|b|\bigr|$ is.
+  solution: |
+    **(a)** If $a, b \ge 0$, then $a + b \ge 0$, so $|a+b| = a + b = |a| + |b|$. If $a, b \le 0$, then $a + b \le 0$, so $|a+b| = -(a+b) = (-a) + (-b) = |a| + |b|$. In both cases the triangle inequality holds, in fact with equality.
+
+    **(b)** For all real $a, b$ we have $ab \le |ab| = |a||b|$ and $a^2 = |a|^2$, $b^2 = |b|^2$. Hence
+    $$(a+b)^2 = a^2 + 2ab + b^2 \le |a|^2 + 2|a||b| + |b|^2 = (|a|+|b|)^2.$$
+    Now $|a+b|^2 = (a+b)^2$, so $|a+b|^2 \le (|a|+|b|)^2$. Both $u = |a+b|$ and $v = |a|+|b|$ are nonnegative, and for $u, v \ge 0$, $u^2 \le v^2$ implies $u \le v$ (if $u > v \ge 0$ then $u^2 = u\cdot u > u \cdot v \ge v \cdot v = v^2$). Therefore $|a+b| \le |a| + |b|$.
+
+    **(c)** Using the triangle inequality twice,
+    $$|a-b| = |(a-c) + (c-d) + (d-b)| \le |a-c| + |(c-d)+(d-b)| \le |a-c| + |c-d| + |d-b|.$$
+
+    **(d)** By the triangle inequality, $|a| = |(a-b) + b| \le |a-b| + |b|$, so $|a| - |b| \le |a-b|$. Exchanging $a$ and $b$ gives $|b| - |a| \le |b-a| = |a-b|$. Since $\bigl||a|-|b|\bigr|$ equals either $|a|-|b|$ or $|b|-|a|$, in either case $\bigl||a|-|b|\bigr| \le |a-b|$. $\blacksquare$
+
+- id: lebl-1.1.1
+  hints:
+    - |
+      The ordered field axioms only tell you directly about sums with a common term and products of *positive* elements. Turn the hypotheses into statements that some elements are positive.
+    - |
+      From $x < 0$ deduce $-x > 0$, and from $y < z$ deduce $z - y > 0$. Then multiply these two positive elements.
+    - |
+      Expand $(-x)(z-y)$ using the field axioms and add $xz$ to both sides of the resulting inequality.
+  solution: |
+    Recall the order axioms of an ordered field: (i) if $a < b$ then $a + c < b + c$ for every $c$; (ii) if $a > 0$ and $b > 0$ then $ab > 0$.
+
+    Since $x < 0$, adding $-x$ to both sides (axiom (i)) gives $0 < -x$. Since $y < z$, adding $-y$ gives $0 < z - y$. By axiom (ii),
+    $$0 < (-x)(z - y).$$
+    By the distributive law and the field identity $(-x)w = -(xw)$, we have $(-x)(z-y) = -(xz) + xy$. Hence $0 < xy - xz$. Adding $xz$ to both sides (axiom (i)) gives $xz < xy$, i.e. $xy > xz$. $\blacksquare$
+
+- id: lebl-1.1.5
+  hints:
+    - |
+      You already know $b$ is an upper bound. What remains is the "least" part of the definition of supremum.
+    - |
+      Let $c$ be any upper bound of $A$. Which element of $A$ can you compare with $c$?
+  solution: |
+    By the definition of supremum we must show: $b$ is an upper bound for $A$ (given), and $b \le c$ for every upper bound $c$ of $A$.
+
+    Let $c$ be any upper bound for $A$. Since $b \in A$ and $c$ is an upper bound for $A$, we have $b \le c$. Thus $b$ is an upper bound that is less than or equal to every upper bound, so $b = \sup A$. $\blacksquare$
+
+- id: lebl-1.2.7
+  hints:
+    - |
+      Both sides are positive, so it suffices to compare squares. Which expression that is obviously $\ge 0$ could produce $x + y - 2\sqrt{xy}$ or $(x+y)^2 - 4xy$?
+    - |
+      Consider $(x - y)^2 \ge 0$ and rewrite it in terms of $(x+y)^2$ and $xy$.
+    - |
+      For the equality case, track exactly when each step is an equality; the only non-equality step is $(x-y)^2 \ge 0$.
+  solution: |
+    Let $x, y > 0$. Then
+    $$(x+y)^2 - 4xy = x^2 - 2xy + y^2 = (x - y)^2 \ge 0,$$
+    so $4xy \le (x+y)^2$, i.e. $xy \le \left(\frac{x+y}{2}\right)^2$. Both $\sqrt{xy}$ and $\frac{x+y}{2}$ are positive, and for nonnegative $u, v$ we have $u \le v$ if and only if $u^2 \le v^2$ (if $u > v \ge 0$ then $u^2 > uv \ge v^2$; conversely $u \le v$ gives $u^2 \le uv \le v^2$). Applying this with $u = \sqrt{xy}$, $v = \frac{x+y}{2}$, we get
+    $$\sqrt{xy} \le \frac{x+y}{2}.$$
+
+    **Equality.** By the same equivalence (for nonnegative $u,v$, $u = v$ iff $u^2 = v^2$), equality $\sqrt{xy} = \frac{x+y}{2}$ holds iff $xy = \frac{(x+y)^2}{4}$, iff $(x+y)^2 - 4xy = 0$, iff $(x - y)^2 = 0$, iff $x = y$. $\blacksquare$
+
+- id: cummings-1.9
+  hints:
+    - |
+      For (a), argue by contradiction: suppose $a \le b$ fails. What does trichotomy then give, and which positive $\varepsilon$ is suggested?
+    - |
+      Try $\varepsilon = a - b$. For (b), $|a - b| < \varepsilon$ yields two one-sided inequalities, $a - b < \varepsilon$ and $b - a < \varepsilon$.
+    - |
+      Apply (a) twice, once with the roles of $a$ and $b$ swapped, and conclude with trichotomy.
+  solution: |
+    Throughout we use the ordered field axioms, in particular: **trichotomy** (exactly one of $x < y$, $x = y$, $x > y$ holds), **additive compatibility** (if $x < y$ then $x + z < y + z$), and the field axioms (existence of additive inverses, associativity, etc.).
+
+    **(a)** Suppose $a < b + \varepsilon$ for every $\varepsilon > 0$, and suppose for contradiction that $a \le b$ is false. By trichotomy, $a > b$. Adding $-b$ to both sides (additive compatibility, additive inverses) gives $a - b > 0$. So $\varepsilon := a - b$ is a positive element, and the hypothesis gives
+    $$a < b + (a - b) = a$$
+    (the equality uses associativity, commutativity and additive inverses). But $a < a$ contradicts trichotomy (since $a = a$). Hence $a \le b$.
+
+    **(b)** Suppose $|a - b| < \varepsilon$ for every $\varepsilon > 0$. Since $a - b \le |a-b|$ and $b - a = -(a-b) \le |a - b|$, transitivity gives, for every $\varepsilon > 0$,
+    $$a - b < \varepsilon \quad\text{and}\quad b - a < \varepsilon.$$
+    Adding $b$ to the first (additive compatibility) gives $a < b + \varepsilon$ for all $\varepsilon > 0$, so $a \le b$ by (a). Adding $a$ to the second gives $b < a + \varepsilon$ for all $\varepsilon > 0$, so $b \le a$ by (a). If $a \ne b$, then $a \le b$ forces $a < b$, while $b \le a$ forces $b < a$; having both contradicts trichotomy. Therefore $a = b$. $\blacksquare$
+
+- id: cummings-1.19
+  hints:
+    - |
+      Rewrite $\frac{n}{n+1} = 1 - \frac{1}{n+1}$. This makes it clear where the terms sit relative to $1$ and how they change with $n$.
+    - |
+      For the supremum, show $1$ is an upper bound and then use the Archimedean property to beat $1 - \varepsilon$. For the infimum, check whether $\frac12$ is actually one of the terms.
+    - |
+      A lower bound that belongs to the set is automatically its infimum.
+  solution: |
+    Let $S = \left\{\frac{n}{n+1} : n \in \mathbb{N}\right\}$, where $\mathbb{N} = \{1, 2, 3, \dots\}$. Note $\frac{n}{n+1} = 1 - \frac{1}{n+1}$.
+
+    **$\sup S = 1$.** Since $\frac{1}{n+1} > 0$, every element satisfies $\frac{n}{n+1} < 1$, so $1$ is an upper bound. Let $\varepsilon > 0$. By the Archimedean property there is $n \in \mathbb{N}$ with $n > \frac{1}{\varepsilon}$, i.e. $\frac1n < \varepsilon$. Then
+    $$\frac{n}{n+1} = 1 - \frac{1}{n+1} > 1 - \frac{1}{n} > 1 - \varepsilon.$$
+    So no number $1 - \varepsilon$ with $\varepsilon > 0$ is an upper bound for $S$. Hence every upper bound $b$ satisfies $b \ge 1$ (if $b < 1$, take $\varepsilon = 1 - b$), and $\sup S = 1$.
+
+    **$\inf S = \frac12$.** For $n \in \mathbb{N}$ we have $n \ge 1$, so $2n \ge n + 1$, and dividing by the positive number $2(n+1)$ gives $\frac{n}{n+1} \ge \frac12$. Thus $\frac12$ is a lower bound. Moreover $\frac12 = \frac{1}{1+1} \in S$ (take $n = 1$). Any lower bound $\ell$ of $S$ satisfies $\ell \le \frac12$ because $\frac12 \in S$. So $\frac12$ is the greatest lower bound: $\inf S = \frac12$. $\blacksquare$
+
+- id: mit20-a3-1
+  hints:
+    - |
+      You already know the rationals are dense. Try to manufacture an irrational number from a rational one by a simple operation that preserves irrationality.
+    - |
+      Fix a known irrational such as $\sqrt2$. A rational plus an irrational is irrational. Shift the interval $(x, y)$ so that you can apply density of $\mathbb{Q}$ to the shifted interval.
+    - |
+      Find $q \in \mathbb{Q}$ with $x - \sqrt2 < q < y - \sqrt2$, then look at $q + \sqrt2$.
+  solution: |
+    We use two standard facts: the rationals are dense in $\mathbb{R}$ (between any two reals there is a rational), and $\sqrt 2$ is irrational.
+
+    Since $x < y$, also $x - \sqrt2 < y - \sqrt2$. By density of $\mathbb{Q}$ there is $q \in \mathbb{Q}$ with
+    $$x - \sqrt2 < q < y - \sqrt2.$$
+    Let $i = q + \sqrt2$. Adding $\sqrt2$ to the inequalities gives $x < i < y$.
+
+    It remains to show $i \notin \mathbb{Q}$. If $i$ were rational, then $\sqrt2 = i - q$ would be a difference of rationals, hence rational, a contradiction. So $i \in \mathbb{R}\setminus\mathbb{Q}$ and $x < i < y$. $\blacksquare$
+
+- id: mit20-a4-6
+  hints:
+    - |
+      For the forward direction the given hint produces the sequence; you still need to justify its convergence. For the converse, you need to show $a_0$ is the *least* upper bound.
+    - |
+      Forward: squeeze $a_n$ between $a_0 - \frac1n$ and $a_0$. Converse: either use the $\epsilon$-characterization of the supremum, or suppose a smaller upper bound $b < a_0$ exists.
+    - |
+      In the converse, take $\epsilon = a_0 - b$ in the definition of $a_n \to a_0$ to find a term of the sequence above $b$.
+  solution: |
+    **($\Rightarrow$)** Suppose $a_0 = \sup A$. By the $\epsilon$-characterization of the supremum (Assignment 3, Problem 4), applied with $\epsilon = \frac1n$, for each $n \in \mathbb{N}$ there is $a_n \in A$ with
+    $$a_0 - \frac1n < a_n \le a_0$$
+    (the right inequality because $a_0$ is an upper bound). Hence $|a_n - a_0| < \frac1n$ for all $n$. Given $\epsilon > 0$, by the Archimedean property choose $N$ with $\frac1N < \epsilon$; then for $n \ge N$, $|a_n - a_0| < \frac1n \le \frac1N < \epsilon$. So $a_n \to a_0$, and each $a_n \in A$.
+
+    **($\Leftarrow$)** Suppose $a_n \in A$ for all $n$ and $a_n \to a_0$. Since $a_0$ is an upper bound for $A$, it remains to show $a_0 \le b$ for every upper bound $b$ of $A$. Suppose some upper bound $b$ has $b < a_0$, and put $\epsilon = a_0 - b > 0$. Since $a_n \to a_0$, there is $N$ with $|a_N - a_0| < \epsilon$, so $a_N > a_0 - \epsilon = b$. But $a_N \in A$ and $b$ is an upper bound, so $a_N \le b$, a contradiction. Hence $a_0 \le b$ for every upper bound $b$, and $a_0 = \sup A$. $\blacksquare$
+
+- id: abbott-1.3.3
+  hints:
+    - |
+      To use the Axiom of Completeness on $B$ you need $B$ nonempty and bounded above. Why is each of these true here?
+    - |
+      Every element $a \in A$ is an upper bound for $B$. Use this twice: once to get that $\sup B$ exists, and once to show $\sup B$ is itself a lower bound for $A$.
+    - |
+      Once you know $s = \sup B$ is a lower bound for $A$ (so $s \in B$), being "greatest" among lower bounds is immediate from $s$ being an upper bound for $B$.
+  solution: |
+    **(a)** Since $A$ is bounded below, it has at least one lower bound, so $B \ne \emptyset$. If $a \in A$ and $b \in B$, then $b \le a$ because $b$ is a lower bound for $A$; thus every $a \in A$ is an upper bound for $B$. As $A \ne \emptyset$, $B$ is bounded above. By the Axiom of Completeness, $s := \sup B$ exists.
+
+    *$s$ is a lower bound for $A$.* Let $a \in A$. We showed $a$ is an upper bound for $B$, and $s$ is the least upper bound of $B$, so $s \le a$. Hence $s$ is a lower bound for $A$, i.e. $s \in B$.
+
+    *$s$ is the greatest lower bound.* If $b$ is any lower bound for $A$, then $b \in B$, so $b \le \sup B = s$.
+
+    Therefore $s$ is a lower bound for $A$ that is greater than or equal to every lower bound, i.e. $\inf A$ exists and $\inf A = s = \sup B$.
+
+    **(b)** Part (a) shows that for any nonempty set $A$ that is bounded below, the greatest lower bound exists: it is $\sup B$, whose existence follows from the Axiom of Completeness (applied to the nonempty, bounded-above set $B$). So the existence of infima is a *consequence* of the existence of suprema, and there is no need to include it as a separate axiom. $\blacksquare$
+
+- id: abbott-1.3.5
+  hints:
+    - |
+      Treat $c = 0$ separately; it is trivial. For $c > 0$, multiplying an inequality by $c$ preserves its direction, so upper bounds of $A$ correspond to upper bounds of $cA$.
+    - |
+      Show $c\sup A$ is an upper bound for $cA$; then, for an arbitrary upper bound $u$ of $cA$, show $u/c$ is an upper bound for $A$.
+    - |
+      For $c < 0$, multiplication by $c$ reverses inequalities, so upper bounds of $cA$ correspond to *lower* bounds of $A$. What extra hypothesis on $A$ is then needed?
+  solution: |
+    Let $s = \sup A$, which exists by the Axiom of Completeness.
+
+    **(a)** *Case $c = 0$.* Then $cA = \{0\}$ (since $A \neq \emptyset$), so $\sup(cA) = 0 = 0 \cdot s$.
+
+    *Case $c > 0$.* For every $a \in A$ we have $a \le s$, so $ca \le cs$. Thus $cs$ is an upper bound for $cA$. Now let $u$ be any upper bound for $cA$. For each $a \in A$, $ca \le u$, and dividing by $c > 0$ gives $a \le u/c$. So $u/c$ is an upper bound for $A$, whence $s \le u/c$, i.e. $cs \le u$. Hence $cs$ is the least upper bound of $cA$: $\sup(cA) = c \sup A$.
+
+    **(b)** *Statement.* If $c < 0$ and $A$ is nonempty and bounded below, then $\sup(cA) = c \inf A$. (If $A$ is not bounded below, then $cA$ is not bounded above, so $\sup(cA)$ does not exist; also note that $\sup A$ plays no role.)
+
+    *Proof.* Let $i = \inf A$. For each $a \in A$, $a \ge i$, and multiplying by $c < 0$ reverses the inequality: $ca \le ci$. So $ci$ is an upper bound for $cA$. If $u$ is any upper bound for $cA$, then $ca \le u$ for all $a \in A$; dividing by $c < 0$ gives $a \ge u/c$, so $u/c$ is a lower bound for $A$ and therefore $u/c \le i$. Multiplying by $c < 0$ gives $u \ge ci$. So $\sup(cA) = c\inf A$.
+
+    For the parenthetical claim: if $cA$ were bounded above by some $u$, the same computation would show that $u/c$ is a lower bound for $A$, contradicting that $A$ is not bounded below. $\blacksquare$
+
+- id: abbott-1.3.9
+  hints:
+    - |
+      In (a), $\sup A$ is a number strictly less than $\sup B$. What does that say about whether $\sup A$ is an upper bound for $B$?
+    - |
+      A number smaller than $\sup B$ is not an upper bound for $B$, so some $b \in B$ exceeds it. Compare that $b$ with the elements of $A$.
+    - |
+      For (b), look for two sets with the same supremum that is not attained, for instance open intervals.
+  solution: |
+    (We assume, as the statement implicitly does, that $A$ and $B$ are nonempty and bounded above, so the suprema exist.)
+
+    **(a)** Since $\sup A < \sup B$ and $\sup B$ is the *least* upper bound of $B$, the number $\sup A$ is not an upper bound for $B$. Hence there exists $b \in B$ with $b > \sup A$. For every $a \in A$ we then have $a \le \sup A < b$. So $b$ is an upper bound for $A$ (indeed a strict one).
+
+    **(b)** Let $A = B = (0, 1)$. Then $\sup A = \sup B = 1$, so $\sup A \le \sup B$. But no $b \in B$ is an upper bound for $A$: given $b \in (0,1)$, the number $a = \frac{b+1}{2}$ lies in $A$ and satisfies $a > b$. $\blacksquare$
+
+- id: abbott-1.3.11
+  hints:
+    - |
+      For each part, decide first whether it feels true by drawing $A$ and $B$ on a number line. For (c), consider what happens when the sets "touch" at a single point that belongs to neither.
+    - |
+      (a): show $\sup B$ is an upper bound for $A$. (b): try $c$ halfway between $\sup A$ and $\inf B$. (c): the strict inequalities $a < c < b$ do not survive passing to $\sup$ and $\inf$.
+    - |
+      For (c), look for $A$ and $B$ with $\sup A = c = \inf B$, neither attaining it.
+  solution: |
+    **(a) True.** Let $a \in A$. Since $A \subseteq B$, $a \in B$, so $a \le \sup B$. Thus $\sup B$ is an upper bound for $A$, and since $\sup A$ is the least upper bound, $\sup A \le \sup B$.
+
+    **(b) True.** (Here $A$ and $B$ are implicitly nonempty, bounded above and below respectively, so that $\sup A$ and $\inf B$ exist.) Let $c = \frac{\sup A + \inf B}{2}$. Since $\sup A < \inf B$, we have $\sup A < c < \inf B$. Then for every $a \in A$ and $b \in B$,
+    $$a \le \sup A < c < \inf B \le b,$$
+    so $a < c < b$.
+
+    **(c) False.** Let $A = (0,1)$, $B = (1,2)$ and $c = 1$. For every $a \in A$ and $b \in B$ we have $a < 1 < b$. However $\sup A = 1$ (it is an upper bound, and any $u < 1$ is exceeded by $\max\{u, 0\}/2 + 1/2 \in A$) and $\inf B = 1$ (similarly), so $\sup A = \inf B$, and $\sup A < \inf B$ fails. (What *is* true is $\sup A \le c \le \inf B$.) $\blacksquare$
+
+- id: abbott-1.4.4
+  hints:
+    - |
+      $b$ is clearly an upper bound for $T$. The real content is that nothing smaller than $b$ is an upper bound, and you also need $T \ne \emptyset$.
+    - |
+      Use the density of $\mathbb{Q}$ in $\mathbb{R}$: between any two real numbers there is a rational.
+    - |
+      Given a candidate upper bound $u < b$, find a rational strictly between $\max\{a, u\}$ and $b$.
+  solution: |
+    By the density of $\mathbb{Q}$ in $\mathbb{R}$, there is a rational $q$ with $a < q < b$, so $q \in T$ and $T \ne \emptyset$. Every $t \in T$ satisfies $t \le b$, so $T$ is bounded above by $b$ and $\sup T$ exists (Axiom of Completeness) with $\sup T \le b$.
+
+    Suppose $u < b$ is any real number. Let $m = \max\{a, u\}$; then $m < b$. By density of $\mathbb{Q}$ there is $q \in \mathbb{Q}$ with $m < q < b$. Then $a < q < b$, so $q \in T$, and $q > u$. Hence $u$ is not an upper bound for $T$.
+
+    So $b$ is an upper bound for $T$ and no number less than $b$ is an upper bound; therefore $\sup T = b$. $\blacksquare$
+
+- id: abbott-1.4.8
+  hints:
+    - |
+      Three of the four requests are possible. For the impossible one, think about which hypothesis of the Nested Interval Property is genuinely being satisfied.
+    - |
+      (a): interleave two increasing sequences with the same limit. (b): shrink open intervals around a point. (c): slide unbounded intervals off to the right; the Archimedean property shows the intersection is empty.
+    - |
+      (d): the finite intersections $K_N = I_1 \cap \cdots \cap I_N$ are themselves nested closed intervals. Apply the Nested Interval Property to them.
+  solution: |
+    **(a) Possible.** Let
+    $$A = \left\{1 - \frac{1}{2n} : n \in \mathbb{N}\right\}, \qquad B = \left\{1 - \frac{1}{2n-1} : n \in \mathbb{N}\right\}.$$
+    The map $k \mapsto 1 - \frac1k$ is injective, and $A$ uses even $k$ while $B$ uses odd $k$, so $A \cap B = \emptyset$. Every element of $A \cup B$ is $< 1$, so $1$ is an upper bound for both, and $1 \notin A$, $1 \notin B$. If $u < 1$, choose (Archimedean property) $n$ with $\frac{1}{2n-1} < 1 - u$; then $1 - \frac{1}{2n} > 1 - \frac{1}{2n-1} > u$, so $u$ is an upper bound for neither set. Hence $\sup A = \sup B = 1$, with $1 \notin A$ and $1 \notin B$.
+
+    **(b) Possible.** Let $J_n = \left(-\frac1n, \frac1n\right)$. These are open and nested since $\frac{1}{n+1} < \frac1n$. Clearly $0 \in J_n$ for all $n$. If $x \ne 0$, by the Archimedean property choose $n$ with $\frac1n < |x|$; then $x \notin J_n$. So $\bigcap_{n} J_n = \{0\}$, which is nonempty and finite.
+
+    **(c) Possible.** Let $L_n = [n, \infty)$. These are unbounded closed intervals and $L_{n+1} \subseteq L_n$. For any $x \in \mathbb{R}$, the Archimedean property gives $n \in \mathbb{N}$ with $n > x$, so $x \notin L_n$. Hence $\bigcap_n L_n = \emptyset$.
+
+    **(d) Impossible.** Here "closed interval" means $[a, b] = \{x : a \le x \le b\}$ with $a \le b$, as in the Nested Interval Property (unbounded closed intervals are named separately in (c); with $I_n = [n, \infty)$ the request would be possible, by (c)). Write $I_n = [a_n, b_n]$ and let
+    $$K_N = \bigcap_{n=1}^{N} I_n.$$
+    A point $x$ lies in $K_N$ iff $a_n \le x \le b_n$ for all $n \le N$, iff $\alpha_N \le x \le \beta_N$, where $\alpha_N = \max_{n \le N} a_n$ and $\beta_N = \min_{n \le N} b_n$. So $K_N = [\alpha_N, \beta_N]$, and since $K_N \ne \emptyset$ by hypothesis, $\alpha_N \le \beta_N$: each $K_N$ is a closed interval. Also $K_{N+1} = K_N \cap I_{N+1} \subseteq K_N$, so the $K_N$ are nested. By the Nested Interval Property, there is $x \in \bigcap_N K_N$. Then for every $n$, $x \in K_n \subseteq I_n$, so $x \in \bigcap_{n} I_n$. Hence $\bigcap_n I_n \ne \emptyset$, and the request is impossible. $\blacksquare$
+
+- id: lebl-1.1.2
+  hints:
+    - |
+      In a general ordered set there is no arithmetic, only comparisons. The key observation is that if an upper bound belongs to the set, it is the supremum.
+    - |
+      Induct on the number of elements of $A$. Show the stronger statement that $A$ has a greatest element and a least element.
+    - |
+      For the inductive step, remove one element $x$ from $A$, apply the hypothesis to what remains to get a greatest element $m$, and compare $x$ with $m$ using trichotomy.
+  solution: |
+    Recall that in an ordered set, $<$ is transitive and satisfies trichotomy, and that if $b$ is an upper bound for $A$ with $b \in A$, then $b = \sup A$: any upper bound $c$ satisfies $b \le c$ because $b \in A$. The analogous statement holds for lower bounds and infima.
+
+    **Claim.** Every nonempty finite $A \subset S$ has a greatest element (an $M \in A$ with $a \le M$ for all $a \in A$) and a least element.
+
+    We prove the claim for the greatest element by induction on $n = |A| \ge 1$; the least element is handled identically, reversing all inequalities.
+
+    *Base case $n = 1$.* $A = \{x\}$ and $M = x$ works.
+
+    *Inductive step.* Suppose every subset with $n$ elements has a greatest element, and let $|A| = n + 1$. Pick $x \in A$ and let $A' = A \setminus \{x\}$, which is nonempty with $n$ elements. By hypothesis $A'$ has a greatest element $m$. By trichotomy, either $x < m$, or $x \ge m$. If $x < m$, put $M = m$; otherwise put $M = x$. In either case $M \in A$, $x \le M$ and $m \le M$. For $a \in A'$ we have $a \le m \le M$, so $a \le M$ by transitivity. Hence $M$ is a greatest element of $A$.
+
+    **Conclusion.** Let $M$ and $\mu$ be the greatest and least elements of $A$. Then $\mu \le a \le M$ for all $a \in A$, so $A$ is bounded above and below. Since $M$ is an upper bound in $A$, $\sup A$ exists and equals $M \in A$. Similarly $\inf A$ exists and equals $\mu \in A$. $\blacksquare$
+
+- id: lebl-1.1.6
+  hints:
+    - |
+      Since $\sup A \notin A$, every element of $A$ is *strictly* below $\sup A$. Can any element of $A$ then be an upper bound of $A$?
+    - |
+      Show that for every $a \in A$ there is $a' \in A$ with $a' > a$. Then build a sequence recursively.
+    - |
+      A strictly increasing sequence $a_1 < a_2 < \cdots$ has pairwise distinct terms, so its set of terms is countably infinite.
+  solution: |
+    Let $s = \sup A$, so $s \notin A$.
+
+    **Step 1: no element of $A$ is an upper bound for $A$.** Let $a \in A$. Since $s$ is an upper bound, $a \le s$, and since $s \notin A$, $a \ne s$; so $a < s$. If $a$ were an upper bound for $A$, then by the definition of supremum $s \le a$, contradicting $a < s$ (trichotomy). Hence there exists $a' \in A$ with $a' > a$ (otherwise, by trichotomy, $x \le a$ for all $x \in A$).
+
+    **Step 2: construction.** Since $A \ne \emptyset$, choose $a_1 \in A$. Having chosen $a_n \in A$, Step 1 lets us choose $a_{n+1} \in A$ with $a_{n+1} > a_n$. This defines recursively a sequence $\{a_n\}_{n=1}^\infty$ in $A$ with $a_1 < a_2 < a_3 < \cdots$.
+
+    **Step 3.** By transitivity, $a_n < a_m$ whenever $n < m$, so $a_n \ne a_m$ for $n \ne m$. Thus $n \mapsto a_n$ is a bijection from $\mathbb{N}$ onto $C = \{a_n : n \in \mathbb{N}\} \subset A$, and $C$ is a countably infinite subset of $A$. $\blacksquare$
+
+- id: lebl-1.1.14
+  hints:
+    - |
+      Picture $S$ as $a_1 < a_2 < a_3 < \cdots \;\;\cdots < b_3 < b_2 < b_1$: an increasing sequence followed by a decreasing one, with a "gap" between them.
+    - |
+      (a) means checking trichotomy and transitivity; split into cases by whether each element is an $a$ or a $b$. (b): find a largest and a smallest element of $S$.
+    - |
+      (c): take $A = \{a_k : k \in \mathbb{N}\}$. Determine exactly which elements of $S$ are upper bounds of $A$ and whether that set has a least element.
+  solution: |
+    The elements $a_k$, $b_j$ are understood to be pairwise distinct, and the order is the relation $<$ defined by: $a_k < a_m \iff k < m$; $b_k < b_m \iff k > m$; $a_k < b_j$ for all $k, j$; and never $b_j < a_k$.
+
+    **a)** *Trichotomy.* Let $x, y \in S$. If $x = a_k$, $y = a_m$, then exactly one of $k < m$, $k = m$, $k > m$ holds, so exactly one of $x < y$, $x = y$, $y < x$ holds. The case $x = b_k$, $y = b_m$ is the same with the inequality on indices reversed. If one is some $a_k$ and the other some $b_j$, they are distinct, $a_k < b_j$, and $b_j < a_k$ never holds, so again exactly one relation holds.
+
+    *Transitivity.* Suppose $x < y$ and $y < z$. Since a $b$ is never less than an $a$, the types of $(x, y, z)$ must be one of $(a,a,a)$, $(a,a,b)$, $(a,b,b)$, $(b,b,b)$. In case $(a,a,a)$, $x = a_k, y = a_m, z = a_p$ with $k < m < p$, so $k < p$ and $x < z$. In case $(b,b,b)$, $x = b_k, y = b_m, z = b_p$ with $k > m > p$, so $x < z$. In the two mixed cases, $x$ is an $a$ and $z$ is a $b$, so $x < z$. Thus $S$ is an ordered set.
+
+    **b)** The element $b_1$ is the greatest element of $S$: $a_k < b_1$ for all $k$, and $b_k < b_1$ for all $k > 1$. Similarly $a_1$ is the least element: $a_1 < b_j$ for all $j$ and $a_1 < a_k$ for $k > 1$. Hence for every subset $X \subset S$, $b_1$ is an upper bound and $a_1$ is a lower bound for $X$.
+
+    **c)** Let $A = \{a_k : k \in \mathbb{N}\}$; it is bounded by (b). We determine the upper bounds of $A$. No $a_m$ is an upper bound, since $a_{m+1} \in A$ and $a_{m+1} > a_m$. Every $b_j$ is an upper bound, since $a_k < b_j$ for all $k$. So the set of upper bounds of $A$ is $\{b_j : j \in \mathbb{N}\}$. This set has no least element: for any $b_j$, the upper bound $b_{j+1}$ satisfies $b_{j+1} < b_j$. Therefore $A$ has no least upper bound, and $S$ does not have the least-upper-bound property. $\blacksquare$
+
+- id: lebl-1.2.9
+  hints:
+    - |
+      The easy half is that $\sup A + \sup B$ is an upper bound for $C$. The real work is showing that it is the *least* one.
+    - |
+      Take any upper bound $u$ of $C$. Fix $b \in B$ and notice that $u - b$ is an upper bound for $A$. (Alternatively, use the $\epsilon$-characterization of the supremum with $\epsilon/2$ for each set.)
+    - |
+      From $\sup A \le u - b$ for every $b$, conclude that $u - \sup A$ is an upper bound for $B$. The infimum statement follows the same way with all inequalities reversed.
+  solution: |
+    Since $A$ and $B$ are nonempty and bounded, $\sup A, \inf A, \sup B, \inf B$ exist, and $C \ne \emptyset$.
+
+    **$C$ is bounded.** For $a \in A$, $b \in B$: $\inf A + \inf B \le a + b \le \sup A + \sup B$.
+
+    **$\sup C = \sup A + \sup B$.** By the above, $\sup A + \sup B$ is an upper bound for $C$, so $\sup C$ exists and $\sup C \le \sup A + \sup B$. Conversely, let $u$ be any upper bound for $C$. Fix $b \in B$. For every $a \in A$, $a + b \le u$, i.e. $a \le u - b$; so $u - b$ is an upper bound for $A$ and $\sup A \le u - b$. This gives $b \le u - \sup A$ for every $b \in B$, so $u - \sup A$ is an upper bound for $B$ and $\sup B \le u - \sup A$, i.e. $\sup A + \sup B \le u$. Taking $u = \sup C$ gives $\sup A + \sup B \le \sup C$. Hence $\sup C = \sup A + \sup B$.
+
+    **$\inf C = \inf A + \inf B$.** By the boundedness computation, $\inf A + \inf B$ is a lower bound for $C$, so $\inf C \ge \inf A + \inf B$. Conversely, let $\ell$ be any lower bound for $C$. Fix $b \in B$; for every $a \in A$, $a \ge \ell - b$, so $\inf A \ge \ell - b$. Then $b \ge \ell - \inf A$ for every $b \in B$, so $\inf B \ge \ell - \inf A$, i.e. $\inf A + \inf B \ge \ell$. Taking $\ell = \inf C$ gives $\inf A + \inf B \ge \inf C$. Hence $\inf C = \inf A + \inf B$. $\blacksquare$
+
+- id: lebl-1.2.13
+  hints:
+    - |
+      Use induction on $n$. Where will the hypothesis $1 + x > 0$ be needed?
+    - |
+      In the inductive step, multiply the inductive hypothesis by $1 + x$. Since $1+x > 0$, the inequality is preserved. Expand and discard a term that is clearly nonnegative.
+  solution: |
+    We use induction on $n \in \mathbb{N} = \{1, 2, \dots\}$.
+
+    *Base case $n = 1$.* $(1+x)^1 = 1 + x = 1 + 1\cdot x$, so the inequality holds (with equality).
+
+    *Inductive step.* Assume $(1+x)^n \ge 1 + nx$ for some $n \ge 1$. Since $1 + x > 0$, multiplying both sides by $1 + x$ preserves the inequality:
+    $$(1+x)^{n+1} \ge (1 + nx)(1 + x) = 1 + (n+1)x + nx^2 \ge 1 + (n+1)x,$$
+    where the last step uses $nx^2 \ge 0$. This is the statement for $n+1$.
+
+    By induction, $(1+x)^n \ge 1 + nx$ for all $n \in \mathbb{N}$. $\blacksquare$
+
+- id: lebl-1.3.5
+  hints:
+    - |
+      In (a) the hypothesis compares $f$ at one point with $g$ at a *possibly different* point. Fix one variable at a time.
+    - |
+      Fix $y$: then $g(y)$ is an upper bound for all values of $f$, so $\sup f \le g(y)$. Now let $y$ vary.
+    - |
+      For (b), the pointwise inequality $f(x) \le g(x)$ allows $f$ to be large where $g$ is large and small where $g$ is small. Even $f = g$ works on a two-point set.
+  solution: |
+    **a)** First, the quantities exist: fixing any $y_0 \in D$, every $f(x) \le g(y_0)$, so $f$ is bounded above; fixing any $x_0 \in D$, every $g(y) \ge f(x_0)$, so $g$ is bounded below. Since $D \ne \emptyset$, $\sup_D f$ and $\inf_D g$ exist.
+
+    Fix $y \in D$. Then $f(x) \le g(y)$ for all $x \in D$, so $g(y)$ is an upper bound for $\{f(x) : x \in D\}$, and hence $\sup_{x \in D} f(x) \le g(y)$. Since $y \in D$ was arbitrary, $\sup_{x\in D} f(x)$ is a lower bound for $\{g(y) : y \in D\}$, so
+    $$\sup_{x \in D} f(x) \le \inf_{y \in D} g(y).$$
+
+    **b)** Let $D = \{0, 1\}$ and $f(x) = g(x) = x$. Then $f(x) \le g(x)$ for all $x \in D$, but
+    $$\sup_{x \in D} f(x) = 1 > 0 = \inf_{x \in D} g(x).$$
+    (The hypothesis of (a) fails here: $f(1) = 1 > 0 = g(0)$.) $\blacksquare$
+
+- id: lebl-1.3.7
+  hints:
+    - |
+      For each fixed $x$, compare $f(x) + g(x)$ to $\sup f + \sup g$. Then pass to the supremum on the left.
+    - |
+      For (b), strict inequality happens when $f$ and $g$ reach their large values at *different* points. Try a two-point domain.
+  solution: |
+    Since $f, g$ are bounded and $D \ne \emptyset$, all suprema and infima below exist (and $f + g$ is bounded).
+
+    **a)** For every $x \in D$, $f(x) \le \sup_D f$ and $g(x) \le \sup_D g$, so
+    $$f(x) + g(x) \le \sup_{D} f + \sup_{D} g.$$
+    Thus $\sup_D f + \sup_D g$ is an upper bound for $\{f(x) + g(x) : x \in D\}$, and therefore $\sup_{x\in D}\bigl(f(x)+g(x)\bigr) \le \sup_D f + \sup_D g$.
+
+    Similarly, $f(x) \ge \inf_D f$ and $g(x) \ge \inf_D g$ give $f(x) + g(x) \ge \inf_D f + \inf_D g$ for all $x$, so $\inf_D f + \inf_D g$ is a lower bound and $\inf_{x\in D}\bigl(f(x)+g(x)\bigr) \ge \inf_D f + \inf_D g$.
+
+    **b)** Let $D = \{0, 1\}$, $f(x) = x$, $g(x) = 1 - x$. Then $f + g \equiv 1$, so $\sup_D (f+g) = \inf_D (f+g) = 1$. But $\sup_D f = \sup_D g = 1$ and $\inf_D f = \inf_D g = 0$, so
+    $$\sup_D (f+g) = 1 < 2 = \sup_D f + \sup_D g, \qquad \inf_D (f+g) = 1 > 0 = \inf_D f + \inf_D g.$$
+    Both inequalities are strict. $\blacksquare$
+
+- id: mit20-a2-7
+  hints:
+    - |
+      For (a), any number whose cube is at least $2$ cannot be exceeded by elements of $E$. For (b), $r > 0$ comes from exhibiting one positive element of $E$; the identity $r^3 = 2$ is proved by ruling out $r^3 < 2$ and $r^3 > 2$.
+    - |
+      If $r^3 < 2$, find a small $h > 0$ with $(r+h)^3 < 2$, so that $r + h \in E$. If $r^3 > 2$, find a small $h > 0$ with $(r-h)^3 > 2$ and show $r - h$ is still an upper bound. Either way you contradict $r = \sup E$.
+    - |
+      Expand $(r \pm h)^3$. For $0 < h \le 1$ bound $h^2, h^3$ by $h$, and use $1 \le r \le 2$ to get bounds like $(r+h)^3 \le r^3 + 19h$ and $(r-h)^3 \ge r^3 - 13h$. Then choose $h$ accordingly.
+  solution: |
+    We use that for $0 < s < t$ we have $s^3 < t^3$ (multiply $s < t$ by positive numbers three times).
+
+    **(a)** Let $x \in E$. If $x \ge 2$, then $x^3 \ge 2^3 = 8 > 2$, contradicting $x^3 < 2$. Hence $x < 2$, and $2$ is an upper bound for $E$. Also $1 \in E$ since $1 > 0$ and $1^3 = 1 < 2$, so $E \ne \emptyset$ and $r = \sup E$ exists by the least-upper-bound property.
+
+    **(b)** Since $1 \in E$, $r \ge 1 > 0$. Since $2$ is an upper bound, $r \le 2$. We show that $r^3 < 2$ and $r^3 > 2$ are both impossible.
+
+    *Case $r^3 < 2$.* For $0 < h \le 1$ we have $h^2 \le h$ and $h^3 \le h$, so
+    $$(r+h)^3 = r^3 + 3r^2h + 3rh^2 + h^3 \le r^3 + h(3r^2 + 3r + 1) \le r^3 + 19h,$$
+    using $r \le 2$. Let $h = \min\left\{1, \frac{2 - r^3}{38}\right\} > 0$. Then $19h \le \frac{2 - r^3}{2} < 2 - r^3$, so $(r+h)^3 < 2$. Since $r + h > 0$, we get $r + h \in E$. But $r + h > r = \sup E$, a contradiction.
+
+    *Case $r^3 > 2$.* For $0 < h \le 1$, using $3rh^2 \ge 0$ and $h^3 \le h$,
+    $$(r-h)^3 = r^3 - 3r^2h + 3rh^2 - h^3 \ge r^3 - h(3r^2 + 1) \ge r^3 - 13h,$$
+    using $r \le 2$. Let $h = \min\left\{\frac12, \frac{r^3 - 2}{26}\right\} > 0$. Then $13h \le \frac{r^3-2}{2} < r^3 - 2$, so $(r-h)^3 > 2$. Also $r - h \ge 1 - \frac12 > 0$. We claim $r - h$ is an upper bound for $E$: if $x \in E$ had $x > r - h$, then since $0 < r - h < x$, we would get $x^3 > (r-h)^3 > 2$, contradicting $x \in E$. So $r - h$ is an upper bound smaller than $r = \sup E$, a contradiction.
+
+    By trichotomy, $r^3 = 2$. $\blacksquare$
+
+- id: abbott-2.5.4
+  hints:
+    - |
+      Mimic the bisection proof of Bolzano–Weierstrass: trap the would-be supremum of $A$ in a shrinking sequence of closed intervals. What property should the right endpoints have, and what should the left endpoints have?
+    - |
+      Keep two invariants: $b_n$ is an upper bound for $A$, and $a_n$ is *not too big*, meaning some element of $A$ is $\ge a_n$. Bisect at the midpoint and keep the half that preserves both. The NIP then gives a point $s$ in every interval.
+    - |
+      Show $s$ is an upper bound and is least, each by contradiction. If either fails, some fixed positive gap would have to fit inside every $[a_n, b_n]$, but $b_n - a_n = (b_1 - a_1)/2^{n-1} \to 0$.
+    - |
+      For the circularity question: in the book, how was the Archimedean property (and hence $1/n \to 0$) proved?
+  solution: |
+    **Proof of the Axiom of Completeness.** Let $A \subseteq \mathbb{R}$ be nonempty and bounded above. Choose $a_1 \in A$ and an upper bound $b_1$ of $A$; then $a_1 \le b_1$. We construct closed intervals $I_n = [a_n, b_n]$ with the following properties:
+
+    1. $b_n$ is an upper bound for $A$;
+    2. there exists $x \in A$ with $x \ge a_n$;
+    3. $I_{n+1} \subseteq I_n$ and $b_{n+1} - a_{n+1} = \frac12 (b_n - a_n)$.
+
+    Properties 1 and 2 hold for $n = 1$. Given $I_n$, let $m = \frac{a_n + b_n}{2}$. If $m$ is an upper bound for $A$, set $I_{n+1} = [a_n, m]$: property 1 holds since $m$ is an upper bound, and property 2 holds with the same $x$ as for $a_n$. Otherwise, set $I_{n+1} = [m, b_n]$: property 1 holds since $b_n$ is an upper bound, and since $m$ is not an upper bound there is $x \in A$ with $x > m$, giving property 2. In both cases property 3 holds. (Properties 1 and 2 give $a_n \le x \le b_n$, so each $I_n$ is a genuine closed interval.) By induction,
+    $$b_n - a_n = \frac{b_1 - a_1}{2^{n-1}} \quad \text{for all } n.$$
+
+    By the Nested Interval Property there is $s \in \bigcap_{n=1}^\infty I_n$, i.e. $a_n \le s \le b_n$ for all $n$. Since $(1/2^n) \to 0$, also $(b_1-a_1)/2^{n-1} = 2(b_1-a_1)\cdot\frac{1}{2^n} \to 0$. So for every $\delta > 0$ there is $n$ with $b_n - a_n < \delta$.
+
+    *$s$ is an upper bound for $A$.* Suppose $x \in A$ with $x > s$, and let $\delta = x - s > 0$. For every $n$, $b_n \ge x$ (property 1) and $a_n \le s$, so $b_n - a_n \ge x - s = \delta$. This contradicts the existence of $n$ with $b_n - a_n < \delta$.
+
+    *$s$ is the least upper bound.* Suppose $u$ is an upper bound for $A$ with $u < s$, and let $\delta = s - u > 0$. For every $n$, property 2 gives $x \in A$ with $a_n \le x \le u$, and $b_n \ge s$, so $b_n - a_n \ge s - u = \delta$. Again this is a contradiction.
+
+    Hence $s = \sup A$, and every nonempty set bounded above has a least upper bound.
+
+    **Why the assumption $(1/2^n) \to 0$ is needed.** In the book, $(1/n) \to 0$ (and hence $(1/2^n) \to 0$) is derived from the Archimedean Property, and the Archimedean Property is proved *using* the Axiom of Completeness: if $\mathbb{N}$ were bounded above, $\sup \mathbb{N}$ would exist and lead to a contradiction. Since we are trying to prove the Axiom of Completeness, we cannot use any result whose proof depends on it. So the fact that the bisected lengths shrink to $0$ must be assumed separately. This is a genuine extra hypothesis, not an artifact of the proof. In a non-Archimedean ordered field there are positive "infinitesimals" smaller than every $1/2^n$, and the lengths need not shrink to $0$. The NIP alone does not imply completeness; one can show, for example, that the hyperreal numbers satisfy the NIP but are not complete. $\blacksquare$
+
+- id: cummings-1.22
+  hints:
+    - |
+      Write out what nestedness says about the endpoints: how do $a_n$ and $a_{n+1}$ compare, and $b_n$ and $b_{n+1}$?
+    - |
+      Use the completeness axiom (least upper bound property) on the set of left endpoints $\{a_n : n \in \mathbb{N}\}$.
+    - |
+      Show every $b_m$ is an upper bound for the left endpoints. Comparing $a_n$ and $b_m$ through $I_{\max(n,m)}$ is the key step. Then the supremum lies in every $I_n$.
+  solution: |
+    We use the completeness axiom: every nonempty set of reals that is bounded above has a least upper bound. Each $I_n = [a_n, b_n]$ is nonempty, so $a_n \le b_n$.
+
+    **Endpoints are monotone.** Since $a_{n+1} \in I_{n+1} \subseteq I_n$, we have $a_n \le a_{n+1}$. Similarly $b_{n+1} \in I_n$ gives $b_{n+1} \le b_n$. By induction, $a_n \le a_k$ and $b_k \le b_n$ whenever $n \le k$.
+
+    **Each $b_m$ bounds every $a_n$.** Let $n, m \in \mathbb{N}$ and $k = \max\{n, m\}$. Then
+    $$a_n \le a_k \le b_k \le b_m.$$
+
+    Let $A = \{a_n : n \in \mathbb{N}\}$. It is nonempty and bounded above (by $b_1$, say), so $x := \sup A$ exists. For each $n$, $a_n \le x$ because $x$ is an upper bound for $A$. For each $m$, $b_m$ is an upper bound for $A$ by the previous step, so $x \le b_m$ because $x$ is the least upper bound. Thus $a_n \le x \le b_n$, i.e. $x \in I_n$, for every $n \in \mathbb{N}$. Hence $x \in \bigcap_{n=1}^\infty I_n$, which is therefore nonempty. $\blacksquare$
+
+- id: lebl-2.4.3
+  hints:
+    - |
+      Given a nonempty set $A \subset F$ that is bounded above, you need to produce its supremum as the limit of a Cauchy sequence of *rationals*. Which construction traps a supremum using a sequence of shrinking intervals?
+    - |
+      Bisection: use density to choose rational $a_1$ (below some element of $A$) and rational $b_1$ (an upper bound). Repeatedly halve $[a_n, b_n]$, keeping $b_n$ an upper bound and $a_n$ not an upper bound. The midpoints stay rational.
+    - |
+      Show $\{a_n\}$ is Cauchy using $|a_n - a_k| \le b_M - a_M = (b_1 - a_1)/2^{M-1}$ for $n, k \ge M$, and let $s$ be its limit in $F$. Then prove $s = \sup A$ by contradiction in both directions. Density of $\mathbb{Q}$ lets you compare elements of $F$ with the rational lengths $(b_1-a_1)/2^{n-1}$.
+  solution: |
+    We read "the sequence $\{x_n\}$ has a limit $L \in F$" in the usual sense: for every $\epsilon \in F$ with $\epsilon > 0$ there is $M$ such that $|x_n - L| < \epsilon$ for all $n \ge M$. By density of $\mathbb{Q}$, it is equivalent to require this only for rational $\epsilon > 0$.
+
+    Let $A \subset F$ be nonempty and bounded above, say by $B \in F$. Fix $x_0 \in A$.
+
+    **Construction.** By density, choose $a_1 \in \mathbb{Q}$ with $x_0 - 1 < a_1 < x_0$, and $b_1 \in \mathbb{Q}$ with $B < b_1 < B + 1$. Then $a_1$ is not an upper bound for $A$ (since $x_0 > a_1$), and $b_1$ is an upper bound. Recursively, given rationals $a_n, b_n$ with $a_n$ not an upper bound and $b_n$ an upper bound for $A$, let $m_n = \frac{a_n + b_n}{2} \in \mathbb{Q}$. If $m_n$ is an upper bound for $A$, set $a_{n+1} = a_n$, $b_{n+1} = m_n$; otherwise set $a_{n+1} = m_n$, $b_{n+1} = b_n$. The invariants are preserved. Note $a_n < b_n$: there is $x \in A$ with $x > a_n$, and $x \le b_n$. By induction, for all $n$,
+    $$a_n \le a_{n+1} \le b_{n+1} \le b_n, \qquad b_n - a_n = \frac{L}{2^{n-1}}, \quad\text{where } L = b_1 - a_1 \in \mathbb{Q},\ L > 0.$$
+
+    **$\{a_n\}$ is Cauchy.** If $n, k \ge M$, then $a_M \le a_n, a_k \le b_n, b_k \le b_M$, so $|a_n - a_k| \le b_M - a_M = L/2^{M-1}$. Given a rational $\epsilon > 0$, choose $M \in \mathbb{N}$ with $M > L/\epsilon$ (Archimedean property of $\mathbb{Q}$). Since $2^{M-1} \ge M$, we get $L/2^{M-1} \le L/M < \epsilon$. So $\{a_n\}$ is a Cauchy sequence of rationals, and by hypothesis it has a limit $s \in F$.
+
+    **A preliminary fact.** For every $\delta \in F$ with $\delta > 0$, there is $N$ such that $L/2^{n-1} < \delta$ for all $n \ge N$. Indeed, by density pick $r \in \mathbb{Q}$ with $0 < r < \delta$. As above there is $N$ with $L/2^{N-1} < r$, and the sequence $L/2^{n-1}$ is decreasing.
+
+    **$s$ is an upper bound for $A$.** Suppose $x \in A$ with $x > s$, and let $\delta = x - s > 0$. Choose $n$ so large that $|a_n - s| < \delta/2$ and $L/2^{n-1} < \delta/2$ (possible by the definition of limit and the preliminary fact). Then
+    $$b_n = a_n + \frac{L}{2^{n-1}} < \left(s + \frac\delta2\right) + \frac\delta2 = x,$$
+    contradicting that $b_n$ is an upper bound for $A$.
+
+    **$s$ is least.** Suppose $u$ is an upper bound for $A$ with $u < s$, and let $\delta = s - u > 0$. Choose $n$ with $|a_n - s| < \delta$. Then $a_n > s - \delta = u$. Since $a_n$ is not an upper bound, there is $x \in A$ with $x > a_n > u$, contradicting that $u$ is an upper bound.
+
+    Therefore $s = \sup A$. Since $A$ was an arbitrary nonempty subset of $F$ bounded above, $F$ has the least-upper-bound property. $\blacksquare$

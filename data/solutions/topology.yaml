@@ -1,0 +1,687 @@
+- id: mit20-a3-5
+  hints:
+    - |
+      Each part is a direct check of the definition: given a point $x$ of the set, you must produce a radius $\epsilon > 0$ (which may depend on $x$) so that the whole interval $(x-\epsilon, x+\epsilon)$ stays inside the set.
+    - |
+      For (a), take $\epsilon$ to be the distance from $x$ to the nearest endpoint. For (c), each $U_m$ gives its own $\epsilon_m$; a *finite* list of positive numbers has a positive minimum. For (b), one of the sets already works.
+    - |
+      For (d), think about whether an interval around a rational can consist only of rationals. Density of the irrationals is the tool.
+  solution: |
+    **(a)** Let $x \in (a,b)$ and put $\epsilon = \min\{x-a,\, b-x\} > 0$. If $|y - x| < \epsilon$ then $y > x - \epsilon \ge x - (x-a) = a$ and $y < x + \epsilon \le x + (b - x) = b$, so $y \in (a,b)$. Hence $(x-\epsilon, x+\epsilon) \subset (a,b)$.
+
+    If $x \in (-\infty, a)$, take $\epsilon = a - x > 0$; then $y < x + \epsilon = a$ for every $y \in (x - \epsilon, x+\epsilon)$. If $x \in (b,\infty)$, take $\epsilon = x - b > 0$; then $y > x - \epsilon = b$ for every $y \in (x-\epsilon, x+\epsilon)$. So all three sets are open.
+
+    **(b)** Let $x \in \bigcup_{\lambda} U_\lambda$. Then $x \in U_{\lambda_0}$ for some $\lambda_0 \in \Lambda$. Since $U_{\lambda_0}$ is open there is $\epsilon > 0$ with $(x-\epsilon,x+\epsilon) \subset U_{\lambda_0} \subset \bigcup_\lambda U_\lambda$. Hence the union is open. (If $\Lambda = \emptyset$ the union is empty, which is open.)
+
+    **(c)** Let $x \in \bigcap_{m=1}^n U_m$. For each $m$, $x \in U_m$ and $U_m$ is open, so there is $\epsilon_m > 0$ with $(x - \epsilon_m, x+\epsilon_m) \subset U_m$. Let $\epsilon = \min\{\epsilon_1, \ldots, \epsilon_n\}$; this is positive because it is the minimum of finitely many positive numbers. Then for every $m$,
+    $$(x-\epsilon, x+\epsilon) \subset (x-\epsilon_m, x+\epsilon_m) \subset U_m,$$
+    so $(x-\epsilon,x+\epsilon) \subset \bigcap_{m} U_m$. Hence the intersection is open.
+
+    **(d)** No. Take $x = 0 \in \mathbb{Q}$. For any $\epsilon > 0$, the interval $(-\epsilon, \epsilon)$ contains an irrational number (by density of the irrationals; explicitly, choose $n \in \mathbb{N}$ with $\sqrt{2}/n < \epsilon$ by the Archimedean property, then $\sqrt{2}/n$ is irrational and lies in $(-\epsilon,\epsilon)$). So no interval $(-\epsilon, \epsilon)$ is contained in $\mathbb{Q}$, and $\mathbb{Q}$ is not open.
+- id: mit20-a4-1
+  hints:
+    - |
+      By definition you need to look at the complement. Write each complement explicitly and decide whether it is open using the definition from Assignment 3.
+    - |
+      $[a,b]^c = (-\infty,a) \cup (b,\infty)$ and $\mathbb{Z}^c = \bigcup_{n \in \mathbb{Z}} (n, n+1)$. Unions of open sets are open.
+    - |
+      For $\mathbb{Q}$, the complement is the irrationals. Find an irrational point every neighborhood of which contains a rational.
+  solution: |
+    We use the facts from Assignment 3: open intervals and half-lines are open, and arbitrary unions of open sets are open.
+
+    **(a)** $[a,b]^c = (-\infty, a) \cup (b, \infty)$, a union of two open sets, hence open. So $[a,b]$ is closed.
+
+    **(b)** Yes. Every real number not in $\mathbb{Z}$ lies strictly between two consecutive integers, so
+    $$\mathbb{Z}^c = \bigcup_{n \in \mathbb{Z}} (n, n+1).$$
+    Each $(n,n+1)$ is open, so the union is open, and $\mathbb{Z}$ is closed.
+
+    **(c)** No. We show $\mathbb{Q}^c$ (the irrationals) is not open. The point $\sqrt 2$ lies in $\mathbb{Q}^c$. For any $\epsilon > 0$, the interval $(\sqrt2 - \epsilon, \sqrt 2 + \epsilon)$ contains a rational number by the density of $\mathbb{Q}$ in $\mathbb{R}$. So no interval around $\sqrt 2$ lies inside $\mathbb{Q}^c$; thus $\mathbb{Q}^c$ is not open and $\mathbb{Q}$ is not closed.
+- id: mit20-a4-2
+  hints:
+    - |
+      Closedness is defined through complements, so translate the statements about closed sets into statements about open sets.
+    - |
+      Use De Morgan's laws: $\left(\bigcap_\lambda F_\lambda\right)^c = \bigcup_\lambda F_\lambda^c$ and $\left(\bigcup_m F_m\right)^c = \bigcap_m F_m^c$. Then apply the results on unions and finite intersections of open sets.
+  solution: |
+    We use Assignment 3, Problem 5: an arbitrary union of open sets is open, and a finite intersection of open sets is open.
+
+    **(a)** By De Morgan's law, $x \notin \bigcap_\lambda F_\lambda$ iff there is $\lambda$ with $x \notin F_\lambda$, so
+    $$\Bigl(\bigcap_{\lambda \in \Lambda} F_\lambda\Bigr)^c = \bigcup_{\lambda\in\Lambda} F_\lambda^c.$$
+    Each $F_\lambda^c$ is open because $F_\lambda$ is closed, so the union is open. Hence $\bigcap_\lambda F_\lambda$ is closed.
+
+    **(b)** Similarly, $x \notin \bigcup_{m=1}^n F_m$ iff $x \notin F_m$ for all $m$, so
+    $$\Bigl(\bigcup_{m=1}^n F_m\Bigr)^c = \bigcap_{m=1}^n F_m^c,$$
+    a finite intersection of open sets, which is open. Hence $\bigcup_{m=1}^n F_m$ is closed.
+- id: mit20-a7-4
+  hints:
+    - |
+      Unwind the definition: for a fixed real $x$ and any $\epsilon > 0$, you must find an irrational number in $(x-\epsilon, x+\epsilon)$ that is different from $x$.
+    - |
+      The irrationals are dense: between any two reals there is an irrational (for instance, $q\sqrt 2$ for a suitable rational $q$, or $r + \sqrt 2$ with $r$ rational).
+    - |
+      To guarantee the point is different from $x$, look in the half-interval $(x, x+\epsilon)$ rather than the whole interval.
+  solution: |
+    Let $x \in \mathbb{R}$ and $\epsilon > 0$. We must show $(x-\epsilon, x+\epsilon)$ contains an irrational number other than $x$.
+
+    By the density of $\mathbb{Q}$, there is a rational $r$ with $x - \sqrt 2 < r < x - \sqrt 2 + \epsilon$. Then $y := r + \sqrt 2$ satisfies $x < y < x + \epsilon$. The number $y$ is irrational: if $y$ were rational then $\sqrt2 = y - r$ would be rational, which is false. Since $y > x$, we have $y \neq x$, and $y \in (x-\epsilon,x+\epsilon)$.
+
+    Thus $(x-\epsilon, x+\epsilon) \cap (\mathbb{R}\setminus\mathbb{Q}) \setminus\{x\} \neq \emptyset$ for every $\epsilon > 0$, so $x$ is a cluster point of the irrationals. Since $x$ was arbitrary, every real number is a cluster point of the set of irrationals.
+- id: lebl-7.4.16
+  hints:
+    - |
+      Start with a Cauchy sequence in $E$ (with the subspace metric, which is just $d$ restricted to $E$). What does completeness of $X$ give you?
+    - |
+      The limit exists in $X$. Use that a closed set contains the limits of all convergent sequences of its points.
+  solution: |
+    Let $\{x_n\}$ be a Cauchy sequence in $(E, d|_E)$. Since the subspace metric is the restriction of $d$, $\{x_n\}$ is also Cauchy in $(X,d)$. As $X$ is complete, there is $x \in X$ with $x_n \to x$ in $X$.
+
+    We claim $x \in E$. Suppose not. Then $x \in X \setminus E$, which is open because $E$ is closed, so there is $\delta > 0$ with $B(x,\delta) \subset X \setminus E$. Since $x_n \to x$, there is $N$ with $d(x_N, x) < \delta$, so $x_N \in B(x,\delta)$, contradicting $x_N \in E$. Hence $x \in E$.
+
+    Finally, $d(x_n,x) \to 0$ and $d$ is the metric of the subspace, so $x_n \to x$ in $(E, d|_E)$. Every Cauchy sequence in $E$ converges in $E$, so $E$ is complete.
+- id: cummings-5.3
+  hints:
+    - |
+      Look for open sets that shrink down to a single point, and closed sets that grow toward an open set.
+    - |
+      Try intervals indexed by $n \in \mathbb{N}$ with endpoints $\pm 1/n$ or $1/n$ and $1 - 1/n$.
+  solution: |
+    **(a)** Let $U_n = \left(-\tfrac1n, \tfrac1n\right)$ for $n \in \mathbb{N}$. Each $U_n$ is open, and
+    $$\bigcap_{n=1}^\infty \left(-\tfrac1n, \tfrac1n\right) = \{0\}.$$
+    Indeed $0$ lies in every $U_n$, and if $x \ne 0$ then choosing $n$ with $1/n < |x|$ (Archimedean property) gives $x \notin U_n$. The set $\{0\}$ is not open, since no interval $(-\epsilon,\epsilon)$ is contained in it.
+
+    **(b)** Let $F_n = \left[\tfrac1n, 1\right]$ for $n \in \mathbb{N}$. Each $F_n$ is closed, and
+    $$\bigcup_{n=1}^\infty \left[\tfrac1n, 1\right] = (0, 1].$$
+    Indeed each $F_n \subset (0,1]$, and if $0 < x \le 1$, pick $n$ with $1/n \le x$, so $x \in F_n$. The set $(0,1]$ is not closed: $0$ is a limit of the points $1/n \in (0,1]$ but $0 \notin (0,1]$ (equivalently, its complement is not open at $0$).
+- id: mit20-a4-3
+  hints:
+    - |
+      If $x \in F^c$, use that $F^c$ is open: there is an interval around $x$ that misses $F$ entirely.
+    - |
+      Compare this with the definition of $x_n \to x$ using that same $\epsilon$: eventually the $x_n$ must lie in that interval.
+  solution: |
+    Suppose, for contradiction, that $x \in F^c$. Since $F$ is closed, $F^c$ is open, so there exists $\epsilon > 0$ with $(x-\epsilon, x+\epsilon) \subset F^c$. Since $x_n \to x$, there is $N \in \mathbb{N}$ such that $|x_n - x| < \epsilon$ for all $n \ge N$. In particular $x_N \in (x - \epsilon, x+\epsilon) \subset F^c$, contradicting $x_N \in F$. Hence $x \in F$.
+- id: mit20-mid-2
+  hints:
+    - |
+      For (a), negate the definition carefully: the "for all $x$" becomes "there exists $x$", and "there exists $\epsilon$" becomes "for all $\epsilon$".
+    - |
+      For (b), apply your negation in (a) with $\epsilon = 1/n$ for each $n \in \mathbb{N}$ to pick the terms of the sequence.
+  solution: |
+    **(a)** $U$ is not open means: there exists $x \in U$ such that for every $\epsilon > 0$, $(x-\epsilon,x+\epsilon) \not\subset U$; that is, for every $\epsilon > 0$ there is $y \in U^c$ with $|y - x| < \epsilon$.
+
+    **(b)** Let $x \in U$ be as in (a). For each $n \in \mathbb{N}$, apply (a) with $\epsilon = 1/n$ to obtain $x_n \in U^c$ with $|x_n - x| < 1/n$. Given $\epsilon > 0$, choose $N$ with $1/N < \epsilon$ (Archimedean property); then for $n \ge N$, $|x_n - x| < 1/n \le 1/N < \epsilon$. Hence $\{x_n\}$ is a sequence in $U^c$ with $\lim x_n = x$, and $x \in U$.
+
+    **(c)** Suppose $F$ is not closed, i.e. $U := F^c$ is not open. By (b) there exist $x \in U = F^c$ and a sequence $\{x_n\}$ in $U^c = F$ with $x_n \to x$. By the assumed property of $F$, $x = \lim x_n \in F$, contradicting $x \in F^c$. Therefore $F$ is closed.
+- id: mit20-mid-4b
+  hints:
+    - |
+      You need points of $E$, different from $0.111\ldots$, arbitrarily close to it. Which elements of $E$ agree with $0.111\ldots$ in many leading digits?
+    - |
+      Consider $x_n = 0.\underbrace{11\ldots1}_{n}222\ldots$ and compute $x_n - 0.111\ldots$ as a geometric series.
+  solution: |
+    Let $x = 0.111\ldots = \sum_{j=1}^\infty 10^{-j} = \tfrac19$. For $n \in \mathbb{N}$ let $x_n$ be the number whose first $n$ decimal digits are $1$ and all later digits are $2$:
+    $$x_n = \sum_{j=1}^n 10^{-j} + \sum_{j=n+1}^\infty 2\cdot 10^{-j}.$$
+    Its decimal expansion uses only the digits $1$ and $2$, and $0 < x_n < 1$ (since $x_n \le \sum_j 2\cdot 10^{-j} = \tfrac29$), so $x_n \in E$. Moreover
+    $$x_n - x = \sum_{j=n+1}^\infty 10^{-j} = \frac{10^{-(n+1)}}{1 - 1/10} = \frac{10^{-n}}{9} > 0,$$
+    so $x_n \ne x$ and $|x_n - x| = 10^{-n}/9$.
+
+    Now let $\epsilon > 0$. Choose $n$ with $10^{-n} < 9\epsilon$ (possible since $10^{-n} \le 1/n \to 0$). Then $x_n \in (x-\epsilon, x+\epsilon) \cap E \setminus \{x\}$. As $\epsilon$ was arbitrary, $0.111\ldots$ is a cluster point of $E$.
+- id: abbott-3.2.5
+  hints:
+    - |
+      Both directions connect limit points of $F$ with limits of sequences in $F$. Recall that in $\mathbb{R}$ a sequence is Cauchy if and only if it converges.
+    - |
+      For ($\Rightarrow$): if a Cauchy sequence in $F$ converged to some $x \notin F$, then its terms are all different from $x$; what does that make $x$?
+    - |
+      For ($\Leftarrow$): given a limit point $x$ of $F$, build a sequence $a_n \in F$ with $0 < |a_n - x| < 1/n$, and use that convergent sequences are Cauchy.
+  solution: |
+    Recall that $F$ is closed iff it contains all its limit points, and that $x$ is a limit point of $F$ iff every $\epsilon$-neighborhood $V_\epsilon(x)$ contains a point of $F$ other than $x$. We use the Cauchy Criterion: a real sequence converges iff it is Cauchy.
+
+    **($\Rightarrow$)** Let $F$ be closed and $(x_n)$ a Cauchy sequence in $F$. By the Cauchy Criterion, $x_n \to x$ for some $x \in \mathbb{R}$. Suppose $x \notin F$. Then $x_n \ne x$ for every $n$. Given $\epsilon > 0$, there is $N$ with $|x_N - x| < \epsilon$, so $x_N \in V_\epsilon(x) \cap F$ and $x_N \ne x$. Hence $x$ is a limit point of $F$, so $x \in F$ because $F$ is closed — a contradiction. Thus $x \in F$.
+
+    **($\Leftarrow$)** Assume every Cauchy sequence in $F$ has its limit in $F$, and let $x$ be a limit point of $F$. For each $n \in \mathbb{N}$ choose $a_n \in F$ with $0 < |a_n - x| < 1/n$. Then $a_n \to x$, and convergent sequences are Cauchy, so $(a_n)$ is a Cauchy sequence in $F$. By hypothesis its limit lies in $F$; by uniqueness of limits that limit is $x$, so $x \in F$. Hence $F$ contains all its limit points and is closed.
+- id: abbott-3.2.6
+  hints:
+    - |
+      Two of these are true and three are false. For each, decide by asking whether a single point (or a single half-line) can be removed or added to break the claim.
+    - |
+      For (a), remove one irrational from $\mathbb{R}$. For (b), the Nested Interval Property relies on boundedness; think of unbounded closed sets such as $[n,\infty)$.
+    - |
+      For (d), build a convergent sequence of irrationals whose limit is also irrational, and add the limit. For (e), recall how $C$ is defined as an intersection.
+  solution: |
+    **(a) False.** $O = \mathbb{R} \setminus \{\sqrt 2\} = (-\infty, \sqrt2) \cup (\sqrt2, \infty)$ is a union of two open intervals, hence open. It contains every rational (as $\sqrt 2$ is irrational), but $O \ne \mathbb{R}$.
+
+    **(b) False.** Let $F_n = [n, \infty)$. Each $F_n$ is closed (its complement $(-\infty, n)$ is open), nonempty, and $F_1 \supseteq F_2 \supseteq \cdots$. But $\bigcap_n F_n = \emptyset$: for any $x \in \mathbb{R}$, the Archimedean property gives $n > x$, and then $x \notin F_n$.
+
+    **(c) True.** Let $O$ be nonempty and open, and pick $x \in O$. There is $\epsilon > 0$ with $(x-\epsilon,x+\epsilon) \subseteq O$. By the density of $\mathbb{Q}$ in $\mathbb{R}$ there is a rational $r$ with $x - \epsilon < r < x+\epsilon$, so $r \in O$.
+
+    **(d) False.** Let
+    $$A = \{\sqrt 2 + \tfrac1n : n \in \mathbb{N}\} \cup \{\sqrt 2\}.$$
+    Every element is irrational (if $\sqrt2 + \frac1n = q \in \mathbb{Q}$ then $\sqrt 2 = q - \frac1n \in \mathbb{Q}$). $A$ is infinite and bounded ($A \subseteq [\sqrt2, \sqrt2 + 1]$). To see that $A$ is closed, we show its only limit point is $\sqrt2 \in A$. Let $y \ne \sqrt 2$ and $\delta = |y - \sqrt2|/2 > 0$. If $z \in V_\delta(y)$ then $|z - \sqrt 2| > \delta$, so the points of $A$ in $V_\delta(y)$ are among the finitely many $\sqrt2 + \frac1n$ with $\frac1n > \delta$. A neighborhood containing only finitely many points of $A$ can be shrunk to one containing no point of $A$ other than possibly $y$, so $y$ is not a limit point of $A$. Hence $A$ contains all its limit points and is closed, yet contains no rational number.
+
+    **(e) True.** $C = \bigcap_{n=0}^\infty C_n$, where each $C_n$ is a finite union of $2^n$ closed intervals. A finite union of closed sets is closed, so each $C_n$ is closed, and an arbitrary intersection of closed sets is closed. Hence $C$ is closed.
+- id: abbott-3.2.7
+  hints:
+    - |
+      To show $L$ is closed, you must show every limit point of $L$ is in $L$, i.e. is itself a limit point of $A$. Points of $L$ are surrounded by points of $A$; points near $x$ in $L$ should therefore drag points of $A$ near $x$.
+    - |
+      Given $x$ and $l \in L$ with $0 < |l - x| < \epsilon$, use a smaller neighborhood of $l$ — of radius $\min\{\epsilon - |l-x|,\ |l-x|\}$ — to find a point of $A$ that is within $\epsilon$ of $x$ and is not equal to $x$.
+    - |
+      For Theorem 3.2.12: (b) shows the limit points of $\overline A$ lie in $L \subseteq \overline A$. For minimality, compare limit points of $A$ with limit points of a closed set $F \supseteq A$.
+  solution: |
+    Throughout, $V_\epsilon(x) = (x-\epsilon,x+\epsilon)$.
+
+    **Lemma.** If $x \in \mathbb{R}$, $\epsilon > 0$, and $l \in L$ satisfies $0 < |l - x| < \epsilon$, then $V_\epsilon(x)$ contains a point $a \in A$ with $a \ne x$.
+
+    *Proof.* Let $\epsilon' = \min\{\epsilon - |l-x|,\ |l-x|\} > 0$. Since $l$ is a limit point of $A$, there is $a \in A$ with $0 < |a - l| < \epsilon'$. Then $|a - x| \le |a-l| + |l-x| < (\epsilon - |l-x|) + |l-x| = \epsilon$. Also $a \ne x$, since $|a - l| < |l - x|$ and $|x - l| = |l-x|$. $\square$
+
+    **(a)** Let $x$ be a limit point of $L$ and $\epsilon > 0$. There is $l \in L$ with $0 < |l - x| < \epsilon$, so by the Lemma $V_\epsilon(x)$ contains a point of $A$ other than $x$. Hence $x$ is a limit point of $A$, i.e. $x \in L$. So $L$ contains its limit points and is closed.
+
+    **(b)** Let $x$ be a limit point of $A \cup L$ and $\epsilon > 0$. There is $y \in A \cup L$ with $0 < |y - x| < \epsilon$. If $y \in A$, then $V_\epsilon(x)$ contains a point of $A$ other than $x$. If $y \in L$, the Lemma gives the same conclusion. Hence $x$ is a limit point of $A$.
+
+    *Proof of Theorem 3.2.12.* Recall $\overline A = A \cup L$. By (b), every limit point of $\overline A$ is a limit point of $A$, so it lies in $L \subseteq \overline A$. Thus $\overline A$ contains its limit points and is closed. It contains $A$ by definition. Now let $F$ be any closed set with $A \subseteq F$. If $x \in L$, then every neighborhood of $x$ contains a point of $A \subseteq F$ other than $x$, so $x$ is a limit point of $F$, hence $x \in F$ because $F$ is closed. So $L \subseteq F$, and $\overline A = A \cup L \subseteq F$. Therefore $\overline A$ is the smallest closed set containing $A$.
+- id: abbott-3.3.5
+  hints:
+    - |
+      Use the Heine–Borel characterization: a subset of $\mathbb{R}$ is compact iff it is closed and bounded. Then ask which operations preserve "closed" and which preserve "bounded".
+    - |
+      Arbitrary intersections of closed sets are closed; arbitrary unions need not be bounded. For (c), $A$ is completely arbitrary — need it be closed?
+    - |
+      For (d), compare with the Nested Compact Set Property: which hypothesis has been dropped? Think of unbounded closed sets.
+  solution: |
+    We use the Heine–Borel Theorem: $K \subseteq \mathbb{R}$ is compact iff $K$ is closed and bounded.
+
+    **(a) True.** Let $\{K_\lambda : \lambda \in \Lambda\}$ be a (nonempty) family of compact sets and $K = \bigcap_\lambda K_\lambda$. Each $K_\lambda$ is closed, and an arbitrary intersection of closed sets is closed, so $K$ is closed. Fixing any $\lambda_0$, $K \subseteq K_{\lambda_0}$, which is bounded, so $K$ is bounded. Hence $K$ is compact. (If $K = \emptyset$ it is trivially compact.)
+
+    **(b) False.** $K_n = [0, n]$ is compact for each $n \in \mathbb{N}$, but $\bigcup_n K_n = [0,\infty)$ is unbounded, hence not compact.
+
+    **(c) False.** Let $A = (0,1)$ and $K = [0,1]$. Then $A \cap K = (0,1)$, which is not closed ($0$ is a limit point not in the set; e.g. $1/(n+1) \to 0$), hence not compact.
+
+    **(d) False.** Let $F_n = [n, \infty)$. Each $F_n$ is nonempty and closed (its complement $(-\infty, n)$ is open), and $F_1 \supseteq F_2 \supseteq \cdots$. But if $x \in \mathbb{R}$, the Archimedean property gives $n > x$, so $x \notin F_n$; thus $\bigcap_n F_n = \emptyset$.
+- id: abbott-8.2.2
+  hints:
+    - |
+      For each candidate, check the three axioms. The one that usually fails is "$d(f,g) = 0$ only when $f = g$". Also make sure each $d$ is a finite real number.
+    - |
+      For (a), the Extreme Value Theorem shows the supremum is finite; for the triangle inequality, bound pointwise and then take the supremum. For (b), find two different continuous functions with the same value at $1$.
+    - |
+      For (c), the key point is: if $h \ge 0$ is continuous and $\int_0^1 h = 0$, then $h \equiv 0$. Use continuity at a point where $h > 0$ to get a positive lower bound on a small interval.
+  solution: |
+    **(a) Metric.** For $f,g \in C[0,1]$, $|f-g|$ is continuous on the compact interval $[0,1]$, so by the Extreme Value Theorem the supremum is a (finite) maximum; hence $d(f,g) \in \mathbb{R}$.
+
+    (i) $d(f,g) \ge 0$ clearly. If $d(f,g) = 0$ then $|f(x) - g(x)| \le 0$ for all $x$, so $f = g$; conversely $d(f,f) = 0$.
+    (ii) $|f(x)-g(x)| = |g(x)-f(x)|$, so $d(f,g) = d(g,f)$.
+    (iii) For $h \in C[0,1]$ and each $x \in [0,1]$,
+    $$|f(x) - g(x)| \le |f(x)-h(x)| + |h(x)-g(x)| \le d(f,h) + d(h,g).$$
+    Thus $d(f,h)+d(h,g)$ is an upper bound for $\{|f(x)-g(x)|\}$, so $d(f,g) \le d(f,h) + d(h,g)$.
+
+    **(b) Not a metric.** Take $f(x) = x$ and $g(x) = 1$. Then $f \ne g$ (e.g. $f(0) = 0 \neq 1 = g(0)$), yet $d(f,g) = |1 - 1| = 0$, violating (i). (Properties (ii) and (iii) do hold, so this is only a pseudometric.)
+
+    **(c) Metric.** Since $|f-g|$ is continuous, it is integrable on $[0,1]$, so $d(f,g) \in \mathbb{R}$.
+
+    (i) $|f-g| \ge 0$ gives $d(f,g) \ge 0$, and $d(f,f) = \int_0^1 0 = 0$. Suppose $f \ne g$; say $h = |f-g|$ has $h(x_0) = c > 0$ for some $x_0 \in [0,1]$. By continuity there is $\delta > 0$ with $h(x) > c/2$ for all $x \in [0,1]$ with $|x - x_0| < \delta$. This set contains a closed interval $J \subseteq [0,1]$ of some length $\ell > 0$ (e.g. $\ell = \min\{\delta/2, 1/2\}$, placed on whichever side of $x_0$ stays in $[0,1]$). Since $h \ge 0$ everywhere and $h \ge c/2$ on $J$, monotonicity of the integral gives $\int_0^1 h \ge \int_J h \ge \frac{c}{2}\ell > 0$. So $d(f,g) = 0$ forces $f = g$.
+    (ii) Symmetry is clear since $|f-g| = |g-f|$.
+    (iii) Pointwise $|f - g| \le |f-h| + |h-g|$; integrating (monotonicity and linearity of the integral) gives $d(f,g) \le d(f,h) + d(h,g)$.
+
+    So (a) and (c) are metrics on $C[0,1]$ and (b) is not.
+- id: lebl-7.1.5
+  hints:
+    - |
+      Check the metric axioms for $d'$ one at a time; positivity and symmetry come straight from the hypotheses on $\varphi$ and the axioms for $d$.
+    - |
+      For the triangle inequality, start from $d(x,z) \le d(x,y) + d(y,z)$, then apply $\varphi$. Which property lets you apply $\varphi$ to both sides, and which one splits $\varphi$ of a sum?
+  solution: |
+    Since $d(x,y) \in [0,\infty)$, $d'(x,y) = \varphi(d(x,y))$ is a well-defined real number. We check the axioms.
+
+    *Nonnegativity and definiteness.* $d'(x,y) = \varphi(d(x,y)) \ge 0$. Moreover $d'(x,y) = 0$ iff $\varphi(d(x,y)) = 0$ iff $d(x,y) = 0$ (by the hypothesis on $\varphi$) iff $x = y$ (since $d$ is a metric).
+
+    *Symmetry.* $d'(x,y) = \varphi(d(x,y)) = \varphi(d(y,x)) = d'(y,x)$.
+
+    *Triangle inequality.* Let $x,y,z \in X$. Since $d$ is a metric, $d(x,z) \le d(x,y) + d(y,z)$. Since $\varphi$ is increasing, and then subadditive,
+    $$d'(x,z) = \varphi(d(x,z)) \le \varphi\bigl(d(x,y) + d(y,z)\bigr) \le \varphi(d(x,y)) + \varphi(d(y,z)) = d'(x,y) + d'(y,z).$$
+    (Only "nondecreasing" is needed in the first step.) Hence $(X,d')$ is a metric space.
+- id: lebl-7.2.7
+  hints:
+    - |
+      Recall the basic facts: $A^\circ \subset A \subset \overline A$, $A$ is closed iff $\overline A = A$, and $A$ is open iff $A^\circ = A$. Rewrite each condition in terms of these.
+    - |
+      Note that $\overline E = E^\circ \cup \partial E$. For (b), a point of $U$ that is not interior is automatically a boundary point.
+  solution: |
+    We use: $A^\circ \subset A \subset \overline A$; $A$ is closed iff $\overline A = A$; $A$ is open iff $A^\circ = A$. Here $\partial A = \overline A \setminus A^\circ$, so $\overline A = A^\circ \cup \partial A$.
+
+    **a)** If $E$ is closed, then $\partial E \subset \overline E = E$. Conversely, suppose $\partial E \subset E$. Then
+    $$\overline E = E^\circ \cup \partial E \subset E \cup E = E,$$
+    and $E \subset \overline E$ always, so $\overline E = E$ and $E$ is closed.
+
+    **b)** If $U$ is open, then $U^\circ = U$, so $\partial U = \overline U \setminus U$, which is disjoint from $U$. Conversely, suppose $\partial U \cap U = \emptyset$, and let $x \in U$. Then $x \in \overline U$. If $x \notin U^\circ$, then $x \in \overline U \setminus U^\circ = \partial U$, so $x \in \partial U \cap U$, a contradiction. Hence $x \in U^\circ$. Thus $U \subset U^\circ \subset U$, so $U = U^\circ$ is open.
+- id: lebl-7.2.10
+  hints:
+    - |
+      Use the characterization: a nonempty $S$ is disconnected iff there are open sets $U_1, U_2$ with $S \subset U_1 \cup U_2$, $U_1 \cap U_2 \cap S = \emptyset$, and both $U_1 \cap S$ and $U_2 \cap S$ nonempty.
+    - |
+      Suppose the union is split this way. The common point $x$ lies in one of the two pieces; what does connectedness of each $S_i$ then force about where all of $S_i$ lies?
+  solution: |
+    Let $S = \bigcup_{i=1}^\infty S_i$. It is nonempty since $x \in S$. Recall that a nonempty set $A$ is disconnected iff there exist open sets $U_1, U_2 \subset X$ with $A \subset U_1 \cup U_2$, $U_1 \cap U_2 \cap A = \emptyset$, $U_1 \cap A \ne \emptyset$ and $U_2 \cap A \ne \emptyset$.
+
+    Suppose $S$ is disconnected, with $U_1, U_2$ as above. Without loss of generality $x \in U_1$. Fix $i$. Then $S_i \subset S \subset U_1 \cup U_2$ and $U_1 \cap U_2 \cap S_i \subset U_1 \cap U_2 \cap S = \emptyset$. Since $S_i$ is connected, $U_1 \cap S_i$ and $U_2 \cap S_i$ cannot both be nonempty. But $x \in U_1 \cap S_i$, so $U_2 \cap S_i = \emptyset$. This holds for every $i$, hence
+    $$U_2 \cap S = \bigcup_{i=1}^\infty (U_2 \cap S_i) = \emptyset,$$
+    contradicting $U_2 \cap S \ne \emptyset$. Therefore $S$ is connected.
+- id: lebl-7.2.13
+  hints:
+    - |
+      For (a), the closure is the smallest closed set containing $B(x,\delta)$, so it suffices to show that $C(x,\delta)$ is closed.
+    - |
+      To show $C(x,\delta)$ is closed, take $y$ with $d(x,y) > \delta$ and use the triangle inequality to find a ball around $y$ missing $C(x,\delta)$.
+    - |
+      For (b), look for a metric space with "gaps", where no points lie close to the sphere $\{y : d(x,y) = \delta\}$ from the inside. The discrete metric, or $\mathbb{Z}$ with the usual metric, is a good place to try.
+  solution: |
+    **a)** First, $C(x,\delta)$ is closed. Let $y \notin C(x,\delta)$, so $d(x,y) > \delta$, and set $r = d(x,y) - \delta > 0$. If $z \in B(y,r)$, then
+    $$d(x,z) \ge d(x,y) - d(y,z) > d(x,y) - r = \delta,$$
+    so $z \notin C(x,\delta)$. Thus $B(y,r) \subset X \setminus C(x,\delta)$, which is therefore open, and $C(x,\delta)$ is closed.
+
+    Clearly $B(x,\delta) \subset C(x,\delta)$. Since $\overline{B(x,\delta)}$ is the smallest closed set containing $B(x,\delta)$ (equivalently, the intersection of all closed sets containing it), $\overline{B(x,\delta)} \subset C(x,\delta)$.
+
+    **b)** No. Let $X$ be any set with at least two points and $d$ the discrete metric: $d(a,b) = 1$ if $a \ne b$ and $d(a,a) = 0$. (This is a metric: the triangle inequality $d(a,c) \le d(a,b) + d(b,c)$ can fail only if the left side is $1$ and the right is $0$, which would force $a = b = c$.) In this space every set is open, because $B(a, 1/2) = \{a\}$ for every $a$; hence every set is also closed.
+
+    Fix $x \in X$ and $\delta = 1$. Then $B(x,1) = \{y : d(x,y) < 1\} = \{x\}$, which is closed, so $\overline{B(x,1)} = \{x\}$. But $C(x,1) = \{y : d(x,y) \le 1\} = X \ne \{x\}$. So $\overline{B(x,\delta)} \subsetneq C(x,\delta)$ in this example.
+- id: lebl-7.3.2
+  hints:
+    - |
+      This metric agrees with $|x-y|$ at small scales and caps distances at $1$. Convergence only cares about small distances; boundedness is now automatic.
+    - |
+      For (a), the only nontrivial axiom is the triangle inequality; split into cases according to whether one of the distances $|x-y|$, $|y-z|$ is at least $1$. For (b), note that $d(x,y) < \epsilon$ iff $|x-y| < \epsilon$ when $\epsilon \le 1$.
+    - |
+      For (c), every subset of $\mathbb{R}$ is bounded in $d$. Pick a sequence whose terms are pairwise at standard distance at least $1$.
+  solution: |
+    **a)** Clearly $d(x,y) \ge 0$, and $d(x,y) = 0$ iff $|x-y| = 0$ iff $x = y$ (since $\min\{1,t\} = 0$ iff $t = 0$ for $t \ge 0$). Symmetry follows from $|x - y| = |y - x|$. For the triangle inequality, let $x,y,z \in \mathbb{R}$, $s = |x-y|$, $t = |y-z|$, so $|x-z| \le s+t$.
+
+    *Case 1:* $s \ge 1$ or $t \ge 1$. Then $d(x,y) + d(y,z) \ge 1 \ge d(x,z)$.
+
+    *Case 2:* $s < 1$ and $t < 1$. Then $d(x,y) + d(y,z) = s+t \ge |x-z| \ge \min\{1, |x-z|\} = d(x,z)$.
+
+    So $d$ is a metric.
+
+    **b)** Let $x_n, x \in \mathbb{R}$. If $|x_n - x| \to 0$, then $0 \le d(x_n,x) \le |x_n - x|$ shows $d(x_n,x) \to 0$. Conversely suppose $d(x_n, x) \to 0$, and let $\epsilon > 0$. Put $\epsilon' = \min\{\epsilon, 1\}$ and choose $N$ with $d(x_n,x) < \epsilon'$ for $n \ge N$. Since $d(x_n,x) < 1$, the minimum is not $1$, so $d(x_n,x) = |x_n - x|$; thus $|x_n - x| < \epsilon' \le \epsilon$ for $n \ge N$. Hence $x_n \to x$ in the standard metric. So the two metrics have the same convergent sequences (with the same limits).
+
+    **c)** Let $x_n = n$. The sequence is bounded in $(\mathbb{R},d)$: $d(x_n, 0) \le 1$ for all $n$. Let $\{x_{n_k}\}$ be any subsequence. For $k \ne j$, $|x_{n_k} - x_{n_j}| = |n_k - n_j| \ge 1$, so $d(x_{n_k},x_{n_j}) = 1$. Hence the subsequence is not Cauchy in $d$, and a convergent sequence in a metric space is Cauchy, so it does not converge. (Alternatively: by (b) it would converge in the standard metric, but it is unbounded there.)
+- id: lebl-7.4.2
+  hints:
+    - |
+      For (a) you need to exhibit one specific open cover of $A$ with no finite subcover. Try a cover by increasing sets, each of which captures only finitely many points of $A$.
+    - |
+      For (b), start with an arbitrary open cover; the point $0$ lies in some member of it. What does openness of that member say about the points $1/n$?
+  solution: |
+    **a)** For $n \in \mathbb{N}$ let $U_n = \left(\frac1{n+1}, 2\right)$, which is open in $\mathbb{R}$. If $k \le n$ then $\frac1k \ge \frac1n > \frac1{n+1}$, so $\frac1k \in U_n$; hence $A \subset \bigcup_n U_n$ (each $1/k \in U_k$). The sets are increasing: $U_1 \subset U_2 \subset \cdots$. Any finite subcollection $U_{n_1}, \ldots, U_{n_m}$ has union $U_N$ with $N = \max_j n_j$, and $\frac1{N+1} \in A$ but $\frac1{N+1} \notin U_N$. So no finite subcollection covers $A$, and $A$ is not compact.
+
+    **b)** Let $\{U_\lambda\}_{\lambda \in I}$ be an open cover of $K = A \cup \{0\}$. Pick $\lambda_0$ with $0 \in U_{\lambda_0}$. Since $U_{\lambda_0}$ is open, there is $\epsilon > 0$ with $(-\epsilon,\epsilon) \subset U_{\lambda_0}$. Choose $M \in \mathbb{N}$ with $1/M < \epsilon$ (Archimedean property). Then $\frac1n \in U_{\lambda_0}$ for all $n \ge M$. For each of the finitely many $n = 1, \ldots, M-1$ choose $\lambda_n$ with $\frac1n \in U_{\lambda_n}$. Then
+    $$K \subset U_{\lambda_0} \cup U_{\lambda_1} \cup \cdots \cup U_{\lambda_{M-1}},$$
+    a finite subcover. Hence $A \cup \{0\}$ is compact.
+- id: lebl-7.4.6
+  hints:
+    - |
+      In a metric space, compactness of $K$ is equivalent to sequential compactness: every sequence in $K$ has a subsequence converging to a point of $K$.
+    - |
+      Show the general fact: a Cauchy sequence with a convergent subsequence converges (to the same limit). Use an $\epsilon/2$ argument.
+  solution: |
+    Let $\{x_n\}$ be a Cauchy sequence in $K$ (with the subspace metric, i.e. the restriction of $d$). Since $K$ is compact in a metric space, it is sequentially compact, so there is a subsequence $\{x_{n_k}\}$ and $x \in K$ with $x_{n_k} \to x$.
+
+    We show $x_n \to x$. Let $\epsilon > 0$. Since $\{x_n\}$ is Cauchy, there is $N$ with $d(x_n,x_m) < \epsilon/2$ for all $n,m \ge N$. Since $x_{n_k} \to x$, there is $k$ with $n_k \ge N$ and $d(x_{n_k},x) < \epsilon/2$ (both conditions hold for all large $k$, as $n_k \ge k$). Then for every $n \ge N$,
+    $$d(x_n, x) \le d(x_n, x_{n_k}) + d(x_{n_k}, x) < \tfrac\epsilon2 + \tfrac\epsilon2 = \epsilon.$$
+    So $x_n \to x$, and $x \in K$. Since the subspace metric is the restriction of $d$, $x_n \to x$ in $K$ as well. Every Cauchy sequence in $K$ converges in $K$, so $K$ is complete.
+- id: cummings-5.8
+  hints:
+    - |
+      Take an arbitrary open cover of $U$. You want to leverage compactness of $A$, but the cover only covers $U$, not $A$. What single open set could you add to cover the rest of $A$?
+    - |
+      Add $\mathbb{R} \setminus U$, which is open since $U$ is closed. Extract a finite subcover of $A$, then throw $\mathbb{R}\setminus U$ away again.
+  solution: |
+    We use the open-cover definition of compactness. Let $\{O_\lambda\}_{\lambda \in \Lambda}$ be a collection of open sets covering $U$. Since $U$ is closed, $V := \mathbb{R} \setminus U$ is open. Every point of $A$ lies either in $U$ (hence in some $O_\lambda$) or in $V$, so $\{O_\lambda\}_{\lambda\in\Lambda} \cup \{V\}$ is an open cover of $A$. Since $A$ is compact, there are finitely many indices $\lambda_1, \ldots, \lambda_n$ with
+    $$A \subseteq O_{\lambda_1} \cup \cdots \cup O_{\lambda_n} \cup V.$$
+    Now $U \subseteq A$ and $U \cap V = \emptyset$, so every point of $U$ lies in one of $O_{\lambda_1}, \ldots, O_{\lambda_n}$. Thus $\{O_{\lambda_1},\ldots,O_{\lambda_n}\}$ is a finite subcover of the original cover of $U$, and $U$ is compact.
+
+    *Remark.* Via the Heine–Borel theorem one can also argue: $A$ is bounded, so $U \subseteq A$ is bounded; $U$ is closed; hence $U$ is compact. (If "closed" is meant relative to $A$, note $U = A \cap F$ for a closed $F \subseteq \mathbb{R}$, and $A$ is closed, so $U$ is closed in $\mathbb{R}$ anyway.)
+- id: mit20-a4-7
+  hints:
+    - |
+      Part (a) is a translation between "every interval around $x$" and "a sequence approaching $x$". The textbook hint handles one direction; the other is a direct use of the definition of limit.
+    - |
+      For (b), show that the complement of the set of cluster points is open. If $y$ is not a cluster point, some interval around $y$ contains no point of $E$ except possibly $y$.
+    - |
+      Show that every point $z$ of that interval is also not a cluster point, by fitting a smaller interval around $z$ inside the first one that avoids $y$.
+  solution: |
+    **(a)** ($\Rightarrow$) Suppose $x$ is a cluster point of $E$. For each $n \in \mathbb{N}$, applying the definition with $\epsilon = 1/n$ gives $x_n \in E$ with $x_n \ne x$ and $|x_n - x| < 1/n$. Given $\epsilon > 0$, choose $N$ with $1/N < \epsilon$; then $|x_n - x| < 1/n \le 1/N < \epsilon$ for $n \ge N$. So $\{x_n\}$ is a sequence in $E \setminus\{x\}$ converging to $x$.
+
+    ($\Leftarrow$) Suppose $x_n \in E \setminus \{x\}$ and $x_n \to x$. Given $\epsilon > 0$, there is $N$ with $|x_N - x| < \epsilon$, so $x_N \in (x-\epsilon,x+\epsilon) \cap E \setminus \{x\}$, which is therefore nonempty. Hence $x$ is a cluster point of $E$.
+
+    **(b)** Let $C$ be the set of cluster points of $E$. We show $C^c$ is open. Let $y \in C^c$. Since $y$ is not a cluster point, there is $\epsilon > 0$ with
+    $$(y-\epsilon, y+\epsilon) \cap E \setminus \{y\} = \emptyset.$$
+    We claim $(y - \epsilon, y+\epsilon) \subset C^c$. Let $z \in (y-\epsilon, y+\epsilon)$. If $z = y$, then $z \in C^c$. If $z \ne y$, set $r = \min\{|z-y|,\ \epsilon - |z-y|\} > 0$. If $|w - z| < r$, then $|w - y| \le |w-z| + |z-y| < \epsilon$, and $w \ne y$ because $|w - z| < |z - y|$. Hence $(z-r,z+r) \subset (y-\epsilon,y+\epsilon) \setminus \{y\}$, which contains no point of $E$. So $(z-r,z+r) \cap E \setminus\{z\} = \emptyset$ and $z$ is not a cluster point. This proves the claim, so $C^c$ is open and $C$ is closed.
+- id: mit20-final-3
+  hints:
+    - |
+      For (a): the hint refers to Bolzano–Weierstrass. A sequence in $[a,b]$ is bounded; after extracting a convergent subsequence you must also check its limit lies in $[a,b]$.
+    - |
+      For (b): write a sequence in $f([a,b])$ as $y_n = f(x_n)$ with $x_n \in [a,b]$, apply (a) to $\{x_n\}$, then use continuity.
+  solution: |
+    **(a)** Let $\{x_n\}$ be a sequence in $[a,b]$. It is bounded, so by the Bolzano–Weierstrass theorem there is a subsequence $\{x_{n_k}\}$ converging to some $x \in \mathbb{R}$. Since $a \le x_{n_k} \le b$ for all $k$ and limits preserve non-strict inequalities, $a \le x \le b$, i.e. $x \in [a,b]$. Hence $[a,b]$ is compact.
+
+    **(b)** Let $\{y_n\}$ be a sequence in $f([a,b])$. For each $n$ choose $x_n \in [a,b]$ with $f(x_n) = y_n$. By (a) there are a subsequence $\{x_{n_k}\}$ and $x \in [a,b]$ with $x_{n_k} \to x$. Since $f$ is continuous at $x$, the sequential characterization of continuity gives
+    $$y_{n_k} = f(x_{n_k}) \to f(x),$$
+    and $f(x) \in f([a,b])$. So every sequence in $f([a,b])$ has a subsequence converging to a point of $f([a,b])$, i.e. $f([a,b])$ is compact.
+- id: abbott-3.2.10
+  hints:
+    - |
+      Recall that in Abbott "countable" means countably infinite, and an isolated point of $A$ is a point of $A$ that is not a limit point of $A$. The rationals are a natural candidate for one of the descriptions.
+    - |
+      For (i): an infinite subset of $[0,1]$ contains a sequence of distinct points. What does Bolzano–Weierstrass say about it?
+    - |
+      For (iii): around each isolated point $x$ there is an interval $V_{\epsilon_x}(x)$ meeting the set only at $x$. Shrink these to half the radius; show the shrunken intervals are pairwise disjoint and pick a rational in each.
+  solution: |
+    Here "countable" means countably infinite (in bijection with $\mathbb{N}$), as in Abbott. Only (ii) is possible.
+
+    **(ii) Example.** Let $A = \mathbb{Q} \cap [0,1]$, which is countable (an infinite subset of the countable set $\mathbb{Q}$). Let $x \in A$ and $\epsilon > 0$. If $x < 1$, the interval $(x, \min\{x+\epsilon, 1\})$ is nonempty and by density of $\mathbb{Q}$ contains a rational, which lies in $A \cap V_\epsilon(x)$ and differs from $x$. If $x = 1$, use $(\max\{1-\epsilon, 0\}, 1)$ instead. So every point of $A$ is a limit point of $A$, and $A$ has no isolated points.
+
+    **(i) is impossible.** Let $A \subseteq [0,1]$ be countable, hence infinite. Choose a sequence $(a_n)$ of *distinct* elements of $A$ (e.g. via an enumeration of $A$). It is bounded, so by Bolzano–Weierstrass a subsequence $(a_{n_k})$ converges to some $x$. Given $\epsilon > 0$, all but finitely many $a_{n_k}$ lie in $V_\epsilon(x)$; since the terms are distinct, at most one of them equals $x$, so $V_\epsilon(x)$ contains a point of $A$ other than $x$. Thus $x$ is a limit point of $A$.
+
+    **(iii) is impossible.** Let $A \subseteq \mathbb{R}$ be any set and $P$ its set of isolated points. For each $x \in P$ choose $\epsilon_x > 0$ with $V_{\epsilon_x}(x) \cap A = \{x\}$, and let $J_x = V_{\epsilon_x/2}(x)$. If $x, y \in P$ with $x \neq y$, then $y \notin V_{\epsilon_x}(x)$ and $x \notin V_{\epsilon_y}(y)$, so $|x-y| \ge \max\{\epsilon_x, \epsilon_y\}$. If some $z$ were in $J_x \cap J_y$, then $|x-y| < \epsilon_x/2 + \epsilon_y/2 \le \max\{\epsilon_x,\epsilon_y\}$, a contradiction. So the intervals $J_x$, $x \in P$, are pairwise disjoint. Choosing a rational $q_x \in J_x$ (density of $\mathbb{Q}$) gives an injective map $P \to \mathbb{Q}$. Hence $P$ is finite or countable, never uncountable.
+- id: abbott-3.2.13
+  hints:
+    - |
+      Suppose $E$ is open and closed, with a point $a \in E$ and a point $b \notin E$. You want to find a "boundary point" between $a$ and $b$ that leads to a contradiction.
+    - |
+      Assume $a < b$ (otherwise swap the roles of $E$ and its complement, which is also open and closed). Consider $s = \sup(E \cap [a,b])$.
+    - |
+      Closedness of $E$ forces $s \in E$; openness of $E$ then lets you go a little beyond $s$ while staying in $E \cap [a,b]$.
+  solution: |
+    Clearly $\emptyset$ and $\mathbb{R}$ are both open and closed. Suppose $E$ is open and closed with $E \ne \emptyset$ and $E \ne \mathbb{R}$; we derive a contradiction. Note that $E^c$ is then also open and closed, nonempty, and not $\mathbb{R}$. Pick $a \in E$ and $b \in E^c$. If $a > b$, replace $E$ by $E^c$ and swap $a,b$; so we may assume $a < b$, $a \in E$, $b \notin E$.
+
+    Let $S = E \cap [a,b]$. It is nonempty ($a \in S$) and bounded above by $b$, so $s = \sup S$ exists, and $a \le s \le b$.
+
+    *$s \in E$.* If $s \in S$ we are done. Otherwise, for each $n$ there is $x_n \in S$ with $s - \frac1n < x_n < s$ (since $s - \frac1n$ is not an upper bound and $x_n \ne s$). Then $x_n \to s$ with $x_n \in E$, $x_n \ne s$, so $s$ is a limit point of $E$; as $E$ is closed, $s \in E$.
+
+    Since $b \notin E$, we get $s < b$. Since $E$ is open, there is $\epsilon > 0$ with $(s-\epsilon, s+\epsilon) \subseteq E$. Let $t = s + \frac12\min\{\epsilon, b - s\}$. Then $s < t < b$ and $t \in E$, so $t \in S$ with $t > s = \sup S$, a contradiction.
+
+    Hence the only sets that are both open and closed are $\emptyset$ and $\mathbb{R}$.
+- id: abbott-3.3.8
+  hints:
+    - |
+      An infimum is approached by a sequence: pick $x_n \in K$, $y_n \in L$ with $|x_n - y_n|$ tending to $d$. Compactness should then hand you the optimal pair.
+    - |
+      Extract a convergent subsequence of $(x_n)$, then a further subsequence along which $(y_n)$ also converges. Positivity of $d$ then comes from disjointness.
+    - |
+      For (b), unbounded closed sets are allowed. Look for two disjoint closed sets of isolated points that get closer and closer at infinity, such as the integers and a slight shift of them.
+  solution: |
+    **(a)** Since $d$ is an infimum, for each $n$ there are $x_n \in K$, $y_n \in L$ with
+    $$d \le |x_n - y_n| < d + \tfrac1n.$$
+    Since $K$ is compact, some subsequence $(x_{n_k})$ converges to $x_0 \in K$. Since $L$ is compact, the sequence $(y_{n_k})$ has a further subsequence $(y_{n_{k_j}})$ converging to $y_0 \in L$; and $(x_{n_{k_j}})$, a subsequence of a sequence converging to $x_0$, still converges to $x_0$. By the Algebraic and Order Limit Theorems (and continuity of $|\cdot|$),
+    $$|x_0 - y_0| = \lim_{j\to\infty} |x_{n_{k_j}} - y_{n_{k_j}}|,$$
+    and since $d \le |x_{n_{k_j}} - y_{n_{k_j}}| < d + 1/n_{k_j}$ with $1/n_{k_j} \to 0$, the Squeeze Theorem gives $|x_0 - y_0| = d$. Finally $K \cap L = \emptyset$ forces $x_0 \neq y_0$, so $d = |x_0 - y_0| > 0$.
+
+    **(b)** Let
+    $$K = \{n : n \in \mathbb{N},\ n \ge 2\}, \qquad L = \{n + \tfrac1n : n \in \mathbb{N},\ n \ge 2\}.$$
+    They are disjoint: for $n \ge 2$, $n < n + \frac1n < n+1$, so $n + \frac1n$ is not an integer. Both are closed: distinct points of $K$ differ by at least $1$, and distinct points of $L$ differ by at least $\frac12$ (for $m > n \ge 2$, $(m + \frac1m) - (n + \frac1n) \ge 1 - \frac1n \ge \frac12$). So if a sequence in $K$ (or $L$) converges, it is Cauchy, hence eventually its terms are within $\frac12$ of each other and thus eventually constant; its limit is that constant, which lies in the set. By the sequential characterization of closed sets, $K$ and $L$ are closed. But $|(n + \frac1n) - n| = \frac1n \to 0$, so $d = 0$.
+- id: abbott-3.3.9
+  hints:
+    - |
+      Note that the empty set is finitely covered, so every $I_n \cap K$ in the construction is nonempty. For (a), bisect: if both halves of $I_n \cap K$ could be finitely covered, so could $I_n \cap K$.
+    - |
+      For (b), don't just use the Nested Interval Property — you need the point to be in $K$. Pick $x_n \in I_n \cap K$ and use that $K$ is (sequentially) compact.
+    - |
+      For (c), $O_{\lambda_0}$ contains an $\epsilon$-neighborhood of $x$. Once $|I_n| < \epsilon$, where is $I_n$?
+  solution: |
+    Since $K$ is bounded, there is a closed interval $I_0 = [a,b] \supseteq K$. We assume $\{O_\lambda\}$ has no finite subcover of $K$. Note: the empty set is covered by the empty (finite) subcollection, so any subset of $K$ that "cannot be finitely covered" is nonempty.
+
+    **(a)** We construct $I_n$ inductively with $I_n \cap K$ not finitely coverable and $|I_n| = |I_0|/2^n$. For $n = 0$ this is the hypothesis. Given $I_n = [c, e]$, let $m = (c+e)/2$ and consider the closed halves $[c,m]$ and $[m,e]$. Since
+    $$I_n \cap K = ([c,m] \cap K) \cup ([m,e] \cap K),$$
+    if both pieces were covered by finitely many $O_\lambda$, then combining the two finite collections would finitely cover $I_n \cap K$. So at least one half, call it $I_{n+1}$, has $I_{n+1} \cap K$ not finitely coverable. Then $I_{n+1} \subseteq I_n$ and $|I_{n+1}| = |I_n|/2$. Hence $|I_n| = |I_0|/2^n \to 0$.
+
+    **(b)** For each $n$, $I_n \cap K \neq \emptyset$ (by the note above); choose $x_n \in I_n \cap K$. Since $K$ is compact, a subsequence $(x_{n_k})$ converges to some $x \in K$. Fix $N$. For $k$ with $n_k \ge N$ we have $x_{n_k} \in I_{n_k} \subseteq I_N$; as $I_N$ is a closed interval, the Order Limit Theorem gives $x \in I_N$. Thus $x \in K$ and $x \in I_n$ for every $n$.
+
+    **(c)** Since $x \in K$, there is $\lambda_0$ with $x \in O_{\lambda_0}$, and as $O_{\lambda_0}$ is open there is $\epsilon > 0$ with $V_\epsilon(x) \subseteq O_{\lambda_0}$. Choose $n$ with $|I_n| < \epsilon$. For any $y \in I_n$, since also $x \in I_n$, $|y - x| \le |I_n| < \epsilon$; so $I_n \subseteq V_\epsilon(x) \subseteq O_{\lambda_0}$. Then $I_n \cap K$ is covered by the single set $O_{\lambda_0}$, contradicting the choice of $I_n$. Therefore $\{O_\lambda\}$ has a finite subcover, proving (i)/(ii) $\Rightarrow$ (iii).
+- id: abbott-3.5.6
+  hints:
+    - |
+      Argue by contradiction: if $\mathbf{I}$ were a countable union of closed sets, try to write all of $\mathbb{R}$ as a countable union of closed sets with no interior.
+    - |
+      Enumerate $\mathbb{Q} = \{r_1, r_2, \ldots\}$ and use the singletons $\{r_k\}$. Why can a closed subset of $\mathbf{I}$ contain no open interval? For the $G_\delta$ statement, take complements.
+  solution: |
+    **$\mathbf{I}$ is not $F_\sigma$.** Suppose $\mathbf{I} = \bigcup_{n=1}^\infty F_n$ with each $F_n$ closed. Each $F_n \subseteq \mathbf{I}$ contains no nonempty open interval, since every nonempty open interval contains a rational number (density of $\mathbb{Q}$). Enumerate $\mathbb{Q} = \{r_1, r_2, r_3, \ldots\}$. Each singleton $\{r_k\}$ is closed (its complement $(-\infty,r_k) \cup (r_k, \infty)$ is open) and contains no nonempty open interval. Then
+    $$\mathbb{R} = \mathbf{I} \cup \mathbb{Q} = \bigcup_{n=1}^\infty F_n \cup \bigcup_{k=1}^\infty \{r_k\},$$
+    and interleaving the two lists ($F_1, \{r_1\}, F_2, \{r_2\}, \ldots$) writes $\mathbb{R}$ as a countable union of closed sets, none containing a nonempty open interval. This contradicts Exercise 3.5.5. So $\mathbf{I}$ is not an $F_\sigma$ set.
+
+    **$\mathbb{Q}$ is not $G_\delta$.** Suppose $\mathbb{Q} = \bigcap_{n=1}^\infty G_n$ with each $G_n$ open. By De Morgan's law,
+    $$\mathbf{I} = \mathbb{R} \setminus \mathbb{Q} = \bigcup_{n=1}^\infty (\mathbb{R}\setminus G_n),$$
+    and each $\mathbb{R} \setminus G_n$ is closed. So $\mathbf{I}$ would be $F_\sigma$, contradicting what we just proved.
+- id: abbott-8.2.5
+  hints:
+    - |
+      For (a), apply the Cauchy condition with $\epsilon = \tfrac12$ and see what $\rho(x_n,x_m) < \tfrac12$ forces. For (b), Cauchy in the sup metric means *uniformly* Cauchy.
+    - |
+      For (b), first get a pointwise limit $f$ from the Cauchy Criterion in $\mathbb{R}$, then upgrade to uniform convergence by letting $m \to \infty$ in $|f_n(x) - f_m(x)| < \epsilon$, and invoke the fact that uniform limits of continuous functions are continuous.
+    - |
+      For (c), find smooth functions converging uniformly to a function with a corner, such as $|x - \tfrac12|$. A sequence that converges in $C[0,1]$ is Cauchy there; can its limit lie in $C^1[0,1]$?
+  solution: |
+    **(a)** Let $(x_n)$ be Cauchy in $(\mathbb{R}^2,\rho)$. With $\epsilon = \frac12$ there is $N$ such that $\rho(x_n,x_m) < \frac12$, i.e. $x_n = x_m$, for all $n,m \ge N$. So Cauchy sequences are exactly the sequences that are **eventually constant**. Such a sequence converges to its eventual value $x = x_N$: $\rho(x_n, x) = 0$ for $n \ge N$. Hence $\mathbb{R}^2$ is complete with respect to $\rho$.
+
+    **(b)** Let $(f_n)$ be Cauchy in $C[0,1]$ with $d(f,g) = \sup|f - g|$. For each $x \in [0,1]$, $|f_n(x) - f_m(x)| \le d(f_n,f_m)$, so $(f_n(x))$ is a Cauchy sequence of reals and converges by the Cauchy Criterion; define $f(x) = \lim_n f_n(x)$.
+
+    Let $\epsilon > 0$ and choose $N$ with $d(f_n,f_m) < \epsilon$ for $n,m \ge N$. For fixed $n \ge N$ and $x \in [0,1]$, $|f_n(x) - f_m(x)| < \epsilon$ for all $m \ge N$; letting $m \to \infty$ (Order Limit Theorem) gives $|f_n(x) - f(x)| \le \epsilon$. Thus $f_n \to f$ uniformly on $[0,1]$. Since each $f_n$ is continuous, the uniform limit $f$ is continuous (Continuous Limit Theorem), so $f \in C[0,1]$, and $d(f_n, f) \le \epsilon$ for all $n \ge N$, i.e. $f_n \to f$ in the metric $d$. Hence $C[0,1]$ is complete.
+
+    **(c)** No. Let
+    $$f_n(x) = \sqrt{\left(x - \tfrac12\right)^2 + \tfrac1n}, \qquad f(x) = \left|x - \tfrac12\right|.$$
+    Each $f_n$ is differentiable with $f_n'(x) = \dfrac{x - 1/2}{\sqrt{(x-1/2)^2 + 1/n}}$, which is continuous, so $f_n \in C^1[0,1]$. Moreover, writing $u = |x - \frac12|$,
+    $$0 \le f_n(x) - f(x) = \sqrt{u^2 + \tfrac1n} - u = \frac{1/n}{\sqrt{u^2 + 1/n} + u} \le \frac{1/n}{\sqrt{1/n}} = \frac1{\sqrt n},$$
+    so $d(f_n, f) \le 1/\sqrt n \to 0$. A convergent sequence is Cauchy, so $(f_n)$ is Cauchy in $C^1[0,1]$ with the metric $d$. Suppose $f_n \to g$ for some $g \in C^1[0,1]$ in this metric. Since $C^1[0,1] \subseteq C[0,1]$ with the same metric and limits in a metric space are unique, $g = f$. But $f$ is not differentiable at $\frac12$ (its difference quotients have one-sided limits $-1$ and $1$). This contradiction shows $C^1[0,1]$ is not complete under $d$.
+- id: lebl-7.2.11
+  hints:
+    - |
+      For (a), if $\overline A$ splits into two relatively open pieces, see what happens to $A$. The key fact: an open set that meets $\overline A$ must also meet $A$.
+    - |
+      For (b), the hint points to $\mathbb{R}^2$: take two closed disks that touch at exactly one point. The interior loses the touching point.
+    - |
+      To verify the two touching disks form a connected set, join any two points by a path made of two line segments through the touching point, and use that $[0,1]$ is connected.
+  solution: |
+    We use: a nonempty $S \subset X$ is disconnected iff there are open $U_1, U_2 \subset X$ with $S \subset U_1 \cup U_2$, $U_1 \cap U_2 \cap S = \emptyset$, $U_1 \cap S \ne \emptyset$, $U_2 \cap S \ne \emptyset$.
+
+    **a) Yes, $\overline A$ is connected.** It is nonempty since $A \subset \overline A$. Suppose $U_1, U_2$ disconnect $\overline A$ as above. Then $A \subset U_1 \cup U_2$ and $U_1 \cap U_2 \cap A = \emptyset$. Pick $y \in U_1 \cap \overline A$. Since $U_1$ is open, some ball $B(y,\delta) \subset U_1$; since $y \in \overline A$, every ball around $y$ meets $A$, so $U_1 \cap A \neq \emptyset$. Similarly $U_2 \cap A \ne \emptyset$. Thus $U_1, U_2$ disconnect $A$, a contradiction.
+
+    **b) No.** In $\mathbb{R}^2$ (Euclidean metric) let $D_\pm = C\bigl((\pm1, 0), 1\bigr)$ be the closed unit disks centered at $(\pm 1,0)$, and $A = D_- \cup D_+$.
+
+    *$A$ is connected.* Each disk is convex: if $|p - c|, |q - c| \le 1$ and $t \in [0,1]$, then $|(1-t)p + tq - c| \le (1-t)|p-c| + t|q-c| \le 1$. Both disks contain the origin $o$. So for any $p, q \in A$, the path $\gamma\colon [0,1] \to A$ that runs linearly from $p$ to $o$ on $[0,\frac12]$ and from $o$ to $q$ on $[\frac12, 1]$ is continuous and stays in $A$. Suppose $U_1, U_2$ disconnected $A$, with $p \in U_1 \cap A$ and $q \in U_2 \cap A$. Then $T_i = \gamma^{-1}(U_i)$ are open in $[0,1]$ (preimages of open sets under a continuous map), disjoint (as $U_1 \cap U_2 \cap A = \emptyset$), cover $[0,1]$, and $0 \in T_1$, $1 \in T_2$. This disconnects $[0,1]$, contradicting the fact that intervals in $\mathbb{R}$ are connected. So $A$ is connected.
+
+    *$A^\circ$ is not connected.* If $(0,y) \in A$, then $\sqrt{1 + y^2} \le 1$, so $y = 0$: the only point of $A$ on the line $x = 0$ is the origin. Every ball around the origin contains points $(0,y)$ with $y \neq 0$, which are not in $A$, so the origin is not in $A^\circ$. Hence $A^\circ \subset \{x < 0\} \cup \{x > 0\}$. These two half-planes are open and disjoint. Also the open disks $B((\pm1,0),1)$ are open subsets of $A$, so they lie in $A^\circ$; thus $A^\circ$ meets both half-planes. Therefore $A^\circ$ is disconnected.
+
+    (Even more simply, with Lebl's convention that connected sets are nonempty, $A = \{(0,0)\}$ is connected while $A^\circ = \emptyset$ is not.)
+- id: lebl-7.4.8
+  hints:
+    - |
+      In a metric space, compact is equivalent to sequentially compact. So it suffices to find a sequence in $C(0,1)$ with no convergent subsequence.
+    - |
+      Use "bump" (tent) functions with height $1$ supported on disjoint intervals such as $\left[\tfrac1{n+1}, \tfrac1n\right]$. Compute $d(f_n,f_k)$ for $n \ne k$.
+    - |
+      A subsequence whose terms are pairwise at distance $1$ cannot be Cauchy, hence cannot converge.
+  solution: |
+    Note first that $C(0,1)$ is closed (Exercise 7.2.13) and bounded ($d(f,g) \le 2$ for $f,g \in C(0,1)$).
+
+    For $n \in \mathbb{N}$ let $a_n = \frac1{n+1}$, $b_n = \frac1n$, $m_n = \frac{a_n + b_n}{2}$, $r_n = \frac{b_n - a_n}{2} > 0$, and define the tent function
+    $$f_n(x) = \max\left\{0,\ 1 - \frac{|x - m_n|}{r_n}\right\}, \qquad x \in [0,1].$$
+    Each $f_n$ is continuous (a maximum of continuous functions), $0 \le f_n \le 1$, $f_n(m_n) = 1$, and $f_n(x) = 0$ unless $x \in (a_n, b_n)$. So $d(f_n, 0) = 1$ and $f_n \in C(0,1)$.
+
+    For $n \ne k$ the open intervals $(a_n,b_n)$ and $(a_k,b_k)$ are disjoint (the points $\frac1j$ are strictly decreasing), so $f_k(m_n) = 0$. Hence $d(f_n,f_k) \ge |f_n(m_n) - f_k(m_n)| = 1$, and since $0 \le f_n, f_k \le 1$, $d(f_n,f_k) \le 1$. Thus $d(f_n, f_k) = 1$ for $n \ne k$; in particular the $f_n$ are distinct.
+
+    Any subsequence $\{f_{n_j}\}$ satisfies $d(f_{n_j}, f_{n_i}) = 1$ for $i \ne j$, so it is not Cauchy, and therefore not convergent. So $\{f_n\}$ is a sequence in $C(0,1)$ with no convergent subsequence, and since compact subsets of metric spaces are sequentially compact, $C(0,1)$ is not compact.
+
+    (Following the hint's route: $S = \{f_n : n \in \mathbb{N}\}$ is closed, since a convergent sequence in $S$ is Cauchy and so, as distinct points of $S$ are at distance $1$, eventually constant, with limit in $S$. $S$ is not compact: the open cover $\{B(f_n, \frac12)\}_n$ has each ball containing exactly one point of $S$, so no finite subcover exists. If $C(0,1)$ were compact, its closed subset $S$ would be compact.)
+- id: lebl-7.4.10
+  hints:
+    - |
+      Pick a point $x_j \in E_j$ for each $j$. All of them lie in $E_1$, which is compact.
+    - |
+      Use sequential compactness of $E_1$ to get a limit point $x$, then show $x \in E_m$ for each fixed $m$, using that compact sets are closed and the tail of the subsequence lies in $E_m$.
+  solution: |
+    (As noted, completeness of $X$ is not needed; compactness suffices.)
+
+    For each $j$ choose $x_j \in E_j$ (possible since $E_j \ne \emptyset$). Since $E_j \subset E_1$, $\{x_j\}$ is a sequence in the compact set $E_1$; compact sets in metric spaces are sequentially compact, so there is a subsequence $\{x_{j_k}\}$ converging to some $x \in E_1$.
+
+    Fix $m \in \mathbb{N}$. Since $j_k \ge k$, for all $k \ge m$ we have $x_{j_k} \in E_{j_k} \subset E_m$. So the tail $\{x_{j_k}\}_{k \ge m}$ is a sequence in $E_m$ converging to $x$. A compact subset of a metric space is closed, and a closed set contains the limits of its convergent sequences, so $x \in E_m$. As $m$ was arbitrary, $x \in \bigcap_{j=1}^\infty E_j$, which is therefore nonempty.
+- id: lebl-7.4.19
+  hints:
+    - |
+      Everything is governed by the map $\varphi(x) = \dfrac{x}{1+|x|}$: it is a continuous, strictly increasing bijection $\mathbb{R} \to (-1,1)$ with continuous inverse, and $d'(x,y) = |\varphi(x) - \varphi(y)|$.
+    - |
+      Prove (d) first using continuity of $\varphi$ and of its inverse. Then (b) and (c) follow, since open/closed sets and compact sets in a metric space can be described using convergent sequences.
+    - |
+      For (e) and (f), take a sequence going off to $+\infty$: its $\varphi$-values converge to $1$, which is not $\varphi$ of any real number.
+  solution: |
+    Let $\varphi(x) = \dfrac{x}{1+|x|}$, so $d'(x,y) = |\varphi(x) - \varphi(y)|$. For $x \ge 0$, $\varphi(x) = 1 - \frac1{1+x}$ is continuous, strictly increasing and takes values in $[0,1)$; since $\varphi(-x) = -\varphi(x)$, $\varphi$ is continuous and strictly increasing on $\mathbb{R}$ with values in $(-1,1)$. It is onto $(-1,1)$, with inverse $\psi(y) = \dfrac{y}{1-|y|}$ (check: for $y \in [0,1)$, $\varphi\bigl(\frac{y}{1-y}\bigr) = \frac{y/(1-y)}{1/(1-y)} = y$, and use oddness), and $\psi$ is continuous on $(-1,1)$.
+
+    **a)** $d'(x,y) \ge 0$; $d'(x,y) = 0$ iff $\varphi(x) = \varphi(y)$ iff $x = y$ (injectivity). Symmetry is clear. The triangle inequality follows from that of $|\cdot|$:
+    $$d'(x,z) = |\varphi(x) - \varphi(z)| \le |\varphi(x) - \varphi(y)| + |\varphi(y) - \varphi(z)| = d'(x,y) + d'(y,z).$$
+
+    **d)** If $x_n \to x$ in $d$, then by continuity of $\varphi$, $\varphi(x_n) \to \varphi(x)$, i.e. $d'(x_n,x) \to 0$. Conversely, if $d'(x_n, x) \to 0$, then $\varphi(x_n) \to \varphi(x)$ in $(-1,1)$, and continuity of $\psi$ at $\varphi(x)$ gives $x_n = \psi(\varphi(x_n)) \to \psi(\varphi(x)) = x$. So the convergent sequences, and their limits, are the same for both metrics.
+
+    **b)** In a metric space, a set $F$ is closed iff whenever a sequence in $F$ converges, its limit is in $F$. By (d) this condition means the same thing for $d$ and $d'$, so the closed sets coincide, and hence (taking complements) so do the open sets.
+
+    **c)** A set $K$ is compact iff every cover of $K$ by open sets has a finite subcover. By (b) both metrics have the same open sets, so the open covers of $K$ are the same and $K$ is compact for $d$ iff it is compact for $d'$. (Alternatively: compact iff sequentially compact, and by (d) sequential compactness is the same for both metrics.)
+
+    **e)** Let $x_n = n$. Then $\varphi(n) = \frac{n}{n+1} \to 1$, so $\{\varphi(n)\}$ is a convergent, hence Cauchy, sequence of reals: $d'(x_n,x_m) = |\varphi(n) - \varphi(m)|$ becomes small for large $n,m$. So $\{x_n\}$ is Cauchy in $d'$. It is not Cauchy in $d$, since $|x_n - x_m| \ge 1$ for $n \ne m$.
+
+    **f)** The sequence $x_n = n$ is Cauchy in $(\mathbb{R}, d')$ by (e). If it converged in $(\mathbb{R}, d')$ to some $x$, then by (d) it would converge to $x$ in the standard metric, which is impossible because it is unbounded. So $(\mathbb{R}, d')$ is not complete, although $(\mathbb{R}, d)$ is complete and has the same open sets, compact sets and convergent sequences. Completeness is not a topological property.
+- id: ross-21.5
+  hints:
+    - |
+      By the Heine–Borel theorem in $\mathbb{R}^k$, a noncompact $E$ is either unbounded or not closed. Handle the two cases separately.
+    - |
+      In the unbounded case a very simple function works: the distance to the origin. In the other case, $\mathbf{x}_0 \in E^- \setminus E$ is the limit of a sequence in $E$; check that $1/g$ blows up along it.
+    - |
+      For (b), to see that $h$ does not attain its maximum, show both $h < 1$ everywhere on $E$ and $\sup_E h = 1$.
+  solution: |
+    By the Heine–Borel theorem, a subset of $\mathbb{R}^k$ is compact iff it is closed and bounded. So $E$ is unbounded or not closed.
+
+    **(a)** *Case 1: $E$ is unbounded.* Let $f(\mathbf x) = d(\mathbf x, \mathbf 0)$. It is continuous (indeed $|f(\mathbf x) - f(\mathbf y)| \le d(\mathbf x, \mathbf y)$ by the triangle inequality), and unbounded on $E$ since $E$ is unbounded.
+
+    *Case 2: $E$ is bounded but not closed.* Then there is $\mathbf x_0 \in E^- \setminus E$. Let $g(\mathbf x) = d(\mathbf x, \mathbf x_0)$, which is continuous, and $g(\mathbf x) > 0$ for $\mathbf x \in E$ because $\mathbf x_0 \notin E$. Hence $f = 1/g$ is continuous on $E$. Since $\mathbf x_0 \in E^-$, there is a sequence $(\mathbf x_n)$ in $E$ with $\mathbf x_n \to \mathbf x_0$, so $g(\mathbf x_n) \to 0$ with $g(\mathbf x_n) > 0$, and therefore $f(\mathbf x_n) \to +\infty$. Thus $f$ is unbounded on $E$.
+
+    **(b)** Let $f$ be as in (a) and $h = \dfrac{|f|}{1 + |f|}$. Since $|f|$ is continuous and $1 + |f| \ge 1 > 0$, $h$ is continuous on $E$. For every $\mathbf x \in E$, $0 \le h(\mathbf x) = 1 - \dfrac{1}{1 + |f(\mathbf x)|} < 1$, so $h$ is bounded and never equals $1$. Since $|f|$ is unbounded on $E$, there are $\mathbf y_n \in E$ with $|f(\mathbf y_n)| \ge n$, so $h(\mathbf y_n) \ge 1 - \frac{1}{1+n} \to 1$. Hence $\sup_E h = 1$. If $h$ attained a maximum $M = h(\mathbf x_1)$, then $M = \sup_E h = 1$, contradicting $h < 1$. So $h$ is a bounded continuous function on $E$ that does not assume its maximum.
+- id: cummings-5.7
+  hints:
+    - |
+      Forward direction: a sequence in a bounded set is bounded, so a famous theorem gives a convergent subsequence. Then use closedness to put the limit in $A$.
+    - |
+      Reverse direction: prove the contrapositive in two cases. If $A$ is unbounded, build a sequence with $|a_n| > n$. If $A$ is not closed, build a sequence in $A$ converging to a point outside $A$.
+    - |
+      In each case, explain why *no* subsequence converges to a point of $A$ (every subsequence of a convergent sequence has the same limit; unbounded sequences cannot converge).
+  solution: |
+    Recall: $A$ is closed iff $A^c$ is open.
+
+    **($\Rightarrow$)** Let $A$ be closed and bounded and $(a_n)$ a sequence in $A$. It is bounded, so by the Bolzano–Weierstrass theorem it has a subsequence $(a_{n_k})$ converging to some $a \in \mathbb{R}$. Suppose $a \notin A$. Since $A^c$ is open, there is $\epsilon > 0$ with $(a - \epsilon, a + \epsilon) \subseteq A^c$. But $a_{n_k} \in (a-\epsilon, a+\epsilon)$ for all large $k$, while $a_{n_k} \in A$ — a contradiction. So $a \in A$.
+
+    **($\Leftarrow$)** We prove the contrapositive: if $A$ is not closed or not bounded, some sequence in $A$ has no subsequence converging to a point of $A$.
+
+    *Case 1: $A$ is not bounded.* For each $n$ choose $a_n \in A$ with $|a_n| > n$. For any subsequence, $|a_{n_k}| > n_k \ge k$, so the subsequence is unbounded; convergent sequences are bounded, so it does not converge at all.
+
+    *Case 2: $A$ is not closed.* Then $A^c$ is not open, so there is $x \in A^c$ such that for every $n$ the interval $(x - \frac1n, x + \frac1n)$ is not contained in $A^c$; choose $a_n \in A$ in it. Then $|a_n - x| < 1/n$, so $a_n \to x$, and every subsequence also converges to $x$. By uniqueness of limits, no subsequence converges to a point of $A$, since $x \notin A$.
+
+    Hence if every sequence in $A$ has a subsequence converging to a point of $A$, then $A$ is closed and bounded.
+- id: abbott-3.3.7
+  hints:
+    - |
+      Work one level at a time. Each $C_n$ is a union of closed intervals of length $3^{-n}$, and each such interval $I$ has two "children" in $C_{n+1}$: its left and right closed thirds.
+    - |
+      Key lemma: if $I, J$ are intervals of $C_n$ (same length $h$), then $I + J$ equals the union of the sums of their children. Compute the three possible child-sums: they tile $I + J$.
+    - |
+      For (b), use Bolzano–Weierstrass on $(x_n)$, and note $y_{n} = s - x_{n}$. To show the limit is in $C$, use that each $C_m$ is closed and contains $x_n$ for all $n \ge m$.
+  solution: |
+    For $A, B \subseteq \mathbb{R}$ write $A + B = \{a + b : a \in A, b \in B\}$. For closed intervals, $[p, p+h] + [q, q+k] = [p+q, p+q+h+k]$.
+
+    **Lemma.** Let $I = [L, L+h]$ and $J = [M, M+h]$ be two of the intervals making up $C_n$ (so $h = 3^{-n}$). Their children in $C_{n+1}$ are $I_0 = [L, L + \frac h3]$, $I_2 = [L + \frac{2h}3, L+h]$ and $J_0, J_2$ defined likewise. Then
+    $$(I_0 + J_0) \cup (I_0 + J_2) \cup (I_2 + J_2) = I + J.$$
+
+    *Proof.* With $T = L + M$: $I_0 + J_0 = [T, T + \frac{2h}{3}]$, $I_0 + J_2 = [T + \frac{2h}3, T + \frac{4h}3]$, $I_2 + J_2 = [T + \frac{4h}{3}, T + 2h]$. Their union is $[T, T+2h] = I + J$. $\square$
+
+    **(a)** Fix $s \in [0,2]$. We show by induction that for every $n \ge 0$ there are intervals $I^{(n)}, J^{(n)}$ of $C_n$ with $s \in I^{(n)} + J^{(n)}$. For $n = 0$, $I^{(0)} = J^{(0)} = [0,1]$ and $I^{(0)} + J^{(0)} = [0,2] \ni s$. If it holds for $n$, the Lemma shows $s$ lies in $I' + J'$ for some children $I' \subseteq I^{(n)}$, $J' \subseteq J^{(n)}$, which are intervals of $C_{n+1}$. This completes the induction. Now $s \in I^{(n)} + J^{(n)}$ means $s = x_n + y_n$ for some $x_n \in I^{(n)} \subseteq C_n$ and $y_n \in J^{(n)} \subseteq C_n$. (For $n = 1$ this gives the requested $x_1, y_1 \in C_1$.)
+
+    **(b)** The sequence $(x_n)$ lies in $[0,1]$, so by Bolzano–Weierstrass some subsequence $x_{n_k} \to x$. Then $y_{n_k} = s - x_{n_k} \to s - x =: y$. We claim $x, y \in C$. Fix $m$. Since $C_0 \supseteq C_1 \supseteq \cdots$, for $n_k \ge m$ we have $x_{n_k}, y_{n_k} \in C_{n_k} \subseteq C_m$. The set $C_m$ is a finite union of closed intervals, hence closed, so it contains the limits $x$ and $y$. As $m$ was arbitrary, $x, y \in \bigcap_m C_m = C$, and $x + y = s$.
+
+    Thus $[0,2] \subseteq C + C$; combined with $C + C \subseteq [0,1] + [0,1] = [0,2]$, we get $C + C = [0,2]$.
+- id: abbott-3.5.4
+  hints:
+    - |
+      Density of $G_{n+1}$ means it meets every open interval, in particular the inside of $I_n$. Openness then gives room around that point.
+    - |
+      Why the care about endpoints? If $I_{n+1}$ were the closure of an open interval contained in $G_{n+1}$, its endpoints might fail to be in $G_{n+1}$. Shrink: inside an open interval $(y-\delta,y+\delta) \subseteq G_{n+1}$, use the closed interval $[y - \delta/2, y + \delta/2]$.
+    - |
+      Also keep each $I_n$ nondegenerate ($a_n < b_n$) so that its interior $(a_n, b_n)$ is a nonempty open interval for the next step. Finish with the Nested Interval Property.
+  solution: |
+    Throughout, a closed interval $[a,b]$ is required to have $a < b$.
+
+    **Step 1.** Since $G_1$ is dense, it contains a point $x_1$ (e.g. one in $(0,1)$). As $G_1$ is open, there is $\delta_1 > 0$ with $(x_1 - \delta_1, x_1 + \delta_1) \subseteq G_1$. Let $I_1 = [x_1 - \delta_1/2,\ x_1 + \delta_1/2]$. Then $I_1 \subseteq G_1$ — including its endpoints.
+
+    **Inductive step.** Suppose $I_n = [a_n,b_n]$ with $a_n < b_n$ and $I_n \subseteq G_n$ has been chosen. Since $G_{n+1}$ is dense and $a_n < b_n$, there is $y \in G_{n+1}$ with $a_n < y < b_n$. The set $(a_n,b_n) \cap G_{n+1}$ is open (an intersection of two open sets) and contains $y$, so there is $\delta > 0$ with $(y - \delta, y+\delta) \subseteq (a_n,b_n) \cap G_{n+1}$. Put
+    $$I_{n+1} = [y - \delta/2,\ y + \delta/2].$$
+    Then $I_{n+1}$ is a nondegenerate closed interval, $I_{n+1} \subseteq (a_n, b_n) \subseteq I_n$, and $I_{n+1} \subseteq G_{n+1}$. Using half the radius guarantees that the endpoints $y \pm \delta/2$ also lie in the open interval $(y-\delta,y+\delta)$, hence in $G_{n+1}$; this is the point about endpoints.
+
+    **Conclusion.** We obtain nested closed intervals $I_1 \supseteq I_2 \supseteq \cdots$ with $I_n \subseteq G_n$ for each $n$. By the Nested Interval Property there is $x \in \bigcap_{n=1}^\infty I_n$. Then $x \in I_n \subseteq G_n$ for every $n$, so $x \in \bigcap_{n=1}^\infty G_n$, which is therefore nonempty. This proves Theorem 3.5.2.
+- id: lebl-7.4.12
+  hints:
+    - |
+      One direction is quick: compact sets are closed, and the balls $B(x,\epsilon)$, $x \in K$, form an open cover of $K$.
+    - |
+      For the converse, use that in a metric space compact is equivalent to sequentially compact, and that a closed subset of a complete space is complete. So it suffices to show every sequence in $K$ has a Cauchy subsequence.
+    - |
+      Diagonal argument: cover $K$ by finitely many balls of radius $1$; one of them contains $x_n$ for infinitely many $n$. Within those indices, repeat with radius $\tfrac12$, then $\tfrac13$, and so on. Then pick one index from each stage, increasing.
+  solution: |
+    **($\Rightarrow$)** Let $K$ be compact. Compact subsets of a metric space are closed. Given $\epsilon > 0$, the family $\{B(x,\epsilon) : x \in K\}$ is an open cover of $K$, so finitely many of these balls, say $B(x_1,\epsilon), \ldots, B(x_n,\epsilon)$, cover $K$. So $K$ is totally bounded.
+
+    **($\Leftarrow$)** Let $K$ be closed and totally bounded. If $K = \emptyset$ it is compact, so assume not. Since $X$ is complete and $K$ is closed, $K$ with the subspace metric is complete (Proposition 7.4.6). Since compactness is equivalent to sequential compactness in metric spaces, it suffices to show every sequence $\{x_n\}$ in $K$ has a subsequence converging in $K$; by completeness of $K$, it is enough to find a Cauchy subsequence.
+
+    Set $N_0 = \mathbb{N}$. Suppose an infinite set $N_{k-1} \subset \mathbb{N}$ has been chosen. By total boundedness, $K \subset \bigcup_{j=1}^m B(z_j, \frac1k)$ for some points $z_1, \ldots, z_m$. Each $x_n$ with $n \in N_{k-1}$ lies in one of these finitely many balls, and $N_{k-1}$ is infinite, so some ball $B(z_j, \frac1k)$ contains $x_n$ for infinitely many $n \in N_{k-1}$. Let $N_k$ be that infinite set of indices. Then $N_0 \supset N_1 \supset N_2 \supset \cdots$, and for $n, n' \in N_k$,
+    $$d(x_n, x_{n'}) \le d(x_n, z_j) + d(z_j, x_{n'}) < \tfrac2k.$$
+
+    Choose $n_1 \in N_1$, and inductively $n_{k} \in N_k$ with $n_k > n_{k-1}$ (possible since $N_k$ is infinite). Given $\epsilon > 0$, choose $M$ with $2/M < \epsilon$. For $j, k \ge M$, both $n_j \in N_j \subset N_M$ and $n_k \in N_k \subset N_M$, so $d(x_{n_j}, x_{n_k}) < 2/M < \epsilon$. Thus $\{x_{n_k}\}$ is Cauchy in $K$, so it converges to a point of $K$. Hence $K$ is sequentially compact, and so compact.
+- id: ross-13.7
+  hints:
+    - |
+      The textbook outline defines, for each rational $q_n \in U$, the largest open interval $(a_n,b_n)$ around $q_n$ inside $U$. A useful extra fact to prove first: a finite endpoint $a_n$ or $b_n$ is never in $U$.
+    - |
+      To show $(a_n,b_n) \subseteq U$, use the definition of infimum/supremum: for $a_n < x < q_n$ there is some $a < x$ with $(a, q_n] \subseteq U$. To show every $x \in U$ is covered, pick a rational $q_n$ just to the left of $x$ in a neighborhood of $x$ inside $U$.
+    - |
+      For the overlap claim: if two such intervals overlap but, say, $a_n < a_m$, then $a_m$ lands inside $(a_n, b_n) \subseteq U$, contradicting the extra fact.
+  solution: |
+    Let $U \subseteq \mathbb{R}$ be open. If $U = \emptyset$, it is the union of the empty (finite) family, so assume $U \neq \emptyset$. Intervals may be unbounded, so $a_n, b_n \in [-\infty, \infty]$. A nonempty open set contains an interval, hence infinitely many rationals; let $(q_n)_{n \ge 1}$ enumerate $\mathbb{Q} \cap U$. Define
+    $$a_n = \inf\{a : (a, q_n] \subseteq U\}, \qquad b_n = \sup\{b : [q_n, b) \subseteq U\}.$$
+    Since $U$ is open, $(q_n - \epsilon, q_n + \epsilon) \subseteq U$ for some $\epsilon > 0$, so these sets are nonempty and $a_n \le q_n - \epsilon < q_n < q_n + \epsilon \le b_n$.
+
+    **Step 1: $(a_n, b_n) \subseteq U$.** Let $a_n < x < b_n$. If $x = q_n$, then $x \in U$. If $x < q_n$, then $x$ is not a lower bound of $\{a : (a,q_n] \subseteq U\}$, so some $a < x$ has $(a, q_n] \subseteq U$, giving $x \in U$. If $x > q_n$, similarly some $b > x$ has $[q_n, b) \subseteq U$, so $x \in U$.
+
+    **Step 2: finite endpoints are not in $U$.** Suppose $a_n \in \mathbb{R}$ and $a_n \in U$. Then $(a_n - \epsilon, a_n + \epsilon) \subseteq U$ for some $\epsilon > 0$, and with Step 1, $(a_n - \epsilon, q_n] \subseteq U$, so $a_n - \epsilon$ belongs to the set whose infimum is $a_n$ — impossible. Likewise a finite $b_n \notin U$.
+
+    **Step 3: $U = \bigcup_n (a_n,b_n)$.** "$\supseteq$" is Step 1. Conversely let $x \in U$, with $(x - \epsilon, x + \epsilon) \subseteq U$. By density pick a rational $q \in (x - \epsilon, x]$; then $q \in U$, so $q = q_n$ for some $n$. Since $[q_n, x+\epsilon) \subseteq U$, we get $b_n \ge x + \epsilon > x$, and $a_n < q_n \le x$. So $x \in (a_n, b_n)$.
+
+    **Step 4: two of these intervals are either equal or disjoint.** Suppose $z \in (a_n,b_n) \cap (a_m,b_m)$. If $a_n < a_m$, then $a_m > -\infty$ is a real number with $a_n < a_m < z < b_n$, so $a_m \in (a_n,b_n) \subseteq U$, contradicting Step 2. By symmetry $a_m < a_n$ is also impossible, so $a_n = a_m$. The same argument with right endpoints gives $b_n = b_m$.
+
+    **Step 5: the list.** Go through $n = 1, 2, 3, \ldots$ and keep $(a_n,b_n)$ only if it differs from all of $(a_1,b_1), \ldots, (a_{n-1},b_{n-1})$. By Step 4 the kept intervals are pairwise disjoint, and every $(a_n,b_n)$ equals a kept one, so by Step 3 their union is $U$. Either finitely many intervals are kept, or the kept indices form a subsequence $n_1 < n_2 < \cdots$. In either case $U$ is the disjoint union of a finite or infinite sequence of open intervals.
+- id: ross-22.4
+  hints:
+    - |
+      For (a), the graph oscillates between $-1$ and $1$ infinitely often as $x \to 0^+$. Which points on the $y$-axis can be approached by points of $E$?
+    - |
+      For (b), $E$ is the continuous image of the connected interval $(0,1]$. Show that the closure of a connected set is connected: an open set meeting $E^-$ must meet $E$.
+    - |
+      For (c), suppose a path $\gamma = (\gamma_1, \gamma_2)$ joins $(0,0)$ to $(1, \sin 1)$. Look at the last time $t_0$ with $\gamma_1(t_0) = 0$. Just after $t_0$, $\gamma$ is on the graph, and by the IVT $\gamma_1$ sweeps through points where $\sin(1/x) = 1$ and where $\sin(1/x) = -1$; compare with continuity of $\gamma_2$ at $t_0$.
+  solution: |
+    **(a)** We claim $E^- = E \cup \bigl(\{0\} \times [-1,1]\bigr)$. Recall that $E^-$ is the set of limits of convergent sequences from $E$.
+
+    *$\supseteq$:* $E \subseteq E^-$. Let $y \in [-1,1]$ and $\theta = \arcsin y \in [-\frac\pi2, \frac\pi2]$. For $n \in \mathbb{N}$ put $x_n = \dfrac{1}{\theta + 2\pi n}$; since $\theta + 2\pi n \ge 2\pi - \frac\pi2 > 1$, $x_n \in (0,1]$, and $\sin(1/x_n) = \sin\theta = y$. So $(x_n, y) \in E$ and $(x_n, y) \to (0, y)$. Hence $(0,y) \in E^-$.
+
+    *$\subseteq$:* Let $(x_n, \sin(1/x_n)) \to (x,y)$ with $x_n \in (0,1]$. Then $x \in [0,1]$ and $y \in [-1,1]$. If $x > 0$, continuity of $t \mapsto \sin(1/t)$ at $x$ gives $y = \lim \sin(1/x_n) = \sin(1/x)$, so $(x,y) \in E$. If $x = 0$, then $(x,y) \in \{0\}\times[-1,1]$.
+
+    **(b)** The map $\phi(x) = (x, \sin\frac1x)$ is continuous on the interval $(0,1]$, which is connected, so $E = \phi((0,1])$ is connected (continuous images of connected sets are connected).
+
+    Now suppose $E^-$ were disconnected: there are open $U_1, U_2 \subseteq \mathbb{R}^2$ with $E^- \subseteq U_1 \cup U_2$, $U_1 \cap U_2 \cap E^- = \emptyset$, and $U_i \cap E^- \neq \emptyset$ for $i = 1,2$. Then $E \subseteq U_1 \cup U_2$ and $U_1 \cap U_2 \cap E = \emptyset$. Take $p \in U_1 \cap E^-$ and a sequence in $E$ converging to $p$; since $U_1$ is open, the sequence eventually lies in $U_1$, so $U_1 \cap E \neq \emptyset$. Likewise $U_2 \cap E \neq \emptyset$. Thus $U_1, U_2$ disconnect $E$, a contradiction. Hence $E^-$ is connected.
+
+    **(c)** Suppose $\gamma = (\gamma_1, \gamma_2)\colon [a,b] \to E^-$ is continuous with $\gamma(a) = (0,0)$ and $\gamma(b) = (1, \sin 1)$. The set $Z = \{t \in [a,b] : \gamma_1(t) = 0\}$ is nonempty ($a \in Z$) and closed (preimage of a closed set under a continuous function); let $t_0 = \sup Z$, so $\gamma_1(t_0) = 0$ and $t_0 < b$. For $t \in (t_0, b]$, $\gamma_1(t) > 0$, so by (a) $\gamma(t) \in E$, i.e. $\gamma_2(t) = \sin\bigl(1/\gamma_1(t)\bigr)$.
+
+    By continuity of $\gamma_2$ at $t_0$, there is $\delta \in (0, b - t_0]$ with $|\gamma_2(t) - \gamma_2(t_0)| < \frac12$ for all $t \in [t_0, t_0 + \delta]$. Let $c = \gamma_1(t_0 + \delta) > 0$. Choose $n \in \mathbb{N}$ so large that $u = \dfrac{1}{\frac\pi2 + 2\pi n} < c$; then also $v = \dfrac{1}{\frac{3\pi}2 + 2\pi n} < c$. Since $\gamma_1$ is continuous on $[t_0, t_0+\delta]$ with $\gamma_1(t_0) = 0$ and $\gamma_1(t_0+\delta) = c$, the Intermediate Value Theorem gives $t, t' \in (t_0, t_0 + \delta)$ with $\gamma_1(t) = u$ and $\gamma_1(t') = v$. Then
+    $$\gamma_2(t) = \sin\left(\tfrac\pi2 + 2\pi n\right) = 1, \qquad \gamma_2(t') = \sin\left(\tfrac{3\pi}2 + 2\pi n\right) = -1,$$
+    so $2 = |\gamma_2(t) - \gamma_2(t')| \le |\gamma_2(t) - \gamma_2(t_0)| + |\gamma_2(t_0) - \gamma_2(t')| < 1$, a contradiction. Hence no path in $E^-$ joins $(0,0)$ to $(1,\sin 1)$, and $E^-$ is not path-connected.

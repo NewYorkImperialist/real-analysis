@@ -1,0 +1,998 @@
+- id: mit20-a3-6
+  hints:
+    - |
+      You need: for every $\varepsilon > 0$ an $N$ with $\left|\frac{1}{20n^2+20n+2020}\right| < \varepsilon$ for all $n \ge N$. You do not need the exact $N$, just one that works.
+    - |
+      Throw away most of the denominator: compare the fraction with something simpler like $\frac{1}{n}$, then use the Archimedean property.
+  solution: |
+    **Proof.** For every $n \in \mathbb{N}$ the denominator satisfies $20n^2 + 20n + 2020 > n > 0$, so
+
+    $$0 < \frac{1}{20n^2+20n+2020} < \frac{1}{n}.$$
+
+    Let $\varepsilon > 0$. By the Archimedean property choose $N \in \mathbb{N}$ with $N > 1/\varepsilon$. Then for all $n \ge N$,
+
+    $$\left|\frac{1}{20n^2+20n+2020} - 0\right| < \frac{1}{n} \le \frac{1}{N} < \varepsilon.$$
+
+    Hence $\lim_{n\to\infty} \frac{1}{20n^2+20n+2020} = 0$. $\blacksquare$
+- id: mit20-a5-6
+  hints:
+    - |
+      What does knowing that $\lim x_n$ exists tell you about $\limsup$ and $\liminf$?
+    - |
+      If $x_n \to 0$, then for each $\varepsilon > 0$ the tail suprema $\sup_{k \ge n} x_k$ are eventually at most $\varepsilon$. What does that force $\limsup x_n$ to be?
+  solution: |
+    **No such sequence exists.** We show that if $x_n \to 0$ then $\limsup x_n = \liminf x_n = 0$, so $\limsup x_n = 1$ and $\liminf x_n = -1$ are impossible.
+
+    Suppose $x_n \to 0$ and let $\varepsilon > 0$. Choose $N$ with $|x_k| < \varepsilon$ for all $k \ge N$. The sequence is convergent, hence bounded, so the tail suprema and infima are finite. For every $n \ge N$, every $k \ge n$ satisfies $-\varepsilon < x_k < \varepsilon$, so
+
+    $$-\varepsilon \le \inf_{k \ge n} x_k \le \sup_{k \ge n} x_k \le \varepsilon .$$
+
+    Letting $n \to \infty$ (limits preserve non-strict inequalities) gives $-\varepsilon \le \liminf x_n \le \limsup x_n \le \varepsilon$. Since $\varepsilon > 0$ was arbitrary, $\liminf x_n = \limsup x_n = 0$.
+
+    So a sequence with $\lim x_n = 0$ has $\limsup x_n = 0 \neq 1$. More generally, a sequence converges exactly when $\liminf x_n = \limsup x_n$, and then both equal the limit.
+- id: mit20-mid-3a
+  hints:
+    - |
+      Compute $\frac{10n^2}{n^2+16n+1} - 10$ over a common denominator before estimating anything.
+    - |
+      The difference is $\frac{-(160n+10)}{n^2+16n+1}$. Bound the numerator above and the denominator below by simple powers of $n$ to get something like $\frac{C}{n}$.
+  solution: |
+    **Proof.** For $n \in \mathbb{N}$,
+
+    $$\frac{10n^2}{n^2+16n+1} - 10 = \frac{10n^2 - 10n^2 - 160n - 10}{n^2+16n+1} = -\frac{160n+10}{n^2+16n+1}.$$
+
+    Since $160n + 10 \le 170n$ and $n^2 + 16n + 1 > n^2$, we get
+
+    $$\left|\frac{10n^2}{n^2+16n+1} - 10\right| = \frac{160n+10}{n^2+16n+1} < \frac{170n}{n^2} = \frac{170}{n}.$$
+
+    Let $\varepsilon > 0$ and, by the Archimedean property, choose $N \in \mathbb{N}$ with $N > 170/\varepsilon$. For $n \ge N$,
+
+    $$\left|\frac{10n^2}{n^2+16n+1} - 10\right| < \frac{170}{n} \le \frac{170}{N} < \varepsilon.$$
+
+    Hence the limit is $10$. $\blacksquare$
+- id: mit20-mid-3b
+  hints:
+    - |
+      For (i), let the terms alternate in sign while shrinking in size.
+    - |
+      For (ii), interleave two sequences: one that blows up and one that is constant.
+  solution: |
+    **(i)** Let $x_n = \dfrac{(-1)^n}{n}$. Since $|x_n - 0| = \frac{1}{n}$, given $\varepsilon > 0$ any $N > 1/\varepsilon$ gives $|x_n| < \varepsilon$ for $n \ge N$, so $x_n \to 0$. It is not monotone: $x_1 = -1 < x_2 = \tfrac12$, but $x_2 = \tfrac12 > x_3 = -\tfrac13$. So it is neither increasing nor decreasing.
+
+    **(ii)** Let $x_n = n$ for odd $n$ and $x_n = 0$ for even $n$. It is unbounded, since for any $M$ an odd $n > M$ gives $x_n = n > M$. The subsequence $(x_{2k})_{k \ge 1}$ is constantly $0$, so it converges to $0$.
+- id: abbott-2.2.1
+  hints:
+    - |
+      Write out the definition carefully. Once $\epsilon$ is fixed first, does the choice of $N$ matter at all? Try $N = 1$.
+    - |
+      Show that $(x_n)$ verconges to $x$ exactly when $|x_n - x| < \epsilon$ for every $n$, for some fixed $\epsilon$. Which familiar property is that?
+    - |
+      To verconge to two values, or to diverge, the sequence only needs to stay in some fixed band. Try $(-1)^n$.
+  solution: |
+    **What the definition says.** Suppose $(x_n)$ verconges to $x$ with some $\epsilon > 0$. Taking $N = 1$ gives $|x_n - x| < \epsilon$ for all $n \in \mathbb{N}$. Conversely, if $|x_n - x| < \epsilon$ for all $n$, then for every $N$ and every $n \ge N$ we have $|x_n - x| < \epsilon$. So
+
+    $$(x_n) \text{ verconges to } x \iff \exists\, \epsilon > 0 \text{ such that } |x_n - x| < \epsilon \text{ for all } n.$$
+
+    **Claim.** $(x_n)$ verconges to some (equivalently, to every) $x \in \mathbb{R}$ if and only if $(x_n)$ is bounded.
+
+    *Proof.* If $(x_n)$ verconges to $x$ with $\epsilon$, then $|x_n| \le |x_n - x| + |x| < \epsilon + |x|$ for all $n$, so the sequence is bounded. Conversely, if $|x_n| \le M$ for all $n$ and $x \in \mathbb{R}$ is arbitrary, then $|x_n - x| \le M + |x| < M + |x| + 1$, so $(x_n)$ verconges to $x$ with $\epsilon = M + |x| + 1$. $\square$
+
+    **Answers.**
+
+    - *Example:* the constant sequence $x_n = 0$ verconges to $0$ (any $\epsilon > 0$ works).
+    - *Vercongent but divergent:* yes. $x_n = (-1)^n$ is bounded, so it verconges (to $0$ with $\epsilon = 2$), but it diverges.
+    - *Two different values:* yes. By the claim, $(-1)^n$ verconges to $0$ (with $\epsilon = 2$) and to $1$ (with $\epsilon = 3$). In fact, a bounded sequence verconges to every real number.
+    - *What is described:* vercongence is boundedness. A sequence verconges (to anything) exactly when it is bounded.
+- id: abbott-2.2.2
+  hints:
+    - |
+      In each part, simplify $|a_n - a|$ first, then bound it from above by something simple such as $\frac{C}{n}$ or $\frac{1}{\sqrt[3]{n}}$ that you can make less than $\epsilon$.
+    - |
+      For (a), combine $\frac{2n+1}{5n+4} - \frac{2}{5}$ into one fraction. For (c), the only property of $\sin(n^2)$ you need is $|\sin(n^2)| \le 1$.
+    - |
+      After finding a bound $b_n$, choose $N$ so that $b_N < \epsilon$, and check that $b_n \le b_N$ for $n \ge N$.
+  solution: |
+    Throughout, $\epsilon > 0$ is given and $N$ is chosen using the Archimedean property.
+
+    **(a)** We have
+
+    $$\left|\frac{2n+1}{5n+4} - \frac{2}{5}\right| = \frac{|5(2n+1) - 2(5n+4)|}{5(5n+4)} = \frac{3}{25n+20} < \frac{3}{25n} < \frac{1}{n}.$$
+
+    Choose $N > 1/\epsilon$. For $n \ge N$ the expression is $< \frac1n \le \frac1N < \epsilon$. So the limit is $\frac25$.
+
+    **(b)** Since $n^3 + 3 > n^3$,
+
+    $$\left|\frac{2n^2}{n^3+3} - 0\right| = \frac{2n^2}{n^3+3} < \frac{2n^2}{n^3} = \frac{2}{n}.$$
+
+    Choose $N > 2/\epsilon$. For $n \ge N$ the expression is $< \frac2n \le \frac2N < \epsilon$. So the limit is $0$.
+
+    **(c)** Since $|\sin(n^2)| \le 1$,
+
+    $$\left|\frac{\sin(n^2)}{\sqrt[3]{n}} - 0\right| \le \frac{1}{\sqrt[3]{n}}.$$
+
+    Choose $N > 1/\epsilon^3$. For $n \ge N$ we have $n > 1/\epsilon^3$, so $\sqrt[3]{n} > 1/\epsilon$ (the cube root is increasing). Hence $\frac{1}{\sqrt[3]{n}} < \epsilon$, so the expression is $< \epsilon$. The limit is $0$.
+- id: abbott-2.2.6
+  hints:
+    - |
+      Argue by contradiction: suppose $a \neq b$. How far apart are $a$ and $b$, and how close must $a_n$ eventually be to each of them?
+    - |
+      Use $\epsilon = |a - b|/2$ in both convergence statements, then take $n$ larger than both thresholds and apply the triangle inequality.
+  solution: |
+    **Proof.** Suppose $(a_n) \to a$ and $(a_n) \to b$, and assume for contradiction that $a \neq b$. Let $\epsilon = |a - b|/2 > 0$. There is $N_1$ with $|a_n - a| < \epsilon$ for all $n \ge N_1$, and there is $N_2$ with $|a_n - b| < \epsilon$ for all $n \ge N_2$. Take $n = \max\{N_1, N_2\}$. By the triangle inequality,
+
+    $$|a - b| \le |a - a_n| + |a_n - b| < \epsilon + \epsilon = |a - b|,$$
+
+    which is a contradiction. Hence $a = b$, and the limit of a sequence is unique. $\blacksquare$
+- id: lebl-2.2.3
+  hints:
+    - |
+      Induct on $k$. The case $k = 1$ is trivial. How does $x_n^{k+1}$ relate to $x_n^k$?
+    - |
+      Write $x_n^{k+1} = x_n^k \cdot x_n$ and use the product rule for limits of convergent sequences.
+  solution: |
+    **Proof.** Let $x = \lim_{n\to\infty} x_n$. We prove $\lim_{n\to\infty} x_n^k = x^k$ by induction on $k \in \mathbb{N}$.
+
+    *Base case $k = 1$:* this is the hypothesis $x_n \to x$.
+
+    *Inductive step:* suppose $x_n^k \to x^k$. Then $x_n^{k+1} = x_n^k \cdot x_n$ is the product of two convergent sequences, with limits $x^k$ and $x$. By the algebra-of-limits rule for products (if $a_n \to a$ and $b_n \to b$ then $a_n b_n \to ab$),
+
+    $$\lim_{n\to\infty} x_n^{k+1} = \Bigl(\lim_{n\to\infty} x_n^k\Bigr)\Bigl(\lim_{n\to\infty} x_n\Bigr) = x^k \cdot x = x^{k+1}.$$
+
+    By induction the formula holds for all $k \in \mathbb{N}$. $\blacksquare$
+- id: lebl-2.2.5
+  hints:
+    - |
+      The only thing you need to know about $\cos(n)$ is the range of the cosine function.
+    - |
+      Use $-1 \le \cos n \le 1$ to trap $x_n$ between $1 - \frac1n$ and $1 + \frac1n$.
+  solution: |
+    Since $-1 \le \cos(n) \le 1$ for all $n$, we have $n - 1 \le n - \cos(n) \le n + 1$. Dividing by $n > 0$,
+
+    $$1 - \frac{1}{n} \le x_n \le 1 + \frac{1}{n} \qquad \text{for all } n \in \mathbb{N}.$$
+
+    Since $\frac1n \to 0$, the algebra of limits gives $1 - \frac1n \to 1$ and $1 + \frac1n \to 1$. By the squeeze lemma, $\{x_n\}$ converges and
+
+    $$\lim_{n\to\infty} \frac{n - \cos(n)}{n} = 1.$$
+- id: lebl-2.3.5
+  hints:
+    - |
+      Use the definition: $\limsup x_n = \lim_{n\to\infty} \sup\{x_k : k \ge n\}$, and similarly for $\liminf$. Look separately at the even-indexed and odd-indexed terms.
+    - |
+      In (b), $x_n = (-1)^n\left(1 - \frac1n\right)$. The even terms increase towards $1$ without reaching it, and the odd terms are $\le 0$. What is $\sup\{x_k : k \ge n\}$ for each $n$?
+  solution: |
+    Write $a_n = \sup\{x_k : k \ge n\}$ and $b_n = \inf\{x_k : k \ge n\}$, so $\limsup x_n = \lim a_n$ and $\liminf x_n = \lim b_n$.
+
+    **(a)** $x_n = (-1)^n/n$. The positive terms are $\frac1k$ for even $k$, which decrease as $k$ grows, and the negative terms are $-\frac1k$ for odd $k$, which increase as $k$ grows. Hence
+
+    $$a_n = \begin{cases} \frac1n & n \text{ even},\\[2pt] \frac{1}{n+1} & n \text{ odd},\end{cases} \qquad b_n = \begin{cases} -\frac1n & n \text{ odd},\\[2pt] -\frac{1}{n+1} & n \text{ even}.\end{cases}$$
+
+    In all cases $|a_n|, |b_n| \le \frac1n$, so $a_n \to 0$ and $b_n \to 0$. Therefore
+
+    $$\limsup_{n\to\infty} x_n = \liminf_{n\to\infty} x_n = 0.$$
+
+    (This also follows because $|x_n| = \frac1n \to 0$, so the sequence converges to $0$.)
+
+    **(b)** $x_n = (-1)^n\frac{n-1}{n} = (-1)^n\left(1 - \frac1n\right)$. For even $k$, $x_k = 1 - \frac1k \in [0,1)$. For odd $k$, $x_k = -1 + \frac1k \in (-1, 0]$.
+
+    *The sup.* Fix $n$. Every $x_k$ is $< 1$, so $a_n \le 1$. Given $\delta > 0$, choose an even $k \ge n$ with $\frac1k < \delta$. Then $x_k > 1 - \delta$. So $a_n = 1$ for every $n$, and $\limsup x_n = 1$.
+
+    *The inf.* Similarly every $x_k > -1$, and odd $k \ge n$ with $\frac1k < \delta$ give $x_k < -1 + \delta$. So $b_n = -1$ for every $n$, and $\liminf x_n = -1$.
+
+    Hence $\limsup_{n\to\infty} x_n = 1$ and $\liminf_{n\to\infty} x_n = -1$.
+- id: mit20-a5-5
+  hints:
+    - |
+      Let $a_n = \sup\{|x_k| : k \ge n\}$. Then $\limsup |x_n| = \lim a_n$, the sequence $(a_n)$ is decreasing, and $a_n \ge 0$.
+    - |
+      For ($\Leftarrow$), note that $|x_n| \le a_n$. For ($\Rightarrow$), if $|x_k| < \varepsilon$ for all $k \ge N$, what can you say about $a_n$ for $n \ge N$?
+  solution: |
+    Since $(x_n)$ is bounded, so is $(|x_n|)$. Let $a_n = \sup\{|x_k| : k \ge n\}$. Then $(a_n)$ is decreasing (the sets shrink), $a_n \ge 0$, and $\limsup |x_n| = \lim a_n$.
+
+    **($\Rightarrow$)** Suppose $x_n \to 0$ and let $\varepsilon > 0$. Choose $N$ with $|x_k| < \varepsilon$ for all $k \ge N$. For $n \ge N$, $\varepsilon$ is an upper bound of $\{|x_k| : k \ge n\}$, so $0 \le a_n \le \varepsilon$. Letting $n \to \infty$ gives $0 \le \limsup |x_n| \le \varepsilon$. Since $\varepsilon > 0$ was arbitrary, $\limsup |x_n| = 0$.
+
+    **($\Leftarrow$)** Suppose $\lim a_n = 0$ and let $\varepsilon > 0$. Choose $N$ with $a_N = |a_N - 0| < \varepsilon$. For every $n \ge N$,
+
+    $$|x_n - 0| = |x_n| \le a_N < \varepsilon,$$
+
+    because $|x_n|$ belongs to the set whose supremum is $a_N$. Hence $x_n \to 0$. $\blacksquare$
+- id: mit20-mid-4a
+  hints:
+    - |
+      Part (i) is the triangle inequality. For (ii), work with the tail suprema $\sup_{k \ge n}$ before taking any limit.
+    - |
+      For each fixed $n$ and every $k \ge n$, compare $x_k + y_k$ with $\sup_{j\ge n} x_j + \sup_{j \ge n} y_j$. This number is an upper bound for the tail of $(x_k + y_k)$.
+    - |
+      Then let $n \to \infty$, using that limits preserve $\le$ and that the limit of a sum is the sum of the limits.
+  solution: |
+    **(i)** Choose $M_1, M_2$ with $|x_n| \le M_1$ and $|y_n| \le M_2$ for all $n$. Then $|x_n + y_n| \le |x_n| + |y_n| \le M_1 + M_2$ for all $n$, so $\{x_n + y_n\}$ is bounded.
+
+    **(ii)** All the suprema below are finite by boundedness. Let
+
+    $$a_n = \sup_{k \ge n} x_k,\qquad b_n = \sup_{k\ge n} y_k,\qquad c_n = \sup_{k\ge n}(x_k + y_k).$$
+
+    Fix $n$. For every $k \ge n$ we have $x_k \le a_n$ and $y_k \le b_n$, so $x_k + y_k \le a_n + b_n$. Thus $a_n + b_n$ is an upper bound of $\{x_k + y_k : k \ge n\}$, and so $c_n \le a_n + b_n$.
+
+    Each of $(a_n), (b_n), (c_n)$ is a decreasing bounded sequence, so it converges, and its limit is the corresponding $\limsup$. Since limits preserve non-strict inequalities, and the limit of a sum is the sum of the limits,
+
+    $$\limsup_{n\to\infty}(x_n + y_n) = \lim c_n \le \lim (a_n + b_n) = \limsup_{n\to\infty} x_n + \limsup_{n\to\infty} y_n. \qquad \blacksquare$$
+- id: abbott-2.3.2
+  hints:
+    - |
+      In each part, rewrite the distance to the proposed limit in terms of $|x_n - 2|$, the only quantity you control.
+    - |
+      For (a), $\left|\frac{2x_n - 1}{3} - 1\right| = \frac23|x_n - 2|$. For (b), $\left|\frac{1}{x_n} - \frac12\right| = \frac{|x_n - 2|}{2|x_n|}$, so you need a lower bound on $|x_n|$.
+    - |
+      In (b), first use the hypothesis with $\epsilon = 1$ to keep $x_n$ away from $0$ for large $n$. Then use the hypothesis again with a second, $\epsilon$-dependent choice, and take the larger of the two $N$'s.
+  solution: |
+    **(a)** Let $\epsilon > 0$. Choose $N$ with $|x_n - 2| < \epsilon$ for all $n \ge N$. Then for $n \ge N$,
+
+    $$\left|\frac{2x_n - 1}{3} - 1\right| = \frac{|2x_n - 4|}{3} = \frac{2}{3}|x_n - 2| < \frac23\epsilon < \epsilon.$$
+
+    Hence $\left(\frac{2x_n-1}{3}\right) \to 1$.
+
+    **(b)** First choose $N_1$ with $|x_n - 2| < 1$ for $n \ge N_1$. For these $n$, $x_n > 1$, so in particular $x_n \neq 0$ and $1/x_n$ is defined. (If some earlier $x_n$ were $0$, the sequence $(1/x_n)$ would only be defined from some index on; convergence depends only on the tail, so this does not matter.) For $n \ge N_1$,
+
+    $$\left|\frac{1}{x_n} - \frac12\right| = \frac{|2 - x_n|}{2|x_n|} < \frac{|x_n - 2|}{2}.$$
+
+    Now let $\epsilon > 0$. Choose $N_2$ with $|x_n - 2| < 2\epsilon$ for $n \ge N_2$, and let $N = \max\{N_1, N_2\}$. For $n \ge N$,
+
+    $$\left|\frac{1}{x_n} - \frac12\right| < \frac{|x_n - 2|}{2} < \frac{2\epsilon}{2} = \epsilon.$$
+
+    Hence $(1/x_n) \to 1/2$. Only Definition 2.2.3 was used. $\blacksquare$
+- id: abbott-2.3.7
+  hints:
+    - |
+      Before hunting for examples, ask which parts conflict with the Algebraic Limit Theorem, or with the fact that convergent sequences are bounded (Theorem 2.3.2).
+    - |
+      In (b), write $y_n = (x_n + y_n) - x_n$. In (d), $a_n = (a_n - b_n) + b_n$. Is each piece bounded?
+    - |
+      For the possible parts, sequences built from $(-1)^n$, $1/n$ and the zero sequence are enough.
+  solution: |
+    **(a) Possible.** Let $x_n = (-1)^n$ and $y_n = (-1)^{n+1}$. Both diverge, since they alternate between $1$ and $-1$. But $x_n + y_n = 0$ for all $n$, which converges.
+
+    **(b) Impossible.** If $(x_n) \to x$ and $(x_n + y_n) \to s$, then by the Algebraic Limit Theorem (parts (i) with $c = -1$, and (ii))
+
+    $$y_n = (x_n + y_n) + (-1)x_n \to s - x,$$
+
+    so $(y_n)$ converges, contradicting the assumption that it diverges.
+
+    **(c) Possible.** Let $b_n = 1/n$. Then $b_n \neq 0$, $b_n \to 0$, and $1/b_n = n$ is unbounded, hence divergent (convergent sequences are bounded, Theorem 2.3.2).
+
+    **(d) Impossible.** A convergent $(b_n)$ is bounded (Theorem 2.3.2), say $|b_n| \le M$. If $|a_n - b_n| \le K$ for all $n$, then
+
+    $$|a_n| \le |a_n - b_n| + |b_n| \le K + M,$$
+
+    so $(a_n)$ is bounded, contradicting the assumption that it is unbounded.
+
+    **(e) Possible.** Let $a_n = 0$ and $b_n = (-1)^n$. Then $(a_n) \to 0$ and $a_nb_n = 0 \to 0$, but $(b_n)$ diverges. (This only works because $\lim a_n = 0$. If $a_n \to a \neq 0$, then $a_n \ne 0$ for large $n$, and $b_n = (a_nb_n)/a_n$ would converge by part (iv) of the Algebraic Limit Theorem.)
+- id: abbott-2.3.9
+  hints:
+    - |
+      In (a), let $M$ be a bound for $|a_n|$. How small does $|b_n|$ need to be to force $|a_nb_n| < \epsilon$? Then check what the Algebraic Limit Theorem assumes about *both* sequences.
+    - |
+      For (b), consider whether $(a_n)$ can be recovered from $(a_nb_n)$ and $(b_n)$ when $b \neq 0$.
+    - |
+      For (c), recall that a convergent sequence is bounded, and apply (a) with the roles of the two sequences swapped.
+  solution: |
+    **(a)** Choose $M > 0$ with $|a_n| \le M$ for all $n$. Let $\epsilon > 0$ and choose $N$ with $|b_n| < \epsilon / M$ for $n \ge N$. Then for $n \ge N$,
+
+    $$|a_nb_n - 0| = |a_n||b_n| \le M|b_n| < \epsilon.$$
+
+    So $a_nb_n \to 0$. We cannot use the Algebraic Limit Theorem because its hypotheses require *both* sequences to converge, and $(a_n)$ is only assumed bounded (for example $a_n = (-1)^n$).
+
+    **(b)** Yes: $(a_nb_n)$ converges *if and only if* $(a_n)$ converges. If $(a_n)$ converges, then $(a_nb_n)$ converges by the ALT. Conversely, suppose $a_nb_n \to p$. Since $b_n \to b \neq 0$, there is $N$ with $|b_n - b| < |b|/2$ for $n \ge N$, hence $|b_n| > |b|/2 > 0$ for $n \ge N$. On that tail, $a_n = (a_nb_n)/b_n$, so by ALT (iv) $a_n \to p/b$. (Convergence only depends on the tail.) So, for example, $a_n = (-1)^n$ and $b_n = 1$ give a divergent product, while $a_n = 1$, $b_n = 1$ give a convergent one. Without further information about $(a_n)$ nothing more can be said, except that $(a_nb_n)$ is bounded.
+
+    **(c)** We prove ALT (iii) when $a = 0$: if $a_n \to 0$ and $b_n \to b$, then $a_nb_n \to 0 = ab$. Since $(b_n)$ converges, it is bounded (Theorem 2.3.2). Now apply (a) with $(b_n)$ as the bounded sequence and $(a_n)$ as the sequence tending to $0$. This gives $b_na_n \to 0$, which is the claim. $\blacksquare$
+- id: abbott-2.3.10
+  hints:
+    - |
+      In (a), check whether the hypothesis even guarantees that $\lim a_n$ exists. For the true parts, reach for the triangle inequality or the ALT.
+    - |
+      For (b), the reverse triangle inequality $\bigl||x| - |y|\bigr| \le |x - y|$ does all the work.
+    - |
+      In (c), the letter $a$ is undefined, so read the conclusion as $(b_n) \to 0$, and write $b_n = (b_n - a_n) + a_n$. In (d), note that $a_n \ge 0$ is forced.
+  solution: |
+    For (c) we read the conclusion as "$(b_n) \to 0$". The source prints $(b_n) \to a$ with $a$ undefined, which is evidently a typo.
+
+    **(a) False.** Let $a_n = b_n = n$. Then $a_n - b_n = 0 \to 0$, but neither $\lim a_n$ nor $\lim b_n$ exists, since both sequences are unbounded. (If one of the two sequences converges, then the conclusion does hold by the ALT.)
+
+    **(b) True.** For all real $x, y$: $|x| = |(x - y) + y| \le |x - y| + |y|$, so $|x| - |y| \le |x - y|$. By symmetry $|y| - |x| \le |x - y|$, hence $\bigl||x| - |y|\bigr| \le |x-y|$. Given $\epsilon > 0$, choose $N$ with $|b_n - b| < \epsilon$ for $n \ge N$. Then
+
+    $$\bigl||b_n| - |b|\bigr| \le |b_n - b| < \epsilon \quad (n \ge N),$$
+
+    so $|b_n| \to |b|$.
+
+    **(c) True** (as $(b_n) \to 0$). Since $b_n = (b_n - a_n) + a_n$ and both sequences on the right tend to $0$, the ALT gives $b_n \to 0 + 0 = 0$.
+
+    **(d) True.** Let $\epsilon > 0$ and choose $N$ with $|a_n| < \epsilon$ for $n \ge N$. For $n \ge N$,
+
+    $$|b_n - b| \le a_n \le |a_n| < \epsilon.$$
+
+    Hence $b_n \to b$.
+- id: abbott-2.3.12
+  hints:
+    - |
+      Ask whether the property is described by non-strict inequalities ("closed" conditions), which survive limits, or not.
+    - |
+      For (a) and (b), argue by contradiction: if the limit violated the property, a small enough $\epsilon$-neighborhood of $a$ would also violate it, and that neighborhood eventually contains every $a_n$.
+    - |
+      For (c), find rational approximations of a known irrational number, such as decimal truncations.
+  solution: |
+    **(a) True.** If $B = \emptyset$ there is nothing to prove. Let $x \in B$. Then $a_n \ge x$ for all $n$. Suppose for contradiction $a < x$, and let $\epsilon = x - a > 0$. For large $n$, $|a_n - a| < \epsilon$, so $a_n < a + \epsilon = x$, a contradiction. Hence $a \ge x$ for every $x \in B$, so $a$ is an upper bound for $B$. (This is the Order Limit Theorem.)
+
+    **(b) True.** The complement of $(0,1)$ is $(-\infty, 0] \cup [1, \infty)$. Suppose $a \in (0,1)$ and let $\epsilon = \min\{a, 1 - a\} > 0$. For large $n$, $|a_n - a| < \epsilon$, so
+
+    $$0 \le a - \epsilon < a_n < a + \epsilon \le 1,$$
+
+    meaning $a_n \in (0,1)$, a contradiction. Hence $a \notin (0,1)$.
+
+    **(c) False.** Let $a_n = \lfloor 10^n\sqrt2\rfloor / 10^n$, the truncation of the decimal expansion of $\sqrt2$ to $n$ places. Each $a_n$ is rational. Since $10^n\sqrt2 - 1 < \lfloor 10^n\sqrt2 \rfloor \le 10^n\sqrt2$, we have
+
+    $$0 \le \sqrt2 - a_n < 10^{-n} < \frac1n,$$
+
+    so $a_n \to \sqrt2$, which is irrational.
+- id: abbott-2.4.5
+  hints:
+    - |
+      The plan is the Monotone Convergence Theorem: show the sequence is decreasing and bounded below, then find the limit from the recursion.
+    - |
+      Expand $x_{n+1}^2 - 2$ and recognize a perfect square. Then compute $x_n - x_{n+1}$ and express it in terms of $x_n^2 - 2$.
+    - |
+      Once you know $L = \lim x_n$ exists and $L > 0$, take limits on both sides of the recursion. For (b), replace $2$ by $c$ everywhere.
+  solution: |
+    **(a)** *Positivity.* $x_1 = 2 > 0$, and if $x_n > 0$ then $x_{n+1} = \frac12(x_n + 2/x_n) > 0$. By induction $x_n > 0$ for all $n$, so the recursion is well defined.
+
+    *$x_n^2 \ge 2$.* We have $x_1^2 = 4 \ge 2$, and for every $n$,
+
+    $$x_{n+1}^2 - 2 = \frac14\left(x_n^2 + 4 + \frac{4}{x_n^2}\right) - 2 = \frac14\left(x_n^2 - 4 + \frac{4}{x_n^2}\right) = \frac14\left(x_n - \frac{2}{x_n}\right)^2 \ge 0.$$
+
+    So $x_n^2 \ge 2$ for all $n$.
+
+    *Decreasing.* Using $x_n > 0$,
+
+    $$x_n - x_{n+1} = \frac{x_n}{2} - \frac{1}{x_n} = \frac{x_n^2 - 2}{2x_n} \ge 0.$$
+
+    *Limit.* $(x_n)$ is decreasing and bounded below by $0$, so by the Monotone Convergence Theorem it converges to some $L$. Since $x_n > 0$ and $x_n^2 \ge 2$, we have $x_n \ge \sqrt2$, so $L \ge \sqrt 2 > 0$ by the Order Limit Theorem. The shifted sequence $(x_{n+1})$ also converges to $L$. Since $L \neq 0$, the Algebraic Limit Theorem lets us take limits in the recursion:
+
+    $$L = \frac12\left(L + \frac{2}{L}\right) \implies \frac{L}{2} = \frac{1}{L} \implies L^2 = 2.$$
+
+    As $L > 0$, $L = \sqrt2$.
+
+    **(b)** Let $c > 0$, set $x_1 = c + 1$, and define $x_{n+1} = \frac12\left(x_n + \frac{c}{x_n}\right)$. The same argument works. All $x_n > 0$. Next, $x_1^2 - c = c^2 + c + 1 > 0$ and $x_{n+1}^2 - c = \frac14\left(x_n - \frac{c}{x_n}\right)^2 \ge 0$, so $x_n^2 \ge c$ for all $n$. Also $x_n - x_{n+1} = \frac{x_n^2 - c}{2x_n} \ge 0$, so the sequence is decreasing and bounded below by $\sqrt c > 0$. Its limit $L \ge \sqrt c > 0$ satisfies $L = \frac12(L + c/L)$, i.e. $L^2 = c$, so $\lim x_n = \sqrt c$. (Any positive starting value works, because $x_n^2 \ge c$ holds automatically from $n = 2$ on. For $c = 0$ the trivial sequence $x_n = 0$ converges to $\sqrt0$.)
+- id: abbott-2.5.2
+  hints:
+    - |
+      Recall that every subsequence of a convergent sequence converges to the same limit (Theorem 2.5.2). Several parts are this fact or its contrapositive.
+    - |
+      For (a), find one explicit proper subsequence whose convergence tells you everything about $(x_n)$. For (c), use Bolzano–Weierstrass twice.
+    - |
+      For (d), show that a monotone sequence with a convergent (hence bounded) subsequence is itself bounded, then apply the Monotone Convergence Theorem.
+  solution: |
+    **(a) True.** The sequence $(x_2, x_3, x_4, \dots)$ is a proper subsequence of $(x_n)$, so by hypothesis it converges to some $x$. A sequence and its tail obtained by deleting the first term have the same convergence behavior: given $\epsilon > 0$, if $|x_n - x| < \epsilon$ for all $n \ge N$ with $n \ge 2$, then the same holds for $n \ge \max\{N, 2\}$ in the original sequence. So $(x_n) \to x$.
+
+    **(b) True.** This is the contrapositive of Theorem 2.5.2. If $(x_n)$ converged to $x$, every subsequence would converge to $x$, so no subsequence could diverge.
+
+    **(c) True.** Suppose $(x_n)$ is bounded and divergent. By Bolzano–Weierstrass it has a subsequence converging to some $a$. Since $(x_n)$ does not converge to $a$, there is $\epsilon_0 > 0$ such that $|x_n - a| \ge \epsilon_0$ for infinitely many $n$. Listing these indices in increasing order gives a subsequence $(x_{m_k})$ with $|x_{m_k} - a| \ge \epsilon_0$ for all $k$. This subsequence is bounded, so by Bolzano–Weierstrass it has a further subsequence converging to some $b$. That further subsequence is also a subsequence of $(x_n)$. If $|b - a| < \epsilon_0$, then its terms would eventually satisfy $|x - a| \le |x - b| + |b - a| < \epsilon_0$, which is impossible. So $|b - a| \ge \epsilon_0$ and $b \neq a$. We have found two subsequences converging to the different limits $a$ and $b$.
+
+    **(d) True.** Say $(x_n)$ is increasing (the decreasing case is symmetric) and $(x_{n_k}) \to L$. Convergent sequences are bounded, so $x_{n_k} \le M$ for all $k$. For any $n$, we have $n_n \ge n$, so $x_n \le x_{n_n} \le M$. Also $x_n \ge x_1$. Thus $(x_n)$ is bounded and monotone, and it converges by the Monotone Convergence Theorem. (Its limit is then $L$, by Theorem 2.5.2.)
+- id: abbott-2.6.2
+  hints:
+    - |
+      Recall the key facts: convergent $\Leftrightarrow$ Cauchy (in $\mathbb{R}$), and Cauchy sequences are bounded.
+    - |
+      For (c), a Cauchy subsequence is a convergent subsequence. Combine this with what you know about monotone sequences (compare Exercise 2.5.2(d)).
+    - |
+      For (d), a bounded subsequence can live inside an unbounded sequence. Interleave.
+  solution: |
+    **(a) Possible.** $x_n = (-1)^n/n$ converges to $0$ (since $|x_n| = 1/n$), so it is Cauchy (Theorem 2.6.2). It is not monotone: $x_1 = -1 < x_2 = \tfrac12 > x_3 = -\tfrac13$.
+
+    **(b) Impossible.** Cauchy sequences are bounded (Lemma 2.6.3). If $|x_n| \le M$ for all $n$, then every subsequence is bounded by $M$ too.
+
+    **(c) Impossible.** Let $(x_n)$ be monotone with a Cauchy subsequence $(x_{n_k})$. By the Cauchy Criterion the subsequence converges, so it is bounded, say $|x_{n_k}| \le M$. If $(x_n)$ is increasing, then $x_1 \le x_n \le x_{n_n} \le M$ for every $n$ (since $n_n \ge n$). If it is decreasing, then $-M \le x_{n_n} \le x_n \le x_1$. Either way $(x_n)$ is bounded and monotone, so it converges by the Monotone Convergence Theorem. It cannot be divergent.
+
+    **(d) Possible.** Let $x_n = n$ for odd $n$ and $x_n = 0$ for even $n$. It is unbounded, and the subsequence $(x_{2k}) = (0, 0, 0, \dots)$ is constant, hence Cauchy.
+- id: lebl-2.1.22
+  hints:
+    - |
+      First show all three subsequences have the *same* limit. Which indices belong to two of these subsequences at once?
+    - |
+      The indices $6n$ are both even and multiples of $3$. The indices $6n - 3 = 3(2n-1)$ are both odd and multiples of $3$. Subsequences of convergent sequences converge to the same limit.
+    - |
+      Once the even and odd subsequences share a limit $L$, take the larger of their two thresholds to control every index.
+  solution: |
+    Let $x_{2n} \to a$, $x_{2n-1} \to b$, $x_{3n} \to c$. Recall that a subsequence of a convergent sequence converges to the same limit.
+
+    **Step 1: $a = c$.** $(x_{6n})_{n\ge1}$ is a subsequence of $(x_{2n})$ (take the terms with index $2m$, $m = 3n$) and of $(x_{3n})$ (index $3m$, $m = 2n$). Hence $x_{6n} \to a$ and $x_{6n} \to c$. By uniqueness of limits, $a = c$.
+
+    **Step 2: $b = c$.** $(x_{6n-3})_{n \ge 1}$ is a subsequence of $(x_{2n-1})$, since $6n - 3 = 2(3n - 1) - 1$ and $3n-1$ is strictly increasing in $n$. It is also a subsequence of $(x_{3n})$, since $6n-3 = 3(2n-1)$ and $2n-1$ is strictly increasing. Hence $b = c$.
+
+    Let $L = a = b = c$.
+
+    **Step 3: $x_n \to L$.** Let $\epsilon > 0$. Choose $N_1$ with $|x_{2n} - L| < \epsilon$ for $n \ge N_1$, and $N_2$ with $|x_{2n-1} - L| < \epsilon$ for $n \ge N_2$. Put $M = 2\max\{N_1, N_2\}$ and let $m \ge M$.
+
+    - If $m = 2n$ is even, then $n \ge \max\{N_1,N_2\} \ge N_1$, so $|x_m - L| < \epsilon$.
+    - If $m = 2n - 1$ is odd, then $2n - 1 \ge 2\max\{N_1,N_2\}$ gives $n > \max\{N_1, N_2\} \ge N_2$, so $|x_m - L| < \epsilon$.
+
+    Hence $x_n \to L$, and $\{x_n\}$ converges. $\blacksquare$
+- id: lebl-2.2.9
+  hints:
+    - |
+      Set $y_n = |x_n - x|$. You need $y_n \to 0$, and you know the ratios $y_{n+1}/y_n$ tend to $L < 1$.
+    - |
+      Pick a number $r$ strictly between $L$ and $1$. Eventually $y_{n+1} < r\, y_n$.
+    - |
+      Iterate that inequality to bound $y_n$ by a constant times $r^n$, then use $r^n \to 0$ and the squeeze lemma.
+  solution: |
+    Let $y_n = |x_n - x| > 0$. Each ratio $y_{n+1}/y_n$ is nonnegative, so $L \ge 0$. Let $r = \frac{L+1}{2}$, so $0 \le L < r < 1$.
+
+    Since $\frac{y_{n+1}}{y_n} \to L$, applying the definition with $\epsilon = r - L > 0$ gives $M \in \mathbb{N}$ such that
+
+    $$\frac{y_{n+1}}{y_n} < L + (r - L) = r, \quad\text{i.e.}\quad y_{n+1} < r\,y_n \qquad (n \ge M).$$
+
+    By induction, $y_n \le r^{\,n-M} y_M$ for all $n \ge M$. The case $n = M$ is equality, and $y_{n+1} < r y_n \le r^{\,n+1-M}y_M$. Hence, for $n \ge M$,
+
+    $$0 < |x_n - x| \le \frac{y_M}{r^M}\, r^n .$$
+
+    Since $0 < r < 1$, $r^n \to 0$, so the right-hand side tends to $0$ (it is a constant times $r^n$). By the squeeze lemma, $|x_n - x| \to 0$, that is, $x_n \to x$. $\blacksquare$
+
+    (This is the ratio test for sequences applied to $x_n - x$.)
+- id: lebl-2.3.6
+  hints:
+    - |
+      Prove the inequality for the tail suprema $\sup_{k \ge n} x_k$ and $\sup_{k\ge n} y_k$ first, for each fixed $n$. Then pass to the limit.
+    - |
+      If $x_k \le y_k \le \sup_{j \ge n} y_j$ for all $k \ge n$, what is $\sup_{j\ge n} y_j$ with respect to the set $\{x_k : k \ge n\}$?
+  solution: |
+    Let $a_n = \sup\{x_k : k \ge n\}$, $b_n = \sup\{y_k : k\ge n\}$, $c_n = \inf\{x_k : k \ge n\}$, $d_n = \inf\{y_k : k \ge n\}$. These are finite by boundedness, and $\limsup x_n = \lim a_n$, $\limsup y_n = \lim b_n$, $\liminf x_n = \lim c_n$, $\liminf y_n = \lim d_n$.
+
+    **limsup.** Fix $n$. For every $k \ge n$, $x_k \le y_k \le b_n$. So $b_n$ is an upper bound of $\{x_k : k \ge n\}$, and therefore $a_n \le b_n$.
+
+    **liminf.** Fix $n$. For every $k \ge n$, $c_n \le x_k \le y_k$. So $c_n$ is a lower bound of $\{y_k : k\ge n\}$, and therefore $c_n \le d_n$.
+
+    Since limits preserve non-strict inequalities, $\lim a_n \le \lim b_n$ and $\lim c_n \le \lim d_n$, which are the two claimed inequalities. $\blacksquare$
+- id: lebl-2.3.7
+  hints:
+    - |
+      Part (a) is the triangle inequality. For (b), you can follow the book's subsequence hint, or argue directly with the tail infima $\inf_{k\ge n}$.
+    - |
+      For fixed $n$ and all $k \ge n$: $x_k + y_k \ge \inf_{j\ge n} x_j + \inf_{j \ge n} y_j$. What does that say about $\inf_{k \ge n}(x_k + y_k)$?
+    - |
+      For (c), use two oscillating sequences whose oscillations cancel.
+  solution: |
+    **(a)** If $|x_n| \le M_1$ and $|y_n| \le M_2$ for all $n$, then $|x_n + y_n| \le M_1 + M_2$.
+
+    **(b)** Let $c_n = \inf_{k\ge n} x_k$, $d_n = \inf_{k\ge n} y_k$, $e_n = \inf_{k\ge n}(x_k + y_k)$. These are finite by boundedness. Each is an increasing bounded sequence whose limit is the corresponding $\liminf$. Fix $n$. For every $k \ge n$, $x_k \ge c_n$ and $y_k \ge d_n$, so $x_k + y_k \ge c_n + d_n$. Thus $c_n + d_n$ is a lower bound for $\{x_k + y_k : k \ge n\}$, so $c_n + d_n \le e_n$. Letting $n \to \infty$ (limits respect $\le$ and sums),
+
+    $$\liminf_{n\to\infty} x_n + \liminf_{n\to\infty} y_n = \lim (c_n + d_n) \le \lim e_n = \liminf_{n\to\infty}(x_n + y_n).$$
+
+    **(c)** Let $x_n = (-1)^n$ and $y_n = (-1)^{n+1}$. For every $n$ the tail $\{x_k : k \ge n\}$ is $\{-1, 1\}$, so $\inf_{k\ge n} x_k = -1$ and $\liminf x_n = -1$. Likewise $\liminf y_n = -1$. But $x_n + y_n = 0$ for all $n$, so $\liminf(x_n + y_n) = 0$. Thus
+
+    $$\liminf x_n + \liminf y_n = -2 < 0 = \liminf (x_n + y_n).$$
+- id: lebl-2.4.8
+  hints:
+    - |
+      The claim says the consecutive gaps are eventually non-increasing. Being Cauchy says nothing about the *order* in which the gaps shrink.
+    - |
+      Try a convergent sequence that sometimes stands still: if $x_n = x_{n-1}$ but $x_{n+1} \neq x_n$, the inequality fails at $n$.
+  solution: |
+    **False.** Let $x_{2k-1} = x_{2k} = \frac1k$ for $k \in \mathbb{N}$, so the sequence is $1, 1, \tfrac12, \tfrac12, \tfrac13, \tfrac13, \dots$
+
+    *It is Cauchy.* For $n \in \{2k-1, 2k\}$ we have $|x_n| = \frac1k \le \frac{2}{n}$, so $x_n \to 0$. Convergent sequences are Cauchy.
+
+    *The inequality fails infinitely often.* For $n = 2k$ (with $k \ge 1$),
+
+    $$|x_n - x_{n-1}| = |x_{2k} - x_{2k-1}| = 0, \qquad |x_{n+1} - x_n| = \frac1k - \frac1{k+1} = \frac{1}{k(k+1)} > 0.$$
+
+    So $|x_{n+1} - x_n| > |x_n - x_{n-1}|$ for every even $n$. Given any $M$, choosing an even $n \ge M$ shows that the claimed inequality does not hold for all $n \ge M$.
+- id: lebl-2.5.12
+  hints:
+    - |
+      $x_{n+k} - x_n$ is a sum of exactly $k$ terms, each at most $\frac{1}{n+1}$. For "not Cauchy", let the number of terms grow with $n$.
+    - |
+      Look at $x_{2n} - x_n = \sum_{i=n+1}^{2n} \frac1i$. Bound each of its $n$ terms below by $\frac{1}{2n}$.
+  solution: |
+    **Fixed $k$.** For $n \in \mathbb{N}$,
+
+    $$0 \le x_{n+k} - x_n = \sum_{i=n+1}^{n+k} \frac1i \le \frac{k}{n+1}.$$
+
+    For fixed $k$, $\frac{k}{n+1} \to 0$ as $n\to\infty$, so by the squeeze lemma $\lim_{n\to\infty}|x_{n+k} - x_n| = 0$.
+
+    **Not Cauchy.** For every $n$,
+
+    $$x_{2n} - x_n = \sum_{i=n+1}^{2n}\frac1i \ge n \cdot \frac{1}{2n} = \frac12,$$
+
+    since each of the $n$ terms is at least $\frac1{2n}$. Take $\epsilon = \frac12$. For any $M \in \mathbb{N}$, the indices $n = M$ and $m = 2M$ are both $\ge M$, but $|x_m - x_n| \ge \frac12$. So no $M$ works for $\epsilon = \frac12$, and $\{x_n\}$ is not Cauchy.
+
+    The point is that the Cauchy condition needs $|x_m - x_n|$ small *uniformly* in how far apart $m$ and $n$ are, not only for a fixed gap $k$.
+- id: ross-8.7
+  hints:
+    - |
+      The book's hint handles each part separately. A tidier route is one general lemma: if a sequence takes a value $u$ for infinitely many $n$ and a different value $v$ for infinitely many $n$, it cannot converge.
+    - |
+      To prove the lemma, take $\epsilon = |u - v|/2$. For (b), you can also use the fact that convergent sequences are bounded.
+  solution: |
+    **Lemma.** If $s_n = u$ for infinitely many $n$ and $s_n = v$ for infinitely many $n$, where $u \neq v$, then $(s_n)$ does not converge.
+
+    *Proof.* Suppose $s_n \to a$. Let $\epsilon = |u-v|/2 > 0$ and choose $N$ with $|s_n - a| < \epsilon$ for $n > N$. Pick $n, m > N$ with $s_n = u$ and $s_m = v$. Then
+
+    $$|u - v| \le |u - a| + |a - v| < 2\epsilon = |u - v|,$$
+
+    a contradiction. $\square$
+
+    **(a)** For $n = 6k$, $\cos(n\pi/3) = \cos(2k\pi) = 1$. For $n = 6k+3$, $\cos(n\pi/3) = \cos(2k\pi + \pi) = -1$. Both happen for infinitely many $n$, so by the Lemma the sequence diverges.
+
+    **(b)** $|s_n| = n$, so $(s_n)$ is unbounded: for any $M$ there is $n > M$ with $|s_n| > M$. Convergent sequences are bounded (Ross Theorem 9.1), so $(s_n)$ does not converge.
+
+    **(c)** For $n = 6k+1$, $\sin(n\pi/3) = \sin(2k\pi + \pi/3) = \frac{\sqrt3}{2}$. For $n = 6k+4$, $\sin(n\pi/3) = \sin(2k\pi + 4\pi/3) = -\frac{\sqrt3}{2}$. By the Lemma the sequence diverges.
+- id: ross-10.4
+  hints:
+    - |
+      Both theorems ultimately rely on the completeness axiom. Which sets of rationals that are bounded above have no rational supremum?
+    - |
+      Build an increasing, bounded sequence of rationals whose real limit is irrational, for example decimal truncations of $\sqrt2$.
+    - |
+      By uniqueness of limits, such a sequence cannot converge to any rational number, yet it is monotone, bounded and Cauchy. Then check which direction of Theorem 10.11 fails.
+  solution: |
+    Both theorems depend on the completeness axiom. In the proof of Theorem 10.2, the limit of a bounded increasing sequence is $\sup\{s_n\}$, and Theorem 10.11's "Cauchy $\Rightarrow$ convergent" direction is proved via Theorem 10.2 (through $\liminf$ and $\limsup$). The rationals do not satisfy the completeness axiom, and both theorems fail there.
+
+    **Example.** Let $s_n = \lfloor 10^n \sqrt2 \rfloor / 10^n \in \mathbb{Q}$, the decimal expansion of $\sqrt2$ cut off after $n$ places.
+
+    - *Increasing:* $10\lfloor 10^n\sqrt2\rfloor$ is an integer $\le 10^{n+1}\sqrt2$, so it is $\le \lfloor 10^{n+1}\sqrt2\rfloor$. Dividing by $10^{n+1}$ gives $s_n \le s_{n+1}$.
+    - *Bounded:* $1 \le s_n \le \sqrt2 < 2$.
+    - *Limit in $\mathbb{R}$:* $0 \le \sqrt2 - s_n < 10^{-n} < 1/n$, so $s_n \to \sqrt2$ in $\mathbb{R}$.
+
+    **Theorem 10.2 fails in $\mathbb{Q}$.** Suppose $(s_n)$ converged to some $q \in \mathbb{Q}$, meaning that for every $\epsilon > 0$ (rational or real, it makes no difference) there is $N$ with $|s_n - q| < \epsilon$ for $n > N$. That is exactly convergence to $q$ in $\mathbb{R}$, and by uniqueness of limits $q = \sqrt2$. This is impossible, since $\sqrt2$ is irrational. So $(s_n)$ is a bounded monotone sequence in $\mathbb{Q}$ with no limit in $\mathbb{Q}$. Equivalently, the set $\{s_n\}$ is bounded above in $\mathbb{Q}$ but has no least upper bound in $\mathbb{Q}$.
+
+    **Theorem 10.11 fails in $\mathbb{Q}$.** $(s_n)$ converges in $\mathbb{R}$, so it is Cauchy. The Cauchy condition $|s_m - s_n| < \epsilon$ only involves the rational terms themselves, so $(s_n)$ is Cauchy in $\mathbb{Q}$ too. But, as shown above, it has no limit in $\mathbb{Q}$. So "Cauchy $\Rightarrow$ convergent" fails. The other direction, "convergent $\Rightarrow$ Cauchy", still holds in $\mathbb{Q}$, because its proof uses only the triangle inequality.
+- id: ross-10.6
+  hints:
+    - |
+      To compare $s_m$ and $s_n$ for $m > n$, telescope: $s_m - s_n = \sum_{k=n}^{m-1}(s_{k+1} - s_k)$.
+    - |
+      Bound the telescoped sum with the triangle inequality and a geometric series. The bound should depend only on $n$, not on $m$.
+    - |
+      For (b), think of a famous divergent sequence whose consecutive differences are $\frac{1}{n+1}$.
+  solution: |
+    **(a)** Let $m > n$. By the triangle inequality and the geometric sum,
+
+    $$|s_m - s_n| \le \sum_{k=n}^{m-1}|s_{k+1} - s_k| < \sum_{k=n}^{m-1} 2^{-k} = 2^{-n}\sum_{j=0}^{m-n-1}2^{-j} < 2^{-n}\cdot 2 = 2^{1-n}.$$
+
+    Let $\epsilon > 0$ and choose $N \in \mathbb{N}$ with $N > 2/\epsilon$. Since $2^N \ge N$, we get $2^{1-N} = 2/2^N \le 2/N < \epsilon$. Now let $m, n > N$. If $m = n$ there is nothing to show. Otherwise, say $m > n$; then
+
+    $$|s_m - s_n| < 2^{1-n} < 2^{1-N} < \epsilon.$$
+
+    So $(s_n)$ is Cauchy, hence convergent by Theorem 10.11.
+
+    **(b) No.** Let $s_n = \sum_{k=1}^n \frac1k$. Then $|s_{n+1} - s_n| = \frac{1}{n+1} < \frac1n$ for all $n$. But
+
+    $$s_{2n} - s_n = \sum_{k=n+1}^{2n}\frac1k \ge n\cdot\frac{1}{2n} = \frac12$$
+
+    for every $n$. With $\epsilon = \frac12$, for any $N$ the indices $n = N+1$ and $m = 2(N+1)$ exceed $N$ and give $|s_m - s_n| \ge \frac12$. So $(s_n)$ is not Cauchy, and by Theorem 10.11 it does not converge.
+- id: ross-11.9
+  hints:
+    - |
+      For (a), suppose a sequence in $[a,b]$ converged to some $s > b$. Choose $\epsilon$ so that the $\epsilon$-neighborhood of $s$ lies entirely to the right of $b$.
+    - |
+      For (b), you need a sequence of points in $(0,1)$ whose limit is not in $(0,1)$. Watch the first term: $t_1 = 1$ is not in $(0,1)$.
+  solution: |
+    **(a)** Let $(s_n)$ be a sequence in $[a,b]$ with $s_n \to s$. We show $a \le s \le b$.
+
+    Suppose $s > b$ and let $\epsilon = s - b > 0$. For large $n$, $|s_n - s| < \epsilon$, so $s_n > s - \epsilon = b$, which contradicts $s_n \le b$. So $s \le b$. Similarly, if $s < a$, take $\epsilon = a - s$. For large $n$, $s_n < s + \epsilon = a$, again a contradiction. So $s \ge a$.
+
+    Hence $s \in [a,b]$. $[a,b]$ contains the limits of all convergent sequences from it, so it is closed.
+
+    **(b) No.** Suppose the set $S$ of subsequential limits of some $(s_n)$ were $(0,1)$. Then $S \cap \mathbb{R} = (0,1)$. Let $t_n = \frac{1}{n+1}$. Then $(t_n)$ is a sequence in $S \cap \mathbb{R}$ with $\lim t_n = 0$. By Theorem 11.9, $0 \in S = (0,1)$, which is false. So no such sequence exists. In short, $(0,1)$ is not closed, while sets of subsequential limits always are.
+- id: cummings-3.15
+  hints:
+    - |
+      Apply the hypothesis with one specific value of $\varepsilon$, say $\varepsilon = 1$, and fix one index $m_0 > N$.
+    - |
+      Every term beyond $N$ is within $1$ of $a_{m_0}$. Only finitely many terms are left over, and a finite set of numbers is always bounded.
+  solution: |
+    **Proof.** Apply the hypothesis with $\varepsilon = 1$. This gives $N$ such that $m, n > N$ implies $|a_m - a_n| < 1$. Fix an integer $m_0 > N$. For every $n > N$,
+
+    $$|a_n| \le |a_n - a_{m_0}| + |a_{m_0}| < 1 + |a_{m_0}|.$$
+
+    Only finitely many indices $n$ satisfy $n \le N$. Let
+
+    $$M = \max\bigl(\{|a_n| : n \le N\} \cup \{1 + |a_{m_0}|\}\bigr),$$
+
+    which is the maximum of a finite nonempty set of reals. Then $|a_n| \le M$ for all $n$: for $n \le N$ by the definition of $M$, and for $n > N$ by the display. Hence $(a_n)$ is bounded. $\blacksquare$
+- id: cummings-3.16
+  hints:
+    - |
+      There are two directions plus the dichotomy. Convergent $\Rightarrow$ bounded holds for every sequence. The real content is: decreasing and bounded below $\Rightarrow$ converges to the infimum.
+    - |
+      Let $L = \inf\{a_n\}$, which exists by completeness. For $\varepsilon > 0$, $L + \varepsilon$ is not a lower bound. Combine this with monotonicity.
+    - |
+      If a decreasing sequence is unbounded, which side must it be unbounded on? Use the same "pick one term, then use monotonicity" idea to show it diverges to $-\infty$.
+  solution: |
+    Let $(a_n)$ be decreasing: $a_{n+1} \le a_n$ for all $n$. Then $a_n \le a_1$ for all $n$, so $(a_n)$ is always bounded above.
+
+    **Convergent $\Rightarrow$ bounded.** Every convergent sequence is bounded (this holds for all sequences, monotone or not).
+
+    **Bounded $\Rightarrow$ converges to $\inf$.** Suppose $(a_n)$ is bounded. Then $\{a_n : n \in \mathbb{N}\}$ is nonempty and bounded below, so by the completeness axiom $L = \inf\{a_n : n \in \mathbb{N}\}$ exists. Let $\varepsilon > 0$. Since $L + \varepsilon > L$, it is not a lower bound, so there is $N$ with $a_N < L + \varepsilon$. For every $n \ge N$, monotonicity and the definition of $L$ give
+
+    $$L \le a_n \le a_N < L + \varepsilon,$$
+
+    so $|a_n - L| < \varepsilon$. Hence $a_n \to L = \inf\{a_n : n \in \mathbb{N}\}$.
+
+    This proves that a decreasing sequence converges if and only if it is bounded.
+
+    **The dichotomy.** If $(a_n)$ is bounded, it converges to $\inf\{a_n\}$ as shown. Otherwise, since it is bounded above by $a_1$, it must be unbounded below. Then for every $M \in \mathbb{R}$ there is $N$ with $a_N < M$, and for all $n \ge N$, $a_n \le a_N < M$. That is exactly the statement that $(a_n)$ diverges to $-\infty$. $\blacksquare$
+- id: cummings-3.24
+  hints:
+    - |
+      Parts (a) and (b) are both inductions or direct algebra. Remember that $\sqrt{\cdot}$ is increasing, and keep track of positivity.
+    - |
+      For (b), $a_{n+1} \ge a_n$ is equivalent (for positive terms) to $2 + a_n \ge a_n^2$. Factor $a_n^2 - a_n - 2$.
+    - |
+      For (c), square the recursion, $a_{n+1}^2 = 2 + a_n$, and take limits. One of the two roots must be discarded.
+  solution: |
+    First, every $a_n > 0$: $a_1 = \sqrt2 > 0$, and if $a_n > 0$ then $2 + a_n > 0$ and $a_{n+1} = \sqrt{2+a_n} > 0$. So the recursion is well defined.
+
+    **(a)** By induction. $a_1 = \sqrt2 \le 2$. If $a_n \le 2$, then $2 + a_n \le 4$, and since the square root is increasing, $a_{n+1} = \sqrt{2+a_n} \le \sqrt4 = 2$.
+
+    **(b)** Since $a_n$ and $a_{n+1}$ are positive, $a_{n+1} \ge a_n$ is equivalent to $a_{n+1}^2 \ge a_n^2$, i.e. to $2 + a_n \ge a_n^2$, i.e. to
+
+    $$(2 - a_n)(1 + a_n) \ge 0.$$
+
+    This holds because $a_n \le 2$ by (a) and $a_n > 0$. So $(a_n)$ is monotone increasing and bounded above by $2$, and it converges by the monotone convergence theorem.
+
+    **(c)** Let $L = \lim a_n$. Then also $a_{n+1} \to L$, and by the algebra of limits $a_{n+1}^2 \to L^2$ and $2 + a_n \to 2 + L$. Since $a_{n+1}^2 = 2 + a_n$ for all $n$, uniqueness of limits gives $L^2 = 2 + L$, i.e. $(L-2)(L+1) = 0$. The sequence is increasing, so $a_n \ge a_1 = \sqrt2$ for all $n$, hence $L \ge \sqrt2 > 0$. This rules out $L = -1$, so $L = 2$.
+- id: cummings-4.3
+  hints:
+    - |
+      Split into cases: $r = 0$, $r = 1$, $0 < |r| < 1$, $r = -1$, and $|r| > 1$.
+    - |
+      Bernoulli's inequality $(1+h)^n \ge 1 + nh$ for $h > 0$ handles both remaining main cases. For $0<|r|<1$, write $\frac{1}{|r|} = 1 + h$. For $|r| > 1$, write $|r| = 1 + h$.
+    - |
+      For divergence: an unbounded sequence cannot converge, and $(-1)^n$ needs its own short argument.
+  solution: |
+    **Bernoulli's inequality.** For $h > 0$ and $n \in \mathbb{N}$, $(1+h)^n \ge 1 + nh$. For $n = 1$ this is equality. If it holds for $n$, then $(1+h)^{n+1} \ge (1+nh)(1+h) = 1 + (n+1)h + nh^2 \ge 1 + (n+1)h$.
+
+    **$r = 0$:** $r^n = 0$ for all $n \ge 1$, so $r^n \to 0$.
+
+    **$r = 1$:** $r^n = 1$ for all $n$, so $r^n \to 1$.
+
+    **$0 < |r| < 1$:** Write $\frac{1}{|r|} = 1 + h$ with $h > 0$. By Bernoulli,
+
+    $$|r^n - 0| = \frac{1}{(1+h)^n} \le \frac{1}{1 + nh} < \frac{1}{nh}.$$
+
+    Given $\varepsilon > 0$, choose $N > \frac{1}{h\varepsilon}$. For $n \ge N$, $|r^n| < \frac{1}{nh} \le \frac{1}{Nh} < \varepsilon$. So $r^n \to 0$. Together with $r = 0$, this shows $r^n \to 0$ for all $r \in (-1,1)$.
+
+    **$|r| > 1$:** Write $|r| = 1 + h$ with $h > 0$. Then $|r^n| = (1+h)^n \ge 1 + nh$, which exceeds any given bound $M$ once $n > M/h$. So $(r^n)$ is unbounded. Convergent sequences are bounded, so $(r^n)$ diverges. This covers $r > 1$ and $r < -1$.
+
+    **$r = -1$:** $r^n$ equals $1$ for even $n$ and $-1$ for odd $n$. Suppose $r^n \to L$. With $\varepsilon = 1$ there is $N$ such that $|r^n - L| < 1$ for $n > N$. Taking an even and an odd $n > N$ gives $|1 - L| < 1$ and $|-1 - L| < 1$, so
+
+    $$2 = |1 - (-1)| \le |1 - L| + |L - (-1)| < 2,$$
+
+    a contradiction. So $(r^n)$ diverges.
+
+    Hence $(r^n)$ converges to $0$ for $r \in (-1,1)$, converges to $1$ for $r = 1$, and diverges for $r \le -1$ or $r > 1$. $\blacksquare$
+- id: tao-6.3.4
+  hints:
+    - |
+      Look for the step in the proof of Proposition 6.3.10 that uses $0 < x < 1$ to know *before any algebra* that the limit exists.
+    - |
+      For divergence when $x > 1$: assume $x^n \to L$. Then $1/x \in (0,1)$, so Proposition 6.3.10 applies to $(1/x)^n$. Apply the product limit law to $(1/x)^n \cdot x^n = 1$.
+    - |
+      In Example 1.2.3, list every step that silently assumes $\lim x^n$ exists as a real number.
+  solution: |
+    **Why the proposition's argument needs $0<x<1$.** The equation $xL = L$ comes from applying the limit laws to $x^{n+1} = x\cdot x^n$, and the limit laws (Theorem 6.1.19) only apply to sequences already known to converge. For $0 < x < 1$, convergence is established first: $(x^n)$ is decreasing ($x^{n+1} = x\cdot x^n < x^n$) and bounded below by $0$, so it converges by the monotone convergence principle. Only after that does $xL = L$ with $x \neq 1$ give $L = 0$. For $x > 1$ this first step fails: $x^{n+1} > x^n$, so $(x^n)$ is increasing, and it is not bounded above. Indeed, writing $x = 1 + h$ with $h > 0$, $x^n \ge 1 + nh$ by Bernoulli's inequality (induction). So no convergence result applies, and the rest of the argument has nothing to work with.
+
+    **$(x^n)$ diverges for $x > 1$.** Suppose, for contradiction, that $x^n \to L$ for some real $L$. Since $0 < 1/x < 1$, Proposition 6.3.10 gives $(1/x)^n \to 0$. By the product limit law,
+
+    $$1 = (1/x)^n\, x^n \longrightarrow 0 \cdot L = 0.$$
+
+    But the left side is the constant sequence $1$, which converges to $1$. By uniqueness of limits $1 = 0$, a contradiction. Hence $(x^n)_{n=1}^\infty$ diverges.
+
+    **The flaw in Example 1.2.3.** The very first line, "let $L$ be the limit $\lim x^n$", assumes that the limit exists. Every later manipulation (pulling the constant $x$ out of the limit, renaming $m+1 \to \infty$ as $m \to \infty$) is a valid limit law *only for convergent sequences*. So the correct conclusion of the argument is conditional: *if* $(x^n)$ converges to $L$, then $xL = L$, so $x = 1$ or $L = 0$. For $x = 2$ we just showed the sequence diverges, and for $x = -1$ the sequence $1, -1, 1, -1, \dots$ also diverges. In those cases the hypothesis "the limit exists" is false, so the argument says nothing, and the absurd conclusions disappear. (The conditional conclusion is consistent with the truth: $x^n \to 0$ for $|x| < 1$, $x^n \to 1$ for $x = 1$, and there is no limit otherwise.)
+- id: abbott-2.3.11
+  hints:
+    - |
+      Look at $y_n - x = \frac1n\sum_{k=1}^n (x_k - x)$. The terms with large $k$ are small. The terms with small $k$ are fixed in number, and dividing by $n$ crushes them.
+    - |
+      Choose $N_1$ so that $|x_k - x| < \epsilon/2$ for $k \ge N_1$. Split the sum at $N_1$ and treat the two pieces separately.
+    - |
+      For (b), a bounded oscillating sequence whose partial sums stay bounded works well.
+  solution: |
+    **(a)** Let $x_n \to x$ and $\epsilon > 0$. Choose $N_1$ with $|x_k - x| < \epsilon/2$ for all $k \ge N_1$. Let $C = \sum_{k=1}^{N_1 - 1}|x_k - x|$, a fixed number ($C = 0$ if $N_1 = 1$). Choose $N_2 > 2C/\epsilon$ and let $N = \max\{N_1, N_2\}$. For $n \ge N$,
+
+    $$|y_n - x| = \left|\frac1n\sum_{k=1}^n (x_k - x)\right| \le \frac{1}{n}\sum_{k=1}^{N_1 - 1}|x_k - x| + \frac1n\sum_{k=N_1}^{n}|x_k - x|.$$
+
+    The first term is $\frac{C}{n} \le \frac{C}{N_2} < \frac\epsilon2$ (or $0$ if $C = 0$). The second sum has $n - N_1 + 1 \le n$ terms, each $< \epsilon/2$, so the second term is $< \frac{n}{n}\cdot\frac\epsilon2 = \frac\epsilon2$. Hence $|y_n - x| < \epsilon$, and $y_n \to x$.
+
+    **(b)** Let $x_n = (-1)^n$, which diverges. Then $x_1 + \dots + x_n$ equals $0$ for even $n$ and $-1$ for odd $n$, so
+
+    $$|y_n| \le \frac1n \to 0.$$
+
+    Thus $y_n \to 0$ even though $(x_n)$ does not converge.
+- id: abbott-2.3.13
+  hints:
+    - |
+      Compute the inner limits in (a) and (b) with one variable held fixed. For the double limit, you may let $m$ and $n$ grow together along different paths, such as $m = n$ or $m = 2n$.
+    - |
+      For (c), add a factor like $(-1)^{m+n}$ that makes each one-variable limit oscillate, while an overall factor tending to $0$ when *both* indices are large forces the double limit to $0$.
+    - |
+      For (d), fix $m \ge N$ and let $n \to \infty$ in $|a_{mn} - a| < \epsilon$. The Order Limit Theorem keeps a non-strict version of the inequality. Part (e) is (d) applied twice.
+  solution: |
+    **Meaning.** $\lim_{m,n\to\infty} a_{mn} = a$ should mean that $a_{mn}$ is close to $a$ whenever *both* indices are large, which is the definition given.
+
+    **(a)** Fix $n$. Then $\frac{m}{m+n} = \frac{1}{1 + n/m} \to 1$ as $m\to\infty$ (since $n/m \to 0$). So $\lim_{n}\bigl(\lim_m a_{mn}\bigr) = \lim_n 1 = 1$. Fix $m$. Then $0 < \frac{m}{m+n} < \frac{m}{n} \to 0$ as $n \to \infty$. So $\lim_m\bigl(\lim_n a_{mn}\bigr) = \lim_m 0 = 0$. The two iterated limits are different.
+
+    **(b)** *$a_{mn} = \frac{1}{m+n}$.* Given $\epsilon > 0$, choose $N > 1/\epsilon$. If $m, n \ge N$ then $0 < \frac{1}{m+n} \le \frac{1}{2N} < \epsilon$. So the double limit exists and equals $0$. For fixed $n$, $\frac1{m+n} \to 0$ as $m \to\infty$, and likewise with the roles swapped, so both iterated limits equal $0$. All three values agree.
+
+    *$a_{mn} = \frac{mn}{m^2+n^2}$.* For fixed $n$, $0 < \frac{mn}{m^2+n^2} \le \frac{mn}{m^2} = \frac{n}{m} \to 0$ as $m\to\infty$, so the inner limit is $0$ and $\lim_n\bigl(\lim_m a_{mn}\bigr) = 0$. By symmetry, $\lim_m\bigl(\lim_n a_{mn}\bigr) = 0$. The double limit does **not** exist. Note $a_{nn} = \frac12$ and $a_{2n,n} = \frac{2n^2}{5n^2} = \frac25$. If the double limit were $a$, then with $\epsilon = \frac1{20}$ and the corresponding $N$, the indices $(N,N)$ and $(2N, N)$ would give $\left|\frac12 - a\right| < \frac1{20}$ and $\left|\frac25 - a\right| < \frac1{20}$, hence $\frac1{10} = \left|\frac12 - \frac25\right| < \frac1{10}$, a contradiction. So both iterated limits are $0$, and the double limit does not exist.
+
+    **(c)** Let $a_{mn} = (-1)^{m+n}\left(\frac1m + \frac1n\right)$.
+
+    *Double limit is $0$:* given $\epsilon>0$, choose $N > 2/\epsilon$. For $m,n \ge N$, $|a_{mn}| \le \frac1m + \frac1n \le \frac2N < \epsilon$.
+
+    *Inner limits do not exist:* fix $n$ and suppose $(a_{mn})_{m}$ converged as $m\to\infty$. Since $\frac{(-1)^{m+n}}{m} \to 0$ as $m\to\infty$, the ALT would make
+
+    $$\frac{(-1)^{m+n}}{n} = a_{mn} - \frac{(-1)^{m+n}}{m}$$
+
+    converge as $m \to \infty$. But this sequence alternates between $\frac1n$ and $-\frac1n$, so it diverges. Hence $\lim_m a_{mn}$ does not exist for any $n$. By symmetry, $\lim_n a_{mn}$ does not exist for any $m$. So neither iterated limit can even be formed.
+
+    **(d)** Let $\epsilon > 0$ and choose $N$ with $|a_{mn} - a| < \epsilon/2$ whenever $m,n \ge N$. Fix $m \ge N$. For all $n \ge N$ we have $a - \epsilon/2 < a_{mn} < a + \epsilon/2$. Letting $n \to \infty$ and using $a_{mn} \to b_m$ together with the Order Limit Theorem (applied to the tail $n \ge N$),
+
+    $$a - \frac\epsilon2 \le b_m \le a + \frac\epsilon2, \quad\text{so}\quad |b_m - a| \le \frac\epsilon2 < \epsilon.$$
+
+    This holds for every $m \ge N$, so $\lim_{m\to\infty} b_m = a$.
+
+    **(e)** Suppose $\lim_{m,n} a_{mn} = a$ and both iterated limits exist. Existence of $\lim_m\bigl(\lim_n a_{mn}\bigr)$ includes the existence of $b_m = \lim_n a_{mn}$ for each $m$, and then (d) gives $\lim_m b_m = a$. For the other order, consider the transposed array $c_{mn} = a_{nm}$. The definition of the double limit is symmetric in $m$ and $n$, so $\lim_{m,n} c_{mn} = a$. The inner limits $\lim_n c_{mn} = \lim_n a_{nm}$ exist, and (d) gives $\lim_m\bigl(\lim_n a_{nm}\bigr) = a$, which (after renaming the indices) is $\lim_n\bigl(\lim_m a_{mn}\bigr) = a$. So all three limits equal $a$. $\blacksquare$
+- id: abbott-2.4.6
+  hints:
+    - |
+      For (a), start from a square that is obviously nonnegative.
+    - |
+      For (b), show by induction that $x_n \le y_n$ for all $n$. Then show that $(x_n)$ increases and $(y_n)$ decreases.
+    - |
+      Both sequences are then trapped in $[x_1, y_1]$ and converge by the Monotone Convergence Theorem. To show the limits agree, take limits in the simpler of the two recursions.
+  solution: |
+    **(a)** For $x, y > 0$ (in fact for $x, y \ge 0$), $0 \le (\sqrt x - \sqrt y)^2 = x - 2\sqrt{xy} + y$, so $\sqrt{xy} \le \frac{x+y}{2}$.
+
+    **(b)** *Claim: $0 \le x_n \le y_n$ for all $n$.* This is given for $n = 1$. If $0 \le x_n \le y_n$, then $x_{n+1} = \sqrt{x_ny_n}$ is defined and $\ge 0$, and by (a), $x_{n+1} = \sqrt{x_ny_n} \le \frac{x_n + y_n}{2} = y_{n+1}$.
+
+    *Monotonicity.* Using $0 \le x_n \le y_n$:
+
+    $$x_{n+1} = \sqrt{x_ny_n} \ge \sqrt{x_n x_n} = x_n, \qquad y_{n+1} = \frac{x_n + y_n}{2} \le \frac{y_n + y_n}{2} = y_n.$$
+
+    So $(x_n)$ is increasing, $(y_n)$ is decreasing, and
+
+    $$x_1 \le x_n \le y_n \le y_1 \quad\text{for all } n.$$
+
+    *Convergence.* $(x_n)$ is increasing and bounded above by $y_1$, and $(y_n)$ is decreasing and bounded below by $x_1$. By the Monotone Convergence Theorem, $x_n \to x$ and $y_n \to y$ for some reals $x, y$.
+
+    *Equal limits.* Take limits in $y_{n+1} = \frac{x_n + y_n}{2}$, using the Algebraic Limit Theorem and the fact that $(y_{n+1}) \to y$: $y = \frac{x + y}{2}$, so $x = y$. Hence $\lim x_n$ and $\lim y_n$ exist and are equal. $\blacksquare$
+- id: abbott-2.4.7
+  hints:
+    - |
+      As $n$ increases, the set $\{a_k : k \ge n\}$ shrinks. What does shrinking a set do to its supremum? To its infimum?
+    - |
+      Parts (a) and (b) are applications of the Monotone Convergence Theorem. For (c), compare $\inf_{k\ge n} a_k$ and $\sup_{k\ge n} a_k$ for each fixed $n$, then use the Order Limit Theorem.
+    - |
+      For (d), one direction is a squeeze: $\inf_{k \ge n} a_k \le a_n \le \sup_{k\ge n} a_k$. For the other, if all $a_k$ with $k \ge N$ lie in $(a - \epsilon, a+\epsilon)$, where do the tail sups and infs lie?
+  solution: |
+    Let $|a_n| \le M$ for all $n$. Write $y_n = \sup\{a_k : k\ge n\}$ and $z_n = \inf\{a_k : k \ge n\}$. Both exist by the Axiom of Completeness and lie in $[-M, M]$.
+
+    **(a)** Since $\{a_k : k \ge n+1\} \subseteq \{a_k : k \ge n\}$, every upper bound of the larger set bounds the smaller one, so $y_{n+1} \le y_n$. Thus $(y_n)$ is decreasing and bounded below by $-M$, so it converges by the Monotone Convergence Theorem.
+
+    **(b)** Define $\liminf a_n = \lim z_n$. By the same set inclusion, $z_{n+1} \ge z_n$, so $(z_n)$ is increasing and bounded above by $M$. Hence it converges by the Monotone Convergence Theorem, and $\liminf a_n$ exists for every bounded sequence.
+
+    **(c)** For each $n$, $z_n \le a_n \le y_n$, so $z_n \le y_n$. By the Order Limit Theorem, $\liminf a_n = \lim z_n \le \lim y_n = \limsup a_n$. For $a_n = (-1)^n$, every tail contains both $1$ and $-1$, so $y_n = 1$ and $z_n = -1$ for all $n$. Thus $\liminf a_n = -1 < 1 = \limsup a_n$.
+
+    **(d)** *($\lim a_n$ exists $\Rightarrow$ equality.)* Suppose $a_n \to a$ and let $\epsilon > 0$. Choose $N$ with $a - \epsilon/2 < a_k < a + \epsilon/2$ for all $k \ge N$. For $n \ge N$, $a + \epsilon/2$ is an upper bound and $a - \epsilon/2$ a lower bound of $\{a_k : k\ge n\}$, so
+
+    $$a - \frac\epsilon2 \le z_n \le y_n \le a + \frac\epsilon2.$$
+
+    Hence $|y_n - a| < \epsilon$ and $|z_n - a| < \epsilon$ for $n \ge N$, so $\limsup a_n = \liminf a_n = a$.
+
+    *(Equality $\Rightarrow$ $\lim a_n$ exists.)* Suppose $\lim y_n = \lim z_n = a$ and let $\epsilon > 0$. Choose $N$ with $|y_n - a| < \epsilon$ and $|z_n - a| < \epsilon$ for $n \ge N$. Then for $n \ge N$,
+
+    $$a - \epsilon < z_n \le a_n \le y_n < a + \epsilon,$$
+
+    so $|a_n - a| < \epsilon$ and $a_n \to a$.
+
+    In either case, $\liminf a_n$, $\limsup a_n$ and $\lim a_n$ all equal $a$. $\blacksquare$
+- id: abbott-2.5.5
+  hints:
+    - |
+      Argue by contradiction. What does "$(a_n)$ does not converge to $a$" mean, written out with quantifiers?
+    - |
+      Negating convergence gives an $\epsilon_0 > 0$ and infinitely many terms at distance $\ge \epsilon_0$ from $a$. Collect them into a subsequence.
+    - |
+      That subsequence is bounded, so Bolzano–Weierstrass applies. Where can the limit of the resulting sub-subsequence be?
+  solution: |
+    **Proof.** Suppose, for contradiction, that $(a_n)$ does not converge to $a$. Then there is $\epsilon_0 > 0$ such that for every $N$ some $n \ge N$ has $|a_n - a| \ge \epsilon_0$. So the set $\{n : |a_n - a| \ge \epsilon_0\}$ is infinite. Listing its elements in increasing order $n_1 < n_2 < \cdots$ gives a subsequence $(a_{n_k})$ with
+
+    $$|a_{n_k} - a| \ge \epsilon_0 \quad\text{for all } k.$$
+
+    Since $(a_n)$ is bounded, so is $(a_{n_k})$. By the Bolzano–Weierstrass Theorem it has a convergent subsequence $(a_{n_{k_j}})_j$, with limit $b$. This is also a subsequence of $(a_n)$, so by hypothesis $b = a$. But then for large $j$ we would have $|a_{n_{k_j}} - a| < \epsilon_0$, contradicting $|a_{n_{k_j}} - a| \ge \epsilon_0$. Hence $(a_n) \to a$. $\blacksquare$
+
+    (Boundedness is essential. For example, $a_n = n$ for odd $n$ and $a_n = 0$ for even $n$ has $0$ as the only limit of a convergent subsequence, but it diverges.)
+- id: lebl-2.1.17
+  hints:
+    - |
+      $y$ is a subsequential limit exactly when, for every $\epsilon > 0$, infinitely many terms of the sequence lie within $\epsilon$ of $y$. Which countable set comes arbitrarily close to every real number?
+    - |
+      You can list all rationals (they are countable), or build an explicit list in blocks: block $k$ is the finite grid $-k, -k + \frac1k, \dots, k - \frac1k, k$.
+    - |
+      With the block construction, pick one term from each block $k \ge |y|$ that is within $\frac1k$ of $y$. Indices from later blocks are automatically larger.
+  solution: |
+    **Construction.** For each $k \in \mathbb{N}$ let block $k$ be the finite list
+
+    $$\frac{-k^2}{k}, \frac{-k^2 + 1}{k}, \dots, \frac{k^2 - 1}{k}, \frac{k^2}{k},$$
+
+    that is, the numbers $j/k$ for the integers $j$ with $-k^2 \le j \le k^2$, in increasing order. This is a grid of spacing $\frac1k$ covering $[-k, k]$. Let $\{x_n\}$ be block $1$, followed by block $2$, followed by block $3$, and so on. Each block is finite, so this defines a sequence indexed by $\mathbb{N}$, and every term of block $k$ comes before every term of block $k+1$.
+
+    **Every $y \in \mathbb{R}$ is a subsequential limit.** Fix $y$ and let $K \in \mathbb{N}$ with $K \ge |y|$. For each $k \ge K$, let $j_k = \lfloor ky \rfloor$. Since $-k^2 \le -k|y| \le ky \le k^2$ and $-k^2$ is an integer, we get $-k^2 \le j_k \le k^2$. So $j_k/k$ is a term of block $k$, and
+
+    $$\left|\frac{j_k}{k} - y\right| = \frac{ky - \lfloor ky \rfloor}{k} < \frac1k.$$
+
+    Let $n_k$ be the position in $\{x_n\}$ of this term of block $k$, for $k = K, K+1, \dots$. Since block $k+1$ lies after block $k$, $n_K < n_{K+1} < \cdots$. So $\{x_{n_k}\}_{k \ge K}$ is a subsequence (re-index from $1$ if desired), and $|x_{n_k} - y| < \frac1k \to 0$. Hence $x_{n_k} \to y$.
+
+    (Alternatively, any enumeration $\{q_n\}$ of $\mathbb{Q}$ works. By density, every interval $(y - \epsilon, y+\epsilon)$ contains infinitely many rationals, hence infinitely many terms, and one can inductively pick $n_{i+1} > n_i$ with $|q_{n_{i+1}} - y| < \frac{1}{i+1}$.)
+- id: lebl-2.3.9
+  hints:
+    - |
+      Use the hint to get a sequence of *distinct* points of $S$. What does the sequence version of Bolzano–Weierstrass give you?
+    - |
+      The limit $x$ of a convergent subsequence is the candidate cluster point. Since the terms are distinct, at most one of them can equal $x$.
+  solution: |
+    **Proof.** Since $S$ is infinite, there is a sequence $\{x_n\}$ of distinct elements of $S$. (Choose $x_1 \in S$, and inductively choose $x_{n+1} \in S \setminus \{x_1, \dots, x_n\}$, which is nonempty because $S$ is infinite.) Since $S$ is bounded, $\{x_n\}$ is bounded. By the Bolzano–Weierstrass theorem for sequences, there is a convergent subsequence $x_{n_i} \to x$.
+
+    We show $x$ is a cluster point of $S$. Let $\epsilon > 0$. There is $I$ with $|x_{n_i} - x| < \epsilon$ for all $i \ge I$. The terms $x_{n_I}, x_{n_{I+1}}, \dots$ are pairwise distinct (the indices $n_i$ are distinct and the $x_n$ are distinct), so at most one of them equals $x$. Choose $i \in \{I, I+1\}$ with $x_{n_i} \neq x$. Then
+
+    $$x_{n_i} \in (x - \epsilon, x + \epsilon) \cap S \setminus \{x\},$$
+
+    so this set is nonempty. Since $\epsilon > 0$ was arbitrary, $x$ is a cluster point of $S$. $\blacksquare$
+- id: lebl-2.3.10
+  hints:
+    - |
+      Following the book's hint, the two cases call for different kinds of monotone subsequence. Which kind does each case naturally produce?
+    - |
+      With infinitely many peaks, list them in increasing order and compare consecutive ones. With finitely many, start past the last peak and use the fact that a non-peak always has a strictly larger term somewhere later.
+    - |
+      For (b), combine (a) with the monotone convergence theorem.
+  solution: |
+    **(a)** Call $n$ a *peak* if $x_m \le x_n$ for all $m \ge n$.
+
+    *Case 1: infinitely many peaks.* List them as $n_1 < n_2 < n_3 < \cdots$. Since $n_j$ is a peak and $n_{j+1} > n_j$, we get $x_{n_{j+1}} \le x_{n_j}$. So $\{x_{n_j}\}_{j\ge1}$ is a monotone decreasing subsequence.
+
+    *Case 2: finitely many peaks.* Let $n_1$ be an index larger than every peak ($n_1 = 1$ if there are none). Then no $n \ge n_1$ is a peak. Suppose $n_1 < \dots < n_j$ have been chosen with $x_{n_1} < \dots < x_{n_j}$. Since $n_j$ is not a peak, there is $m \ge n_j$ with $x_m > x_{n_j}$. Necessarily $m \ne n_j$, so $m > n_j$. Set $n_{j+1} = m$. Then $n_{j+1} \ge n_1$, so it is not a peak either, and the construction continues. By induction we get $n_1 < n_2 < \cdots$ with $x_{n_1} < x_{n_2} < \cdots$, a monotone increasing subsequence.
+
+    In either case $\{x_n\}$ has a monotone subsequence.
+
+    **(b)** Let $\{x_n\}$ be bounded. By (a) it has a monotone subsequence $\{x_{n_j}\}$, which is bounded because the whole sequence is. By the monotone convergence theorem, $\{x_{n_j}\}$ converges. Hence every bounded sequence has a convergent subsequence, which is the Bolzano–Weierstrass theorem. $\blacksquare$
+- id: lebl-2.4.2
+  hints:
+    - |
+      Iterate the hypothesis to bound each consecutive difference $|x_{n+1} - x_n|$ in terms of $C$ and the first difference $|x_2 - x_1|$.
+    - |
+      For $m > n$, telescope $x_m - x_n$ into consecutive differences and apply the triangle inequality. You get a piece of a geometric series, and the given formula bounds it.
+    - |
+      You should reach a bound of the form $\frac{|x_2 - x_1|}{1 - C}C^{n-1}$ that does not depend on $m$. Then use $C^{n} \to 0$.
+  solution: |
+    Let $D = |x_2 - x_1|$.
+
+    **Step 1.** $|x_{k+1} - x_k| \le C^{k-1}D$ for all $k \ge 1$. For $k = 1$ this is equality. If it holds for $k$, the hypothesis (with $n = k+1 \ge 2$) gives $|x_{k+2} - x_{k+1}| \le C|x_{k+1} - x_k| \le C^k D$.
+
+    **Step 2.** For $m > n \ge 1$, by the triangle inequality and the given formula,
+
+    $$|x_m - x_n| \le \sum_{k=n}^{m-1}|x_{k+1} - x_k| \le D\sum_{k=n}^{m-1}C^{k-1} = DC^{n-1}\bigl(1 + C + \dots + C^{m-n-1}\bigr) = DC^{n-1}\,\frac{1 - C^{m-n}}{1 - C} \le \frac{D}{1-C}\,C^{n-1}.$$
+
+    **Step 3.** Since $0 < C < 1$, $C^{n} \to 0$. Let $\epsilon > 0$ and choose $M$ with $\frac{D}{1-C}C^{M-1} < \epsilon$. (If $D = 0$, any $M$ works.) For $m, n \ge M$ with, say, $m > n$, Step 2 and $C^{n-1} \le C^{M-1}$ give
+
+    $$|x_m - x_n| \le \frac{D}{1-C}C^{n-1} \le \frac{D}{1-C}C^{M-1} < \epsilon.$$
+
+    The case $m = n$ is trivial. Hence $\{x_n\}$ is Cauchy. $\blacksquare$
+- id: ross-12.13
+  hints:
+    - |
+      The book's hint proves $\sup A = \liminf s_n$. To get the $\limsup$ statement for free, look at how the set $B$ for $(s_n)$ relates to the set $A$ for the sequence $(-s_n)$.
+    - |
+      Use $\inf(-X) = -\sup X$ for tail sets to relate $\liminf(-s_n)$ to $\limsup s_n$.
+  solution: |
+    Write $u_N = \inf\{s_n : n > N\}$ and $v_N = \sup\{s_n : n > N\}$, so $\liminf s_n = \lim u_N$ and $\limsup s_n = \lim v_N$. These are finite because $(s_n)$ is bounded.
+
+    **Part 1: $\sup A = \liminf s_n$.**
+
+    *$A$ is nonempty and each $u_N \in A$.* For $n > N$ we have $s_n \ge u_N$, so $\{n : s_n < u_N\} \subseteq \{1, \dots, N\}$ is finite. Hence $u_N \in A$.
+
+    *$\liminf s_n$ is an upper bound for $A$.* Let $a \in A$, and let $N_0$ be the largest element of the finite set $\{n : s_n < a\}$ ($N_0 = 0$ if the set is empty). Then $s_n \ge a$ for all $n > N_0$. So for $N \ge N_0$, $a$ is a lower bound of $\{s_n : n > N\}$, and $u_N \ge a$. Letting $N \to \infty$ gives $\liminf s_n \ge a$.
+
+    So $A$ is nonempty and bounded above, $\sup A$ exists, and $\sup A \le \liminf s_n$. Conversely, $u_N \le \sup A$ for every $N$ because $u_N \in A$, so $\liminf s_n = \lim u_N \le \sup A$. Therefore $\sup A = \liminf s_n$.
+
+    **Part 2: $\inf B = \limsup s_n$.** Let $t_n = -s_n$, a bounded sequence, and let $A_t$ be the set $A$ built from $(t_n)$. For $b \in \mathbb{R}$,
+
+    $$b \in B \iff \{n : s_n > b\} \text{ finite} \iff \{n : t_n < -b\} \text{ finite} \iff -b \in A_t.$$
+
+    So $B = \{-a : a \in A_t\}$, and therefore $\inf B = -\sup A_t$. By Part 1, $\sup A_t = \liminf t_n$. Since $\inf\{-s_n : n > N\} = -\sup\{s_n : n > N\} = -v_N$, we get $\liminf t_n = \lim(-v_N) = -\limsup s_n$. Hence
+
+    $$\inf B = -\liminf t_n = \limsup s_n. \qquad \blacksquare$$
+- id: cummings-3.25
+  hints:
+    - |
+      Try a couple of examples, such as $a_1 = 0$, $a_2 = 1$. Each new term is the midpoint of the previous two. What happens to the gaps between consecutive terms?
+    - |
+      Let $d_n = a_{n+1} - a_n$. Show that $d_n = -\frac12 d_{n-1}$, so $d_n$ is an explicit geometric sequence.
+    - |
+      Write $a_n = a_1 + \sum_{k=1}^{n-1} d_k$, sum the geometric series in closed form, and let $n \to \infty$.
+  solution: |
+    **Yes.** In fact $a_n \to \dfrac{a_1 + 2a_2}{3}$ for every choice of $a_1, a_2$.
+
+    Let $d_n = a_{n+1} - a_n$ for $n \ge 1$. For $n \ge 2$,
+
+    $$d_n = a_{n+1} - a_n = \frac{a_n + a_{n-1}}{2} - a_n = -\frac12(a_n - a_{n-1}) = -\frac12 d_{n-1}.$$
+
+    By induction, $d_n = \left(-\frac12\right)^{n-1} d_1$ with $d_1 = a_2 - a_1$. Telescoping and summing the geometric series (ratio $-\frac12 \ne 1$),
+
+    $$a_n = a_1 + \sum_{k=1}^{n-1} d_k = a_1 + d_1\sum_{k=1}^{n-1}\left(-\frac12\right)^{k-1} = a_1 + d_1\cdot\frac{1 - \left(-\frac12\right)^{n-1}}{1 + \frac12} = a_1 + \frac23(a_2 - a_1)\left(1 - \left(-\frac12\right)^{n-1}\right).$$
+
+    (For $n = 1$ the sum is empty and the formula gives $a_1$; for $n = 2$ it gives $a_2$.) Since $\left|-\frac12\right| < 1$, $\left(-\frac12\right)^{n-1} \to 0$. By the algebra of limits,
+
+    $$\lim_{n\to\infty} a_n = a_1 + \frac23(a_2 - a_1) = \frac{a_1 + 2a_2}{3}.$$
+
+    So $(a_n)$ always converges. For example, $a_1 = 0, a_2 = 1$ gives $0, 1, \tfrac12, \tfrac34, \tfrac58, \dots \to \tfrac23$.
+- id: tao-6.4.3
+  hints:
+    - |
+      Work in the extended reals throughout, and lean on parts (a) and (b), which tell you when terms are *eventually* below $x$ and when they exceed $x$ *infinitely often*.
+    - |
+      For (c), the middle inequality reduces to: $a_N^- \le a_M^+$ for *any* $N, M$. Compare both with a single term $a_K$, where $K = \max(N, M)$.
+    - |
+      For (d), suppose $c > L^+$ and pick $x$ strictly between them. Then use (a) and the definition of limit point with a small $\varepsilon$. For (e), combine (a) with $x = L^+ + \varepsilon$ and (b) with $x = L^+ - \varepsilon$.
+    - |
+      For (f), "$\Rightarrow$" is a direct estimate of $a_N^\pm$ when the tail is $\varepsilon$-close to $c$. "$\Leftarrow$" is (a) applied on both sides.
+  solution: |
+    Notation: $a_N^+ = \sup(a_n)_{n\ge N}$, $a_N^- = \inf(a_n)_{n \ge N}$ (extended reals), $L^+ = \inf_{N\ge m} a_N^+$, $L^- = \sup_{N \ge m} a_N^-$.
+
+    **(c)** *Outer inequalities.* $L^+ = \inf_N a_N^+ \le a_m^+ = \sup(a_n)_{n\ge m}$, and $L^- = \sup_N a_N^- \ge a_m^- = \inf(a_n)_{n \ge m}$.
+
+    *Middle inequality.* Let $N, M \ge m$ and $K = \max(N, M)$. Since $K \ge N$ and $K \ge M$,
+
+    $$a_N^- \le a_K \le a_M^+.$$
+
+    Fix $M$. Then $a_M^+$ is an upper bound of $\{a_N^- : N \ge m\}$, so $L^- \le a_M^+$. As this holds for every $M$, $L^-$ is a lower bound of $\{a_M^+ : M \ge m\}$, so $L^- \le L^+$.
+
+    **(d)** Let $c$ be a limit point (a real number). Suppose $c > L^+$. Choose a real $x$ with $L^+ < x < c$: take $x = (L^+ + c)/2$ if $L^+$ is finite, and $x = c - 1$ if $L^+ = -\infty$. By (a), there is $N \ge m$ with $a_n < x$ for all $n \ge N$. Let $\varepsilon = (c - x)/2 > 0$. Since $c$ is a limit point, some $n \ge N$ has $|a_n - c| \le \varepsilon$, so $a_n \ge c - \varepsilon = \frac{c+x}{2} > x$. This contradicts $a_n < x$. Hence $c \le L^+$. Symmetrically, if $c < L^-$, choose $y$ with $c < y < L^-$. The second half of (a) gives $N$ with $a_n > y$ for all $n \ge N$, while the limit-point property with $\varepsilon = (y - c)/2$ gives some $n \ge N$ with $a_n \le c + \varepsilon < y$, a contradiction. So $L^- \le c \le L^+$.
+
+    **(e)** Let $L^+$ be finite, $\varepsilon > 0$ and $N \ge m$. By (a) with $x = L^+ + \varepsilon$, there is $N_1 \ge m$ with $a_n < L^+ + \varepsilon$ for all $n \ge N_1$. By (b) with $x = L^+ - \varepsilon < L^+$, applied with the starting index $\max(N, N_1)$, there is $n \ge \max(N, N_1)$ with $a_n > L^+ - \varepsilon$. For this $n$, $n \ge N$ and $L^+ - \varepsilon < a_n < L^+ + \varepsilon$, so $|a_n - L^+| \le \varepsilon$. Hence $L^+$ is a limit point. The argument for finite $L^-$ is symmetric: use the second halves of (a) with $y = L^- - \varepsilon$ and (b) with $y = L^- + \varepsilon$.
+
+    **(f)** *($\Rightarrow$)* Suppose $a_n \to c$ and let $\varepsilon > 0$. There is $N \ge m$ with $c - \varepsilon \le a_n \le c + \varepsilon$ for all $n \ge N$. Then $a_N^+ \le c + \varepsilon$ and $a_N^- \ge c - \varepsilon$, so, using (c),
+
+    $$c - \varepsilon \le a_N^- \le L^- \le L^+ \le a_N^+ \le c + \varepsilon.$$
+
+    In particular $L^\pm$ are real. Since $\varepsilon > 0$ is arbitrary, $L^+ \le c$ and $L^- \ge c$. Combined with $L^- \le L^+$, this gives $L^+ = L^- = c$.
+
+    *($\Leftarrow$)* Suppose $L^+ = L^- = c \in \mathbb{R}$ and let $\varepsilon > 0$. By (a) with $x = c + \varepsilon > L^+$, there is $N_1$ with $a_n < c + \varepsilon$ for $n \ge N_1$. By the second half of (a) with $y = c - \varepsilon < L^-$, there is $N_2$ with $a_n > c - \varepsilon$ for $n \ge N_2$. For $n \ge \max(N_1, N_2)$, $|a_n - c| < \varepsilon$. Hence $a_n \to c$. $\blacksquare$
+- id: ross-22.14
+  hints:
+    - |
+      An interval is a set with no gaps: whenever $a < c < b$ with $a, b \in S$, also $c \in S$. By Theorem 11.2(i), to get $c \in S$ you need infinitely many $n$ with $|s_n - c| < \epsilon$, for each $\epsilon > 0$.
+    - |
+      Because $a, b \in S$, the sequence is below $c$ infinitely often and above $c$ infinitely often. Once the steps $|s_{n+1} - s_n|$ are smaller than $\epsilon$, a crossing from below $c$ to above $c$ cannot jump over the interval $[c, c+\epsilon)$.
+    - |
+      Past any index $K$, pick $p$ with $s_p < c$ and a later $q$ with $s_q > c$. Look at the *first* index $r$ after $p$ with $s_r \ge c$.
+  solution: |
+    Since $(s_n)$ is bounded, $S \subseteq \mathbb{R}$, and $S$ is nonempty by Theorem 11.8(i).
+
+    **Claim.** If $a, b \in S$ and $a < c < b$, then $c \in S$.
+
+    *Proof.* By Theorem 11.2(i), it suffices to show that for every $\epsilon > 0$ the set $\{n : |s_n - c| < \epsilon\}$ is infinite. Fix $\epsilon > 0$ and choose $N$ with $|s_{n+1} - s_n| < \epsilon$ for all $n \ge N$.
+
+    Since $a \in S$, Theorem 11.2(i) with $\epsilon' = c - a$ says that $\{n : |s_n - a| < c - a\}$ is infinite, and each such $n$ has $s_n < a + (c - a) = c$. So $s_n < c$ for infinitely many $n$. Likewise, using $b \in S$ and $\epsilon' = b - c$, we get $s_n > c$ for infinitely many $n$.
+
+    Now let $K \ge N$ be arbitrary. Pick $p > K$ with $s_p < c$, and then $q > p$ with $s_q > c$. Let $r$ be the smallest index in $\{p+1, \dots, q\}$ with $s_r \ge c$, which exists because $q$ qualifies. Then $r - 1 \ge p$ and $s_{r-1} < c$: either $r - 1 = p$, or $p < r - 1 < r$ and the minimality of $r$ applies. Since $r - 1 \ge p > K \ge N$,
+
+    $$c \le s_r = s_{r-1} + (s_r - s_{r-1}) < c + \epsilon.$$
+
+    Thus $|s_r - c| < \epsilon$ with $r > K$. Since $K$ was arbitrary, infinitely many $n$ satisfy $|s_n - c| < \epsilon$. Hence $c \in S$. $\square$
+
+    **Conclusion.** The Claim says $S$ has no gaps, so $S$ is an interval (possibly a single point). More precisely, let $\alpha = \inf S = \liminf s_n$ and $\beta = \sup S = \limsup s_n$ (Theorem 11.8(ii)). These are finite since $(s_n)$ is bounded. For every $c$ with $\alpha < c < \beta$, there are $a, b \in S$ with $a < c < b$ by the definitions of inf and sup, so $c \in S$ by the Claim. Also $S \subseteq [\alpha, \beta]$. Finally, $\alpha, \beta \in S$: there are points of $S$ converging to $\beta$ (and to $\alpha$), and $S$ contains limits of sequences from $S$ (Theorem 11.9). Alternatively, $\limsup s_n$ and $\liminf s_n$ are subsequential limits for any bounded sequence. Therefore
+
+    $$S = [\liminf s_n, \limsup s_n],$$
+
+    a closed (possibly degenerate) interval. $\blacksquare$

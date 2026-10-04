@@ -30,7 +30,7 @@ const DIFF = Object.keys(taxonomy.difficulties);
 const CAT = Object.keys(taxonomy.categories);
 const TYPE = Object.keys(taxonomy.types);
 const topicMap = new Map(taxonomy.topics.map((t) => [t.key, t]));
-const SOL_TYPES = ['official', 'textbook', 'instructor', 'personal'];
+const SOL_TYPES = ['official', 'textbook', 'instructor', 'personal', 'ai'];
 
 const files = fs
   .readdirSync(path.join(dataDir, 'problems'))
@@ -115,6 +115,52 @@ for (const f of files) {
 for (const p of problems)
   for (const r of p.related ?? []) if (!ids.has(r)) err(p.id, `related id "${r}" does not exist`);
 
+// AI-written hints and solutions live in data/solutions/*.yaml, kept apart from the
+// transcribed problems. Each entry: { id, hints?: [latex…], solution?: latex, lowConfidence?: text }.
+// They are merged with explicit "AI-generated, not verified" provenance; source hints come first,
+// and a source solution (if any) is never replaced.
+const AI_SOURCE = 'AI-generated — not verified by a human';
+const solDir = path.join(dataDir, 'solutions');
+const byId = new Map(problems.map((p) => [p.id, p]));
+let aiHints = 0;
+let aiSolutions = 0;
+if (fs.existsSync(solDir)) {
+  for (const f of fs.readdirSync(solDir).filter((x) => x.endsWith('.yaml')).sort()) {
+    const list = load(path.join(solDir, f)) ?? [];
+    if (!Array.isArray(list)) {
+      err(`solutions/${f}`, 'top level must be a list');
+      continue;
+    }
+    for (const e of list) {
+      const where = `solutions/${f}#${e?.id ?? '?'}`;
+      const p = byId.get(e?.id);
+      if (!p) {
+        err(where, 'no problem with this id');
+        continue;
+      }
+      for (const [i, h] of (e.hints ?? []).entries()) {
+        if (typeof h !== 'string' || !h.trim()) {
+          err(where, `hint ${i + 1} must be non-empty text`);
+          continue;
+        }
+        checkLatex(`${where} hint ${i + 1}`, h);
+        (p.hints ??= []).push({ text: h, source: AI_SOURCE, kind: 'ai' });
+        aiHints++;
+      }
+      if (e.solution != null) {
+        if (typeof e.solution !== 'string' || !e.solution.trim()) err(where, 'solution must be non-empty text');
+        else if (p.solution?.available) warn(where, 'problem already has a source solution; AI solution ignored');
+        else {
+          checkLatex(`${where} solution`, e.solution);
+          p.solution = { available: true, type: 'ai', source: AI_SOURCE, latex: e.solution };
+          if (e.lowConfidence) p.solution.lowConfidence = String(e.lowConfidence);
+          aiSolutions++;
+        }
+      }
+    }
+  }
+}
+
 // Order: curriculum topic order, then source tier order, then natural number order.
 const topicOrder = new Map(taxonomy.topics.map((t, i) => [t.key, i]));
 const sourceOrder = new Map(sources.map((s, i) => [s.key, i]));
@@ -136,7 +182,7 @@ if (errors.length) {
 
 const counts = {};
 for (const p of problems) counts[p.source.key] = (counts[p.source.key] ?? 0) + 1;
-console.log(`✓ ${problems.length} problems valid`, counts);
+console.log(`✓ ${problems.length} problems valid`, counts, `· AI hints: ${aiHints}, AI solutions: ${aiSolutions}`);
 
 if (!checkOnly) {
   const bank = {

@@ -1,0 +1,703 @@
+- id: mit20-final-7a
+  hints:
+    - |
+      Uniform convergence fails exactly when, for every $n$, some point of the domain still has $|f_n(x) - f(x)|$ not small. On an open interval you can push such points toward an endpoint.
+    - |
+      Try the simplest family you know that converges pointwise but "slowly" near $x = 1$: powers $x^n$. What is the pointwise limit on $(0,1)$ itself (not on $[0,1]$)?
+    - |
+      For each $n$, find a point $x_n \in (0,1)$ with $x_n^n = \tfrac12$.
+  solution: |
+    **Example.** $f_n(x) = x^n$ on $(0,1)$.
+
+    *Pointwise limit.* For each fixed $x \in (0,1)$ we have $x^n \to 0$, so $f_n \to f$ pointwise, where $f \equiv 0$. The limit is continuous (it is constant), and every $f_n$ is continuous.
+
+    *Not uniform.* Picture the graphs: each $x^n$ is a curve that hugs $0$ for most of the interval but rises steeply to height (almost) $1$ near the right endpoint. As $n$ grows the rise moves closer to $x = 1$, but it never disappears, because $x = 1$ is not in the domain. Concretely, $x_n = 2^{-1/n} \in (0,1)$ satisfies
+    $$|f_n(x_n) - f(x_n)| = x_n^n = \tfrac12 ,$$
+    so $\sup_{x\in(0,1)} |f_n(x) - f(x)| \ge \tfrac12$ for every $n$ (in fact the supremum is $1$). Hence no single $N$ makes $|f_n(x) - 0| < \tfrac12$ for all $x$ at once, and the convergence is not uniform.
+
+- id: lebl-6.1.2
+  hints:
+    - |
+      For fixed $x$, the exponent $x/n$ tends to $0$. What does that say about the numerator?
+    - |
+      Uniformity on $\mathbb{R}$: can you choose $x$ depending on $n$ to make $e^{x/n}/n$ large? Uniformity on $[0,1]$: bound $f_n(x)$ by a quantity depending only on $n$.
+  solution: |
+    Write $f_n(x) = e^{x/n}/n$.
+
+    **(a)** Fix $x \in \mathbb{R}$. Since $x/n \to 0$ and $\exp$ is continuous, $e^{x/n} \to e^0 = 1$, while $1/n \to 0$. Hence $f_n(x) \to 1 \cdot 0 = 0$. The pointwise limit is $f \equiv 0$.
+
+    **(b)** No. Take $x = n^2$. Then $f_n(n^2) = e^{n}/n \ge 1$, because $e^n \ge 1 + n > n$. So $\sup_{x\in\mathbb{R}} |f_n(x) - 0| \ge 1$ for every $n$, which does not tend to $0$. The convergence is not uniform on $\mathbb{R}$.
+
+    **(c)** Yes. For $x \in [0,1]$, $0 < x/n \le 1/n \le 1$, so since $\exp$ is increasing,
+    $$0 < f_n(x) \le \frac{e^{1}}{n}.$$
+    Given $\epsilon > 0$, choose $N > e/\epsilon$. Then for all $n \ge N$ and all $x \in [0,1]$, $|f_n(x) - 0| \le e/n < \epsilon$. So $f_n \to 0$ uniformly on $[0,1]$.
+
+- id: lebl-6.1.5
+  hints:
+    - |
+      Write out what you need: $|(f_n + g_n)(x) - (f+g)(x)| < \epsilon$ for all $x \in A$ once $n$ is large, with $n$ not depending on $x$.
+    - |
+      Use the triangle inequality and an $\epsilon/2$ argument, taking the larger of the two thresholds.
+  solution: |
+    **Proof.** Let $\epsilon > 0$. Since $f_n \to f$ uniformly on $A$, there is $N_1$ such that $|f_n(x) - f(x)| < \epsilon/2$ for all $n \ge N_1$ and all $x \in A$. Similarly there is $N_2$ such that $|g_n(x) - g(x)| < \epsilon/2$ for all $n \ge N_2$ and all $x \in A$. Let $N = \max(N_1, N_2)$. For $n \ge N$ and every $x \in A$,
+    $$|(f_n + g_n)(x) - (f+g)(x)| \le |f_n(x) - f(x)| + |g_n(x) - g(x)| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.$$
+    Since $N$ depends only on $\epsilon$, $f_n + g_n \to f + g$ uniformly on $A$. $\blacksquare$
+
+- id: lebl-6.2.2
+  hints:
+    - |
+      Bound $|x^n/n|$ on $[0,1]$ by something independent of $x$.
+    - |
+      Compute $f_n'(x)$ explicitly and evaluate at $x = 1$; compare with the derivative of the limit.
+  solution: |
+    **Uniform limit.** For $x \in [0,1]$, $0 \le x^n \le 1$, so $|f_n(x) - 0| = x^n/n \le 1/n$. Given $\epsilon > 0$, any $N > 1/\epsilon$ gives $|f_n(x)| < \epsilon$ for all $n \ge N$ and all $x \in [0,1]$. So $f_n \to f$ uniformly on $[0,1]$, where $f \equiv 0$. This $f$ is differentiable, with $f'(x) = 0$ for all $x$; in particular $f'(1) = 0$.
+
+    **Derivatives at 1.** Each $f_n$ is a polynomial with $f_n'(x) = \frac{n x^{n-1}}{n} = x^{n-1}$ (a one-sided derivative at the endpoint $x = 1$). Thus $f_n'(1) = 1$ for every $n$, so
+    $$\lim_{n\to\infty} f_n'(1) = 1 \neq 0 = f'(1).$$
+    Uniform convergence of $f_n$ does not let us pass the limit through the derivative.
+
+- id: mit20-final-7b
+  hints:
+    - |
+      For (i), you need to compare $f(x) - f(y)$ with $x - y$ using information about $f'$. Which theorem links these?
+    - |
+      Apply the Mean Value Theorem on the interval between $x$ and $y$. For (ii), use part (i) with $y = x + \tfrac1n$.
+    - |
+      In (ii), the bound you get on $|f_n(x) - f(x)|$ should not depend on $x$; that is exactly uniform convergence.
+  solution: |
+    **(i)** Let $x, y \in \mathbb{R}$. If $x = y$ there is nothing to prove. Otherwise, say $x < y$. Since $f$ is differentiable on $\mathbb{R}$, it is continuous on $[x,y]$ and differentiable on $(x,y)$. By the Mean Value Theorem there is $c \in (x,y)$ with $f(y) - f(x) = f'(c)(y - x)$. Hence
+    $$|f(y) - f(x)| = |f'(c)|\,|y - x| \le L\,|y - x|.$$
+    So $f$ is Lipschitz on $\mathbb{R}$ with constant $L$.
+
+    **(ii)** For every $x \in \mathbb{R}$, part (i) gives
+    $$|f_n(x) - f(x)| = \left| f\!\left(x + \tfrac1n\right) - f(x) \right| \le L \cdot \frac1n.$$
+    Let $\epsilon > 0$ and choose $N \in \mathbb{N}$ with $N > L/\epsilon$. Then for all $n \ge N$ and all $x \in \mathbb{R}$, $|f_n(x) - f(x)| \le L/n < \epsilon$. Since $N$ does not depend on $x$, $f_n \to f$ uniformly on $\mathbb{R}$. $\blacksquare$
+
+- id: abbott-6.2.1
+  hints:
+    - |
+      For the pointwise limit, divide numerator and denominator by $n$. For uniformity, compute the error $f(x) - f_n(x)$ as a single fraction.
+    - |
+      Look at the error at points $x$ that depend on $n$ and drift toward $0$, such as $x = 1/n$.
+    - |
+      On $(1,\infty)$, bound the error using $x > 1$ to get something depending only on $n$.
+  solution: |
+    **(a)** For $x > 0$,
+    $$f_n(x) = \frac{nx}{1 + nx^2} = \frac{x}{\frac1n + x^2} \longrightarrow \frac{x}{x^2} = \frac1x.$$
+    So $f(x) = 1/x$ on $(0,\infty)$.
+
+    For the remaining parts, compute the error:
+    $$f(x) - f_n(x) = \frac1x - \frac{nx}{1+nx^2} = \frac{1 + nx^2 - nx^2}{x(1+nx^2)} = \frac{1}{x(1+nx^2)} > 0.$$
+
+    **(b)** No. At $x = 1/n$,
+    $$f\!\left(\tfrac1n\right) - f_n\!\left(\tfrac1n\right) = \frac{1}{\frac1n\left(1 + \frac1n\right)} = \frac{n^2}{n+1} \ge \frac{n}{2},$$
+    so $\sup_{x>0} |f(x) - f_n(x)| \ge n/2$, which does not tend to $0$.
+
+    **(c)** No. For $n \ge 2$ the point $1/n$ lies in $(0,1)$, so the same computation gives $\sup_{x\in(0,1)} |f - f_n| \ge n/2 \not\to 0$.
+
+    **(d)** Yes. For $x > 1$ we have $x(1 + nx^2) > 1 + n > n$, so
+    $$0 < f(x) - f_n(x) < \frac1n \quad\text{for all } x \in (1,\infty).$$
+    Given $\epsilon > 0$, take $N > 1/\epsilon$; then $|f(x) - f_n(x)| < \epsilon$ for all $n \ge N$ and all $x > 1$. The convergence is uniform on $(1,\infty)$.
+
+- id: abbott-6.4.1
+  hints:
+    - |
+      The M-Test is meant to follow from the Cauchy Criterion for uniform convergence of series. What does that criterion ask you to control?
+    - |
+      The numerical series $\sum M_n$ converges, so its partial sums form a Cauchy sequence. Compare $|f_{m+1}(x) + \cdots + f_n(x)|$ with $M_{m+1} + \cdots + M_n$.
+  solution: |
+    **Proof.** We verify the condition of Theorem 6.4.4. Let $\epsilon > 0$. Since $\sum_{k=1}^\infty M_k$ converges, its sequence of partial sums $s_n = M_1 + \cdots + M_n$ converges and is therefore Cauchy (Theorem 2.6.4). So there is $N \in \mathbb{N}$ with $|s_n - s_m| < \epsilon$ whenever $n > m \ge N$; that is,
+    $$M_{m+1} + M_{m+2} + \cdots + M_n < \epsilon \qquad (n > m \ge N).$$
+    Now let $n > m \ge N$ and $x \in A$. By the triangle inequality and the hypothesis $|f_k(x)| \le M_k$,
+    $$|f_{m+1}(x) + \cdots + f_n(x)| \le |f_{m+1}(x)| + \cdots + |f_n(x)| \le M_{m+1} + \cdots + M_n < \epsilon.$$
+    The index $N$ came from the numbers $M_k$ alone, so it works for every $x \in A$ at once. By the Cauchy Criterion for Uniform Convergence of Series (Theorem 6.4.4), $\sum_{n=1}^\infty f_n$ converges uniformly on $A$. $\blacksquare$
+
+- id: abbott-6.4.7
+  hints:
+    - |
+      Differentiability of a series of functions is handled by the term-by-term differentiability theorem. What must you check about the series of derivatives?
+    - |
+      The differentiated series is $\sum \cos(kx)/k^2$. Use the Weierstrass M-Test on it. Continuity of $f'$ then comes from the Continuous Limit Theorem.
+    - |
+      For (b), differentiate once more and see whether the M-Test still applies. If the theorem gives no answer, look at $f'$ near $x = 0$ directly: $f'(0) - f'(h) = \sum (1 - \cos(kh))/k^2$, and it is enough to keep the terms with $kh \le 1$.
+  solution: |
+    **(a)** Let $f_k(x) = \sin(kx)/k^3$. Each $f_k$ is differentiable on $\mathbb{R}$ with $f_k'(x) = \cos(kx)/k^2$, and
+    $$|f_k'(x)| \le \frac{1}{k^2} \quad\text{for all } x \in \mathbb{R}.$$
+    Since $\sum 1/k^2$ converges, the Weierstrass M-Test shows that $\sum_k f_k'$ converges uniformly on $\mathbb{R}$ to some $g$. Also $\sum f_k(0) = \sum 0$ converges. By the Term-by-Term Differentiability Theorem (Theorem 6.4.3, applied on $\mathbb{R}$ or on any closed interval $[-M, M]$), $\sum f_k$ converges uniformly to a differentiable function, namely $f$, and
+    $$f'(x) = g(x) = \sum_{k=1}^\infty \frac{\cos(kx)}{k^2}.$$
+    The partial sums of this series are continuous and converge uniformly, so by the Continuous Limit Theorem $f'$ is continuous on $\mathbb{R}$.
+
+    **(b)** The same method does not decide this. Differentiating term by term again gives $-\sum \sin(kx)/k$. The only uniform bound on the terms is $1/k$, and $\sum 1/k$ diverges, so the M-Test fails and Theorem 6.4.3 cannot be applied. In fact $f$ is **not** twice differentiable at $x = 0$, which we can show directly.
+
+    **Claim.** For $0 < h \le 1$, $f'(0) - f'(h) \ge h/\pi^2$.
+
+    *Proof of claim.* Subtracting convergent series,
+    $$f'(0) - f'(h) = \sum_{k=1}^\infty \frac{1 - \cos(kh)}{k^2} = \sum_{k=1}^\infty \frac{2\sin^2(kh/2)}{k^2}.$$
+    Every term is $\ge 0$, so we may discard all terms except those with $k \le 1/h$. For such $k$, $0 < kh/2 \le 1/2 < \pi/2$, and on $[0,\pi/2]$ we have $\sin t \ge 2t/\pi$ (concavity of $\sin$ there). Hence $\sin^2(kh/2) \ge k^2h^2/\pi^2$, so each such term is at least $2h^2/\pi^2$. There are $\lfloor 1/h \rfloor \ge \frac{1}{2h}$ such terms (since $1/h \ge 1$). Therefore $f'(0) - f'(h) \ge \frac{1}{2h}\cdot\frac{2h^2}{\pi^2} = \frac{h}{\pi^2}$. $\square$
+
+    Since $f'$ is even, $f'(-h) = f'(h)$. So for $0 < h \le 1$,
+    $$\frac{f'(h) - f'(0)}{h} \le -\frac{1}{\pi^2}, \qquad \frac{f'(-h) - f'(0)}{-h} = \frac{f'(0) - f'(h)}{h} \ge \frac{1}{\pi^2}.$$
+    If $f''(0)$ existed, both difference quotients would converge to it as $h \to 0^+$, forcing $f''(0) \le -1/\pi^2$ and $f''(0) \ge 1/\pi^2$, which is impossible. So $f$ is not twice differentiable at $0$. (By $2\pi$-periodicity, the same holds at every multiple of $2\pi$.)
+
+- id: lebl-6.1.6
+  hints:
+    - |
+      A uniform error of size $1/n$ can be multiplied by something unbounded. Follow the book's hint on $A = \mathbb{R}$ with $f = g = x$.
+    - |
+      Try $f_n(x) = g_n(x) = x + \tfrac1n$ and expand $f_n g_n - x^2$.
+  solution: |
+    **Example.** Let $A = \mathbb{R}$ and $f_n(x) = g_n(x) = x + \frac1n$, with $f(x) = g(x) = x$.
+
+    *Uniform convergence of the factors.* $|f_n(x) - x| = \frac1n$ for every $x$, so $f_n \to f$ uniformly on $\mathbb{R}$, and likewise $g_n \to g$.
+
+    *The product does not converge uniformly.* Here
+    $$f_n(x) g_n(x) - f(x)g(x) = \left(x + \tfrac1n\right)^2 - x^2 = \frac{2x}{n} + \frac{1}{n^2}.$$
+    At $x = n$ this equals $2 + \frac{1}{n^2} > 2$. So $\sup_{x\in\mathbb{R}} |f_n g_n - fg| \ge 2$ for every $n$, and $f_n g_n \not\to fg$ uniformly on $\mathbb{R}$. (It does converge pointwise, since for fixed $x$ the error $2x/n + 1/n^2 \to 0$.)
+
+- id: lebl-6.1.10
+  hints:
+    - |
+      The functions need not be continuous. In (a), what does pointwise convergence require at a single fixed point $x$?
+    - |
+      For (a), let each $f_n$ be nonzero only at the single point $x_n$. For (b), what is $\sup_x |f_n(x)|$?
+  solution: |
+    **(a) True.** Let $x_n = 1/n$ (distinct points of $[0,1]$) and define
+    $$f_n(x) = \begin{cases} 1 & x = 1/n, \\ 0 & \text{otherwise.} \end{cases}$$
+    Then $f_n(x_n) = 1$. Fix $x \in [0,1]$. Since the $x_n$ are distinct, $x = x_n$ for at most one index $n$. For all $n$ beyond that index (or for all $n$, if there is none) $f_n(x) = 0$. Hence $f_n(x) \to 0$ for every $x$, i.e. $f_n \to 0$ pointwise.
+
+    (A continuous version also works: let $f_n$ be the "tent" of height 1 at $1/n$ supported on $[\frac1{n+1}, \frac1{n-1}]$ for $n \ge 2$, and $f_1(x) = x$. At any fixed $x$ only finitely many tents are nonzero. But the simple example above already suffices.)
+
+    **(b) False.** For any such sequence and any $n$,
+    $$\sup_{x\in[0,1]} |f_n(x) - 0| \ge |f_n(x_n)| = 1.$$
+    So with $\epsilon = 1$ there is no $N$ such that $|f_n(x)| < \epsilon$ for all $x$ and all $n \ge N$. No sequence with $f_n(x_n) = 1$ can converge uniformly to $0$. (The distinctness of the $x_n$ plays no role here.)
+
+- id: lebl-6.1.14
+  hints:
+    - |
+      The partial sums of a geometric series have a closed form. Use it to write the error $\frac{1}{1-x} - \sum_{k=0}^n x^k$ exactly.
+    - |
+      On $[-c,c]$, bound that error by a quantity depending only on $n$ and $c$. On $(-1,1)$, see what happens to the error as $x \to 1^-$ with $n$ fixed.
+  solution: |
+    Let $s_n(x) = \sum_{k=0}^n x^k$. For $x \ne 1$, $s_n(x) = \frac{1 - x^{n+1}}{1-x}$, so for $x \in (-1,1)$
+    $$\frac{1}{1-x} - s_n(x) = \frac{x^{n+1}}{1-x}.$$
+
+    **(a)** Let $0 \le c < 1$ and $x \in [-c,c]$. Then $|x|^{n+1} \le c^{n+1}$ and $1 - x \ge 1 - c > 0$, so
+    $$\left| \frac{1}{1-x} - s_n(x) \right| \le \frac{c^{n+1}}{1-c}.$$
+    The right side does not depend on $x$ and tends to $0$ as $n \to \infty$, because $0 \le c < 1$. Given $\epsilon > 0$, pick $N$ with $c^{N+1}/(1-c) < \epsilon$; since $c^{n+1}$ is non-increasing in $n$, the error is $< \epsilon$ for all $n \ge N$ and all $x \in [-c,c]$. So the series converges uniformly on $[-c,c]$. (Alternatively, use the Weierstrass M-test with $M_k = c^k$.)
+
+    **(b)** Fix $n$. For $x \in (0,1)$, the error is $\frac{x^{n+1}}{1-x}$. As $x \to 1^-$ the numerator tends to $1$ and the denominator to $0^+$, so the error tends to $+\infty$. Hence
+    $$\sup_{x\in(-1,1)} \left| \frac{1}{1-x} - s_n(x) \right| = \infty \quad\text{for every } n.$$
+    In particular, with $\epsilon = 1$ no $N$ makes the error less than $1$ on all of $(-1,1)$. The convergence is not uniform on $(-1,1)$. (Put differently: each $s_n$ is bounded by $n+1$ on $(-1,1)$, while the limit $\frac{1}{1-x}$ is unbounded there.)
+
+- id: lebl-6.2.1
+  hints:
+    - |
+      You want smooth functions that "round off the corner" of $|x|$ at $0$ more and more tightly.
+    - |
+      Use $f_n(x) = \sqrt{x^2 + 1/n^2}$. To estimate $f_n(x) - |x|$, multiply and divide by the conjugate $\sqrt{x^2 + 1/n^2} + |x|$.
+  solution: |
+    **Example.** $f_n(x) = \sqrt{x^2 + \frac{1}{n^2}}$ on $[-1,1]$, with limit $f(x) = |x|$.
+
+    *Differentiable.* The inner function $x^2 + 1/n^2$ is differentiable and always $\ge 1/n^2 > 0$, and $\sqrt{\cdot}$ is differentiable on $(0,\infty)$. By the chain rule $f_n$ is differentiable with $f_n'(x) = \dfrac{x}{\sqrt{x^2 + 1/n^2}}$.
+
+    *Uniform convergence.* Since $|x| = \sqrt{x^2}$,
+    $$0 \le f_n(x) - |x| = \frac{\left(x^2 + \frac{1}{n^2}\right) - x^2}{\sqrt{x^2 + \frac{1}{n^2}} + |x|} = \frac{1/n^2}{\sqrt{x^2 + \frac{1}{n^2}} + |x|} \le \frac{1/n^2}{1/n} = \frac1n.$$
+    This bound holds for every $x \in [-1,1]$, so $f_n \to |x|$ uniformly.
+
+    *The limit is not differentiable.* At $0$, $\dfrac{f(h) - f(0)}{h} = \dfrac{|h|}{h}$, which is $1$ for $h > 0$ and $-1$ for $h < 0$. The one-sided limits differ, so $f'(0)$ does not exist.
+
+- id: lebl-6.2.22
+  hints:
+    - |
+      Uniform convergence controls the height of $f_n$ but not the length of the set where it lives. With an infinite interval available, spread the mass out.
+    - |
+      Try a function of height $1/n$ on an interval of length $n$.
+  solution: |
+    **Example.** Define
+    $$f_n(x) = \begin{cases} \frac1n & 0 \le x \le n, \\ 0 & \text{otherwise.} \end{cases}$$
+
+    *Integrable on bounded intervals.* On any bounded interval $[a,b]$, $f_n$ is a step function with at most two jumps, so it is Riemann integrable there.
+
+    *Uniform convergence to 0.* $|f_n(x) - 0| \le \frac1n$ for all $x \in \mathbb{R}$, so $\sup_x |f_n(x)| = \frac1n \to 0$.
+
+    *Improper integrals.* For $a \le 0$, $\int_a^0 f_n = 0$ (the integrand is $0$ except possibly at the single point $0$). For $b \ge n$, $\int_0^b f_n = \int_0^n \frac1n\,dx = 1$. Hence both improper integrals $\int_{-\infty}^0 f_n = 0$ and $\int_0^\infty f_n = 1$ exist, and
+    $$\int_{-\infty}^{\infty} f_n = 1 \quad\text{for every } n, \qquad\text{while}\qquad \int_{-\infty}^{\infty} \lim_{n\to\infty} f_n = \int_{-\infty}^\infty 0 = 0.$$
+    So $\lim_n \int_{-\infty}^\infty f_n = 1 \ne 0$: uniform convergence does not let us pass the limit through an improper integral over an infinite interval.
+
+- id: lebl-7.6.6
+  hints:
+    - |
+      In (a), the natural candidate for a fixed point should be missing from the space. In (b), the contraction constant is allowed to be exactly $1$.
+    - |
+      For (a), think of $x \mapsto x/2$ on a space that omits $0$. For (b), a translation of $\mathbb{R}$.
+  solution: |
+    **(a)** Let $X = (0,1)$ with the metric $d(x,y) = |x-y|$, and $f(x) = x/2$. Then $f(X) = (0, \tfrac12) \subseteq X$, and
+    $$|f(x) - f(y)| = \tfrac12 |x - y|,$$
+    so $f$ is a contraction with $k = \tfrac12$. A fixed point would satisfy $x = x/2$, i.e. $x = 0 \notin X$. So $f$ has no fixed point. (The space $X$ is not complete: $1/n$ is Cauchy in $X$ but has no limit in $X$.)
+
+    **(b)** Let $X = \mathbb{R}$ with the usual metric, which is complete, and $f(x) = x + 1$. Then $|f(x) - f(y)| = |x - y|$, so $f$ is $1$-Lipschitz. But $f(x) = x$ would mean $x + 1 = x$, which is impossible. So $f$ has no fixed point. This shows the strict inequality $k < 1$ in the contraction mapping theorem cannot be weakened to $k = 1$.
+
+- id: ross-23.9
+  hints:
+    - |
+      For (b), compute the integral of $nx^n$ directly using the power rule.
+    - |
+      Compare: the functions converge to $0$ at every point of $[0,1)$, but the integrals converge to $1$. Where is the "mass" going?
+  solution: |
+    **(a)** At $x = 0$, $f_n(0) = 0$ for all $n$. Now let $0 < x < 1$ and set $s_n = nx^n > 0$. Then
+    $$\frac{s_{n+1}}{s_n} = \frac{(n+1)x^{n+1}}{nx^n} = \left(1 + \frac1n\right)x \longrightarrow x < 1.$$
+    By Exercise 9.12(a), $s_n \to 0$. So $\lim f_n(x) = 0$ for all $x \in [0,1)$. (At $x = 1$, $f_n(1) = n \to \infty$.)
+
+    **(b)** Each $f_n$ is a polynomial, so
+    $$\int_0^1 nx^n\,dx = n \left[ \frac{x^{n+1}}{n+1} \right]_0^1 = \frac{n}{n+1} \longrightarrow 1.$$
+    So $\lim_{n\to\infty} \int_0^1 f_n = 1$. On the other hand, the pointwise limit is $0$ on $[0,1)$ (and is undefined, i.e. $+\infty$, at the single point $x = 1$), whose integral would be $0$. The integrals do not converge to the integral of the limit: the area of $nx^n$ concentrates in a narrower and narrower region near $x = 1$, where the functions become very tall. This is consistent with the theory, since the convergence is not uniform: $\sup_{[0,1)} |f_n| = n$.
+
+- id: ross-24.12
+  hints:
+    - |
+      Name the supremum: let $s_n = \sup\{|f(x) - f_n(x)| : x \in S\}$, a number in $[0,\infty]$. The claim is that uniform convergence means exactly $s_n \to 0$.
+    - |
+      Use the fact that $|f(x) - f_n(x)| \le s_n$ for every $x \in S$, and that a supremum of numbers all below $\epsilon/2$ is at most $\epsilon/2$, which is strictly below $\epsilon$.
+  solution: |
+    Assume $S \ne \varnothing$ and let $s_n = \sup\{|f(x) - f_n(x)| : x \in S\} \in [0, \infty]$. The statement $\lim s_n = 0$ means: for every $\epsilon > 0$ there is $N$ with $s_n < \epsilon$ for all $n > N$. In particular $s_n$ is finite for large $n$.
+
+    **($\Rightarrow$)** Suppose $f_n \to f$ uniformly on $S$, and let $\epsilon > 0$. Apply Definition 24.2 with $\epsilon/2$: there is $N$ such that $|f_n(x) - f(x)| < \epsilon/2$ for all $x \in S$ and all $n > N$. For such $n$, $\epsilon/2$ is an upper bound for the set $\{|f(x) - f_n(x)| : x \in S\}$, so $s_n \le \epsilon/2 < \epsilon$. Since also $s_n \ge 0$, this shows $\lim s_n = 0$.
+
+    (Using $\epsilon/2$ matters: knowing only $|f_n(x) - f(x)| < \epsilon$ for every $x$ gives $s_n \le \epsilon$, not $s_n < \epsilon$.)
+
+    **($\Leftarrow$)** Suppose $\lim s_n = 0$, and let $\epsilon > 0$. There is $N$ with $s_n < \epsilon$ for all $n > N$. Then for every $n > N$ and every $x \in S$,
+    $$|f(x) - f_n(x)| \le s_n < \epsilon.$$
+    This is Definition 24.2, so $f_n \to f$ uniformly on $S$. $\blacksquare$
+
+- id: ross-24.13
+  hints:
+    - |
+      You need one $\delta$ that works for $f$ at all points simultaneously. You already have such a $\delta$ for each individual $f_n$.
+    - |
+      Fix a single index $n$ with $|f_n - f| < \epsilon/3$ everywhere on $(a,b)$. Then use the uniform continuity of that one $f_n$.
+  solution: |
+    **Proof.** Let $\epsilon > 0$. By uniform convergence there is $N$ such that $|f_n(x) - f(x)| < \epsilon/3$ for all $x \in (a,b)$ and all $n > N$. Fix one such index, say $n = N + 1$. Since $f_n$ is uniformly continuous on $(a,b)$, there is $\delta > 0$ such that
+    $$x, y \in (a,b),\ |x - y| < \delta \implies |f_n(x) - f_n(y)| < \epsilon/3.$$
+    Now let $x, y \in (a,b)$ with $|x - y| < \delta$. Then
+    $$|f(x) - f(y)| \le |f(x) - f_n(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)| < \frac\epsilon3 + \frac\epsilon3 + \frac\epsilon3 = \epsilon.$$
+    The $\delta$ depends only on $\epsilon$ (through the fixed index $n$), not on $x$ or $y$. So $f$ is uniformly continuous on $(a,b)$. $\blacksquare$
+
+    (Nothing about intervals was used: the same proof works on any set $S$.)
+
+- id: ross-24.17
+  hints:
+    - |
+      First decide what you know about the limit function $f$ itself. Which theorem applies to a uniform limit of continuous functions?
+    - |
+      Following the book's hint, the first term $|f_n(x_n) - f(x_n)|$ is controlled by uniform convergence, since it must hold at the moving point $x_n$. Which property of $f$ controls the second term?
+  solution: |
+    **Proof.** By Theorem 24.3, $f$ is continuous on $[a,b]$. Since $[a,b]$ is closed and $x_n \in [a,b]$ with $x_n \to x$, we have $x \in [a,b]$. So $f$ is continuous at $x$, and therefore $f(x_n) \to f(x)$.
+
+    Let $\epsilon > 0$.
+    - By uniform convergence there is $N_1$ such that $|f_n(y) - f(y)| < \epsilon/2$ for all $y \in [a,b]$ and all $n > N_1$. In particular, $|f_n(x_n) - f(x_n)| < \epsilon/2$ for $n > N_1$. This step needs uniformity, because the point $x_n$ changes with $n$.
+    - Since $f(x_n) \to f(x)$, there is $N_2$ such that $|f(x_n) - f(x)| < \epsilon/2$ for $n > N_2$.
+
+    For $n > \max(N_1, N_2)$,
+    $$|f_n(x_n) - f(x)| \le |f_n(x_n) - f(x_n)| + |f(x_n) - f(x)| < \epsilon.$$
+    Hence $\lim_{n\to\infty} f_n(x_n) = f(x)$. $\blacksquare$
+
+- id: ross-26.7
+  hints:
+    - |
+      Suppose such a power series existed. What would it tell you about its radius of convergence?
+    - |
+      Name the theorem on differentiating a power series inside its interval of convergence, and test it at the worst point for $|x|$.
+  solution: |
+    **No.** Suppose, for contradiction, that $|x| = \sum_{n=0}^\infty a_n x^n$ for every $x \in \mathbb{R}$.
+
+    *Radius of convergence.* The series converges at every real $x$. A power series diverges at every $x$ with $|x| > R$, where $R$ is its radius of convergence, so here $R = +\infty$.
+
+    *Differentiability.* By the theorem on differentiating power series (Theorem 26.5), the sum of a power series with radius of convergence $R > 0$ is differentiable at every point of $(-R, R)$. Here that interval is all of $\mathbb{R}$, so $x \mapsto |x|$ would be differentiable at $0$.
+
+    *Contradiction.* But $\dfrac{|h| - |0|}{h} = \dfrac{|h|}{h}$ equals $1$ for $h > 0$ and $-1$ for $h < 0$, so $|x|$ is not differentiable at $0$. Hence no such power series exists.
+
+    **Discussion.** The same argument rules out any power series centered at $0$ that equals $|x|$ on an interval $(-r, r)$ around $0$. On a set that avoids $0$ there is no obstruction. For example, on $(0, \infty)$ the power series with $a_1 = 1$ and all other $a_n = 0$ (that is, $x$ itself) equals $|x|$.
+
+- id: cummings-9.12
+  hints:
+    - |
+      Condition (iii) says $f$ is discontinuous at $a$, at least along the sequence $(a_n)$. So you need continuous $f_n$ whose pointwise limit is discontinuous.
+    - |
+      Use $f_n(x) = x^n$ on $[0,1]$ and let $a_n$ approach the point where its limit jumps.
+  solution: |
+    **Example.** Let $f_n(x) = x^n$ on $[0,1]$,
+    $$f(x) = \begin{cases} 0 & 0 \le x < 1, \\ 1 & x = 1, \end{cases} \qquad a_n = 1 - \frac1n, \qquad a = 1.$$
+
+    *(i)* Each $f_n$ is a polynomial, hence continuous.
+
+    *(ii)* If $0 \le x < 1$ then $x^n \to 0 = f(x)$. If $x = 1$ then $1^n = 1 = f(1)$. So $f_n \to f$ pointwise on $[0,1]$.
+
+    *(iii)* Each $a_n \in [0,1)$ and $a_n \to 1 = a$. But $f(a_n) = 0$ for every $n$, so $f(a_n) \to 0 \ne 1 = f(a)$.
+
+- id: cummings-9.16
+  hints:
+    - |
+      Absolute convergence at $x_0$ gives you a convergent series of nonnegative numbers. How does $|a_k x^k|$ compare with it when $|x| \le |x_0|$?
+    - |
+      This is a setup for the Weierstrass M-test with $M_k = |a_k|\,|x_0|^k$. Alternatively, bound the tail $\left|\sum_{k>n} a_k x^k\right|$ by a quantity that does not depend on $x$.
+  solution: |
+    **Proof.** Let $M_k = |a_k|\,|x_0|^k \ge 0$. By hypothesis $\sum_{k=0}^\infty M_k$ converges. For $x \in [-|x_0|, |x_0|]$ we have $|x| \le |x_0|$, so
+    $$|a_k x^k| = |a_k|\,|x|^k \le |a_k|\,|x_0|^k = M_k.$$
+    By the comparison test, $\sum a_k x^k$ converges absolutely, hence converges, for each such $x$. Call its sum $S(x)$, and let $S_n(x) = \sum_{k=0}^n a_k x^k$. Then for each such $x$
+    $$|S(x) - S_n(x)| = \left| \sum_{k=n+1}^\infty a_k x^k \right| \le \sum_{k=n+1}^\infty |a_k x^k| \le \sum_{k=n+1}^\infty M_k =: T_n .$$
+    (The middle inequality follows by letting $m \to \infty$ in the finite triangle inequality $\left|\sum_{k=n+1}^m a_k x^k\right| \le \sum_{k=n+1}^m |a_k x^k|$.) Here $T_n$ is the tail of a convergent series, so $T_n \to 0$, and $T_n$ does not depend on $x$. Given $\epsilon > 0$, choose $N$ with $T_n < \epsilon$ for $n \ge N$. Then $|S(x) - S_n(x)| < \epsilon$ for all $n \ge N$ and all $x \in [-|x_0|, |x_0|]$. So the series converges uniformly on $[-|x_0|, |x_0|]$. $\blacksquare$
+
+    (This is exactly the Weierstrass M-test applied with $M_k = |a_k|\,|x_0|^k$.)
+
+- id: abbott-4.3.11
+  hints:
+    - |
+      Part (a) is about a Lipschitz bound: how should $\delta$ relate to $\epsilon$? For (b), first compare consecutive terms $|y_{n+1} - y_n|$ with $|y_2 - y_1|$.
+    - |
+      Show $|y_{n+1} - y_n| \le c^{n-1}|y_2 - y_1|$, then estimate $|y_n - y_m|$ by a telescoping sum and a geometric series.
+    - |
+      For (c), take limits on both sides of $y_{n+1} = f(y_n)$, using (a). For uniqueness, apply the contraction inequality to two fixed points. Part (d) needs no new estimate.
+  solution: |
+    **(a)** Let $x_0 \in \mathbb{R}$ and $\epsilon > 0$. Put $\delta = \epsilon / c$. If $|x - x_0| < \delta$, then $|f(x) - f(x_0)| \le c|x - x_0| < c\delta = \epsilon$. So $f$ is continuous at $x_0$. (In fact this shows $f$ is uniformly continuous.)
+
+    **(b)** For $n \ge 2$, $|y_{n+1} - y_n| = |f(y_n) - f(y_{n-1})| \le c\,|y_n - y_{n-1}|$. By induction,
+    $$|y_{n+1} - y_n| \le c^{n-1}\,|y_2 - y_1| \qquad (n \ge 1).$$
+    Let $n > m \ge 1$. By the triangle inequality and the geometric sum,
+    $$|y_n - y_m| \le \sum_{k=m}^{n-1} |y_{k+1} - y_k| \le |y_2 - y_1| \sum_{k=m}^{n-1} c^{k-1} \le |y_2 - y_1|\,\frac{c^{m-1}}{1 - c}.$$
+    Since $0 < c < 1$, $c^{m-1} \to 0$. Given $\epsilon > 0$, choose $N$ such that $|y_2 - y_1| \, c^{N-1}/(1-c) < \epsilon$. Then $|y_n - y_m| < \epsilon$ whenever $n > m \ge N$, because $c^{m-1} \le c^{N-1}$. So $(y_n)$ is Cauchy, and by the Cauchy Criterion it converges to some $y \in \mathbb{R}$.
+
+    **(c)** *Fixed point.* Since $y_n \to y$ and $f$ is continuous at $y$ by (a), $f(y_n) \to f(y)$. But $f(y_n) = y_{n+1}$, and $(y_{n+1})$ also converges to $y$. By uniqueness of limits, $f(y) = y$.
+
+    *Uniqueness.* Suppose $f(z) = z$ as well. Then $|y - z| = |f(y) - f(z)| \le c|y - z|$, so $(1-c)|y - z| \le 0$. Since $1 - c > 0$, this gives $|y - z| = 0$, so $z = y$.
+
+    **(d)** Let $x \in \mathbb{R}$ and run the construction of (b) with starting point $x$ in place of $y_1$. Parts (b) and (c) show that the sequence $(x, f(x), f(f(x)), \ldots)$ converges to a fixed point of $f$. By the uniqueness in (c), that fixed point is $y$.
+
+    (Directly: if $x_1 = x$ and $x_{n+1} = f(x_n)$, then $|x_{n+1} - y| = |f(x_n) - f(y)| \le c|x_n - y|$, so $|x_n - y| \le c^{n-1}|x - y| \to 0$.)
+
+- id: abbott-6.2.5
+  hints:
+    - |
+      One direction is a triangle-inequality argument. For the other, the hypothesis makes each numerical sequence $(f_n(x))$ Cauchy, which tells you how to define $f(x)$.
+    - |
+      After defining $f(x) = \lim_m f_m(x)$, fix $n$ and $x$ in the inequality $|f_n(x) - f_m(x)| < \epsilon$ and let $m \to \infty$. Check that the resulting $N$ does not depend on $x$.
+  solution: |
+    **($\Rightarrow$)** Suppose $f_n \to f$ uniformly on $A$, and let $\epsilon > 0$. There is $N$ such that $|f_n(x) - f(x)| < \epsilon/2$ for all $n \ge N$ and $x \in A$. Then for $m, n \ge N$ and $x \in A$,
+    $$|f_n(x) - f_m(x)| \le |f_n(x) - f(x)| + |f(x) - f_m(x)| < \frac\epsilon2 + \frac\epsilon2 = \epsilon.$$
+
+    **($\Leftarrow$)** Assume the Cauchy condition.
+
+    *Candidate limit.* Fix $x \in A$. The condition implies that the real sequence $(f_n(x))_n$ is Cauchy: for each $\epsilon > 0$ the same $N$ gives $|f_n(x) - f_m(x)| < \epsilon$ for $m, n \ge N$. By the Cauchy Criterion (Theorem 2.6.4), it converges. Define $f(x) = \lim_{n\to\infty} f_n(x)$. So $f_n \to f$ pointwise on $A$.
+
+    *Uniformity.* Let $\epsilon > 0$ and choose $N$ such that $|f_n(x) - f_m(x)| < \epsilon/2$ for all $m, n \ge N$ and all $x \in A$. Fix $n \ge N$ and $x \in A$. For every $m \ge N$,
+    $$|f_n(x) - f_m(x)| < \frac\epsilon2.$$
+    Let $m \to \infty$. Since $f_m(x) \to f(x)$ and absolute value is continuous, the Order Limit Theorem gives $|f_n(x) - f(x)| \le \epsilon/2 < \epsilon$. This holds for every $n \ge N$ and every $x \in A$, with $N$ chosen before $x$. So $f_n \to f$ uniformly on $A$. $\blacksquare$
+
+- id: abbott-6.2.6
+  hints:
+    - |
+      For pointwise counterexamples, recall standard examples: $x^n$ on $[0,1]$ has a discontinuous limit; truncations of an unbounded function are bounded; indicator functions of finite sets have finitely many discontinuities.
+    - |
+      For the uniform versions of (a) and (b), use an $\epsilon/3$ argument and "pick one $n$ with $|f_n - f| < 1$". For (d) and (e), apply the Continuous Limit Theorem along a subsequence: if $f_n$ is continuous at $c$ for infinitely many $n$, what can you say about $f$ at $c$?
+    - |
+      One of the five stays false even under uniform convergence. Build $f$ as a uniform limit of functions $f_n$ with more and more isolated jumps whose sizes shrink to $0$.
+  solution: |
+    **Pointwise counterexamples.**
+
+    **(a)** On $A = [0,1]$ let $f_n(x) = x^n$. Each $f_n$ is continuous on the compact set $[0,1]$, hence uniformly continuous. The pointwise limit is $f(x) = 0$ for $x < 1$ and $f(1) = 1$. It is not continuous at $1$, so it is not uniformly continuous.
+
+    **(b)** On $A = (0,1]$ let $f_n(x) = \min(1/x, n)$. Each $f_n$ is bounded by $n$. For fixed $x$, once $n \ge 1/x$ we have $f_n(x) = 1/x$. So $f_n \to f(x) = 1/x$ pointwise, and $f$ is unbounded on $(0,1]$.
+
+    **(c) and (e)** Enumerate the rationals in $[0,1]$ as $r_1, r_2, r_3, \ldots$. On $A = [0,1]$ let $f_n$ be the indicator function of $\{r_1, \ldots, r_n\}$ (equal to $1$ there and $0$ elsewhere). Each $f_n$ is discontinuous exactly at the $n$ points $r_1, \ldots, r_n$: each of these is an isolated point of a finite set, and $f_n$ is locally $0$ away from that set. So $f_n$ has finitely many (in particular countably many) discontinuities. Pointwise, $f_n(r_j) = 1$ for all $n \ge j$, and $f_n(x) = 0$ for irrational $x$. The limit is therefore Dirichlet's function $f = \mathbf{1}_{\mathbb{Q}\cap[0,1]}$. Because both the rationals and the irrationals are dense, $f$ is discontinuous at every point of $[0,1]$, which is uncountably many points. This refutes both (c) and (e).
+
+    **(d)** Fix $M \in \mathbb{N}$. On $A = \mathbb{R}$ let
+    $$f_n(x) = \sum_{k=1}^{M} \max\bigl(0,\, 1 - n|x - k|\bigr),$$
+    a sum of $M$ continuous "tents". Each $f_n$ is continuous, so it has $0 < M$ discontinuities. At $x = k \in \{1,\ldots,M\}$, the $k$-th tent equals $1$. For $n \ge 1$ the other tents vanish there, because $|k - j| \ge 1$. So $f_n(k) = 1$. If $x \notin \{1, \ldots, M\}$, let $d > 0$ be its distance to that set. For $n \ge 1/d$ every tent vanishes at $x$. Hence $f_n \to \mathbf{1}_{\{1,\ldots,M\}}$ pointwise. The limit has exactly $M$ discontinuities, namely at $1, \ldots, M$, so it does not have fewer than $M$.
+
+    **Under uniform convergence.** Now assume $f_n \to f$ uniformly on $A$. Here is a useful remark. If $c \in A$ and $f_n$ is continuous at $c$ for infinitely many $n$, say $n_1 < n_2 < \cdots$, then $f_{n_k} \to f$ uniformly as well. By the Continuous Limit Theorem (6.2.6), $f$ is continuous at $c$. Write $D_n$ for the set of discontinuities of $f_n$ and $D$ for that of $f$. The contrapositive of the remark reads:
+    $$c \in D \implies c \in D_n \text{ for all but finitely many } n. \qquad (\ast)$$
+
+    **(a) True.** Let $\epsilon > 0$. Pick $n$ with $|f_n(x) - f(x)| < \epsilon/3$ for all $x \in A$. By uniform continuity of this $f_n$, pick $\delta > 0$ with $|f_n(x) - f_n(y)| < \epsilon/3$ whenever $x,y \in A$ and $|x-y| < \delta$. For such $x, y$,
+    $$|f(x) - f(y)| \le |f(x) - f_n(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)| < \epsilon.$$
+
+    **(b) True.** Pick $n$ with $|f_n(x) - f(x)| < 1$ for all $x \in A$, and let $|f_n| \le B$ on $A$. Then $|f(x)| < B + 1$ for all $x \in A$.
+
+    **(c) False.** On $A = [0,1]$ let
+    $$f_n(x) = \begin{cases} 2^{-k} & x = 1/k \text{ for some } k \in \{1,\ldots,n\}, \\ 0 & \text{otherwise,} \end{cases} \qquad f(x) = \begin{cases} 2^{-k} & x = 1/k \text{ for some } k \in \mathbb{N}, \\ 0 & \text{otherwise.} \end{cases}$$
+    Then $f - f_n$ is $2^{-k}$ at $x = 1/k$ with $k > n$, and $0$ elsewhere. So $\sup|f - f_n| = 2^{-(n+1)} \to 0$ and the convergence is uniform. Each $f_n$ is nonzero at only $n$ points, so it is discontinuous at exactly those $n$ points, which is a finite number. But $f$ is discontinuous at every $1/k$: there $f(1/k) = 2^{-k} > 0$, while irrational points arbitrarily close to $1/k$ have $f = 0$. So $f$ has infinitely many discontinuities.
+
+    **(d) True.** Suppose $f$ had at least $M$ discontinuities $c_1, \ldots, c_M$. By $(\ast)$, for each $i$ there is $N_i$ with $c_i \in D_n$ for all $n \ge N_i$. For $n \ge \max_i N_i$, the set $D_n$ contains all $M$ points $c_1, \ldots, c_M$. This contradicts the assumption that $f_n$ has fewer than $M$ discontinuities. So $f$ has fewer than $M$ discontinuities.
+
+    **(e) True.** By $(\ast)$, every point of $D$ lies in some $D_n$, so $D \subseteq \bigcup_{n=1}^\infty D_n$. A countable union of countable sets is countable, so $D$ is countable.
+
+- id: abbott-6.3.4
+  hints:
+    - |
+      Uniform convergence of $h_n$ only needs a bound on $|\sin|$. For the derivatives, compute $h_n'(x)$ and ask what convergence of $h_n'(x)$ would force on $\cos(nx)$.
+    - |
+      If $\sqrt{n}\cos(nx)$ converged, then $\cos(nx) = \frac{1}{\sqrt n}\cdot\sqrt n \cos(nx)$ would tend to $0$. Rule that out with a double-angle identity relating $\cos(2nx)$ and $\cos(nx)$.
+  solution: |
+    **Uniform convergence.** For all $x \in \mathbb{R}$, $|h_n(x) - 0| = \dfrac{|\sin(nx)|}{\sqrt n} \le \dfrac{1}{\sqrt n}$. Given $\epsilon > 0$, choose $N > 1/\epsilon^2$. Then $|h_n(x)| < \epsilon$ for all $n \ge N$ and all $x$. So $h_n \to 0$ uniformly on $\mathbb{R}$.
+
+    **Derivatives diverge everywhere.** We have $h_n'(x) = \sqrt n \cos(nx)$. Fix $x \in \mathbb{R}$ and suppose, for contradiction, that $h_n'(x) \to L$ for some real $L$. Then by the Algebraic Limit Theorem
+    $$\cos(nx) = \frac{1}{\sqrt n}\, h_n'(x) \longrightarrow 0 \cdot L = 0.$$
+    Since $(\cos(2nx))_n$ is a subsequence of $(\cos(nx))_n$, also $\cos(2nx) \to 0$. But the double-angle formula gives
+    $$\cos(2nx) = 2\cos^2(nx) - 1 \longrightarrow 2\cdot 0 - 1 = -1,$$
+    which contradicts uniqueness of limits. Hence $(h_n'(x))$ diverges for every $x \in \mathbb{R}$.
+
+    (At $x = 0$, for instance, $h_n'(0) = \sqrt n \to \infty$.) So even though $h_n \to 0$ uniformly, the derivatives do not converge to the derivative of the limit, or to anything at all.
+
+- id: abbott-6.3.7
+  hints:
+    - |
+      The goal is the Cauchy Criterion for uniform convergence (Theorem 6.2.5), applied to $(f_n)$. Control each of the two terms in the given inequality separately.
+    - |
+      The first term is $|g(x) - g(x_0)|$ where $g = f_n - f_m$. Apply the Mean Value Theorem to $g$, and use the uniform Cauchy property of $(f_n')$ to bound $g'$.
+    - |
+      Choose the threshold for the derivatives as $\epsilon / (2(b-a))$, so that multiplying by $|x - x_0| \le b - a$ leaves $\epsilon/2$.
+  solution: |
+    **Proof.** We verify the Cauchy Criterion for Uniform Convergence (Theorem 6.2.5) for $(f_n)$ on $[a,b]$; assume $a < b$. Let $\epsilon > 0$.
+
+    Since $(f_n')$ converges uniformly on $[a,b]$, the forward direction of Theorem 6.2.5 gives $N_1$ such that
+    $$|f_n'(t) - f_m'(t)| < \frac{\epsilon}{2(b-a)} \quad\text{for all } t \in [a,b],\ m,n \ge N_1.$$
+    Since $(f_n(x_0))$ converges, it is Cauchy, so there is $N_2$ with $|f_n(x_0) - f_m(x_0)| < \epsilon/2$ for $m, n \ge N_2$. Let $N = \max(N_1, N_2)$, and fix $m, n \ge N$.
+
+    Let $g = f_n - f_m$. It is differentiable on $[a,b]$, hence continuous, with $g' = f_n' - f_m'$. Take $x \in [a,b]$. If $x \ne x_0$, the Mean Value Theorem on the closed interval with endpoints $x$ and $x_0$ gives a point $c$ strictly between them with
+    $$|g(x) - g(x_0)| = |g'(c)|\,|x - x_0| < \frac{\epsilon}{2(b-a)} \cdot (b - a) = \frac\epsilon2 .$$
+    If $x = x_0$, then $|g(x) - g(x_0)| = 0 < \epsilon/2$ trivially. Using the triangle inequality from the statement,
+    $$|f_n(x) - f_m(x)| \le |g(x) - g(x_0)| + |f_n(x_0) - f_m(x_0)| < \frac\epsilon2 + \frac\epsilon2 = \epsilon.$$
+    This holds for all $x \in [a,b]$ and all $m, n \ge N$, and $N$ does not depend on $x$. By Theorem 6.2.5, $(f_n)$ converges uniformly on $[a,b]$. $\blacksquare$
+
+- id: abbott-6.4.2
+  hints:
+    - |
+      Translate each statement into a statement about partial sums. The Cauchy Criterion for uniform convergence of series (Theorem 6.4.4) is the main tool.
+    - |
+      For (a), take a "block" consisting of a single term. For (b), compare blocks of the $f_n$ with blocks of the $g_n$.
+    - |
+      For (c), uniform convergence does not need absolute convergence. Could even constant functions give a counterexample?
+  solution: |
+    **(a) True.** Let $\epsilon > 0$. By the Cauchy Criterion (Theorem 6.4.4) there is $N$ such that $|g_{m+1}(x) + \cdots + g_n(x)| < \epsilon$ whenever $n > m \ge N$ and $x \in A$. Taking $n = m + 1$ gives $|g_{m+1}(x)| < \epsilon$ for all $m \ge N$ and $x \in A$. That is, $|g_k(x)| < \epsilon$ for all $k \ge N+1$ and all $x$. So $g_n \to 0$ uniformly.
+
+    **(b) True.** Let $\epsilon > 0$. By Theorem 6.4.4 applied to $\sum g_n$, there is $N$ with $|g_{m+1}(x) + \cdots + g_n(x)| < \epsilon$ for $n > m \ge N$ and all $x$. Since $0 \le f_k(x) \le g_k(x)$ for every $k$,
+    $$|f_{m+1}(x) + \cdots + f_n(x)| = f_{m+1}(x) + \cdots + f_n(x) \le g_{m+1}(x) + \cdots + g_n(x) < \epsilon.$$
+    By Theorem 6.4.4 again, $\sum f_n$ converges uniformly.
+
+    **(c) False.** Let $A$ be any nonempty set and let $f_n$ be the constant function $f_n(x) = \frac{(-1)^{n+1}}{n}$.
+
+    *Uniform convergence.* The alternating harmonic series $\sum (-1)^{n+1}/n$ converges (Alternating Series Test). Its partial sums do not depend on $x$, so they converge uniformly on $A$: the same $N$ works for every $x$.
+
+    *No summable bounds.* If $|f_n(x)| \le M_n$ for all $x \in A$, then $M_n \ge 1/n$. Since $\sum 1/n$ diverges, the Comparison Test shows $\sum M_n$ diverges. So no such constants exist, and the converse of the Weierstrass M-Test fails.
+
+- id: abbott-6.5.10
+  hints:
+    - |
+      Start with the constant term: what does continuity of $g$ at $0$ say about $b_0$?
+    - |
+      Suppose not all coefficients vanish, and let $b_k$ be the first nonzero one. Factor $g(x) = x^k h(x)$, where $h$ is again a power series.
+    - |
+      Show that $h$ converges on $(-R,R)$ and is continuous at $0$, with $h(0) = b_k$. Then evaluate $h$ along the sequence $x_n$.
+  solution: |
+    **Proof.** It suffices to show that $b_n = 0$ for every $n$, because then $g(x) = 0$ for all $x \in (-R,R)$. Suppose not, and let $k \ge 0$ be the smallest index with $b_k \ne 0$. Define
+    $$h(x) = \sum_{j=0}^\infty b_{j+k}\, x^j .$$
+
+    *$h$ converges on $(-R,R)$.* At $x = 0$ this is clear. For $0 < |x| < R$, the series $\sum_n b_n x^n$ converges, and $b_0 = \cdots = b_{k-1} = 0$. So
+    $$\sum_{j=0}^{J} b_{j+k} x^j = x^{-k} \sum_{n=0}^{J+k} b_n x^n \longrightarrow x^{-k} g(x) \quad (J \to \infty).$$
+    So $h$ converges at $x$, and $g(x) = x^k h(x)$. This identity also holds at $x = 0$ when $k \ge 1$, and trivially when $k = 0$.
+
+    *$h$ is continuous at $0$.* A power series that converges at every point of $(-R,R)$ converges uniformly on every compact interval $[-r, r]$ with $0 < r < R$ (Abbott's results on power series, Section 6.5). Its partial sums are polynomials, hence continuous. By the Continuous Limit Theorem, $h$ is continuous on $(-R,R)$, in particular at $0$, where $h(0) = b_k$.
+
+    *Contradiction.* Each $x_n$ lies in $(-R,R)$, since $g(x_n)$ is defined there, and $x_n \ne 0$. So
+    $$h(x_n) = \frac{g(x_n)}{x_n^k} = 0 \quad\text{for all } n.$$
+    Since $x_n \to 0$ and $h$ is continuous at $0$, $b_k = h(0) = \lim h(x_n) = 0$. This contradicts the choice of $k$. Hence every $b_n = 0$, and $g \equiv 0$ on $(-R,R)$. $\blacksquare$
+
+- id: abbott-6.7.2
+  hints:
+    - |
+      A polygonal function is determined by its values at the partition points. What is the most natural choice for those values?
+    - |
+      Use uniform continuity of $f$ on the compact interval $[a,b]$ to choose a mesh size, then let $\varphi$ be the piecewise-linear interpolation of $f$ at the partition points.
+    - |
+      On each subinterval, $\varphi(x)$ is a convex combination of the values of $f$ at the two endpoints. Write $f(x) - \varphi(x)$ the same way.
+  solution: |
+    **Proof.** Let $\epsilon > 0$. A continuous function on the compact set $[a,b]$ is uniformly continuous, so there is $\delta > 0$ with
+    $$x, y \in [a,b],\ |x - y| < \delta \implies |f(x) - f(y)| < \epsilon/2.$$
+    Choose $n$ with $(b-a)/n < \delta$, and let $x_i = a + i(b-a)/n$ for $i = 0, \ldots, n$. Define $\varphi$ on each $[x_{i-1}, x_i]$ to be the linear function that agrees with $f$ at the two endpoints:
+    $$\varphi(x) = \lambda\, f(x_{i-1}) + (1 - \lambda)\, f(x_i), \qquad \lambda = \frac{x_i - x}{x_i - x_{i-1}} \in [0,1].$$
+    On consecutive subintervals the two formulas agree at the shared node $x_i$, where both give $f(x_i)$. So $\varphi$ is a well-defined continuous function that is linear on each subinterval, i.e. $\varphi$ is polygonal.
+
+    Now let $x \in [a,b]$, say $x \in [x_{i-1}, x_i]$ with $\lambda$ as above. Both $|x - x_{i-1}|$ and $|x - x_i|$ are at most $x_i - x_{i-1} < \delta$. Since $f(x) = \lambda f(x) + (1-\lambda) f(x)$,
+    $$|f(x) - \varphi(x)| = \bigl|\lambda\,(f(x) - f(x_{i-1})) + (1 - \lambda)(f(x) - f(x_i))\bigr| \le \lambda\,\frac\epsilon2 + (1 - \lambda)\,\frac\epsilon2 = \frac\epsilon2 < \epsilon.$$
+    So $|f(x) - \varphi(x)| < \epsilon$ for all $x \in [a,b]$. $\blacksquare$
+
+- id: ross-24.9
+  hints:
+    - |
+      Treat the endpoints $x = 0$ and $x = 1$ separately. Inside, reuse what you know about $nx^n$.
+    - |
+      For (b), look at where $f_n$ peaks and how high the peak is. The peak height does not go to $0$, even though its location drifts toward $1$.
+    - |
+      For (c), integrate the polynomial directly. The lesson is that uniform convergence is sufficient, but not necessary, for interchanging the limit and the integral.
+  solution: |
+    **(a)** At $x = 0$ and $x = 1$, $f_n(x) = 0$ for all $n$. For $0 < x < 1$, $nx^n \to 0$ (Exercise 23.9(a)), so $f_n(x) = nx^n(1-x) \to 0$. Thus $f(x) = 0$ for all $x \in [0,1]$.
+
+    **(b)** No. Differentiate:
+    $$f_n'(x) = n\bigl[nx^{n-1}(1-x) - x^n\bigr] = n x^{n-1}\bigl[n - (n+1)x\bigr].$$
+    On $(0,1)$, $f_n'$ is positive for $x < \frac{n}{n+1}$ and negative for $x > \frac{n}{n+1}$. Since $f_n(0) = f_n(1) = 0$ and $f_n \ge 0$, the maximum of $|f_n|$ on $[0,1]$ is attained at $x = \frac{n}{n+1}$:
+    $$\sup_{[0,1]} |f_n - f| = f_n\!\left(\tfrac{n}{n+1}\right) = n\left(\frac{n}{n+1}\right)^n \frac{1}{n+1} = \left(\frac{n}{n+1}\right)^{n+1} = \frac{1}{\left(1 + \frac1n\right)^{n}\left(1 + \frac1n\right)}.$$
+    Using the standard limit $\left(1 + \frac1n\right)^n \to e$, this tends to $1/e \ne 0$. By Remark 24.4 (see Exercise 24.12), $f_n$ does not converge uniformly to $f$ on $[0,1]$.
+
+    **(c)** Yes. Integrating the polynomial,
+    $$\int_0^1 f_n(x)\,dx = n\int_0^1 (x^n - x^{n+1})\,dx = n\left(\frac{1}{n+1} - \frac{1}{n+2}\right) = \frac{n}{(n+1)(n+2)}.$$
+    Since $0 < \frac{n}{(n+1)(n+2)} < \frac{1}{n+2}$, this tends to $0 = \int_0^1 f(x)\,dx$. So the integrals do converge to the integral of the limit, even though the convergence is not uniform. Uniform convergence is a sufficient condition for this interchange, not a necessary one.
+
+- id: ross-26.8
+  hints:
+    - |
+      For (b), find a power series whose derivative is the series in (a), and compare it with $\arctan$. Two functions with the same derivative on an interval differ by a constant.
+    - |
+      For (c), the series converges at $x = 1$ by the Alternating Series Test. To show that its value there is $\arctan 1$, you need continuity of the power series at the endpoint. Which theorem gives that?
+    - |
+      For (d), notice that every term of the series is an odd function of $x$.
+  solution: |
+    **(a)** Let $x \in (-1,1)$ and $y = -x^2$. Then $|y| = x^2 < 1$, so the geometric series gives
+    $$\sum_{n=0}^\infty (-1)^n x^{2n} = \sum_{n=0}^\infty y^n = \frac{1}{1-y} = \frac{1}{1+x^2}.$$
+
+    **(b)** Let $g(x) = \sum_{n=0}^\infty \frac{(-1)^n}{2n+1} x^{2n+1}$.
+
+    *Radius of convergence is $1$.* If $|x| < 1$, the terms are bounded in absolute value by $|x|^{2n+1}$, so the series converges absolutely by comparison with a geometric series. If $|x| > 1$, then $|x|^{2n+1}/(2n+1) \to \infty$, so the terms do not tend to $0$ and the series diverges. Hence $R = 1$.
+
+    *Differentiate.* By Theorem 26.5, $g$ is differentiable on $(-1,1)$ and may be differentiated term by term:
+    $$g'(x) = \sum_{n=0}^\infty (-1)^n x^{2n} = \frac{1}{1+x^2} = \arctan'(x), \qquad x \in (-1,1),$$
+    using (a). So $(g - \arctan)' = 0$ on $(-1,1)$. By the Mean Value Theorem, $g - \arctan$ is constant on $(-1,1)$. At $x = 0$ both are $0$, so $g(x) = \arctan x$ for all $x \in (-1,1)$.
+
+    **(c)** At $x = 1$ the series is $\sum_{n=0}^\infty \frac{(-1)^n}{2n+1}$. Since $\frac{1}{2n+1}$ decreases to $0$, it converges by the Alternating Series Test. The power series has finite radius $R = 1$ and converges at $x = R$. So by Abel's Theorem (Theorem 26.6), $g$ is continuous at $1$ as a function on $(-1,1]$. Since $\arctan$ is continuous at $1$,
+    $$g(1) = \lim_{x\to1^-} g(x) = \lim_{x\to1^-} \arctan x = \arctan 1 = \frac\pi4.$$
+    This gives the Leibniz formula
+    $$\pi = 4\left(1 - \frac13 + \frac15 - \frac17 + \cdots\right).$$
+
+    **(d)** At $x = -1$, every term changes sign: $(-1)^{2n+1} = -1$. So
+    $$\sum_{n=0}^\infty \frac{(-1)^n}{2n+1}(-1)^{2n+1} = -\sum_{n=0}^\infty \frac{(-1)^n}{2n+1} = -\frac\pi4 = \arctan(-1).$$
+    The series converges at $x = -1$ and the equality holds there too, because both sides are odd functions. Thus $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n}{2n+1}x^{2n+1}$ on all of $[-1,1]$. Outside $[-1,1]$ the series diverges, so the representation stops there.
+
+- id: ross-27.3
+  hints:
+    - |
+      If polynomials converged uniformly to $f$, then some single polynomial $p$ would satisfy $|p(x) - f(x)| < 1$ for every $x \in \mathbb{R}$. Aim for a contradiction with one such $p$.
+    - |
+      Key fact: a nonconstant polynomial is unbounded on $(-\infty, 0]$ and on $[0,\infty)$. For (a), what does $|p - \sin| < 1$ say about the boundedness of $p$? For (b), as an alternative to the book's hint, look at $x \to -\infty$, where $e^x$ is tiny.
+  solution: |
+    **Preliminary fact.** Let $p(x) = a_d x^d + \cdots + a_0$ with $d \ge 1$ and $a_d \ne 0$. For $|x| \ge 1$,
+    $$|p(x)| \ge |x|^d\left(|a_d| - \frac{|a_{d-1}| + \cdots + |a_0|}{|x|}\right),$$
+    and the bracket tends to $|a_d| > 0$ as $|x| \to \infty$. Hence $|p(x)| \to \infty$ as $x \to +\infty$ and as $x \to -\infty$. So a nonconstant polynomial is unbounded on $[0,\infty)$ and on $(-\infty,0]$.
+
+    In both parts, suppose polynomials $p_n$ converge uniformly to $f$ on $\mathbb{R}$. Then for some $n$, $p = p_n$ satisfies
+    $$|p(x) - f(x)| < 1 \quad\text{for all } x \in \mathbb{R}. \qquad (\ast)$$
+    We show that no polynomial satisfies $(\ast)$.
+
+    **(a)** $f = \sin$. From $(\ast)$, $|p(x)| < 1 + |\sin x| \le 2$ for all $x$, so $p$ is bounded. By the preliminary fact, $p$ is a constant $c$. Then $(\ast)$ at $x = \pi/2$ gives $|c - 1| < 1$, so $c > 0$. At $x = -\pi/2$ it gives $|c + 1| < 1$, so $c < 0$. This is a contradiction.
+
+    **(b)** $f(x) = e^x$. For $x \le 0$, $(\ast)$ gives $|p(x)| < 1 + e^x \le 2$. So $p$ is bounded on $(-\infty, 0]$, and by the preliminary fact $p$ is a constant $c$. Then $(\ast)$ gives $e^x < c + 1$ for all $x$. But $e^x \ge 1 + x$, so $e^x$ is unbounded above. This is a contradiction.
+
+    Hence neither $\sin x$ nor $e^x$ is a uniform limit of polynomials on $\mathbb{R}$. By contrast, the Weierstrass Approximation Theorem guarantees uniform polynomial approximation on every bounded closed interval. For $e^x$, the partial sums of its Taylor series also converge to it uniformly on bounded sets.
+
+- id: abbott-6.2.11
+  hints:
+    - |
+      After (a), the problem becomes: continuous functions $g_n \ge 0$ that decrease pointwise to $0$ on a compact set must do so uniformly.
+    - |
+      The sets $K_n$ are the "bad sets" where $g_n$ is still at least $\epsilon$. Show they are compact and nested, and work out their intersection.
+    - |
+      Use the fact that a nested sequence of nonempty compact sets has nonempty intersection.
+  solution: |
+    **(a)** Let $g_n = f - f_n$. Since $f_n$ and $f$ are continuous on $K$, so is $g_n$. Since $(f_n(x))$ is increasing with limit $f(x)$, we have $f_n(x) \le f(x)$, i.e. $g_n(x) \ge 0$. Also $g_{n+1}(x) \le g_n(x)$, and $g_n(x) \to 0$. So $(g_n)$ is a sequence of continuous, nonnegative functions decreasing pointwise to $0$ on $K$. It suffices to show $g_n \to 0$ uniformly on $K$, since $|f_n - f| = g_n$.
+
+    **(b)** Let $\epsilon > 0$ and $K_n = \{x \in K : g_n(x) \ge \epsilon\}$.
+
+    *Nested.* If $x \in K_{n+1}$, then $g_n(x) \ge g_{n+1}(x) \ge \epsilon$, so $x \in K_n$. Thus $K_1 \supseteq K_2 \supseteq \cdots$.
+
+    *Compact.* $K_n \subseteq K$ is bounded. It is also closed. Let $x_k \in K_n$ with $x_k \to x$. Since $K$ is closed, $x \in K$, and by continuity of $g_n$ at $x$, $g_n(x) = \lim g_n(x_k) \ge \epsilon$. So $x \in K_n$. Being closed and bounded, $K_n$ is compact.
+
+    *Empty intersection.* For each $x \in K$, $g_n(x) \to 0$, so $g_n(x) < \epsilon$ for some $n$, i.e. $x \notin K_n$. Hence $\bigcap_n K_n = \varnothing$.
+
+    If every $K_n$ were nonempty, the Nested Compact Set Property (Theorem 3.3.5) would make $\bigcap_n K_n$ nonempty. So some $K_N = \varnothing$. Then $K_n \subseteq K_N = \varnothing$ for all $n \ge N$, which means
+    $$0 \le g_n(x) < \epsilon \quad\text{for all } x \in K \text{ and all } n \ge N.$$
+    Since $N$ does not depend on $x$, $g_n \to 0$ uniformly. So $f_n \to f$ uniformly on $K$. $\blacksquare$
+
+- id: abbott-6.2.12
+  hints:
+    - |
+      First write "continue this process" as a single rule $f_{n+1} = T(f_n)$, where $T$ shrinks a graph into the left and right thirds and puts the constant $\tfrac12$ in the middle. Check that $f_1 = T(f_0)$ and $f_2 = T(f_1)$.
+    - |
+      Compare $T(g)$ and $T(h)$: show $\sup|Tg - Th| \le \tfrac12 \sup|g - h|$. This makes $\sup|f_{n+1} - f_n|$ shrink geometrically, which gives uniform Cauchy.
+    - |
+      For $f' = 0$ off $C$, prove by induction on $n$ that every $f_m$ with $m \ge n$ agrees with $f_n$ on $[0,1]\setminus C_n$, and that $f_n$ is locally constant there. Use the self-similarity $C_{n+1} = \tfrac13 C_n \cup \left(\tfrac23 + \tfrac13 C_n\right)$.
+  solution: |
+    **Setup.** For $g\colon [0,1] \to \mathbb{R}$, define $Tg\colon [0,1] \to \mathbb{R}$ by
+    $$(Tg)(x) = \begin{cases} \tfrac12\, g(3x) & 0 \le x \le \tfrac13, \\ \tfrac12 & \tfrac13 < x < \tfrac23, \\ \tfrac12\, g(3x-2) + \tfrac12 & \tfrac23 \le x \le 1. \end{cases}$$
+    Then $Tf_0 = f_1$: the outer pieces are $\tfrac32 x$ and $\tfrac12(3x - 2) + \tfrac12 = \tfrac32 x - \tfrac12$. Also $Tf_1 = f_2$, since $f_1 \equiv \tfrac12$ on the middle third. "Continuing the process" means $f_{n+1} = Tf_n$ for all $n \ge 0$.
+
+    **(a)** $f_0$ is the diagonal line from $(0,0)$ to $(1,1)$. The graph of $f_1$ rises linearly from $(0,0)$ to $(\tfrac13, \tfrac12)$, is flat at height $\tfrac12$ on $(\tfrac13, \tfrac23)$, and rises linearly from $(\tfrac23, \tfrac12)$ to $(1,1)$. The three pieces meet at the values $\tfrac12$, so $f_1$ is continuous. Each piece is non-decreasing, and the pieces are ordered, so $f_1$ is increasing (non-decreasing). It is constant on $(\tfrac13,\tfrac23) = [0,1]\setminus C_1$.
+
+    **Basic properties.** Say $g$ is *good* if $g$ is continuous, increasing (non-decreasing), $g(0) = 0$ and $g(1) = 1$. If $g$ is good, then $Tg$ is good:
+    - On $[0,\tfrac13]$, $Tg$ rises continuously from $0$ to $\tfrac12 g(1) = \tfrac12$.
+    - On $(\tfrac13,\tfrac23)$ it equals $\tfrac12$.
+    - On $[\tfrac23, 1]$ it rises continuously from $\tfrac12 g(0) + \tfrac12 = \tfrac12$ to $1$.
+
+    The values match at $\tfrac13$ and $\tfrac23$, so $Tg$ is continuous and non-decreasing, with $Tg(0) = 0$ and $Tg(1) = 1$. Since $f_0$ is good, induction shows every $f_n$ is good.
+
+    **(b) Uniform convergence.** For any bounded $g, h$ and $x \in [0,1]$:
+    - if $x \le \tfrac13$, then $|Tg(x) - Th(x)| = \tfrac12 |g(3x) - h(3x)|$;
+    - if $\tfrac13 < x < \tfrac23$, the difference is $0$;
+    - if $x \ge \tfrac23$, it is $\tfrac12|g(3x-2) - h(3x-2)|$.
+
+    Hence $\|Tg - Th\| \le \tfrac12\|g - h\|$, where $\|u\| = \sup_{[0,1]}|u|$. By induction, $\|f_{n+1} - f_n\| \le 2^{-n}\|f_1 - f_0\| \le 2^{-n}$, using $0 \le f_0, f_1 \le 1$. For $m > n$,
+    $$|f_m(x) - f_n(x)| \le \sum_{k=n}^{m-1} \|f_{k+1} - f_k\| \le \sum_{k=n}^{\infty} 2^{-k} = 2^{1-n} \quad\text{for all } x \in [0,1].$$
+    Given $\epsilon > 0$, take $N$ with $2^{1-N} < \epsilon$. The Cauchy Criterion for Uniform Convergence (Theorem 6.2.5) then shows that $(f_n)$ converges uniformly on $[0,1]$.
+
+    **(c)** Let $f = \lim f_n$.
+
+    *Continuous:* $f$ is a uniform limit of continuous functions (Continuous Limit Theorem).
+
+    *Increasing:* if $x < y$, then $f_n(x) \le f_n(y)$ for all $n$, and the Order Limit Theorem gives $f(x) \le f(y)$.
+
+    *Endpoints:* $f(0) = \lim 0 = 0$ and $f(1) = \lim 1 = 1$.
+
+    *Derivative zero off $C$.* Recall $C_0 = [0,1]$, and $C_{n+1}$ is obtained by removing the open middle third of each closed interval of $C_n$. We have $C_1 = \tfrac13 C_0 \cup (\tfrac23 + \tfrac13 C_0)$. The maps $x \mapsto x/3$ and $x \mapsto \tfrac23 + x/3$ send the middle third of an interval to the middle third of its image. So by induction
+    $$C_{n+1} = \tfrac13 C_n \cup \left(\tfrac23 + \tfrac13 C_n\right) \qquad (n \ge 0).$$
+    Each $C_n$ is closed and contains $0$ and $1$, so $U_n := [0,1]\setminus C_n$ is an open subset of $\mathbb{R}$ contained in $(0,1)$. Call a function *locally constant* on $U_n$ if each point of $U_n$ has a neighborhood in $U_n$ on which the function is constant.
+
+    **Claim.** For every $n \ge 0$, $f_n$ is locally constant on $U_n$, and $f_m = f_n$ on $U_n$ for all $m \ge n$.
+
+    *Proof of claim (induction).* For $n = 0$, $U_0 = \varnothing$. Assume the claim for $n$, and let $x \in U_{n+1}$ and $m \ge n+1$.
+    - If $\tfrac13 < x < \tfrac23$: $f_m(x) = \tfrac12 = f_{n+1}(x)$ (as $m, n+1 \ge 1$), and $f_{n+1}$ is constant on $(\tfrac13, \tfrac23)$.
+    - If $x \in [0, \tfrac13]$: since $x \notin \tfrac13 C_n$, we have $3x \in U_n$, so $3x \in (0,1)$. By the inductive hypothesis (with $m - 1 \ge n$), $f_m(x) = \tfrac12 f_{m-1}(3x) = \tfrac12 f_n(3x) = f_{n+1}(x)$. Moreover $f_n$ is constant on some $(3x - r, 3x + r) \subseteq U_n \subseteq (0,1)$. So $f_{n+1}(t) = \tfrac12 f_n(3t)$ is constant for $t \in (x - r/3, x + r/3) \subseteq (0, \tfrac13)$, and this neighborhood lies in $U_{n+1}$.
+    - If $x \in [\tfrac23, 1]$: the same argument with $3x - 2$ in place of $3x$.
+
+    This proves the claim for $n+1$. $\square$
+
+    Now let $x \in [0,1]\setminus C$. Since $C = \bigcap_n C_n$, we have $x \in U_n$ for some $n$. By the claim, $f_m = f_n$ on $U_n$ for all $m \ge n$, so $f = f_n$ on $U_n$. Also $f_n$ is constant on some open interval around $x$ inside $U_n$. So $f$ is constant on an open interval around $x$, and therefore $f'(x) = 0$.
+
+    So $f$ is continuous and increasing, rises from $f(0) = 0$ to $f(1) = 1$, and yet $f' = 0$ on the complement of $C$, a set whose total length is $1$.
+
+- id: abbott-6.2.15
+  hints:
+    - |
+      This is a diagonal-subsequence argument followed by an $\epsilon/3$ argument. The finished goal is to verify the Cauchy Criterion for uniform convergence for $(g_k)$.
+    - |
+      In (b), each of the finitely many sequences $(g_k(r_i))_k$ converges, so each is Cauchy and comes with its own threshold $N_i$. How do you combine finitely many thresholds? To get the finite set of rationals, either use compactness or write down an explicit grid.
+    - |
+      In (c), go from $x$ to a nearby $r_i$ and back, using equicontinuity for the outer two steps and (b) for the middle step.
+  solution: |
+    **(a)** The set $\mathbb{Q}\cap[0,1]$ is countable, and $|f_n(x)| \le M$ for all $n$ and all $x$ in it. By Exercise 6.2.13 there is a subsequence $(f_{n_k})$ that converges at every rational point of $[0,1]$. Set $g_k = f_{n_k}$. Note that $(g_k)$ inherits equicontinuity from $(f_n)$, since it is a subcollection.
+
+    **(b)** Let $\epsilon > 0$ and take $\delta > 0$ from equicontinuity, so that $|g_k(x) - g_k(y)| < \epsilon/3$ whenever $|x - y| < \delta$, for all $k$.
+
+    *A finite set of rationals.* Choose $m \in \mathbb{N}$ with $1/m < \delta$, and let $r_i = i/m$ for $i = 0, 1, \ldots, m$. Every $x \in [0,1]$ lies within $1/(2m) < \delta$ of some $r_i$. So the neighborhoods $V_\delta(r_i)$ cover $[0,1]$. (Alternatively, the sets $V_\delta(r)$ with $r$ rational cover the compact set $[0,1]$ by density of $\mathbb{Q}$, so finitely many suffice.)
+
+    *A common $N$.* For each $i$, $(g_k(r_i))_k$ converges by (a), hence is Cauchy. So there is $N_i$ with $|g_s(r_i) - g_t(r_i)| < \epsilon/3$ for all $s, t \ge N_i$. Let $N = \max\{N_0, \ldots, N_m\}$. Then $|g_s(r_i) - g_t(r_i)| < \epsilon/3$ for all $s, t \ge N$ and all $i$.
+
+    *Why finiteness matters.* A maximum of finitely many natural numbers is a natural number. If we tried to use infinitely many rationals (e.g. all of them), the thresholds $N_r$ could be unbounded and no single $N$ would exist. Pointwise convergence on $\mathbb{Q}$ does not by itself give uniform control.
+
+    **(c)** Let $x \in [0,1]$ and $s, t \ge N$. Pick $r_i$ with $|x - r_i| < \delta$. Then
+    $$|g_s(x) - g_t(x)| \le |g_s(x) - g_s(r_i)| + |g_s(r_i) - g_t(r_i)| + |g_t(r_i) - g_t(x)| < \frac\epsilon3 + \frac\epsilon3 + \frac\epsilon3 = \epsilon.$$
+    The outer terms are bounded by equicontinuity, and the middle term by (b). Since $N$ depends only on $\epsilon$, not on $x$, the Cauchy Criterion for Uniform Convergence (Theorem 6.2.5) shows that $(g_k)$ converges uniformly on $[0,1]$. Thus $(f_n)$ has a uniformly convergent subsequence. $\blacksquare$

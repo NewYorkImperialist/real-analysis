@@ -1,0 +1,667 @@
+- id: mit20-a11-2
+  hints:
+    - |
+      The $n$-th Taylor polynomial at $x_0$ is $P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k$. So you need the derivatives $f^{(0)}, \dots, f^{(4)}$ evaluated at the base point.
+    - |
+      For $\sin x$ the derivatives cycle through $\cos, -\sin, -\cos, \sin$. For $\frac{1}{1-x} = (1-x)^{-1}$, find a general formula for $f^{(k)}(x)$ by induction, then substitute $x = -1$.
+  solution: |
+    Recall $P_4(x) = \sum_{k=0}^{4} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$.
+
+    **(a)** With $f(x) = \sin x$ and $x_0 = 0$:
+    $$f(0) = 0,\quad f'(0) = \cos 0 = 1,\quad f''(0) = -\sin 0 = 0,\quad f'''(0) = -\cos 0 = -1,\quad f^{(4)}(0) = \sin 0 = 0.$$
+    Hence
+    $$P_4(x) = x - \frac{x^3}{6}.$$
+    (The degree-4 coefficient happens to be $0$, so $P_4 = P_3$.)
+
+    **(b)** With $f(x) = (1-x)^{-1}$, we claim $f^{(k)}(x) = k!\,(1-x)^{-(k+1)}$ for $x \neq 1$. This holds for $k=0$, and if it holds for $k$ then by the chain rule
+    $$f^{(k+1)}(x) = k!\,\cdot(-(k+1))(1-x)^{-(k+2)}\cdot(-1) = (k+1)!\,(1-x)^{-(k+2)}.$$
+    At $x_0 = -1$ we get $f^{(k)}(-1) = \frac{k!}{2^{k+1}}$, so the $k$-th coefficient is $\frac{f^{(k)}(-1)}{k!} = \frac{1}{2^{k+1}}$. Therefore
+    $$P_4(x) = \frac12 + \frac{x+1}{4} + \frac{(x+1)^2}{8} + \frac{(x+1)^3}{16} + \frac{(x+1)^4}{32}.$$
+- id: mit20-final-4a
+  hints:
+    - |
+      For (i), you want to show $f(x) \to f(c)$ as $x \to c$. Try to express $f(x) - f(c)$ in terms of the difference quotient.
+    - |
+      Write $f(x) - f(c) = \frac{f(x)-f(c)}{x-c}\cdot (x-c)$ for $x \neq c$ and use the product rule for limits.
+    - |
+      For (ii), look for a continuous function with a "corner".
+  solution: |
+    **(i) Proof.** Suppose $f$ is differentiable at $c$, so $\lim_{x\to c}\frac{f(x)-f(c)}{x-c} = f'(c)$ exists. For $x \in (a,b)$ with $x \ne c$,
+    $$f(x) - f(c) = \frac{f(x)-f(c)}{x-c}\,(x-c).$$
+    As $x \to c$, the first factor tends to $f'(c)$ and the second tends to $0$, so by the product rule for limits $\lim_{x\to c}(f(x) - f(c)) = f'(c)\cdot 0 = 0$. Thus $\lim_{x\to c} f(x) = f(c)$, i.e. $f$ is continuous at $c$. $\blacksquare$
+
+    **(ii)** Take $(a,b) = (-1,1)$, $c = 0$ and $f(x) = |x|$. It is continuous at $0$, since $|f(x) - f(0)| = |x| < \varepsilon$ whenever $|x| < \delta := \varepsilon$. But for $x \ne 0$,
+    $$\frac{f(x)-f(0)}{x-0} = \frac{|x|}{x} = \begin{cases} 1 & x > 0,\\ -1 & x<0.\end{cases}$$
+    Along $x_n = 1/n$ this quotient is $1$ and along $x_n = -1/n$ it is $-1$, so the limit as $x \to 0$ does not exist. Hence $f$ is continuous but not differentiable at $0$, and the converse of (i) fails.
+- id: mit20-final-4b
+  hints:
+    - |
+      Write down the difference quotient $\frac{f(h) - f(0)}{h}$ for $h \ne 0$ and simplify it.
+    - |
+      The simplified quotient is $h$ times a bounded factor. Use $|\sin t| \le 1$ and the squeeze theorem.
+  solution: |
+    **Proof.** For $h \neq 0$,
+    $$\frac{f(h) - f(0)}{h - 0} = \frac{h^2 \sin(1/h)}{h} = h \sin(1/h).$$
+    Since $|\sin(1/h)| \le 1$, we have
+    $$\left|\frac{f(h)-f(0)}{h} - 0\right| = |h|\,|\sin(1/h)| \le |h|.$$
+    Given $\varepsilon > 0$, let $\delta = \varepsilon$. Then $0 < |h| < \delta$ implies $\left|\frac{f(h)-f(0)}{h}\right| < \varepsilon$. Hence
+    $$f'(0) = \lim_{h\to 0}\frac{f(h)-f(0)}{h} = 0,$$
+    so $f$ is differentiable at $0$ with $f'(0) = 0$. $\blacksquare$
+- id: mit20-a10-1
+  hints:
+    - |
+      In (a), the Hölder inequality gives an explicit modulus of continuity that does not depend on the points. How small must $|x-y|$ be to make $C|x-y|^\alpha < \varepsilon$?
+    - |
+      In (b), divide the Hölder inequality by $|x-y|$ and let $y \to x$. What does that say about $f'(x)$?
+    - |
+      Once you know $f' \equiv 0$ on the interval, a standard consequence of the Mean Value Theorem finishes (b).
+  solution: |
+    **(a) Proof.** Let $\varepsilon > 0$ and set $\delta = (\varepsilon/C)^{1/\alpha} > 0$. If $x, y \in I$ with $|x-y| < \delta$, then, since $t \mapsto t^\alpha$ is increasing on $[0,\infty)$ for $\alpha > 0$,
+    $$|f(x) - f(y)| \le C|x-y|^\alpha < C\delta^\alpha = \varepsilon.$$
+    Since $\delta$ depends only on $\varepsilon$ (and the constants $C, \alpha$), $f$ is uniformly continuous on $I$. $\blacksquare$
+
+    **(b) Proof.** If $I$ consists of a single point there is nothing to prove, so assume $I$ is a nondegenerate interval. Fix $x \in I$. For $y \in I$, $y \neq x$,
+    $$\left|\frac{f(y)-f(x)}{y-x}\right| \le C|y-x|^{\alpha-1}.$$
+    Since $\alpha - 1 > 0$, the right side tends to $0$ as $y \to x$. By the squeeze theorem, $\lim_{y\to x}\frac{f(y)-f(x)}{y-x} = 0$; that is, $f$ is differentiable at $x$ (one-sidedly if $x$ is an endpoint of $I$) with $f'(x) = 0$.
+
+    Now let $x < y$ be any two points of $I$. Then $[x,y]\subseteq I$, $f$ is continuous on $[x,y]$ by (a) and differentiable on $(x,y)$ with derivative $0$. By the Mean Value Theorem there is $\xi \in (x,y)$ with $f(y) - f(x) = f'(\xi)(y-x) = 0$. Hence $f(x) = f(y)$ for all $x, y \in I$, and $f$ is constant. $\blacksquare$
+- id: mit20-a10-3
+  hints:
+    - |
+      One direction is about difference quotients bounding the derivative; the other is about the derivative bounding difference quotients.
+    - |
+      If $|f(x)-f(y)| \le M|x-y|$, the difference quotients are bounded by $M$; pass to the limit. Conversely, use the Mean Value Theorem.
+  solution: |
+    **($\Rightarrow$)** Suppose $|f(x) - f(y)| \le M|x-y|$ for all $x,y\in\mathbb{R}$. Fix $x$. For $h \neq 0$,
+    $$\left|\frac{f(x+h)-f(x)}{h}\right| \le M.$$
+    Letting $h\to 0$ and using continuity of $|\cdot|$ together with the fact that limits preserve non-strict inequalities, $|f'(x)| \le M$. So $f'$ is bounded by $M$.
+
+    **($\Leftarrow$)** Suppose $|f'(t)| \le M$ for all $t$. Let $x, y \in \mathbb{R}$; if $x = y$ there is nothing to show, so say $x < y$. The function $f$ is differentiable, hence continuous, on $[x,y]$, so the Mean Value Theorem gives $\xi \in (x,y)$ with $f(y) - f(x) = f'(\xi)(y-x)$. Therefore
+    $$|f(y)-f(x)| = |f'(\xi)|\,|y-x| \le M|y-x|,$$
+    and $f$ is Lipschitz with constant $M$. $\blacksquare$
+- id: mit20-a11-1
+  hints:
+    - |
+      "Exactly one" means two things: existence and uniqueness. They need different tools.
+    - |
+      For existence, find two points where the polynomial has opposite signs and use the IVT. For uniqueness, look at the derivative: the exponents $1120$ and $2020$ are even.
+  solution: |
+    Let $p(x) = \frac{x^{1121}}{1121} + \frac{x^{2021}}{2021} + x + 1$, a polynomial, hence continuous and differentiable on $\mathbb{R}$.
+
+    **Existence.** We have $p(0) = 1 > 0$ and
+    $$p(-1) = -\frac{1}{1121} - \frac{1}{2021} - 1 + 1 = -\frac{1}{1121} - \frac{1}{2021} < 0,$$
+    using that $1121$ and $2021$ are odd. By the Intermediate Value Theorem there is $x_0 \in (-1, 0)$ with $p(x_0) = 0$.
+
+    **Uniqueness.** We have
+    $$p'(x) = x^{1120} + x^{2020} + 1 \ge 1 > 0 \quad\text{for all } x,$$
+    because $1120$ and $2020$ are even, so $x^{1120}, x^{2020} \ge 0$. Suppose $p(x_1) = p(x_2) = 0$ with $x_1 < x_2$. By Rolle's theorem there is $\xi \in (x_1, x_2)$ with $p'(\xi) = 0$, contradicting $p' > 0$. Hence the root is unique.
+
+    So the equation has exactly one real root (and it lies in $(-1,0)$). $\blacksquare$
+- id: mit20-a11-3
+  hints:
+    - |
+      Expand the numerator with Taylor's theorem about the point the limit approaches, keeping an explicit remainder term.
+    - |
+      In (a), expand $\sin x$ about $0$; since its $x^4$ coefficient is $0$, use the remainder after the degree-4 polynomial. In (b), expand $\sin x$ about $\pi/2$ up to degree 2 with the Lagrange remainder.
+    - |
+      After dividing by the power of $x$ (or of $x - \pi/2$), the remainder contributes a bounded factor times something tending to $0$.
+  solution: |
+    We use Taylor's theorem with the Lagrange remainder: if $f$ is $(n+1)$ times differentiable near $x_0$, then for each $x \neq x_0$ nearby there is $\xi$ between $x_0$ and $x$ with
+    $$f(x) = \sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}.$$
+
+    **(a)** Take $f = \sin$, $x_0 = 0$, $n = 4$. The fourth Taylor polynomial is $x - \frac{x^3}{6}$ and $f^{(5)} = \cos$, so for each $x \ne 0$ there is $\xi_x$ between $0$ and $x$ with
+    $$\sin x = x - \frac{x^3}{6} + \frac{\cos(\xi_x)}{120}x^5.$$
+    Hence, for $x\ne 0$,
+    $$\frac{x - \sin x}{x^3} = \frac16 - \frac{\cos(\xi_x)}{120}x^2.$$
+    Since $|\cos(\xi_x)\,x^2/120| \le x^2/120 \to 0$, we get
+    $$\lim_{x\to 0}\frac{x-\sin x}{x^3} = \frac16.$$
+
+    **(b)** Take $f = \sin$, $x_0 = \pi/2$, $n = 2$. We have $f(\pi/2) = 1$, $f'(\pi/2) = \cos(\pi/2) = 0$, $f''(\pi/2) = -\sin(\pi/2) = -1$, and $f''' = -\cos$. So for $x \neq \pi/2$ there is $\xi_x$ between $\pi/2$ and $x$ with
+    $$\sin x = 1 - \frac12\left(x-\frac{\pi}{2}\right)^2 - \frac{\cos(\xi_x)}{6}\left(x - \frac{\pi}{2}\right)^3.$$
+    Therefore
+    $$\frac{1-\sin x}{(x-\pi/2)^2} = \frac12 + \frac{\cos(\xi_x)}{6}\left(x-\frac{\pi}{2}\right),$$
+    and the last term is bounded in absolute value by $\frac16|x - \pi/2| \to 0$. Hence
+    $$\lim_{x\to\pi/2}\frac{1-\sin x}{(x-\pi/2)^2} = \frac12.$$
+- id: mit20-final-5a
+  hints:
+    - |
+      The sum is the $n$-th Taylor polynomial of $e^x$ at $0$. The left side is the size of the Taylor remainder.
+    - |
+      Use Taylor's theorem with the Lagrange form of the remainder; every derivative of $e^x$ is $e^x$.
+    - |
+      The intermediate point $\xi$ lies between $0$ and $x$, so $|\xi| \le R$. Bound $e^\xi$ and $|x|^{n+1}$ separately.
+  solution: |
+    **Proof.** Let $f(x) = e^x$. Then $f^{(k)} = e^x$ for every $k$, so $f^{(k)}(0) = 1$ and $\sum_{j=0}^{n}\frac{x^j}{j!}$ is the $n$-th Taylor polynomial $P_n$ of $f$ at $0$.
+
+    If $x = 0$ the left side is $|1 - 1| = 0$ and the inequality is trivial. Let $x \in [-R,R]$, $x \neq 0$. By Taylor's theorem with the Lagrange remainder there is $\xi$ strictly between $0$ and $x$ with
+    $$e^x - P_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}x^{n+1} = \frac{e^\xi}{(n+1)!}x^{n+1}.$$
+    Since $\xi$ lies between $0$ and $x$, $\xi \le |x| \le R$, and as $\exp$ is increasing, $e^{\xi} \le e^R$. Also $|x|^{n+1}\le R^{n+1}$. Therefore
+    $$\left|e^x - \sum_{j=0}^{n}\frac{x^j}{j!}\right| = \frac{e^\xi |x|^{n+1}}{(n+1)!} \le \frac{e^R R^{n+1}}{(n+1)!}. \qquad\blacksquare$$
+- id: lebl-4.1.5
+  hints:
+    - |
+      At $0$, compute the difference quotient $f(h)/h$ in the two cases $h$ rational and $h$ irrational; both are small.
+    - |
+      At $c \neq 0$, use the density of the rationals and of the irrationals to approach $c$ along two sequences on which $f$ has different limits.
+    - |
+      Split into the cases $c \in \mathbb{Q}$ and $c \notin \mathbb{Q}$, and compare the sequence limit with $f(c)$.
+  solution: |
+    **Differentiability at 0.** We have $f(0) = 0$ since $0 \in \mathbb{Q}$. For $h \neq 0$, $f(h)$ is either $h^2$ or $0$, so in either case $|f(h)| \le h^2$ and
+    $$\left|\frac{f(h)-f(0)}{h}\right| = \frac{|f(h)|}{|h|} \le |h|.$$
+    By the squeeze theorem the quotient tends to $0$ as $h\to 0$, so $f$ is differentiable at $0$ with $f'(0) = 0$. (In particular $f$ is continuous at $0$.)
+
+    **Discontinuity at $c \neq 0$.**
+
+    *Case 1: $c \in \mathbb{Q}$.* Then $f(c) = c^2 \neq 0$. By density of the irrationals, choose irrational $x_n$ with $|x_n - c| < 1/n$. Then $x_n \to c$ but $f(x_n) = 0 \not\to c^2 = f(c)$. By the sequential criterion, $f$ is not continuous at $c$.
+
+    *Case 2: $c \notin \mathbb{Q}$.* Then $f(c) = 0$. By density of $\mathbb{Q}$, choose rational $q_n$ with $|q_n - c| < 1/n$. Then $q_n \to c$ and $f(q_n) = q_n^2 \to c^2 \neq 0 = f(c)$, so again $f$ is not continuous at $c$.
+
+    Hence $f$ is differentiable at $0$ and discontinuous at every $c \ne 0$. $\blacksquare$
+- id: lebl-4.1.11
+  hints:
+    - |
+      Since $h(c) = f(c)g(c) = 0$, the difference quotient of $h$ at $c$ is $f(x)\cdot\frac{g(x)}{x-c}$. What do you expect $h'(c)$ to be?
+    - |
+      Use $g(c) = 0$ to rewrite $\frac{g(x)}{x-c}$ as the difference quotient of $g$, and bound $|f|$ by a constant $M$.
+  solution: |
+    **Proof.** Let $M \ge 0$ with $|f(x)| \le M$ for all $x \in I$. Since $g(c) = 0$, $h(c) = f(c)g(c) = 0$. For $x\in I$, $x \neq c$,
+    $$\left|\frac{h(x) - h(c)}{x-c}\right| = |f(x)|\,\left|\frac{g(x)}{x-c}\right| \le M\left|\frac{g(x) - g(c)}{x-c}\right|.$$
+    As $x \to c$, $\frac{g(x)-g(c)}{x-c} \to g'(c) = 0$, so the right side tends to $M\cdot 0 = 0$. By the squeeze theorem,
+    $$\lim_{x\to c}\frac{h(x)-h(c)}{x-c} = 0.$$
+    Thus $h$ is differentiable at $c$ with $h'(c) = 0$. $\blacksquare$
+
+    (The product rule does not apply since $f$ need not be differentiable, or even continuous, at $c$.)
+- id: lebl-4.2.7
+  hints:
+    - |
+      Argue by contradiction: if $f'$ is not positive somewhere, what sign must it have there?
+    - |
+      Derivatives have the intermediate value property (Darboux's theorem), even when they are not continuous.
+  solution: |
+    **Proof.** Suppose, for contradiction, that $f'(d) \le 0$ for some $d \in (a,b)$. Since $f'$ never vanishes, $f'(d) < 0$. Then $d \neq c$. Let $p = \min(c,d)$ and $q = \max(c,d)$, so $[p,q]\subset(a,b)$, and $f$ is differentiable on $[p,q]$ (its one-sided derivatives at $p, q$ equal the two-sided derivatives $f'(p), f'(q)$). The number $0$ lies strictly between $f'(p)$ and $f'(q)$, one of which is $f'(c) > 0$ and the other $f'(d) < 0$. By Darboux's theorem there is $x \in (p,q)$ with $f'(x) = 0$, contradicting $f'(x) \ne 0$. Hence $f'(x) > 0$ for all $x\in(a,b)$. $\blacksquare$
+- id: lebl-4.2.10
+  hints:
+    - |
+      Prove the contrapositive: if $|f'| \le M$ on $(a,b)$, then $f$ is bounded.
+    - |
+      Fix a base point $x_0\in(a,b)$ and use the Mean Value Theorem to control $|f(x) - f(x_0)|$. Where does the finite length $b-a$ enter?
+  solution: |
+    **Proof.** We prove the contrapositive. Suppose $|f'(t)| \le M$ for all $t\in(a,b)$. Fix $x_0\in(a,b)$. For any $x \in (a,b)$ with $x \ne x_0$, $f$ is continuous on the closed interval between $x_0$ and $x$ and differentiable on its interior, so by the Mean Value Theorem there is $\xi$ between $x_0$ and $x$ with $f(x) - f(x_0) = f'(\xi)(x - x_0)$. Hence
+    $$|f(x)| \le |f(x_0)| + |f'(\xi)|\,|x-x_0| \le |f(x_0)| + M(b-a),$$
+    which also holds trivially for $x = x_0$. So $f$ is bounded on $(a,b)$.
+
+    Therefore, if $f$ is unbounded, $f'$ must be unbounded. $\blacksquare$
+
+    (The bounded length $b - a$ is essential: on $\mathbb{R}$, $f(x) = x$ is unbounded with $f' \equiv 1$.)
+- id: ross-28.4
+  hints:
+    - |
+      For (a), near any $a \ne 0$ the function is given by a single formula built from $x^2$, $1/x$ and $\sin$. Differentiability is a local property.
+    - |
+      For (b), compute the difference quotient at $0$ and bound $|\sin|$ by $1$.
+    - |
+      For (c), find a sequence $x_n \to 0$ along which $\cos(1/x_n)$ is constant and $2x_n\sin(1/x_n) \to 0$, so that $f'(x_n)$ does not tend to $f'(0)$.
+  solution: |
+    **(a)** Fix $a \neq 0$. On the open interval $J$ between $0$ and $2a$ (which contains $a$ and not $0$), $f(x) = x^2\sin(1/x)$. Since the derivative at $a$ depends only on values of $f$ near $a$, it suffices to differentiate this formula at $a$. The function $u(x) = 1/x$ is differentiable at $a$ with $u'(a) = -1/a^2$ by the quotient rule (Theorem 28.3). Since $\sin$ is differentiable at $u(a)$ with derivative $\cos$, the Chain Rule (Theorem 28.4) shows $\sin(1/x)$ is differentiable at $a$ with derivative $\cos(1/a)\cdot(-1/a^2)$. By the product rule,
+    $$f'(a) = 2a\sin\frac1a + a^2\cos\frac1a\cdot\left(-\frac{1}{a^2}\right) = 2a\sin\frac1a - \cos\frac1a.$$
+
+    **(b)** For $x \neq 0$,
+    $$\left|\frac{f(x) - f(0)}{x - 0}\right| = \left|x\sin\frac1x\right| \le |x|,$$
+    which tends to $0$ as $x\to0$. By the squeeze theorem $f'(0) = \lim_{x\to0}\frac{f(x)-f(0)}{x} = 0$.
+
+    **(c)** Let $x_n = \frac{1}{2\pi n}$ for $n\ge1$. Then $x_n \to 0$, $\sin(1/x_n) = \sin(2\pi n) = 0$ and $\cos(1/x_n) = 1$, so by (a)
+    $$f'(x_n) = 0 - 1 = -1 \quad\text{for all } n.$$
+    Thus $f'(x_n) \to -1 \neq 0 = f'(0)$, and by the sequential characterization of continuity $f'$ is not continuous at $0$. $\blacksquare$
+- id: ross-29.4
+  hints:
+    - |
+      The conclusion $f' + fg' = 0$ looks like a derivative that has been divided by something nonzero. Compute $h'$ for the suggested $h(x) = f(x)e^{g(x)}$.
+    - |
+      Check that $h$ satisfies the hypotheses of Rolle's theorem on $[a,b]$.
+  solution: |
+    **Proof.** Let $h(x) = f(x)e^{g(x)}$ for $x\in I$. Since $g$ is differentiable on $I$ and $\exp$ is differentiable with $\exp' = \exp$, the chain rule shows $e^{g(x)}$ is differentiable with derivative $g'(x)e^{g(x)}$; by the product rule $h$ is differentiable on $I$ with
+    $$h'(x) = f'(x)e^{g(x)} + f(x)g'(x)e^{g(x)} = e^{g(x)}\bigl(f'(x) + f(x)g'(x)\bigr).$$
+    Since $[a,b] \subset I$, $h$ is continuous on $[a,b]$ and differentiable on $(a,b)$. Also $h(a) = f(a)e^{g(a)} = 0$ and $h(b) = 0$. By Rolle's theorem there is $x\in(a,b)$ with $h'(x)=0$, i.e.
+    $$e^{g(x)}\bigl(f'(x) + f(x)g'(x)\bigr) = 0.$$
+    As $e^{g(x)}>0$, we conclude $f'(x) + f(x)g'(x) = 0$. $\blacksquare$
+- id: ross-31.4
+  hints:
+    - |
+      Everything is built from the single function $f$ of Example 3, which is $C^\infty$, vanishes on $(-\infty,0]$ and is positive on $(0,\infty)$. Translations and reflections of the input preserve smoothness.
+    - |
+      For (b), reflect: consider $f(b - x)$. For (c), multiply the functions from (a) and (b).
+    - |
+      For (d), follow the hint, but first check that the denominator $f_a + g_b$ never vanishes, then evaluate the quotient on $x\le a$ and on $x\ge b$.
+  solution: |
+    Let $f$ be the function of Example 3: $f(x) = e^{-1/x}$ for $x>0$, $f(x) = 0$ for $x \le 0$. As stated there, $f$ is infinitely differentiable on $\mathbb{R}$; moreover $f(x) = 0$ for $x\le0$ and $f(x) > 0$ for $x > 0$.
+
+    **Composition with an affine map.** If $\varphi$ is infinitely differentiable and $c, d$ are constants, then $\psi(x) = \varphi(cx + d)$ is infinitely differentiable with $\psi^{(n)}(x) = c^n\varphi^{(n)}(cx+d)$. This follows by induction on $n$ from the chain rule.
+
+    **(a)** Let $f_a(x) = f(x-a)$. It is infinitely differentiable by the remark above. If $x \le a$ then $x - a \le 0$, so $f_a(x) = 0$; if $x > a$ then $x - a > 0$, so $f_a(x) > 0$.
+
+    **(b)** Let $g_b(x) = f(b - x)$, again infinitely differentiable. If $x \ge b$ then $b-x\le0$ and $g_b(x) = 0$; if $x<b$ then $b - x > 0$ and $g_b(x) > 0$.
+
+    **(c)** Let $h_{a,b} = f_a\, g_b$, a product of infinitely differentiable functions. If $x\in(a,b)$, then $f_a(x)>0$ and $g_b(x) > 0$, so $h_{a,b}(x) > 0$. If $x\notin(a,b)$, then $x\le a$ (so $f_a(x) = 0$) or $x \ge b$ (so $g_b(x) = 0$); either way $h_{a,b}(x) = 0$.
+
+    **(d)** Let $h^*_{a,b} = \dfrac{f_a}{f_a+g_b}$. The denominator never vanishes: both terms are $\ge 0$, and for any $x$, either $x > a$ (so $f_a(x)>0$) or $x \le a < b$ (so $g_b(x) > 0$). Hence $h^*_{a,b}$ is infinitely differentiable on $\mathbb{R}$. If $x\le a$, the numerator $f_a(x) = 0$, so $h^*_{a,b}(x) = 0$. If $x \ge b$, then $g_b(x) = 0$ and $f_a(x) > 0$ (as $x\ge b>a$), so $h^*_{a,b}(x) = f_a(x)/f_a(x) = 1$. $\blacksquare$
+- id: cummings-7.10
+  hints:
+    - |
+      In each part, drop one hypothesis and look for the simplest function that breaks the conclusion. Linear functions and $|x|$ are good candidates.
+    - |
+      For (a), a function with $f(a) \ne f(b)$ and constant nonzero slope. For (b), a function with a corner at its minimum. For (c), a function that is linear on $[a,b)$ and jumps at $b$.
+  solution: |
+    As the NOTES indicate, in (b) we read "$f'(c)\ne0$" as "$f'(c)$ is never $0$ at points where it exists."
+
+    **(a)** Let $[a,b] = [0,1]$ and $f(x) = x$. It is continuous on $[0,1]$ and differentiable on $(0,1)$, but $f(0) = 0 \ne 1 = f(1)$, and $f'(c) = 1 \neq 0$ for every $c\in(0,1)$.
+
+    **(b)** Let $[a,b] = [-1,1]$ and $f(x) = |x|$. It is continuous on $[-1,1]$ and $f(-1) = f(1) = 1$. For $c\in(0,1)$, $f(x) = x$ near $c$, so $f'(c) = 1$; for $c\in(-1,0)$, $f'(c) = -1$. At $c = 0$, $f$ is not differentiable, because the difference quotient $|h|/h$ equals $1$ for $h>0$ and $-1$ for $h<0$. So $f'(c)$ is never $0$ where it exists.
+
+    **(c)** Let $[a,b] = [0,1]$ and
+    $$f(x) = \begin{cases} x & 0 \le x < 1,\\ 0 & x = 1.\end{cases}$$
+    Then $f(0) = 0 = f(1)$. For $c\in(0,1)$, $f(x) = x$ on a neighborhood of $c$ inside $(0,1)$, so $f$ is differentiable on $(0,1)$ with $f'(c) = 1 \ne 0$. (It is not continuous at $1$, since $f(x)\to 1 \ne f(1)$ as $x\to1^-$.)
+- id: tao-10.1.2
+  hints:
+    - |
+      Statement (b) is (a) with the difference quotient multiplied out by $|x - x_0|$. The main work is keeping track of the point $x = x_0$, where you cannot divide.
+    - |
+      For (a) ⇒ (b): apply the $\varepsilon$–$\delta$ definition of the limit of the difference quotient, multiply through by $|x-x_0|$, and check $x=x_0$ separately. For (b) ⇒ (a): restrict to $x \ne x_0$ and divide.
+  solution: |
+    For $x\in X\setminus\{x_0\}$ write $q(x) = \frac{f(x)-f(x_0)}{x-x_0}$, and note the identity
+    $$|f(x) - (f(x_0) + L(x-x_0))| = |x - x_0|\,|q(x) - L| \qquad (x \ne x_0). \tag{$*$}$$
+
+    **(a) ⇒ (b).** Suppose $q(x) \to L$ as $x\to x_0$ in $X\setminus\{x_0\}$. Let $\varepsilon>0$. By the definition of the limit there is $\delta_0 > 0$ such that $|q(x) - L| \le \varepsilon$ for all $x \in X\setminus\{x_0\}$ with $|x-x_0| < \delta_0$. Set $\delta = \delta_0/2$. Let $x\in X$ with $|x - x_0|\le\delta$.
+
+    *Case $x \ne x_0$.* Then $|x-x_0|<\delta_0$, so by $(*)$, $|f(x) - (f(x_0)+L(x-x_0))| = |x-x_0|\,|q(x)-L| \le \varepsilon|x-x_0|$.
+
+    *Case $x = x_0$.* Both sides of the desired inequality are $0$: $|f(x_0) - f(x_0) - 0| = 0 \le 0 = \varepsilon\cdot 0$.
+
+    So (b) holds. (Taking $\delta=\delta_0/2$ makes the argument work whether the limit definition is phrased with $<$ or $\le$.)
+
+    **(b) ⇒ (a).** Let $\varepsilon>0$. Apply (b) with $\varepsilon/2$ to get $\delta>0$ such that $|f(x) - (f(x_0)+L(x-x_0))| \le \frac{\varepsilon}{2}|x-x_0|$ whenever $x\in X$, $|x - x_0|\le\delta$. For $x\in X\setminus\{x_0\}$ with $|x-x_0| \le \delta$ we may divide $(*)$ by $|x-x_0|>0$ and get
+    $$|q(x) - L| \le \frac{\varepsilon}{2} < \varepsilon.$$
+    Since $\varepsilon>0$ was arbitrary, $\lim_{x\to x_0;\,x\in X\setminus\{x_0\}} q(x) = L$. Since $x_0$ is a limit point of $X$, this is exactly the statement that $f$ is differentiable at $x_0$ on $X$ with $f'(x_0) = L$. $\blacksquare$
+- id: tao-10.2.1
+  hints:
+    - |
+      Compare the sign of the difference quotient $\frac{f(x)-f(x_0)}{x-x_0}$ for $x$ slightly to the right of $x_0$ and slightly to the left.
+    - |
+      At a local maximum the numerator is $\le 0$ near $x_0$. Take limits along a sequence from the right and a sequence from the left; limits preserve non-strict inequalities.
+    - |
+      Reduce the local minimum case to the maximum case by considering $-f$.
+  solution: |
+    **Proof.** First suppose $f$ attains a local maximum at $x_0$. Then there is $\delta>0$ with $f(x) \le f(x_0)$ for all $x \in (a,b)\cap(x_0-\delta,x_0+\delta)$. Shrinking $\delta$, we may assume $(x_0-\delta,x_0+\delta)\subseteq(a,b)$, since $(a,b)$ is open.
+
+    Let $L = f'(x_0) = \lim_{x\to x_0;\,x\in(a,b)\setminus\{x_0\}}\frac{f(x)-f(x_0)}{x-x_0}$. By the sequential characterization of limits, for every sequence $x_n \in (a,b)\setminus\{x_0\}$ with $x_n\to x_0$, the quotients converge to $L$.
+
+    Take $x_n = x_0 + \frac{\delta}{n+1}$. Then $x_n\in(x_0,x_0+\delta)$, $f(x_n) - f(x_0) \le 0$ and $x_n - x_0 > 0$, so each quotient is $\le 0$, and hence $L \le 0$.
+
+    Take $y_n = x_0 - \frac{\delta}{n+1}$. Then $f(y_n) - f(x_0) \le 0$ and $y_n - x_0 < 0$, so each quotient is $\ge 0$, and hence $L \ge 0$.
+
+    Therefore $f'(x_0) = L = 0$.
+
+    If instead $f$ attains a local minimum at $x_0$, then $-f$ attains a local maximum at $x_0$ and is differentiable there with $(-f)'(x_0) = -f'(x_0)$. By the first case $-f'(x_0) = 0$, so $f'(x_0) = 0$. $\blacksquare$
+- id: tao-10.2.5
+  hints:
+    - |
+      Rolle's theorem needs equal endpoint values. Tilt $f$ by subtracting a linear function so that the endpoint values match.
+    - |
+      Choose $c$ so that $g(x) = f(x) - cx$ has $g(a) = g(b)$; solve for $c$.
+  solution: |
+    **Proof.** Let $c = \frac{f(b)-f(a)}{b-a}$ and define $g\colon[a,b]\to\mathbf{R}$ by $g(x) = f(x) - cx$. As a difference of functions continuous on $[a,b]$ and differentiable on $(a,b)$, $g$ is continuous on $[a,b]$ and differentiable on $(a,b)$, with $g'(x) = f'(x) - c$. Moreover
+    $$g(b) - g(a) = f(b) - f(a) - c(b-a) = 0,$$
+    so $g(a) = g(b)$. By Rolle's theorem (Theorem 10.2.7) there is $x\in(a,b)$ with $g'(x) = 0$, that is,
+    $$f'(x) = c = \frac{f(b)-f(a)}{b-a}. \qquad\blacksquare$$
+- id: tao-10.3.5
+  hints:
+    - |
+      In Proposition 10.3.3 the domain is an interval $[a,b]$. What can go wrong if the domain has a gap?
+    - |
+      Take $X = \mathbf{R}\setminus\{0\}$ and look for a function that is increasing on each half but drops when you cross from the left half to the right half.
+  solution: |
+    The key difference is that Proposition 10.3.3 requires the domain to be an interval; the proof uses the Mean Value Theorem on $[x,y]$, which needs every point between $x$ and $y$ to be in the domain. We exploit a domain with a gap.
+
+    **Example.** Let $X = \mathbf{R}\setminus\{0\} = (-\infty,0)\cup(0,\infty)$ and $f(x) = -\frac1x$.
+
+    *Differentiable with $f'>0$.* Every $x_0\in X$ is a limit point of $X$. For $x_0\in X$, by the quotient rule (or directly: $\frac{f(x)-f(x_0)}{x-x_0} = \frac{-1/x + 1/x_0}{x - x_0} = \frac{1}{x x_0}\to\frac{1}{x_0^2}$ as $x\to x_0$ in $X\setminus\{x_0\}$), $f$ is differentiable at $x_0$ with
+    $$f'(x_0) = \frac{1}{x_0^2} > 0.$$
+
+    *Not strictly increasing.* We have $-1 < 1$ but $f(-1) = 1 > -1 = f(1)$.
+
+    So $f$ is differentiable on $X$ with $f'(x)>0$ for all $x \in X$, yet $f$ is not strictly monotone increasing on $X$.
+- id: mit20-a11-4
+  hints:
+    - |
+      Since $f'(c)=f''(c)=0$, Taylor's theorem says $f(x) - f(c)$ is controlled by a cubic term. What sign does $(x-c)^3$ have on either side of $c$?
+    - |
+      Use Taylor's theorem with Lagrange remainder of order 3, and use continuity of $f'''$ to get $f'''>0$ on a whole neighborhood of $c$.
+    - |
+      Show $f(x) > f(c)$ just to the right of $c$ and $f(x) < f(c)$ just to the left. Then every neighborhood contains points of both kinds.
+  solution: |
+    (The phrase "has a neither" in the statement is a typo for "has neither".)
+
+    **Proof.** Since $f'''$ is continuous at $c$ and $f'''(c)>0$, there is $\delta>0$ with $(c-\delta,c+\delta)\subseteq(a,b)$ and $f'''(t) > 0$ for all $t\in(c-\delta,c+\delta)$ (take $\varepsilon = f'''(c)/2$ in the definition of continuity).
+
+    Let $x\in(c-\delta,c+\delta)$, $x\ne c$. By Taylor's theorem with Lagrange remainder (degree-2 polynomial), there is $\xi$ strictly between $c$ and $x$ with
+    $$f(x) = f(c) + f'(c)(x-c) + \frac{f''(c)}{2}(x-c)^2 + \frac{f'''(\xi)}{6}(x-c)^3 = f(c) + \frac{f'''(\xi)}{6}(x-c)^3.$$
+    Since $\xi \in (c-\delta,c+\delta)$, $f'''(\xi) > 0$. Hence:
+
+    - if $c < x < c+\delta$, then $(x-c)^3>0$ and $f(x) > f(c)$;
+    - if $c-\delta < x < c$, then $(x-c)^3<0$ and $f(x) < f(c)$.
+
+    Now let $\eta>0$ be arbitrary and put $r = \min(\eta,\delta)/2$. Then $c+r$ and $c - r$ lie in $(c-\eta,c+\eta)$, with $f(c+r) > f(c)$ and $f(c-r) < f(c)$. So no neighborhood of $c$ has $f(c)$ as its maximum value or as its minimum value. Therefore $f$ has neither a local maximum nor a local minimum at $c$. $\blacksquare$
+- id: abbott-5.2.4
+  hints:
+    - |
+      In (a), the function $l$ should be the difference quotient $\frac{h(x)-h(a)}{x-a}$ away from $a$. What value must it take at $a$ to be continuous there?
+    - |
+      In (b), write $f(x) - f(c) = l(x)(x-c)$ and $g(y) - g(f(c)) = m(y)(y-f(c))$, then substitute $y = f(x)$.
+    - |
+      To apply the reverse direction of (a), you need the product $m(f(x))\,l(x)$ to be continuous at $c$. Why is $f$ continuous at $c$?
+  solution: |
+    Throughout, as in Abbott's definition of the derivative, $A$ is an interval (so every point of $A$ is a limit point of $A$).
+
+    **(a)** *($\Rightarrow$)* Suppose $h$ is differentiable at $a$. Define
+    $$l(x) = \begin{cases}\dfrac{h(x)-h(a)}{x-a} & x\neq a,\\[2mm] h'(a) & x = a.\end{cases}$$
+    For $x\neq a$, $l(x)(x-a) = h(x) - h(a)$; for $x = a$ both sides are $0$. And $\lim_{x\to a} l(x) = \lim_{x\to a}\frac{h(x)-h(a)}{x-a} = h'(a) = l(a)$, so $l$ is continuous at $a$.
+
+    *($\Leftarrow$)* Suppose $l$ is continuous at $a$ and $h(x)-h(a) = l(x)(x-a)$ for all $x\in A$. For $x\ne a$ this gives $\frac{h(x)-h(a)}{x-a} = l(x)$, so
+    $$\lim_{x\to a}\frac{h(x)-h(a)}{x-a} = \lim_{x\to a} l(x) = l(a).$$
+    Hence $h$ is differentiable at $a$, and $h'(a) = l(a)$.
+
+    **(b) Proof of the Chain Rule.** Since $f$ is differentiable at $c$, part (a) gives $l\colon A\to\mathbb{R}$, continuous at $c$, with $l(c) = f'(c)$ and
+    $$f(x) - f(c) = l(x)(x-c)\quad (x\in A).$$
+    Since $g$ is differentiable at $f(c)$, part (a) gives $m\colon B\to\mathbb{R}$, continuous at $f(c)$, with $m(f(c)) = g'(f(c))$ and
+    $$g(y) - g(f(c)) = m(y)(y - f(c))\quad (y\in B).$$
+    For $x\in A$ we have $f(x)\in B$, so taking $y = f(x)$:
+    $$(g\circ f)(x) - (g\circ f)(c) = m(f(x))\bigl(f(x) - f(c)\bigr) = m(f(x))\,l(x)\,(x-c).$$
+    Let $k(x) = m(f(x))\,l(x)$. The first identity shows $f(x) = f(c) + l(x)(x-c)\to f(c)$ as $x\to c$ (since $l(x) \to l(c)$ and $x - c\to0$), so $f$ is continuous at $c$. As $m$ is continuous at $f(c)$, the composition $m\circ f$ is continuous at $c$, and so is the product $k = (m\circ f)\cdot l$. By the reverse direction of (a), $g\circ f$ is differentiable at $c$ with
+    $$(g\circ f)'(c) = k(c) = m(f(c))\,l(c) = g'(f(c))\,f'(c). \qquad\blacksquare$$
+- id: abbott-5.2.7
+  hints:
+    - |
+      Compute $g_a'(x)$ for $x\neq0$ by the usual rules, and compute $g_a'(0)$ from the definition. The behavior near $0$ is governed by the powers of $x$ in front of $\sin(1/x)$ and $\cos(1/x)$.
+    - |
+      A term $x^p\sin(1/x)$ or $x^p\cos(1/x)$ tends to $0$ at $0$ if $p>0$, and oscillates without a limit if $p\le0$ (it is unbounded if $p<0$). Use this to find the range of $a$ for each property.
+    - |
+      You should find: (a) any $1<a<2$; (b) any $2<a\le3$; (c) any $3<a\le4$. For non-integer $a$, choose one for which $x^a$ makes sense for negative $x$.
+  solution: |
+    For a non-integer exponent we need $x^a$ to be defined for $x<0$, so we use odd-denominator exponents, e.g. $x^{4/3} = (\sqrt[3]{x})^4$. For such $a$, and for integers, the power rule $\frac{d}{dx}x^a = a x^{a-1}$ holds for $x\neq0$.
+
+    **General computation.** For $x\neq0$, by the product and chain rules,
+    $$g_a'(x) = a x^{a-1}\sin(1/x) - x^{a-2}\cos(1/x). \tag{1}$$
+    At $0$, for $a > 1$: $\left|\frac{g_a(h)-g_a(0)}{h}\right| = |h|^{a-1}|\sin(1/h)| \le |h|^{a-1}\to0$, so $g_a'(0) = 0$.
+
+    **(a) $a = 4/3$.** By the above, $g_a$ is differentiable on $\mathbb{R}$, with $g_a'(x) = \frac43 x^{1/3}\sin(1/x) - x^{-2/3}\cos(1/x)$ for $x\ne0$. Let $x_n = \frac{1}{2\pi n}\in(0,1]$. Then $\sin(1/x_n) = 0$ and $\cos(1/x_n) = 1$, so
+    $$g_a'(x_n) = -x_n^{-2/3} = -(2\pi n)^{2/3}\to-\infty.$$
+    So $g_a'$ is unbounded on $[0,1]$. (Any $a \in (1,2)$ works, provided $x^a$ is defined for $x<0$.)
+
+    **(b) $a = 3$.** Then $g_3$ is differentiable on $\mathbb{R}$ with $g_3'(0) = 0$ and, by (1),
+    $$g_3'(x) = 3x^2\sin(1/x) - x\cos(1/x)\quad(x\neq0).$$
+    *Continuity of $g_3'$.* At $x\ne0$, $g_3'$ is continuous as a combination of continuous functions. At $0$: $|g_3'(x)| \le 3x^2 + |x|\to0 = g_3'(0)$.
+
+    *Not differentiable at $0$.* For $h\ne0$,
+    $$\frac{g_3'(h) - g_3'(0)}{h} = 3h\sin(1/h) - \cos(1/h).$$
+    The first term tends to $0$. If the quotient had a limit, then so would $\cos(1/h)$. But along $h_n = \frac1{2\pi n}$, $\cos(1/h_n) = 1$, and along $k_n = \frac{1}{(2n+1)\pi}$, $\cos(1/k_n) = -1$. So $\lim_{h\to0}\cos(1/h)$ does not exist, and $g_3'$ is not differentiable at $0$.
+
+    **(c) $a = 4$.** By (1), $g_4'(x) = 4x^3\sin(1/x) - x^2\cos(1/x)$ for $x\neq0$ and $g_4'(0)=0$.
+
+    *$g_4'$ is differentiable on $\mathbb{R}$.* For $x\ne0$ this follows from the rules, and
+    $$g_4''(x) = 12x^2\sin(1/x) - 4x\cos(1/x) - 2x\cos(1/x) - \sin(1/x) = (12x^2 - 1)\sin(1/x) - 6x\cos(1/x).$$
+    At $0$: $\left|\frac{g_4'(h) - g_4'(0)}{h}\right| = |4h^2\sin(1/h) - h\cos(1/h)| \le 4h^2 + |h| \to 0$, so $g_4''(0) = 0$.
+
+    *$g_4''$ is not continuous at $0$.* Let $x_n = \frac{1}{2\pi n + \pi/2}\to0$. Then $\sin(1/x_n) = 1$ and $\cos(1/x_n) = 0$, so
+    $$g_4''(x_n) = 12x_n^2 - 1\to -1\ne 0 = g_4''(0).$$
+    Hence $g_4''$ is not continuous at $0$.
+- id: abbott-5.2.12
+  hints:
+    - |
+      Write the difference quotient of $f^{-1}$ at $y_0 = f(x_0)$ in terms of $x = f^{-1}(y)$. It is the reciprocal of a difference quotient of $f$.
+    - |
+      As $y\to y_0$, continuity of $f^{-1}$ forces $x = f^{-1}(y)\to x_0$, and injectivity keeps $x\ne x_0$. Combine this with $f'(x_0)\ne0$.
+    - |
+      To handle the composition of limits cleanly, extend the difference quotient of $f$ at $x_0$ to a function that is continuous at $x_0$ (value $f'(x_0)$), then compose with $f^{-1}$.
+  solution: |
+    **Proof.** Let $R = f([a,b])$ be the range of $f$, the domain of $f^{-1}$. Since $f$ is differentiable on $[a,b]$, it is continuous there, so $R$ is an interval by the Intermediate Value Theorem. It contains more than one point because $f$ is one-to-one and $a<b$. So every point of $R$ is a limit point of $R$. As stated in the problem (Exercise 4.5.8), $f^{-1}$ is continuous on $R$.
+
+    Fix $y_0\in R$ and let $x_0 = f^{-1}(y_0)$, so $f(x_0) = y_0$. Define $\varphi\colon[a,b]\to\mathbb{R}$ by
+    $$\varphi(x) = \begin{cases}\dfrac{f(x)-f(x_0)}{x-x_0} & x\ne x_0,\\[2mm] f'(x_0) & x = x_0.\end{cases}$$
+    By the definition of $f'(x_0)$, $\varphi$ is continuous at $x_0$. Also $\varphi(x)\ne0$ for every $x$: for $x\neq x_0$ because $f$ is one-to-one, and for $x = x_0$ because $f'(x_0)\neq0$.
+
+    For $y\in R$ with $y\ne y_0$, put $x = f^{-1}(y)$. Then $x\neq x_0$ and $y - y_0 = f(x) - f(x_0) = \varphi(x)(x - x_0)$, so
+    $$\frac{f^{-1}(y) - f^{-1}(y_0)}{y-y_0} = \frac{x - x_0}{\varphi(x)(x-x_0)} = \frac{1}{\varphi(f^{-1}(y))}.$$
+    Since $f^{-1}$ is continuous at $y_0$ and $\varphi$ is continuous at $f^{-1}(y_0) = x_0$, the composition $\varphi\circ f^{-1}$ is continuous at $y_0$ with value $\varphi(x_0) = f'(x_0)\neq 0$. Hence $1/(\varphi\circ f^{-1})$ is continuous at $y_0$, and
+    $$\lim_{y\to y_0}\frac{f^{-1}(y)-f^{-1}(y_0)}{y-y_0} = \frac{1}{f'(x_0)}.$$
+    So $f^{-1}$ is differentiable at $y_0$ with $(f^{-1})'(y_0) = 1/f'(x_0)$, where $y_0 = f(x_0)$. $\blacksquare$
+- id: abbott-5.3.12
+  hints:
+    - |
+      View the numerator and denominator as functions of $h$. Both vanish at $h = 0$, which suggests L'Hôpital's rule.
+    - |
+      After one application of L'Hôpital, the quotient becomes a symmetric difference quotient of $f'$, which is exactly the situation of Exercise 5.2.6(b).
+    - |
+      Check the hypotheses of L'Hôpital's rule (0/0 case) on a small interval $(-\delta,\delta)$, in particular that the derivative of the denominator does not vanish for $h\ne0$.
+  solution: |
+    **Proof.** Let $J$ be an open interval containing $a$ on which $f$ is twice differentiable, and choose $\delta>0$ with $(a-\delta,a+\delta)\subseteq J$. For $h\in(-\delta,\delta)$ define
+    $$\varphi(h) = f(a+h) - 2f(a) + f(a-h),\qquad \psi(h) = h^2.$$
+    Both are differentiable (hence continuous) on $(-\delta,\delta)$, with $\varphi(0) = \psi(0) = 0$,
+    $$\varphi'(h) = f'(a+h) - f'(a-h),\qquad \psi'(h) = 2h,$$
+    and $\psi'(h)\ne0$ for $h\ne0$.
+
+    **Claim.** $\displaystyle\lim_{h\to0}\frac{\varphi'(h)}{\psi'(h)} = \lim_{h\to 0}\frac{f'(a+h)-f'(a-h)}{2h} = f''(a).$
+
+    This is Exercise 5.2.6(b) applied to $g = f'$, which is differentiable at $a$. For completeness: for $h\neq0$,
+    $$\frac{f'(a+h)-f'(a-h)}{2h} = \frac12\left[\frac{f'(a+h)-f'(a)}{h} + \frac{f'(a-h)-f'(a)}{-h}\right],$$
+    and as $h\to0$ both bracketed quotients tend to $f''(a)$ (the second because $-h\to0$). So the whole expression tends to $\frac12(f''(a)+f''(a)) = f''(a)$.
+
+    By L'Hôpital's rule (the $0/0$ case), applied on the interval $(-\delta,\delta)$ at the point $0$,
+    $$\lim_{h\to0}\frac{f(a+h) - 2f(a) + f(a-h)}{h^2} = \lim_{h\to 0}\frac{\varphi(h)}{\psi(h)} = \lim_{h\to0}\frac{\varphi'(h)}{\psi'(h)} = f''(a).\qquad\blacksquare$$
+
+    *Remark.* The argument only used that $f''(a)$ exists; continuity of $f''$ at $a$ is not needed. (With continuity, one can instead apply the Mean Value Theorem twice.)
+- id: lebl-4.2.9
+  hints:
+    - |
+      First show $g(x) \neq 0$ for $x \neq c$: if $g$ vanished at some $x\ne c$, Rolle's theorem would produce a zero of $g'$ away from $c$.
+    - |
+      For fixed $x\ne c$, apply Rolle's theorem to $h(t) = f(t)g(x) - g(t)f(x)$ on the interval between $c$ and $x$ (this is the Cauchy mean value theorem). It gives $f(x)/g(x) = f'(\xi)/g'(\xi)$ for some $\xi$ between $c$ and $x$.
+    - |
+      Since $\xi$ is closer to $c$ than $x$ is, the $\delta$ that works for $f'/g'$ also works for $f/g$.
+  solution: |
+    Let $L = \lim_{x\to c}\frac{f'(x)}{g'(x)}$. Since $f, g$ are differentiable on $(a,b)$, they are continuous there.
+
+    **Step 1: $g(x)\ne0$ for $x\neq c$.** Suppose $g(x) = 0$ for some $x\in(a,b)$, $x\neq c$. Then $g$ vanishes at both endpoints of the closed interval between $c$ and $x$. By Rolle's theorem there is $\xi$ strictly between $c$ and $x$ with $g'(\xi) = 0$. But $\xi\neq c$, contradicting $g'(\xi) \ne 0$.
+
+    **Step 2: a mean value identity.** Fix $x\in(a,b)$, $x\ne c$, and define $h(t) = f(t)g(x) - g(t)f(x)$ for $t$ in the closed interval $I_x$ between $c$ and $x$. Then $h$ is continuous on $I_x$ and differentiable on its interior, with
+    $$h(c) = 0 - 0 = 0,\qquad h(x) = f(x)g(x) - g(x)f(x) = 0.$$
+    By Rolle's theorem there is $\xi_x$ strictly between $c$ and $x$ with $0 = h'(\xi_x) = f'(\xi_x)g(x) - g'(\xi_x)f(x)$. Since $g(x)\ne0$ (Step 1) and $g'(\xi_x)\ne0$ (as $\xi_x\neq c$), we may divide:
+    $$\frac{f(x)}{g(x)} = \frac{f'(\xi_x)}{g'(\xi_x)}.$$
+
+    **Step 3: the limit.** Let $\varepsilon>0$. Choose $\delta>0$ such that $\left|\frac{f'(t)}{g'(t)} - L\right|<\varepsilon$ whenever $t\in(a,b)$ and $0<|t-c|<\delta$. If $x\in(a,b)$ and $0<|x-c|<\delta$, then $0<|\xi_x - c| < |x-c| < \delta$, so
+    $$\left|\frac{f(x)}{g(x)} - L\right| = \left|\frac{f'(\xi_x)}{g'(\xi_x)} - L\right| < \varepsilon.$$
+    Therefore $\lim_{x\to c}\frac{f(x)}{g(x)} = L = \lim_{x\to c}\frac{f'(x)}{g'(x)}$. $\blacksquare$
+- id: lebl-4.2.13
+  hints:
+    - |
+      The derivative at the endpoint is a limit of difference quotients. The Mean Value Theorem turns each difference quotient into a value of $f'$ at a nearby interior point.
+    - |
+      In (i), for $a<x<b$ apply the MVT on $[a,x]$ to get $\xi_x\in(a,x)$. As $x\to a$, also $\xi_x\to a$.
+    - |
+      For (b), apply part (a) to the restrictions of $f$ to $(a,c]$ and to $[c,b)$, then combine the two one-sided limits.
+  solution: |
+    **(a)** *(i)* Let $\varepsilon>0$. Since $\lim_{x\to a}f'(x) = L$, there is $\delta>0$ with $\delta \le b-a$ such that $|f'(t) - L|<\varepsilon$ for all $t\in(a,a+\delta)$. Let $x\in(a,a+\delta)$. Then $f$ is continuous on $[a,x]$ and differentiable on $(a,x)$, so by the Mean Value Theorem there is $\xi_x\in(a,x)\subseteq(a,a+\delta)$ with
+    $$\frac{f(x)-f(a)}{x-a} = f'(\xi_x).$$
+    Hence $\left|\frac{f(x)-f(a)}{x-a} - L\right| = |f'(\xi_x) - L| < \varepsilon$. Since the domain is $[a,b)$, the points $x$ near $a$ in the domain other than $a$ are exactly those in $(a,a+\delta)$. Therefore $\lim_{x\to a}\frac{f(x)-f(a)}{x-a} = L$, i.e. $f$ is differentiable at $a$ with $f'(a) = L$.
+
+    *(ii)* The argument is symmetric. Given $\varepsilon>0$, choose $\delta \le b - a$ with $|f'(t)-L|<\varepsilon$ for $t\in(b-\delta,b)$. For $x\in(b-\delta,b)$ the MVT on $[x,b]$ gives $\xi_x\in(x,b)$ with $\frac{f(b)-f(x)}{b-x} = f'(\xi_x)$. Since $\frac{f(x)-f(b)}{x-b} = \frac{f(b)-f(x)}{b-x}$, we get $\left|\frac{f(x)-f(b)}{x-b} - L\right|<\varepsilon$. So $f'(b) = L$.
+
+    **(b)** The restriction $f|_{[c,b)}$ is continuous, differentiable on $(c,b)$, and $\lim_{x\to c}f'(x) = L$ (in particular from the right). By (a)(i),
+    $$\lim_{x\to c^+}\frac{f(x)-f(c)}{x-c} = L.$$
+    Similarly, (a)(ii) applied to $f|_{(a,c]}$ gives $\lim_{x\to c^-}\frac{f(x)-f(c)}{x-c} = L$. Since both one-sided limits of the difference quotient exist and equal $L$, the two-sided limit exists and equals $L$. So $f$ is differentiable at $c$ and $f'(c) = L$. $\blacksquare$
+- id: lebl-4.3.11
+  hints:
+    - |
+      Since $f'(x_0) = 0$, the definition gives $f''(x_0) = \lim_{x\to x_0}\frac{f'(x)}{x - x_0}$. What does positivity of this limit say about the sign of $f'$ on each side of $x_0$?
+    - |
+      Show there is $\delta>0$ with $f'<0$ on $(x_0-\delta,x_0)$ and $f'>0$ on $(x_0,x_0+\delta)$. Then use the Mean Value Theorem to compare $f(x)$ with $f(x_0)$.
+  solution: |
+    **Proof.** Since $f'(x_0) = 0$,
+    $$f''(x_0) = \lim_{x\to x_0}\frac{f'(x) - f'(x_0)}{x-x_0} = \lim_{x\to x_0}\frac{f'(x)}{x-x_0} > 0.$$
+    Taking $\varepsilon = f''(x_0)/2$ in the definition of this limit, there is $\delta>0$ with $(x_0-\delta,x_0+\delta)\subseteq(a,b)$ such that
+    $$\frac{f'(x)}{x-x_0} > \frac{f''(x_0)}{2} > 0\quad\text{whenever } 0<|x-x_0|<\delta.$$
+    Hence $f'(x) > 0$ for $x\in(x_0,x_0+\delta)$ and $f'(x) < 0$ for $x\in(x_0-\delta,x_0)$.
+
+    Let $x\in(x_0-\delta,x_0+\delta)$, $x\neq x_0$. Since $f$ is differentiable on $(a,b)$, it is continuous on the closed interval between $x_0$ and $x$. By the Mean Value Theorem there is $\xi$ strictly between $x_0$ and $x$ with
+    $$f(x) - f(x_0) = f'(\xi)(x - x_0).$$
+
+    - If $x > x_0$: $\xi\in(x_0,x_0+\delta)$, so $f'(\xi) > 0$ and $x - x_0>0$; thus $f(x) > f(x_0)$.
+    - If $x < x_0$: $\xi\in(x_0-\delta,x_0)$, so $f'(\xi)<0$ and $x-x_0<0$; thus $f(x) > f(x_0)$.
+
+    So $f(x) > f(x_0)$ for all $x\in(x_0-\delta,x_0+\delta)$ with $x \ne x_0$, which means $f$ has a strict relative minimum at $x_0$. $\blacksquare$
+- id: lebl-4.4.6
+  hints:
+    - |
+      Away from $0$ the derivative comes from the usual rules; at $0$ use the definition. The interesting term in $f'(x)$ for $x\ne0$ is $-2\cos(1/x)$, which does not go away as $x\to0$.
+    - |
+      Find points $x_n\to0^+$ where $f'(x_n)<0$. Near such a point $f$ goes down, while overall $f$ goes up from $f(0)=0$.
+    - |
+      To break injectivity on $[0,x_n]$, find $t<x_n$ with $f(t)>f(x_n)>f(0)$ and apply the IVT on $[0,t]$.
+  solution: |
+    **Differentiability.** For $x\ne0$, $f$ is differentiable by the product, quotient and chain rules, with
+    $$f'(x) = 1 + 4x\sin(1/x) + 2x^2\cos(1/x)\cdot\left(-\frac{1}{x^2}\right) = 1 + 4x\sin(1/x) - 2\cos(1/x).$$
+    At $0$, for $h\ne0$,
+    $$\frac{f(h) - f(0)}{h} = 1 + 2h\sin(1/h),\qquad |2h\sin(1/h)|\le 2|h|\to0,$$
+    so $f'(0) = 1>0$. Hence $f$ is differentiable on all of $\mathbb{R}$, with $f'(0) = 1 > 0$.
+
+    **Not invertible near $0$.** Let $J$ be any open interval containing $0$. Pick $n \in \mathbb{N}$ so large that $x_n := \frac{1}{2\pi n}\in J$. Then $[0,x_n]\subseteq J$, and
+    $$f(x_n) = x_n + 2x_n^2\sin(2\pi n) = x_n > 0 = f(0),\qquad f'(x_n) = 1 + 0 - 2\cos(2\pi n) = -1 < 0.$$
+    Since $\lim_{t\to x_n}\frac{f(t) - f(x_n)}{t - x_n} = -1<0$, there is $t\in(0,x_n)$ with $\frac{f(t)-f(x_n)}{t-x_n} < 0$. As $t - x_n<0$, this gives $f(t) > f(x_n)$.
+
+    So $f(0) < f(x_n) < f(t)$ with $0<t<x_n$. The function $f$ is continuous on $[0,t]$, so by the Intermediate Value Theorem there is $s\in(0,t)$ with $f(s) = f(x_n)$. Since $s<t<x_n$, we have $s\neq x_n$, so $f$ is not one-to-one on $J$. Hence $f$ is not invertible on any open interval containing $0$. $\blacksquare$
+- id: ross-29.10
+  hints:
+    - |
+      Write $f = F + \frac{x}{2}$, where $F$ is the function from Exercise 28.4, and reuse what you know about $F$ and $F'$.
+    - |
+      If $f$ were increasing (non-decreasing) on an open interval, every difference quotient, and hence every derivative, would be $\ge0$ there. Look for points arbitrarily close to $0$ where $f'<0$.
+    - |
+      For (c), what is the hypothesis of Corollary 29.7(i), and at how many points does this $f$ satisfy $f'>0$ near $0$?
+  solution: |
+    Let $F(x) = x^2\sin(1/x)$ for $x\ne0$, $F(0)=0$, as in Exercise 28.4, so $f(x) = F(x) + \frac x2$. Recall from Exercise 28.4 that $F'(0) = 0$ and $F'(x) = 2x\sin(1/x) - \cos(1/x)$ for $x\ne0$. ("Increasing" here means non-decreasing, as in Ross's Definition 29.6.)
+
+    **(a)** By the sum rule, $f$ is differentiable everywhere with $f'(x) = F'(x) + \frac12$. In particular $f'(0) = 0 + \frac12 = \frac12 > 0$.
+
+    **(b)** First, if $f$ is increasing on an open interval $J$ and $x\in J$, then for $t\in J$, $t\neq x$, the difference quotient $\frac{f(t)-f(x)}{t-x}$ is $\ge0$ (numerator and denominator have the same sign or the numerator is $0$). Passing to the limit, $f'(x)\ge0$.
+
+    Now let $J$ be any open interval containing $0$. For $x_n = \frac{1}{2\pi n}$ we have $x_n\to0$, so $x_n\in J$ for large $n$. But
+    $$f'(x_n) = 2x_n\sin(2\pi n) - \cos(2\pi n) + \tfrac12 = 0 - 1 + \tfrac12 = -\tfrac12 < 0.$$
+    By the previous paragraph, $f$ is not increasing on $J$.
+
+    **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here we only know $f'>0$ at the single point $0$. Every neighborhood of $0$ contains points where $f'<0$, because $f'$ is not continuous at $0$: the term $-\cos(1/x)$ oscillates between $-1$ and $1$. So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
+- id: ross-30.6
+  hints:
+    - |
+      The quantity $f + f'$ appears when you differentiate $f(x)e^x$. Follow the hint and view $f$ as a quotient $\frac{f(x)e^x}{e^x}$.
+    - |
+      Apply L'Hôpital's rule as $x\to\infty$ in the version where the denominator tends to $\infty$. That version needs no assumption on the numerator's limit.
+    - |
+      Once you know $f\to L$, write $f' = (f + f') - f$.
+  solution: |
+    **Proof.** Let $u(x) = f(x)e^x$ and $v(x) = e^x$ on $(c,\infty)$. Both are differentiable, with
+    $$u'(x) = \bigl(f(x) + f'(x)\bigr)e^x,\qquad v'(x) = e^x\neq0.$$
+    Hence
+    $$\frac{u'(x)}{v'(x)} = f(x) + f'(x)\to L\quad\text{as } x\to\infty.$$
+    Also $\lim_{x\to\infty}|v(x)| = \lim_{x\to\infty}e^x = +\infty$. By L'Hôpital's rule (Theorem 30.2, in the case $\lim|g| = +\infty$, which makes no assumption on the numerator),
+    $$\lim_{x\to\infty} f(x) = \lim_{x\to\infty}\frac{u(x)}{v(x)} = \lim_{x\to\infty}\frac{u'(x)}{v'(x)} = L.$$
+    Finally, $f'(x) = \bigl(f(x) + f'(x)\bigr) - f(x)\to L - L = 0$ as $x\to\infty$. $\blacksquare$
+- id: ross-31.5
+  hints:
+    - |
+      Relate $g$ to the function $f$ of Example 3, whose derivatives of all orders vanish at $0$. Which inner function turns $e^{-1/x}$ into $e^{-1/x^2}$?
+    - |
+      Once you have the representation of $g^{(n)}$ from the book's hint, evaluating at $x = 0$ is immediate. For the induction step, differentiate each term $f^{(k)}(x^2)p_{kn}(x)$ with the chain and product rules and regroup.
+    - |
+      For (b), write down the Taylor series about $0$ explicitly using (a), and compare it with the sign of $g(x)$ for $x\neq0$.
+  solution: |
+    Let $f$ be as in Example 3: $f(x) = e^{-1/x}$ for $x>0$ and $f(x) = 0$ for $x\le0$. As stated there, $f$ has derivatives of all orders on $\mathbb{R}$ and $f^{(n)}(0) = 0$ for all $n\ge0$.
+
+    **(a)** For $x\ne0$, $x^2>0$ and $f(x^2) = e^{-1/x^2} = g(x)$; also $f(0^2) = 0 = g(0)$. So $g(x) = f(x^2)$ for all $x\in\mathbb{R}$.
+
+    **Claim.** For each $n\ge1$ there are polynomials $p_{kn}$, $1\le k\le n$, with
+    $$g^{(n)}(x) = \sum_{k=1}^n f^{(k)}(x^2)\,p_{kn}(x)\qquad\text{for all } x\in\mathbb{R}.$$
+    In particular $g^{(n)}$ exists on all of $\mathbb{R}$.
+
+    *Base case $n=1$.* By the chain rule, $g'(x) = f'(x^2)\cdot 2x$, so take $p_{11}(x) = 2x$.
+
+    *Inductive step.* Suppose the claim holds for $n$. Each $f^{(k)}$ is differentiable, so by the chain rule $x\mapsto f^{(k)}(x^2)$ is differentiable with derivative $f^{(k+1)}(x^2)\cdot2x$. By the product rule,
+    $$g^{(n+1)}(x) = \sum_{k=1}^n\Bigl[f^{(k+1)}(x^2)\,2x\,p_{kn}(x) + f^{(k)}(x^2)\,p_{kn}'(x)\Bigr] = \sum_{k=1}^{n+1} f^{(k)}(x^2)\,p_{k,n+1}(x),$$
+    where $p_{k,n+1} = 2x\,p_{k-1,n} + p_{kn}'$, with the conventions $p_{0n} = 0$ and $p_{n+1,n} = 0$. These are polynomials, which proves the claim.
+
+    Evaluating at $x = 0$: $g^{(n)}(0) = \sum_{k=1}^n f^{(k)}(0)\,p_{kn}(0) = 0$ for $n\ge1$, and $g^{(0)}(0) = g(0) = 0$. So $g^{(n)}(0) = 0$ for all $n\ge 0$.
+
+    **(b)** By (a), the Taylor series of $g$ about $0$ is $\sum_{n=0}^\infty\frac{g^{(n)}(0)}{n!}x^n = \sum_{n=0}^\infty 0\cdot x^n$, which converges to $0$ for every $x$. At $x=0$ it equals $g(0) = 0$. For $x\ne0$, $g(x) = e^{-1/x^2}>0$, which is not $0$. Hence the Taylor series agrees with $g$ only at $x = 0$. $\blacksquare$
+- id: cummings-7.14
+  hints:
+    - |
+      Mimic the proof of the MVT from Rolle's theorem: build an auxiliary function that combines $f$ and $g$ and has equal values at $a$ and $b$.
+    - |
+      Try $h(x) = [f(b)-f(a)]\,g(x) - [g(b)-g(a)]\,f(x)$. Compute $h(a)$ and $h(b)$.
+  solution: |
+    **Proof.** Define $h\colon[a,b]\to\mathbb{R}$ by
+    $$h(x) = [f(b)-f(a)]\,g(x) - [g(b)-g(a)]\,f(x).$$
+    As a linear combination of $f$ and $g$, $h$ is continuous on $[a,b]$ and differentiable on $(a,b)$, with
+    $$h'(x) = [f(b)-f(a)]\,g'(x) - [g(b)-g(a)]\,f'(x).$$
+    Compute the endpoint values:
+    $$h(a) = f(b)g(a) - f(a)g(a) - g(b)f(a) + g(a)f(a) = f(b)g(a) - g(b)f(a),$$
+    $$h(b) = f(b)g(b) - f(a)g(b) - g(b)f(b) + g(a)f(b) = f(b)g(a) - g(b)f(a).$$
+    So $h(a) = h(b)$. By Rolle's theorem there is $x\in(a,b)$ with $h'(x) = 0$, i.e.
+    $$[f(b)-f(a)]\cdot g'(x) = [g(b)-g(a)]\cdot f'(x).\qquad\blacksquare$$
+
+    (With $g(x) = x$ this reads $f(b) - f(a) = (b-a)f'(x)$, the Mean Value Theorem.)
+- id: abbott-5.2.11
+  hints:
+    - |
+      For (a), $g'(a)<0$ is a statement about difference quotients $\frac{g(x)-g(a)}{x-a}$ for $x$ slightly bigger than $a$. What sign must $g(x) - g(a)$ have then?
+    - |
+      For (b), $g$ is continuous on the compact interval $[a,b]$, so it attains a minimum. Part (a) tells you where the minimum is *not*.
+    - |
+      Use the Interior Extremum Theorem at the minimizing point, then translate back from $g$ to $f$.
+  solution: |
+    **(a)** Since $g'(a) = \lim_{x\to a}\frac{g(x)-g(a)}{x-a} < 0$ (a one-sided limit, as the domain is $[a,b]$), take $\varepsilon = -g'(a) > 0$. There is $\delta>0$ such that $\frac{g(x)-g(a)}{x-a} < g'(a) + \varepsilon = 0$ for all $x\in(a,a+\delta)\cap[a,b]$. Choose such an $x$ with $x<b$. Since $x - a>0$, we get $g(x) < g(a)$, with $x\in(a,b)$.
+
+    Similarly, $g'(b) > 0$ gives $\delta'>0$ with $\frac{g(y)-g(b)}{y-b} > 0$ for $y\in(b-\delta',b)\cap[a,b]$. Choose such a $y$ with $y > a$. Since $y-b<0$, we get $g(y)<g(b)$, with $y\in(a,b)$.
+
+    **(b)** Recall the setup: $g(x) = f(x) - \alpha x$ is differentiable on $[a,b]$ with $g'(x) = f'(x) - \alpha$, and $f'(a) < \alpha < f'(b)$ gives $g'(a) < 0 < g'(b)$.
+
+    Since $g$ is differentiable, it is continuous on the compact set $[a,b]$. By the Extreme Value Theorem it attains a minimum at some $c\in[a,b]$. By (a), $g(a)$ is not the minimum, since $g(x)<g(a)$ for some $x$, and neither is $g(b)$. So $c\in(a,b)$. By the Interior Extremum Theorem, $g'(c) = 0$, that is, $f'(c) = \alpha$.
+
+    For the other case $f'(a) > \alpha > f'(b)$, apply the case just proved to $-f$ and $-\alpha$: $(-f)'(a) < -\alpha < (-f)'(b)$, so there is $c\in(a,b)$ with $-f'(c) = -\alpha$, i.e. $f'(c) = \alpha$. $\blacksquare$
+- id: abbott-5.4.7
+  hints:
+    - |
+      For (a), the chord from $a_n$ to $b_n$ straddles $a$. Split it into the chords $[a_n,a]$ and $[a,b_n]$: the slope over $[a_n,b_n]$ is a weighted average of the two one-sided slopes at $a$.
+    - |
+      For (b), compute the slope of each $h_n$ over $[x_m,y_m]$. For $n \le m$, $h_n$ is linear on $[x_m,y_m]$ with slope $\pm1$. For $n>m$, $h_n$ vanishes at both $x_m$ and $y_m$.
+    - |
+      So the chord slope of $g$ over $[x_m,y_m]$ is a sum of $m+1$ terms, each $\pm1$. Think about the parity of this integer as $m$ changes, and use (a) to get a contradiction.
+  solution: |
+    **(a)** Write $D_n^+ = \frac{f(b_n)-f(a)}{b_n-a}$ and $D_n^- = \frac{f(a)-f(a_n)}{a-a_n}$, and let $t_n = \frac{b_n - a}{b_n - a_n}\in(0,1)$, so $1-t_n = \frac{a-a_n}{b_n-a_n}$. Then
+    $$t_nD_n^+ + (1-t_n)D_n^- = \frac{f(b_n)-f(a)}{b_n-a_n} + \frac{f(a)-f(a_n)}{b_n-a_n} = \frac{f(b_n)-f(a_n)}{b_n-a_n}.$$
+    Since $b_n\to a$ with $b_n\ne a$, and $a_n\to a$ with $a_n\neq a$, the sequential characterization of the limit defining $f'(a)$ gives $D_n^+\to f'(a)$ and $D_n^-\to f'(a)$. Hence
+    $$\left|\frac{f(b_n)-f(a_n)}{b_n-a_n} - f'(a)\right| = \bigl|t_n(D_n^+ - f'(a)) + (1-t_n)(D_n^- - f'(a))\bigr| \le |D_n^+ - f'(a)| + |D_n^- - f'(a)| \to 0.$$
+    (For large $n$, $a_n,b_n\in J$, since $J$ is open.) So $f'(a) = \lim\frac{f(b_n)-f(a_n)}{b_n-a_n}$. $\blacksquare$
+
+    **(b)** *Facts about $h$.* On $[-1,0]$, $h(x) = -x$, and on $[0,1]$, $h(x) = x$. By $2$-periodicity, on each interval $[k,k+1]$ with $k\in\mathbb{Z}$, $h$ is linear with slope $+1$ or $-1$. Also $h(2j) = h(0) = 0$ and $h(2j+1) = h(1) = 1$ for $j\in\mathbb{Z}$. Consequently $h_n(x) = 2^{-n}h(2^nx)$ is linear with slope $\pm1$ on each interval $\left[\frac{j}{2^n},\frac{j+1}{2^n}\right]$, because $2^nx$ then runs over $[j,j+1]$. Since $0\le h_n\le 2^{-n}$, the series for $g$ converges for every $x$, so
+    $$g(y_m) - g(x_m) = \sum_{n=0}^\infty\bigl(h_n(y_m) - h_n(x_m)\bigr).$$
+
+    *Slope of $h_n$ over $[x_m,y_m]$.* Fix $m$ and let $s_{n} = \frac{h_n(y_m) - h_n(x_m)}{y_m-x_m}$.
+
+    - If $n\le m$, let $j = \lfloor p_m/2^{m-n}\rfloor$. Then $j2^{m-n}\le p_m < (j+1)2^{m-n}$, and since these are integers, $p_m+1\le(j+1)2^{m-n}$. Dividing by $2^m$ gives $\frac{j}{2^n}\le x_m<y_m\le\frac{j+1}{2^n}$. On this interval $h_n$ is linear with slope $\pm1$, so $s_n = \pm1$.
+    - If $n>m$, then $2^nx_m = 2^{n-m}p_m$ and $2^ny_m = 2^{n-m}(p_m+1)$ are even integers, so $h_n(x_m) = h_n(y_m) = 0$ and $s_n = 0$.
+
+    Therefore
+    $$Q_m := \frac{g(y_m) - g(x_m)}{y_m - x_m} = \sum_{n=0}^{m}s_n,$$
+    a sum of $m+1$ terms, each equal to $\pm1$. If $r$ of them equal $-1$, then $Q_m = (m+1) - 2r$. So $Q_m$ is an integer with the same parity as $m+1$.
+
+    *Conclusion.* Then $Q_m$ and $Q_{m+1}$ are integers of opposite parity, so $|Q_{m+1} - Q_m|\ge1$ for every $m$. Hence $(Q_m)$ is not a Cauchy sequence and does not converge.
+
+    Now suppose $g$ were differentiable at $x$. Since $x$ is not dyadic, $x_m < x < y_m$ for all $m$, and $x_m\to x$, $y_m\to x$. By the lemma in (a), with $J = \mathbb{R}$, we would get $Q_m\to g'(x)$, contradicting the divergence of $(Q_m)$. Therefore $g'(x)$ does not exist. $\blacksquare$

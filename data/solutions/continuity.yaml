@@ -1,0 +1,983 @@
+- id: mit20-a9-4
+  hints:
+    - |
+      Write down what uniform continuity requires: given $\epsilon > 0$, a single $\delta > 0$ that works for all pairs $x, y \in S$ at once.
+    - |
+      The Lipschitz inequality already bounds $|f(x) - f(y)|$ by a multiple of $|x - y|$, with no dependence on where $x$ and $y$ are. How small must $|x-y|$ be to make $L|x-y| < \epsilon$? Remember that $L$ could be $0$.
+  solution: |
+    **Proof.** Let $L \ge 0$ be a Lipschitz constant for $f$ on $S$, and let $\epsilon > 0$. Put
+    $$\delta = \frac{\epsilon}{L + 1} > 0.$$
+    (We use $L+1$ rather than $L$ so that the formula also makes sense when $L = 0$.) Note that $\delta$ depends only on $\epsilon$ and $L$, not on any point of $S$. If $x, y \in S$ with $|x - y| < \delta$, then
+    $$|f(x) - f(y)| \le L|x - y| \le L\delta = \frac{L}{L+1}\,\epsilon < \epsilon.$$
+    (When $L = 0$ the middle quantity is $0 < \epsilon$.) Hence $f$ is uniformly continuous on $S$. $\blacksquare$
+
+- id: mit20-a9-6
+  hints:
+    - |
+      For (a), estimate the distance $\left|\frac{x^2}{x^2+1} - 1\right|$ by a simple expression in $x$ that clearly becomes small for large $x$.
+    - |
+      For (b), a limit at infinity can be tested along sequences tending to infinity: if $f(x) \to L$ then $f(x_n) \to L$ whenever $x_n \to \infty$. Look for two sequences along which $\sin$ is constant with different constants.
+    - |
+      For (b) you can also argue directly with $\epsilon = 1/2$: past any $M$ there are points where $\sin x = 1$ and points where $\sin x = -1$.
+  solution: |
+    **(a)** For every real $x$,
+    $$\left|\frac{x^2}{x^2+1} - 1\right| = \frac{1}{x^2+1}.$$
+    Let $\epsilon > 0$ and put $M = \max\{R, 1, 1/\epsilon\}$, so $M \ge R$. If $x \ge M$, then $x \ge 1$, so $x^2 \ge x \ge 1/\epsilon$, and therefore
+    $$\frac{1}{x^2+1} < \frac{1}{x^2} \le \epsilon .$$
+    Hence $\left|\frac{x^2}{x^2+1} - 1\right| < \epsilon$ for all $x \ge M$, proving $\displaystyle\lim_{x\to\infty}\frac{x^2}{x^2+1} = 1$.
+
+    **(b)** Suppose, for contradiction, that $\sin x \to L$ as $x \to \infty$. Apply the definition with $\epsilon = 1$: there is $M$ such that $|\sin x - L| < 1$ for all $x \ge M$. Choose an integer $k$ with $2\pi k \ge M$, and put
+    $$a = 2\pi k + \frac{\pi}{2}, \qquad b = 2\pi k + \frac{3\pi}{2}.$$
+    Both are $\ge M$, and $\sin a = 1$, $\sin b = -1$. Then
+    $$2 = |\sin a - \sin b| \le |\sin a - L| + |L - \sin b| < 1 + 1 = 2,$$
+    a contradiction. Hence $\lim_{x\to\infty} \sin x$ does not exist. $\blacksquare$
+
+- id: mit20-final-2a
+  hints:
+    - |
+      For (i), think about why the Extreme Value Theorem fails: the domain $(0,1)$ is not closed, so the sup and inf of a nice function can sit at the missing endpoints.
+    - |
+      For (ii), the Intermediate Value Theorem needs continuity. A function with a single jump can skip a whole interval of values while still having its smallest value at $0$ and largest at $1$.
+  solution: |
+    **(i)** Let $f(x) = x$ on $(0,1)$. It is continuous. Its range is $(0,1)$, whose supremum $1$ and infimum $0$ are not values of $f$. So for any $x \in (0,1)$ there is a larger value, e.g. $f\bigl(\tfrac{x+1}{2}\bigr) > f(x)$, and a smaller one, $f(x/2) < f(x)$. Hence $f$ has neither a global maximum nor a global minimum. This does not contradict the Extreme Value Theorem, because $(0,1)$ is not closed (not compact).
+
+    **(ii)** Define $f\colon [0,1]\to\mathbb{R}$ by
+    $$f(x) = \begin{cases} x & 0 \le x < \tfrac12, \\ x + 1 & \tfrac12 \le x \le 1. \end{cases}$$
+    The range is $[0, \tfrac12) \cup [\tfrac32, 2]$. So $f(0) = 0$ is the smallest value (an absolute minimum at $0$) and $f(1) = 2$ is the largest value (an absolute maximum at $1$). The value $y = 1 \in (f(0), f(1)) = (0,2)$ is not in the range. This does not contradict the Intermediate Value Theorem, because $f$ is discontinuous at $x = \tfrac12$ (the left-hand limit there is $\tfrac12$, but $f(\tfrac12) = \tfrac32$).
+
+- id: lebl-3.2.11
+  hints:
+    - |
+      Continuity at $c$ lets you keep $f(x)$ within any prescribed distance $\epsilon$ of $f(c)$. Which $\epsilon$ guarantees that $f(x)$ stays positive?
+    - |
+      Take $\epsilon = f(c)$ (or $f(c)/2$) in the $\epsilon$–$\delta$ definition and let $\alpha$ be the resulting $\delta$.
+  solution: |
+    **Proof.** Let $\epsilon = f(c) > 0$. Since $f$ is continuous at $c$, there is $\delta > 0$ such that $|x - c| < \delta$ implies $|f(x) - f(c)| < f(c)$. Set $\alpha = \delta$. For $x \in (c-\alpha, c+\alpha)$ we have $|x - c| < \delta$, so
+    $$f(x) > f(c) - f(c) = 0.$$
+    $\blacksquare$
+
+- id: lebl-3.3.11
+  hints:
+    - |
+      A strictly increasing function cannot achieve a maximum or a minimum on $\mathbb{R}$, since there is always a point further right (or left). So look for a bounded, continuous, strictly increasing function.
+    - |
+      Try $\arctan x$, or, to avoid trigonometric facts, a rational expression in $x$ and $|x|$ that tends to $\pm 1$.
+  solution: |
+    Let
+    $$f(x) = \frac{x}{1 + |x|}.$$
+
+    *Continuous.* The numerator and denominator are continuous, and the denominator is never $0$ (it is at least $1$), so $f$ is continuous on $\mathbb{R}$.
+
+    *Bounded.* $|f(x)| = \frac{|x|}{1+|x|} < 1$ for every $x$.
+
+    *Strictly increasing.* For $x \ge 0$, $f(x) = 1 - \frac{1}{1+x}$, which is strictly increasing on $[0,\infty)$ with values in $[0,1)$. Also $f(-x) = -f(x)$, so $f$ is strictly increasing on $(-\infty, 0]$ with values in $(-1, 0]$. Hence $f$ is strictly increasing on $\mathbb{R}$: if $x < y$ lie on the same side of $0$ this was just shown, and if $x < 0 \le y$ then $f(x) < 0 \le f(y)$.
+
+    *No absolute extrema.* For any $x \in \mathbb{R}$, $f(x+1) > f(x)$, so $f(x)$ is not an absolute maximum. Likewise $f(x-1) < f(x)$, so $f(x)$ is not an absolute minimum.
+
+    So $f$ is a continuous bounded function on $\mathbb{R}$ with neither an absolute minimum nor an absolute maximum. ($\arctan x$ works for the same reasons.)
+
+- id: lebl-3.4.3
+  hints:
+    - |
+      Put $\frac1x - \frac1y$ over a common denominator.
+    - |
+      You get $|x - y|$ divided by $xy$. On $(c,\infty)$, how small can $xy$ be?
+  solution: |
+    **Proof.** For $x, y \in (c, \infty)$,
+    $$\left|\frac1x - \frac1y\right| = \frac{|y - x|}{xy}.$$
+    Since $x > c > 0$ and $y > c > 0$, we have $xy > c^2$, so
+    $$\left|\frac1x - \frac1y\right| \le \frac{1}{c^2}\,|x - y|.$$
+    Thus $f$ is Lipschitz continuous on $(c,\infty)$ with constant $L = 1/c^2$. $\blacksquare$
+
+    (The constant blows up as $c \to 0$. This matches the fact that $1/x$ is not Lipschitz on $(0,\infty)$.)
+
+- id: lebl-7.5.2
+  hints:
+    - |
+      For (a), fix $x = x_0$ and treat two cases: $x_0 \ne 0$, where the formula holds for every $y$, and $x_0 = 0$, where you should compute $f(0, y)$ directly.
+    - |
+      For (b), approach the origin along a line through it, say $y = x$, and see what value $f$ takes along that line.
+  solution: |
+    **(a)** Fix $x_0$ and let $\varphi(y) = f(x_0, y)$.
+
+    *Case 1: $x_0 \neq 0$.* Then $(x_0, y) \ne (0,0)$ for every $y$, so $\varphi(y) = \dfrac{x_0 y}{x_0^2 + y^2}$ for all $y$. This is a quotient of polynomials in $y$ whose denominator is at least $x_0^2 > 0$, so $\varphi$ is continuous on $\mathbb{R}$.
+
+    *Case 2: $x_0 = 0$.* For $y \ne 0$, $\varphi(y) = \dfrac{0}{y^2} = 0$, and $\varphi(0) = f(0,0) = 0$. So $\varphi \equiv 0$ is constant, hence continuous.
+
+    Since $f(x,y) = f(y,x)$, the same argument with the roles of $x$ and $y$ swapped shows that $x \mapsto f(x, y_0)$ is continuous for each fixed $y_0$.
+
+    **(b)** Consider the points $p_n = (1/n, 1/n)$. Then $p_n \to (0,0)$ in $\mathbb{R}^2$, but
+    $$f(p_n) = \frac{1/n^2}{2/n^2} = \frac12 \quad\text{for all } n,$$
+    so $f(p_n) \to \tfrac12 \neq 0 = f(0,0)$. By the sequential characterization of continuity, $f$ is not continuous at $(0,0)$. So $f$ is not continuous.
+
+- id: ross-19.2
+  hints:
+    - |
+      In each case, factor or rewrite $f(x) - f(y)$ so that it is a factor $|x - y|$ times something.
+    - |
+      Bound the other factor by a constant valid for all $x, y$ in the given set. For (b), use $x, y \in [0,3]$. For (c), use $x, y \ge \tfrac12$. Then choose $\delta$ as $\epsilon$ divided by that constant.
+  solution: |
+    In each part let $\epsilon > 0$ be given. The $\delta$ we choose depends only on $\epsilon$.
+
+    **(a)** $|f(x) - f(y)| = |3x + 11 - 3y - 11| = 3|x - y|$. Let $\delta = \epsilon/3$. If $x, y \in \mathbb{R}$ and $|x-y| < \delta$, then $|f(x) - f(y)| = 3|x - y| < 3\delta = \epsilon$.
+
+    **(b)** For $x, y \in [0,3]$, $|x + y| \le 6$, so
+    $$|x^2 - y^2| = |x + y|\,|x - y| \le 6|x - y|.$$
+    Let $\delta = \epsilon/6$. If $x, y \in [0,3]$ and $|x - y| < \delta$, then $|f(x) - f(y)| \le 6|x-y| < 6\delta = \epsilon$.
+
+    **(c)** For $x, y \ge \tfrac12$, $xy \ge \tfrac14$, so
+    $$\left|\frac1x - \frac1y\right| = \frac{|x - y|}{xy} \le 4|x - y|.$$
+    Let $\delta = \epsilon/4$. If $x, y \in [\tfrac12, \infty)$ and $|x - y| < \delta$, then $|f(x) - f(y)| \le 4|x - y| < 4\delta = \epsilon$.
+
+    So all three functions are uniformly continuous on the indicated sets.
+
+- id: mit20-a7-6
+  hints:
+    - |
+      Both parts come from applying the definition of $\lim_{x\to c} f(x) = L$ with one well-chosen, fixed value of $\epsilon$.
+    - |
+      For (a), $\epsilon = 1$ keeps $f(x)$ within $1$ of $L$. For (b), choose $\epsilon$ so that the interval $(L - \epsilon, L + \epsilon)$ lies in $(0, \infty)$.
+  solution: |
+    **(a)** Let $L = \lim_{x\to c} f(x)$. Applying the definition with $\epsilon = 1$ gives $\delta > 0$ such that $x \in S$ and $0 < |x - c| < \delta$ imply $|f(x) - L| < 1$. For such $x$,
+    $$|f(x)| \le |f(x) - L| + |L| < 1 + |L|.$$
+    So $B = 1 + |L| \ge 0$ and this $\delta$ work.
+
+    **(b)** Apply the definition with $\epsilon = L > 0$. There is $\delta > 0$ such that $x \in S$ and $0 < |x - c| < \delta$ imply $|f(x) - L| < L$, and in particular
+    $$f(x) > L - L = 0.$$
+    $\blacksquare$
+
+- id: mit20-a8-2
+  hints:
+    - |
+      At $x = 0$, compare $|f(x)|$ with $|x|$ for both rational and irrational $x$.
+    - |
+      At $x = 1$, compute $f(1)$. Then use the sequential criterion with a sequence of irrational numbers converging to $1$.
+  solution: |
+    **Continuity at $0$.** We have $f(0) = 0$ since $0 \in \mathbb{Q}$. For every $x$, either $f(x) = 0$ or $f(x) = 2x$, so $|f(x) - f(0)| = |f(x)| \le 2|x|$. Given $\epsilon > 0$, let $\delta = \epsilon/2$. If $|x - 0| < \delta$, then $|f(x) - f(0)| \le 2|x| < 2\delta = \epsilon$. Hence $f$ is continuous at $0$.
+
+    **Discontinuity at $1$.** Since $1 \in \mathbb{Q}$, $f(1) = 0$. Let $x_n = 1 + \frac{\sqrt2}{n}$. Each $x_n$ is irrational: if $x_n$ were rational, then $\sqrt2 = n(x_n - 1)$ would be rational. Also $x_n \to 1$. But
+    $$f(x_n) = 2x_n = 2 + \frac{2\sqrt2}{n} \to 2 \ne 0 = f(1).$$
+    By the sequential characterization of continuity, $f$ is not continuous at $1$. $\blacksquare$
+
+- id: mit20-a9-5
+  hints:
+    - |
+      For (a), bound $|\cos x - \cos y|$ by $|x - y|$. A sum-to-product identity, or the Mean Value Theorem, does it.
+    - |
+      For uniform continuity in (b), you can either quote "continuous on a closed bounded interval implies uniformly continuous", or prove the direct estimate $|x^{1/3} - y^{1/3}| \le |x - y|^{1/3}$.
+    - |
+      For "not Lipschitz" in (b), compare $f$ with the point $0$: look at the difference quotient $\frac{f(x) - f(0)}{x - 0}$ as $x \to 0^+$.
+  solution: |
+    **(a)** By the sum-to-product formula,
+    $$\cos x - \cos y = -2\sin\Bigl(\frac{x+y}{2}\Bigr)\sin\Bigl(\frac{x-y}{2}\Bigr).$$
+    Using $|\sin s| \le 1$ and $|\sin t| \le |t|$ for all real $s, t$,
+    $$|\cos x - \cos y| \le 2\cdot 1 \cdot \frac{|x - y|}{2} = |x - y|.$$
+    So $\cos$ is Lipschitz on $\mathbb{R}$ with $L = 1$. (Alternatively, by the Mean Value Theorem, $\cos x - \cos y = -\sin(\xi)(x - y)$ for some $\xi$ between $x$ and $y$.)
+
+    **(b)** *Uniform continuity.* We show that $|x^{1/3} - y^{1/3}| \le |x - y|^{1/3}$ for $x, y \in [0,1]$. By symmetry assume $x \ge y$, and let $a = x^{1/3} \ge b = y^{1/3} \ge 0$. Expanding,
+    $$a^3 = \bigl(b + (a-b)\bigr)^3 = b^3 + 3b^2(a-b) + 3b(a-b)^2 + (a-b)^3 \ge b^3 + (a-b)^3,$$
+    since the middle terms are $\ge 0$. So $(a-b)^3 \le a^3 - b^3 = x - y$, i.e. $a - b \le (x-y)^{1/3}$. Now given $\epsilon > 0$, let $\delta = \epsilon^3$. If $x, y \in [0,1]$ and $|x - y| < \delta$, then $|f(x) - f(y)| \le |x - y|^{1/3} < \epsilon$. Hence $f$ is uniformly continuous on $[0,1]$. (One could also note that $f$ is continuous on the compact interval $[0,1]$ and hence uniformly continuous.)
+
+    *Not Lipschitz.* Suppose $|x^{1/3} - y^{1/3}| \le L|x - y|$ for all $x, y \in [0,1]$. Take $y = 0$ and $x = 1/n^3$ for $n \in \mathbb{N}$:
+    $$\frac1n \le \frac{L}{n^3}, \quad\text{i.e.}\quad n^2 \le L \text{ for all } n,$$
+    which is impossible. So $f$ is not Lipschitz continuous on $[0,1]$. $\blacksquare$
+
+    This shows that Lipschitz implies uniformly continuous, but not conversely.
+
+- id: mit20-final-2b
+  hints:
+    - |
+      Add and subtract a mixed term to write $f(x)g(x) - f(c)g(c)$ as a sum of two pieces, each containing either $f(x) - f(c)$ or $g(x) - g(c)$ as a factor.
+    - |
+      One piece has a factor $f(x)$ that varies with $x$. First use continuity of $f$ (with $\epsilon = 1$) to bound $|f(x)|$ near $c$. Then choose $\delta$ as the minimum of three deltas.
+  solution: |
+    **Proof.** For $x \in S$,
+    $$f(x)g(x) - f(c)g(c) = f(x)\bigl(g(x) - g(c)\bigr) + g(c)\bigl(f(x) - f(c)\bigr).$$
+    Let $\epsilon > 0$. Put $M = |f(c)| + 1$ and $N = |g(c)| + 1$. By continuity of $f$ and $g$ at $c$, there are $\delta_1, \delta_2, \delta_3 > 0$ such that, for $x \in S$:
+    - $|x - c| < \delta_1 \Rightarrow |f(x) - f(c)| < 1$, hence $|f(x)| < M$;
+    - $|x - c| < \delta_2 \Rightarrow |g(x) - g(c)| < \dfrac{\epsilon}{2M}$;
+    - $|x - c| < \delta_3 \Rightarrow |f(x) - f(c)| < \dfrac{\epsilon}{2N}$.
+
+    Let $\delta = \min\{\delta_1, \delta_2, \delta_3\}$. If $x \in S$ and $|x - c| < \delta$, then
+    $$|f(x)g(x) - f(c)g(c)| \le |f(x)|\,|g(x) - g(c)| + |g(c)|\,|f(x) - f(c)| < M\cdot\frac{\epsilon}{2M} + N\cdot\frac{\epsilon}{2N} = \epsilon,$$
+    using $|g(c)| < N$. So $fg$ is continuous at $c$. $\blacksquare$
+
+- id: abbott-4.3.6
+  hints:
+    - |
+      Two of the five requests are impossible. In each part ask: can the desired continuous combination be "undone" by operations that preserve continuity at $0$?
+    - |
+      For the possible ones, functions like Dirichlet's function (one constant on $\mathbb{Q}$, another off $\mathbb{Q}$) are handy. For (d), note that $t + 1/t$ takes the same value at $t$ and at $1/t$.
+    - |
+      For (e), recover $f$ from $f^3$ using the cube root, and check that this map preserves continuity. One way is the inequality $|a - b|^3 \le 4|a^3 - b^3|$.
+  solution: |
+    Let $\chi(x) = 1$ if $x \in \mathbb{Q}$ and $\chi(x) = 0$ if $x \notin \mathbb{Q}$ (Dirichlet's function). It is discontinuous at every point, in particular at $0$: $\chi(0) = 1$, but $\chi(\sqrt2/n) = 0$ for all $n$ while $\sqrt2/n \to 0$.
+
+    **(a) Possible.** Let $f = \chi$ and $g = 1 - \chi$. Neither is continuous at $0$, since $g$ is discontinuous wherever $\chi$ is. But $f + g \equiv 1$ and $fg = \chi(1-\chi) \equiv 0$, because one of the two factors is always $0$. Both are constant, hence continuous.
+
+    **(b) Impossible.** If $f$ and $f + g$ were continuous at $0$, then $g = (f+g) - f$ would be continuous at $0$, since a difference of functions continuous at $0$ is continuous at $0$ (Algebraic Continuity Theorem).
+
+    **(c) Possible.** Let $f \equiv 0$, which is continuous, and $g = \chi$, which is not continuous at $0$. Then $fg \equiv 0$ is continuous. (The obstruction in (b) disappears here because we cannot divide by $f$.)
+
+    **(d) Possible.** Let $f(x) = 2$ for $x \in \mathbb{Q}$ and $f(x) = \tfrac12$ for $x \notin \mathbb{Q}$. As with $\chi$, $f$ is discontinuous at $0$. But $f(x) + \frac{1}{f(x)} = 2 + \frac12 = \frac52$ for every $x$, a constant function.
+
+    **(e) Impossible.** First, for all real $a, b$,
+    $$a^2 + ab + b^2 - \frac{(a-b)^2}{4} = \frac{3(a+b)^2}{4} \ge 0,$$
+    so $|a^3 - b^3| = |a - b|\,(a^2 + ab + b^2) \ge \frac14|a-b|^3$. Now suppose $f^3$ is continuous at $0$. Given $\epsilon > 0$, choose $\delta > 0$ with $|f(x)^3 - f(0)^3| < \epsilon^3/4$ whenever $|x| < \delta$. For such $x$,
+    $$|f(x) - f(0)|^3 \le 4|f(x)^3 - f(0)^3| < \epsilon^3,$$
+    so $|f(x) - f(0)| < \epsilon$. Hence $f$ is continuous at $0$. So no such $f$ exists.
+
+- id: abbott-4.3.12
+  hints:
+    - |
+      Show that $g$ is in fact Lipschitz with constant $1$: $|g(x) - g(y)| \le |x - y|$. Start from the triangle inequality $|x - a| \le |x - y| + |y - a|$ for $a \in F$.
+    - |
+      Turn that inequality into a statement about infima: $g(x) - |x-y|$ is a lower bound for the set defining $g(y)$.
+    - |
+      For $x \notin F$, use that $F^c$ is open: some neighborhood of $x$ misses $F$ entirely.
+  solution: |
+    Since $F \ne \emptyset$, each set $\{|x - a| : a \in F\}$ is nonempty and bounded below by $0$, so $g(x)$ is a well-defined number $\ge 0$.
+
+    **Continuity.** Let $x, y \in \mathbb{R}$. For every $a \in F$,
+    $$g(x) \le |x - a| \le |x - y| + |y - a|,$$
+    so $g(x) - |x - y| \le |y - a|$ for all $a \in F$. Thus $g(x) - |x - y|$ is a lower bound for $\{|y - a| : a \in F\}$, and therefore $g(x) - |x - y| \le g(y)$, i.e. $g(x) - g(y) \le |x - y|$. Swapping $x$ and $y$ gives $g(y) - g(x) \le |x - y|$. Hence
+    $$|g(x) - g(y)| \le |x - y| \quad\text{for all } x, y.$$
+    Given $\epsilon > 0$, $\delta = \epsilon$ works at every point, so $g$ is continuous (indeed uniformly continuous) on $\mathbb{R}$.
+
+    **Positivity off $F$.** Let $x \notin F$. Since $F$ is closed, $F^c$ is open, so there is $\epsilon > 0$ with $(x - \epsilon, x + \epsilon) \subseteq F^c$. Then every $a \in F$ satisfies $|x - a| \ge \epsilon$. So $\epsilon$ is a lower bound for the set, and $g(x) \ge \epsilon > 0$. $\blacksquare$
+
+    (Conversely, $g(x) = 0$ for $x \in F$, so $F = \{x : g(x) = 0\}$.)
+
+- id: abbott-4.4.2
+  hints:
+    - |
+      Ask in each case whether the function can be extended continuously to the closed interval $[0,1]$. Trouble at an endpoint is what breaks uniform continuity on $(0,1)$.
+    - |
+      To show a function is *not* uniformly continuous, find sequences $x_n, y_n$ with $|x_n - y_n| \to 0$ but $|f(x_n) - f(y_n)|$ bounded away from $0$.
+    - |
+      To show a function *is* uniformly continuous, either find a Lipschitz bound directly or extend it to a continuous function on $[0,1]$ and use that continuous functions on compact sets are uniformly continuous.
+  solution: |
+    **(a) No.** Let $x_n = \frac1n$ and $y_n = \frac{1}{n+1}$ for $n \ge 2$. These lie in $(0,1)$ and $|x_n - y_n| = \frac{1}{n(n+1)} \to 0$. But $|f(x_n) - f(y_n)| = |n - (n+1)| = 1$ for all $n$. So with $\epsilon_0 = 1$, no $\delta > 0$ can work: for $n$ large, $|x_n - y_n| < \delta$ while $|f(x_n) - f(y_n)| \ge \epsilon_0$. Hence $f$ is not uniformly continuous on $(0,1)$.
+
+    **(b) Yes.** For $x, y \in (0,1)$,
+    $$|g(x) - g(y)| = \frac{|x^2 - y^2|}{\sqrt{x^2+1} + \sqrt{y^2+1}} \le \frac{|x+y|\,|x-y|}{2} \le |x - y|,$$
+    since the denominator is $\ge 2$ and $|x + y| < 2$. So $g$ is Lipschitz with constant $1$, and $\delta = \epsilon$ works for every $\epsilon > 0$.
+
+    **(c) Yes.** Define $H$ on $[0,1]$ by $H(0) = 0$, $H(1) = \sin 1$ and $H(x) = h(x)$ for $0 < x < 1$. Then $H(x) = x\sin(1/x)$ on $(0,1]$, which is continuous there as a product and composition of continuous functions. At $0$, $|H(x) - H(0)| = |x\sin(1/x)| \le |x|$, so $H$ is continuous at $0$ (take $\delta = \epsilon$). Thus $H$ is continuous on the compact set $[0,1]$, hence uniformly continuous there (Theorem 4.4.7). Its restriction $h$ to $(0,1)$ is then uniformly continuous too, because the same $\delta$ works for pairs of points in the smaller set.
+
+- id: abbott-4.4.8
+  hints:
+    - |
+      What does a continuous function do to a compact set? Use that to rule out exactly one of the three requests.
+    - |
+      When the domain is not compact, nothing forces the range to be compact. You may hit values at interior points, and approach values without hitting them.
+    - |
+      For (c), the range must approach both $0$ and $1$ without reaching them, using a domain with only one "open end". An oscillating function such as $\sin(1/x)$, with an amplitude that tends to $\tfrac12$ as $x \to 0^+$, can do this.
+  solution: |
+    **(a) Impossible.** $[0,1]$ is compact, and the continuous image of a compact set is compact (Theorem 4.4.2). So the range of such a function would be compact, hence closed. But $(0,1)$ is not closed: it does not contain its limit point $0$.
+
+    **(b) Possible.** Let $f(x) = \frac{1 + \sin(2\pi x)}{2}$ on $(0,1)$. It is continuous, and $0 \le f(x) \le 1$. Also $f(\tfrac14) = 1$ and $f(\tfrac34) = 0$. By the Intermediate Value Theorem on $[\tfrac14, \tfrac34]$, $f$ takes every value in $[0,1]$. So the range is exactly $[0,1]$.
+
+    **(c) Possible.** Let
+    $$f(x) = \frac12 + \frac{1 - x}{2}\sin\frac1x, \qquad x \in (0,1].$$
+    $f$ is continuous on $(0,1]$.
+
+    *Range is inside $(0,1)$.* For $x \in (0,1]$, $0 \le \frac{1-x}{2} < \frac12$ and $|\sin(1/x)| \le 1$, so $\bigl|f(x) - \tfrac12\bigr| < \tfrac12$.
+
+    *Range contains $(0,1)$.* Let $a_k = \frac{1}{\pi/2 + 2\pi k}$ and $b_k = \frac{1}{3\pi/2 + 2\pi k}$ for $k \in \mathbb{N}$. These lie in $(0,1)$ and
+    $$f(a_k) = 1 - \frac{a_k}{2} \to 1, \qquad f(b_k) = \frac{b_k}{2} \to 0.$$
+    Given $t \in (0,1)$, choose $k$ with $f(b_k) < t < f(a_k)$. By the Intermediate Value Theorem on the closed interval between $b_k$ and $a_k$ (which lies in $(0,1)$), some $x$ has $f(x) = t$.
+
+    So the range of $f$ is exactly $(0,1)$.
+
+- id: abbott-4.4.10
+  hints:
+    - |
+      Two of the four combinations are always uniformly continuous; the other two can fail. For the failures, think about domains that are unbounded, or functions that get close to $0$.
+    - |
+      For the sum, split $\epsilon$ in half. For the composition, chain the two $\delta$'s: the $\delta$ for $f$ becomes the "$\epsilon$" for $g$.
+    - |
+      Counterexamples: what is the product of the uniformly continuous function $x$ with itself on $\mathbb{R}$? What is $1/x$ on $(0,1)$?
+  solution: |
+    **$f + g$: always uniformly continuous.** Given $\epsilon > 0$, choose $\delta_1, \delta_2 > 0$ such that $|x - y| < \delta_1$ implies $|f(x) - f(y)| < \epsilon/2$, and $|x - y| < \delta_2$ implies $|g(x) - g(y)| < \epsilon/2$ (for $x, y \in A$). With $\delta = \min\{\delta_1, \delta_2\}$, if $|x - y| < \delta$ then
+    $$|(f+g)(x) - (f+g)(y)| \le |f(x) - f(y)| + |g(x) - g(y)| < \epsilon.$$
+
+    **$f \circ g$: always uniformly continuous.** (Here $g$ maps $A$ into the domain of $f$, and $f$ is uniformly continuous there.) Given $\epsilon > 0$, choose $\eta > 0$ such that $|u - v| < \eta$ implies $|f(u) - f(v)| < \epsilon$. Then choose $\delta > 0$ such that $|x - y| < \delta$ implies $|g(x) - g(y)| < \eta$. Now $|x - y| < \delta$ gives $|g(x) - g(y)| < \eta$, hence $|f(g(x)) - f(g(y))| < \epsilon$.
+
+    **$fg$: not necessarily.** Take $A = \mathbb{R}$ and $f(x) = g(x) = x$, which are uniformly continuous ($\delta = \epsilon$). Let $x_n = n$ and $y_n = n + \frac1n$. Then $|x_n - y_n| = \frac1n \to 0$, but
+    $$|y_n^2 - x_n^2| = 2 + \frac{1}{n^2} \ge 2.$$
+    So for $\epsilon = 2$, no $\delta$ works: $x^2$ is not uniformly continuous on $\mathbb{R}$.
+
+    **$f/g$: not necessarily.** Take $A = (0,1)$, $f(x) = 1$ and $g(x) = x$. Both are uniformly continuous, and $g \ne 0$ on $A$. But $f/g = 1/x$ is not uniformly continuous on $(0,1)$: with $x_n = \frac1n$ and $y_n = \frac{1}{n+1}$, $|x_n - y_n| \to 0$ while $\bigl|\frac{1}{x_n} - \frac{1}{y_n}\bigr| = 1$.
+
+- id: abbott-4.5.7
+  hints:
+    - |
+      A fixed point of $f$ is a zero of some related function. Which one?
+    - |
+      Apply the Intermediate Value Theorem to $g(x) = f(x) - x$. What are the signs of $g(0)$ and $g(1)$?
+  solution: |
+    **Proof.** Let $g(x) = f(x) - x$ on $[0,1]$. It is continuous, as a difference of continuous functions. Since $f(0) \in [0,1]$ and $f(1) \in [0,1]$,
+    $$g(0) = f(0) \ge 0, \qquad g(1) = f(1) - 1 \le 0.$$
+    If $g(0) = 0$ or $g(1) = 0$, then $0$ or $1$ is a fixed point. Otherwise $g(0) > 0 > g(1)$, and the Intermediate Value Theorem gives $c \in (0,1)$ with $g(c) = 0$, i.e. $f(c) = c$. $\blacksquare$
+
+- id: lebl-3.1.3
+  hints:
+    - |
+      The corollary sits right after the sequential characterization of limits (Lemma 3.1.7). Can you reduce it to the squeeze lemma for sequences?
+    - |
+      Take an arbitrary sequence $x_n \in S \setminus \{c\}$ with $x_n \to c$. What do you know about $f(x_n)$, $g(x_n)$ and $h(x_n)$?
+  solution: |
+    **Proof.** Let $L = \lim_{x\to c} f(x) = \lim_{x\to c} h(x)$. Let $\{x_n\}$ be any sequence with $x_n \in S \setminus \{c\}$ and $x_n \to c$. By Lemma 3.1.7 (the "only if" direction), $f(x_n) \to L$ and $h(x_n) \to L$. Since each $x_n \in S \setminus \{c\}$, the hypothesis gives
+    $$f(x_n) \le g(x_n) \le h(x_n) \quad\text{for all } n.$$
+    By the squeeze lemma for sequences, $g(x_n) \to L$. This holds for every such sequence, so by Lemma 3.1.7 (the "if" direction), $\lim_{x\to c} g(x) = L$. $\blacksquare$
+
+- id: lebl-3.1.13
+  hints:
+    - |
+      Since $c$ is a cluster point, you can find points of $S \setminus \{c\}$ as close to $c$ as you like. Build a sequence from them.
+    - |
+      The resulting values $f(x_n)$ form a bounded sequence. Which theorem extracts a convergent subsequence, and what happens to the corresponding subsequence of $x_n$?
+  solution: |
+    **Proof.** Since $c$ is a cluster point of $S$, for each $n \in \mathbb{N}$ the set $(c - \frac1n, c + \frac1n) \cap S \setminus \{c\}$ is nonempty. Pick $y_n$ in it. Then $y_n \in S \setminus \{c\}$ and $|y_n - c| < \frac1n$, so $y_n \to c$.
+
+    Since $f$ is bounded, $\{f(y_n)\}$ is a bounded sequence. By the Bolzano–Weierstrass theorem it has a convergent subsequence $\{f(y_{n_k})\}_{k=1}^\infty$. Set $x_k = y_{n_k}$. Then $x_k \in S \setminus \{c\}$, and $x_k \to c$ because a subsequence of a convergent sequence converges to the same limit. Finally, $\{f(x_k)\} = \{f(y_{n_k})\}$ converges. $\blacksquare$
+
+- id: lebl-3.2.10
+  hints:
+    - |
+      Every real number is a limit of rational numbers. How does continuity interact with limits of sequences?
+    - |
+      Fix $x$, choose rationals $r_n \to x$, and compute $\lim f(r_n)$ and $\lim g(r_n)$ in two ways.
+  solution: |
+    **Proof.** Fix $x \in \mathbb{R}$. By the density of $\mathbb{Q}$, for each $n$ there is a rational $r_n$ with $x < r_n < x + \frac1n$, so $r_n \to x$. Since $f$ and $g$ are continuous at $x$, the sequential characterization of continuity gives
+    $$f(x) = \lim_{n\to\infty} f(r_n) = \lim_{n\to\infty} g(r_n) = g(x),$$
+    where the middle equality holds because $f(r_n) = g(r_n)$ for every $n$. Since $x$ was arbitrary, $f = g$ on $\mathbb{R}$. $\blacksquare$
+
+- id: lebl-3.2.14
+  hints:
+    - |
+      Away from $0$, $h$ agrees with $f$ or with $g$ on a whole neighborhood of the point, so continuity there is inherited. The only real issue is the point $0$.
+    - |
+      At $0$, take the deltas for $f$ and for $g$ and use the smaller one. Treat $x \le 0$ and $x > 0$ separately.
+  solution: |
+    **Proof.** Let $c \in [-1,1]$ and $\epsilon > 0$.
+
+    *Case 1: $c < 0$.* For $x \in [-1,1]$ with $|x - c| < |c|$, we have $x < 0$, so $h(x) = f(x)$. Also $h(c) = f(c)$. Since $f$ is continuous at $c$, there is $\delta_1 > 0$ such that $x \in [-1,0]$ and $|x - c| < \delta_1$ imply $|f(x) - f(c)| < \epsilon$. With $\delta = \min\{\delta_1, |c|\}$, any $x \in [-1,1]$ with $|x - c| < \delta$ lies in $[-1,0)$ and satisfies $|h(x) - h(c)| = |f(x) - f(c)| < \epsilon$.
+
+    *Case 2: $c > 0$.* In the same way, for $|x - c| < c$ we have $x > 0$ and $h(x) = g(x)$. Using continuity of $g$ at $c$ with $\delta = \min\{\delta_2, c\}$ gives $|h(x) - h(c)| < \epsilon$.
+
+    *Case 3: $c = 0$.* Here $h(0) = f(0) = g(0)$. Choose $\delta_1 > 0$ such that $x \in [-1,0]$ and $|x| < \delta_1$ imply $|f(x) - f(0)| < \epsilon$. Choose $\delta_2 > 0$ such that $x \in [0,1]$ and $|x| < \delta_2$ imply $|g(x) - g(0)| < \epsilon$. Let $\delta = \min\{\delta_1, \delta_2\}$ and let $x \in [-1,1]$ with $|x| < \delta$. If $x \le 0$, then $|h(x) - h(0)| = |f(x) - f(0)| < \epsilon$. If $x > 0$, then $|h(x) - h(0)| = |g(x) - g(0)| < \epsilon$.
+
+    Hence $h$ is continuous at every point of $[-1,1]$. $\blacksquare$
+
+- id: lebl-3.3.14
+  hints:
+    - |
+      Suppose $f$ were continuous. What does the Extreme Value Theorem say about $f$ on $[0,1]$?
+    - |
+      A maximum value $M$ of $f$ would be a number in $(0,1)$. Use surjectivity onto $(0,1)$ to find a value of $f$ that is larger.
+  solution: |
+    **Proof.** Suppose, for contradiction, that $f$ is continuous. By the Extreme Value Theorem, $f$ attains an absolute maximum on $[0,1]$: there is $x_0$ with $f(x) \le M := f(x_0)$ for all $x \in [0,1]$. Since $f$ maps into $(0,1)$, $M < 1$, so $\frac{M+1}{2} \in (0,1)$. Because $f$ is onto $(0,1)$, there is $x_1 \in [0,1]$ with $f(x_1) = \frac{M+1}{2} > M$, contradicting maximality. Hence $f$ is not continuous. $\blacksquare$
+
+    (Only surjectivity was used. Injectivity is not needed.)
+
+- id: lebl-3.4.8
+  hints:
+    - |
+      Near $0$, $\sin(1/x)$ oscillates between $-1$ and $1$ faster and faster. Uniform continuity cannot survive that.
+    - |
+      Find points $x_n$ where $\sin(1/x_n) = 1$ and $y_n$ where $\sin(1/y_n) = -1$, both tending to $0$, so that $|x_n - y_n| \to 0$.
+  solution: |
+    **Proof.** For $n \in \mathbb{N}$ let
+    $$x_n = \frac{1}{\pi/2 + 2\pi n}, \qquad y_n = \frac{1}{3\pi/2 + 2\pi n}.$$
+    Both are in $(0,\infty)$, $f(x_n) = 1$ and $f(y_n) = -1$, and $0 < y_n < x_n < \frac{1}{2\pi n}$, so $|x_n - y_n| < \frac{1}{2\pi n}$.
+
+    Suppose $f$ were uniformly continuous. With $\epsilon = 1$, there would be $\delta > 0$ such that $|x - y| < \delta$ implies $|f(x) - f(y)| < 1$. Choose $n$ with $\frac{1}{2\pi n} < \delta$. Then $|x_n - y_n| < \delta$ but $|f(x_n) - f(y_n)| = 2 \ge 1$, a contradiction. So $f$ is not uniformly continuous. $\blacksquare$
+
+- id: lebl-3.4.15
+  hints:
+    - |
+      On a closed bounded interval, continuity already gives uniform continuity. Periodicity lets you move any pair of nearby points into a fixed bounded interval.
+    - |
+      Use uniform continuity on an interval a bit longer than one period, such as $[-P, 2P]$, so that a nearby pair still fits after you shift it. Also require $\delta \le P$.
+  solution: |
+    **Proof.** By induction, $f(x + kP) = f(x)$ for all $x \in \mathbb{R}$ and all $k \in \mathbb{Z}$. For negative $k$, apply $f(t + P) = f(t)$ with $t = x - P$ to get $f(x - P) = f(x)$.
+
+    Let $\epsilon > 0$. Since $f$ is continuous on the closed bounded interval $[-P, 2P]$, it is uniformly continuous there. So there is $\delta_0 > 0$ such that $u, v \in [-P, 2P]$ and $|u - v| < \delta_0$ imply $|f(u) - f(v)| < \epsilon$. Let $\delta = \min\{\delta_0, P\}$.
+
+    Now let $x, y \in \mathbb{R}$ with $|x - y| < \delta$. Let $k = \lfloor x/P \rfloor$, and set $u = x - kP \in [0, P)$ and $v = y - kP$. Then $|u - v| = |x - y| < \delta \le P$, so $v \in (-P, 2P)$. Both $u, v \in [-P, 2P]$ and $|u - v| < \delta_0$, so
+    $$|f(x) - f(y)| = |f(u) - f(v)| < \epsilon.$$
+    Since $\delta$ depends only on $\epsilon$, $f$ is uniformly continuous on $\mathbb{R}$. $\blacksquare$
+
+- id: lebl-7.5.5
+  hints:
+    - |
+      Argue by contradiction. If $f(X)$ were disconnected, split it into two nonempty disjoint relatively open pieces. Pull them back by $f$.
+    - |
+      Use the topological characterization of continuity: preimages of open sets are open. A set open in the subspace $f(X)$ has the form $V \cap f(X)$ with $V$ open in $Y$.
+  solution: |
+    **Proof.** Suppose $f(X)$ (with the metric inherited from $Y$) is not connected. Then $f(X) = U_1 \cup U_2$, where $U_1, U_2$ are nonempty, disjoint and open in $f(X)$. Being open in the subspace $f(X)$ means there are open sets $V_1, V_2 \subseteq Y$ with $U_i = V_i \cap f(X)$.
+
+    Let $W_i = f^{-1}(U_i) = f^{-1}(V_i)$. The equality holds because every $f(x)$ lies in $f(X)$. Then:
+    - $W_1, W_2$ are open in $X$, because $f$ is continuous and preimages of open sets under continuous maps are open;
+    - $W_1, W_2$ are nonempty, since each $U_i$ is a nonempty subset of $f(X)$;
+    - $W_1 \cap W_2 = f^{-1}(U_1 \cap U_2) = \emptyset$;
+    - $W_1 \cup W_2 = f^{-1}(U_1 \cup U_2) = f^{-1}(f(X)) = X$.
+
+    So $X$ is disconnected, a contradiction. Hence $f(X)$ is connected. $\blacksquare$
+
+- id: ross-17.9
+  hints:
+    - |
+      For (b), remember that the domain of $\sqrt{x}$ is $[0,\infty)$, so only $x \ge 0$ need be considered. Solve $\sqrt{x} < \epsilon$ for $x$.
+    - |
+      For (d), the factor $x^2 + x_0 x + x_0^2$ is not constant. As in (a), first restrict to $|x - x_0| < 1$ and bound this factor by a constant depending only on $x_0$. Then take $\delta$ to be a minimum.
+  solution: |
+    In each part let $\epsilon > 0$ be given.
+
+    **(a)** If $|x - 2| < 1$, then $1 < x < 3$, so $|x + 2| < 5$. Let $\delta = \min\{1, \epsilon/5\}$. If $|x - 2| < \delta$, then
+    $$|x^2 - 4| = |x - 2|\,|x + 2| < \frac{\epsilon}{5}\cdot 5 = \epsilon.$$
+
+    **(b)** The domain is $[0,\infty)$ and $f(0) = 0$. Let $\delta = \epsilon^2$. If $x \ge 0$ and $|x - 0| < \delta$, then $0 \le x < \epsilon^2$, so $|\sqrt{x} - 0| = \sqrt{x} < \epsilon$, because the square root is strictly increasing.
+
+    **(c)** Let $\delta = \epsilon$. If $|x| < \delta$ and $x \ne 0$, then $|x\sin(1/x) - 0| \le |x| < \epsilon$, since $|\sin(1/x)| \le 1$. If $x = 0$, then $|f(0) - f(0)| = 0 < \epsilon$.
+
+    **(d)** Fix $x_0$. If $|x - x_0| < 1$, then $|x| < |x_0| + 1$, so
+    $$|x^2 + x_0 x + x_0^2| \le |x|^2 + |x||x_0| + |x_0|^2 \le 3(|x_0| + 1)^2 =: K.$$
+    Let $\delta = \min\{1, \epsilon/K\}$. If $|x - x_0| < \delta$, then
+    $$|x^3 - x_0^3| = |x - x_0|\,|x^2 + x_0x + x_0^2| < \frac{\epsilon}{K}\cdot K = \epsilon.$$
+    (Here $\delta$ depends on $x_0$, which is allowed for continuity at a point.)
+
+- id: ross-18.4
+  hints:
+    - |
+      The point $x_0$ is not in $S$, but points of $S$ come arbitrarily close to it. Look for a function that blows up near $x_0$.
+    - |
+      Try $f(x) = \frac{1}{|x - x_0|}$. Why is it defined and continuous on $S$, and what happens along the sequence $(x_n)$?
+  solution: |
+    Define $f(x) = \dfrac{1}{|x - x_0|}$ for $x \in S$.
+
+    *Well defined and continuous.* Since $x_0 \notin S$, $|x - x_0| > 0$ for every $x \in S$. The function $x \mapsto |x - x_0|$ is continuous and nonzero on $S$, so its reciprocal is continuous on $S$.
+
+    *Unbounded.* Since $x_n \in S$, $x_n \ne x_0$, and $|x_n - x_0| \to 0$. Given any $M > 0$, choose $n$ with $|x_n - x_0| < 1/M$. Then $f(x_n) > M$. So $f$ is unbounded on $S$. $\blacksquare$
+
+- id: ross-18.12
+  hints:
+    - |
+      For (a), find points tending to $0$ at which $\sin(1/x) = 1$.
+    - |
+      For (b), if $0 \notin [a,b]$, then $f$ is continuous on $[a,b]$ and the usual Intermediate Value Theorem applies. The new case is when $0 \in [a,b]$.
+    - |
+      When $0 \in [a,b]$, the interval $(a,b)$ contains a small interval $(0, t)$ or $(-t, 0)$. Show that $f$ takes every value in $[-1,1]$ on any such interval, using the IVT on one full "wave" of $\sin(1/x)$ lying inside it.
+  solution: |
+    **(a)** Let $x_n = \frac{1}{\pi/2 + 2\pi n}$. Then $x_n \to 0$, but $f(x_n) = 1$ for every $n$, so $f(x_n) \to 1 \ne 0 = f(0)$. By the sequential characterization, $f$ is discontinuous at $0$. This is Exercise 17.10(b).
+
+    **(b)** Interpret "between" as strictly between, as in Theorem 18.2. Let $a < b$ and let $y$ lie strictly between $f(a)$ and $f(b)$. Since $f$ takes values in $[-1,1]$, $y \in (-1,1)$.
+
+    **Claim.** For every $t > 0$, $f$ takes every value in $[-1,1]$ on $(0,t)$ and on $(-t,0)$.
+
+    *Proof of claim.* Choose $n \in \mathbb{N}$ with $\frac{1}{2\pi n} < t$, and let $p = \frac{1}{3\pi/2 + 2\pi n}$ and $q = \frac{1}{\pi/2 + 2\pi n}$. Then $0 < p < q < t$, $f(p) = -1$ and $f(q) = 1$. Since $f$ is continuous on $[p,q] \subseteq (0,\infty)$, the IVT shows that $f$ takes every value in $[-1,1]$ on $[p,q] \subseteq (0,t)$. Since $f(-x) = -f(x)$, the same holds on $(-t, 0)$.
+
+    *Case 1: $0 \notin [a,b]$.* Then $f$ is continuous on $[a,b]$, being a composition of continuous functions there. Theorem 18.2 (IVT) gives $x \in (a,b)$ with $f(x) = y$.
+
+    *Case 2: $0 \in [a,b]$.* If $a \le 0 < b$, then $(0, b) \subseteq (a,b)$, and the claim with $t = b$ gives $x \in (0,b)$ with $f(x) = y$. If $a < 0 = b$, then $(a, 0) \subseteq (a,b)$, and the claim with $t = -a$ gives $x \in (a, 0)$ with $f(x) = y$.
+
+    Hence $f$ has the intermediate value property on $\mathbb{R}$, although it is not continuous.
+
+- id: cummings-6.33
+  hints:
+    - |
+      What does the Intermediate Value Theorem say about the image of an interval under a continuous function?
+    - |
+      $\mathbb{Q}$ contains $0$ and $1$. What else would $f(\mathbb{R})$ then have to contain?
+  solution: |
+    **No.** Suppose $f\colon\mathbb{R}\to\mathbb{R}$ is continuous with $f(\mathbb{R}) = \mathbb{Q}$. Since $0, 1 \in \mathbb{Q}$, there are $a, b$ with $f(a) = 0$ and $f(b) = 1$, and $a \ne b$. The value $y = \frac{1}{\sqrt2}$ lies strictly between $0$ and $1$. By the Intermediate Value Theorem applied to $f$ on the closed interval with endpoints $a$ and $b$, some $c$ between $a$ and $b$ satisfies $f(c) = \frac{1}{\sqrt2}$. But $\frac{1}{\sqrt2}$ is irrational, so it is not in $\mathbb{Q} = f(\mathbb{R})$, a contradiction.
+
+    More generally, the image of $\mathbb{R}$ under a continuous function is an interval. The only intervals contained in $\mathbb{Q}$ are single points, so a continuous $f$ with $f(\mathbb{R}) \subseteq \mathbb{Q}$ must be constant.
+
+- id: mit20-a8-5
+  hints:
+    - |
+      Recall that $U$ is open if every point of $U$ has an interval $(y - \epsilon, y + \epsilon)$ around it contained in $U$. Both directions amount to translating between such intervals and the $\epsilon$–$\delta$ definition.
+    - |
+      For ($\Leftarrow$), apply the hypothesis to the specific open set $U = (f(c) - \epsilon, f(c) + \epsilon)$.
+  solution: |
+    **($\Rightarrow$)** Suppose $f$ is continuous and let $U \subseteq \mathbb{R}$ be open. Let $c \in f^{-1}(U)$, so $f(c) \in U$. Since $U$ is open, there is $\epsilon > 0$ with $(f(c) - \epsilon, f(c) + \epsilon) \subseteq U$. By continuity at $c$, there is $\delta > 0$ such that $|x - c| < \delta$ implies $|f(x) - f(c)| < \epsilon$, hence $f(x) \in U$. Thus $(c - \delta, c + \delta) \subseteq f^{-1}(U)$. Since $c$ was arbitrary, $f^{-1}(U)$ is open. (If $f^{-1}(U) = \emptyset$, it is open trivially.)
+
+    **($\Leftarrow$)** Suppose $f^{-1}(U)$ is open for every open $U$. Let $c \in \mathbb{R}$ and $\epsilon > 0$. The interval $U = (f(c) - \epsilon, f(c) + \epsilon)$ is open, so $f^{-1}(U)$ is open, and it contains $c$. Hence there is $\delta > 0$ with $(c - \delta, c + \delta) \subseteq f^{-1}(U)$. So $|x - c| < \delta$ implies $f(x) \in U$, i.e. $|f(x) - f(c)| < \epsilon$. Thus $f$ is continuous at $c$, and $c$ was arbitrary. $\blacksquare$
+
+- id: abbott-4.3.2
+  hints:
+    - |
+      Unpack each definition literally. For onetinuity, what does "$|f(x) - f(c)| < \epsilon$ for *every* $\epsilon > 0$" say about $f(x)$?
+    - |
+      For (b) and (c), try linear functions $f(x) = mx$ and ask which slopes are allowed by each definition.
+    - |
+      For (d), note that if some $\delta$ works in the continuity definition, then every smaller positive $\delta$ also works.
+  solution: |
+    **(a)** Any constant function, e.g. $f(x) = 0$, is onetinuous everywhere, since $|f(x) - f(c)| = 0 < \epsilon$ always. In fact these are essentially the only examples. If $f$ is onetinuous at $c$, then for $|x - c| < 1$ we have $|f(x) - f(c)| < \epsilon$ for every $\epsilon > 0$, so $f(x) = f(c)$. Thus $f$ is constant on $(c-1, c+1)$. If this holds at every $c$, then $f$ is constant on $\mathbb{R}$.
+
+    **(b)** Such a function exists: $f(x) = x$. It is equaltinuous at every $c$: if $|x - c| < \epsilon$, then $|f(x) - f(c)| = |x - c| < \epsilon$. It is onetinuous at no point $c$, because by (a) onetinuity at $c$ would force $f$ to be constant on $(c-1, c+1)$, and $x$ is not.
+
+    **(c)** Such a function exists: $f(x) = 2x$.
+
+    *Lesstinuous everywhere.* Given $c$ and $\epsilon > 0$, let $\delta = \epsilon/2$, so $0 < \delta < \epsilon$. If $|x - c| < \delta$, then $|f(x) - f(c)| = 2|x - c| < \epsilon$.
+
+    *Nowhere equaltinuous.* Given $c$, take any $\epsilon > 0$ and $x = c + \frac{3\epsilon}{4}$. Then $|x - c| < \epsilon$, but $|f(x) - f(c)| = \frac{3\epsilon}{2} > \epsilon$. So $\delta = \epsilon$ fails at $c$.
+
+    **(d)** Lesstinuity is equivalent to continuity.
+
+    *Lesstinuous implies continuous:* the $\delta$ provided satisfies $\delta > 0$, which is all Definition 4.3.1 asks.
+
+    *Continuous implies lesstinuous:* given $\epsilon > 0$, continuity gives some $\delta_0 > 0$ that works. Let $\delta = \min\{\delta_0, \epsilon/2\}$, so $0 < \delta < \epsilon$. If $|x - c| < \delta$, then $|x - c| < \delta_0$, so $|f(x) - f(c)| < \epsilon$. Thus $\delta$ works.
+
+    So the restriction $\delta < \epsilon$ costs nothing. Shrinking $\delta$ is always allowed, which is why only the existence of *some* $\delta > 0$ matters.
+
+- id: abbott-4.3.4
+  hints:
+    - |
+      The definition of $\lim_{x\to q} g(x)$ ignores the value $g(q)$. What goes wrong if $f(x)$ equals $q$ exactly, for many $x$ near $p$?
+    - |
+      For (a), try a constant $f$ and a $g$ with a removable discontinuity at $q$.
+    - |
+      For (b) and (c), chain the $\epsilon$–$\delta$ definitions. Continuity of $g$ at $q$ is exactly what lets you drop the restriction $f(x) \ne q$.
+  solution: |
+    **(a)** Let $p = q = r = 0$, $f(x) = 0$ for all $x$, and
+    $$g(x) = \begin{cases} 0 & x \ne 0, \\ 1 & x = 0. \end{cases}$$
+    Then $\lim_{x\to 0} f(x) = 0 = q$ and $\lim_{x\to 0} g(x) = 0 = r$, since $g(x) = 0$ for all $x \ne 0$. But $g(f(x)) = g(0) = 1$ for every $x$, so $\lim_{x\to 0} g(f(x)) = 1 \ne r$.
+
+    **(b)** If $f$ and $g$ are continuous, then $q = \lim_{x\to p} f(x) = f(p)$ and $r = \lim_{x\to q} g(x) = g(q)$. The composition of continuous functions is continuous, so
+    $$\lim_{x\to p} g(f(x)) = g(f(p)) = g(q) = r.$$
+    (This also follows from (c) below.)
+
+    **(c)** *Only $f$ continuous: not enough.* In the example of (a), $f$ is constant, hence continuous, and the conclusion fails.
+
+    *Only $g$ continuous: enough.* Assume $g$ is continuous at $q$, so $r = g(q)$. Let $\epsilon > 0$. Choose $\eta > 0$ such that $|y - q| < \eta$ implies $|g(y) - r| < \epsilon$; this includes $y = q$. Choose $\delta > 0$ such that $0 < |x - p| < \delta$ implies $|f(x) - q| < \eta$. Then $0 < |x - p| < \delta$ implies $|g(f(x)) - r| < \epsilon$. So $\lim_{x\to p} g(f(x)) = r$.
+
+- id: abbott-4.3.7
+  hints:
+    - |
+      For (a) and (b), use the sequential criterion for discontinuity. Rationals and irrationals are both dense, so every point is a limit of each kind.
+    - |
+      For (c), $t(c) = 0$ at an irrational $c$. You must show that $t(x_n) \to 0$ for every sequence $x_n \to c$. Follow the book's hint: in a bounded interval around $c$, how many points satisfy $t(x) \ge \epsilon$?
+    - |
+      Show that set is finite and does not contain $c$. So it stays a positive distance away from $c$, and eventually the $x_n$ avoid it.
+  solution: |
+    **(a)** Let $c \in \mathbb{R}$. By density of $\mathbb{Q}$ and of the irrationals, there are rationals $r_n \to c$ and irrationals $s_n \to c$, e.g. $s_n = r_n + \frac{\sqrt2}{n}$. Then $g(r_n) \to 1$ and $g(s_n) \to 0$. If $g$ were continuous at $c$, Theorem 4.3.2(iii) would force both limits to equal $g(c)$, which is impossible since $1 \ne 0$. So $g$ is discontinuous at every $c$.
+
+    **(b)** Let $c \in \mathbb{Q}$. Then $t(c) > 0$: $t(0) = 1$, and $t(m/n) = 1/n$. Let $x_n = c + \frac{\sqrt2}{n}$. Each $x_n$ is irrational and $x_n \to c$, but $t(x_n) = 0 \to 0 \ne t(c)$. By Theorem 4.3.2(iii), $t$ is not continuous at $c$.
+
+    **(c)** Let $c$ be irrational, so $t(c) = 0$, and let $(x_n)$ be any sequence with $x_n \to c$. We show $t(x_n) \to 0$.
+
+    Let $\epsilon > 0$ and consider
+    $$A = \{x \in [c-1, c+1] : t(x) \ge \epsilon\}.$$
+    Every $x \in A$ is rational. Writing $x = m/n$ in lowest terms with $n > 0$ (and $0 = 0/1$), we have $\frac1n \ge \epsilon$, i.e. $n \le 1/\epsilon$. For each such $n$, only finitely many integers $m$ satisfy $m/n \in [c-1, c+1]$ (at most $2n + 1$ of them). So $A$ is finite. Also $c \notin A$, since $t(c) = 0 < \epsilon$. Hence
+    $$\delta = \min\bigl(\{1\} \cup \{|a - c| : a \in A\}\bigr) > 0.$$
+
+    Since $x_n \to c$, there is $N$ such that $|x_n - c| < \delta$ for $n \ge N$. For such $n$, $x_n \in [c-1, c+1]$ but $x_n \notin A$, because every point of $A$ is at distance $\ge \delta$ from $c$. So $0 \le t(x_n) < \epsilon$. Thus $t(x_n) \to 0 = t(c)$. By Theorem 4.3.2(iii), $t$ is continuous at $c$. $\blacksquare$
+
+- id: abbott-4.3.13
+  hints:
+    - |
+      For (a), plug in special values: $x = y = 0$, then $y = -x$.
+    - |
+      For (b), use induction on $n$, and show more generally that $f(ny) = nf(y)$ for every real $y$. Apply that with $y = m/n$ to handle rationals.
+    - |
+      For (c), the additive law gives $f(x) - f(c) = f(x - c)$, which turns continuity at $0$ into continuity at $c$. Then compare $f$ with $kx$ on $\mathbb{Q}$ and pass to limits.
+  solution: |
+    **(a)** Setting $x = y = 0$ gives $f(0) = 2f(0)$, so $f(0) = 0$. Setting $y = -x$ gives $f(x) + f(-x) = f(0) = 0$, so $f(-x) = -f(x)$.
+
+    **(b)** *Claim:* $f(ny) = nf(y)$ for all $y \in \mathbb{R}$ and $n \in \mathbb{N}$. For $n = 1$ this is trivial. If it holds for $n$, then $f((n+1)y) = f(ny) + f(y) = nf(y) + f(y) = (n+1)f(y)$.
+
+    With $y = 1$, $f(n) = nk$ for $n \in \mathbb{N}$. Also $f(0) = 0 = k\cdot 0$, and for $n \in \mathbb{N}$, $f(-n) = -f(n) = k(-n)$ by (a). So $f(z) = kz$ for all $z \in \mathbb{Z}$.
+
+    Now let $r = m/n$ with $m \in \mathbb{Z}$ and $n \in \mathbb{N}$. By the claim, $nf(m/n) = f(n\cdot m/n) = f(m) = km$, so $f(r) = km/n = kr$.
+
+    **(c)** Suppose $f$ is continuous at $0$, and let $c \in \mathbb{R}$, $\epsilon > 0$. Choose $\delta > 0$ such that $|h| < \delta$ implies $|f(h)| = |f(h) - f(0)| < \epsilon$. Since $f(x) = f(c) + f(x - c)$, if $|x - c| < \delta$ then
+    $$|f(x) - f(c)| = |f(x - c)| < \epsilon.$$
+    So $f$ is continuous at every $c$.
+
+    Finally, fix $x \in \mathbb{R}$ and choose rationals $r_n \to x$ (density of $\mathbb{Q}$). By continuity of $f$ at $x$ and part (b),
+    $$f(x) = \lim_{n\to\infty} f(r_n) = \lim_{n\to\infty} k r_n = kx.$$
+    So $f(x) = kx$ for all $x \in \mathbb{R}$. $\blacksquare$
+
+- id: abbott-4.4.13
+  hints:
+    - |
+      Part (a) is a direct chaining of definitions: the $\delta$ from uniform continuity becomes the "$\epsilon$" in the Cauchy condition for $(x_n)$.
+    - |
+      For the forward direction of (b): any sequence in $(a,b)$ converging to $a$ is Cauchy. So by (a) and the Cauchy criterion, $g$ of it converges. Then check that the limit does not depend on the sequence (interleave two sequences).
+    - |
+      To prove the extended $g$ is continuous at $a$, use uniform continuity once more to compare $g(x)$ with $g(x_n)$ for $x_n$ near $a$, and let $n \to \infty$. The reverse direction is a single theorem about compact sets.
+  solution: |
+    **(a)** Let $\epsilon > 0$. By uniform continuity, choose $\delta > 0$ such that $x, y \in A$ and $|x - y| < \delta$ imply $|f(x) - f(y)| < \epsilon$. Since $(x_n)$ is Cauchy, there is $N$ with $|x_n - x_m| < \delta$ for all $m, n \ge N$. Then $|f(x_n) - f(x_m)| < \epsilon$ for all $m, n \ge N$. So $(f(x_n))$ is Cauchy.
+
+    **(b) ($\Rightarrow$)** Assume $g$ is uniformly continuous on $(a,b)$.
+
+    *Candidate value at $a$.* Let $(x_n) \subseteq (a,b)$ with $x_n \to a$. It converges, so it is Cauchy. By (a), $(g(x_n))$ is Cauchy, so it converges by the Cauchy Criterion. Call its limit $L$.
+
+    *Independence of the sequence.* Let $(y_n) \subseteq (a,b)$ be another sequence with $y_n \to a$. The interleaved sequence $(x_1, y_1, x_2, y_2, \dots)$ lies in $(a,b)$ and converges to $a$. So, by the same argument, its image under $g$ converges. Its subsequences $(g(x_n))$ and $(g(y_n))$ must then have the same limit. Hence $\lim g(y_n) = L$ as well.
+
+    Define $g(a) = L$. In the same way, define $g(b)$ as the common limit of $g(x_n)$ over sequences $x_n \to b$ in $(a,b)$.
+
+    *Continuity of the extension.* At points $c \in (a,b)$, $g$ was already continuous, and a small enough neighborhood of $c$ stays inside $(a,b)$. So the extension is continuous at $c$. At $a$: let $\epsilon > 0$ and choose $\delta > 0$ (we may take $\delta \le b - a$) such that $x, y \in (a,b)$ and $|x - y| < \delta$ imply $|g(x) - g(y)| < \epsilon/2$. Let $x \in [a,b]$ with $|x - a| < \delta$. If $x = a$ there is nothing to prove. Otherwise $x \in (a, a+\delta)$. Take any sequence $x_n \to a$ in $(a,b)$. For large $n$, $|x - x_n| \le |x - a| + |a - x_n| < \delta$, so $|g(x) - g(x_n)| < \epsilon/2$. Letting $n \to \infty$ gives $|g(x) - g(a)| \le \epsilon/2 < \epsilon$. So the extension is continuous at $a$, and the same argument works at $b$.
+
+    **(b) ($\Leftarrow$)** If $g$ extends to a continuous function on $[a,b]$, then the extension is uniformly continuous on the compact set $[a,b]$ (Theorem 4.4.7). A fortiori it is uniformly continuous on the subset $(a,b)$, where it equals the original $g$. $\blacksquare$
+
+- id: abbott-4.4.14
+  hints:
+    - |
+      Continuity gives, at each $x \in K$, a $\delta_x$ that may depend on $x$. You need one $\delta$ for all of $K$. Compactness is how you pass from infinitely many $\delta_x$'s to finitely many.
+    - |
+      Cover $K$ by the open intervals of *half* the radius, $(x - \delta_x/2,\, x + \delta_x/2)$, and extract a finite subcover. Why halve the radius?
+    - |
+      Take $\delta$ to be the smallest of the finitely many half-radii. Given $|x - y| < \delta$, put $x$ in one of the chosen intervals and compare both $f(x)$ and $f(y)$ with $f$ at that interval's center.
+  solution: |
+    **Proof.** Let $f$ be continuous on the compact set $K$ and let $\epsilon > 0$. If $K = \emptyset$ there is nothing to prove. For each $z \in K$, continuity at $z$ gives $\delta_z > 0$ such that
+    $$y \in K,\ |y - z| < \delta_z \implies |f(y) - f(z)| < \frac{\epsilon}{2}.$$
+    The open intervals $V_z = (z - \delta_z/2,\ z + \delta_z/2)$, $z \in K$, cover $K$. By Theorem 3.3.8(iii) there are finitely many points $z_1, \dots, z_n \in K$ with $K \subseteq V_{z_1} \cup \dots \cup V_{z_n}$. Let
+    $$\delta = \min\{\delta_{z_1}/2, \dots, \delta_{z_n}/2\} > 0.$$
+
+    Now let $x, y \in K$ with $|x - y| < \delta$. Choose $i$ with $x \in V_{z_i}$, so $|x - z_i| < \delta_{z_i}/2 < \delta_{z_i}$. Also
+    $$|y - z_i| \le |y - x| + |x - z_i| < \delta + \frac{\delta_{z_i}}{2} \le \delta_{z_i}.$$
+    Hence $|f(x) - f(z_i)| < \epsilon/2$ and $|f(y) - f(z_i)| < \epsilon/2$, so
+    $$|f(x) - f(y)| < \epsilon.$$
+    Since $\delta$ depends only on $\epsilon$, $f$ is uniformly continuous on $K$. $\blacksquare$
+
+- id: abbott-4.5.3
+  hints:
+    - |
+      An increasing function can only fail to be continuous by "jumping", skipping an interval of values. The intermediate value property forbids skipping values. Make this precise with $\epsilon$ and $\delta$.
+    - |
+      To show right-continuity at $c < b$, given $\epsilon > 0$, use the IVP to find a point $d > c$ with $f(d) < f(c) + \epsilon$ (when possible), and let monotonicity control $f$ on $(c, d)$.
+    - |
+      Treat separately the easy case where $f(b) < f(c) + \epsilon$ already. Then handle the left side of $c$ symmetrically and take the smaller $\delta$.
+  solution: |
+    **Proof.** Let $c \in [a,b]$ and $\epsilon > 0$.
+
+    *Right side (if $c < b$).* We find $\delta_+ > 0$ such that $c < y < c + \delta_+$ and $y \le b$ imply $|f(y) - f(c)| < \epsilon$. For such $y$, monotonicity already gives $f(y) \ge f(c)$, so we only need $f(y) < f(c) + \epsilon$.
+    - If $f(b) < f(c) + \epsilon$, let $\delta_+ = b - c$. For $c < y \le b$, $f(c) \le f(y) \le f(b) < f(c) + \epsilon$.
+    - If $f(b) \ge f(c) + \epsilon$, then $L = f(c) + \epsilon/2$ lies strictly between $f(c)$ and $f(b)$. By the intermediate value property there is $d \in (c, b)$ with $f(d) = L$. Let $\delta_+ = d - c$. For $c < y < d$, $f(c) \le f(y) \le f(d) = f(c) + \epsilon/2 < f(c) + \epsilon$.
+
+    *Left side (if $c > a$).* Symmetrically, find $\delta_- > 0$ such that $c - \delta_- < y < c$ and $y \ge a$ imply $f(c) - \epsilon < f(y) \le f(c)$.
+    - If $f(a) > f(c) - \epsilon$, take $\delta_- = c - a$.
+    - Otherwise, the IVP gives $e \in (a, c)$ with $f(e) = f(c) - \epsilon/2$. Take $\delta_- = c - e$.
+
+    Let $\delta$ be the minimum of those of $\delta_+, \delta_-$ that are defined. If $c = a$, only $\delta_+$ is defined; if $c = b$, only $\delta_-$. Then $y \in [a,b]$ and $|y - c| < \delta$ imply $|f(y) - f(c)| < \epsilon$. So $f$ is continuous at $c$. $\blacksquare$
+
+- id: abbott-4.5.8
+  hints:
+    - |
+      Use the sequential characterization: take $y_n \to y$ in the range and show $x_n = f^{-1}(y_n)$ converges to $x = f^{-1}(y)$.
+    - |
+      Argue by contradiction. If $x_n \not\to x$, some subsequence stays at distance $\ge \epsilon_0$ from $x$. Bolzano–Weierstrass and the closedness of $[a,b]$ give a further subsequence converging to some $x' \in [a,b]$.
+    - |
+      Apply $f$ to that sub-subsequence and use continuity and injectivity to conclude $x' = x$.
+  solution: |
+    **Proof.** Let $R = f([a,b])$ be the range. We show that $f^{-1}\colon R \to [a,b]$ is continuous at every $y \in R$, using the sequential characterization. Let $y_n \in R$ with $y_n \to y \in R$, and let $x_n = f^{-1}(y_n)$ and $x = f^{-1}(y)$. Then $x_n, x \in [a,b]$, $f(x_n) = y_n$ and $f(x) = y$.
+
+    Suppose $x_n \not\to x$. Then there are $\epsilon_0 > 0$ and a subsequence $(x_{n_k})$ with $|x_{n_k} - x| \ge \epsilon_0$ for all $k$. This subsequence is bounded, since it lies in $[a,b]$. By Bolzano–Weierstrass it has a further subsequence $(x_{n_{k_j}})$ converging to some $x'$. Since $[a,b]$ is closed, $x' \in [a,b]$, and $|x' - x| \ge \epsilon_0$ because the inequality persists in the limit. By continuity of $f$ at $x'$,
+    $$f(x') = \lim_{j\to\infty} f(x_{n_{k_j}}) = \lim_{j\to\infty} y_{n_{k_j}} = y = f(x).$$
+    Since $f$ is one-to-one, $x' = x$, contradicting $|x' - x| \ge \epsilon_0 > 0$. Therefore $x_n \to x$, i.e. $f^{-1}(y_n) \to f^{-1}(y)$, and $f^{-1}$ is continuous at $y$. $\blacksquare$
+
+    (Compactness of $[a,b]$ was essential: it supplied the convergent subsequence and kept its limit inside the domain.)
+
+- id: abbott-4.6.5
+  hints:
+    - |
+      For an increasing function, both one-sided limits at every interior point exist. Identify them as a supremum and an infimum.
+    - |
+      Show $\lim_{x\to c^-} f(x) = \sup\{f(x) : x < c\}$ using the definition of supremum together with monotonicity. Similarly for the right-hand limit with an infimum.
+    - |
+      Compare these two limits with $f(c)$. If they are equal, what can you say about continuity at $c$? This rules out removable and essential discontinuities.
+  solution: |
+    Let $f$ be monotone on an interval $I$. Replacing $f$ by $-f$ if necessary, which has the same discontinuities, assume $f$ is increasing. Let $c$ be an interior point of $I$.
+
+    **One-sided limits exist.** The set $\{f(x) : x \in I,\ x < c\}$ is nonempty and bounded above by $f(c)$, so $L^- := \sup\{f(x) : x < c\}$ exists and $L^- \le f(c)$. Let $\epsilon > 0$. By the definition of supremum there is $x_0 < c$ in $I$ with $f(x_0) > L^- - \epsilon$. Then for $x_0 < x < c$, monotonicity gives
+    $$L^- - \epsilon < f(x_0) \le f(x) \le L^-.$$
+    So $\lim_{x\to c^-} f(x) = L^-$. In the same way, $L^+ := \inf\{f(x) : x > c\}$ satisfies $L^+ \ge f(c)$ and $\lim_{x\to c^+} f(x) = L^+$. Hence
+    $$L^- \le f(c) \le L^+.$$
+
+    **Only jumps.** If $L^- = L^+$, then both equal $f(c)$, so $\lim_{x\to c} f(x)$ exists and equals $f(c)$, i.e. $f$ is continuous at $c$. Therefore, if $f$ is discontinuous at $c$, then $L^- \ne L^+$, which is exactly a jump discontinuity. In particular:
+    - a removable discontinuity is impossible, because if $\lim_{x\to c} f(x)$ exists it forces $L^- = L^+ = f(c)$;
+    - an essential discontinuity is impossible, because both one-sided limits always exist, so the limit can fail to exist only because they differ.
+
+    (At an endpoint of $I$ that belongs to $I$, only one one-sided limit is relevant. The same argument shows that it exists, and a discontinuity there means it differs from the value of $f$, a one-sided jump.) $\blacksquare$
+
+- id: abbott-4.6.6
+  hints:
+    - |
+      At each jump $c$, the open interval between the one-sided limits $f(c^-)$ and $f(c^+)$ has positive length. What does every such interval contain?
+    - |
+      Pick a rational $q_c$ in each of these intervals. Show that the intervals for different jump points are disjoint, so $c \mapsto q_c$ is one-to-one.
+  solution: |
+    As in Exercise 4.6.5, assume without loss of generality that $f$ is increasing on an interval $I$ (replace $f$ by $-f$ otherwise). For interior $c$ write $f(c^-) = \sup\{f(x) : x < c\}$ and $f(c^+) = \inf\{f(x) : x > c\}$, the one-sided limits. By Exercise 4.6.5, every discontinuity of $f$ at an interior point $c$ is a jump, with $f(c^-) < f(c^+)$.
+
+    **The map.** For each interior discontinuity $c$, choose a rational number
+    $$q_c \in \bigl(f(c^-),\ f(c^+)\bigr),$$
+    which is possible by the density of $\mathbb{Q}$.
+
+    **Injectivity.** Let $c < d$ be two interior discontinuities, and pick any $x$ with $c < x < d$. Since the infimum and supremum are bounds,
+    $$f(c^+) \le f(x) \le f(d^-).$$
+    So $q_c < f(c^+) \le f(d^-) < q_d$, and in particular $q_c \ne q_d$.
+
+    Thus $c \mapsto q_c$ is a bijection from the set of interior discontinuities onto a subset of $\mathbb{Q}$. A subset of a countable set is finite or countable, so there are at most countably many interior discontinuities. Adding at most two endpoints of $I$ does not change this. Hence $D_f$ is finite or countable, and in particular not uncountable. $\blacksquare$
+
+- id: lebl-3.1.11
+  hints:
+    - |
+      By Lemma 3.1.7, it is enough to find one number $L$ such that $f(x_n) \to L$ for *every* admissible sequence. The hypothesis only says each such sequence has *some* limit, which might depend on the sequence.
+    - |
+      Given two admissible sequences $(x_n)$ and $(y_n)$, merge them into one admissible sequence. What does the convergence of $f$ along the merged sequence tell you about the two limits?
+  solution: |
+    **Proof.** Since $c$ is a cluster point, there is at least one sequence $\{x_n\}$ in $S \setminus \{c\}$ with $x_n \to c$, e.g. pick $x_n \in S \setminus \{c\}$ with $|x_n - c| < 1/n$. By hypothesis $f(x_n)$ converges; let $L = \lim f(x_n)$.
+
+    Now let $\{y_n\}$ be any sequence in $S \setminus \{c\}$ with $y_n \to c$. Define the interleaved sequence
+    $$z_1 = x_1,\ z_2 = y_1,\ z_3 = x_2,\ z_4 = y_2,\ \dots,$$
+    that is, $z_{2n-1} = x_n$ and $z_{2n} = y_n$. Then $z_n \in S \setminus \{c\}$ and $z_n \to c$: given $\epsilon > 0$, both $x_n$ and $y_n$ are within $\epsilon$ of $c$ for $n \ge N$, so $z_m$ is for $m \ge 2N$. By hypothesis $\{f(z_n)\}$ converges, say to $M$. Its subsequences $\{f(z_{2n-1})\} = \{f(x_n)\}$ and $\{f(z_{2n})\} = \{f(y_n)\}$ also converge to $M$. Hence $M = L$ and $f(y_n) \to L$.
+
+    So every sequence in $S \setminus \{c\}$ converging to $c$ has $f(y_n) \to L$. By Lemma 3.1.7, $\lim_{x\to c} f(x) = L$. $\blacksquare$
+
+- id: lebl-3.3.3
+  hints:
+    - |
+      If $f \equiv 0$ there is nothing to do. Otherwise $f$ takes some nonzero value $f(x_0)$; by replacing $f$ with $-f$ you may assume $f(x_0) > 0$, and aim for a maximum.
+    - |
+      Near the endpoints $f$ is close to $0$, so smaller than $f(x_0)$. Use the limits to find $\delta$ such that $f(x) < f(x_0)$ on $(0, \delta)$ and on $(1-\delta, 1)$.
+    - |
+      Apply the Extreme Value Theorem on the closed interval $[\delta, 1-\delta]$, which contains $x_0$, and compare with the values near the ends.
+  solution: |
+    **Proof.** If $f(x) = 0$ for all $x$, then $f$ achieves both an absolute maximum and an absolute minimum. Otherwise pick $x_0 \in (0,1)$ with $f(x_0) \ne 0$. If $f(x_0) < 0$, apply the following argument to $-f$: an absolute maximum of $-f$ is an absolute minimum of $f$. So assume $f(x_0) > 0$.
+
+    Since $\lim_{x\to 0} f(x) = 0$ and $\lim_{x\to 1} f(x) = 0$, applying the definition with $\epsilon = f(x_0)$ gives $\delta > 0$ such that
+    $$f(x) < f(x_0) \quad\text{for all } x \in (0, \delta) \cup (1-\delta, 1),$$
+    where we also take $\delta < \tfrac12$. In particular $x_0 \notin (0,\delta) \cup (1-\delta,1)$, so $x_0 \in [\delta, 1-\delta]$.
+
+    By the Extreme Value Theorem, $f$ restricted to the closed bounded interval $[\delta, 1-\delta]$ attains a maximum at some $x_1$. Then $f(x_1) \ge f(x_0)$. For $x \in [\delta, 1-\delta]$, $f(x) \le f(x_1)$. For $x \in (0,\delta) \cup (1-\delta,1)$, $f(x) < f(x_0) \le f(x_1)$. Hence $f(x_1)$ is an absolute maximum of $f$ on $(0,1)$. $\blacksquare$
+
+    *Not necessarily both:* $f(x) = \sin(\pi x)$ satisfies the hypotheses and has an absolute maximum $1$ at $x = \tfrac12$. But $f(x) > 0$ on $(0,1)$ while $\inf f = 0$, so it has no absolute minimum.
+
+- id: lebl-3.6.8
+  hints:
+    - |
+      Only continuity and injectivity on an interval matter; surjectivity onto $J$ is not needed. Since $f$ is one-to-one, every pair $x < y$ is either "increasing" ($f(x) < f(y)$) or "decreasing" ($f(x) > f(y)$). You must rule out having pairs of both kinds.
+    - |
+      Suppose $x_1 < x_2$ is an increasing pair and $y_1 < y_2$ is a decreasing pair. Slide one pair continuously into the other, keeping the left point less than the right point.
+    - |
+      Use $u(t) = (1-t)x_1 + ty_1$ and $v(t) = (1-t)x_2 + ty_2$ for $t \in [0,1]$. Apply the IVT to $t \mapsto f(v(t)) - f(u(t))$.
+  solution: |
+    **Proof.** Since $f$ is one-to-one, for $x < y$ in $I$ we have either $f(x) < f(y)$ or $f(x) > f(y)$. It suffices to show that we cannot have both an increasing pair and a decreasing pair. Then either all pairs are increasing (so $f$ is strictly increasing) or all are decreasing (so $f$ is strictly decreasing).
+
+    Suppose $x_1 < x_2$ with $f(x_1) < f(x_2)$ and $y_1 < y_2$ with $f(y_1) > f(y_2)$, all in $I$. For $t \in [0,1]$ define
+    $$u(t) = (1-t)x_1 + t y_1, \qquad v(t) = (1-t)x_2 + t y_2.$$
+    Since $I$ is an interval, $u(t)$ lies between $x_1$ and $y_1$, so $u(t) \in I$; likewise $v(t) \in I$. Moreover
+    $$v(t) - u(t) = (1-t)(x_2 - x_1) + t(y_2 - y_1) > 0,$$
+    because both terms are $\ge 0$ and they cannot both be $0$. Let $g(t) = f(v(t)) - f(u(t))$. It is continuous on $[0,1]$, as a composition of continuous functions, with
+    $$g(0) = f(x_2) - f(x_1) > 0, \qquad g(1) = f(y_2) - f(y_1) < 0.$$
+    By the IVT there is $t_0 \in (0,1)$ with $g(t_0) = 0$, i.e. $f(u(t_0)) = f(v(t_0))$. But $u(t_0) < v(t_0)$, contradicting injectivity. Hence $f$ is strictly monotone. $\blacksquare$
+
+- id: lebl-7.5.8
+  hints:
+    - |
+      Continuity of $f^{-1}$ means: for every open $U \subseteq X$, the set $(f^{-1})^{-1}(U) = f(U)$ is open in $Y$. So you need $f$ to map open sets to open sets.
+    - |
+      Work with complements. Because $f$ is a bijection, $f(U) = Y \setminus f(X \setminus U)$. What kind of set is $X \setminus U$ in a compact space, and what does a continuous map do to it?
+  solution: |
+    **Proof.** Let $g = f^{-1}\colon Y \to X$. By the topological characterization of continuity, it suffices to show that $g^{-1}(U) = f(U)$ is open in $Y$ for every open $U \subseteq X$.
+
+    Let $U \subseteq X$ be open, and let $C = X \setminus U$, which is closed in $X$.
+    1. A closed subset of a compact metric space is compact, so $C$ is compact.
+    2. The continuous image of a compact set is compact, so $f(C)$ is compact.
+    3. A compact subset of a metric space is closed, so $f(C)$ is closed in $Y$.
+
+    Since $f$ is a bijection, $f(U)$ and $f(C)$ are disjoint and their union is $f(X) = Y$. So $f(U) = Y \setminus f(C)$, which is open. Hence $g = f^{-1}$ is continuous. $\blacksquare$
+
+- id: lebl-7.5.12
+  hints:
+    - |
+      For (a), compare $d_C(Df, Dg)$ with $d_{C^1}(f,g)$ directly from the definitions.
+    - |
+      For (b), find functions that are uniformly small but have derivatives that are not small. Scaling $\sin(nx)$ by $\frac1n$ shrinks the function but not its derivative.
+    - |
+      Use the sequential criterion: exhibit $f_n \to 0$ in $d_C$ with $Df_n \not\to D0 = 0$ in $d_C$. Make sure $\cos(nx)$ really reaches size $1$ on $[a,b]$ for large $n$.
+  solution: |
+    **(a)** For $f, g \in C^1([a,b],\mathbb{R})$,
+    $$d_C(Df, Dg) = \|f' - g'\|_{[a,b]} \le \|f - g\|_{[a,b]} + \|f' - g'\|_{[a,b]} = d_{C^1}(f,g).$$
+    So given $\epsilon > 0$, $\delta = \epsilon$ works at every point: $d_{C^1}(f,g) < \delta$ implies $d_C(Df,Dg) < \epsilon$. Thus $D$ is continuous (even Lipschitz with constant $1$).
+
+    **(b)** Now give $C^1([a,b],\mathbb{R})$ the metric $d_C$. Let $f_n(x) = \frac{\sin(nx)}{n}$. Each $f_n$ is in $C^1$, and
+    $$d_C(f_n, 0) = \sup_{x\in[a,b]} \frac{|\sin(nx)|}{n} \le \frac1n \to 0,$$
+    so $f_n \to 0$ in $d_C$. But $Df_n(x) = \cos(nx)$ and $D0 = 0$. Once $n > \frac{2\pi}{b-a}$, consecutive points of the form $\frac{2\pi k}{n}$, $k \in \mathbb{Z}$, are less than $b - a$ apart, so one of them lies in $[a,b]$, and there $\cos(nx) = 1$. Hence
+    $$d_C(Df_n, D0) = \|\cos(nx)\|_{[a,b]} = 1 \quad\text{for all large } n.$$
+    So $Df_n \not\to D0$, although $f_n \to 0$. By the sequential characterization of continuity in metric spaces, $D$ is not continuous at $0$ with respect to $d_C$.
+
+- id: ross-19.1
+  hints:
+    - |
+      First sort the sets: on a closed bounded interval every continuous function is uniformly continuous. On $(0,1)$ or $(0,1]$, the question is whether the function extends continuously to $0$.
+    - |
+      For (d), compare $x^3$ at $x = n$ and $x = n + \frac1n$: the inputs get closer, but the outputs do not.
+    - |
+      For (f), find points tending to $0$ at which $\sin(1/x^2)$ equals $1$ and $-1$, and merge them into one Cauchy sequence. For (g), look at the size of $x^2\sin(1/x)$ near $0$.
+  solution: |
+    **(a) Yes.** $f$ is continuous on the closed bounded interval $[0,\pi]$, as built from polynomials, $\sin$, $\cos$ and $\exp$. By Theorem 19.2 it is uniformly continuous there.
+
+    **(b) Yes.** $x^3$ is continuous on $[0,1]$, so Theorem 19.2 applies.
+
+    **(c) Yes.** By (b), $x^3$ is uniformly continuous on $[0,1]$, hence on the subset $(0,1)$: the same $\delta$ works. (Equivalently, Theorem 19.5 applies, since $x^3$ extends continuously to $[0,1]$.)
+
+    **(d) No.** Let $x_n = n$ and $y_n = n + \frac1n$. Then $|x_n - y_n| = \frac1n \to 0$, but
+    $$y_n^3 - x_n^3 = 3n + \frac{3}{n} + \frac{1}{n^3} > 3.$$
+    So for $\epsilon = 3$, no $\delta > 0$ works: choosing $n > 1/\delta$ gives $|x_n - y_n| < \delta$ and $|f(x_n) - f(y_n)| > 3$.
+
+    **(e) No.** The sequence $s_n = \frac1n$ lies in $(0,1]$ and converges, so it is Cauchy. But $f(s_n) = n^3$ is unbounded, hence not Cauchy. By Theorem 19.4, $f$ is not uniformly continuous on $(0,1]$.
+
+    **(f) No.** Let $a_n = \bigl(\tfrac{\pi}{2} + 2\pi n\bigr)^{-1/2}$ and $b_n = \bigl(\tfrac{3\pi}{2} + 2\pi n\bigr)^{-1/2}$. Both lie in $(0,1]$, both tend to $0$, and $f(a_n) = 1$, $f(b_n) = -1$. The merged sequence $(a_1, b_1, a_2, b_2, \dots)$ converges to $0$, so it is Cauchy. Its image $(1, -1, 1, -1, \dots)$ is not Cauchy. By Theorem 19.4, $f$ is not uniformly continuous on $(0,1]$.
+
+    **(g) Yes.** Define $F(0) = 0$ and $F(x) = x^2\sin(1/x)$ for $0 < x \le 1$. $F$ is continuous on $(0,1]$, and at $0$ we have $|F(x) - F(0)| \le x^2$, so $F$ is continuous at $0$ as well. Thus $F$ is continuous on $[0,1]$, hence uniformly continuous there (Theorem 19.2). So its restriction $f$ to $(0,1]$ is uniformly continuous.
+
+- id: ross-19.4
+  hints:
+    - |
+      Following the book's hint, suppose $f$ is unbounded. Then you can pick points $s_n \in S$ with $|f(s_n)| > n$.
+    - |
+      $(s_n)$ is bounded because $S$ is. Extract a convergent subsequence, which is Cauchy, and apply Theorem 19.4. What do you know about Cauchy sequences that contradicts $|f(s_{n_k})| > n_k$?
+  solution: |
+    **(a)** Suppose $f$ is uniformly continuous on the bounded set $S$ but is not bounded. Then for each $n \in \mathbb{N}$ there is $s_n \in S$ with $|f(s_n)| > n$. Since $S$ is bounded, $(s_n)$ is a bounded sequence. By Theorem 11.5 (Bolzano–Weierstrass) it has a convergent subsequence $(s_{n_k})$, and convergent sequences are Cauchy. By Theorem 19.4, $(f(s_{n_k}))$ is a Cauchy sequence, hence bounded: Cauchy sequences converge, and convergent sequences are bounded. But
+    $$|f(s_{n_k})| > n_k \ge k \quad\text{for all } k,$$
+    so $(f(s_{n_k}))$ is unbounded, a contradiction. Hence $f$ is bounded on $S$. (The limit of $(s_{n_k})$ need not lie in $S$; we only used that the subsequence is Cauchy.)
+
+    **(b)** The set $(0,1)$ is bounded, but $\frac{1}{x^2}$ is unbounded on it: at $x = \frac1n$ ($n \ge 2$) it equals $n^2$. By (a), $\frac{1}{x^2}$ cannot be uniformly continuous on $(0,1)$.
+
+- id: abbott-4.5.6
+  hints:
+    - |
+      Finding $x, y$ with $|x - y| = h$ and $f(x) = f(y)$ is the same as finding a zero of the auxiliary function $g(x) = f(x + h) - f(x)$.
+    - |
+      For (a), with $h = \tfrac12$, compare $g(0)$ and $g(\tfrac12)$. For (b), with $h = \tfrac1n$, add up $g(0), g(\tfrac1n), \dots, g(\tfrac{n-1}{n})$: the sum telescopes.
+    - |
+      For (c), look for $f$ such that $f(x + \tfrac25) - f(x)$ is a nonzero constant. Try a function with period $\tfrac25$ minus a linear term, chosen so that $f(0) = f(1)$.
+  solution: |
+    **(a)** Let $g(x) = f(x + \tfrac12) - f(x)$ on $[0, \tfrac12]$. It is continuous, and
+    $$g(0) = f(\tfrac12) - f(0), \qquad g(\tfrac12) = f(1) - f(\tfrac12) = f(0) - f(\tfrac12) = -g(0).$$
+    So $g(0)$ and $g(\tfrac12)$ are either both $0$ or of opposite signs. In either case the IVT gives $x \in [0,\tfrac12]$ with $g(x) = 0$. Then $y = x + \tfrac12$ satisfies $|x - y| = \tfrac12$ and $f(x) = f(y)$.
+
+    **(b)** For $n = 1$, take $x_1 = 0$ and $y_1 = 1$. For $n \ge 2$, let $g(x) = f(x + \tfrac1n) - f(x)$ on $[0, 1 - \tfrac1n]$, which is continuous. Telescoping,
+    $$\sum_{k=0}^{n-1} g\Bigl(\frac kn\Bigr) = f(1) - f(0) = 0.$$
+    If some $g(k/n) = 0$ we are done. Otherwise the terms are nonzero with sum $0$, so some $g(k/n) > 0$ and some $g(j/n) < 0$. By the IVT, $g$ vanishes at some $x_n$ between $k/n$ and $j/n$, which lies in $[0, 1 - \frac1n]$. Then $y_n = x_n + \tfrac1n$ satisfies $|x_n - y_n| = \tfrac1n$ and $f(x_n) = f(y_n)$.
+
+    **(c)** Let
+    $$f(x) = \sin^2\Bigl(\frac{5\pi x}{2}\Bigr) - x, \qquad x \in [0,1].$$
+    It is continuous, $f(0) = 0$, and $f(1) = \sin^2(5\pi/2) - 1 = 1 - 1 = 0$. Suppose $x, y \in [0,1]$ with $|x - y| = \tfrac25$, say $y = x + \tfrac25$ with $x \in [0, \tfrac35]$. Since $\sin^2$ has period $\pi$,
+    $$f(y) - f(x) = \sin^2\Bigl(\frac{5\pi x}{2} + \pi\Bigr) - \sin^2\Bigl(\frac{5\pi x}{2}\Bigr) - \frac25 = -\frac25 \ne 0.$$
+    So no horizontal chord of length $\tfrac25$ exists, although $f(0) = f(1)$.
+
+- id: lebl-3.2.19
+  hints:
+    - |
+      Fix $c$ in the open interval and choose points $a < c < b$ in $I$; this is where openness is used. The definition of convexity, applied to suitable triples of points, gives both upper and lower bounds on $f(x)$ for $x$ near $c$.
+    - |
+      For $x$ slightly to the right of $c$: the triple $c \le x \le b$ bounds $f(x)$ from above by a chord. The triple $a \le c \le x$ bounds $f(c)$ from above, which rearranges to a *lower* bound on $f(x)$.
+    - |
+      Both bounds are linear expressions in $x$ that tend to $f(c)$ as $x \to c^+$, so you can squeeze. Do the same on the left. For (b), a convex function on a closed interval can jump *up* at an endpoint.
+  solution: |
+    **(a)** Let $c \in (\alpha, \beta)$. Since the interval is open, we can choose $a, b \in I$ with $a < c < b$. We show $\lim_{x\to c^+} f(x) = f(c)$ and $\lim_{x\to c^-} f(x) = f(c)$.
+
+    *Right side.* Let $c < x < b$. Convexity with $c \le x \le b$ gives
+    $$f(x) \le f(c)\frac{b - x}{b - c} + f(b)\frac{x - c}{b - c} =: U(x).$$
+    Convexity with $a \le c \le x$ gives $f(c) \le f(a)\frac{x - c}{x - a} + f(x)\frac{c - a}{x - a}$. Multiplying by $x - a > 0$ and solving for $f(x)$,
+    $$f(x) \ge \frac{(x - a)f(c) - (x - c)f(a)}{c - a} =: \Lambda(x).$$
+    Both $U$ and $\Lambda$ are continuous in $x$, with $U(c) = f(c)$ and $\Lambda(c) = \frac{(c-a)f(c)}{c-a} = f(c)$. By the squeeze theorem, $\lim_{x\to c^+} f(x) = f(c)$.
+
+    *Left side.* Let $a < x < c$. Convexity with $a \le x \le c$ gives
+    $$f(x) \le f(a)\frac{c - x}{c - a} + f(c)\frac{x - a}{c - a},$$
+    which tends to $f(c)$ as $x \to c^-$. Convexity with $x \le c \le b$ gives $f(c) \le f(x)\frac{b - c}{b - x} + f(b)\frac{c - x}{b - x}$. Multiplying by $b - x > 0$,
+    $$f(x) \ge \frac{(b - x)f(c) - (c - x)f(b)}{b - c},$$
+    which also tends to $\frac{(b-c)f(c)}{b-c} = f(c)$. By the squeeze theorem, $\lim_{x\to c^-} f(x) = f(c)$.
+
+    Both one-sided limits equal $f(c)$, so $f$ is continuous at $c$. Since $c$ was arbitrary, $f$ is continuous on $I$.
+
+    **(b)** Let $f(x) = 0$ for $0 \le x < 1$ and $f(1) = 1$. It is not continuous at $1$. To check convexity, let $0 \le a \le x \le b \le 1$ with $a < b$ (the case $a = b$ forces $x = a = b$ and is trivial).
+    - If $b < 1$, everything is $0$, so $0 \le 0$.
+    - If $b = 1$, then $a < 1$ and $f(a) = 0$, so the right-hand side is $\frac{x - a}{1 - a} \ge 0$. If $x < 1$, the left side is $f(x) = 0 \le \frac{x-a}{1-a}$. If $x = 1$, both sides equal $1$.
+
+    So $f$ is convex on $[0,1]$ but discontinuous.
+
+- id: lebl-3.4.9
+  hints:
+    - |
+      Every real $x$ is a limit of rationals $r_n$. Define $\widetilde f(x)$ as $\lim f(r_n)$. You must show that this limit exists and does not depend on the chosen sequence.
+    - |
+      Uniformly continuous functions map Cauchy sequences to Cauchy sequences; prove this. Then use completeness of $\mathbb{R}$. For independence, interleave two sequences converging to $x$.
+    - |
+      For uniform continuity of $\widetilde f$, take the $\delta$ from $f$ (with $\epsilon/2$), approximate $x, y$ by rationals $r_n, s_n$ that are eventually within $\delta$ of each other, and pass to the limit in $|f(r_n) - f(s_n)| < \epsilon/2$.
+  solution: |
+    **Step 1: $f$ maps Cauchy sequences to Cauchy sequences.** Let $(r_n)$ be a Cauchy sequence in $\mathbb{Q}$ and $\epsilon > 0$. By uniform continuity, choose $\delta > 0$ with $|f(r) - f(s)| < \epsilon$ whenever $r, s \in \mathbb{Q}$ and $|r - s| < \delta$. Choose $N$ with $|r_n - r_m| < \delta$ for $m, n \ge N$. Then $|f(r_n) - f(r_m)| < \epsilon$ for $m, n \ge N$.
+
+    **Step 2: definition of $\widetilde f$.** Let $x \in \mathbb{R}$. By density of $\mathbb{Q}$ there are rationals $r_n \to x$. A convergent sequence is Cauchy, so by Step 1 $(f(r_n))$ is Cauchy, and it converges by completeness of $\mathbb{R}$. If $(s_n)$ is another sequence of rationals converging to $x$, the interleaved sequence $(r_1, s_1, r_2, s_2, \dots)$ also consists of rationals converging to $x$. So its image under $f$ converges, and its two subsequences $(f(r_n))$ and $(f(s_n))$ have the same limit. Hence
+    $$\widetilde f(x) := \lim_{n\to\infty} f(r_n)$$
+    is well defined, independent of the sequence. If $x \in \mathbb{Q}$, use the constant sequence $r_n = x$ to get $\widetilde f(x) = f(x)$.
+
+    **Step 3: $\widetilde f$ is uniformly continuous.** Let $\epsilon > 0$ and choose $\delta > 0$ such that $r, s \in \mathbb{Q}$ and $|r - s| < \delta$ imply $|f(r) - f(s)| < \epsilon/2$. Let $x, y \in \mathbb{R}$ with $|x - y| < \delta$, and choose rationals $r_n \to x$ and $s_n \to y$. Then $|r_n - s_n| \to |x - y| < \delta$, so $|r_n - s_n| < \delta$ for all $n \ge N$, for some $N$. For such $n$, $|f(r_n) - f(s_n)| < \epsilon/2$. Letting $n \to \infty$,
+    $$|\widetilde f(x) - \widetilde f(y)| \le \frac{\epsilon}{2} < \epsilon.$$
+    So $\widetilde f$ is uniformly continuous on $\mathbb{R}$ and extends $f$. $\blacksquare$
+
+    (The extension is also unique, since two continuous functions that agree on $\mathbb{Q}$ agree everywhere.)
+
+- id: lebl-3.6.11
+  hints:
+    - |
+      Enumerate $\mathbb{Q} \cap [0,1] = \{q_1, q_2, q_3, \dots\}$ and give each $q_n$ a "weight" $2^{-n}$. Let $f(x)$ add up the weights of the rationals to the left of $x$. Such a function is automatically increasing and bounded.
+    - |
+      Check that crossing $q_k$ makes $f$ jump by at least $2^{-k}$. Be careful at the endpoints $0$ and $1$: depending on whether you use $q_n < x$ or $q_n \le x$, the jump is on the right or on the left of $q_k$. Using both sums together puts a jump on both sides.
+    - |
+      For the image: given two values $f(s) < f(t)$, pick a rational $q_k$ in $(s,t)$. Show that a small open interval of values just below $f(q_k)$ is skipped.
+  solution: |
+    **Construction.** Since $\mathbb{Q} \cap [0,1]$ is countably infinite, list it as $q_1, q_2, q_3, \dots$ (each rational appearing once). For $x \in [0,1]$ define
+    $$f(x) = \sum_{n:\ q_n < x} 2^{-n} + \sum_{n:\ q_n \le x} 2^{-n}.$$
+    These are series of nonnegative terms bounded by $\sum 2^{-n} = 1$, so they converge, and $0 \le f \le 2$. If $x < y$, every index counted for $x$ is also counted for $y$, so $f(x) \le f(y)$. Thus $f$ is increasing. For $x < y$, subtracting the convergent series term by term gives
+    $$f(y) - f(x) = \sum_{n:\ x \le q_n < y} 2^{-n} + \sum_{n:\ x < q_n \le y} 2^{-n}. \tag{$*$}$$
+
+    **Discontinuity at each rational.** Let $q_k \in \mathbb{Q} \cap [0,1]$.
+    - If $q_k < 1$ and $q_k < y \le 1$, then $n = k$ occurs in the first sum of $(*)$ with $x = q_k$, so $f(y) - f(q_k) \ge 2^{-k}$.
+    - If $q_k > 0$ and $0 \le x < q_k$, then $n = k$ occurs in the second sum of $(*)$ with $y = q_k$, so $f(q_k) - f(x) \ge 2^{-k}$.
+
+    Every $q_k \in [0,1]$ has points of $[0,1]$ on at least one side. So $f$ cannot be continuous at $q_k$: there are points arbitrarily close to $q_k$ whose values differ from $f(q_k)$ by at least $2^{-k}$.
+
+    **The image contains no interval.** Suppose $u < v$ both lie in $f([0,1])$, say $u = f(s)$ and $v = f(t)$. Since $f$ is increasing, $s < t$. Choose a rational $q_k \in (s,t)$. By the two bullet points,
+    - $x < q_k \implies f(x) \le f(q_k) - 2^{-k}$;
+    - $x > q_k \implies f(x) \ge f(q_k) + 2^{-k}$.
+
+    Hence no point of $[0,1]$ is mapped into the open interval $\bigl(f(q_k) - 2^{-k},\ f(q_k)\bigr)$. Since $u = f(s) \le f(q_k) - 2^{-k}$ and $f(q_k) < f(q_k) + 2^{-k} \le f(t) = v$, this skipped interval lies inside $(u,v)$. So between any two values of $f$ there is a value that $f$ does not take. Therefore $f([0,1])$ contains no interval of positive length. $\blacksquare$
+
+- id: cummings-6.32
+  hints:
+    - |
+      Part (a) needs nothing fancy. For (b), suppose $f$ takes each value exactly twice. Fix a value $c$ with $f(a) = f(b) = c$, $a < b$. Between $a$ and $b$, $f$ never equals $c$, so by the IVT it stays on one side of $c$.
+    - |
+      Say $f > c$ on $(a,b)$. Use the Extreme Value Theorem on $[a,b]$ to get a maximum value $M > c$. Where can the two preimages of $M$ lie?
+    - |
+      If both preimages of $M$ are in $(a,b)$, a value slightly below $M$ is hit four times. If only one is, the other lies outside $[a,b]$, and a value between $c$ and $M$ is hit three times. For (c), try a piecewise-linear zigzag that rises by $2$ and falls by $1$ repeatedly.
+  solution: |
+    **(a)** $f(x) = x$: for each $b$, $a = b$ is the unique solution of $f(a) = b$.
+
+    **(b)** Suppose $f\colon \mathbb{R}\to\mathbb{R}$ is continuous and takes every value exactly twice. Fix any value $c$ and let $a < b$ be its two preimages. Then $f(x) \ne c$ for $x \notin \{a,b\}$. By the IVT, $f - c$ has constant sign on each of the intervals $(-\infty, a)$, $(a, b)$ and $(b, \infty)$. Replacing $f$ by $-f$ if necessary (which also takes every value exactly twice), assume $f > c$ on $(a,b)$.
+
+    By the Extreme Value Theorem, $f$ attains a maximum $M$ on $[a,b]$. Since $f > c$ on $(a,b)$, $M > c$, and every maximum point lies in $(a,b)$.
+
+    *Case 1: $M$ is attained at two points $p_1 < p_2$ of $(a,b)$.* $f$ is not constant on $[p_1,p_2]$, since otherwise $M$ would have infinitely many preimages. So there is $r \in (p_1, p_2)$ with $f(r) < M$. Pick $y$ with $\max\{c, f(r)\} < y < M$. By the IVT, $y$ is attained in each of the disjoint intervals $(a, p_1)$, $(p_1, r)$, $(r, p_2)$ and $(p_2, b)$: in each, the endpoint values lie on opposite sides of $y$. So $y$ is attained at least four times, a contradiction.
+
+    *Case 2: $M$ is attained at exactly one point $p \in (a,b)$.* Its second preimage $q$ lies outside $[a,b]$. Say $q > b$; the case $q < a$ is symmetric. Pick any $y \in (c, M)$. By the IVT, $y$ is attained in $(a, p)$, in $(p, b)$ and in $(b, q)$, since $f(b) = c < y < M = f(q)$. That is three times, a contradiction.
+
+    Hence no such function exists.
+
+    **(c)** Define $f$ piecewise linearly: for each integer $m$,
+    $$f(x) = \begin{cases} m + 2(x - 2m), & 2m \le x \le 2m+1, \\ m + 2 - (x - 2m - 1), & 2m+1 \le x \le 2m+2. \end{cases}$$
+    The two formulas agree at $x = 2m+1$, where both give $m+2$. At $x = 2m+2$ the second gives $m+1$, which matches the first formula for $m+1$. So $f$ is continuous. Its graph zigzags through the points $(2m, m)$ and $(2m+1, m+2)$, rising by $2$ and then falling by $1$.
+
+    *Each value is taken exactly three times.* The half-open intervals $U_m = [2m, 2m+1)$ and $D_m = [2m+1, 2m+2)$, $m \in \mathbb{Z}$, partition $\mathbb{R}$. On $U_m$, $f$ is strictly increasing and maps $U_m$ bijectively onto $[m, m+2)$. On $D_m$, $f$ is strictly decreasing and maps $D_m$ bijectively onto $(m+1, m+2]$. Fix $y \in \mathbb{R}$.
+    - $y \in [m, m+2)$ iff $m \in (y - 2, y]$, a half-open interval of length $2$, which contains exactly two integers.
+    - $y \in (m+1, m+2]$ iff $m \in [y-2, y-1)$, a half-open interval of length $1$, which contains exactly one integer.
+
+    So $y$ has exactly $2 + 1 = 3$ preimages.

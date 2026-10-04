@@ -429,6 +429,6 @@
     Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a monotone increasing function. Let $F : [a, b] \to \mathbf{R}$ be the function $F(x) := \int_{[a,x]} f$. Let $x_0$ be an element of $[a, b]$. Show that $F$ is differentiable at $x_0$ if and only if $f$ is continuous at $x_0$. (Hint: one direction is taken care of by one of the fundamental theorems of calculus. For the other, consider left and right limits of $f$ and argue by contradiction.)
 
     *(Theorem 11.9.1 (First Fundamental Theorem of Calculus), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a Riemann integrable function. Let $F : [a, b] \to \mathbf{R}$ be the function $F(x) := \int_{[a,x]} f$. Then $F$ is continuous. Furthermore, if $x_0 \in [a, b]$ and $f$ is continuous at $x_0$, then $F$ is differentiable at $x_0$, and $F'(x_0) = f(x_0)$.)*
-  notes: FTC I quoted for convenience (hint refers to 'one of the fundamental theorems'). Monotone f on [a,b] is Riemann integrable (Prop 11.6.1).
+  notes: "FTC I quoted for convenience (hint refers to 'one of the fundamental theorems'). Monotone f on [a,b] is Riemann integrable (Prop 11.6.1). Source issue: as printed, the 'only if' direction fails at the endpoints x_0 = a, b (Tao's derivative is one-sided there): take f(a) = 0 and f = 1 on (a, b]. The statement holds for x_0 in (a, b); the 'if' direction holds everywhere."
   curation:
     why: For monotone f, F(x) = ∫ₐˣ f is differentiable at x₀ exactly when f is continuous there.

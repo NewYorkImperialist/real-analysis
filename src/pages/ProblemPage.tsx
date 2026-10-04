@@ -26,6 +26,7 @@ const KIND_LABEL: Record<string, string> = {
   textbook: 'Textbook',
   instructor: 'Instructor',
   personal: 'Personal',
+  ai: 'AI-generated · not verified by a human',
 };
 
 function SourceBlock({ p }: { p: Problem }) {
@@ -190,6 +191,9 @@ function Solution({ p, personal, openEditor }: { p: Problem; personal: string; o
               <div class="provenance">
                 Solution · {KIND_LABEL[sol!.type ?? ''] ?? 'Source'}{sol!.source ? ` — ${sol!.source}` : ''}
               </div>
+              {sol!.lowConfidence && (
+                <p class="small"><strong>Low confidence:</strong> {sol!.lowConfidence}</p>
+              )}
               <RichText src={sol!.latex!} />
             </div>
           ) : (

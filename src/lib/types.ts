@@ -49,13 +49,16 @@ export type ProblemSource = {
 };
 
 // Provenance is mandatory for every hint and solution.
-export type Hint = { text: string; source: string; kind: 'textbook' | 'official' | 'instructor' | 'personal' };
+// 'ai' = written by an AI model and not verified by a human; always labeled as such on the site.
+export type Hint = { text: string; source: string; kind: 'textbook' | 'official' | 'instructor' | 'personal' | 'ai' };
 
 export type Solution = {
   available: boolean;
-  type?: 'official' | 'textbook' | 'instructor' | 'personal';
+  type?: 'official' | 'textbook' | 'instructor' | 'personal' | 'ai';
   source?: string;
   latex?: string;
+  /** Set when the author of an AI solution was not confident it is complete and correct. */
+  lowConfidence?: string;
 };
 
 export type Problem = {

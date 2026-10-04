@@ -1,0 +1,603 @@
+- id: lebl-2.5.10
+  hints:
+    - |
+      An infinite sum is a limit of partial sums. Try proving the inequality first for the partial sums, where it is just a finite statement.
+    - |
+      The finite triangle inequality gives $\left|\sum_{k=1}^n x_k\right| \le \sum_{k=1}^n |x_k|$. How does the right side compare with the full sum $\sum_{k=1}^\infty |x_k|$?
+    - |
+      Pass to the limit $n \to \infty$. You need two facts: absolute convergence implies convergence, so the left side has a limit; and non-strict inequalities are preserved under limits.
+  solution: |
+    **Proof.** Since $\sum |x_n|$ converges, so does $\sum x_n$ (absolute convergence implies convergence). Let $s_n = \sum_{k=1}^n x_k$, $s = \lim s_n = \sum_{n=1}^\infty x_n$, and $S = \sum_{n=1}^\infty |x_n|$.
+
+    The partial sums $t_n = \sum_{k=1}^n |x_k|$ form an increasing sequence with limit $S$, so $t_n \le S$ for every $n$. By the triangle inequality for finite sums,
+    $$|s_n| = \left|\sum_{k=1}^n x_k\right| \le \sum_{k=1}^n |x_k| = t_n \le S \qquad \text{for all } n.$$
+
+    Since $s_n \to s$, we have $|s_n| \to |s|$, because $\big||s_n| - |s|\big| \le |s_n - s|$. Limits preserve non-strict inequalities, so letting $n \to \infty$ in $|s_n| \le S$ gives
+    $$\left|\sum_{n=1}^\infty x_n\right| = |s| \le S = \sum_{n=1}^\infty |x_n|. \qquad \blacksquare$$
+
+- id: tao-7.3.2
+  hints:
+    - |
+      There are two separate claims. For $|x| \ge 1$, ask whether the terms $x^n$ can tend to $0$. For $|x| < 1$, compute the partial sums exactly.
+    - |
+      Prove the partial-sum formula by induction on $N$. Note that $x \ne 1$ when $|x| < 1$, so you may divide by $1 - x$.
+    - |
+      For absolute convergence, apply the same argument to the series $\sum |x|^n$, whose ratio $|x|$ is also less than $1$ in absolute value.
+  solution: |
+    **Divergence for $|x| \ge 1$.** In this case $|x^n| = |x|^n \ge 1$ for all $n$, so $x^n$ does not converge to $0$. By the zero test (Corollary 7.2.6: the terms of a convergent series tend to $0$), $\sum_{n=0}^\infty x^n$ diverges.
+
+    **The finite formula.** Let $x \ne 1$. We prove by induction on $N \ge 0$ that
+    $$\sum_{n=0}^N x^n = \frac{1 - x^{N+1}}{1 - x}.$$
+    For $N = 0$ both sides equal $1$. If the formula holds for $N$, then
+    $$\sum_{n=0}^{N+1} x^n = \frac{1 - x^{N+1}}{1 - x} + x^{N+1} = \frac{1 - x^{N+1} + x^{N+1} - x^{N+2}}{1 - x} = \frac{1 - x^{N+2}}{1 - x},$$
+    which is the formula for $N+1$.
+
+    **Convergence for $|x| < 1$.** Then $x \ne 1$, and by Lemma 6.5.2, $x^{N+1} \to 0$ as $N \to \infty$. By the limit laws, the partial sums satisfy
+    $$S_N = \frac{1 - x^{N+1}}{1 - x} \to \frac{1 - 0}{1 - x} = \frac{1}{1-x}.$$
+    So the series converges and $\sum_{n=0}^\infty x^n = 1/(1-x)$.
+
+    **Absolute convergence.** The series of absolute values is $\sum_{n=0}^\infty |x|^n$. Since $y = |x|$ satisfies $|y| < 1$, the previous paragraph applied to $y$ shows that this series converges (to $1/(1-|x|)$). So $\sum x^n$ is absolutely convergent. $\blacksquare$
+
+- id: mit20-a7-2
+  hints:
+    - |
+      Each of these is a power series. Find where it converges absolutely using the ratio test (or recognize a geometric series), then check the boundary points separately.
+    - |
+      At a boundary point, check whether the terms tend to $0$. If they do not, the series diverges. In (d), think about what $n!\,|x|^n$ does for a fixed $x \ne 0$.
+  solution: |
+    **(a)** $\sum 2^n x^n = \sum (2x)^n$ is a geometric series with ratio $2x$. It converges if and only if $|2x| < 1$. **Answer:** $-\tfrac12 < x < \tfrac12$.
+
+    **(b)** If $x = 0$, every term is $0$ and the series converges. If $x \ne 0$, then for $n \ge 1$
+    $$\left|\frac{(n+1)x^{n+1}}{n x^n}\right| = \frac{n+1}{n}|x| \to |x|.$$
+    By the ratio test the series converges (absolutely) when $|x| < 1$. When $|x| \ge 1$ we have $|n x^n| \ge n$, so the terms do not tend to $0$ and the series diverges. **Answer:** $-1 < x < 1$.
+
+    **(c)** If $x = 10$, only the $n = 0$ term is nonzero (it equals $1$), so the series converges. If $x \ne 10$, let $a_n = (x-10)^n/(2n)!$. Then
+    $$\left|\frac{a_{n+1}}{a_n}\right| = \frac{|x - 10|}{(2n+1)(2n+2)} \to 0 < 1,$$
+    so the ratio test gives convergence. **Answer:** all $x \in \mathbb{R}$.
+
+    **(d)** If $x = 0$, the series is $1 + 0 + 0 + \cdots$ and converges. If $x \ne 0$, let $a_n = n!\,x^n$. Then $|a_{n+1}/a_n| = (n+1)|x|$, which is at least $1$ once $n \ge 1/|x|$. So from that point on, $|a_n|$ is nondecreasing and positive. Hence $a_n \not\to 0$ and the series diverges. **Answer:** only $x = 0$.
+
+- id: mit20-mid-5a
+  hints:
+    - |
+      Since $a_n/b_n \to L > 0$, the ratio is eventually trapped between two positive constants. Choose $\varepsilon$ so that the lower constant stays positive.
+    - |
+      With $\varepsilon = L/2$, for large $n$ you get $\tfrac{L}{2} b_n < a_n < \tfrac{3L}{2} b_n$. Apply the comparison test in each direction. Finitely many initial terms do not affect convergence.
+  solution: |
+    **Proof.** Apply the definition of the limit with $\varepsilon = L/2 > 0$: there is $N$ such that for all $n \ge N$,
+    $$\left|\frac{a_n}{b_n} - L\right| < \frac{L}{2}, \quad\text{so}\quad \frac{L}{2} < \frac{a_n}{b_n} < \frac{3L}{2}.$$
+    Since $b_n > 0$, multiplying through gives
+    $$\frac{L}{2}\, b_n < a_n < \frac{3L}{2}\, b_n \qquad (n \ge N).$$
+
+    Convergence of a series is unaffected by changing or deleting finitely many terms, so it is enough to look at the tails $\sum_{n \ge N}$. All terms are positive.
+
+    ($\Leftarrow$) If $\sum b_n$ converges, then so does $\sum \tfrac{3L}{2} b_n$. Since $0 < a_n < \tfrac{3L}{2} b_n$ for $n \ge N$, the comparison test shows that $\sum a_n$ converges.
+
+    ($\Rightarrow$) If $\sum a_n$ converges, then so does $\sum \tfrac{2}{L} a_n$. Since $0 < b_n < \tfrac{2}{L} a_n$ for $n \ge N$, the comparison test shows that $\sum b_n$ converges. $\blacksquare$
+
+- id: mit20-mid-5b
+  hints:
+    - |
+      In (i), combine the signs: $(-1)^n (x-10)^n = (10 - x)^n$. With $y = 10 - x$, the series is a constant multiple of a familiar series in $y$. Treat $|y| < 1$, $|y| > 1$ and $y = \pm 1$ separately.
+    - |
+      In (ii), compare the absolute values of the terms with the terms $k|x|^k$ from $\sum k x^k$. For $|x| \ge 1$, look at the size of the terms.
+  solution: |
+    As the problem notes say, in (i) the $n = 0$ term is undefined, so we read the sum as starting at $n = 1$.
+
+    **(i)** Since $(-1)^n(x-10)^n = (10-x)^n$, the series is $\frac{1}{2020}\sum_{n=1}^\infty \frac{y^n}{n}$ with $y = 10 - x$. The factor $\frac{1}{2020}$ does not affect convergence.
+
+    - If $|y| < 1$: for $y \ne 0$, $\left|\frac{y^{n+1}/(n+1)}{y^n/n}\right| = \frac{n}{n+1}|y| \to |y| < 1$, so the series converges absolutely by the ratio test. For $y = 0$ it is trivially absolutely convergent.
+    - If $|y| > 1$: the ratio above tends to $|y| > 1$, so $|y|^n/n$ is eventually increasing. The terms do not tend to $0$, and the series diverges.
+    - If $y = 1$, i.e. $x = 9$: the series is $\sum \frac1n$, the harmonic series, which diverges.
+    - If $y = -1$, i.e. $x = 11$: the series is $\sum \frac{(-1)^n}{n}$. It converges by the alternating series test, since $1/n$ decreases to $0$. Its series of absolute values is the harmonic series, so the convergence is not absolute.
+
+    **Answer (i):** converges for $9 < x \le 11$; converges absolutely for $9 < x < 11$.
+
+    **(ii)** Write $a_n = n!\,x^{n!}$.
+
+    - If $|x| \ge 1$: $|a_n| = n!\,|x|^{n!} \ge n! \to \infty$. The terms do not tend to $0$, so the series diverges.
+    - If $x = 0$: every term is $0$ (since $n! \ge 1$), so the series converges absolutely.
+    - If $0 < |x| < 1$: for $n \ge 1$,
+    $$\frac{|a_{n+1}|}{|a_n|} = (n+1)\,|x|^{(n+1)! - n!} = (n+1)\,|x|^{n \cdot n!} \le (n+1)\,|x|^{n},$$
+    because $n \cdot n! \ge n$ and $|x| < 1$. Now $(n+1)|x|^n \to 0$: its consecutive ratios $\frac{n+2}{n+1}|x|$ tend to $|x| < 1$, so it is the term sequence of a convergent series. Hence $|a_{n+1}/a_n| \to 0$, and $\sum a_n$ converges absolutely by the ratio test.
+
+    **Answer (ii):** converges for $-1 < x < 1$, and converges absolutely on exactly the same set.
+
+- id: abbott-2.7.4
+  hints:
+    - |
+      For each part, first decide whether a theorem forbids it. Two of the parts are possible with very simple sequences.
+    - |
+      For (c), solve for $y_n$ in terms of $x_n$ and $x_n + y_n$, and recall the Algebraic Limit Theorem for Series.
+    - |
+      For (b), choose $y_n$ to cancel the signs of a conditionally convergent series. For (d), $x_n$ is allowed to equal $0$; use this to kill the terms with one of the two signs.
+  solution: |
+    **(a) Possible.** Take $x_n = y_n = \frac1n$. Then $\sum x_n$ and $\sum y_n$ are the harmonic series, which diverges, while $\sum x_n y_n = \sum \frac{1}{n^2}$ converges (a $p$-series with $p = 2 > 1$).
+
+    **(b) Possible.** Take $x_n = \frac{(-1)^n}{n}$ and $y_n = (-1)^n$. The series $\sum x_n$ converges by the Alternating Series Test, and $|y_n| = 1$, so $(y_n)$ is bounded. But $x_n y_n = \frac{(-1)^{2n}}{n} = \frac1n$, and $\sum x_n y_n$ is the harmonic series, which diverges.
+
+    **(c) Impossible.** If $\sum x_n = A$ and $\sum (x_n + y_n) = B$ both converge, then by the Algebraic Limit Theorem for Series (Theorem 2.7.1),
+    $$\sum y_n = \sum \big((x_n + y_n) - x_n\big)$$
+    converges to $B - A$. Concretely, the partial sums of $\sum y_n$ are differences of two convergent sequences of partial sums.
+
+    **(d) Possible.** Let $x_n = \frac1n$ for $n$ even and $x_n = 0$ for $n$ odd. Then $0 \le x_n \le \frac1n$. In $\sum (-1)^n x_n$ the odd-indexed terms are $0$ and the even-indexed terms are $\frac{1}{n} > 0$. So the partial sums are nondecreasing and
+    $$s_{2m} = \sum_{k=1}^m \frac{1}{2k} = \frac12 \sum_{k=1}^m \frac1k \to \infty,$$
+    since the harmonic series diverges. Hence $\sum (-1)^n x_n$ diverges. (This does not contradict the Alternating Series Test, because $(x_n)$ is not decreasing.)
+
+- id: abbott-2.7.9
+  hints:
+    - |
+      The idea is that a series whose terms eventually shrink at least geometrically is dominated by a geometric series.
+    - |
+      For (a), apply the definition of $\lim |a_{n+1}/a_n| = r$ with $\varepsilon = r' - r$.
+    - |
+      For (c), iterate the inequality from (a) to bound $|a_{N+k}|$ by $|a_N|(r')^k$. Then use the Comparison Test on the tail, and Absolute Convergence implies Convergence.
+  solution: |
+    **(a)** Let $\varepsilon = r' - r > 0$. Since $|a_{n+1}/a_n| \to r$, there is $N$ such that for all $n \ge N$,
+    $$\left|\frac{a_{n+1}}{a_n}\right| < r + \varepsilon = r'.$$
+    Multiplying by $|a_n| > 0$ gives $|a_{n+1}| < |a_n|\, r'$, and in particular $|a_{n+1}| \le |a_n|\, r'$.
+
+    **(b)** Since $r \ge 0$ (it is the limit of nonnegative numbers), we have $0 < r' < 1$. So $\sum (r')^n$ is a geometric series with ratio in $(0,1)$ and converges. Multiplying a convergent series by the constant $|a_N|$ keeps it convergent (Algebraic Limit Theorem for Series).
+
+    **(c)** By induction on $k \ge 0$, we have $|a_{N+k}| \le |a_N|(r')^k$. The case $k = 0$ is trivial. If it holds for $k$, then part (a) applied with $n = N + k \ge N$ gives
+    $$|a_{N+k+1}| \le |a_{N+k}|\, r' \le |a_N| (r')^{k+1}.$$
+    So the tail $\sum_{k=0}^\infty |a_{N+k}|$ has nonnegative terms bounded by the terms of the convergent series $\sum_{k=0}^\infty |a_N|(r')^k$ from (b). By the Comparison Test, the tail converges. Adding the finitely many terms $|a_1|, \dots, |a_{N-1}|$ does not affect convergence, so $\sum_{n=1}^\infty |a_n|$ converges.
+
+    Finally, by the Absolute Convergence Test (if $\sum |a_n|$ converges then $\sum a_n$ converges), $\sum a_n$ converges, and it does so absolutely. $\blacksquare$
+
+- id: lebl-2.5.3
+  hints:
+    - |
+      For each series, compare it with a model you already know: the harmonic series, a $p$-series, a geometric series, or a telescoping sum.
+    - |
+      (a) and (b) behave like a multiple of $\frac1n$. In (c), look at absolute values. In (d), use partial fractions. In (e), $e^{-n^2}$ decays much faster than any power of $n$, so compare with $\frac{1}{n^2}$.
+  solution: |
+    **a) Diverges.** For $n \ge 1$, $9n + 1 \le 10n$, so $\frac{3}{9n+1} \ge \frac{3}{10}\cdot\frac{1}{n} > 0$. The harmonic series $\sum \frac1n$ diverges, so by comparison the series diverges.
+
+    **b) Diverges.** For $n \ge 1$, $0 < 2n - 1 \le 2n$, so $\frac{1}{2n-1} \ge \frac{1}{2}\cdot\frac{1}{n}$. Again the series diverges by comparison with the harmonic series.
+
+    **c) Converges (absolutely).** $\left|\frac{(-1)^n}{n^2}\right| = \frac{1}{n^2}$, and $\sum \frac{1}{n^2}$ converges (a $p$-series with $p = 2 > 1$). Absolutely convergent series converge.
+
+    **d) Converges, with sum $1$.** We have $\frac{1}{n(n+1)} = \frac1n - \frac1{n+1}$, so the partial sums telescope:
+    $$s_N = \sum_{n=1}^N \left(\frac1n - \frac{1}{n+1}\right) = 1 - \frac{1}{N+1} \to 1.$$
+
+    **e) Converges.** For $t \ge 0$, $e^t \ge 1 + t + \frac{t^2}{2} \ge \frac{t^2}{2}$ (every term of the exponential series is nonnegative). With $t = n^2$ this gives $e^{n^2} \ge \frac{n^4}{2}$, so
+    $$0 < n e^{-n^2} \le \frac{2n}{n^4} = \frac{2}{n^3}.$$
+    Since $\sum \frac{2}{n^3}$ converges ($p = 3 > 1$), the series converges by comparison. (Alternatively, the ratio of consecutive terms is $\frac{n+1}{n}e^{-(2n+1)} \to 0$, so the ratio test applies.)
+
+- id: lebl-2.5.4
+  hints:
+    - |
+      Write the partial sums of the new series in terms of the partial sums $s_k = \sum_{n=1}^k x_n$ of the original series.
+    - |
+      The new partial sums are, up to a constant, a subsequence of $(s_k)$. For b), look for a divergent series whose terms cancel in consecutive pairs.
+  solution: |
+    **a)** Let $s_k = \sum_{n=1}^k x_n$, so that $s_k \to s$. The $m$-th partial sum of the new series is
+    $$T_m = \sum_{n=1}^m (x_{2n} + x_{2n+1}) = x_2 + x_3 + \cdots + x_{2m+1} = s_{2m+1} - x_1.$$
+    Since $(s_{2m+1})_{m \ge 1}$ is a subsequence of the convergent sequence $(s_k)$, it converges to $s$. Hence $T_m \to s - x_1$, and $\sum_{n=1}^\infty (x_{2n} + x_{2n+1})$ converges, with sum $\sum_{n=1}^\infty x_n - x_1$.
+
+    **b)** Let $x_n = (-1)^n$. Then $x_{2n} + x_{2n+1} = 1 + (-1) = 0$ for every $n$, so $\sum_{n=1}^\infty (x_{2n} + x_{2n+1}) = 0$ converges. But $x_n \not\to 0$, so $\sum_{n=1}^\infty (-1)^n$ diverges. (Its partial sums alternate between $-1$ and $0$.)
+
+- id: lebl-2.6.1
+  hints:
+    - |
+      Before using any test, check whether the terms go to $0$. Then match each series to a test: geometric, alternating, or root.
+    - |
+      (a) is a constant times a geometric series. In (b), find the limit of the absolute value of the terms. In (c), $n^{1/10}$ is increasing. In (d), take the $n$-th root of the term.
+  solution: |
+    **a) Converges.** $\frac{1}{2^{2n+1}} = \frac12\left(\frac14\right)^n$, so this is a geometric series with ratio $\frac14$. Its sum is
+    $$\frac12 \cdot \frac{1/4}{1 - 1/4} = \frac16.$$
+
+    **b) Diverges.** $\left|\frac{(-1)^n(n-1)}{n}\right| = 1 - \frac1n \to 1 \ne 0$. The terms do not tend to $0$, so the series diverges.
+
+    **c) Converges (conditionally).** The sequence $x_n = n^{-1/10}$ is positive and decreasing, since $t \mapsto t^{1/10}$ is increasing. It tends to $0$: given $\varepsilon > 0$, we have $n^{-1/10} < \varepsilon$ once $n > \varepsilon^{-10}$. By the alternating series test, $\sum (-1)^n n^{-1/10}$ converges. The convergence is not absolute, since $\sum n^{-1/10}$ is a $p$-series with $p = \frac1{10} \le 1$.
+
+    **d) Converges.** Let $a_n = \frac{n^n}{(n+1)^{2n}} > 0$. Then
+    $$a_n^{1/n} = \frac{n}{(n+1)^2} \le \frac{n}{n^2} = \frac{1}{n} \to 0.$$
+    So $\limsup a_n^{1/n} = 0 < 1$, and the series converges by the root test.
+
+- id: lebl-2.6.2
+  hints:
+    - |
+      A series with nonnegative terms converges exactly when its partial sums are bounded. So bound the partial sums of $\sum |c_n|$.
+    - |
+      $|c_n| \le \sum_{k=0}^n |a_k||b_{n-k}|$. The terms appearing in $\sum_{n=0}^N |c_n|$ are products $|a_k||b_j|$ with $k + j \le N$.
+    - |
+      Compare that set of pairs $(k,j)$ with the square $0 \le k, j \le N$, whose sum factors as $\left(\sum_{k \le N} |a_k|\right)\left(\sum_{j \le N}|b_j|\right)$.
+  solution: |
+    **Proof.** Let $A = \sum_{n=0}^\infty |a_n|$ and $B = \sum_{n=0}^\infty |b_n|$, both finite by hypothesis. Partial sums of a series with nonnegative terms are bounded by the full sum, so $\sum_{k=0}^N |a_k| \le A$ and $\sum_{j=0}^N |b_j| \le B$ for every $N$.
+
+    By the triangle inequality, $|c_n| \le \sum_{k=0}^n |a_k|\,|b_{n-k}|$. Hence
+    $$\sum_{n=0}^N |c_n| \le \sum_{n=0}^N \sum_{k=0}^n |a_k|\,|b_{n-k}| = \sum_{\substack{k, j \ge 0 \\ k + j \le N}} |a_k|\,|b_j|.$$
+    Every pair with $k + j \le N$ satisfies $0 \le k \le N$ and $0 \le j \le N$, and all the summands are nonnegative. So enlarging the index set to the full square can only increase the sum:
+    $$\sum_{n=0}^N |c_n| \le \sum_{k=0}^N \sum_{j=0}^N |a_k|\,|b_j| = \left(\sum_{k=0}^N |a_k|\right)\left(\sum_{j=0}^N |b_j|\right) \le AB.$$
+
+    Thus the partial sums of $\sum |c_n|$ are nondecreasing and bounded above by $AB$. By the monotone convergence theorem they converge, so $\sum c_n$ converges absolutely. $\blacksquare$
+
+- id: lebl-2.6.13
+  hints:
+    - |
+      Exercise 2.5.14 shows that the example cannot have nonnegative terms. So the convergence must come from cancellation, as in an alternating series.
+    - |
+      Choose $|x_n|$ so that $x_n^2$ is the harmonic series.
+  solution: |
+    Let $x_n = \frac{(-1)^n}{\sqrt{n}}$.
+
+    **$\sum x_n$ converges.** The sequence $\frac{1}{\sqrt n}$ is positive and decreasing, and it tends to $0$: $\frac{1}{\sqrt n} < \varepsilon$ once $n > \varepsilon^{-2}$. By the alternating series test, $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt n}$ converges.
+
+    **$\sum x_n^2$ diverges.** $x_n^2 = \frac{1}{n}$, so $\sum x_n^2$ is the harmonic series, which diverges.
+
+    This is consistent with Exercise 2.5.14, which needs $x_n \ge 0$. Here the series converges only conditionally.
+
+- id: ross-14.10
+  hints:
+    - |
+      The Ratio Test gives no information when $\liminf |a_{n+1}/a_n| \le 1 \le \limsup |a_{n+1}/a_n|$. The Root Test proves divergence when $\limsup |a_n|^{1/n} > 1$.
+    - |
+      Modify Example 8: keep the "wobble" $2^{(-1)^n}$, which makes the ratios oscillate, but replace the decaying factor $2^{-n}$ by a growing one.
+  solution: |
+    Let $a_n = 2^{\,n + (-1)^n}$ for $n \ge 0$, i.e. $\tfrac12, 4, 2, 16, 8, 64, \dots$.
+
+    **Root Test.** $a_n^{1/n} = 2^{\,1 + (-1)^n/n}$ for $n \ge 1$. Since $(-1)^n/n \to 0$ and $t \mapsto 2^t$ is continuous, $a_n^{1/n} \to 2$. So $\limsup a_n^{1/n} = 2 > 1$, and the Root Test shows that $\sum a_n$ diverges.
+
+    **Ratio Test.** We have
+    $$\frac{a_{n+1}}{a_n} = 2^{\,1 + (-1)^{n+1} - (-1)^n} = 2^{\,1 - 2(-1)^n} = \begin{cases} \tfrac12, & n \text{ even},\\ 8, & n \text{ odd}.\end{cases}$$
+    Hence $\liminf |a_{n+1}/a_n| = \tfrac12 < 1$ and $\limsup |a_{n+1}/a_n| = 8 > 1$. The Ratio Test proves convergence only when $\limsup < 1$ and divergence only when $\liminf > 1$, so here it gives no information.
+
+    (Divergence is also clear directly, since $a_n \to \infty$. The point of the exercise is only how the two tests behave.)
+
+- id: ross-14.12
+  hints:
+    - |
+      First translate $\liminf |a_n| = 0$ into a concrete statement: past any index $N$, there are terms of arbitrarily small absolute value.
+    - |
+      Build the subsequence inductively so that $|a_{n_k}|$ is smaller than the $k$-th term of a convergent series you know, such as $2^{-k}$.
+    - |
+      Then $\sum a_{n_k}$ converges absolutely by comparison.
+  solution: |
+    **Step 1: small terms occur arbitrarily far out.** Let $v_N = \inf\{|a_n| : n > N\}$. As $N$ increases, the infimum is taken over smaller sets, so $(v_N)$ is nondecreasing. By definition $\liminf |a_n| = \lim_N v_N = 0$. A nondecreasing sequence lies below its limit, so $0 \le v_N \le 0$, i.e. $v_N = 0$ for every $N$. Hence for every $N$ and every $\varepsilon > 0$ there is $n > N$ with $|a_n| < \varepsilon$, because otherwise $\varepsilon$ would be a lower bound for $\{|a_n| : n > N\}$ and $v_N \ge \varepsilon > 0$.
+
+    **Step 2: construct the subsequence.** By Step 1 with $N = 0$ and $\varepsilon = \tfrac12$, choose $n_1$ with $|a_{n_1}| < \tfrac12$. Having chosen $n_1 < \cdots < n_k$, apply Step 1 with $N = n_k$ and $\varepsilon = 2^{-(k+1)}$ to choose $n_{k+1} > n_k$ with $|a_{n_{k+1}}| < 2^{-(k+1)}$. This gives a subsequence with $|a_{n_k}| < 2^{-k}$ for all $k$.
+
+    **Step 3: convergence.** Since $\sum_{k=1}^\infty 2^{-k} = 1$ converges and $0 \le |a_{n_k}| < 2^{-k}$, the Comparison Test shows that $\sum_k |a_{n_k}|$ converges. Absolutely convergent series converge, so $\sum_{k=1}^\infty a_{n_k}$ converges. $\blacksquare$
+
+- id: ross-15.3
+  hints:
+    - |
+      For $p > 0$, the function $f(x) = \frac{1}{x(\log x)^p}$ is positive and decreasing on $[2,\infty)$. Compare the partial sums with integrals of $f$ over unit intervals.
+    - |
+      If $p \le 1$, compare with the case $p = 1$, using $(\log n)^p \le \log n$ for $n \ge 3$. This also covers $p \le 0$, where $f$ need not be decreasing.
+  solution: |
+    Let $f(x) = \dfrac{1}{x(\log x)^p}$ for $x \ge 2$.
+
+    **The integral comparison.** Suppose $p > 0$. Then $x$ and $(\log x)^p$ are positive and increasing on $[2,\infty)$, so $f$ is positive and decreasing there. For an integer $k \ge 3$ and $x \in [k-1, k]$ we have $f(k) \le f(x) \le f(k-1)$. Integrating over $[k-1,k]$ gives
+    $$f(k) \le \int_{k-1}^{k} f(x)\,dx \le f(k-1).$$
+    Summing both inequalities over $k = 4, \dots, n$ gives, for $n \ge 4$,
+    $$\sum_{k=4}^{n} f(k) \le \int_3^n f(x)\,dx \le \sum_{k=3}^{n-1} f(k). \qquad (*)$$
+    The substitution $u = \log x$, $du = dx/x$, gives
+    $$\int_3^n f(x)\,dx = \int_{\log 3}^{\log n} u^{-p}\,du.$$
+
+    **Case $p > 1$: convergence.**
+    $$\int_{\log 3}^{\log n} u^{-p}\,du = \frac{(\log 3)^{1-p} - (\log n)^{1-p}}{p-1} \le \frac{(\log 3)^{1-p}}{p-1}.$$
+    By the left inequality in $(*)$, the partial sums of $\sum_{n \ge 2} f(n)$ are bounded by $f(2) + f(3) + \frac{(\log 3)^{1-p}}{p-1}$. A series of positive terms with bounded partial sums converges.
+
+    **Case $p = 1$: divergence.**
+    $$\int_{\log 3}^{\log n} \frac{du}{u} = \log\log n - \log\log 3 \to \infty.$$
+    By the right inequality in $(*)$, $\sum_{k=3}^{n-1} \frac{1}{k\log k} \to \infty$, so $\sum \frac{1}{n\log n}$ diverges.
+
+    **Case $p < 1$: divergence.** For $n \ge 3$ we have $\log n > 1$, so $(\log n)^p \le (\log n)^1$ because $p \le 1$. Hence
+    $$\frac{1}{n(\log n)^p} \ge \frac{1}{n \log n} > 0 \qquad (n \ge 3).$$
+    By the Comparison Test and the case $p = 1$, the series diverges.
+
+    So the series converges if and only if $p > 1$. $\blacksquare$
+
+- id: cummings-4.2
+  hints:
+    - |
+      You cannot use the monotone convergence theorem directly, because the partial sums of $\sum a_k$ need not be monotone. Use a criterion that does not need monotonicity.
+    - |
+      Show that the partial sums of $\sum a_k$ form a Cauchy sequence. Control $|s_n - s_m|$ with the triangle inequality and the partial sums of $\sum |a_k|$.
+  solution: |
+    **Proof.** Let $s_n = \sum_{k=1}^n a_k$ and $t_n = \sum_{k=1}^n |a_k|$. By hypothesis $(t_n)$ converges, so it is a Cauchy sequence. Let $\varepsilon > 0$. Then there is $N$ such that $|t_n - t_m| < \varepsilon$ for all $n, m \ge N$.
+
+    Let $n > m \ge N$. By the triangle inequality,
+    $$|s_n - s_m| = \left|\sum_{k=m+1}^{n} a_k\right| \le \sum_{k=m+1}^{n} |a_k| = t_n - t_m = |t_n - t_m| < \varepsilon.$$
+    The case $n = m$ is trivial, and $n < m$ follows by symmetry. So $(s_n)$ is a Cauchy sequence of real numbers. By completeness (every Cauchy sequence of reals converges), $(s_n)$ converges, i.e. $\sum_{k=1}^\infty a_k$ converges. $\blacksquare$
+
+    *Alternative.* Since $0 \le a_k + |a_k| \le 2|a_k|$, the Comparison Test shows that $\sum (a_k + |a_k|)$ converges. Then $\sum a_k = \sum (a_k + |a_k|) - \sum |a_k|$ is a difference of two convergent series.
+
+- id: cummings-4.5
+  hints:
+    - |
+      (a) What do you know about $a_k$ for large $k$ if $\sum a_k$ converges? How does $a_k^2$ compare with $a_k$ when $0 < a_k < 1$?
+    - |
+      (b) Without positivity, a series can converge through cancellation while its terms are relatively large. Find an alternating series whose terms, once squared, give the harmonic series.
+  solution: |
+    **(a) Proof.** Since $\sum a_k$ converges, $a_k \to 0$. So there is $N$ with $0 < a_k < 1$ for all $k \ge N$. For such $k$, $0 < a_k^2 = a_k \cdot a_k < a_k$. Since $\sum_{k \ge N} a_k$ converges, the Comparison Test shows that $\sum_{k \ge N} a_k^2$ converges. Adding the finitely many terms $a_1^2, \dots, a_{N-1}^2$ does not affect convergence, so $\sum_{k=1}^\infty a_k^2$ converges. $\blacksquare$
+
+    **(b)** Let $a_k = \frac{(-1)^k}{\sqrt k}$. The numbers $\frac{1}{\sqrt k}$ are positive, decreasing, and tend to $0$, so $\sum a_k$ converges by the Alternating Series Test. But $a_k^2 = \frac1k$, and $\sum a_k^2$ is the harmonic series, which diverges. So the conclusion of (a) fails without the hypothesis $a_k > 0$.
+
+- id: tao-7.2.2
+  hints:
+    - |
+      By definition, the series converges exactly when its sequence of partial sums $S_N = \sum_{n=m}^N a_n$ converges. In $\mathbf{R}$, this is equivalent to $(S_N)$ being Cauchy.
+    - |
+      Relate the block sums to differences of partial sums: for $q \ge p > m$, $\sum_{n=p}^q a_n = S_q - S_{p-1}$. Then check that the two conditions match, up to shifting $N$ by one.
+    - |
+      Don't forget the case $p > q$, where the sum is empty and equals $0$.
+  solution: |
+    Let $S_N = \sum_{n=m}^N a_n$ for $N \ge m$. By definition, $\sum_{n=m}^\infty a_n$ converges if and only if $(S_N)_{N=m}^\infty$ converges. By Proposition 6.1.12 and Theorem 6.4.18, this happens if and only if $(S_N)$ is a Cauchy sequence: for every $\varepsilon > 0$ there is $N_0 \ge m$ such that $|S_j - S_k| \le \varepsilon$ for all $j, k \ge N_0$. So it suffices to show that this Cauchy condition is equivalent to the condition in the proposition.
+
+    We use the identity
+    $$\sum_{n=p}^q a_n = S_q - S_{p-1} \qquad \text{for } m < p \le q. \qquad (*)$$
+
+    **(Cauchy $\Rightarrow$ condition).** Let $\varepsilon > 0$ and take $N_0$ as above. Put $N = N_0 + 1 \ge m$. Let $p, q \ge N$. If $p > q$, the sum is empty and equals $0 \le \varepsilon$. If $p \le q$, then $p > m$, so by $(*)$, $\left|\sum_{n=p}^q a_n\right| = |S_q - S_{p-1}|$. Since $q \ge N_0$ and $p - 1 \ge N_0$, this is at most $\varepsilon$.
+
+    **(Condition $\Rightarrow$ Cauchy).** Let $\varepsilon > 0$ and take $N \ge m$ from the condition. Let $j, k \ge N$. If $j = k$ then $|S_j - S_k| = 0$. Otherwise, say $j < k$. By $(*)$ with $p = j+1$ and $q = k$, we get $S_k - S_j = \sum_{n=j+1}^k a_n$. Since $j + 1 \ge N$ and $k \ge N$, the condition gives $|S_k - S_j| \le \varepsilon$. So $(S_N)$ is Cauchy with $N_0 = N$.
+
+    Combining the two directions with the first paragraph proves the proposition. $\blacksquare$
+
+- id: mit20-a7-3
+  hints:
+    - |
+      Absolute convergence comes from a pointwise inequality between $|x_n y_n|$ and $x_n^2, y_n^2$. Which elementary inequality bounds a product by a sum of squares?
+    - |
+      $|ab| \le \frac{a^2 + b^2}{2}$ gives absolute convergence, but summed directly it only gives $\frac{A + B}{2}$, not $\sqrt{AB}$. Here $A = \sum x_n^2$ and $B = \sum y_n^2$.
+    - |
+      Rescale first: apply the inequality to $a = |x_n|/\sqrt A$ and $b = |y_n|/\sqrt B$, then sum. Handle $A = 0$ or $B = 0$ separately.
+  solution: |
+    We work with real sequences. Let $A = \sum_{n=1}^\infty x_n^2$ and $B = \sum_{n=1}^\infty y_n^2$. Both are finite by hypothesis.
+
+    **Absolute convergence.** For real $a, b$, $0 \le (|a| - |b|)^2$ gives $|ab| \le \frac{a^2 + b^2}{2}$. So $|x_n y_n| \le \frac12 (x_n^2 + y_n^2)$. The right side is the general term of a convergent series, so by the Comparison Test $\sum |x_n y_n|$ converges. In particular $\sum x_n y_n$ converges.
+
+    **The inequality.** If $A = 0$, then every $x_n = 0$ (a sum of nonnegative terms vanishes only if each term does). Both sides of the inequality are then $0$. The case $B = 0$ is the same. Assume $A, B > 0$. Applying $|ab| \le \frac{a^2+b^2}{2}$ with $a = x_n/\sqrt A$ and $b = y_n/\sqrt B$ gives
+    $$\frac{|x_n y_n|}{\sqrt{AB}} \le \frac12\left(\frac{x_n^2}{A} + \frac{y_n^2}{B}\right).$$
+    Sum over $n$. All three series converge, and sums of convergent series are linear and preserve non-strict inequalities between terms. So
+    $$\frac{1}{\sqrt{AB}}\sum_{n=1}^\infty |x_n y_n| \le \frac12\left(\frac{A}{A} + \frac{B}{B}\right) = 1.$$
+    Finally, the triangle inequality for absolutely convergent series ($\left|\sum c_n\right| \le \sum |c_n|$, the limit of the finite triangle inequality) gives
+    $$\left|\sum_{n=1}^\infty x_n y_n\right| \le \sum_{n=1}^\infty |x_n y_n| \le \sqrt{AB} = \left(\sum_{n=1}^\infty |x_n|^2\right)^{1/2}\left(\sum_{n=1}^\infty |y_n|^2\right)^{1/2}. \qquad \blacksquare$$
+
+- id: abbott-2.7.1
+  hints:
+    - |
+      Draw the partial sums: they bounce back and forth, and each bounce is smaller than the last. All three proofs use this picture. Note also that $a_n \ge 0$, since $(a_n)$ decreases to $0$.
+    - |
+      Key estimate for (a): for $n > m$, the block $a_{m+1} - a_{m+2} + \cdots \pm a_n$ lies between $0$ and $a_{m+1}$. Group the terms in pairs two different ways to see this.
+    - |
+      For (b) and (c), show that the even partial sums increase, the odd partial sums decrease, and $s_{2n} \le s_{2n-1}$. In (b), the intervals $[s_{2n}, s_{2n-1}]$ are nested. In (c), use MCT on each subsequence and $s_{2n+1} - s_{2n} = a_{2n+1} \to 0$.
+  solution: |
+    Throughout, $s_n = \sum_{k=1}^n (-1)^{k+1} a_k$. Since $(a_n)$ is decreasing with limit $0$, we have $a_n \ge 0$ for all $n$.
+
+    **Preliminary facts.** For each $n \ge 1$:
+    $$s_{2n} = s_{2n-1} - a_{2n} \le s_{2n-1},\qquad s_{2n+2} - s_{2n} = a_{2n+1} - a_{2n+2} \ge 0,\qquad s_{2n+1} - s_{2n-1} = -a_{2n} + a_{2n+1} \le 0.$$
+    So the even partial sums increase, the odd partial sums decrease, and each even one lies below the odd one before it.
+
+    **(a) Cauchy.** Let $n > m \ge 1$ and $T = a_{m+1} - a_{m+2} + a_{m+3} - \cdots \pm a_n$, so that $s_n - s_m = (-1)^m T$. Grouping as $(a_{m+1} - a_{m+2}) + (a_{m+3} - a_{m+4}) + \cdots$, every bracket is $\ge 0$, and a possible unpaired last term $a_n$ is also $\ge 0$. So $T \ge 0$. Grouping as $a_{m+1} - (a_{m+2} - a_{m+3}) - \cdots$, every bracket and a possible unpaired last term $a_n$ are subtracted and are $\ge 0$. So $T \le a_{m+1}$. Hence
+    $$|s_n - s_m| = T \le a_{m+1}.$$
+    Given $\varepsilon > 0$, choose $N$ with $a_N < \varepsilon$. For $n > m \ge N$, $|s_n - s_m| \le a_{m+1} \le a_N < \varepsilon$. So $(s_n)$ is Cauchy, and by the Cauchy Criterion it converges.
+
+    **(b) Nested intervals.** Let $I_n = [s_{2n}, s_{2n-1}]$. This is a closed interval because $s_{2n} \le s_{2n-1}$. By the preliminary facts, $s_{2n} \le s_{2n+2}$ and $s_{2n+1} \le s_{2n-1}$, so $I_{n+1} \subseteq I_n$. By the Nested Interval Property there is $x \in \bigcap_n I_n$. The length of $I_n$ is $a_{2n}$.
+
+    We show $s_k \to x$. Each $s_k$ is an endpoint of $I_j$ for $j = \lceil k/2 \rceil$, and $x \in I_j$. So $|s_k - x| \le a_{2j} \le a_k$, using $2j \ge k$ and that $(a_n)$ is decreasing. Given $\varepsilon > 0$, choose $N$ with $a_N < \varepsilon$. Then $k \ge N$ gives $|s_k - x| \le a_k \le a_N < \varepsilon$.
+
+    **(c) Monotone Convergence.** $(s_{2n})$ is increasing and bounded above, since $s_{2n} \le s_{2n-1} \le s_1$. $(s_{2n+1})$ is decreasing and bounded below, since $s_{2n+1} \ge s_{2n+2} \ge s_2$. By the Monotone Convergence Theorem, $s_{2n} \to L$ and $s_{2n+1} \to M$. Then $M - L = \lim (s_{2n+1} - s_{2n}) = \lim a_{2n+1} = 0$, so $L = M$.
+
+    Finally, given $\varepsilon > 0$, there are $N_1, N_2$ with $|s_{2n} - L| < \varepsilon$ for $n \ge N_1$ and $|s_{2n+1} - L| < \varepsilon$ for $n \ge N_2$. Then $|s_k - L| < \varepsilon$ for all $k \ge 2\max(N_1, N_2) + 1$, so $s_k \to L$. $\blacksquare$
+
+- id: abbott-2.7.8
+  hints:
+    - |
+      For each statement, test it against the standard examples: $\frac{(-1)^n}{n}$, $\frac{(-1)^n}{\sqrt n}$, $\frac{1}{n^2}$.
+    - |
+      (a): for large $n$, how does $a_n^2$ compare with $|a_n|$? (b): try $b_n = a_n$. (c): argue by contradiction. If $\sum n^2 a_n$ converged, what would that say about the size of $a_n$?
+  solution: |
+    **(a) True.** Since $\sum |a_n|$ converges, $|a_n| \to 0$, so there is $N$ with $|a_n| < 1$ for $n \ge N$. For these $n$, $|a_n^2| = |a_n|^2 \le |a_n|$. By the Comparison Test, $\sum |a_n^2|$ converges. (Finitely many terms don't matter.) So $\sum a_n^2$ converges absolutely.
+
+    **(b) False.** Let $a_n = b_n = \frac{(-1)^n}{\sqrt n}$. Then $\sum a_n$ converges by the Alternating Series Test, since $\frac1{\sqrt n}$ decreases to $0$. Also $(b_n)$ converges to $0$. But $a_n b_n = \frac1n$, and $\sum \frac1n$ diverges.
+
+    **(c) True.** Suppose $\sum a_n$ converges conditionally, and assume for contradiction that $\sum n^2 a_n$ converges. Then $n^2 a_n \to 0$. A convergent sequence is bounded, so $|n^2 a_n| \le M$ for some $M$ and all $n$. Hence $|a_n| \le \frac{M}{n^2}$, and since $\sum \frac{M}{n^2}$ converges, the Comparison Test shows that $\sum |a_n|$ converges. This contradicts the assumption that the convergence of $\sum a_n$ is only conditional. Therefore $\sum n^2 a_n$ diverges.
+
+- id: abbott-2.7.14
+  hints:
+    - |
+      Compare the hypotheses term by term. Abel's Test asks more of $\sum x_k$; Dirichlet's Test asks more of $(y_k)$.
+    - |
+      Use the summation-by-parts identity. Bound $|s_k| \le M$, and study the two pieces $s_n y_{n+1}$ and $\sum s_k (y_k - y_{k+1})$ separately.
+    - |
+      For the second piece, $\sum (y_k - y_{k+1})$ telescopes and has nonnegative terms, so a comparison gives absolute convergence. For (b), pick $x_k$ so that $\sum x_k y_k$ is the alternating series.
+  solution: |
+    **(a) The difference in hypotheses.** Abel's Test assumes that $\sum x_k$ *converges* and that $(y_k)$ is decreasing and nonnegative, but not necessarily tending to $0$. Dirichlet's Test weakens the hypothesis on $\sum x_k$ to *bounded partial sums*, and compensates by strengthening the hypothesis on $(y_k)$: it must also tend to $0$.
+
+    **Proof of Dirichlet's Test.** Let $s_n = x_1 + \cdots + x_n$, $s_0 = 0$, and let $M$ satisfy $|s_n| \le M$ for all $n$. Since $x_k = s_k - s_{k-1}$,
+    $$\sum_{k=1}^n x_k y_k = \sum_{k=1}^n s_k y_k - \sum_{k=1}^{n} s_{k-1} y_k = \sum_{k=1}^n s_k y_k - \left(\sum_{k=1}^{n} s_k y_{k+1} - s_n y_{n+1}\right),$$
+    which is the summation-by-parts identity
+    $$\sum_{k=1}^n x_k y_k = s_n y_{n+1} + \sum_{k=1}^n s_k (y_k - y_{k+1}).$$
+    We show that both terms on the right converge as $n \to \infty$.
+
+    *First term.* $|s_n y_{n+1}| \le M y_{n+1} \to 0$, so $s_n y_{n+1} \to 0$. (In Abel's Test this term converges because both factors converge. Here $(s_n)$ need not converge, but it is bounded and $y_{n+1} \to 0$.)
+
+    *Second term.* Since $(y_k)$ is decreasing, $y_k - y_{k+1} \ge 0$, and
+    $$|s_k(y_k - y_{k+1})| \le M (y_k - y_{k+1}).$$
+    The series $\sum_{k} (y_k - y_{k+1})$ converges because its partial sums telescope: $\sum_{k=1}^n (y_k - y_{k+1}) = y_1 - y_{n+1} \to y_1$. By the Comparison Test, $\sum_k s_k (y_k - y_{k+1})$ converges absolutely, hence converges. This step is exactly the one used for Abel's Test.
+
+    So the partial sums of $\sum x_k y_k$ are a sum of two convergent sequences, and they converge. $\blacksquare$
+
+    **(b)** Let $(a_n)$ satisfy the hypotheses of the Alternating Series Test. Set $x_k = (-1)^{k+1}$ and $y_k = a_k$. The partial sums of $\sum x_k$ are $1, 0, 1, 0, \dots$, bounded by $1$, though not convergent. The sequence $(y_k)$ is decreasing with limit $0$, so $y_k \ge 0$ for all $k$ (a decreasing sequence stays above its limit). Dirichlet's Test therefore applies, and $\sum x_k y_k = \sum (-1)^{k+1} a_k$ converges. This is the Alternating Series Test.
+
+- id: lebl-2.5.7
+  hints:
+    - |
+      First note that $x_n \ge 0$: the terms tend to $0$ and decrease. Then $n x_n$ looks like the sum of $n$ copies of $x_n$. Which terms of the series are at least $x_n$?
+    - |
+      Use the Cauchy criterion on a block of terms ending at $x_n$ that has about $n/2$ terms, for example $x_{\lfloor n/2 \rfloor + 1} + \cdots + x_n$.
+  solution: |
+    **Proof.** Since $\sum x_n$ converges, $x_n \to 0$. A decreasing sequence is bounded below by its limit, so $x_n \ge 0$ for all $n$.
+
+    Let $\varepsilon > 0$. By the Cauchy criterion for series, there is $N$ such that
+    $$\sum_{k=m+1}^{n} x_k < \varepsilon \qquad \text{whenever } n > m \ge N.$$
+    Let $n \ge 2N$ and $m = \lfloor n/2 \rfloor$. Then $m \ge N$, $n > m$, and the block $x_{m+1}, \dots, x_n$ has $n - m \ge n/2$ terms. Each of these terms is $\ge x_n$ because the sequence is decreasing. Hence
+    $$\frac{n}{2}\, x_n \le (n - m)\, x_n \le \sum_{k=m+1}^{n} x_k < \varepsilon.$$
+    So $0 \le n x_n < 2\varepsilon$ for all $n \ge 2N$. Since $\varepsilon$ was arbitrary, $\lim_{n\to\infty} n x_n = 0$. $\blacksquare$
+
+- id: lebl-2.5.15
+  hints:
+    - |
+      Both series have nonnegative terms, so each converges exactly when its partial sums are bounded. You need inequalities between the two kinds of partial sums in both directions.
+    - |
+      Split the indices into dyadic blocks. On a block of $2^n$ consecutive indices, a decreasing sequence is bounded above by its first term and below by its last term.
+    - |
+      The block $2^n \le k < 2^{n+1}$ gives an upper bound by $2^n x_{2^n}$. The block $2^{n-1} < k \le 2^n$ gives a lower bound by $2^{n-1} x_{2^n}$. Sum over the blocks.
+  solution: |
+    Both series have positive terms, so each converges if and only if its partial sums are bounded (monotone convergence theorem). Write $S_N = \sum_{k=1}^N x_k$ and $T_m = \sum_{n=1}^m 2^n x_{2^n}$.
+
+    **Upper bound.** The block $2^n \le k \le 2^{n+1} - 1$ contains $2^n$ indices, and $x_k \le x_{2^n}$ on it because the sequence is decreasing. These blocks for $n = 0, \dots, m$ partition $\{1, \dots, 2^{m+1} - 1\}$, so
+    $$S_{2^{m+1}-1} = \sum_{n=0}^{m} \sum_{k=2^n}^{2^{n+1}-1} x_k \le \sum_{n=0}^{m} 2^n x_{2^n} = x_1 + T_m.$$
+
+    **Lower bound.** The block $2^{n-1} + 1 \le k \le 2^n$ contains $2^{n-1}$ indices, and $x_k \ge x_{2^n}$ on it. These blocks for $n = 1, \dots, m$ partition $\{2, \dots, 2^m\}$, so
+    $$S_{2^m} \ge \sum_{k=2}^{2^m} x_k = \sum_{n=1}^{m} \sum_{k=2^{n-1}+1}^{2^n} x_k \ge \sum_{n=1}^m 2^{n-1} x_{2^n} = \tfrac12 T_m.$$
+
+    **($\Leftarrow$)** Suppose $\sum 2^n x_{2^n}$ converges, with sum $T$. Then $T_m \le T$ for all $m$. Given $N$, choose $m$ with $2^{m+1} - 1 \ge N$. Since $(S_N)$ is increasing, $S_N \le S_{2^{m+1}-1} \le x_1 + T$. The partial sums of $\sum x_n$ are bounded, so it converges.
+
+    **($\Rightarrow$)** Suppose $\sum x_n$ converges, with sum $S$. Then $T_m \le 2 S_{2^m} \le 2S$ for all $m$. The partial sums of $\sum 2^n x_{2^n}$ are bounded, so it converges. $\blacksquare$
+
+- id: lebl-2.6.10
+  hints:
+    - |
+      a) Expand $(1 + b_n)^n$ with the binomial theorem. All terms are nonnegative, so keeping just one of them gives a lower bound.
+    - |
+      a) Since $(1+b_n)^n = n$, the inequality gives $b_n^2 \le \frac{2}{n-1}$. Then squeeze.
+    - |
+      b) The radius is $1/\limsup |a_n|^{1/n}$, and $|n a_n|^{1/n} = n^{1/n}|a_n|^{1/n}$. Show that multiplying by a positive sequence tending to $1$ does not change a limsup, including the cases where the limsup is $0$ or $\infty$.
+  solution: |
+    **a)** For $n \ge 2$ we have $n^{1/n} > 1$, since $n^{1/n} \le 1$ would give $n \le 1^n = 1$. So $b_n = n^{1/n} - 1 > 0$. By the binomial theorem, with all terms nonnegative,
+    $$n = (1 + b_n)^n = \sum_{k=0}^n \binom{n}{k} b_n^k \ge \binom{n}{2} b_n^2 = \frac{n(n-1)}{2} b_n^2.$$
+    Hence $b_n^2 \le \frac{2}{n-1}$, i.e.
+    $$0 < b_n \le \sqrt{\frac{2}{n-1}} \qquad (n \ge 2).$$
+    The right side tends to $0$: given $\varepsilon > 0$, it is less than $\varepsilon$ once $n > 1 + 2/\varepsilon^2$. By the squeeze lemma $b_n \to 0$, so $n^{1/n} = 1 + b_n \to 1$.
+
+    **b)** The radius of convergence is $R = 1/\limsup |a_n|^{1/n}$, with the conventions $1/0 = \infty$ and $1/\infty = 0$. Changing finitely many terms does not affect a limsup, so we may ignore $n = 0$. Let $d_n = |a_n|^{1/n} \ge 0$, $L = \limsup d_n \in [0, \infty]$, and $c_n = n^{1/n}$. Then $|n a_n|^{1/n} = c_n d_n$, so it suffices to show $\limsup c_n d_n = L$.
+
+    Let $0 < \eta < 1$. By a), there is $N$ with $1 - \eta \le c_n \le 1 + \eta$ for $n \ge N$, so
+    $$(1 - \eta)\, d_n \le c_n d_n \le (1 + \eta)\, d_n \qquad (n \ge N).$$
+    Limsup is preserved by inequalities that hold eventually, and $\limsup (\lambda d_n) = \lambda \limsup d_n$ for a constant $\lambda > 0$. Therefore
+    $$(1 - \eta) L \le \limsup c_n d_n \le (1 + \eta) L.$$
+    If $L = \infty$, the left inequality gives $\limsup c_n d_n = \infty$. If $L = 0$, the right inequality gives $\limsup c_n d_n = 0$. If $0 < L < \infty$, letting $\eta \to 0$ gives $\limsup c_n d_n = L$. In every case $\limsup |n a_n|^{1/n} = \limsup |a_n|^{1/n}$.
+
+    So $\sum n a_n x^n$ has the same radius of convergence $R$ as $\sum a_n x^n$. In particular it converges (absolutely) for $|x| < R$ and diverges for $|x| > R$.
+
+- id: lebl-2.6.12
+  hints:
+    - |
+      The alternating series test's proof uses the fact that each positive term is cancelled by a slightly smaller negative term. Make the positive terms much bigger than the negative ones.
+    - |
+      Use two different decay rates on the even and odd indices: one gives a divergent series, the other a convergent one.
+  solution: |
+    Define
+    $$x_n = \begin{cases} \dfrac1n, & n \text{ even},\\[2mm] \dfrac{1}{n^2}, & n \text{ odd}.\end{cases}$$
+    Then $x_n > 0$ and $0 < x_n \le \frac1n$, so $x_n \to 0$. (The sequence is not monotone: for example $x_2 = \frac12 > x_3 = \frac19 < x_4 = \frac14$.)
+
+    In $\sum (-1)^n x_n$, the even-indexed terms are $+\frac1n$ and the odd-indexed terms are $-\frac1{n^2}$. The partial sum up to $2m$ is
+    $$s_{2m} = \sum_{k=1}^{m} \frac{1}{2k} - \sum_{k=1}^{m} \frac{1}{(2k-1)^2} \ge \frac12 \sum_{k=1}^m \frac1k - \sum_{j=1}^\infty \frac{1}{j^2}.$$
+    The last sum is a finite constant, since $\sum 1/j^2$ converges. The harmonic partial sums tend to $\infty$, so $s_{2m} \to \infty$. Then the partial sums are unbounded, and $\sum_{n=1}^\infty (-1)^n x_n$ diverges.
+
+    So the alternating series test can fail without monotonicity, even when the terms are positive and tend to $0$.
+
+- id: cummings-4.18
+  hints:
+    - |
+      Let $\sigma$ be the bijection defining the rearrangement, so $s_n' = \sum_{k=1}^n a_{\sigma(k)}$. Absolute convergence means the tail $\sum_{k > N} |a_k|$ can be made as small as you like.
+    - |
+      Fix $N$ with a small tail. For large enough $n$, both $s_n$ and $s_n'$ contain all of $a_1, \dots, a_N$.
+    - |
+      In $s_n - s_n'$ the common terms cancel. Everything left over has index $> N$, so its absolute value is controlled by the tail.
+  solution: |
+    (The book's "if each" should read "if": the hypothesis is that $\sum |a_k|$ converges and $\sum a_k = L$.)
+
+    **Proof.** Let $\sigma : \mathbb{N} \to \mathbb{N}$ be a bijection. Let $s_n = \sum_{k=1}^n a_k$ and $s_n' = \sum_{k=1}^n a_{\sigma(k)}$. We have $s_n \to L$, and we want $s_n' \to L$. Since $s_n' = s_n + (s_n' - s_n)$, it suffices to show $s_n - s_n' \to 0$.
+
+    Let $\varepsilon > 0$. Since $\sum |a_k|$ converges, its tails tend to $0$, so there is $N$ with $\sum_{k=N+1}^\infty |a_k| < \varepsilon$. Let $M = \max\{\sigma^{-1}(1), \dots, \sigma^{-1}(N)\}$. Then $\{1, \dots, N\} \subseteq \sigma(\{1, \dots, M\})$, and $M \ge N$ because $\sigma^{-1}$ is injective.
+
+    Let $n \ge M$, and write $P = \{1, \dots, n\}$ and $Q = \sigma(\{1, \dots, n\})$. Then $s_n = \sum_{k \in P} a_k$ and $s_n' = \sum_{k \in Q} a_k$. Both $P$ and $Q$ contain $\{1, \dots, N\}$, so the terms indexed by $P \cap Q$ cancel and
+    $$s_n - s_n' = \sum_{k \in P \setminus Q} a_k - \sum_{k \in Q \setminus P} a_k.$$
+    The sets $P \setminus Q$ and $Q \setminus P$ are finite, disjoint, and contained in $\{N+1, N+2, \dots\}$. Hence, for some $K$,
+    $$|s_n - s_n'| \le \sum_{k \in (P \setminus Q) \cup (Q \setminus P)} |a_k| \le \sum_{k=N+1}^{K} |a_k| \le \sum_{k=N+1}^{\infty} |a_k| < \varepsilon.$$
+    So $|s_n - s_n'| < \varepsilon$ for all $n \ge M$, i.e. $s_n - s_n' \to 0$, and therefore $s_n' \to L$. $\blacksquare$
+
+- id: tao-7.5.1
+  hints:
+    - |
+      Copy the strategy of the book's proof of the third inequality, with the inequalities reversed. Show that $\liminf c_n^{1/n} \ge y$ for every real $y$ with $0 < y < L$, where $L = \liminf c_{n+1}/c_n$.
+    - |
+      From $y < L$, get an $N$ beyond which $c_{n+1} \ge y\, c_n$. Iterating gives $c_n \ge c_N\, y^{n-N}$.
+    - |
+      Take $n$-th roots: $c_n^{1/n} \ge (c_N y^{-N})^{1/n}\, y$, and $A^{1/n} \to 1$ for a fixed $A > 0$.
+  solution: |
+    Let $L = \liminf_{n\to\infty} c_{n+1}/c_n \in [0, +\infty]$. If $L = 0$ there is nothing to prove, since $c_n^{1/n} > 0$ and so $\liminf c_n^{1/n} \ge 0$. Assume $L > 0$.
+
+    **Claim.** For every real $y$ with $0 < y < L$, we have $\liminf c_n^{1/n} \ge y$.
+
+    *Proof of claim.* By definition, $L = \sup_{N \ge m} \inf_{n \ge N} c_{n+1}/c_n$. Since $y < L$, there is $N \ge m$ with $\inf_{n \ge N} c_{n+1}/c_n > y$. So $c_{n+1} \ge y\, c_n$ for all $n \ge N$. By induction on $n \ge N$,
+    $$c_n \ge c_N\, y^{\,n-N}.$$
+    The case $n = N$ is equality, and $c_{n+1} \ge y c_n \ge c_N y^{n+1-N}$ is the inductive step. With $A = c_N y^{-N} > 0$, this says $c_n \ge A y^n$. Taking $n$-th roots, which preserves order for positive numbers,
+    $$c_n^{1/n} \ge A^{1/n}\, y \qquad (n \ge N).$$
+    Since $A > 0$, $A^{1/n} \to 1$ as $n \to \infty$ (Lemma 6.5.3). So the right side converges to $y$, and its liminf is $y$. By the comparison principle for liminf (inequalities that hold for all $n \ge N$ are preserved),
+    $$\liminf_{n\to\infty} c_n^{1/n} \ge \liminf_{n\to\infty} A^{1/n} y = y.$$
+
+    **Conclusion.** $\liminf c_n^{1/n}$ is at least every real $y \in (0, L)$. If $L < \infty$, this gives $\liminf c_n^{1/n} \ge L$, because otherwise some $y$ would lie strictly between them. If $L = +\infty$, then $\liminf c_n^{1/n}$ exceeds every positive real, so it equals $+\infty = L$. In both cases
+    $$\liminf_{n\to\infty} \frac{c_{n+1}}{c_n} \le \liminf_{n\to\infty} c_n^{1/n}. \qquad \blacksquare$$
+
+- id: tao-11.6.3
+  hints:
+    - |
+      On each interval $[n, n+1]$, a decreasing $f$ lies between the constants $f(n+1)$ and $f(n)$. Integrate this.
+    - |
+      Summing over $n = 0, \dots, N-1$ gives $\sum_{n=1}^N f(n) \le \int_{[0,N]} f \le \sum_{n=0}^{N-1} f(n)$. Both the series and the integrals $\int_{[0,N]} f$ are monotone in $N$, so each is bounded exactly when it converges or has finite supremum.
+    - |
+      The supremum is over all real $N > 0$. Check that it is enough to consider integers $N$.
+  solution: |
+    **Setup.** A monotone function on a closed bounded interval is Riemann integrable (Proposition 11.6.1), so $I(N) = \int_{[0,N]} f$ is defined for every $N > 0$. Since $f \ge 0$, for $0 < N \le N'$ additivity and positivity of the integral give
+    $$I(N') = I(N) + \int_{[N,N']} f \ge I(N).$$
+    So $I$ is nondecreasing. Each real $N > 0$ satisfies $N \le \lceil N \rceil$, so $\sup_{N > 0} I(N) = \sup_{N \in \mathbf{Z}_{\ge 1}} I(N)$. It is enough to work with integer $N$.
+
+    **Key inequality.** For an integer $n \ge 0$ and $x \in [n, n+1]$, monotonicity gives $f(n+1) \le f(x) \le f(n)$. By monotonicity of the integral, comparing with constant functions,
+    $$f(n+1) \le \int_{[n,n+1]} f \le f(n).$$
+    Summing over $n = 0, 1, \dots, N-1$ and using additivity of the integral over adjacent intervals gives, for every integer $N \ge 1$,
+    $$\sum_{n=1}^{N} f(n) \le I(N) \le \sum_{n=0}^{N-1} f(n). \qquad (*)$$
+
+    **($\Rightarrow$)** Suppose $\sum_{n=0}^\infty f(n)$ converges, with sum $S$. Its terms are nonnegative, so every partial sum is at most $S$. By the right half of $(*)$, $I(N) \le S$ for every integer $N \ge 1$. Hence $\sup_{N > 0} I(N) \le S < \infty$.
+
+    **($\Leftarrow$)** Suppose $K = \sup_{N > 0} I(N) < \infty$. By the left half of $(*)$, for every $N \ge 1$,
+    $$\sum_{n=0}^{N} f(n) = f(0) + \sum_{n=1}^N f(n) \le f(0) + K.$$
+    So the partial sums of the series with nonnegative terms $\sum_{n=0}^\infty f(n)$ are bounded. By Proposition 7.3.1, the series converges. $\blacksquare$
+
+- id: lebl-2.6.3
+  hints:
+    - |
+      Split the series into its nonnegative terms $p_1, p_2, \dots$ and the absolute values $q_1, q_2, \dots$ of its negative terms, each kept in its original order. What does conditional convergence say about $\sum p_k$ and $\sum q_k$? What do you know about $p_k$ and $q_k$ as $k \to \infty$?
+    - |
+      Both $\sum p_k$ and $\sum q_k$ diverge to $\infty$, and both $p_k \to 0$ and $q_k \to 0$. Build the rearrangement greedily: add the next unused $p$ while the running sum is $\le x$, and subtract the next unused $q$ while it is $> x$.
+    - |
+      Check that every term is used, so you really get a rearrangement. Then show that once all remaining terms are smaller than $\varepsilon$ and the running sum has crossed $x$ once, it stays within $\varepsilon$ of $x$.
+  solution: |
+    **Step 1: positive and negative parts.** Let $a_n^+ = \max(a_n, 0)$ and $a_n^- = \max(-a_n, 0)$. Then $a_n = a_n^+ - a_n^-$ and $|a_n| = a_n^+ + a_n^-$. If $\sum a_n^+$ converged, then $\sum a_n^- = \sum (a_n^+ - a_n)$ would converge, and so would $\sum |a_n| = \sum (a_n^+ + a_n^-)$. This contradicts the assumption that the convergence is conditional. Hence $\sum a_n^+ = \infty$, and by the same argument $\sum a_n^- = \infty$.
+
+    Let $p_1, p_2, \dots$ be the terms $a_n$ with $a_n \ge 0$, and $q_1, q_2, \dots$ the numbers $-a_n$ with $a_n < 0$, each listed in order of increasing $n$. There are infinitely many of each: if there were only finitely many negative (respectively nonnegative) terms, then $\sum a_n^-$ (respectively $\sum a_n^+$) would have only finitely many nonzero terms and would converge. The series $\sum_n a_n^+$ is just $\sum_k p_k$ with zeros inserted at the indices where $a_n < 0$. Inserting zeros only repeats partial sums, so the partial sums of $\sum_k p_k$ are unbounded too, i.e. $\sum_k p_k = \infty$. Likewise $\sum_k q_k = \infty$. Also $a_n \to 0$ because $\sum a_n$ converges. Since $(p_k)$ and $(q_k)$ are subsequences of $(a_n)$ and $(-a_n)$, we get $p_k \to 0$ and $q_k \to 0$.
+
+    **Step 2: the construction.** Fix $x \in \mathbb{R}$. Define $b_1, b_2, \dots$ and $t_n = b_1 + \cdots + b_n$ (with $t_0 = 0$) recursively:
+
+    - if $t_{n-1} \le x$, let $b_n$ be the first $p_k$ not yet used;
+    - if $t_{n-1} > x$, let $b_n = -q_j$ for the first $q_j$ not yet used.
+
+    **Step 3: it is a rearrangement.** Suppose that from some step on only $p$'s were chosen. Then $t_n \le x$ at every later step, while $t_n$ increases by consecutive $p_k$'s, whose sum diverges to $\infty$. This is a contradiction. Similarly, if from some step on only $q$'s were chosen, then $t_n > x$ forever while $t_n$ decreases by consecutive $q_j$'s, whose sum diverges. This is also a contradiction. So infinitely many $p$'s and infinitely many $q$'s are chosen. Since each kind is taken in order, every $p_k$ and every $q_j$ is used exactly once. Every $a_n$ is exactly one of the $p_k$ or $-q_j$, so $(b_n)$ is a rearrangement of $(a_n)$.
+
+    **Step 4: convergence to $x$.** Let $\varepsilon > 0$. Since $p_k \to 0$ and $q_j \to 0$, only finitely many of the $p_k, q_j$ are $\ge \varepsilon$. They all appear among $b_1, \dots, b_{n_0}$ for some $n_0$, so $|b_n| < \varepsilon$ for $n > n_0$.
+
+    *A first visit.* Choose $n' > n_0$ such that $b_{n'}$ is a $p$, so $t_{n'-1} \le x$. Some later step chooses a $q$, so some $t_m > x$ with $m \ge n'$. Let $n \ge n'$ be the least index with $t_n > x$. Then $t_{n-1} \le x$: for $n = n'$ this is the choice rule, and for $n > n'$ it follows from minimality. Hence $b_n \ge 0$ and $x < t_n = t_{n-1} + b_n < x + \varepsilon$.
+
+    *Staying close.* Suppose $k > n_0$ and $|t_{k-1} - x| \le \varepsilon$. If $t_{k-1} \le x$, then $b_k \in [0, \varepsilon)$ and
+    $$x - \varepsilon \le t_{k-1} \le t_k < t_{k-1} + \varepsilon \le x + \varepsilon.$$
+    If $t_{k-1} > x$, then $b_k \in (-\varepsilon, 0)$ and
+    $$x - \varepsilon < t_{k-1} - \varepsilon < t_k < t_{k-1} \le x + \varepsilon.$$
+    In both cases $|t_k - x| \le \varepsilon$. By induction from $k = n$, we get $|t_k - x| \le \varepsilon$ for all $k \ge n$.
+
+    Since $\varepsilon > 0$ was arbitrary, $t_n \to x$. So the rearranged series $\sum b_n$ converges to $x$. $\blacksquare$

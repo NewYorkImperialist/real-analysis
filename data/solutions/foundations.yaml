@@ -1,0 +1,498 @@
+- id: mit20-final-1
+  hints:
+    - |
+      Write each positive definition out in full with all of its quantifiers first. Negating then means flipping every quantifier ($\forall \leftrightarrow \exists$), keeping their order, and negating the final inequality.
+    - |
+      The negation of $|a - b| < \varepsilon$ is $|a - b| \ge \varepsilon$. The hypotheses that only restrict a variable (such as $|x - c| < \delta$, $x \in S$, $n \ge N$) stay as they are. They become conditions on the witness you choose.
+    - |
+      Compare (i) and (ii). In (ii) the point $c$ is no longer fixed, so the witness is a pair $x, y$. In (iii) the witness is a pair $(n, x)$ with $n \ge N$.
+  solution: |
+    Throughout, "$\exists \varepsilon > 0$" means a single $\varepsilon$ that works against every choice made after it.
+
+    **(i)** $f$ is continuous at $c$ if $\forall \varepsilon > 0\ \exists \delta > 0\ \forall x \in S$: $|x - c| < \delta \Rightarrow |f(x) - f(c)| < \varepsilon$. Negating:
+
+    $f$ is **not continuous at $c$** if there exists $\varepsilon > 0$ such that for every $\delta > 0$ there exists $x \in S$ with $|x - c| < \delta$ and $|f(x) - f(c)| \ge \varepsilon$.
+
+    **(ii)** $f$ is uniformly continuous on $S$ if $\forall \varepsilon > 0\ \exists \delta > 0\ \forall x, y \in S$: $|x - y| < \delta \Rightarrow |f(x) - f(y)| < \varepsilon$. Negating:
+
+    $f$ is **not uniformly continuous on $S$** if there exists $\varepsilon > 0$ such that for every $\delta > 0$ there exist $x, y \in S$ with $|x - y| < \delta$ and $|f(x) - f(y)| \ge \varepsilon$.
+
+    **(iii)** $f_n \to f$ uniformly on $S$ if $\forall \varepsilon > 0\ \exists N \in \mathbb{N}\ \forall n \ge N\ \forall x \in S$: $|f_n(x) - f(x)| < \varepsilon$. Negating:
+
+    $(f_n)$ **does not converge uniformly to $f$** on $S$ if there exists $\varepsilon > 0$ such that for every $N \in \mathbb{N}$ there exist $n \ge N$ and $x \in S$ with $|f_n(x) - f(x)| \ge \varepsilon$.
+
+    (Equivalently, for (iii): there is $\varepsilon > 0$ such that $\sup_{x \in S} |f_n(x) - f(x)| \ge \varepsilon$ for infinitely many $n$. In (i) and (ii) one may equally take $\delta = 1/n$ and phrase the negation with sequences $x_n$ or pairs $x_n, y_n$.)
+
+- id: mit20-mid-1a
+  hints:
+    - |
+      To prove two sets are equal, show each one is contained in the other. Equivalently, show that $x$ belongs to the left side exactly when it belongs to the right side.
+    - |
+      Unwind the definition: $x \in f^{-1}(E)$ means exactly $f(x) \in E$. Then apply the definition of intersection.
+  solution: |
+    **Proof.** Recall that $f^{-1}(E) = \{x \in A : f(x) \in E\}$ for $E \subset B$. For $x \in A$ we have the chain of equivalences
+    $$x \in f^{-1}(C \cap D) \iff f(x) \in C \cap D \iff \bigl(f(x) \in C \text{ and } f(x) \in D\bigr) \iff \bigl(x \in f^{-1}(C) \text{ and } x \in f^{-1}(D)\bigr) \iff x \in f^{-1}(C) \cap f^{-1}(D).$$
+    Every element of $A$ lies in the left side exactly when it lies in the right side, and both sides are subsets of $A$. So
+    $$f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D). \qquad \blacksquare$$
+
+- id: mit20-mid-1bc
+  hints:
+    - |
+      Use $\mathbb{R} = E \cup (\mathbb{R} \setminus E)$. What do you know about a union of two countable sets?
+    - |
+      For (b), argue by contradiction and use that $\mathbb{R}$ is uncountable. For (c), try to find an uncountable set whose complement is also uncountable, for example one built from an interval.
+  solution: |
+    **(b) Yes.** Suppose $E$ is countable but $\mathbb{R} \setminus E$ is countable too. A union of two countable sets is countable: if $a_1, a_2, \ldots$ lists $E$ and $b_1, b_2, \ldots$ lists $\mathbb{R} \setminus E$, then $a_1, b_1, a_2, b_2, \ldots$ lists the union, and repetitions or finite lists change nothing. So $\mathbb{R} = E \cup (\mathbb{R} \setminus E)$ would be countable. That contradicts the uncountability of $\mathbb{R}$. Hence $\mathbb{R} \setminus E$ is uncountable.
+
+    **(c) No.** Take $E = (0, \infty)$. It is uncountable: $x \mapsto x + 1$ is an injection from the uncountable set $(0, 1)$ into $E$, and a subset of a countable set is countable. Its complement $\mathbb{R} \setminus E = (-\infty, 0]$ contains $(-1, 0)$, which is in bijection with $(0, 1)$ via $x \mapsto x + 1$. So the complement is also uncountable.
+
+    (Taking $E = \mathbb{R}$ gives the complement $\emptyset$, which is countable. So both outcomes can happen when $E$ is uncountable.)
+
+- id: lebl-0.3.6
+  hints:
+    - |
+      Prove each identity by double inclusion, or by showing that $x$ belongs to the left side if and only if it belongs to the right side.
+    - |
+      Translate membership into logic. $x \in A \cap (B \cup C)$ means "$x \in A$ and ($x \in B$ or $x \in C$)". Then use the distributive law of "and" over "or", and of "or" over "and". If you prefer, split into cases on whether $x \in A$.
+  solution: |
+    **a)** *($\subset$)* Let $x \in A \cap (B \cup C)$. Then $x \in A$, and $x \in B$ or $x \in C$. If $x \in B$, then $x \in A \cap B$. If $x \in C$, then $x \in A \cap C$. Either way $x \in (A \cap B) \cup (A \cap C)$.
+
+    *($\supset$)* Let $x \in (A \cap B) \cup (A \cap C)$. If $x \in A \cap B$, then $x \in A$ and $x \in B \subset B \cup C$. If $x \in A \cap C$, then $x \in A$ and $x \in C \subset B \cup C$. Either way $x \in A \cap (B \cup C)$.
+
+    So $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+
+    **b)** *($\subset$)* Let $x \in A \cup (B \cap C)$. If $x \in A$, then $x \in A \cup B$ and $x \in A \cup C$. If $x \in B \cap C$, then $x \in B \subset A \cup B$ and $x \in C \subset A \cup C$. Either way $x \in (A \cup B) \cap (A \cup C)$.
+
+    *($\supset$)* Let $x \in (A \cup B) \cap (A \cup C)$. If $x \in A$, then $x \in A \cup (B \cap C)$. If $x \notin A$, then $x \in A \cup B$ forces $x \in B$, and $x \in A \cup C$ forces $x \in C$. So $x \in B \cap C \subset A \cup (B \cap C)$.
+
+    So $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$. $\blacksquare$
+
+- id: lebl-0.3.10
+  hints:
+    - |
+      For (a), start from $f(x) = f(y)$ and apply $g$ to both sides. For (b), take any $c \in C$ and ask where it comes from under $g \circ f$.
+    - |
+      For (c), parts (a) and (b) force $f$ to be injective and $g$ to be surjective. So $f$ must fail to be surjective and $g$ must fail to be injective. Look for small finite sets where $B$ has an extra element that $f$ misses.
+  solution: |
+    **a)** Suppose $g \circ f$ is injective, and let $x, y \in A$ with $f(x) = f(y)$. Then $g(f(x)) = g(f(y))$, that is, $(g \circ f)(x) = (g \circ f)(y)$. Injectivity of $g \circ f$ gives $x = y$. So $f$ is injective.
+
+    **b)** Suppose $g \circ f$ is surjective, and let $c \in C$. There is $a \in A$ with $g(f(a)) = c$. Put $b = f(a) \in B$. Then $g(b) = c$. So $g$ is surjective.
+
+    **c)** Let $A = \{1\}$, $B = \{1, 2\}$, $C = \{1\}$. Define $f \colon A \to B$ by $f(1) = 1$, and $g \colon B \to C$ by $g(1) = g(2) = 1$.
+
+    Then $g \circ f \colon \{1\} \to \{1\}$ sends $1 \mapsto 1$, so it is a bijection. But $f$ is not surjective, since $2 \notin f(A)$. And $g$ is not injective, since $g(1) = g(2)$ with $1 \ne 2$. So neither $f$ nor $g$ is a bijection.
+
+    (An example on infinite sets: $f, g \colon \mathbb{N} \to \mathbb{N}$, $f(n) = n + 1$, $g(1) = 1$ and $g(n) = n - 1$ for $n \ge 2$. Then $g \circ f = \mathrm{id}$, while $f$ is not onto and $g(1) = g(2)$.)
+
+- id: lebl-0.3.11
+  hints:
+    - |
+      Here $\mathbb{N} = \{1, 2, 3, \ldots\}$, so the base case is $n = 1$. For the induction step, assume $n < 2^n$ and aim for $n + 1 < 2^{n+1} = 2^n + 2^n$.
+    - |
+      Add $1$ to both sides of the induction hypothesis. Then bound the extra $1$ by $2^n$.
+  solution: |
+    **Proof.** We use induction on $n \in \mathbb{N} = \{1, 2, 3, \ldots\}$.
+
+    *Base case.* For $n = 1$: $1 < 2 = 2^1$.
+
+    *Induction step.* Suppose $n < 2^n$ for some $n \in \mathbb{N}$. Since $n \ge 1$, we have $2^n \ge 2 \ge 1$. Hence
+    $$n + 1 < 2^n + 1 \le 2^n + 2^n = 2^{n+1}.$$
+    So the statement holds for $n + 1$.
+
+    By the principle of induction, $n < 2^n$ for all $n \in \mathbb{N}$. $\blacksquare$
+
+- id: lebl-0.3.15
+  hints:
+    - |
+      Use induction on $n$. Expand $(n+1)^3 + 5(n+1)$ and look for the expression $n^3 + 5n$ inside it.
+    - |
+      The leftover terms are $3n^2 + 3n + 6 = 3n(n+1) + 6$. Why is $3n(n+1)$ divisible by $6$? Think about the parity of a product of two consecutive integers.
+  solution: |
+    **Proof.** We use induction on $n \in \mathbb{N} = \{1, 2, 3, \ldots\}$.
+
+    *Base case.* For $n = 1$: $1^3 + 5 \cdot 1 = 6$, which is divisible by $6$.
+
+    *Induction step.* Suppose $6 \mid n^3 + 5n$. Then
+    $$(n+1)^3 + 5(n+1) = n^3 + 3n^2 + 3n + 1 + 5n + 5 = (n^3 + 5n) + 3n(n+1) + 6.$$
+    The first term is divisible by $6$ by hypothesis. The last term is $6$. For the middle term: one of the consecutive integers $n$, $n+1$ is even. (If $n$ is odd, then $n + 1$ is even.) So $n(n+1) = 2k$ for some integer $k$, and $3n(n+1) = 6k$. A sum of three multiples of $6$ is a multiple of $6$, so $6 \mid (n+1)^3 + 5(n+1)$.
+
+    By induction, $6 \mid n^3 + 5n$ for every $n \in \mathbb{N}$. $\blacksquare$
+
+- id: lebl-0.3.19
+  hints:
+    - |
+      Each set has to be finite, but nothing stops the sets from growing, or from simply being different from each other.
+    - |
+      Try singletons $A_n = \{n\}$, or initial segments $A_n = \{1, 2, \ldots, n\}$. What is the union?
+  solution: |
+    For $n \in \mathbb{N}$, let $A_n = \{1, 2, \ldots, n\}$. Each $A_n$ is finite, with $n$ elements.
+
+    **Claim.** $\bigcup_{n=1}^\infty A_n = \mathbb{N}$.
+
+    Every $A_n \subset \mathbb{N}$, so the union is contained in $\mathbb{N}$. Conversely, each $m \in \mathbb{N}$ lies in $A_m$, so $m$ is in the union.
+
+    $\mathbb{N}$ is not finite. If it were, it would have a largest element $M$, but $M + 1 \in \mathbb{N}$. So this countably infinite collection of finite sets has an infinite union.
+
+    (The singletons $A_n = \{n\}$ work just as well, with the same union.)
+
+- id: tao-a.5.1
+  hints:
+    - |
+      Read the quantifiers from left to right as moves in a game. For "for every", your opponent picks the value. For "there exists", you pick it, and you may use everything chosen before you.
+    - |
+      In each statement, decide who chooses $x$, who chooses $y$, and in what order. Then check whether the "there exists" player can always force $y^2 = x$. Statements (b) and (d) use the same two quantifiers, in a different order.
+  solution: |
+    Here "positive number" means positive real number. In the game reading, an adversary chooses the values bound by "for every". You choose the values bound by "there exists", in the order written, and you may use what was chosen earlier. A statement is true exactly when you have a winning strategy, meaning that you can always make $y^2 = x$ hold.
+
+    **(a)** *Meaning:* every pair of positive numbers $x, y$ satisfies $y^2 = x$. **False.** Take $x = 1$, $y = 2$: then $y^2 = 4 \ne 1$. *Game:* the adversary picks both $x$ and $y$, and you make no moves. The adversary just picks a mismatched pair.
+
+    **(b)** *Meaning:* some single positive number $x$ is the square of every positive number. **False.** Whatever $x > 0$ you pick, $y^2 = x$ cannot hold for both $y = 1$ and $y = 2$, since $1 \ne 4$. *Game:* you commit to $x$ first, and then the adversary chooses $y$ after seeing it. The adversary picks $y = \sqrt{x} + 1$, which gives $y^2 > x$.
+
+    **(c)** *Meaning:* some positive number is the square of some positive number. **True.** Take $x = 1$, $y = 1$. *Game:* you choose everything, so you win at once.
+
+    **(d)** *Meaning:* the square of every positive number is a positive number. **True.** Given $y > 0$, choose $x = y^2$. Then $x > 0$ and $y^2 = x$. *Game:* the adversary picks $y$, and then you answer with $x = y^2$. Your answer depends on $y$, which is allowed here.
+
+    **(e)** *Meaning:* some single positive number squares to every positive number. **False.** Whatever $y > 0$ you choose, $y^2 = x$ cannot hold for both $x = y^2$ and $x = y^2 + 1$. *Game:* you commit to $y$, and the adversary then picks any $x \ne y^2$, for example $x = y^2 + 1$.
+
+    The moral is in the contrast between (b) and (d). Each says, roughly, "for every $y$ there is a matching $x$", with the quantifiers in a different order. In (d) the $x$ is chosen after $y$, so it may depend on $y$, and the statement is true. In (b) a single $x$ must work for all $y$, and the statement is false. Statement (e) is false in the same way as (b), with the roles of $x$ and $y$ swapped.
+
+- id: mit20-a3-3
+  hints:
+    - |
+      For (a), "countably infinite" means there is a bijection with $\mathbb{N}$. Take bijections $f \colon \mathbb{N} \to A$ and $g \colon \mathbb{N} \to B$, and build one for $A \cup B$ by interleaving the two lists.
+    - |
+      Send odd numbers into $A$ and even numbers into $B$. Disjointness is exactly what makes the result injective.
+    - |
+      For (b), argue by contradiction. If the irrationals were countable, then $\mathbb{R}$ would be a union of two disjoint countably infinite sets.
+  solution: |
+    **(a)** Let $f \colon \mathbb{N} \to A$ and $g \colon \mathbb{N} \to B$ be bijections, with $\mathbb{N} = \{1, 2, \ldots\}$. Define $h \colon \mathbb{N} \to A \cup B$ by
+    $$h(2k - 1) = f(k), \qquad h(2k) = g(k) \qquad (k \in \mathbb{N}).$$
+    Every $n \in \mathbb{N}$ is exactly one of $2k - 1$ or $2k$, for a unique $k$, so $h$ is well defined.
+
+    *Surjective:* if $a \in A$, then $a = f(k)$ for some $k$, so $a = h(2k - 1)$. If $b \in B$, then $b = g(k) = h(2k)$ for some $k$.
+
+    *Injective:* suppose $h(m) = h(n)$. If $m, n$ are both odd, say $m = 2k - 1$ and $n = 2l - 1$, then $f(k) = f(l)$, so $k = l$ and $m = n$. If both are even, the same argument with $g$ gives $m = n$. If one is odd and the other even, then $h(m) \in A$ and $h(n) \in B$ (or the other way round). These cannot be equal, because $A \cap B = \emptyset$. So this case does not occur.
+
+    Thus $h$ is a bijection, and $A \cup B$ is countably infinite.
+
+    **(b)** $\mathbb{Q}$ is countably infinite, and by the given facts $\mathbb{R} \setminus \mathbb{Q}$ is infinite. Suppose, for contradiction, that $\mathbb{R} \setminus \mathbb{Q}$ were countable. Being infinite, it would then be countably infinite. Also $\mathbb{Q}$ and $\mathbb{R} \setminus \mathbb{Q}$ are disjoint. By (a), $\mathbb{R} = \mathbb{Q} \cup (\mathbb{R} \setminus \mathbb{Q})$ would be countably infinite. That contradicts the uncountability of $\mathbb{R}$. Therefore $\mathbb{R} \setminus \mathbb{Q}$ is uncountable. $\blacksquare$
+
+- id: abbott-1.2.11
+  hints:
+    - |
+      Negate from the outside in: each "for all" becomes "there exists" and each "there exists" becomes "for all", in the same order. Then negate the innermost condition so that no "not" remains. The negation of $<$ is $\ge$.
+    - |
+      In (c), first rewrite the claim with explicit quantifiers: "for all $a < b$ there exists $r \in \mathbb{Q}$ with $a < r < b$". To say that $r$ fails to lie between $a$ and $b$ without "not", use "or".
+    - |
+      To decide which version is true, think about the Archimedean property: for every $y > 0$ there is $n \in \mathbb{N}$ with $1/n < y$. For (c), think about the density of $\mathbb{Q}$ in $\mathbb{R}$.
+  solution: |
+    **(a)** *Negation:* There exist real numbers $a < b$ such that $a + 1/n \ge b$ for every $n \in \mathbb{N}$.
+
+    *The original claim is true.* Given $a < b$, the Archimedean property gives $n \in \mathbb{N}$ with $n > 1/(b - a)$. Then $1/n < b - a$, so $a + 1/n < b$.
+
+    **(b)** *Negation:* For every real number $x > 0$ there exists $n \in \mathbb{N}$ such that $x \ge 1/n$.
+
+    *The negation is true.* Given $x > 0$, the Archimedean property gives $n \in \mathbb{N}$ with $n > 1/x$. Then $1/n < x$, so certainly $x \ge 1/n$. So there is no positive real number below every $1/n$.
+
+    **(c)** The claim reads: for all real $a < b$ there exists $r \in \mathbb{Q}$ with $a < r < b$.
+
+    *Negation:* There exist real numbers $a < b$ such that every rational number $r$ satisfies $r \le a$ or $r \ge b$.
+
+    *The original claim is true.* This is the density of $\mathbb{Q}$ in $\mathbb{R}$ (Abbott, Theorem 1.4.3), which follows from the Archimedean property. Choose $n \in \mathbb{N}$ with $1/n < b - a$, and let $m$ be the least integer with $m > na$. Then $m - 1 \le na$, so $na < m \le na + 1 < na + n(b - a) = nb$. Dividing by $n$ gives $a < m/n < b$.
+
+- id: abbott-1.5.6
+  hints:
+    - |
+      For (a), an easy family of disjoint intervals is unit intervals placed side by side.
+    - |
+      For (b), every open interval $(a, b)$ with $a < b$ contains a rational number. Use this to tag each interval with a rational.
+    - |
+      Show that the tagging map from the collection into $\mathbb{Q}$ is injective. Where does disjointness come in? Then recall what is true of subsets of a countable set.
+  solution: |
+    In Abbott, "countable" means in bijection with $\mathbb{N}$. So "finite or countable" means "at most countable".
+
+    **(a)** Take $\{(n, n+1) : n \in \mathbb{N}\}$. These intervals are pairwise disjoint: if $m < n$, every point of $(m, m+1)$ is less than $m + 1 \le n$, and every point of $(n, n+1)$ is greater than $n$. The map $n \mapsto (n, n+1)$ is a bijection from $\mathbb{N}$ onto the collection, so the collection is countable.
+
+    **(b)** No such collection exists. *Every collection $\mathcal{C}$ of pairwise disjoint open intervals is finite or countable.*
+
+    **Proof.** Here an open interval means $(a, b)$ with $a < b$, so it is nonempty. Fix an enumeration $r_1, r_2, r_3, \ldots$ of $\mathbb{Q}$, which exists because $\mathbb{Q}$ is countable. Each $I = (a, b) \in \mathcal{C}$ contains a rational number, by the density of $\mathbb{Q}$ in $\mathbb{R}$. Let $\varphi(I)$ be the least $k \in \mathbb{N}$ with $r_k \in I$. This defines $\varphi \colon \mathcal{C} \to \mathbb{N}$.
+
+    $\varphi$ is injective. If $I \ne J$ in $\mathcal{C}$ and $\varphi(I) = \varphi(J) = k$, then $r_k \in I \cap J$. That contradicts $I \cap J = \emptyset$.
+
+    So $\varphi$ is a bijection from $\mathcal{C}$ onto the subset $\varphi(\mathcal{C}) \subset \mathbb{N}$. Every subset of $\mathbb{N}$ is finite or countable (Abbott, Theorem 1.5.7). Hence $\mathcal{C}$ is finite or countable, and in particular it is not uncountable. $\blacksquare$
+
+- id: lebl-0.3.12
+  hints:
+    - |
+      Use induction on $n$. Starting at $n = 0$ (the empty set) is cleanest. How does adding one element to a set change its collection of subsets?
+    - |
+      Fix an element $a \in A$ and split the subsets of $A$ into two kinds: those that do not contain $a$ and those that do. Count each kind using the set $A \setminus \{a\}$.
+  solution: |
+    **Proof.** We use induction on $n \ge 0$. (If one prefers $n \ge 1$, the case $n = 1$ is also checked below.)
+
+    *Base case.* If $|A| = 0$, then $A = \emptyset$, and $\mathcal{P}(A) = \{\emptyset\}$ has $1 = 2^0$ element. If $|A| = 1$, say $A = \{a\}$, then $\mathcal{P}(A) = \{\emptyset, \{a\}\}$ has $2 = 2^1$ elements.
+
+    *Induction step.* Assume every set with $n$ elements has exactly $2^n$ subsets. Let $|A| = n + 1$. Pick $a \in A$, and let $A' = A \setminus \{a\}$, so $|A'| = n$. Split $\mathcal{P}(A)$ into the disjoint pieces
+    $$\mathcal{S}_0 = \{S \subset A : a \notin S\}, \qquad \mathcal{S}_1 = \{S \subset A : a \in S\}.$$
+    We have $\mathcal{S}_0 = \mathcal{P}(A')$, so $|\mathcal{S}_0| = 2^n$ by the induction hypothesis. The map $\mathcal{S}_1 \to \mathcal{P}(A')$, $S \mapsto S \setminus \{a\}$, is a bijection: its inverse is $T \mapsto T \cup \{a\}$, and the two compositions are identities because $a \in S$ for $S \in \mathcal{S}_1$ and $a \notin T$ for $T \subset A'$. Hence $|\mathcal{S}_1| = 2^n$. Since $\mathcal{S}_0 \cap \mathcal{S}_1 = \emptyset$ and $\mathcal{S}_0 \cup \mathcal{S}_1 = \mathcal{P}(A)$,
+    $$|\mathcal{P}(A)| = 2^n + 2^n = 2^{n+1}.$$
+
+    By induction, $|\mathcal{P}(A)| = 2^n$ whenever $|A| = n$. $\blacksquare$
+
+- id: lebl-0.3.27
+  hints:
+    - |
+      Each identity comes down to a statement about one element: unpack "$x \in f^{-1}(E)$" as "$f(x) \in E$", and "$y \in f(E)$" as "$y = f(x)$ for some $x \in E$".
+    - |
+      The preimage statements come from the chain $x \in f^{-1}(\cdot) \iff f(x) \in (\cdot)$. For images of intersections, the trouble is that $y$ may come from a different preimage point in each $C_\lambda$.
+    - |
+      Once you have the inclusion for intersections, test it on $f(x) = x^2$ with $C_1 = \{-1\}$ and $C_2 = \{1\}$ to see why equality can fail.
+  solution: |
+    Assume $I \ne \emptyset$ wherever an intersection over $I$ appears, so that the intersections are defined.
+
+    **Preimage of a union.** For $x \in A$:
+    $$x \in f^{-1}\Bigl(\bigcup_\lambda D_\lambda\Bigr) \iff f(x) \in \bigcup_\lambda D_\lambda \iff \exists \lambda:\ f(x) \in D_\lambda \iff \exists \lambda:\ x \in f^{-1}(D_\lambda) \iff x \in \bigcup_\lambda f^{-1}(D_\lambda).$$
+
+    **Preimage of an intersection.** For $x \in A$:
+    $$x \in f^{-1}\Bigl(\bigcap_\lambda D_\lambda\Bigr) \iff f(x) \in \bigcap_\lambda D_\lambda \iff \forall \lambda:\ f(x) \in D_\lambda \iff \forall \lambda:\ x \in f^{-1}(D_\lambda) \iff x \in \bigcap_\lambda f^{-1}(D_\lambda).$$
+
+    **Image of a union.** For $y \in B$:
+    $$y \in f\Bigl(\bigcup_\lambda C_\lambda\Bigr) \iff \exists x \in \bigcup_\lambda C_\lambda \text{ with } f(x) = y \iff \exists \lambda\ \exists x \in C_\lambda \text{ with } f(x) = y \iff \exists \lambda:\ y \in f(C_\lambda) \iff y \in \bigcup_\lambda f(C_\lambda).$$
+    (The middle step only swaps two existential quantifiers, which is always allowed.)
+
+    **Image of an intersection.** Let $y \in f\bigl(\bigcap_\lambda C_\lambda\bigr)$. Then $y = f(x)$ for some $x$ with $x \in C_\lambda$ for every $\lambda$. So for every $\lambda$, $y = f(x) \in f(C_\lambda)$, and hence $y \in \bigcap_\lambda f(C_\lambda)$. Thus
+    $$f\Bigl(\bigcap_\lambda C_\lambda\Bigr) \subset \bigcap_\lambda f(C_\lambda). \qquad \blacksquare$$
+
+    *Equality can fail.* Let $f \colon \mathbb{R} \to \mathbb{R}$, $f(x) = x^2$, $C_1 = \{-1\}$, $C_2 = \{1\}$. Then $f(C_1 \cap C_2) = f(\emptyset) = \emptyset$, while $f(C_1) \cap f(C_2) = \{1\}$. The argument for unions does not carry over, because "$\forall \lambda\ \exists x \in C_\lambda$" does not give a single $x$ that works for every $\lambda$.
+
+- id: tao-3.4.5
+  hints:
+    - |
+      First check that one inclusion holds for every function: $f(f^{-1}(S)) \subseteq S$ and $S \subseteq f^{-1}(f(S))$. So each "iff" is about the other inclusion.
+    - |
+      For the "only if" directions, choose $S$ cleverly. For surjectivity try $S = Y$. For injectivity try a singleton $S = \{x\}$.
+  solution: |
+    **Part 1: $f(f^{-1}(S)) = S$ for all $S \subseteq Y$ $\iff$ $f$ is surjective.**
+
+    *Always $f(f^{-1}(S)) \subseteq S$:* if $y \in f(f^{-1}(S))$, then $y = f(x)$ for some $x \in f^{-1}(S)$, so $y = f(x) \in S$.
+
+    *($\Leftarrow$)* Suppose $f$ is surjective, and let $y \in S$. There is $x \in X$ with $f(x) = y \in S$. Then $x \in f^{-1}(S)$, so $y = f(x) \in f(f^{-1}(S))$. Hence $S \subseteq f(f^{-1}(S))$, and equality holds.
+
+    *($\Rightarrow$)* Take $S = Y$. Then $f^{-1}(Y) = X$, so $Y = f(f^{-1}(Y)) = f(X)$. That is, $f$ is surjective.
+
+    **Part 2: $f^{-1}(f(S)) = S$ for all $S \subseteq X$ $\iff$ $f$ is injective.**
+
+    *Always $S \subseteq f^{-1}(f(S))$:* if $x \in S$, then $f(x) \in f(S)$, so $x \in f^{-1}(f(S))$.
+
+    *($\Leftarrow$)* Suppose $f$ is injective, and let $x \in f^{-1}(f(S))$. Then $f(x) \in f(S)$, so $f(x) = f(s)$ for some $s \in S$. Injectivity gives $x = s \in S$. Hence $f^{-1}(f(S)) \subseteq S$, and equality holds.
+
+    *($\Rightarrow$)* Suppose $f(x) = f(x')$ for some $x, x' \in X$. Take $S = \{x\}$. Then $f(S) = \{f(x)\}$, and $x' \in f^{-1}(\{f(x)\}) = f^{-1}(f(S)) = S = \{x\}$. So $x' = x$, and $f$ is injective. $\blacksquare$
+
+- id: mit20-a1-6
+  hints:
+    - |
+      For (a), factor $4/15$ in the form $(\ddagger)$ and apply the rule. To invert, factor $108$ into primes and look at whether each exponent is even or odd.
+    - |
+      The parity of each exponent in $f(q)$ records whether that prime came from the numerator or the denominator of $q$. So $f(q)$ remembers everything about $q$.
+    - |
+      For (b), write down an explicit candidate inverse $g \colon \mathbb{N} \to \{q > 0\}$. It halves even exponents and sends odd exponents $e$ to the denominator with exponent $(e+1)/2$. Then check $g \circ f = \mathrm{id}$ and $f \circ g = \mathrm{id}$, using the uniqueness in the Theorem each time.
+  solution: |
+    Write $\mathbb{Q}_{>0} = \{q \in \mathbb{Q} : q > 0\}$.
+
+    **(a)** $4/15 = 2^2/(3^1 \cdot 5^1)$ is not an integer, and this is its form $(\ddagger)$ with $p_1 = 2$, $r_1 = 2$ and $q_1 = 3$, $q_2 = 5$, $s_1 = s_2 = 1$. Hence
+    $$f(4/15) = 2^{4} \cdot 3^{1} \cdot 5^{1} = 240.$$
+
+    Next, $108 = 2^2 \cdot 3^3$. The exponent of $2$ is even, so $2$ comes from the numerator with $2r = 2$, that is $r = 1$. The exponent of $3$ is odd, so $3$ comes from the denominator with $2s - 1 = 3$, that is $s = 2$. So $q = 2/3^2 = 2/9$. *Check:* $2/9 \notin \mathbb{N}$, its form $(\ddagger)$ is $2^1/3^2$, and $f(2/9) = 2^{2} \cdot 3^{3} = 108$.
+
+    **(b)** We construct an inverse. Define $g \colon \mathbb{N} \to \mathbb{Q}_{>0}$ by $g(1) = 1$. For $n \ge 2$, write $n = \ell_1^{e_1} \cdots \ell_K^{e_K}$ by part 1) of the Theorem, with distinct primes $\ell_k$ and $e_k \ge 1$, and set
+    $$g(n) = \frac{\prod_{e_k \text{ even}} \ell_k^{e_k/2}}{\prod_{e_k \text{ odd}} \ell_k^{(e_k+1)/2}}.$$
+    The exponents $e_k/2$ and $(e_k + 1)/2$ are positive integers. By uniqueness of the factorization of $n$, $g$ is well defined.
+
+    *Step 1: $g(f(q)) = q$ for all $q \in \mathbb{Q}_{>0}$.* If $q = 1$, then $g(f(1)) = g(1) = 1$. If $q \in \mathbb{N} \setminus \{1\}$ has form $(\dagger)$, then $f(q) = p_1^{2r_1} \cdots p_N^{2r_N}$, with $N \ge 1$ and all exponents $\ge 2$. So $f(q) \ge 2$, and by uniqueness this product is the factorization of $f(q)$. All its exponents are even, so $g(f(q)) = p_1^{r_1} \cdots p_N^{r_N} = q$. If $q \notin \mathbb{N}$ has form $(\ddagger)$, then $M \ge 1$, since otherwise $q$ would be an integer. The primes $p_i, q_j$ are all distinct, and the exponents $2r_i \ge 2$ and $2s_j - 1 \ge 1$ are positive. So $f(q) \ge 2$, and $p_1^{2r_1} \cdots q_M^{2s_M - 1}$ is the factorization of $f(q)$. The even exponents are exactly those of the $p_i$, and the odd ones exactly those of the $q_j$. Since $(2s_j - 1 + 1)/2 = s_j$, we get $g(f(q)) = q$.
+
+    So $f$ is injective: $f(q) = f(q')$ implies $q = g(f(q)) = g(f(q')) = q'$.
+
+    *Step 2: $f(g(n)) = n$ for all $n \in \mathbb{N}$.* If $n = 1$, then $f(g(1)) = f(1) = 1$. Let $n \ge 2$ with factorization as above. Put $P = \prod_{e_k \text{ even}} \ell_k^{e_k/2}$ and $Q = \prod_{e_k \text{ odd}} \ell_k^{(e_k+1)/2}$, so $g(n) = P/Q$, and $P$ and $Q$ involve disjoint sets of primes.
+
+    - If every $e_k$ is even, then $g(n) = P \in \mathbb{N}$ and $P \ge 2$. By uniqueness its form $(\dagger)$ is the product shown, so $f(g(n)) = \prod \ell_k^{2 \cdot e_k/2} = n$.
+    - If some $e_k$ is odd, then $Q \ge 2$. We claim $P/Q \notin \mathbb{N}$. Otherwise $P = mQ$ for some $m \in \mathbb{N}$. Then $P \ge Q \ge 2$, and a prime $\ell$ dividing $Q$ also divides $P$, say $P = \ell t$. Factoring $t$ and using uniqueness of the factorization of $P$, we see that $\ell$ appears in the factorization of $P$. But $P$ uses no prime of $Q$, a contradiction. So $g(n) \notin \mathbb{N}$, and by uniqueness in part 2) its form $(\ddagger)$ is $P/Q$ as written. Then $f(g(n)) = \prod_{e_k \text{ even}} \ell_k^{e_k} \cdot \prod_{e_k \text{ odd}} \ell_k^{2 \cdot \frac{e_k+1}{2} - 1} = n$.
+
+    So $f$ is surjective. Hence $f$ is a bijection with inverse $g$, and $|\mathbb{Q}_{>0}| = |\mathbb{N}|$. $\blacksquare$
+
+- id: mit20-a3-2
+  hints:
+    - |
+      You need $f$ to be well defined, injective and surjective. The subtle point is that some real numbers have two decimal expansions. Can that happen when only the digits $1$ and $2$ are used?
+    - |
+      Suppose two digit sequences in $\{1, 2\}$ first differ at position $k$. Compare the gain of $10^{-k}$ at position $k$ with the largest possible total difference from all the later positions.
+    - |
+      For surjectivity, start from $S \subset \mathbb{N}$. Write down the digits ($2$ at positions in $S$, $1$ elsewhere), and check that the resulting number lies in $(0, 1)$.
+  solution: |
+    Here $x = 0.d_{-1}d_{-2}\ldots$ means $x = \sum_{j=1}^\infty d_{-j} 10^{-j}$. For any digits in $\{1, 2\}$ this series converges, since its partial sums are increasing and bounded by $\sum 2 \cdot 10^{-j} = 2/9$.
+
+    **Key lemma.** *If $(d_{-j})$ and $(d'_{-j})$ are digit sequences in $\{1, 2\}$ that are not identical, then $\sum d_{-j} 10^{-j} \ne \sum d'_{-j} 10^{-j}$.*
+
+    *Proof.* Let $k$ be the first index with $d_{-k} \ne d'_{-k}$. Say $d_{-k} = 1$ and $d'_{-k} = 2$. Each later difference satisfies $d'_{-j} - d_{-j} \ge -1$, so
+    $$\sum_j (d'_{-j} - d_{-j}) 10^{-j} \ge 10^{-k} - \sum_{j > k} 10^{-j} = 10^{-k} - \tfrac{1}{9} 10^{-k} > 0. \qquad \square$$
+
+    **$f$ is well defined.** Each $x \in E$ has at least one expansion with digits in $\{1, 2\}$, by definition of $E$, and by the lemma it has at most one. So the digits $d_{-j}$ of $x$ are determined by $x$, and $f(x) = \{j \in \mathbb{N} : d_{-j} = 2\} \in \wp(\mathbb{N})$ is well defined.
+
+    **$f$ is injective.** Suppose $f(x) = f(y)$. Then for every $j$, $x$ and $y$ have digit $2$ in position $j$ exactly when $j$ is in this common set, and digit $1$ otherwise. So their digit sequences agree, and $x = \sum d_{-j} 10^{-j} = y$.
+
+    **$f$ is surjective.** Let $S \subset \mathbb{N}$. Set $d_{-j} = 2$ if $j \in S$ and $d_{-j} = 1$ if $j \notin S$, and let $x = \sum_{j \ge 1} d_{-j} 10^{-j}$. Then
+    $$0 < \tfrac{1}{9} = \sum_{j \ge 1} 10^{-j} \le x \le \sum_{j \ge 1} 2 \cdot 10^{-j} = \tfrac{2}{9} < 1,$$
+    so $x \in (0, 1)$. It has the decimal representation $0.d_{-1}d_{-2}\ldots$ with all digits in $\{1, 2\}$, so $x \in E$, and $f(x) = S$.
+
+    Hence $f \colon E \to \wp(\mathbb{N})$ is a bijection, and $|E| = |\wp(\mathbb{N})|$. $\blacksquare$
+
+- id: abbott-1.5.3
+  hints:
+    - |
+      In Abbott, "countable" means in bijection with $\mathbb{N}$. For (a), split into cases according to whether $B_2 = A_2 \setminus A_1$ is empty, finite, or infinite. In the infinite case, why is $B_2$ countable?
+    - |
+      For two disjoint countable sets, interleave: odd positions go to one set and even positions to the other. For $m$ sets, induct on $m$.
+    - |
+      For (b), ask what statements induction actually proves. Is "the union of all the $A_n$" one of them? For (c), the array is a bijection between $\mathbb{N}$ and $\mathbb{N} \times \mathbb{N}$. Place the $k$-th element of $A_n$ in row $n$, column $k$.
+  solution: |
+    "Countable" means $\sim \mathbb{N}$, as in Abbott. We use Theorem 1.5.7: a subset of a countable set is finite or countable.
+
+    **(a)** Let $A_1, A_2$ be countable, with bijection $f \colon \mathbb{N} \to A_1$. Let $B_2 = A_2 \setminus A_1$. Then $A_1 \cup B_2 = A_1 \cup A_2$ and $A_1 \cap B_2 = \emptyset$.
+
+    *Case $B_2 = \emptyset$.* Then $A_1 \cup A_2 = A_1$ is countable.
+
+    *Case $B_2$ finite and nonempty, $B_2 = \{b_1, \ldots, b_m\}$ (distinct).* Define $h \colon \mathbb{N} \to A_1 \cup B_2$ by $h(n) = b_n$ for $n \le m$ and $h(n) = f(n - m)$ for $n > m$. It is onto, since it hits every $b_i$ and every $f(k) = h(k + m)$. It is one-to-one, because $f$ is injective, the $b_i$ are distinct, and $A_1 \cap B_2 = \emptyset$.
+
+    *Case $B_2$ infinite.* $B_2 \subset A_2$, so by Theorem 1.5.7 $B_2$ is countable. Let $g \colon \mathbb{N} \to B_2$ be a bijection. Define $h(2n - 1) = f(n)$ and $h(2n) = g(n)$. This is onto $A_1 \cup B_2$. It is one-to-one: two odd inputs, or two even inputs, with equal images are equal by injectivity of $f$ or $g$, and an odd and an even input have images in the disjoint sets $A_1$ and $B_2$.
+
+    In every case $A_1 \cup A_2$ is countable.
+
+    *General $m$.* Use induction on $m$. The case $m = 1$ is trivial. If $A_1 \cup \cdots \cup A_{m-1}$ is countable, then $A_1 \cup \cdots \cup A_m = (A_1 \cup \cdots \cup A_{m-1}) \cup A_m$ is a union of two countable sets, hence countable by the two-set case.
+
+    **(b)** Induction proves that a statement $P(m)$ holds for each $m \in \mathbb{N}$. Here $P(m)$ says "a union of $m$ countable sets is countable", which is a claim about finitely many sets for each $m$. The infinite union $\bigcup_{n=1}^\infty A_n$ is not $A_1 \cup \cdots \cup A_m$ for any $m$, so it is not covered by any $P(m)$. Induction never reaches "$m = \infty$". Properties that hold for every finite stage need not survive to the infinite union. For example, $\{1, \ldots, m\}$ is finite for every $m$, but $\bigcup_m \{1, \ldots, m\} = \mathbb{N}$ is not.
+
+    **(c)** *The array gives a bijection $\mathbb{N} \to \mathbb{N} \times \mathbb{N}$.* The array lists $1, 2, 3, \ldots$ along successive antidiagonals $i + j - 1 = d$, for $d = 1, 2, 3, \ldots$. Each antidiagonal is read from the bottom entry $(d, 1)$ up to $(1, d)$, so the entry in row $i$, column $j$ is
+    $$N(i, j) = \frac{(d-1)d}{2} + j, \qquad d = i + j - 1.$$
+    Antidiagonal $d$ holds exactly the $d$ numbers $\frac{(d-1)d}{2} + 1, \ldots, \frac{d(d+1)}{2}$. These blocks partition $\mathbb{N}$, and within block $d$ the column $j \in \{1, \ldots, d\}$ (with $i = d + 1 - j$) is determined by the number. So every natural number appears exactly once in the array, and $(i, j) \mapsto N(i, j)$ is a bijection $\mathbb{N} \times \mathbb{N} \to \mathbb{N}$.
+
+    *Proof of (ii).* Let each $A_n$ be countable, with bijection $g_n \colon \mathbb{N} \to A_n$, and write $a_{nk} = g_n(k)$. Put $a_{nk}$ in row $n$, column $k$ of the array. Define $\phi \colon \mathbb{N} \to A = \bigcup_n A_n$ by $\phi(N(n, k)) = a_{nk}$. In words, $\phi(m)$ is the element sitting in the position of the array that holds $m$. Since $N$ is a bijection, $\phi$ is well defined, and it is onto $A$ because every element of $A$ is some $a_{nk}$.
+
+    An element may lie in several $A_n$, so $\phi$ need not be one-to-one. To fix this, define $\psi \colon A \to \mathbb{N}$ by $\psi(a) = \min\{m : \phi(m) = a\}$, which exists by well-ordering. $\psi$ is one-to-one, since $\phi(\psi(a)) = a$. So $A$ is in bijection with the subset $\psi(A) \subset \mathbb{N}$, and by Theorem 1.5.7 $A$ is finite or countable. It is not finite, because it contains the infinite set $A_1$. Hence $\bigcup_n A_n$ is countable. $\blacksquare$
+
+- id: abbott-1.5.8
+  hints:
+    - |
+      An element of $B$ can be tiny, but it is positive. Sort the elements of $B$ by how large they are.
+    - |
+      Consider $B_n = \{b \in B : b > 1/n\}$. How many elements can $B_n$ have without some finite sum exceeding $2$?
+    - |
+      Each $B_n$ is finite, and $B = \bigcup_n B_n$ by the Archimedean property. Finish by listing the $B_n$ one after another.
+  solution: |
+    (In Abbott, "countable" means in bijection with $\mathbb{N}$.)
+
+    For $n \in \mathbb{N}$ let $B_n = \{b \in B : b > 1/n\}$.
+
+    **Each $B_n$ has at most $2n$ elements.** Suppose $B_n$ contained $2n + 1$ distinct elements $b_1, \ldots, b_{2n+1}$. They form a finite subset of $B$ with
+    $$b_1 + \cdots + b_{2n+1} > \frac{2n + 1}{n} = 2 + \frac{1}{n} > 2,$$
+    contradicting the hypothesis on $B$.
+
+    **$B = \bigcup_{n} B_n$.** Each $B_n \subset B$. Conversely, if $b \in B$, then $b > 0$, so by the Archimedean property there is $n$ with $1/n < b$, and $b \in B_n$. Also $B_1 \subset B_2 \subset \cdots$.
+
+    **Conclusion.** For $b \in B$ let $n(b)$ be the least $n$ with $b \in B_n$. List the elements of $B$ as follows: first the elements of $B_1$ in decreasing order, then those of $B_2 \setminus B_1$ in decreasing order, then those of $B_3 \setminus B_2$, and so on. Each block is finite. Each $b \in B$ appears exactly once, in block $n(b)$, at a position at most $|B_{n(b)}| \le 2n(b)$. Assigning to $b$ its position in this list gives an injection $B \to \mathbb{N}$, so $B$ is in bijection with a subset of $\mathbb{N}$. A subset of $\mathbb{N}$ is finite or countable (Abbott, Theorem 1.5.7), so $B$ is finite or countable. $\blacksquare$
+
+- id: abbott-1.5.9
+  hints:
+    - |
+      For (a), find an integer polynomial for each number by isolating the radicals and raising to powers. For $\sqrt{3} + \sqrt{2}$, square once, isolate the remaining radical, and square again.
+    - |
+      For (b), a polynomial of degree $n$ is determined by its coefficient vector in $\mathbb{Z}^{n+1}$. Show that $\mathbb{Z}^{n+1}$ is countable. Then $A_n$ is a union, indexed by a countable set, of finite sets of roots.
+    - |
+      Theorem 1.5.8 is stated for countable (that is, infinite) sets, while root sets are finite. One way around this is to enlarge each root set by adding $\mathbb{N}$. For (c), write the algebraic numbers as $\bigcup_n A_n$, then compare with the uncountability of $\mathbb{R}$.
+  solution: |
+    (In Abbott, "countable" means in bijection with $\mathbb{N}$.)
+
+    **(a)**
+    - $\sqrt{2}$ is a root of $x^2 - 2$.
+    - $\sqrt[3]{2}$ is a root of $x^3 - 2$.
+    - Let $x = \sqrt{3} + \sqrt{2}$. Then $x^2 = 5 + 2\sqrt{6}$, so $(x^2 - 5)^2 = 24$, that is, $x^4 - 10x^2 + 1 = 0$. So $x$ is a root of $x^4 - 10x^2 + 1$.
+
+    All three polynomials have integer coefficients, not all zero, so the three numbers are algebraic.
+
+    **(b)** *$\mathbb{Z}^{k}$ is countable for every $k \ge 1$.* $\mathbb{Z}$ is countable (Example 1.5.3). If $\mathbb{Z}^k$ is countable, then $\mathbb{Z}^{k+1} = \mathbb{Z}^k \times \mathbb{Z}$ is in bijection with $\mathbb{N} \times \mathbb{N}$, which is countable via the diagonal array of Exercise 1.5.3(c). By induction, every $\mathbb{Z}^k$ is countable.
+
+    The polynomials of degree exactly $n$ with integer coefficients correspond to the vectors $(a_0, \ldots, a_n) \in \mathbb{Z}^{n+1}$ with $a_n \ne 0$. These form an infinite subset of $\mathbb{Z}^{n+1}$, which is countable by Theorem 1.5.7. Enumerate them as $P_1, P_2, P_3, \ldots$. Let $R_m$ be the set of real roots of $P_m$. It is finite, with at most $n$ elements. Then
+    $$A_n = \bigcup_{m=1}^\infty R_m.$$
+    Each $R_m \cup \mathbb{N}$ is countable, by Exercise 1.5.3(a) (a finite set together with a countable set). So by Theorem 1.5.8(ii),
+    $$A_n \cup \mathbb{N} = \bigcup_{m=1}^\infty (R_m \cup \mathbb{N})$$
+    is countable. $A_n$ is a subset of it, so it is finite or countable (Theorem 1.5.7). It is not finite: every integer $k$ lies in $A_n$, being a root of $x^{n-1}(x - k)$, which has degree $n$. Hence $A_n$ is countable.
+
+    **(c)** Every algebraic number $x$ is a root of a nonzero integer polynomial. Such a polynomial has some degree $n \ge 1$, since a nonzero constant has no roots, and so $x \in A_n$. Thus the set of algebraic numbers is $\mathcal{A} = \bigcup_{n=1}^\infty A_n$. This is a countable union of countable sets, hence countable by Theorem 1.5.8(ii).
+
+    *Transcendental numbers.* Let $\mathcal{T} = \mathbb{R} \setminus \mathcal{A}$. If $\mathcal{T}$ were finite or countable, then $\mathbb{R} = \mathcal{A} \cup \mathcal{T}$ would be countable, by Exercise 1.5.3(a). That contradicts the uncountability of $\mathbb{R}$ (Theorem 1.5.6). So transcendental numbers exist, and in fact there are uncountably many of them. "Most" real numbers are transcendental, even though this argument does not exhibit a single one.
+
+- id: lebl-1.4.5
+  hints:
+    - |
+      Away from a countable set of points you can use the identity map. The only real problem is finding new places for the two endpoints $0$ and $1$.
+    - |
+      This is the "Hilbert hotel" trick. Pick a sequence of points inside $(0, 1)$, such as $1/2, 1/3, 1/4, \ldots$. Then shift everything along it to make room for $0$ and $1$.
+    - |
+      Define $f$ on $\{0\} \cup \{1/n : n \in \mathbb{N}\}$ so that this set maps bijectively onto $\{1/n : n \ge 2\}$, and let $f(x) = x$ everywhere else.
+  solution: |
+    Let $S = \{0\} \cup \{1/n : n \in \mathbb{N}\} = \{0, 1, \tfrac12, \tfrac13, \ldots\} \subset [0, 1]$ and $T = \{1/k : k \ge 2\} \subset (0, 1)$. Define $f \colon [0, 1] \to (0, 1)$ by
+    $$f(x) = \begin{cases} \tfrac12 & x = 0, \\[2pt] \dfrac{1}{n + 2} & x = \dfrac1n \text{ for some } n \in \mathbb{N}, \\[4pt] x & x \notin S. \end{cases}$$
+    So $f(0) = \tfrac12$, $f(1) = \tfrac13$, $f(\tfrac12) = \tfrac14$, $f(\tfrac13) = \tfrac15$, and so on. The cases do not overlap, since the numbers $1/n$ are distinct and nonzero, so $f$ is well defined.
+
+    **$f$ maps $S$ bijectively onto $T$.** The images $\tfrac12$ (from $0$) and $\tfrac{1}{n+2}$ for $n \ge 1$ (from $1/n$) are exactly $\tfrac12, \tfrac13, \tfrac14, \ldots$, each obtained once. So $f|_S$ is injective and its image is $T$.
+
+    **$f$ maps $[0, 1] \setminus S$ bijectively onto $(0, 1) \setminus T$.** Here $f$ is the identity, and $[0, 1] \setminus S = (0, 1) \setminus T$, because removing $S$ from $[0, 1]$ removes $0$, $1$ and all $1/k$ with $k \ge 2$.
+
+    The domain is the disjoint union $S \cup ([0,1] \setminus S)$, and the codomain $(0, 1)$ is the disjoint union $T \cup ((0,1) \setminus T)$. $f$ maps each piece bijectively onto the corresponding piece. Therefore $f$ is a bijection $[0, 1] \to (0, 1)$. Explicitly, its inverse sends $\tfrac12 \mapsto 0$, $\tfrac1k \mapsto \tfrac{1}{k-2}$ for $k \ge 3$, and $y \mapsto y$ otherwise. $\blacksquare$
+
+- id: ross-16.8
+  hints:
+    - |
+      There are two claims. The first is that $.e_1 e_2 \ldots$ really defines a number in $(0, 1)$. The second is that this number differs from each $s_n$. For the second, compare the $n$-th digits.
+    - |
+      Agreement of digits alone is not quite enough, because a number can have two decimal expansions. Recall when that happens (one expansion ends in all $0$s and the other in all $9$s), and notice which digits $e_n$ can take.
+  solution: |
+    **$y$ is a number in $(0, 1)$.** Let $y = \sum_{n=1}^\infty e_n 10^{-n}$. Its partial sums increase and are bounded by $\sum 7 \cdot 10^{-n} = 7/9$, so the series converges, and $.e_1 e_2 e_3 \cdots$ is a decimal expansion of $y$. Since each $e_n \in \{6, 7\}$,
+    $$0 < \tfrac{2}{3} = \sum_{n \ge 1} 6 \cdot 10^{-n} \le y \le \sum_{n \ge 1} 7 \cdot 10^{-n} = \tfrac{7}{9} < 1.$$
+
+    **Fact (uniqueness of expansions).** *If two different decimal expansions $.a_1 a_2 \ldots$ and $.b_1 b_2 \ldots$ represent the same number, then one of them ends in all $9$s and the other in all $0$s.* (This is the fact from §16. Here is a short proof.) Let $k$ be the first index with $a_k \ne b_k$, say $a_k < b_k$. Then
+    $$0 = \sum_j (b_j - a_j) 10^{-j} = (b_k - a_k) 10^{-k} + \sum_{j > k} (b_j - a_j) 10^{-j} \ge 10^{-k} - \sum_{j > k} 9 \cdot 10^{-j} = 0.$$
+    So equality holds throughout. That forces $b_j - a_j = -9$ for every $j > k$, so $a_j = 9$ and $b_j = 0$ for all $j > k$.
+
+    **$y \ne s_n$ for every $n$.** For every $n$ we have $e_n \ne d_n^{(n)}$. If $d_n^{(n)} \ne 6$, then $e_n = 6 \ne d_n^{(n)}$. If $d_n^{(n)} = 6$, then $e_n = 7 \ne 6$. Suppose $y = s_n$ for some $n$. Then $.e_1 e_2 \ldots$ and $.d_1^{(n)} d_2^{(n)} \ldots$ are two expansions of the same number, and they are different, since they differ in the $n$-th digit. By the Fact, one of them ends in all $9$s or all $0$s. But the digits of $.e_1 e_2 \ldots$ are only $6$s and $7$s, so the expansion of $y$ cannot be the one ending in $0$s or $9$s. It would have to be the other one, which also ends in $0$s or $9$s, a contradiction. Hence $y \ne s_n$ for all $n$.
+
+    So no sequence $(s_n)$ in $(0, 1)$ lists every element of $(0, 1)$, because the number $y \in (0, 1)$ is always missed. $\blacksquare$
+
+- id: tao-8.3.2
+  hints:
+    - |
+      Note where the sets live: $D_0 = B \setminus A$ is disjoint from $A$, while $D_n = f(D_{n-1}) \subseteq A$ for $n \ge 1$. That already separates $D_0$ from all the others.
+    - |
+      For general $n < m$, use induction on $n$. If $x \in D_n \cap D_m$ with $n \ge 1$, write $x = f(u) = f(v)$ and use injectivity to push the intersection back one step.
+    - |
+      For $g$, check three things: $f^{-1}(x)$ makes sense and lies in $B$ when $x \in D = \bigcup_{n \ge 1} D_n$; $g$ is injective (one case mixes $x \in D$ and $y \notin D$); and $g$ is surjective (for $b \in \bigcup_{n \ge 0} D_n$, try $x = f(b)$).
+  solution: |
+    Note first that every $D_n \subseteq C$, so $D_{n+1} = f(D_n)$ makes sense: $D_0 \subseteq B \subseteq C$, and $D_{n+1} \subseteq f(C) \subseteq A \subseteq C$. In particular,
+    $$D_0 \cap A = \emptyset, \qquad D_n \subseteq A \ (n \ge 1), \qquad \text{all } D_n \subseteq B.$$
+
+    **Disjointness.** We prove by induction on $n \ge 0$: *for every $m > n$, $D_n \cap D_m = \emptyset$.*
+
+    *Base case $n = 0$.* For $m \ge 1$, $D_m \subseteq A$ and $D_0 \cap A = \emptyset$.
+
+    *Step.* Assume the claim for $n - 1$, where $n \ge 1$, and let $m > n$. Suppose $x \in D_n \cap D_m$. Then $x = f(u)$ with $u \in D_{n-1}$, and $x = f(v)$ with $v \in D_{m-1}$. Since $f$ is injective, $u = v \in D_{n-1} \cap D_{m-1}$. But $m - 1 > n - 1$, so this intersection is empty by the hypothesis. This is a contradiction, so $D_n \cap D_m = \emptyset$.
+
+    **$g$ is well defined and maps $A$ into $B$.** Let $D = \bigcup_{n \ge 1} D_n \subseteq A$. If $x \in D$, then $x \in D_n$ for exactly one $n \ge 1$, by disjointness, and $x = f(u)$ for some $u \in D_{n-1}$. Since $f$ is injective, $u$ is the unique preimage of $x$, so $f^{-1}(x) := u$ is well defined. It lies in $D_{n-1} \subseteq B$. If $x \in A \setminus D$, then $g(x) = x \in A \subseteq B$. So $g \colon A \to B$.
+
+    **$g$ is injective.** Let $x, y \in A$ with $g(x) = g(y)$.
+    - If $x, y \in D$: then $f^{-1}(x) = f^{-1}(y)$, and applying $f$ gives $x = y$.
+    - If $x, y \notin D$: then $x = g(x) = g(y) = y$.
+    - If $x \in D$ and $y \notin D$: say $x \in D_n$ with $n \ge 1$, so $g(x) = f^{-1}(x) \in D_{n-1}$, while $g(y) = y \in A \setminus D$. If $n = 1$, then $g(x) \in D_0$, which is disjoint from $A \ni y$. If $n \ge 2$, then $g(x) \in D_{n-1} \subseteq D$, while $y \notin D$. Either way $g(x) \ne g(y)$, so this case cannot occur.
+
+    **$g$ is surjective.** Let $b \in B$.
+    - If $b \in D_n$ for some $n \ge 0$: then $f(b) \in D_{n+1} \subseteq D \subseteq A$, so $g(f(b)) = f^{-1}(f(b)) = b$.
+    - If $b \notin \bigcup_{n \ge 0} D_n$: then $b \notin D_0 = B \setminus A$, so $b \in A$, and $b \notin D$. Hence $g(b) = b$.
+
+    Thus $g \colon A \to B$ is a bijection, and $A$ and $B$ have the same cardinality. $\blacksquare$
