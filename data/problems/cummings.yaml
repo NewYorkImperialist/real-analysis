@@ -817,6 +817,7 @@
   - step-function
   - Darboux-sums
   - characterization
+  - bridge-to-measure-theory
   problemLatex: |
     A function $s\colon [a,b] \to \mathbb{R}$ is called a *step function* if there is a partition $P = \{x_0, x_1, \dots, x_n\}$ of $[a,b]$ such that $s$ is constant on each interval $(x_{i-1}, x_i)$.
 
@@ -829,3 +830,4 @@
   notes: Book omits '< ε' after the second integral in both (a) and (b) (prints '∫[s_2(x) - f(x)] dx.'); restored as the evident intent. Note (b) as printed presupposes the integrals of f - s_1 and s_2 - f make sense; a cleaner reading is ∫(s_2 - s_1) < 2ε or using upper/lower integrals.
   curation:
     why: 'Riemann integrability is equivalent to being squeezed between step functions: the bridge from Darboux sums to general integration theory.'
+  tier: upper

@@ -18,7 +18,7 @@ npm run check     # validate the problem data only
 
 ## The bank
 
-There are **383 problems**: a **core** of 347 and an optional **upper tier** of 36 harder problems.
+There are **383 problems**: a **core** of 346 and an optional **upper tier** of 37 harder problems.
 
 | Source | Core | Upper tier |
 |---|---|---|
@@ -26,15 +26,15 @@ There are **383 problems**: a **core** of 347 and an optional **upper tier** of 
 | Abbott, *Understanding Analysis* (2nd ed.) | 99 | — |
 | Lebl, *Basic Analysis I* (v6.3) | 105 | — |
 | Ross, *Elementary Analysis* (2nd ed.) | 39 | — |
-| Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 27 | — |
+| Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 26 | 1 |
 | Tao, *Analysis I* (3rd ed.) | 15 | — |
 | Pugh, *Real Mathematical Analysis* (2nd ed.) | 2 | 22 |
 | Rudin, *Principles of Mathematical Analysis* (3rd ed.) | 4 | 13 |
 | MIT 18.100B (2006, Fall 2010, Spring 2025) | 2 | 1 |
 
 The upper tier (`tier: upper` in the data) holds synthesis, construction, classification and
-hypothesis-necessity problems that add a problem-solving experience the core lacks; three of them
-(tag `bridge-to-measure-theory`) preview measure-zero ideas. It is excluded from core progress and
+hypothesis-necessity problems that add a problem-solving experience the core lacks; four of them
+(tag `bridge-to-measure-theory`) preview ideas from measure theory. It is excluded from core progress and
 from practice sets unless requested. See `curation/UPPER_TIER_BRIEF.md` and `curation/UPPER_SHORTLIST.md`.
 
 How the bank was built:

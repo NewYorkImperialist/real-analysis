@@ -29,7 +29,7 @@ export function About() {
           MIT 18.100B: multi-step synthesis, constructions, hypothesis-necessity counterexamples and classification
           problems, chosen only when they add a problem-solving experience the core lacks. Upper-tier problems are
           not counted in core progress and appear in practice sets only when you ask for them (“upper tier”).
-          A few, tagged <em>bridge to measure theory</em>, preview measure-zero ideas.
+          A few, tagged <em>bridge to measure theory</em>, preview ideas from measure theory.
         </p>
       </section>
 
