@@ -651,3 +651,30 @@
     Prove that if a power series $\sum_{k=0}^\infty a_k x^k$ converges absolutely at some $x_0 \in \mathbb{R}$, then it converges uniformly on the closed interval $\big[-|x_0|, |x_0|\big]$.
   curation:
     why: A power series converging absolutely at x₀ converges uniformly on [−|x₀|, |x₀|].
+
+- id: cummings-8.5
+  source:
+    key: cummings
+    chapter: 8 Integration
+    section: Chapter 8 Exercises
+    problemNumber: Exercise 8.5
+    page: '270'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - partition-refinement
+  concept: integrable on [a,d] implies integrable on subinterval [b,c]
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - Darboux-sums
+  - subinterval
+  - machinery
+  problemLatex: |
+    Suppose $a \le b < c \le d$ and that $f$ is integrable on $[a,d]$. Prove that $f$ is also integrable on $[b,c]$.
+  curation:
+    why: Integrability restricts to subintervals, the first step toward additivity of the integral over [a,c] ∪ [c,b].

@@ -642,7 +642,9 @@
 - id: ross-13.7
   hints:
     - |
-      The textbook outline defines, for each rational $q_n \in U$, the largest open interval $(a_n,b_n)$ around $q_n$ inside $U$. A useful extra fact to prove first: a finite endpoint $a_n$ or $b_n$ is never in $U$.
+      Each point of $U$ lies in a largest open interval contained in $U$. How could you label these intervals by a countable set, so that there are only countably many of them?
+    - |
+      For each rational $q_n \in U$, take the largest open interval around $q_n$ inside $U$: $a_n = \inf\{a : (a, q_n] \subseteq U\}$ and $b_n = \sup\{b : [q_n, b) \subseteq U\}$. A useful fact to prove first: a finite endpoint $a_n$ or $b_n$ is never in $U$.
     - |
       To show $(a_n,b_n) \subseteq U$, use the definition of infimum/supremum: for $a_n < x < q_n$ there is some $a < x$ with $(a, q_n] \subseteq U$. To show every $x \in U$ is covered, pick a rational $q_n$ just to the left of $x$ in a neighborhood of $x$ inside $U$.
     - |

@@ -289,7 +289,7 @@
     - |
       First decide what you know about the limit function $f$ itself. Which theorem applies to a uniform limit of continuous functions?
     - |
-      Following the book's hint, the first term $|f_n(x_n) - f(x_n)|$ is controlled by uniform convergence, since it must hold at the moving point $x_n$. Which property of $f$ controls the second term?
+      Split $|f_n(x_n) - f(x)|$ by adding and subtracting $f(x_n)$. The first term $|f_n(x_n) - f(x_n)|$ is controlled by uniform convergence, since it must hold at the moving point $x_n$. Which property of $f$ controls the second term?
   solution: |
     **Proof.** By Theorem 24.3, $f$ is continuous on $[a,b]$. Since $[a,b]$ is closed and $x_n \in [a,b]$ with $x_n \to x$, we have $x \in [a,b]$. So $f$ is continuous at $x$, and therefore $f(x_n) \to f(x)$.
 

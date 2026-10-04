@@ -432,3 +432,37 @@
   notes: "FTC I quoted for convenience (hint refers to 'one of the fundamental theorems'). Monotone f on [a,b] is Riemann integrable (Prop 11.6.1). Source issue: as printed, the 'only if' direction fails at the endpoints x_0 = a, b (Tao's derivative is one-sided there): take f(a) = 0 and f = 1 on (a, b]. The statement holds for x_0 in (a, b); the 'if' direction holds everywhere."
   curation:
     why: For monotone f, F(x) = ∫ₐˣ f is differentiable at x₀ exactly when f is continuous there.
+
+- id: tao-8.3.4
+  source:
+    key: tao
+    chapter: 8 Infinite sets
+    section: 8.3 Uncountable sets
+    problemNumber: Exercise 8.3.4
+    page: '198'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - theorem-reuse
+  - contradiction
+  concept: '|X| < |2^X|; transitivity of strict cardinality'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Cantor
+  - power-set
+  - cardinality
+  - Schroeder-Bernstein
+  problemLatex: |
+    Let us say that a set $A$ has *strictly lesser cardinality* than a set $B$ if $A$ has lesser than or equal cardinality to $B$ (in the sense of Exercise 3.6.7) but $A$ does not have equal cardinality to $B$. Show that for any set $X$, that $X$ has strictly lesser cardinality than $2^X$. Also, show that if $A$ has strictly lesser cardinality than $B$, and $B$ has strictly lesser cardinality than $C$, then $A$ has strictly lesser cardinality than $C$.
+
+    *(Exercise 3.6.7 sense: $A$ has lesser or equal cardinality to $B$ if there exists an injection $f\colon A \to B$ from $A$ to $B$.)*
+
+    *(Theorem 8.3.1 (Cantor's theorem): Let $X$ be an arbitrary set (finite or infinite). Then the sets $X$ and $2^X$ cannot have equal cardinality.)*
+
+    *(Exercise 8.3.3 (the Schröder–Bernstein theorem): if $A, B$ are sets such that $A$ has lesser or equal cardinality to $B$ and $B$ has lesser or equal cardinality to $A$, then $A$ and $B$ have equal cardinality.)*
+  notes: "Exercise statement verified against the page (printed p. 198, pdf 215). Cantor's theorem (Theorem 8.3.1, p. 195), the definition from Exercise 3.6.7 and the statement of Exercise 8.3.3 (Schröder–Bernstein, same page) are quoted, the last lightly trimmed from 'Using Exercise 8.3.2, show that if …'. $2^X$ is the power set of $X$. The exercise uses Cantor's theorem rather than asking for its diagonal proof."
+  curation:
+    why: Cantor's theorem turned into the strict inequality |X| < |2^X|, plus transitivity of strict cardinality via Schröder–Bernstein; the bank only had |P(A)| = 2^n for finite A.

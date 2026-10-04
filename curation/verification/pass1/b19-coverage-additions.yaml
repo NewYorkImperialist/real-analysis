@@ -1,0 +1,21 @@
+batch: b19-coverage-additions
+reviewed: [abbott-2.6.1, lebl-2.4.7, tao-8.3.4, lebl-5.2.2, cummings-8.5, ross-33.9, lebl-5.3.5, abbott-6.5.5, abbott-7.6.3, abbott-3.4.6, abbott-4.2.10, rudin-2.17]
+findings: []
+# No findings. Checks run on the three hardest problems:
+# rudin-2.17: recomputed the injectivity bound 3*10^-k - 3*sum_{j>k}10^-j = (8/3)10^-k > 0;
+#   interval nesting (ii): c + 4/9 >= 40/9 iff c >= 4 and c + 7/9 <= 70/9 iff c <= 7;
+#   disjointness (iii): min I(w) - max I(w') >= (8/3)10^-k > 0 (the 10^-n terms cancel);
+#   interval length (1/3)10^-n; perturbation |phi(d^(n)) - x| = 3*10^-n; E in [4/9, 7/9], so
+#   0 is not in the closure; double-expansion remark correct; Thm 2.14, 2.41, 2.43 cited correctly.
+# ross-33.9: eta = eps/(3(b-a)) gives U(h,P)-L(h,P) <= 2eps/3, total < eps; boundedness proved
+#   before Darboux sums are used; Theorems 32.5, 33.3, 33.4 used with their hypotheses met;
+#   the DCT counterexample (indicators of finite subsets of Q increasing to Dirichlet) is valid.
+#   The three AI hints state the criterion and the sum inequalities themselves, so they stand
+#   without the printed book hint.
+# abbott-6.5.5: (a) Archimedean choice of N gives (1+1/n)s < 1 for n >= N; (b) t' between t and R
+#   gives bounded terms and geometric comparison; n = 1 and r = 0 edge cases (0^0 = 1, s = 0)
+#   covered; compact K attains max |x| < R (EVT available in ch. 4); M-test is Corollary 6.4.5.
+# Book-order tools: abbott-2.6.1 uses only the triangle inequality (no Cauchy criterion);
+#   tao-8.3.4 uses only the quoted Theorem 8.3.1 and Exercise 8.3.3; lebl-5.2.2 avoids Prop 5.2.5;
+#   abbott-3.4.6 uses Thm 3.2.5 and closure = A u L; abbott-7.6.3's extra finite/empty cases are
+#   harmless (Abbott's "countable" means countably infinite).

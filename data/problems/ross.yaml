@@ -26,6 +26,7 @@
     (a) $\cos(\frac{n\pi}{3})$
     (b) $s_n = (-1)^n n$
     (c) $\sin(\frac{n\pi}{3})$
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (a) Assume $\lim \cos(\frac{n\pi}{3}) = a$. Then there exists $N$ such that $n > N$ implies $|\cos(\frac{n\pi}{3}) - a| < 1$. Consider $n > N$ and $n + 3$ where $n$ is a multiple of 6; substituting these values in the inequality gives $|1 - a| < 1$ and $|-1 - a| < 1$. By the triangle inequality
@@ -128,6 +129,7 @@
     *[Paraphrase, not verbatim — Ross's notion of closed set (§11, before Theorem 11.9): a set $S$ is called closed if it contains all limits of sequences from $S$.]*
 
     *(Theorem 11.9, quoted: Let $S$ denote the set of subsequential limits of a sequence $(s_n)$. Suppose $(t_n)$ is a sequence in $S \cap \mathbb{R}$ and that $t = \lim t_n$. Then $t$ belongs to $S$.)*
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (a) To show $[a, b]$ is closed, we need to consider a limit $s$ of a convergent sequence $(s_n)$ from $[a, b]$ and show $s$ is also in $[a, b]$. But this was done in Exercise 8.9.
@@ -160,6 +162,7 @@
   - characterization
   problemLatex: |
     Let $(s_n)$ be a bounded sequence in $\mathbb{R}$. Let $A$ be the set of $a \in \mathbb{R}$ such that $\{n \in \mathbb{N} : s_n < a\}$ is finite, i.e., all but finitely many $s_n$ are $\ge a$. Let $B$ be the set of $b \in \mathbb{R}$ such that $\{n \in \mathbb{N} : s_n > b\}$ is finite. Prove $\sup A = \liminf s_n$ and $\inf B = \limsup s_n$.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       Proof of $\sup A = \liminf s_n$. Consider $N$ in $\mathbb{N}$ and observe $u_N = \inf\{s_n : n > N\}$ is a number in $A$, since $\{n \in \mathbb{N} : s_n < u_N\} \subseteq \{1, 2, \ldots, N\}$. So $u_N \le \sup A$ for all $N$ and consequently $\liminf s_n = \lim u_N \le \sup A$.
@@ -193,6 +196,7 @@
   - countable
   problemLatex: |
     Show that every open set in $\mathbb{R}$ is the disjoint union of a finite or infinite sequence of open intervals.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       Outline of Proof. Consider an open set $U \subseteq \mathbb{R}$. Let $(q_n)$ be an enumeration of the rationals in $U$. For each $n$, let
@@ -282,6 +286,7 @@
   - log-series
   problemLatex: |
     Show $\sum_{n=2}^{\infty} \frac{1}{n(\log n)^p}$ converges if and only if $p > 1$.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       Hint: Use integral tests. Note
@@ -346,6 +351,7 @@
     (c) $f(x) = x \sin(\frac{1}{x})$ for $x \neq 0$ and $f(0) = 0$, $x_0 = 0$;
     (d) $g(x) = x^3$, $x_0$ arbitrary.
     *Hint for* (d): $x^3 - x_0^3 = (x - x_0)(x^2 + x_0 x + x_0^2)$.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (a) Discussion. Let $\epsilon > 0$. We want $|x^2 - 4| < \epsilon$ for $|x - 2|$ small, i.e., we want $|x - 2| \cdot |x + 2| < \epsilon$ for $|x - 2|$ small. If $|x - 2| < 1$, then $|x + 2| < 5$, so it suffices to get $|x - 2| \cdot 5 < \epsilon$. Set $\delta = \min\{1, \frac{\epsilon}{5}\}$.
@@ -539,6 +545,7 @@
     Let $E$ be a noncompact subset of $\mathbb{R}^k$.
     (a) Show there is an unbounded continuous real-valued function on $E$. *Hint*: Either $E$ is unbounded or else its closure $E^-$ contains $\mathbf{x}_0 \notin E$. In the latter case, use $\frac{1}{g}$ where $g(\mathbf{x}) = d(\mathbf{x}, \mathbf{x}_0)$.
     (b) Show there is a bounded continuous real-valued function on $E$ that does not assume its maximum on $E$.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (b) By part (a), there is an unbounded continuous real-valued function $f$ on $E$. Show $h = \frac{|f|}{1 + |f|}$ is continuous, bounded and does not assume its supremum 1 on $E$.
@@ -641,6 +648,7 @@
     (b) However, $\lim_{n\to\infty} \int_0^1 f_n(x)\,dx = 1$.
 
     *(Exercise 9.12: Assume all $s_n \neq 0$ and that the limit $L = \lim \left|\frac{s_{n+1}}{s_n}\right|$ exists. (a) Show that if $L < 1$, then $\lim s_n = 0$. ... (b) Show that if $L > 1$, then $\lim |s_n| = +\infty$. ...)*
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (a) Obviously $\lim f_n(0) = 0$. Consider $0 < x < 1$ and let $s_n = nx^n$. Then $s_{n+1}/s_n = (\frac{n+1}{n})x$, so $\lim |s_{n+1}/s_n| = x < 1$. Exercise 9.12(a) shows $0 = \lim s_n = \lim nx^n = \lim f_n(x)$.
@@ -681,6 +689,7 @@
     (b) Does $f_n \to f$ uniformly on $[0, 1]$? Justify.
 
     (c) Does $\int_0^1 f_n(x)\,dx$ converge to $\int_0^1 f(x)\,dx$? Justify.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (a) $f(x) = 0$ for $x \in [0, 1]$. For $x < 1$, $\lim_{n\to\infty} nx^n = 0$ as in Exercise 23.9(a).
@@ -778,6 +787,7 @@
   - interchange-of-limits
   problemLatex: |
     Let $(f_n)$ be a sequence of continuous functions on $[a, b]$ that converges uniformly to $f$ on $[a, b]$. Show that if $(x_n)$ is a sequence in $[a, b]$ and if $x_n \to x$, then $\lim_{n\to\infty} f_n(x_n) = f(x)$.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       *Hint*: Use $|f_n(x_n) - f(x)| \le |f_n(x_n) - f(x_n)| + |f(x_n) - f(x)|$.
@@ -810,6 +820,7 @@
   - counterexample
   problemLatex: |
     Let $f(x) = |x|$ for $x \in \mathbb{R}$. Is there a power series $\sum a_n x^n$ such that $f(x) = \sum_{n=0}^\infty a_n x^n$ for all $x$? Discuss.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       No! The power series would be differentiable at each $x \in \mathbb{R}$, but $f(x) = |x|$ is not differentiable at $x = 0$.
@@ -881,6 +892,7 @@
     Show there does not exist a sequence of polynomials converging uniformly on $\mathbb{R}$ to $f$ if
 
     (a) $f(x) = \sin x$, $\qquad$ (b) $f(x) = e^x$.
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (a) Assume a polynomial $p$ satisfies $|p(x) - \sin x| < 1$ for all $x \in \mathbb{R}$. Clearly $p$ cannot be a constant function. But if $p$ is nonconstant, then $p$ is unbounded on $\mathbb{R}$ and the same is true for $p(x) - \sin x$, a contradiction.
@@ -1089,6 +1101,7 @@
     (b) Show the Taylor series for $g$ about 0 agrees with $g$ only at $x = 0$.
 
     *(Example 3: Let $f(x) = e^{-1/x}$ for $x > 0$ and $f(x) = 0$ for $x \le 0$. Clearly $f$ has derivatives of all orders at all $x \neq 0$. We will prove $f^{(n)}(0) = 0$ for $n = 0, 1, 2, 3, \ldots$. Hence the Taylor series for $f$ is identically zero, so $f$ does not agree with its Taylor series in any open interval containing 0.)*
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       (a) $g(x) = f(x^2)$ for $x \in \mathbb{R}$ where $f$ is as in Example 3. Use induction to prove there exist polynomials $p_{kn}$, $1 \le k \le n$, so that
@@ -1246,3 +1259,45 @@
   notes: Verified against page image. No book hint for 36.8 (the hint for 36.13, the Stieltjes generalization, uses the f + |f| trick).
   curation:
     why: Absolutely convergent improper integrals converge (Cauchy criterion for integrals).
+
+- id: ross-33.9
+  source:
+    key: ross
+    chapter: 6 Integration
+    section: §33 Properties of the Riemann Integral
+    problemNumber: Exercise 33.9
+    page: '290'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  - interchange-integral
+  skills:
+  - epsilon-over-2
+  - darboux-sum-estimate
+  - partition-estimate
+  concept: uniform limit of Riemann integrable functions is integrable and integral of limit = limit of integrals
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - uniform-convergence
+  - Riemann-integration
+  - interchange-of-limits
+  - machinery
+  problemLatex: |
+    Let $(f_n)$ be a sequence of integrable functions on $[a, b]$, and suppose $f_n \to f$ uniformly on $[a, b]$. Prove $f$ is integrable and
+    $$\int_a^b f = \lim_{n\to\infty} \int_a^b f_n.$$
+    Compare this result with Theorems 25.2 and 33.11.
+
+    *(Theorem 25.2: Let $(f_n)$ be a sequence of continuous functions on $[a, b]$, and suppose $f_n \to f$ uniformly on $[a, b]$. Then $\lim_{n\to\infty} \int_a^b f_n(x)\,dx = \int_a^b f(x)\,dx$. Theorem 33.11 [Dominated Convergence Theorem]: Suppose $(f_n)$ is a sequence of integrable functions on $[a, b]$ and $f_n \to f$ pointwise where $f$ is an integrable function on $[a, b]$. If there exists an $M > 0$ such that $|f_n(x)| \le M$ for all $n$ and all $x$ in $[a, b]$, then $\lim_{n\to\infty} \int_a^b f_n(x)\,dx = \int_a^b \lim_{n\to\infty} f_n(x)\,dx$.)*
+  textbookHintsLast: true  # printed hint gives most of the solution away
+  hints:
+  - text: |
+      Select $m \in \mathbb{N}$ so that $|f(x) - f_m(x)| < \frac{\epsilon}{2(b-a)}$ for all $x \in [a, b]$. Then for any partition $P$
+      $$-\frac{\epsilon}{2} \le L(f - f_m, P) \le U(f - f_m, P) \le \frac{\epsilon}{2}.$$
+      Select a partition $P_0$ so that $U(f_m, P_0) - L(f_m, P_0) < \frac{\epsilon}{2}$. Since $f = (f - f_m) + f_m$, we can use inequalities from the proof of Theorem 33.3 to conclude $U(f, P_0) - L(f, P_0) < \epsilon$. Now Theorem 32.5 shows $f$ is integrable. To complete the exercise, proceed as in the proof of Theorem 25.2.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Verified against page image. Theorems 25.2 and 33.11 quoted verbatim (equation labels dropped). bookHint from PDF p. 401 (printed 392). Theorem 33.3 gives U(f+g,P) <= U(f,P)+U(g,P), L(f+g,P) >= L(f,P)+L(g,P).
+  curation:
+    why: 'The interchange theorem itself: a uniform limit of integrable functions is integrable and its integral is the limit of the integrals.'

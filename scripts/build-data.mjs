@@ -107,6 +107,9 @@ for (const f of files) {
     }
     if (p.tier !== undefined && p.tier !== 'upper') err(where, `tier must be "upper" or absent (core), got "${p.tier}"`);
     if (p.assignedIn && !Array.isArray(p.assignedIn)) err(where, 'assignedIn must be a list');
+    if (p.textbookHintsLast !== undefined && p.textbookHintsLast !== true)
+      err(where, 'textbookHintsLast must be true or absent');
+    if (p.textbookHintsLast && !p.hints?.length) err(where, 'textbookHintsLast set but the problem has no source hints');
     if (p.notes) checkLatex(`${where} notes`, p.notes);
     if (p.curation?.why) checkLatex(`${where} curation`, p.curation.why);
     problems.push(p);
@@ -118,7 +121,8 @@ for (const p of problems)
 
 // AI-written hints and solutions live in data/solutions/*.yaml, kept apart from the
 // transcribed problems. Each entry: { id, hints?: [latex…], solution?: latex, lowConfidence?: text }.
-// They are merged with explicit "AI-generated, not verified" provenance; source hints come first,
+// They are merged with explicit "AI-generated, not verified" provenance; source hints come first
+// (unless the problem sets `textbookHintsLast`, see below),
 // and a source solution (if any) is never replaced.
 const AI_SOURCE = 'AI-generated — not verified by a human';
 const solDir = path.join(dataDir, 'solutions');
@@ -160,6 +164,16 @@ if (fs.existsSync(solDir)) {
       }
     }
   }
+}
+
+// `textbookHintsLast: true` marks problems whose printed hint gives most of the solution away:
+// show the graded AI hints first and keep the book's hint as the last step before the solution.
+for (const p of problems) {
+  if (!p.textbookHintsLast) continue;
+  const ai = (p.hints ?? []).filter((h) => h.kind === 'ai');
+  if (!ai.length) warn(p.id, 'textbookHintsLast set but no AI hints yet; order unchanged');
+  p.hints = [...ai, ...(p.hints ?? []).filter((h) => h.kind !== 'ai')];
+  delete p.textbookHintsLast;
 }
 
 // Order: curriculum topic order, then source tier order, then natural number order.

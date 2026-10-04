@@ -1,0 +1,277 @@
+- id: abbott-2.6.1
+  hints:
+    - |
+      You know the terms $a_n$ eventually stay close to the limit $a$. The Cauchy condition asks about the distance between two terms $a_n$ and $a_m$. How can the limit act as a go-between?
+    - |
+      Insert $a$ with the triangle inequality: $|a_n - a_m| \le |a_n - a| + |a - a_m|$. How close to $a$ must each term be to make the sum less than $\epsilon$?
+  solution: |
+    **Proof.** Let $(a_n) \to a$ and let $\epsilon > 0$. Since $(a_n)$ converges to $a$, there is $N \in \mathbb{N}$ such that
+    $$|a_n - a| < \frac{\epsilon}{2} \quad \text{for all } n \ge N.$$
+    Now let $m, n \ge N$. By the triangle inequality,
+    $$|a_n - a_m| = |(a_n - a) + (a - a_m)| \le |a_n - a| + |a_m - a| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.$$
+    Since $\epsilon > 0$ was arbitrary, $(a_n)$ is a Cauchy sequence. $\blacksquare$
+
+- id: lebl-2.4.7
+  hints:
+    - |
+      The Cauchy condition says that from some index $M$ on, all terms are within $\epsilon$ of each other. What do you know about the terms beyond $M$ from the hypothesis that $x_n = c$ infinitely often?
+    - |
+      Since infinitely many indices $k$ have $x_k = c$, at least one of them is $\ge M$. Use that single term as the "other" term in the Cauchy inequality.
+  solution: |
+    **Proof.** Let $\epsilon > 0$. Since $\{x_n\}$ is Cauchy, there is $M \in \mathbb{N}$ such that
+    $$|x_n - x_k| < \epsilon \quad \text{for all } n, k \ge M.$$
+    The set $\{k \in \mathbb{N} : x_k = c\}$ is infinite, so it is not contained in the finite set $\{1, \dots, M-1\}$; hence there is some $k \ge M$ with $x_k = c$. Fix such a $k$. Then for every $n \ge M$,
+    $$|x_n - c| = |x_n - x_k| < \epsilon.$$
+    Since $\epsilon > 0$ was arbitrary, $\lim_{n\to\infty} x_n = c$. $\blacksquare$
+
+- id: tao-8.3.4
+  hints:
+    - |
+      "Strictly lesser cardinality" has two parts: an injection exists, and no bijection exists. For the first claim, which part is supplied by Cantor's theorem, and which part do you still have to build by hand?
+    - |
+      For $X \to 2^X$, every element $x$ determines a very simple subset of $X$. For transitivity, composing injections handles "lesser or equal"; the real work is ruling out a bijection between $A$ and $C$.
+    - |
+      Suppose $A$ and $C$ had equal cardinality. Combine a bijection $C \to A$ with the injection $A \to B$ to get an injection $C \to B$, and then invoke Schröder–Bernstein on $B$ and $C$.
+  solution: |
+    **Part 1: $X$ has strictly lesser cardinality than $2^X$.** Define $f\colon X \to 2^X$ by $f(x) = \{x\}$. This is well defined, since $\{x\} \subseteq X$ for every $x \in X$. It is injective: if $\{x\} = \{y\}$ then $x \in \{y\}$, so $x = y$. Thus $X$ has lesser or equal cardinality to $2^X$. By Cantor's theorem (Theorem 8.3.1), $X$ and $2^X$ do not have equal cardinality. Hence $X$ has strictly lesser cardinality than $2^X$.
+
+    **Part 2: transitivity.** Suppose $A$ has strictly lesser cardinality than $B$, and $B$ has strictly lesser cardinality than $C$. Then there are injections $f\colon A \to B$ and $g\colon B \to C$.
+
+    *Lesser or equal.* The composition $g \circ f\colon A \to C$ is injective: if $g(f(a)) = g(f(a'))$, then $f(a) = f(a')$ because $g$ is injective, and then $a = a'$ because $f$ is injective. So $A$ has lesser or equal cardinality to $C$.
+
+    *Not equal.* Suppose, for contradiction, that $A$ and $C$ have equal cardinality, so there is a bijection $h\colon C \to A$. Then $f \circ h\colon C \to B$ is a composition of injections, hence injective, so $C$ has lesser or equal cardinality to $B$. We also have the injection $g\colon B \to C$, so $B$ has lesser or equal cardinality to $C$. By the Schröder–Bernstein theorem (Exercise 8.3.3), $B$ and $C$ have equal cardinality. This contradicts the assumption that $B$ has strictly lesser cardinality than $C$.
+
+    Therefore $A$ and $C$ do not have equal cardinality, and $A$ has strictly lesser cardinality than $C$. $\blacksquare$
+
+- id: lebl-5.2.2
+  hints:
+    - |
+      Being in $\mathscr{R}([a,b])$ means the lower and upper integrals agree. It is enough to trap both the lower and the upper integral of $f+g$ in a short interval that also contains $\int f + \int g$.
+    - |
+      On any subinterval, compare the supremum of $f+g$ with the supremum of $f$ plus the supremum of $g$, and likewise for infima. What does that give for $U(P, f+g)$ and $L(P, f+g)$?
+    - |
+      Use the definition of the integral as a supremum of lower sums and an infimum of upper sums to get four partitions that are good for $f$ and $g$. Their common refinement works for both functions at once (Proposition 5.1.7). Then squeeze.
+  solution: |
+    Throughout, $\underline{\int_a^b} h = \sup_P L(P,h)$ and $\overline{\int_a^b} h = \inf_P U(P,h)$, and for every partition $P$ of $[a,b]$ we have $L(P,h) \le \underline{\int_a^b} h \le \overline{\int_a^b} h \le U(P,h)$.
+
+    Since $f$ and $g$ are bounded, so is $f + g$, so its lower and upper integrals are defined.
+
+    **Step 1: comparing sums on a single partition.** Let $P = \{x_0 < x_1 < \dots < x_n\}$ be any partition, and write $I_i = [x_{i-1}, x_i]$. For $x \in I_i$,
+    $$f(x) + g(x) \le \sup_{I_i} f + \sup_{I_i} g,$$
+    so $\sup_{I_i}(f+g) \le \sup_{I_i} f + \sup_{I_i} g$. Similarly $\inf_{I_i}(f+g) \ge \inf_{I_i} f + \inf_{I_i} g$. Multiplying by $\Delta x_i = x_i - x_{i-1} > 0$ and summing over $i$ gives
+    $$L(P,f) + L(P,g) \le L(P,f+g) \le U(P,f+g) \le U(P,f) + U(P,g). \tag{1}$$
+
+    **Step 2: one partition good for both functions.** Let $\epsilon > 0$. Because $\int_a^b f$ is both the supremum of the lower sums and the infimum of the upper sums of $f$, there are partitions $P_1, P_2$ with
+    $$U(P_1, f) < \int_a^b f + \frac{\epsilon}{4}, \qquad L(P_2, f) > \int_a^b f - \frac{\epsilon}{4},$$
+    and likewise partitions $P_3, P_4$ with $U(P_3, g) < \int_a^b g + \frac{\epsilon}{4}$ and $L(P_4, g) > \int_a^b g - \frac{\epsilon}{4}$. Let $P = P_1 \cup P_2 \cup P_3 \cup P_4$, a common refinement. By Proposition 5.1.7, upper sums can only decrease and lower sums only increase when we pass to $P$, so
+    $$U(P,f) - L(P,f) < \frac{\epsilon}{2}, \qquad U(P,g) - L(P,g) < \frac{\epsilon}{2}.$$
+
+    **Step 3: squeeze.** Put $\ell = L(P,f) + L(P,g)$ and $u = U(P,f) + U(P,g)$. Then $u - \ell < \epsilon$. By (1) and the inequalities recalled at the start,
+    $$\ell \le L(P, f+g) \le \underline{\int_a^b}(f+g) \le \overline{\int_a^b}(f+g) \le U(P,f+g) \le u.$$
+    Also $L(P,f) \le \int_a^b f \le U(P,f)$ and $L(P,g) \le \int_a^b g \le U(P,g)$, so
+    $$\ell \le \int_a^b f + \int_a^b g \le u.$$
+    Thus the three numbers $\underline{\int_a^b}(f+g)$, $\overline{\int_a^b}(f+g)$ and $\int_a^b f + \int_a^b g$ all lie in the interval $[\ell, u]$, whose length is less than $\epsilon$. So any two of them differ by less than $\epsilon$.
+
+    Since $\epsilon > 0$ was arbitrary, all three numbers are equal. Equality of the lower and upper integrals means $f + g \in \mathscr{R}([a,b])$, and then
+    $$\int_a^b (f+g) = \int_a^b f + \int_a^b g. \qquad \blacksquare$$
+
+    (Step 1 is the partition-level inequality behind Proposition 5.2.5, proved directly here, so Proposition 5.2.5 itself is not used.)
+
+- id: cummings-8.5
+  hints:
+    - |
+      Use the criterion for integrability: $f$ is integrable on an interval iff for every $\epsilon > 0$ there is a partition whose upper and lower sums differ by less than $\epsilon$. You need a good partition of $[b,c]$, and you only have good partitions of $[a,d]$.
+    - |
+      Refining a partition never increases $U - L$. So you may assume the good partition of $[a,d]$ contains the points $b$ and $c$.
+    - |
+      Once $b$ and $c$ are partition points, the part of the partition inside $[b,c]$ is a partition of $[b,c]$. Its $U - L$ is a sub-sum of a sum of nonnegative terms.
+  solution: |
+    We use the Riemann (Darboux) criterion: a bounded function $h$ is integrable on an interval $I$ iff for every $\epsilon > 0$ there is a partition $Q$ of $I$ with $U(h,Q) - L(h,Q) < \epsilon$. We also use the fact that refining a partition does not increase upper sums or decrease lower sums.
+
+    **Proof.** Since $f$ is integrable on $[a,d]$, it is bounded there, and hence bounded on $[b,c]$. Let $\epsilon > 0$. By the criterion there is a partition $P$ of $[a,d]$ with $U(f,P) - L(f,P) < \epsilon$. Let $P' = P \cup \{b, c\}$. This is a refinement of $P$, so
+    $$U(f,P') - L(f,P') \le U(f,P) - L(f,P) < \epsilon.$$
+    Write $P' = \{x_0 < x_1 < \dots < x_n\}$ with $x_0 = a$, $x_n = d$, and let $M_i = \sup_{[x_{i-1},x_i]} f$, $m_i = \inf_{[x_{i-1},x_i]} f$. Since $b, c \in P'$, there are indices $j < k$ with $x_j = b$ and $x_k = c$. Then $Q = \{x_j < x_{j+1} < \dots < x_k\}$ is a partition of $[b,c]$, and its subintervals are exactly the subintervals $[x_{i-1}, x_i]$ of $P'$ with $j < i \le k$. Hence
+    $$U(f,Q) - L(f,Q) = \sum_{i=j+1}^{k} (M_i - m_i)(x_i - x_{i-1}) \le \sum_{i=1}^{n} (M_i - m_i)(x_i - x_{i-1}) = U(f,P') - L(f,P') < \epsilon,$$
+    where the middle inequality holds because every term $(M_i - m_i)(x_i - x_{i-1})$ is $\ge 0$. Since $\epsilon > 0$ was arbitrary, the criterion shows that $f$ is integrable on $[b,c]$. $\blacksquare$
+
+- id: ross-33.9
+  hints:
+    - |
+      To show $f$ is integrable, use the Cauchy-type criterion: find a partition $P$ with $U(f,P) - L(f,P) < \epsilon$. Uniform convergence lets you replace $f$ by a single integrable $f_m$ up to a uniformly small error. First check that this already makes $f$ bounded.
+    - |
+      Write $f = (f - f_m) + f_m$. A function bounded in absolute value by $\eta$ has upper and lower sums within $\eta(b-a)$ of $0$ for every partition. Upper sums are subadditive and lower sums superadditive, so the oscillation $U - L$ of $f$ is at most that of $f - f_m$ plus that of $f_m$.
+    - |
+      Structure: choose $m$ so that $\sup|f - f_m|$ is a small multiple of $\epsilon/(b-a)$, then a partition that is good for $f_m$, and add the two contributions. For the integrals, set $\delta_n = \sup|f - f_n|$, squeeze $f - f_n$ between $-\delta_n$ and $\delta_n$, and integrate.
+  solution: |
+    **Boundedness.** By uniform convergence, choose $m$ with $|f(x) - f_m(x)| < 1$ for all $x \in [a,b]$. Since $f_m$ is integrable it is bounded, say $|f_m| \le K$. Then $|f| \le K + 1$ on $[a,b]$, so $f$ is bounded and its Darboux sums make sense.
+
+    **Integrability.** Let $\epsilon > 0$ and put $\eta = \dfrac{\epsilon}{3(b-a)}$. Choose $m$ such that $|f(x) - f_m(x)| < \eta$ for all $x \in [a,b]$, and let $h = f - f_m$. On every subinterval, $-\eta \le \inf h \le \sup h \le \eta$, so for every partition $P$,
+    $$U(h,P) - L(h,P) \le \eta(b-a) - (-\eta(b-a)) = \frac{2\epsilon}{3}.$$
+    Since $f_m$ is integrable, Theorem 32.5 gives a partition $P_0$ with $U(f_m,P_0) - L(f_m,P_0) < \epsilon/3$. Since $f = h + f_m$, the inequalities from the proof of Theorem 33.3, $U(h + f_m, P) \le U(h,P) + U(f_m,P)$ and $L(h+f_m,P) \ge L(h,P) + L(f_m,P)$, give
+    $$U(f,P_0) - L(f,P_0) \le \bigl[U(h,P_0) - L(h,P_0)\bigr] + \bigl[U(f_m,P_0) - L(f_m,P_0)\bigr] < \frac{2\epsilon}{3} + \frac{\epsilon}{3} = \epsilon.$$
+    By Theorem 32.5, $f$ is integrable on $[a,b]$.
+
+    **The integrals converge.** Let $\delta_n = \sup_{x\in[a,b]} |f(x) - f_n(x)|$. Uniform convergence says exactly that $\delta_n$ is finite for all large $n$ and $\delta_n \to 0$. For such $n$ we have $-\delta_n \le f(x) - f_n(x) \le \delta_n$ on $[a,b]$. The function $f - f_n$ is integrable by Theorem 33.3, and monotonicity of the integral (Theorem 33.4) gives
+    $$-\delta_n (b-a) \le \int_a^b (f - f_n) \le \delta_n(b-a).$$
+    By linearity, $\int_a^b (f - f_n) = \int_a^b f - \int_a^b f_n$, so
+    $$\left| \int_a^b f - \int_a^b f_n \right| \le \delta_n (b-a) \to 0.$$
+    Hence $\displaystyle \int_a^b f = \lim_{n\to\infty} \int_a^b f_n$. $\blacksquare$
+
+    **Comparison.** Theorem 25.2 is the special case in which every $f_n$ is continuous. There $f$ is automatically continuous as a uniform limit of continuous functions, and hence integrable. The present result needs only integrability of the $f_n$, and it proves integrability of $f$ instead of getting it for free. Theorem 33.11 (dominated convergence) weakens uniform convergence to bounded pointwise convergence. The price is that it must assume $f$ is integrable: a pointwise limit of uniformly bounded integrable functions need not be Riemann integrable (e.g. indicator functions of finite subsets of $\mathbb{Q} \cap [0,1]$ increasing to the indicator of $\mathbb{Q} \cap [0,1]$).
+
+- id: lebl-5.3.5
+  hints:
+    - |
+      Integration by parts is the integral form of the product rule. Which function has derivative $F'G + FG'$?
+    - |
+      Apply the fundamental theorem of calculus (the form $\int_a^b H' = H(b) - H(a)$) to $H = FG$. Check that $H'$ is Riemann integrable, and then split the integral by linearity.
+  solution: |
+    **Proof.** Let $H = FG$ on $[a,b]$. Since $F$ and $G$ are differentiable on $[a,b]$, the product rule gives
+    $$H'(x) = F'(x)G(x) + F(x)G'(x) \qquad (x \in [a,b]).$$
+    (At the endpoints these are one-sided derivatives, and the product rule holds for them by the same proof.)
+
+    $F, G, F', G'$ are continuous on $[a,b]$, so $F'G$ and $FG'$ are continuous, and so is their sum $H'$. Continuous functions on $[a,b]$ are Riemann integrable, so $F'G$, $FG'$ and $H'$ are all in $\mathscr{R}([a,b])$. Also, $H$ is continuous on $[a,b]$ (it is differentiable) and differentiable on $(a,b)$. By the fundamental theorem of calculus (Theorem 5.3.1: if $H$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $H'$ agrees on $(a,b)$ with a Riemann integrable function, then that function integrates to $H(b) - H(a)$),
+    $$\int_a^b \bigl(F'(x)G(x) + F(x)G'(x)\bigr)\,dx = H(b) - H(a) = F(b)G(b) - F(a)G(a).$$
+    By linearity of the integral, the left side equals $\int_a^b F'(x)G(x)\,dx + \int_a^b F(x)G'(x)\,dx$. Rearranging,
+    $$\int_a^b F(x)G'(x)\,dx = F(b)G(b) - F(a)G(a) - \int_a^b F'(x)G(x)\,dx. \qquad \blacksquare$$
+
+- id: abbott-6.5.5
+  hints:
+    - |
+      For (a), compare consecutive terms of $b_n = n s^{n-1}$. Does the ratio $b_{n+1}/b_n$ eventually stay below $1$? If so, the sequence is eventually decreasing.
+    - |
+      For (b), write $|n a_n x^{n-1}|$ as $\frac{1}{t}\,\bigl(n s^{n-1}\bigr)\,|a_n t^n|$ with $s = |x|/t < 1$. Part (a) controls the first factor. So the differentiated series is dominated by a constant times $\sum |a_n t^n|$.
+    - |
+      You still need $\sum |a_n| t^n < \infty$. The series converges at a point $t'$ with $t < t' < R$, so its terms are bounded there. Compare with a geometric series. For uniform convergence on a compact $K$, run the same estimate with $|x|$ replaced by $\max_K |x|$ and apply the Weierstrass M-Test.
+  solution: |
+    **(a)** Let $0 < s < 1$ and $b_n = n s^{n-1}$ for $n \ge 1$. Then
+    $$\frac{b_{n+1}}{b_n} = \frac{(n+1)s^n}{n s^{n-1}} = \Bigl(1 + \frac{1}{n}\Bigr)s.$$
+    Since $s < 1$, choose $N$ with $\frac{1}{N} < \frac{1}{s} - 1$. For $n \ge N$ we have $(1 + \frac1n)s \le (1 + \frac1N)s < 1$, so $b_{n+1} < b_n$. Hence $b_n \le b_N$ for all $n \ge N$, and
+    $$0 < b_n \le C := \max\{b_1, b_2, \dots, b_N\} \quad \text{for all } n \ge 1.$$
+    So $n s^{n-1}$ is bounded. (For $s = 0$ the sequence is $1, 0, 0, \dots$, which is also bounded, by $1$.)
+
+    **(b)** We prove a slightly stronger statement that gives both conclusions of Theorem 6.5.6.
+
+    **Claim.** Let $0 \le r < R$. Then there are constants $M_n \ge 0$ with $\sum M_n < \infty$ and $|n a_n x^{n-1}| \le M_n$ for all $n \ge 1$ and all $|x| \le r$.
+
+    *Proof of the claim.* Pick $t$ and $t'$ with $r < t < t' < R$. (For a given $x \in (-R,R)$ with $r = |x|$, this $t$ is the $t$ of the problem.) Since $t' \in (-R,R)$, the series $\sum a_n t'^n$ converges, so $a_n t'^n \to 0$. In particular there is $B$ with $|a_n| t'^n \le B$ for all $n$. Hence
+    $$|a_n| t^n = |a_n| t'^n \Bigl(\frac{t}{t'}\Bigr)^n \le B \Bigl(\frac{t}{t'}\Bigr)^n,$$
+    and since $0 < t/t' < 1$, the comparison test with a geometric series shows that $\sum_n |a_n| t^n$ converges.
+
+    Now let $s = r/t \in [0,1)$. By (a) there is $C$ with $n s^{n-1} \le C$ for all $n \ge 1$. For $|x| \le r$ and $n \ge 1$,
+    $$|n a_n x^{n-1}| \le n |a_n| r^{n-1} = n\, s^{n-1} t^{n-1} |a_n| = \frac{1}{t}\,\bigl(n s^{n-1}\bigr)\,|a_n| t^n \le \frac{C}{t}\,|a_n| t^n =: M_n,$$
+    and $\sum M_n = \frac{C}{t}\sum |a_n| t^n < \infty$. This proves the claim.
+
+    **Pointwise convergence on $(-R,R)$.** Given $x \in (-R,R)$, apply the claim with $r = |x|$. Then $\sum |n a_n x^{n-1}| \le \sum M_n < \infty$, so the differentiated series $\sum n a_n x^{n-1}$ converges (absolutely) at $x$.
+
+    **Uniform convergence on compact sets.** Let $K \subseteq (-R,R)$ be compact and nonempty. The continuous function $|x|$ attains a maximum $r$ on $K$ at some point of $K$, so $r < R$. Apply the claim with this $r$. Then $|n a_n x^{n-1}| \le M_n$ for all $x \in K$, with $\sum M_n < \infty$. By the Weierstrass M-Test (Corollary 6.4.5), $\sum n a_n x^{n-1}$ converges uniformly on $K$. $\blacksquare$
+
+- id: abbott-7.6.3
+  hints:
+    - |
+      List the points of the countable set as $a_1, a_2, a_3, \dots$ and cover each point with its own small open interval. The question is how to choose the lengths so that their total is at most $\epsilon$.
+    - |
+      Give the $n$-th point an interval of length $\epsilon/2^n$ (or smaller), and sum the geometric series. Don't forget the finite and empty cases.
+  solution: |
+    **Proof.** Let $A$ be countable and let $\epsilon > 0$.
+
+    *If $A = \emptyset$*, the intervals $O_n = (0, \epsilon/2^{n+1})$ cover $A$ trivially, and the lengths sum to $\sum_{n\ge1}\epsilon/2^{n+1} = \epsilon/2 \le \epsilon$.
+
+    *If $A \neq \emptyset$*, then because $A$ is finite or countably infinite, there is a surjection $\mathbb{N} \to A$, $n \mapsto a_n$. (If $A = \{b_1, \dots, b_k\}$ is finite, take $a_n = b_n$ for $n \le k$ and $a_n = b_k$ for $n > k$. If $A$ is countably infinite, use a bijection.) Define
+    $$O_n = \Bigl(a_n - \frac{\epsilon}{2^{n+2}},\; a_n + \frac{\epsilon}{2^{n+2}}\Bigr), \qquad |O_n| = \frac{\epsilon}{2^{n+1}}.$$
+    Every $a \in A$ equals $a_n$ for some $n$, and $a_n \in O_n$, so $A \subseteq \bigcup_{n=1}^\infty O_n$. Moreover
+    $$\sum_{n=1}^\infty |O_n| = \sum_{n=1}^\infty \frac{\epsilon}{2^{n+1}} = \frac{\epsilon}{2} \le \epsilon.$$
+    Since $\epsilon > 0$ was arbitrary, $A$ has measure zero. $\blacksquare$
+
+- id: abbott-3.4.6
+  hints:
+    - |
+      Both directions come down to one link: when does a point of $B$ belong to $\overline{A}$? Recall $\overline{A} = A \cup L$, where $L$ is the set of limit points, and recall the sequence characterization of limit points.
+    - |
+      If $A$ and $B$ are disjoint and $x \in B$, then $x \in \overline{A}$ exactly when $x$ is a limit point of $A$, i.e. when some sequence of points of $A$ converges to $x$. (The terms are automatically $\ne x$, since $x \notin A$.)
+    - |
+      For "$\Rightarrow$": a partition of a connected $E$ into nonempty disjoint pieces cannot be separated. For "$\Leftarrow$": separated sets are automatically disjoint, so the hypothesis applies to them, and it produces a point of $\overline{A} \cap B$ or of $A \cap \overline{B}$.
+  solution: |
+    **Lemma.** Let $A, B \subseteq \mathbb{R}$ be disjoint and let $x \in B$. Then $x \in \overline{A}$ if and only if there is a sequence $(x_n)$ contained in $A$ with $x_n \to x$.
+
+    *Proof.* Since $x \in B$ and $A \cap B = \emptyset$, we have $x \notin A$. So $x \in \overline{A} = A \cup L$ iff $x$ is a limit point of $A$. By the sequential characterization of limit points (Theorem 3.2.5), this holds iff $x = \lim x_n$ for some sequence $(x_n)$ in $A$ with $x_n \neq x$ for all $n$. Every sequence in $A$ automatically satisfies $x_n \ne x$, since $x \notin A$. $\square$
+
+    **($\Rightarrow$)** Suppose $E$ is connected, and let $A, B$ be nonempty disjoint sets with $E = A \cup B$. Since $E$ is not disconnected, $A$ and $B$ are not separated. So $\overline{A} \cap B \ne \emptyset$ or $A \cap \overline{B} \ne \emptyset$.
+
+    *Case 1: there is $x \in \overline{A} \cap B$.* By the lemma there is a sequence $(x_n)$ in $A$ with $x_n \to x \in B$.
+
+    *Case 2: there is $x \in A \cap \overline{B}$.* By the lemma with the roles of $A$ and $B$ swapped, there is a sequence $(x_n)$ in $B$ with $x_n \to x \in A$.
+
+    In either case we have the required sequence.
+
+    **($\Leftarrow$)** Suppose the sequence condition holds. Suppose, for contradiction, that $E$ is disconnected: $E = A \cup B$ with $A$, $B$ nonempty and separated. Separated sets are disjoint, since $A \cap B \subseteq \overline{A} \cap B = \emptyset$. So the hypothesis applies to $A$ and $B$, and gives a convergent sequence $(x_n) \to x$ lying in one of the sets with $x$ in the other. If $(x_n) \subseteq A$ and $x \in B$, the lemma gives $x \in \overline{A} \cap B$. If $(x_n) \subseteq B$ and $x \in A$, it gives $x \in A \cap \overline{B}$. Either way, one of these intersections is nonempty, contradicting that $A$ and $B$ are separated. Hence $E$ is connected. $\blacksquare$
+
+- id: abbott-4.2.10
+  hints:
+    - |
+      In Definition 4.2.1 the condition $0 < |x - c| < \delta$ lets $x$ approach from both sides. How would you rewrite it to allow only $x > a$, or only $x < a$?
+    - |
+      For (b), one direction is immediate, because the one-sided condition asks for less. For the other direction, each one-sided limit gives its own $\delta$. Which single $\delta$ works for both sides at once?
+  solution: |
+    Throughout, $f\colon A \to \mathbb{R}$. For the one-sided limits to be meaningful, we assume that $a$ is a limit point of both $A \cap (a, \infty)$ and $A \cap (-\infty, a)$. This holds, for example, when $f$ is defined on a punctured interval around $a$. (Without this assumption, the one-sided condition from a side with no nearby points of $A$ would hold vacuously for every $L$.)
+
+    **(a) Definitions.** Let $a$ be a limit point of $A \cap (a,\infty)$. We say $\lim_{x\to a^+} f(x) = L$ provided that for all $\epsilon > 0$ there exists $\delta > 0$ such that whenever $0 < x - a < \delta$ (and $x \in A$), it follows that $|f(x) - L| < \epsilon$.
+
+    Let $a$ be a limit point of $A \cap (-\infty,a)$. We say $\lim_{x\to a^-} f(x) = M$ provided that for all $\epsilon > 0$ there exists $\delta > 0$ such that whenever $0 < a - x < \delta$ (and $x \in A$), it follows that $|f(x) - M| < \epsilon$.
+
+    **(b)** *($\Rightarrow$)* Suppose $\lim_{x\to a} f(x) = L$ and let $\epsilon > 0$. Take the $\delta > 0$ from Definition 4.2.1. If $x \in A$ and $0 < x - a < \delta$, then $0 < |x - a| < \delta$, so $|f(x) - L| < \epsilon$. Thus $\lim_{x\to a^+} f(x) = L$. Similarly, $0 < a - x < \delta$ implies $0 < |x - a| < \delta$, so $\lim_{x \to a^-} f(x) = L$.
+
+    *($\Leftarrow$)* Suppose both one-sided limits equal $L$, and let $\epsilon > 0$. There are $\delta_1 > 0$ and $\delta_2 > 0$ such that, for $x \in A$,
+    $$0 < x - a < \delta_1 \implies |f(x) - L| < \epsilon, \qquad 0 < a - x < \delta_2 \implies |f(x) - L| < \epsilon.$$
+    Let $\delta = \min\{\delta_1, \delta_2\} > 0$, and let $x \in A$ with $0 < |x - a| < \delta$. Since $x \ne a$, either $x > a$, so $0 < x - a < \delta \le \delta_1$, or $x < a$, so $0 < a - x < \delta \le \delta_2$. In both cases $|f(x) - L| < \epsilon$. Also, $a$ is a limit point of $A$, since it is already a limit point of the subset $A \cap (a,\infty)$. Hence $\lim_{x\to a} f(x) = L$. $\blacksquare$
+
+- id: rudin-2.17
+  hints:
+    - |
+      Think of $E$ as the image of the map sending a sequence $(d_1, d_2, \dots)$ with each $d_k \in \{4, 7\}$ to $\sum_k d_k 10^{-k}$. Answer each question in terms of these digit sequences. First check that distinct sequences give distinct numbers.
+    - |
+      Countability: compare with the set of all $0$–$1$ sequences (Rudin's Theorem 2.14). Density: what are the smallest and largest possible elements of $E$?
+    - |
+      Compactness: by Heine–Borel it suffices to show $E$ is closed. Write $E$ as the intersection over $n$ of finite unions of closed intervals, one interval for each choice of the first $n$ digits.
+    - |
+      Perfectness: to approximate $x \in E$ by other points of $E$, change a single far-out digit of $x$ from $4$ to $7$ or vice versa.
+  solution: |
+    **Answer.** $E$ is uncountable, not dense in $[0,1]$, compact, and perfect.
+
+    **Setup.** Let $\Sigma$ be the set of sequences $d = (d_1, d_2, \dots)$ with every $d_k \in \{4,7\}$, and define $\varphi(d) = \sum_{k=1}^\infty d_k 10^{-k}$. By definition, $E = \varphi(\Sigma)$.
+
+    *$\varphi$ is injective.* Let $d \ne e$, and let $k$ be the first index with $d_k \ne e_k$, say $d_k = 7$ and $e_k = 4$. Since $|d_j - e_j| \le 3$ for every $j$,
+    $$\varphi(d) - \varphi(e) = 3\cdot 10^{-k} + \sum_{j>k} (d_j - e_j)10^{-j} \ge 3\cdot 10^{-k} - 3\sum_{j>k}10^{-j} = 3\cdot 10^{-k} - \tfrac13 10^{-k} > 0.$$
+
+    **Countable? No.** The map $\Sigma \to \{0,1\}^{\mathbb{N}}$ that replaces each $4$ by $0$ and each $7$ by $1$ is a bijection. By Rudin's Theorem 2.14, the set of all sequences of $0$'s and $1$'s is uncountable. Hence $\Sigma$ is uncountable, and since $\varphi\colon \Sigma \to E$ is a bijection, so is $E$.
+
+    **Dense in $[0,1]$? No.** For every $d \in \Sigma$,
+    $$\frac49 = \sum_{k\ge1} 4\cdot 10^{-k} \le \varphi(d) \le \sum_{k\ge1} 7\cdot 10^{-k} = \frac79.$$
+    So $E \subseteq [\frac49, \frac79]$. The point $0 \in [0,1]$ is not in $E$. Its neighborhood $(-\frac14, \frac14)$ contains no point of $E$, so $0$ is not a limit point of $E$ either. Hence $E$ is not dense in $[0,1]$.
+
+    **Compact? Yes.** $E$ is bounded, so by the Heine–Borel theorem (Theorem 2.41) it suffices to show $E$ is closed. For a finite word $w = (w_1, \dots, w_n) \in \{4,7\}^n$, let $v(w) = \sum_{k=1}^n w_k 10^{-k}$ and
+    $$I(w) = \Bigl[v(w) + \tfrac49 10^{-n},\; v(w) + \tfrac79 10^{-n}\Bigr].$$
+    Let $F_n = \bigcup_{w \in \{4,7\}^n} I(w)$, a finite union of closed intervals and hence closed. We show $E = \bigcap_{n\ge1} F_n$. Then $E$ is closed, as an intersection of closed sets.
+
+    *Three facts about the intervals.*
+
+    (i) If $d \in \Sigma$, then $\varphi(d) \in I(d_1,\dots,d_n)$ for every $n$. Indeed, $\varphi(d) - v(d_1,\dots,d_n) = \sum_{k>n} d_k 10^{-k}$ lies between $\sum_{k>n}4\cdot10^{-k} = \frac49 10^{-n}$ and $\frac79 10^{-n}$.
+
+    (ii) If $w \in \{4,7\}^n$ and $c \in \{4,7\}$, then $I(w,c) \subseteq I(w)$. Indeed, $v(w,c) = v(w) + c\,10^{-(n+1)}$, so the endpoints of $I(w,c)$ are $v(w) + (c + \frac49)10^{-(n+1)}$ and $v(w) + (c+\frac79)10^{-(n+1)}$, while those of $I(w)$ are $v(w) + \frac{40}{9}10^{-(n+1)}$ and $v(w) + \frac{70}{9}10^{-(n+1)}$. Since $4 \le c \le 7$, we have $c + \frac49 \ge \frac{40}{9}$ and $c + \frac79 \le \frac{70}{9}$, so the inclusion holds.
+
+    (iii) Distinct words $w \ne w'$ of the same length $n$ give disjoint intervals. Let $k \le n$ be the first index where they differ, say $w_k = 7$ and $w'_k = 4$. As in the injectivity estimate,
+    $$v(w) - v(w') \ge 3\cdot 10^{-k} - 3\sum_{j=k+1}^{n} 10^{-j} = 3\cdot10^{-k} - \tfrac13\bigl(10^{-k} - 10^{-n}\bigr).$$
+    Hence
+    $$\min I(w) - \max I(w') = v(w) - v(w') - \tfrac39 10^{-n} \ge 3\cdot 10^{-k} - \tfrac13 10^{-k} > 0.$$
+
+    *$E \subseteq \bigcap F_n$* by (i).
+
+    *$\bigcap F_n \subseteq E$.* Let $x \in \bigcap_n F_n$. For each $n$, by (iii) there is exactly one word $w^{(n)}$ of length $n$ with $x \in I(w^{(n)})$. By (ii), $x \in I(w^{(n+1)}) \subseteq I(u)$, where $u$ is the first $n$ letters of $w^{(n+1)}$. By uniqueness, $u = w^{(n)}$. So each $w^{(n+1)}$ extends $w^{(n)}$, and there is a single $d \in \Sigma$ with $w^{(n)} = (d_1, \dots, d_n)$ for all $n$. By (i), $x$ and $\varphi(d)$ both lie in $I(d_1,\dots,d_n)$, an interval of length $\frac39 10^{-n}$, so $|x - \varphi(d)| \le \frac13 10^{-n}$ for every $n$. Hence $x = \varphi(d) \in E$.
+
+    So $E$ is closed and bounded, hence compact.
+
+    **Perfect? Yes.** $E$ is closed, as just shown. Let $x = \varphi(d) \in E$. For each $n$, let $d^{(n)}$ be $d$ with the $n$-th digit switched ($4 \leftrightarrow 7$). Then $\varphi(d^{(n)}) \in E$, $\varphi(d^{(n)}) \ne x$ by injectivity, and
+    $$|\varphi(d^{(n)}) - x| = 3\cdot 10^{-n} \to 0.$$
+    So every neighborhood of $x$ contains a point of $E$ other than $x$, and $x$ is a limit point of $E$. Hence $E$ is perfect. $\blacksquare$
+
+    (Remark: since $E$ is a nonempty perfect set in $\mathbb{R}$, Rudin's Theorem 2.43 gives a second proof that $E$ is uncountable. The digit expansion is unambiguous here: numbers with two decimal expansions end in repeating $0$'s or $9$'s, so neither expansion uses only $4$'s and $7$'s.)

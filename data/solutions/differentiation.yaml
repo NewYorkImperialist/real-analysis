@@ -578,7 +578,7 @@
     - |
       Relate $g$ to the function $f$ of Example 3, whose derivatives of all orders vanish at $0$. Which inner function turns $e^{-1/x}$ into $e^{-1/x^2}$?
     - |
-      Once you have the representation of $g^{(n)}$ from the book's hint, evaluating at $x = 0$ is immediate. For the induction step, differentiate each term $f^{(k)}(x^2)p_{kn}(x)$ with the chain and product rules and regroup.
+      With $g(x) = f(x^2)$, prove by induction that $g^{(n)}(x)$ is a finite sum of terms $f^{(k)}(x^2)\,p_{kn}(x)$ with polynomials $p_{kn}$; evaluating at $x = 0$ is then immediate. For the induction step, differentiate each term $f^{(k)}(x^2)p_{kn}(x)$ with the chain and product rules and regroup.
     - |
       For (b), write down the Taylor series about $0$ explicitly using (a), and compare it with the sign of $g(x)$ for $x\neq0$.
   solution: |

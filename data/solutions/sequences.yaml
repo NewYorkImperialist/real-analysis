@@ -507,7 +507,7 @@
 - id: ross-8.7
   hints:
     - |
-      The book's hint handles each part separately. A tidier route is one general lemma: if a sequence takes a value $u$ for infinitely many $n$ and a different value $v$ for infinitely many $n$, it cannot converge.
+      One general lemma handles all three parts at once: if a sequence takes a value $u$ for infinitely many $n$ and a different value $v$ for infinitely many $n$, it cannot converge.
     - |
       To prove the lemma, take $\epsilon = |u - v|/2$. For (b), you can also use the fact that convergent sequences are bounded.
   solution: |
@@ -891,9 +891,9 @@
 - id: ross-12.13
   hints:
     - |
-      The book's hint proves $\sup A = \liminf s_n$. To get the $\limsup$ statement for free, look at how the set $B$ for $(s_n)$ relates to the set $A$ for the sequence $(-s_n)$.
+      Work with the tail infima $u_N = \inf\{s_n : n > N\}$, whose limit is $\liminf s_n$. Is $u_N$ itself in $A$? And how does a given $a \in A$ compare with $u_N$ once $N$ is large?
     - |
-      Use $\inf(-X) = -\sup X$ for tail sets to relate $\liminf(-s_n)$ to $\limsup s_n$.
+      Once $\sup A = \liminf s_n$ is proved, the $\limsup$ statement comes for free: relate the set $B$ for $(s_n)$ to the set $A$ for $(-s_n)$, and use $\inf(-X) = -\sup X$ on tail sets.
   solution: |
     Write $u_N = \inf\{s_n : n > N\}$ and $v_N = \sup\{s_n : n > N\}$, so $\liminf s_n = \lim u_N$ and $\limsup s_n = \lim v_N$. These are finite because $(s_n)$ is bounded.
 

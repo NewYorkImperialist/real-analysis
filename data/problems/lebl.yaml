@@ -2942,3 +2942,92 @@
   notes: Definition of contraction quoted. Topic placed under function-sequences/fixed-point per subtopic vocabulary; curator may move to topology (metric spaces).
   curation:
     why: Why completeness and strict contraction are both needed for the fixed point theorem.
+
+- id: lebl-2.4.7
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.4 Cauchy sequences
+    problemNumber: Exercise 2.4.7
+    page: '86'
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  skills:
+  - epsilon-N-proof
+  - unwind-definition
+  concept: Cauchy sequence with a convergent (constant) subsequence converges to its limit
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy
+  - subsequence
+  - definition
+  problemLatex: |
+    Suppose $\{x_n\}_{n=1}^\infty$ is a Cauchy sequence such that for infinitely many $n$, $x_n = c$. Using only the definition of Cauchy sequence prove that $\lim_{n\to\infty} x_n = c$.
+  curation:
+    why: 'The key step of Cauchy ⇒ convergent: a Cauchy sequence converges to the limit of any convergent subsequence, here in its cleanest form from the definition alone.'
+
+- id: lebl-5.2.2
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.2 Properties of the integral
+    problemNumber: Exercise 5.2.2
+    page: '197'
+  topic: integration
+  subtopics:
+  - integral-properties
+  - partitions-darboux-sums
+  skills:
+  - partition-refinement
+  - sup-inf-inequalities
+  concept: 'linearity of the Riemann integral: f+g integrable and ∫(f+g)=∫f+∫g'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - linearity
+  - refinement
+  - machinery
+  problemLatex: |
+    Prove the second part of Proposition 5.2.4. Let $f$ and $g$ be in $\mathscr{R}\bigl([a,b]\bigr)$. Prove, without using Proposition 5.2.5, that $f+g$ is in $\mathscr{R}\bigl([a,b]\bigr)$ and
+    $$\int_a^b \bigl(f(x)+g(x)\bigr)\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx.$$
+    Hint: One way to do it is to use Proposition 5.1.7 to find a single partition $P$ such that $U(P,f) - L(P,f) < \epsilon/2$ and $U(P,g) - L(P,g) < \epsilon/2$.
+
+    *(Proposition 5.2.4 (ii), the part to prove: if $f, g \in \mathscr{R}\bigl([a,b]\bigr)$, then $f+g \in \mathscr{R}\bigl([a,b]\bigr)$ and $\int_a^b (f+g) = \int_a^b f + \int_a^b g$.)*
+
+    *(Proposition 5.2.5: Let $f\colon [a,b] \to \mathbb{R}$ and $g\colon [a,b] \to \mathbb{R}$ be bounded functions. Then $\overline{\int_a^b}(f+g) \le \overline{\int_a^b} f + \overline{\int_a^b} g$ and $\underline{\int_a^b}(f+g) \ge \underline{\int_a^b} f + \underline{\int_a^b} g$.)*
+
+    *(Proposition 5.1.7: Let $f\colon [a,b] \to \mathbb{R}$ be a bounded function, and let $P$ be a partition of $[a,b]$. Let $\widetilde{P}$ be a refinement of $P$. Then $L(P,f) \le L(\widetilde{P},f)$ and $U(\widetilde{P},f) \le U(P,f)$.)*
+  notes: Verbatim. Proposition 5.2.5 and Proposition 5.1.7 quoted verbatim; Proposition 5.2.4 (ii) summarized from the exercise's own displayed statement. Text extraction lost the word 'without'; verified on page image.
+  curation:
+    why: Linearity of the Riemann integral proved from upper and lower sums, a property the bank used everywhere but never proved.
+
+- id: lebl-5.3.5
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.3 Fundamental theorem of calculus
+    problemNumber: Exercise 5.3.5
+    page: '205'
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  skills:
+  - FTC-application
+  - product-rule
+  concept: integration by parts
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - fundamental-theorem-of-calculus
+  - integration-by-parts
+  problemLatex: |
+    Prove *integration by parts*. That is, suppose $F$ and $G$ are continuously differentiable functions on $[a,b]$. Then prove
+    $$\int_a^b F(x)G'(x)\,dx = F(b)G(b) - F(a)G(a) - \int_a^b F'(x)G(x)\,dx.$$
+  curation:
+    why: Integration by parts proved from the product rule and the FTC, the theorem the MIT final uses without proof.

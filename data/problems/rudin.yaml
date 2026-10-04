@@ -84,6 +84,7 @@
     *(Rudin, Definition 4.26, quoted: Let $f$ be defined on $(a, b)$. If $f$ is discontinuous at a point $x$, and if $f(x+)$ and $f(x-)$ exist, then $f$ is said to have a discontinuity of the first kind, or a simple discontinuity, at $x$. Otherwise the discontinuity is said to be of the second kind. There are two ways in which a function can have a simple discontinuity: either $f(x+) \ne f(x-)$ [in which case the value $f(x)$ is immaterial], or $f(x+) = f(x-) \ne f(x)$.)*
 
     *(Here $f(x+)$ and $f(x-)$ are the right- and left-hand limits of $f$ at $x$.)*
+  textbookHintsLast: true  # printed hint gives most of the solution away
   hints:
   - text: |
       Let $E$ be the set on which $f(x-) < f(x+)$. With each point $x$ of $E$, associate a triple $(p, q, r)$ of rational numbers such that
@@ -624,3 +625,38 @@
   notes: 'Construction from Sec. 2.44 (p. 41) quoted verbatim. Tier core-gap is a judgment call: modest difficulty, but it supplies the characterization other bank Cantor-set problems quietly rely on.'
   curation:
     why: 'The ternary-digit description of the Cantor set, which other Cantor-set problems rely on.'
+
+- id: rudin-2.17
+  source:
+    key: rudin
+    chapter: 2 Basic Topology
+    section: Exercises
+    problemNumber: Exercise 2.17
+    page: '44'
+  topic: topology
+  subtopics:
+  - cantor-set
+  - perfect-sets
+  - compactness
+  - dense-sets
+  skills:
+  - decimal-expansion
+  - diagonal-argument
+  - sequential-characterization
+  concept: 'set of x in [0,1] with decimal digits only 4 and 7: uncountable, not dense, compact, perfect'
+  difficulty: medium
+  category: synthesis
+  type: conceptual
+  tags:
+  - cantor-set
+  - perfect-set
+  - decimal-expansion
+  - compactness
+  - countability
+  problemLatex: |
+    Let $E$ be the set of all $x \in [0,1]$ whose decimal expansion contains only the digits 4 and 7. Is $E$ countable? Is $E$ dense in $[0,1]$? Is $E$ compact? Is $E$ perfect?
+
+    *(Rudin, Definition 2.18(h): $E$ is perfect if $E$ is closed and if every point of $E$ is a limit point of $E$.)*
+  notes: 'Verified against the page image (printed p. 44, pdf 53); verbatim. Definition 2.18(h) quoted. Added to the core (not the upper tier) to fill the perfect-set gap: the bank had perfect sets only in upper-tier problems.'
+  curation:
+    why: 'A Cantor-type set built from decimal digits: decide countability, density, compactness and perfectness, the core experience with perfect sets.'

@@ -3030,3 +3030,162 @@
   notes: Definitions of the discrete metric, sup metric, and completeness (Definition 8.2.4) quoted from pp. 258–259.
   curation:
     why: C[0,1] with the sup metric is complete, but C¹[0,1] with the sup metric is not.
+
+- id: abbott-2.6.1
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.6 The Cauchy Criterion
+    problemNumber: Exercise 2.6.1
+    page: '70'
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  skills:
+  - epsilon-over-2
+  - triangle-inequality
+  concept: every convergent sequence is Cauchy
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy-sequence
+  - convergence
+  - triangle-inequality
+  problemLatex: |
+    Supply a proof for Theorem 2.6.2.
+
+    *(Theorem 2.6.2: Every convergent sequence is a Cauchy sequence.)*
+
+    *(Definition 2.6.1: A sequence $(a_n)$ is called a Cauchy sequence if, for every $\epsilon > 0$, there exists an $N \in \mathbb{N}$ such that whenever $m, n \ge N$ it follows that $|a_n - a_m| < \epsilon$.)*
+  notes: Theorem 2.6.2 and Definition 2.6.1 quoted verbatim (pp. 66-67).
+  curation:
+    why: The easy half of the Cauchy Criterion (convergent ⇒ Cauchy), which the bank used in several problems but never proved.
+
+- id: abbott-6.5.5
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.5 Power Series
+    problemNumber: Exercise 6.5.5
+    page: '196'
+  topic: function-sequences
+  subtopics:
+  - power-series
+  - interchange-derivative
+  skills:
+  - comparison-estimate
+  - bounded-sequence
+  concept: term-by-term differentiated power series converges on (-R,R)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - power-series
+  - term-by-term-differentiation
+  - radius-of-convergence
+  problemLatex: |
+    (a) If $s$ satisfies $0 < s < 1$, show $ns^{n-1}$ is bounded for all $n \ge 1$.
+
+    (b) Given an arbitrary $x \in (-R,R)$, pick $t$ to satisfy $|x| < t < R$. Use this start to construct a proof for Theorem 6.5.6.
+
+    *(Theorem 6.5.6: If $\sum_{n=0}^\infty a_n x^n$ converges for all $x \in (-R,R)$, then the differentiated series $\sum_{n=1}^\infty n a_n x^{n-1}$ converges at each $x \in (-R,R)$ as well. Consequently, the convergence is uniform on compact sets contained in $(-R,R)$.)*
+  notes: Theorem 6.5.6 quoted verbatim from p. 194.
+  curation:
+    why: 'Why power series can be differentiated term by term: the differentiated series converges on the same open interval, uniformly on compact subsets.'
+
+- id: abbott-7.6.3
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.6 Lebesgue's Criterion for Riemann Integrability
+    problemNumber: Exercise 7.6.3
+    page: '240'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  skills:
+  - geometric-series-estimate
+  - covering-argument
+  concept: countable sets have measure zero
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - measure-zero
+  - countable-set
+  - covering
+  problemLatex: |
+    Show that any countable set has measure zero.
+
+    *(Definition 7.6.1: A set $A \subseteq \mathbb{R}$ has measure zero if, for all $\epsilon > 0$, there exists a countable collection of open intervals $O_n$ with the property that $A$ is contained in the union of all of the intervals $O_n$ and the sum of the lengths of all of the intervals is less than or equal to $\epsilon$. More precisely, if $|O_n|$ refers to the length of the interval $O_n$, then we have $A \subseteq \bigcup_{n=1}^\infty O_n$ and $\sum_{n=1}^\infty |O_n| \le \epsilon$.)*
+  notes: Definition 7.6.1 quoted verbatim from p. 240.
+  curation:
+    why: 'Measure zero from the definition: the ε/2^n covering trick that underlies Lebesgue''s criterion.'
+
+- id: abbott-3.4.6
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.4 Perfect Sets and Connected Sets
+    problemNumber: Exercise 3.4.6
+    page: '106'
+  topic: topology
+  subtopics:
+  - connectedness
+  - limit-points
+  skills:
+  - negate-definition
+  - sequential-characterization
+  concept: sequential characterization of connected sets
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - connectedness
+  - separated-sets
+  - closure
+  - quantifiers
+  problemLatex: |
+    Prove Theorem 3.4.6.
+
+    *(Theorem 3.4.6: A set $E \subseteq \mathbb{R}$ is connected if and only if, for all nonempty disjoint sets $A$ and $B$ satisfying $E = A \cup B$, there always exists a convergent sequence $(x_n) \to x$ with $(x_n)$ contained in one of $A$ or $B$, and $x$ an element of the other.)*
+
+    *(Definition 3.4.4: Two nonempty sets $A, B \subseteq \mathbb{R}$ are separated if $\overline{A} \cap B$ and $A \cap \overline{B}$ are both empty. A set $E \subseteq \mathbb{R}$ is disconnected if it can be written as $E = A \cup B$, where $A$ and $B$ are nonempty separated sets. A set that is not disconnected is called a connected set.)*
+  notes: Theorem 3.4.6 and Definition 3.4.4 quoted verbatim from pp. 104–105 (PDF 116–117).
+  curation:
+    why: The sequential characterization of connected sets in R, the tool behind 'connected subsets of R are exactly the intervals'.
+
+- id: abbott-4.2.10
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.2 Functional Limits
+    problemNumber: Exercise 4.2.10
+    page: '122'
+  topic: continuity
+  subtopics:
+  - functional-limits
+  skills:
+  - epsilon-delta-proof
+  - write-definition
+  concept: limit exists iff both one-sided limits exist and agree
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - one-sided-limit
+  - functional-limit
+  - epsilon-delta
+  problemLatex: |
+    **(Right and Left Limits).** Introductory calculus courses typically refer to the right-hand limit of a function as the limit obtained by "letting $x$ approach $a$ from the right-hand side."
+
+    (a) Give a proper definition in the style of Definition 4.2.1 for the right-hand and left-hand limit statements:
+    $$\lim_{x\to a^+} f(x) = L \quad\text{and}\quad \lim_{x\to a^-} f(x) = M.$$
+
+    (b) Prove that $\lim_{x\to a} f(x) = L$ if and only if both the right and left-hand limits equal $L$.
+
+    *(Definition 4.2.1 (Functional Limit): Let $f \colon A \to \mathbb{R}$, and let $c$ be a limit point of the domain $A$. We say that $\lim_{x\to c} f(x) = L$ provided that, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$ (and $x \in A$) it follows that $|f(x) - L| < \epsilon$.)*
+  notes: Verified against the page text (printed pp. 122–123, pdf 133–134). Definition 4.2.1 quoted verbatim from p. 116. Same content as Exercises 4.6.3–4.6.4 (Theorem 4.6.3), which were skipped as duplicates.
+  curation:
+    why: Defines one-sided limits and proves a two-sided limit exists iff both one-sided limits exist and agree.

@@ -1,13 +1,13 @@
 # Unselected candidates
 
-566 candidates were transcribed and classified but not selected for the bank (67 core, 257 strong, 242 consider). Most "core"/"strong" ones lost only to a near-identical
+555 candidates were transcribed and classified but not selected for the bank (66 core, 251 strong, 238 consider). Most "core"/"strong" ones lost only to a near-identical
 version from another source that is already in the bank. Full text and metadata: `curation/candidates/*.yaml`.
 
 Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see curation/README.md).
 
 "Audited" = transcription already checked symbol-by-symbol against the page image.
 
-## foundations (28)
+## foundations (27)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -26,7 +26,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | tao-7.1.4 | consider | easy | proof | binomial theorem by induction | no |
 | tao-8.1.2 | consider | easy | proof | well-ordering principle | no |
 | tao-8.1.4 | consider | easy | proof | image of N under any map is at most countable | no |
-| tao-8.3.4 | consider | easy | proof | \|X\| < \|2^X\|; transitivity of strict cardinality | no |
 | tao-8.3.5 | consider | easy | proof | no power set is countably infinite | no |
 | lebl-0.3.4 | consider | introductory | counterexample | f(C ∪ D) = f(C) ∪ f(D); f(C ∩ D) ⊂ f(C) ∩ f(D), strict in general | yes |
 | ross-1.11 | consider | introductory | conceptual | induction step without base case proves nothing | no |
@@ -91,7 +90,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-2.4.4 | consider | medium | proof | Monotone Convergence Theorem implies Archimedean Property and Nested Interval Property | no |
 | lebl-1.2.15 | consider | medium | proof | sup{x in Q : x < y} = y; Dedekind cuts correspond to reals | yes |
 
-## sequences (89)
+## sequences (87)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -133,7 +132,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | tao-6.5.3 | strong | easy | proof | lim x^{1/n} = 1 for x>0 | no |
 | tao-6.6.4 | strong | easy | proof | a_n → L iff every subsequence → L | no |
 | abbott-2.2.7 | strong | introductory | conceptual | eventually vs frequently; convergence = eventually in every neighborhood | no |
-| abbott-2.6.1 | strong | introductory | proof | every convergent sequence is Cauchy | no |
 | cummings-3.11 | strong | introductory | proof | convergent + divergent is divergent | yes |
 | cummings-3.14 | strong | introductory | theorem-application | Bolzano–Weierstrass application: bounded subsequence ⇒ convergent subsequence | yes |
 | cummings-3.2 | strong | introductory | proof | ε-N proofs of explicit limits | yes |
@@ -155,7 +153,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-2.1.23 | consider | easy | proof | monotone sequence with a convergent subsequence converges | yes |
 | lebl-2.3.15 | consider | easy | proof | ratio test for sequences, limsup version | yes |
 | lebl-2.3.20 | consider | easy | proof | limsup = ∞ ⇒ subsequence tending to ∞ | yes |
-| lebl-2.4.7 | consider | easy | proof | Cauchy sequence with a convergent (constant) subsequence converges to its limit | yes |
 | ross-10.9 | consider | easy | proof | recursive sequence: monotone bounded, solve fixed-point equation | no |
 | ross-12.14 | consider | easy | computation | (n!)^{1/n} → ∞ and (n!)^{1/n}/n → 1/e | no |
 | ross-12.9 | consider | easy | proof | s_n → +∞, liminf t_n > 0 ⇒ s_n t_n → +∞ | no |
@@ -240,7 +237,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-2.6.8 | consider | medium | counterexample | radius of convergence of sum/product can exceed both radii | yes |
 | ross-15.8 | consider | medium | proof | integral test | no |
 
-## topology (71)
+## topology (70)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -255,7 +252,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-3.2.11 | strong | easy | proof | closure of a finite union is the union of closures; fails for infinite unions | no |
 | abbott-3.2.4 | strong | easy | proof | sup A lies in the closure of A; open set does not contain its supremum | no |
 | abbott-3.3.3 | strong | easy | proof | closed and bounded ⇒ sequentially compact (Heine–Borel, sequential direction) | no |
-| abbott-3.4.6 | strong | easy | proof | sequential characterization of connected sets | no |
 | abbott-3.5.5 | strong | easy | theorem-application | R is not a countable union of closed sets with empty interior | no |
 | abbott-8.2.11 | strong | easy | proof | closure of complement = complement of interior | no |
 | abbott-8.2.8 | strong | easy | proof | open balls open; closed balls closed; E open iff complement closed (metric spaces) | no |
@@ -316,7 +312,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-7.4.9 | consider | medium | construction | there is a metric making R compact | no |
 | ross-13.14 | consider | medium | proof | diameter of compact set is attained | no |
 
-## continuity (108)
+## continuity (107)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -379,7 +375,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | tao-9.8.4 | strong | medium | proof | inverse of continuous strictly increasing function on [a,b] is continuous | no |
 | tao-9.9.4 | strong | medium | proof | uniformly continuous function has a limit at each boundary point / extends to closure | no |
 | tao-9.9.5 | strong | medium | proof | uniformly continuous function on a bounded set is bounded | no |
-| abbott-4.2.10 | consider | easy | proof | limit exists iff both one-sided limits exist and agree | no |
 | abbott-4.3.1 | consider | easy | proof | cube root is continuous (epsilon-delta) | no |
 | abbott-4.4.7 | consider | easy | proof | sqrt(x) is uniformly continuous on [0,∞) (but not Lipschitz) | no |
 | abbott-4.5.2 | consider | easy | counterexample | possible ranges of continuous functions on intervals | no |
@@ -492,7 +487,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-4.4.8 | consider | medium | proof | differentiability of f from that of its inverse g; g'(y)=0 obstructs | yes |
 | ross-30.7 | consider | medium | counterexample | Stolz counterexample: f'/g' -> 0 but f/g has no limit when g' vanishes | no |
 
-## integration (59)
+## integration (55)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -505,17 +500,13 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-7.3.2 | core | medium | proof | Thomae's function is Riemann integrable with integral 0 | no |
 | cummings-8.13 | core | medium | proof | Thomae's function is Riemann integrable (integral 0) | yes |
 | abbott-7.4.3 | strong | easy | counterexample | \|f\| integrable does not imply f integrable; continuous nonneg nonzero has positive integral | no |
-| abbott-7.6.3 | strong | easy | proof | countable sets have measure zero | no |
 | cummings-8.12 | strong | easy | proof | monotone functions are Riemann integrable | yes |
 | cummings-8.14 | strong | easy | counterexample | f not integrable but f^2 integrable (±1 Dirichlet) | yes |
 | cummings-8.16 | strong | easy | theorem-application | ∫_a^x f = 0 for all x with f continuous implies f ≡ 0 | yes |
 | cummings-8.22 | strong | easy | proof | continuous nonnegative f, positive at a point, has positive integral | yes |
-| cummings-8.5 | strong | easy | proof | integrable on [a,d] implies integrable on subinterval [b,c] | yes |
 | lebl-5.1.3 | strong | easy | proof | sequence of partitions with U(P_k,f)-L(P_k,f)->0 implies integrable, integral = lim U = lim L | no |
 | lebl-5.1.6 | strong | easy | proof | changing a function at one point does not affect integrability or the integral | no |
-| lebl-5.2.2 | strong | easy | proof | linearity of the Riemann integral: f+g integrable and ∫(f+g)=∫f+∫g | no |
 | lebl-5.2.4 | strong | easy | theorem-application | mean value theorem for integrals | no |
-| lebl-5.3.5 | strong | easy | proof | integration by parts | no |
 | lebl-5.3.8 | strong | easy | proof | ∫_a^x f = ∫_x^b f for all x forces f = 0 (FTC) | no |
 | ross-32.6 | strong | easy | proof | sequences of upper/lower Darboux sums with U_n - L_n -> 0 give integrability and the integral | no |
 | ross-32.7 | strong | easy | proof | altering an integrable function at finitely many points preserves integrability and integral | no |
@@ -556,7 +547,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-5.4.4 | consider | medium | proof | ln(1+x) power series on (-1,1]; alternating harmonic series = ln 2 | no |
 | tao-11.9.1 | consider | medium | proof | integral of monotone function with dense jumps is non-differentiable at each jump | no |
 
-## function-sequences (57)
+## function-sequences (55)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -567,7 +558,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-6.6.6 | core | medium | counterexample | e^{-1/x^2}: smooth, all derivatives 0 at 0, not analytic | no |
 | cummings-9.8 | core | medium | proof | Cauchy criterion for uniform convergence | yes |
 | ross-29.18 | core | medium | proof | contraction mapping / fixed point via sup\|f'\| < 1 (Banach fixed point on R) | no |
-| ross-33.9 | core | medium | proof | uniform limit of Riemann integrable functions is integrable and integral of limit = limit of integrals | no |
 | abbott-6.2.7 | strong | easy | proof | f uniformly continuous => f(x+1/n) -> f uniformly; fails for x^2 | no |
 | abbott-6.3.1 | strong | easy | counterexample | x^n/n -> 0 uniformly but lim (x^n/n)' != 0 at x=1 | no |
 | abbott-6.3.2 | strong | easy | counterexample | sqrt(x^2+1/n) -> \|x\| uniformly; derivatives not uniformly convergent near 0 | no |
@@ -613,7 +603,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | ross-26.5 | consider | introductory | theorem-application | exponential series satisfies f' = f | no |
 | abbott-6.2.13 | consider | medium | construction | diagonal subsequence: uniformly bounded sequence converges pointwise on countable set | no |
 | abbott-6.3.6 | consider | medium | counterexample | examples around the Differentiable Limit Theorem (Theorem 6.3.3) | no |
-| abbott-6.5.5 | consider | medium | proof | term-by-term differentiated power series converges on (-R,R) | no |
 | abbott-6.6.7 | consider | medium | construction | Taylor series convergence vs representation: examples with e^{-1/x^2} | no |
 | abbott-6.7.11 | consider | medium | proof | C^1 approximation by polynomials (approximate f' and integrate) | no |
 | lebl-7.6.11 | consider | medium | proof | fixed point theorem when Σ Lip(f^n) < ∞ | no |
