@@ -1,0 +1,85 @@
+# Upper-tier / core-gap selections from Pugh, Rudin, MIT 18.100B (see UPPER_SHORTLIST.md)
+# Pending user approval. 141 candidates in; 33 upper items (34 cids, as pugh-3.23 + pugh-3.25 make one item), 6 core-gap items (7 cids), 14 borderline.
+
+upper:
+  # sequences & series (4)
+  - rudin-3.14
+  - pugh-prelim-63
+  - pugh-3.73
+  - pugh-3.68
+  # continuity (5)
+  - rudin-4.17
+  - rudin-4.19
+  - rudin-4.5
+  - pugh-2.44
+  - pugh-4.20
+  # differentiation (5)
+  - rudin-5.15
+  - rudin-5.17
+  - rudin-5.21
+  - rudin-5.26
+  - pugh-1.32
+  # integration (3)
+  - pugh-prelim-45
+  - pugh-prelim-56
+  - pugh-prelim-7
+  # sequences/series of functions (7 items)
+  - rudin-7.16
+  - rudin-7.13
+  - rudin-7.10
+  - pugh-prelim-28
+  - mit18100b-2006-ps10-x1
+  - pugh-3.23
+  - pugh-3.25
+  - pugh-4.37
+  # metric topology (9)
+  - pugh-prelim-31
+  - pugh-2.49
+  - pugh-2.76
+  - pugh-2.78
+  - pugh-prelim-43
+  - pugh-2.148
+  - rudin-2.27
+  - rudin-4.25
+  - pugh-4.27
+
+coreGap:
+  - mit18100b-2006-ps3-7   # Lebesgue number lemma
+  - pugh-2.93              # FIP characterization of compactness (with pugh-2.94, one item)
+  - pugh-2.94
+  - rudin-5.14             # convex iff f' increasing iff f'' >= 0
+  - rudin-7.20             # vanishing moments => f = 0 (Weierstrass approximation application)
+  - rudin-3.19             # Cantor set = ternary expansions with digits 0, 2
+  - mit18100b-f10-ps10-5   # (C[-1,1], L^1 metric) is not complete
+
+borderline:
+  - rudin-7.25             # ODE existence (Peano)
+  - mit18100b-s25-ps9-5    # ODE uniqueness via integral equation
+  - pugh-3.22              # needs zero sets + Lebesgue criterion
+  - pugh-3.34              # Morse-Sard in 1D (zero sets)
+  - pugh-3.44              # Lebesgue criterion classification
+  - pugh-3.29              # interval is not a zero set (self-contained, but introduces measure zero)
+  - pugh-3.38              # counting integrable functions (Lebesgue criterion)
+  - pugh-3.47              # discontinuity sets of phi∘f (Lebesgue criterion context)
+  - pugh-3.50              # answer verified (NO) but construction needs Lebesgue criterion + fat Cantor set
+  - rudin-7.14             # space-filling curve
+  - pugh-2.149             # Moore's T theorem (plane geometric topology)
+  - pugh-2.102             # Peano curves not injective (planar topology)
+  - pugh-1.47              # inner products / Jordan-von Neumann
+  - mit18100b-2006-ps6-x2  # sum 1/p diverges (number theory)
+
+trims:
+  rudin-3.14: "Keep parts (c)-(e) only; (a)-(b) duplicate abbott-2.3.11. Keep the definitions of sigma_n and a_n = s_n - s_{n-1}."
+  rudin-4.17: "State the problem bare; move Rudin's rational-triple hint into the hints."
+  pugh-4.20: "Part (a) only (for which alpha, beta > 0 is x^alpha sin(x^beta) uniformly continuous on (0, inf)?). Answer: iff alpha + beta <= 1."
+  rudin-5.15: "Drop the closing vector-valued question; append rudin-5.16 (f -> 0 and f'' bounded => f' -> 0) as a final part."
+  pugh-1.32: "Part (b) only (a convex function on (a,b) is differentiable except at countably many points), preceded by pugh-1.30(c) (chord slopes increase in each endpoint) as part (a). Drop the plane-curve part."
+  pugh-3.23: "Merge with pugh-3.25 into ONE item: inline the needed facts (D_k is closed; definition of oscillation), conclude 'Baire class 1 => continuity points dense' (the Exercise 24 step), then 3.25: derivatives are continuous on a dense set."
+  pugh-3.25: "Merged into pugh-3.23 (see above)."
+  pugh-4.37: "Parts (a)-(b) only (Borel's lemma; Taylor series with R = 0). Drop (c) (smooth function with R = 0 at every point): too heavy."
+  rudin-2.27: "Append rudin-2.28 restricted to R^k as part (b): every closed set in R^k = perfect set ∪ at most countable set; every countable closed set has isolated points."
+  pugh-4.27: "Optionally append pugh-4.28 as part (d): f: R -> R differentiable with |f'(x)| < 1 everywhere need not have a fixed point."
+  pugh-2.93: "Merge with pugh-2.94 into ONE item: M is compact iff every family of closed sets with the finite intersection property has nonempty intersection."
+  pugh-2.94: "Merged into pugh-2.93."
+  rudin-7.20: "Quote the Weierstrass approximation theorem in the statement, since the bank never states or proves it."
+  mit18100b-f10-ps10-5: "Inline the definition of d_1 and the fact that it is a metric (abbott-8.2.2 already covers that)."

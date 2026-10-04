@@ -279,6 +279,9 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
           <a href={href('browse', `topic=${encodeURIComponent(p.topic)}`)}>{topicLabel(p.topic)}</a>
           {p.subtopics.map((s) => <span key={s}>{subtopicLabel(p.topic, s)}</span>)}
           <span>{label(p.difficulty)}</span>
+          {p.tier === 'upper' && (
+            <a class="tier-badge" href={href('browse', 'tier=upper')} title="Optional harder layer; not counted in core progress">Upper tier</a>
+          )}
           <span>{label(p.category)}</span>
           <span>{label(p.type)}</span>
         </p>

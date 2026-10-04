@@ -1,0 +1,894 @@
+# BANK (324 selected problems): id | difficulty | category/type | concept
+mit20-final-1 | introductory | canonical/definition | negating continuity, uniform continuity, uniform convergence
+mit20-mid-1a | introductory | canonical/proof | preimages commute with intersections
+mit20-mid-1bc | introductory | canonical/conceptual | complements of countable / uncountable subsets of R
+lebl-0.3.6 | introductory | canonical/proof | distributive laws for union and intersection
+lebl-0.3.10 | introductory | canonical/proof | g∘f injective ⇒ f injective; g∘f surjective ⇒ g surjective
+lebl-0.3.11 | introductory | canonical/proof | n < 2^n by induction
+lebl-0.3.15 | introductory | canonical/proof | 6 divides n^3 + 5n by induction
+lebl-0.3.19 | introductory | canonical/counterexample | countable union of finite sets can be infinite
+tao-a.5.1 | introductory | canonical/conceptual | order of quantifiers matters (∀∃ vs ∃∀)
+mit20-a3-3 | easy | canonical/proof | irrationals are uncountable
+abbott-1.2.11 | easy | canonical/definition | negating quantified statements (Archimedean / density)
+abbott-1.5.6 | easy | canonical/proof | any collection of disjoint open intervals is countable
+lebl-0.3.12 | easy | canonical/proof | |P(A)| = 2^n for |A| = n
+lebl-0.3.27 | easy | canonical/proof | preimage preserves arbitrary unions/intersections; image preserves unions, only ⊂ for intersections
+tao-3.4.5 | easy | canonical/proof | f(f^{-1}(S))=S ∀S iff f surjective; f^{-1}(f(S))=S ∀S iff f injective
+mit20-a1-6 | medium | canonical/proof | Q is countable (explicit bijection via prime factorizations)
+mit20-a3-2 | medium | canonical/proof | uncountable sets via a bijection with the power set of N
+abbott-1.5.3 | medium | canonical/proof | countable union of countable sets is countable
+abbott-1.5.8 | medium | synthesis/proof | a set of positive reals with bounded finite sums is countable
+abbott-1.5.9 | medium | canonical/proof | algebraic numbers are countable; transcendental numbers exist (uncountably many)
+lebl-1.4.5 | medium | canonical/construction | explicit bijection [0,1] → (0,1)
+ross-16.8 | medium | canonical/proof | (0,1) is uncountable (diagonal argument)
+tao-8.3.2 | medium | synthesis/proof | Schröder–Bernstein lemma: A ⊆ B ⊆ C with injection C → A gives A ~ B
+mit20-a3-4 | introductory | canonical/definition | ε-characterization of the supremum
+abbott-1.2.6 | introductory | canonical/proof | triangle inequality and reverse triangle inequality ||a|-|b|| <= |a-b|
+lebl-1.1.1 | introductory | canonical/proof | in an ordered field, x < 0 and y < z imply xy > xz
+lebl-1.1.5 | introductory | canonical/definition | an upper bound that belongs to the set is its supremum
+lebl-1.2.7 | introductory | canonical/proof | AM-GM inequality for two numbers
+cummings-1.9 | introductory | canonical/proof | if a < b + ε for all ε>0 then a ≤ b; if |a−b|<ε for all ε then a=b
+cummings-1.19 | introductory | canonical/proof | sup{n/(n+1)} = 1, inf = 1/2 via ε-characterization
+mit20-a3-1 | easy | canonical/proof | density of the irrationals
+mit20-a4-6 | easy | canonical/proof | sequential characterization of the supremum
+abbott-1.3.3 | easy | canonical/proof | inf A = sup of the set of lower bounds of A (infima exist from AoC)
+abbott-1.3.5 | easy | canonical/proof | sup(cA) = c sup A for c >= 0; sup(cA) = c inf A for c < 0
+abbott-1.3.9 | easy | canonical/proof | sup A < sup B implies some b in B is an upper bound for A
+abbott-1.3.11 | easy | canonical/counterexample | A subset B implies sup A <= sup B; sup A < inf B vs. separating constant
+abbott-1.4.4 | easy | canonical/proof | sup(Q ∩ [a,b]) = b (density of rationals)
+abbott-1.4.8 | easy | canonical/counterexample | sharpness of the Nested Interval Property hypotheses
+lebl-1.1.2 | easy | canonical/proof | nonempty finite subset of an ordered set has max and min
+lebl-1.1.6 | easy | canonical/proof | if sup A is not in A, A contains a strictly increasing sequence (countably infinite subset)
+lebl-1.1.14 | easy | canonical/counterexample | ordered set without the least-upper-bound property
+lebl-1.2.9 | easy | canonical/proof | sup(A + B) = sup A + sup B
+lebl-1.2.13 | easy | canonical/proof | Bernoulli's inequality
+lebl-1.3.5 | easy | canonical/counterexample | f(x) ≤ g(y) for all x,y ⇒ sup f ≤ inf g; pointwise f ≤ g is not enough
+lebl-1.3.7 | easy | canonical/proof | sup(f+g) ≤ sup f + sup g, with strict inequality possible
+mit20-a2-7 | medium | canonical/proof | existence of roots via the least upper bound property
+abbott-2.5.4 | medium | synthesis/proof | Nested Interval Property (with Archimedean property) implies Axiom of Completeness
+cummings-1.22 | medium | canonical/proof | Nested interval property
+lebl-2.4.3 | hard | challenge/proof | Cauchy completeness + density of Q ⇒ least-upper-bound property
+mit20-a3-6 | introductory | canonical/proof | ε–N proof of a limit
+mit20-a5-6 | introductory | canonical/conceptual | a sequence converges iff liminf = limsup
+mit20-mid-3a | introductory | canonical/proof | ε–N proof of a rational-function limit
+mit20-mid-3b | introductory | canonical/counterexample | examples: convergent non-monotone; unbounded with convergent subsequence
+abbott-2.2.1 | introductory | canonical/definition | quantifier order in definition of limit ('vercongence' = boundedness)
+abbott-2.2.2 | introductory | canonical/proof | epsilon-N verification of specific limits
+abbott-2.2.6 | introductory | canonical/proof | uniqueness of limits of sequences
+lebl-2.2.3 | introductory | canonical/proof | lim x_n^k = (lim x_n)^k
+lebl-2.2.5 | introductory | canonical/theorem-application | squeeze lemma: (n − cos n)/n → 1
+lebl-2.3.5 | introductory | canonical/computation | computing limsup and liminf of simple oscillating sequences
+mit20-a5-5 | easy | canonical/proof | x_n → 0 iff limsup |x_n| = 0
+mit20-mid-4a | easy | canonical/proof | subadditivity of limsup
+abbott-2.3.2 | easy | canonical/proof | x_n -> 2 implies 1/x_n -> 1/2 from the definition (bounding away from 0)
+abbott-2.3.7 | easy | canonical/counterexample | examples/impossibility for sums and products of divergent and convergent sequences
+abbott-2.3.9 | easy | canonical/proof | bounded sequence times sequence tending to 0 tends to 0
+abbott-2.3.10 | easy | canonical/counterexample | true/false conjectures about limits (|b_n| -> |b|, lim(a_n - b_n)=0, etc.)
+abbott-2.3.12 | easy | canonical/counterexample | limits preserve non-strict inequalities / closed sets but not rationality
+abbott-2.4.5 | easy | canonical/proof | x_{n+1} = (x_n + 2/x_n)/2 converges to sqrt 2
+abbott-2.5.2 | easy | canonical/counterexample | true/false about subsequences (bounded divergent has two subsequential limits; monotone + convergent subsequence)
+abbott-2.6.2 | easy | canonical/counterexample | examples/impossibility for Cauchy sequences (Cauchy ⇒ bounded; monotone + Cauchy subsequence ⇒ convergent)
+lebl-2.1.22 | easy | canonical/proof | x_{2n}, x_{2n-1}, x_{3n} convergent ⇒ x_n convergent
+lebl-2.2.9 | easy | canonical/proof | |x_{n+1} − x|/|x_n − x| → L < 1 ⇒ x_n → x
+lebl-2.3.6 | easy | canonical/proof | x_n ≤ y_n ⇒ limsup x_n ≤ limsup y_n, liminf x_n ≤ liminf y_n
+lebl-2.3.7 | easy | canonical/proof | liminf x_n + liminf y_n ≤ liminf (x_n + y_n), strict in general
+lebl-2.4.8 | easy | canonical/counterexample | Cauchy sequences need not have eventually decreasing consecutive gaps
+lebl-2.5.12 | easy | canonical/counterexample | harmonic partial sums: x_{n+k} − x_n → 0 for each fixed k but not Cauchy
+ross-8.7 | easy | canonical/proof | proving a sequence does not converge
+ross-10.4 | easy | canonical/conceptual | monotone convergence theorem and Cauchy criterion fail in Q
+ross-10.6 | easy | canonical/proof | |s_{n+1}-s_n| < 2^{-n} ⇒ Cauchy; 1/n increments not sufficient
+ross-11.9 | easy | synthesis/conceptual | set of subsequential limits is closed; (0,1) cannot be such a set
+cummings-3.15 | easy | canonical/proof | Cauchy sequences are bounded
+cummings-3.16 | easy | canonical/proof | Monotone convergence theorem
+cummings-3.24 | easy | canonical/proof | a_1=√2, a_{n+1}=√(2+a_n) → 2
+cummings-4.3 | easy | canonical/proof | r^n → 0 for |r|<1, diverges for r ≤ −1 or r > 1
+tao-6.3.4 | easy | canonical/conceptual | x^n diverges for x>1; fallacy of assuming the limit exists
+abbott-2.3.11 | medium | canonical/proof | Cesàro means: x_n -> x implies averages -> x; converse fails
+abbott-2.3.13 | medium | synthesis/proof | iterated limits vs double limit (m/(m+n), mn/(m^2+n^2))
+abbott-2.4.6 | medium | canonical/proof | arithmetic–geometric mean: coupled sequences converge to a common limit
+abbott-2.4.7 | medium | canonical/proof | lim sup / lim inf exist for bounded sequences; lim exists iff lim inf = lim sup
+abbott-2.5.5 | medium | canonical/proof | bounded sequence whose convergent subsequences all share limit a converges to a
+lebl-2.1.17 | medium | challenge/construction | a sequence whose subsequential limits are all of R (enumeration of Q)
+lebl-2.3.9 | medium | canonical/proof | Bolzano–Weierstrass for sets (bounded infinite set has a limit point)
+lebl-2.3.10 | medium | canonical/proof | every sequence has a monotone subsequence (peak lemma) ⇒ Bolzano–Weierstrass
+lebl-2.4.2 | medium | canonical/proof | contractive sequence |x_{n+1} − x_n| ≤ C|x_n − x_{n−1}|, C < 1, is Cauchy
+ross-12.13 | medium | canonical/proof | liminf s_n = sup{a : s_n ≥ a eventually}, limsup = inf{b : s_n ≤ b eventually}
+cummings-3.25 | medium | synthesis/proof | a_n = (a_{n-1}+a_{n-2})/2 converges (to (a_1+2a_2)/3)
+tao-6.4.3 | medium | canonical/proof | limsup/liminf are the largest/smallest limit points; a_n → c iff limsup = liminf = c
+ross-22.14 | hard | challenge/proof | s_{n+1} - s_n -> 0 implies set of subsequential limits is an interval [liminf, limsup]
+lebl-2.5.10 | introductory | canonical/proof | triangle inequality for absolutely convergent series
+tao-7.3.2 | introductory | canonical/proof | geometric series Σx^n = 1/(1−x) iff |x|<1
+mit20-a7-2 | easy | canonical/computation | interval of convergence of power series
+mit20-mid-5a | easy | canonical/proof | limit comparison test
+mit20-mid-5b | easy | canonical/computation | convergence vs absolute convergence of power series
+abbott-2.7.4 | easy | canonical/counterexample | examples/impossibility for products and sums of series
+abbott-2.7.9 | easy | canonical/proof | Ratio Test proof
+lebl-2.5.3 | easy | canonical/computation | deciding convergence of standard series by comparison/telescoping/p-series
+lebl-2.5.4 | easy | canonical/counterexample | inserting parentheses preserves convergence; removing them does not
+lebl-2.6.1 | easy | canonical/computation | deciding convergence with root/alternating/divergence tests
+lebl-2.6.2 | easy | canonical/proof | Cauchy product of absolutely convergent series converges absolutely
+lebl-2.6.13 | easy | canonical/counterexample | ∑x_n converges but ∑x_n^2 diverges (e.g. (-1)^n/sqrt n)
+ross-14.10 | easy | canonical/construction | root test decides where ratio test is inconclusive
+ross-14.12 | easy | synthesis/construction | liminf |a_n| = 0 ⇒ some subseries converges
+ross-15.3 | easy | canonical/proof | sum 1/(n (log n)^p) converges iff p > 1
+cummings-4.2 | easy | canonical/proof | Absolute convergence implies convergence
+cummings-4.5 | easy | canonical/proof | Σa_k (a_k>0) converges ⇒ Σa_k² converges; false without positivity
+tao-7.2.2 | easy | canonical/proof | Cauchy criterion for series
+mit20-a7-3 | medium | synthesis/proof | Cauchy–Schwarz inequality for series (ℓ²)
+abbott-2.7.1 | medium | canonical/proof | Alternating Series Test
+abbott-2.7.8 | medium | canonical/counterexample | true/false: sum a_n abs. conv ⇒ sum a_n^2 conv; sum a_n conv and b_n conv ⇏ sum a_n b_n conv
+abbott-2.7.14 | medium | synthesis/proof | Dirichlet's Test (and AST as a special case)
+lebl-2.5.7 | medium | canonical/proof | decreasing summable sequence satisfies n x_n → 0
+lebl-2.5.15 | medium | canonical/proof | Cauchy condensation test
+lebl-2.6.10 | medium | canonical/proof | n^{1/n} → 1; ∑ n a_n x^n has the same radius as ∑ a_n x^n
+lebl-2.6.12 | medium | canonical/counterexample | alternating series test fails without monotonicity
+cummings-4.18 | medium | canonical/proof | Rearrangements of absolutely convergent series have the same sum
+tao-7.5.1 | medium | canonical/proof | liminf c_{n+1}/c_n ≤ liminf c_n^{1/n} (ratio test implies root test)
+tao-11.6.3 | medium | synthesis/proof | integral test for series
+lebl-2.6.3 | hard | challenge/construction | Riemann rearrangement theorem
+mit20-a3-5 | introductory | canonical/definition | open sets in R: intervals, unions, finite intersections; Q is not open
+mit20-a4-1 | introductory | canonical/definition | closed sets in R: [a,b], Z closed; Q not closed
+mit20-a4-2 | introductory | canonical/proof | arbitrary intersections / finite unions of closed sets are closed
+mit20-a7-4 | introductory | canonical/proof | every real is a cluster point of the irrationals
+lebl-7.4.16 | introductory | canonical/proof | closed subset of a complete metric space is complete
+cummings-5.3 | introductory | canonical/counterexample | Infinite intersection of open sets need not be open; infinite union of closed sets need not be closed
+mit20-a4-3 | easy | canonical/proof | closed sets contain the limits of their convergent sequences
+mit20-mid-2 | easy | canonical/proof | sequentially closed implies closed (negating openness)
+mit20-mid-4b | easy | canonical/proof | cluster point of a digit-restricted set
+abbott-3.2.5 | easy | canonical/proof | F closed iff every Cauchy sequence in F converges to a point of F
+abbott-3.2.6 | easy | canonical/counterexample | open/closed set true-false: open dense set need not be R; nested closed sets can have empty intersection
+abbott-3.2.7 | easy | canonical/proof | set of limit points is closed; closure is the smallest closed set containing A
+abbott-3.3.5 | easy | canonical/counterexample | intersections/unions of compact sets; nested closed sets [n,∞) with empty intersection
+abbott-8.2.2 | easy | canonical/definition | metrics on C[0,1]: sup metric and L^1 metric are metrics; evaluation at 1 is not
+lebl-7.1.5 | easy | canonical/proof | φ∘d is a metric for increasing subadditive φ with φ(0)=0
+lebl-7.2.7 | easy | canonical/proof | E closed iff ∂E ⊂ E; U open iff ∂U ∩ U = ∅
+lebl-7.2.10 | easy | canonical/proof | union of connected sets with a common point is connected
+lebl-7.2.13 | easy | canonical/counterexample | closure of open ball ⊂ closed ball, with strict inclusion possible
+lebl-7.3.2 | easy | canonical/counterexample | min(1,|x-y|): same convergence as usual metric, but bounded sequences need not have convergent subsequences
+lebl-7.4.2 | easy | canonical/proof | {1/n} is not compact but {1/n} ∪ {0} is compact (open cover definition)
+lebl-7.4.6 | easy | canonical/proof | compact metric spaces are complete
+cummings-5.8 | easy | canonical/proof | Closed subset of a compact set is compact
+mit20-a4-7 | medium | canonical/proof | cluster points: sequential characterization; the derived set is closed
+mit20-final-3 | medium | canonical/proof | [a,b] is (sequentially) compact; continuous image of [a,b] is compact
+abbott-3.2.10 | medium | synthesis/counterexample | countable set with no isolated points (Q∩[0,1]); no set has uncountably many isolated points
+abbott-3.2.13 | medium | canonical/proof | only clopen subsets of R are R and the empty set
+abbott-3.3.8 | medium | canonical/proof | distance between disjoint compact sets is positive and attained
+abbott-3.3.9 | medium | canonical/proof | Heine–Borel theorem (closed bounded ⇒ open-cover compact) by bisection
+abbott-3.5.6 | medium | canonical/theorem-application | Q is not a G_delta set; irrationals are not F_sigma
+abbott-8.2.5 | medium | canonical/proof | C[0,1] with sup metric is complete; C^1[0,1] with sup metric is not
+lebl-7.2.11 | medium | canonical/counterexample | closure of a connected set is connected; interior need not be
+lebl-7.4.8 | medium | canonical/counterexample | closed unit ball in C[0,1] is closed and bounded but not compact
+lebl-7.4.10 | medium | canonical/proof | Cantor intersection theorem for nested nonempty compact sets
+lebl-7.4.19 | medium | synthesis/counterexample | completeness is not a topological property: d'(x,y)=|x/(1+|x|) - y/(1+|y|)| on R
+ross-21.5 | medium | canonical/construction | E compact iff every continuous function on E is bounded / attains its max
+cummings-5.7 | medium | canonical/proof | Closed and bounded ⇔ sequentially compact (in R)
+abbott-3.3.7 | hard | challenge/proof | C + C = [0,2] for the Cantor set
+abbott-3.5.4 | hard | challenge/proof | Baire category theorem: countable intersection of dense open sets is nonempty
+lebl-7.4.12 | hard | challenge/proof | in a complete metric space, compact iff closed and totally bounded
+ross-13.7 | hard | challenge/proof | every open set in R is a countable disjoint union of open intervals
+ross-22.4 | hard | challenge/counterexample | topologist's sine curve is connected but not path-connected
+mit20-a9-4 | introductory | canonical/proof | Lipschitz implies uniformly continuous
+mit20-a9-6 | introductory | canonical/definition | limits at infinity: proof and non-existence
+mit20-final-2a | introductory | canonical/counterexample | EVT needs compactness; IVT needs continuity
+lebl-3.2.11 | introductory | canonical/proof | continuous f with f(c)>0 is positive on a neighborhood of c
+lebl-3.3.11 | introductory | canonical/counterexample | bounded continuous function on R with no max or min (e.g. arctan)
+lebl-3.4.3 | introductory | canonical/proof | 1/x is Lipschitz on (c, infinity) for c > 0
+lebl-7.5.2 | introductory | canonical/counterexample | xy/(x^2+y^2): separately continuous but not continuous at the origin
+ross-19.2 | introductory | canonical/proof | direct epsilon-delta proofs of uniform continuity (linear, x^2 on bounded interval, 1/x away from 0)
+mit20-a7-6 | easy | canonical/proof | local boundedness and sign-preservation of functional limits
+mit20-a8-2 | easy | canonical/proof | Dirichlet-type function continuous at exactly one point
+mit20-a9-5 | easy | canonical/counterexample | uniformly continuous but not Lipschitz (cube root)
+mit20-final-2b | easy | canonical/proof | product of continuous functions is continuous (ε–δ)
+abbott-4.3.6 | easy | canonical/counterexample | examples: sums/products of discontinuous functions that are continuous
+abbott-4.3.12 | easy | canonical/proof | distance function to a closed set is continuous and positive off the set
+abbott-4.4.2 | easy | canonical/counterexample | 1/x not UC on (0,1); x sin(1/x) UC on (0,1)
+abbott-4.4.8 | easy | canonical/counterexample | continuous image of compact is compact; ranges on (0,1), (0,1]
+abbott-4.4.10 | easy | canonical/counterexample | sum/composition of UC functions are UC; product/quotient need not be
+abbott-4.5.7 | easy | canonical/theorem-application | continuous f:[0,1]→[0,1] has a fixed point
+lebl-3.1.3 | easy | canonical/proof | squeeze theorem for function limits
+lebl-3.1.13 | easy | canonical/proof | bounded f: some sequence x_n -> c has f(x_n) convergent (Bolzano–Weierstrass)
+lebl-3.2.10 | easy | canonical/proof | continuous functions agreeing on Q agree everywhere
+lebl-3.2.14 | easy | canonical/proof | pasting lemma for continuous functions on adjacent closed intervals
+lebl-3.3.14 | easy | canonical/proof | no continuous bijection [0,1] -> (0,1)
+lebl-3.4.8 | easy | canonical/proof | sin(1/x) is not uniformly continuous on (0, infinity)
+lebl-3.4.15 | easy | canonical/proof | continuous periodic function is uniformly continuous
+lebl-7.5.5 | easy | canonical/proof | continuous image of a connected space is connected
+ross-17.9 | easy | canonical/proof | epsilon-delta continuity proofs (x^2, sqrt x at 0, x sin(1/x) at 0, x^3)
+ross-18.4 | easy | canonical/construction | non-closed set admits unbounded continuous function (1/|x - x0|)
+ross-18.12 | easy | canonical/counterexample | sin(1/x): intermediate value property but discontinuous
+cummings-6.33 | easy | canonical/conceptual | no continuous f: R -> R with f(R) = Q
+mit20-a8-5 | medium | canonical/proof | topological characterization of continuity (preimages of open sets)
+abbott-4.3.2 | medium | canonical/definition | variations of the epsilon-delta definition (onetinuous/equaltinuous/lesstinuous)
+abbott-4.3.4 | medium | canonical/counterexample | limit of composition can fail unless outer function is continuous
+abbott-4.3.7 | medium | canonical/proof | Dirichlet function nowhere continuous; Thomae's function continuous exactly on the irrationals
+abbott-4.3.13 | medium | synthesis/proof | additive function continuous at 0 is linear (Cauchy functional equation)
+abbott-4.4.13 | medium | synthesis/proof | continuous extension theorem: UC on (a,b) iff extends continuously to [a,b]
+abbott-4.4.14 | medium | canonical/proof | continuous on compact ⇒ uniformly continuous (open-cover proof)
+abbott-4.5.3 | medium | canonical/proof | monotone function with the intermediate value property is continuous
+abbott-4.5.8 | medium | canonical/proof | inverse of a continuous one-to-one function on [a,b] is continuous
+abbott-4.6.5 | medium | canonical/proof | monotone functions have only jump discontinuities
+abbott-4.6.6 | medium | canonical/proof | monotone function has at most countably many discontinuities
+lebl-3.1.11 | medium | canonical/proof | sequential criterion for existence of a function limit (convergence of f(x_n) for every x_n -> c suffices)
+lebl-3.3.3 | medium | synthesis/proof | continuous f on (0,1) vanishing at both ends attains a max or a min
+lebl-3.6.8 | medium | canonical/proof | continuous injection on an interval is strictly monotone
+lebl-7.5.8 | medium | canonical/proof | continuous bijection from a compact space has continuous inverse
+lebl-7.5.12 | medium | synthesis/counterexample | derivative operator continuous in the C^1 metric, discontinuous in the sup metric (sin(nx)/n)
+ross-19.1 | medium | canonical/conceptual | classifying uniform continuity of x^3, 1/x^3, sin(1/x^2), x^2 sin(1/x) on various sets
+ross-19.4 | medium | canonical/proof | uniformly continuous on a bounded set implies bounded
+abbott-4.5.6 | hard | challenge/proof | universal chord theorem (horizontal chords of length 1/n)
+lebl-3.2.19 | hard | challenge/proof | convex function on an open interval is continuous
+lebl-3.4.9 | hard | challenge/construction | uniformly continuous function on Q extends uniquely to a uniformly continuous function on R
+lebl-3.6.11 | hard | challenge/construction | increasing function discontinuous exactly at (every) rational: sum of 2^{-n} over q_n < x
+cummings-6.32 | hard | challenge/proof | no continuous function on R takes every value exactly twice
+mit20-a11-2 | introductory | canonical/computation | computing Taylor polynomials
+mit20-final-4a | introductory | canonical/proof | differentiable ⇒ continuous; converse false
+mit20-final-4b | introductory | canonical/proof | x² sin(1/x) is differentiable at 0
+mit20-a10-1 | easy | canonical/proof | Hölder condition with exponent > 1 forces constant
+mit20-a10-3 | easy | canonical/proof | differentiable f is Lipschitz iff f' is bounded
+mit20-a11-1 | easy | synthesis/theorem-application | existence and uniqueness of a root via IVT + Rolle/monotonicity
+mit20-a11-3 | easy | canonical/computation | limits via Taylor's theorem
+mit20-final-5a | easy | canonical/theorem-application | Taylor remainder estimate for e^x
+lebl-4.1.5 | easy | canonical/counterexample | x^2 on Q, 0 off Q: differentiable only at 0
+lebl-4.1.11 | easy | canonical/proof | bounded times function with g(c)=g'(c)=0 is differentiable at c
+lebl-4.2.7 | easy | canonical/theorem-application | nonvanishing derivative has constant sign (Darboux)
+lebl-4.2.10 | easy | canonical/proof | unbounded differentiable function on bounded interval has unbounded derivative
+ross-28.4 | easy | canonical/counterexample | x^2 sin(1/x): differentiable everywhere, f' discontinuous at 0
+ross-29.4 | easy | canonical/theorem-application | Rolle with auxiliary function h = f e^g gives f' + f g' = 0 somewhere
+ross-31.4 | easy | canonical/construction | smooth bump functions and smooth step functions from e^{-1/x}
+cummings-7.10 | easy | canonical/counterexample | Rolle's theorem hypotheses are sharp (counterexamples)
+tao-10.1.2 | easy | canonical/proof | differentiability iff f(x) = f(x0) + L(x-x0) + o(|x-x0|)
+tao-10.2.1 | easy | canonical/proof | Fermat: local extremum at interior differentiable point implies f'=0
+tao-10.2.5 | easy | canonical/proof | mean value theorem from Rolle's theorem
+tao-10.3.5 | easy | canonical/counterexample | f'>0 on a non-interval domain need not give monotone (e.g. -1/x on R\{0})
+mit20-a11-4 | medium | canonical/proof | third-derivative test via Taylor's theorem
+abbott-5.2.4 | medium | synthesis/proof | Carathéodory criterion for differentiability; proof of the Chain Rule
+abbott-5.2.7 | medium | canonical/counterexample | x^a sin(1/x): differentiable with unbounded / continuous-not-differentiable / discontinuous second derivative
+abbott-5.2.12 | medium | canonical/proof | inverse function theorem in one variable: (f^{-1})'(y) = 1/f'(x)
+abbott-5.3.12 | medium | canonical/proof | second symmetric derivative equals f''(a) when f'' continuous
+lebl-4.2.9 | medium | canonical/proof | L'Hôpital's rule via Cauchy MVT
+lebl-4.2.13 | medium | canonical/proof | if f continuous and lim f'(x) = L at c, then f'(c) = L
+lebl-4.3.11 | medium | canonical/proof | second derivative test assuming only that f''(x0) exists
+lebl-4.4.6 | medium | canonical/counterexample | x + 2x^2 sin(1/x): f'(0)>0 but not locally invertible
+ross-29.10 | medium | canonical/counterexample | f'(0) > 0 but f not increasing on any neighborhood of 0 (x^2 sin(1/x) + x/2)
+ross-30.6 | medium | challenge/theorem-application | f + f' -> L implies f -> L and f' -> 0
+ross-31.5 | medium | canonical/counterexample | e^{-1/x^2}: C-infinity, all derivatives 0 at 0, Taylor series agrees only at 0
+cummings-7.14 | medium | canonical/proof | Cauchy mean value theorem
+abbott-5.2.11 | hard | challenge/proof | Darboux's theorem (derivatives have the intermediate value property)
+abbott-5.4.7 | very-hard | challenge/proof | continuous nowhere-differentiable function (sawtooth/Takagi-type series): non-dyadic points
+mit20-final-6b | introductory | canonical/proof | lim ∫₀¹ xⁿ sin x dx = 0 by direct estimate
+lebl-5.3.1 | introductory | canonical/computation | derivative of an integral with variable limits (FTC + chain rule)
+mit20-a11-5 | easy | canonical/computation | Riemann sums of a linear function without the FTC
+mit20-final-5b | easy | synthesis/proof | Taylor's theorem with integral remainder (first order)
+mit20-final-6a | easy | canonical/computation | improper integral ∫₀¹ x log x as a limit
+mit20-final-6c | easy | synthesis/proof | Riemann–Lebesgue lemma for C¹ functions
+abbott-7.2.3 | easy | canonical/proof | sequential criterion for Riemann integrability; integral of x from the definition
+abbott-7.3.5 | easy | canonical/counterexample | pointwise limit of integrable functions need not be integrable (Dirichlet); uniform limit is
+abbott-7.3.7 | easy | canonical/proof | integrability is unchanged by altering finitely many values; not countably many
+abbott-7.5.2 | easy | canonical/counterexample | FTC true/false: derivatives need not be continuous; continuous functions are derivatives; H differentiable does not force h continuous
+abbott-7.5.10 | easy | canonical/proof | change-of-variable (substitution) formula
+lebl-5.1.15 | easy | canonical/proof | L(P,f)=U(P,f) for a single partition implies f constant
+lebl-5.3.9 | easy | canonical/proof | ∫_a^x f = 0 for rational x implies f ≡ 0 (density + FTC)
+lebl-5.5.10 | easy | canonical/counterexample | unbounded continuous nonnegative function with finite improper integral
+ross-32.2 | easy | canonical/counterexample | f(x)=x on Q, 0 off Q is not Riemann integrable on [0,b] (U = b^2/2, L = 0)
+ross-33.4 | easy | canonical/counterexample | f not Riemann integrable but |f| integrable (e.g. 1 on Q, -1 off Q)
+ross-34.12 | easy | canonical/proof | if integral of f g = 0 for all continuous g then f = 0
+ross-36.3 | easy | canonical/computation | p-integrals: integral of x^{-p} on (0,1] finite iff p<1; on (0,infinity) always infinite
+mit20-a12-1 | medium | synthesis/proof | nonnegative continuous function with zero integral vanishes; energy uniqueness argument
+abbott-7.2.5 | medium | canonical/proof | uniform limit of integrable functions is integrable
+abbott-7.3.9 | medium | synthesis/proof | discontinuity set of content zero => integrable; Cantor set indicator integrable
+abbott-7.4.6 | medium | canonical/proof | product of Riemann integrable functions is integrable
+abbott-7.4.10 | medium | synthesis/proof | lim ∫_0^1 g(x^n) dx = g(0) for g integrable and continuous at 0
+lebl-5.2.11 | medium | canonical/proof | Thomae's (popcorn) function is Riemann integrable with integral 0
+lebl-5.2.14 | medium | canonical/proof | monotone functions are Riemann integrable
+lebl-5.2.15 | medium | canonical/proof | f integrable implies |f| integrable and |∫f| <= ∫|f|
+lebl-5.4.6 | medium | synthesis/proof | harmonic sums vs ln n; existence of the Euler–Mascheroni constant
+ross-36.8 | medium | canonical/proof | absolutely convergent improper integral converges
+cummings-8.25 | medium | canonical/proof | bounded function with one discontinuity is integrable
+cummings-8.27 | medium | canonical/proof | mean value theorem for integrals (including weighted version)
+tao-11.9.3 | medium | synthesis/proof | for monotone f, F(x)=int_a^x f is differentiable at x0 iff f continuous at x0
+abbott-7.4.4 | hard | challenge/proof | f>0 everywhere and integrable => ∫f > 0
+lebl-5.1.13 | hard | synthesis/proof | Darboux integrable iff Riemann integrable (mesh definition), same value
+mit20-final-7a | introductory | canonical/counterexample | pointwise but not uniform convergence to a continuous limit
+lebl-6.1.2 | introductory | canonical/computation | e^{x/n}/n: pointwise to 0, not uniform on R, uniform on [0,1]
+lebl-6.1.5 | introductory | canonical/proof | uniform limit of a sum is the sum of uniform limits
+lebl-6.2.2 | introductory | canonical/counterexample | x^n/n: uniform limit 0 but f_n'(1)=1 does not converge to f'(1)=0
+mit20-final-7b | easy | synthesis/proof | bounded derivative ⇒ Lipschitz ⇒ translates converge uniformly
+abbott-6.2.1 | easy | canonical/computation | nx/(1+nx^2): uniform on (1,inf), not on (0,1)
+abbott-6.4.1 | easy | canonical/proof | Weierstrass M-test proof
+abbott-6.4.7 | easy | canonical/theorem-application | sum sin(kx)/k^3 is C^1 by term-by-term differentiation
+lebl-6.1.6 | easy | canonical/counterexample | product of uniformly convergent sequences need not converge uniformly
+lebl-6.1.10 | easy | canonical/counterexample | moving bump: pointwise to 0 possible, uniform to 0 impossible when f_n(x_n)=1
+lebl-6.1.14 | easy | canonical/proof | geometric series converges uniformly on [-c,c], c<1, but not on (-1,1)
+lebl-6.2.1 | easy | canonical/counterexample | differentiable functions converging uniformly to |x| (non-differentiable limit)
+lebl-6.2.22 | easy | canonical/counterexample | uniform convergence to 0 with improper integrals all equal to 1
+lebl-7.6.6 | easy | canonical/counterexample | contraction on incomplete space without fixed point; 1-Lipschitz map on complete space without fixed point
+ross-23.9 | easy | canonical/counterexample | n x^n -> 0 pointwise on [0,1) but integrals -> 1 (limit/integral interchange fails)
+ross-24.12 | easy | canonical/definition | f_n -> f uniformly on S iff sup_S |f - f_n| -> 0
+ross-24.13 | easy | canonical/proof | uniform limit of uniformly continuous functions is uniformly continuous
+ross-24.17 | easy | canonical/proof | f_n -> f uniformly with f_n continuous and x_n -> x implies f_n(x_n) -> f(x)
+ross-26.7 | easy | canonical/conceptual | |x| is not represented by a power series on R
+cummings-9.12 | easy | canonical/counterexample | pointwise limit of continuous functions need not be continuous (x^n on [0,1])
+cummings-9.16 | easy | canonical/proof | power series absolutely convergent at x0 converges uniformly on [-|x0|,|x0|]
+abbott-4.3.11 | medium | canonical/proof | contraction mapping theorem on R
+abbott-6.2.5 | medium | canonical/proof | Cauchy criterion for uniform convergence
+abbott-6.2.6 | medium | synthesis/counterexample | properties inherited under uniform (not pointwise) limits: uniform continuity, boundedness, discontinuity counts
+abbott-6.3.4 | medium | canonical/counterexample | sin(nx)/sqrt(n) -> 0 uniformly, derivatives diverge everywhere
+abbott-6.3.7 | medium | synthesis/proof | f_n' uniformly convergent and f_n(x0) convergent => f_n uniformly convergent
+abbott-6.4.2 | medium | synthesis/counterexample | uniform convergence of series: term test, comparison, M-test converse fails
+abbott-6.5.10 | medium | canonical/proof | identity theorem for power series (zeros accumulating at center)
+abbott-6.7.2 | medium | canonical/proof | continuous functions on [a,b] are uniform limits of polygonal (piecewise linear) functions
+ross-24.9 | medium | synthesis/counterexample | n x^n (1-x): not uniformly convergent, yet integrals converge (uniform convergence sufficient, not necessary)
+ross-26.8 | medium | synthesis/theorem-application | arctan series and Leibniz formula pi/4 = 1 - 1/3 + 1/5 - ... via Abel's theorem
+ross-27.3 | medium | canonical/counterexample | sin x and e^x are not uniform limits of polynomials on R
+abbott-6.2.11 | hard | challenge/proof | Dini's theorem
+abbott-6.2.12 | hard | challenge/construction | Cantor function (devil's staircase) construction
+abbott-6.2.15 | very-hard | challenge/proof | Arzelà–Ascoli theorem on [0,1]
+
+# UNSELECTED CANDIDATES (not in bank, available to add back): cid | difficulty | standardResult
+abbott-1.2.10 | easy | a <= b iff a < b + epsilon for all epsilon > 0 (and why strict < fails)
+abbott-1.3.6 | easy | sup(A+B) = sup A + sup B
+abbott-1.3.10 | medium | Cut Property (Dedekind cuts) equivalent to the least upper bound property
+abbott-1.4.2 | easy | s = sup A iff s + 1/n is an upper bound and s - 1/n is not, for all n
+abbott-1.4.3 | introductory | intersection of (0,1/n) is empty — nested open intervals can have empty intersection
+abbott-1.4.7 | medium | existence of sqrt(2) via supremum of {t : t^2 < 2}
+abbott-1.5.10 | medium | uncountable C in [0,1] has a 'condensation' point: C ∩ [α,1] uncountable at α = sup
+abbott-1.6.4 | easy | the set of 0-1 sequences is uncountable (diagonalization)
+abbott-1.6.9 | medium | P(N) has the same cardinality as R
+abbott-2.2.4 | introductory | examples probing the definition of convergence (infinitely many ones, long runs)
+abbott-2.2.7 | introductory | eventually vs frequently; convergence = eventually in every neighborhood
+abbott-2.3.1 | easy | x_n -> x, x_n >= 0 implies sqrt(x_n) -> sqrt(x)
+abbott-2.3.3 | introductory | Squeeze Theorem for sequences
+abbott-2.4.1 | easy | recursive sequence x_{n+1} = 1/(4 - x_n) converges (MCT + fixed point)
+abbott-2.4.2 | easy | pitfall: taking limits in a recursion without knowing convergence
+abbott-2.4.4 | medium | Monotone Convergence Theorem implies Archimedean Property and Nested Interval Property
+abbott-2.4.9 | medium | Cauchy condensation test (divergence direction)
+abbott-2.5.1 | medium | set of subsequential limits: examples, and it must contain its limit points (e.g. 0)
+abbott-2.5.8 | medium | every sequence has a monotone subsequence (peak terms)
+abbott-2.5.9 | medium | BW via s = sup{x : x < a_n for infinitely many n} (this s is lim sup)
+abbott-2.6.1 | introductory | every convergent sequence is Cauchy
+abbott-2.6.4 | easy | which operations preserve Cauchy sequences (|a_n - b_n|, (-1)^n a_n, floor)
+abbott-2.6.5 | easy | |s_{n+1} - s_n| -> 0 does not imply Cauchy/bounded (e.g. sqrt n, partial sums of harmonic series)
+abbott-2.6.7 | hard | BW ⇒ MCT; Cauchy Criterion ⇒ BW (needs Archimedean property)
+abbott-2.7.6 | medium | invented 'subvergence' (convergent subsequence of partial sums) — true/false
+abbott-2.7.7 | easy | limit comparison: n a_n -> l ≠ 0 ⇒ divergence; n^2 a_n bounded ⇒ convergence
+abbott-2.7.11 | hard | two divergent decreasing positive series whose termwise minimum converges
+abbott-2.7.13 | medium | Abel's Test via summation by parts
+abbott-2.8.7 | medium | Cauchy product of absolutely convergent series converges to AB
+abbott-3.2.4 | easy | sup A lies in the closure of A; open set does not contain its supremum
+abbott-3.2.11 | easy | closure of a finite union is the union of closures; fails for infinite unions
+abbott-3.2.14 | easy | complement of closure = interior of complement
+abbott-3.3.3 | easy | closed and bounded ⇒ sequentially compact (Heine–Borel, sequential direction)
+abbott-3.3.10 | medium | Heine–Borel for [a,b] via sup of finitely-coverable initial segments
+abbott-3.3.11 | easy | open covers without finite subcover for N, Q∩[0,1], {1/n}-type sets
+abbott-3.3.12 | medium | bounded infinite set has a limit point, via open covers (no BW)
+abbott-3.3.13 | easy | 'clompact' (closed-cover compact) sets are exactly the finite sets
+abbott-3.4.6 | easy | sequential characterization of connected sets
+abbott-3.4.7 | easy | Q and the irrationals are totally disconnected
+abbott-3.5.5 | easy | R is not a countable union of closed sets with empty interior
+abbott-4.2.5 | introductory | epsilon-delta proofs of polynomial and 1/x limits
+abbott-4.2.7 | introductory | bounded function times function tending to 0 tends to 0
+abbott-4.2.9 | introductory | definitions of infinite limits and limits at infinity
+abbott-4.2.10 | easy | limit exists iff both one-sided limits exist and agree
+abbott-4.2.11 | introductory | squeeze theorem for functional limits
+abbott-4.3.1 | easy | cube root is continuous (epsilon-delta)
+abbott-4.3.8 | easy | continuous functions agreeing on Q agree everywhere; sign preservation near a point
+abbott-4.3.9 | introductory | zero set of a continuous function is closed
+abbott-4.3.14 | hard | function discontinuous exactly on a given closed set / open set
+abbott-4.4.1 | easy | x^3 continuous but not uniformly continuous on R; uniformly continuous on bounded sets
+abbott-4.4.4 | medium | UC on bounded set ⇒ bounded image; compact-preserving need not imply continuous
+abbott-4.4.7 | easy | sqrt(x) is uniformly continuous on [0,∞) (but not Lipschitz)
+abbott-4.4.9 | easy | Lipschitz implies uniformly continuous; sqrt(x) is UC but not Lipschitz
+abbott-4.4.11 | easy | f continuous iff preimage of every open set is open
+abbott-4.5.2 | easy | possible ranges of continuous functions on intervals
+abbott-4.5.4 | medium | set where a continuous function fails to be one-to-one is empty or uncountable
+abbott-4.6.2 | medium | function discontinuous exactly on a given countable set
+abbott-4.6.8 | medium | set of points of oscillation ≥ α is closed; D_f is F_sigma
+abbott-5.2.2 | medium | f not differentiable, g differentiable => f+g not differentiable; products can be differentiable; function differentiable at exactly one poi
+abbott-5.2.8 | medium | uniformly differentiable iff f' continuous (on closed interval); x^2 vs x^3
+abbott-5.2.9 | medium | Darboux property consequences; f'(c)>0 does not force f'>0 nearby; limit of f' equals f'(0)
+abbott-5.2.10 | medium | x/2 + x^2 sin(1/x): g'(0)>0 but g not increasing near 0
+abbott-5.3.1 | easy | C^1 on [a,b] => Lipschitz; |f'|<1 => contractive on [a,b]
+abbott-5.3.3 | easy | IVT/MVT/Darboux combination problem
+abbott-5.3.5 | easy | Cauchy's generalized mean value theorem
+abbott-5.3.6 | easy | |g'|<=M, g(0)=0 => |g(x)|<=Mx; second-order version |h|<=Mx^2/2
+abbott-5.3.8 | easy | if f continuous at 0 and lim_{x->0} f'(x) = L then f'(0) = L
+abbott-5.3.11 | medium | L'Hospital's rule 0/0 case proof
+abbott-6.2.7 | easy | f uniformly continuous => f(x+1/n) -> f uniformly; fails for x^2
+abbott-6.2.10 | hard | Pólya-type theorem: increasing f_n -> continuous f pointwise on [a,b] implies uniform
+abbott-6.2.13 | medium | diagonal subsequence: uniformly bounded sequence converges pointwise on countable set
+abbott-6.3.1 | easy | x^n/n -> 0 uniformly but lim (x^n/n)' != 0 at x=1
+abbott-6.3.2 | easy | sqrt(x^2+1/n) -> |x| uniformly; derivatives not uniformly convergent near 0
+abbott-6.3.6 | medium | examples around the Differentiable Limit Theorem (Theorem 6.3.3)
+abbott-6.4.5 | easy | continuity of sum x^n/n^2 on [-1,1] and of sum x^n/n on (-1,1) via local M-test
+abbott-6.4.10 | medium | monotone function discontinuous exactly at the rationals (sum of 2^{-n} jumps at r_n)
+abbott-6.5.2 | easy | possible intervals of convergence of power series / endpoint behavior
+abbott-6.5.5 | medium | term-by-term differentiated power series converges on (-R,R)
+abbott-6.5.8 | easy | uniqueness of power series representations
+abbott-6.5.11 | easy | Abel summability is regular; sum (-1)^n is Abel-summable to 1/2
+abbott-6.6.4 | medium | alternating harmonic series = log 2 via Lagrange remainder
+abbott-6.6.6 | medium | e^{-1/x^2}: smooth, all derivatives 0 at 0, not analytic
+abbott-6.6.7 | medium | Taylor series convergence vs representation: examples with e^{-1/x^2}
+abbott-6.6.8 | medium | Taylor remainder bound |E_N| <= M x^{N+1}/(N+1)! via derivative comparison
+abbott-6.7.9 | medium | WAT fails on (a,b) and on [a,inf)
+abbott-6.7.11 | medium | C^1 approximation by polynomials (approximate f' and integrate)
+abbott-7.2.6 | medium | Riemann's definition (tagged sums) implies Darboux integrability
+abbott-7.2.7 | easy | monotone functions are Riemann integrable
+abbott-7.3.2 | medium | Thomae's function is Riemann integrable with integral 0
+abbott-7.3.3 | easy | indicator of {1/n} is integrable with integral 0
+abbott-7.3.4 | hard | composition of integrable functions need not be integrable
+abbott-7.4.1 | easy | f integrable => |f| integrable and |∫f| <= ∫|f|
+abbott-7.4.3 | easy | |f| integrable does not imply f integrable; continuous nonneg nonzero has positive integral
+abbott-7.4.7 | medium | pointwise convergence does not commute with integration; typewriter sequence
+abbott-7.4.9 | medium | uniform bound + uniform convergence on [0,alpha] => integrals converge
+abbott-7.5.4 | easy | ∫_a^x f = 0 for all x with f continuous implies f ≡ 0
+abbott-7.5.8 | medium | natural logarithm via ∫1/t; Euler's constant exists; alternating harmonic series = log 2
+abbott-7.5.9 | medium | total variation of C^1 function equals ∫|f'|
+abbott-7.5.11 | medium | F=∫f not differentiable at a jump of f; continuous monotone function non-differentiable on a dense set
+abbott-7.6.3 | easy | countable sets have measure zero
+abbott-7.6.8 | easy | set of points of oscillation >= alpha is closed
+abbott-7.6.13 | easy | Lebesgue criterion applications: products; f continuous, g integrable => f∘g integrable
+abbott-7.6.18 | easy | fat (Smith–Volterra–Cantor) set has positive length
+abbott-8.2.6 | easy | point evaluation is continuous for sup metric but not for L^1 metric
+abbott-8.2.8 | easy | open balls open; closed balls closed; E open iff complement closed (metric spaces)
+abbott-8.2.10 | medium | Heine–Borel fails in C[0,1]: closed bounded unit ball not compact
+abbott-8.2.11 | easy | closure of complement = complement of interior
+abbott-8.2.12 | easy | closure of open ball can be strictly smaller than closed ball (discrete metric)
+abbott-8.2.14 | hard | Baire category theorem: countable intersection of dense open sets in a complete metric space is nonempty
+abbott-8.2.15 | medium | Baire category theorem: complete metric space is not a countable union of nowhere-dense sets
+cummings-1.7 | introductory | max{x,y} = (x+y+|x-y|)/2 and min{x,y} = (x+y-|x-y|)/2
+cummings-1.18 | easy | ε-characterization of sup/inf: inf A = β iff β lower bound and ∀ε ∃x∈A, x<β+ε
+cummings-1.20 | easy | sup A < sup B ⇒ some b∈B bounds A above
+cummings-1.21 | easy | sup(−A) = −inf(A)
+cummings-1.23 | introductory | Nested open intervals can have empty intersection, e.g. (0,1/n)
+cummings-1.24 | easy | sup(A+B) = sup A + sup B
+cummings-1.25 | introductory | sup(A·B) ≠ sup A · sup B in general
+cummings-1.26 | introductory | Rationals with bounded denominators are not dense
+cummings-2.1 | easy | Countable union of countable sets is countable
+cummings-2.5 | easy | Set of 0-1 sequences is uncountable (Cantor diagonal)
+cummings-2.6 | easy | Any collection of disjoint open intervals in R is countable
+cummings-2.9 | easy | Every subset of N is finite or countably infinite
+cummings-2.13 | medium | Algebraic numbers are countable; transcendentals uncountable
+cummings-3.1 | introductory | A sequence with positive limit is eventually positive
+cummings-3.2 | introductory | ε-N proofs of explicit limits
+cummings-3.4 | easy | Quantifier variants of the definition of convergence
+cummings-3.5 | medium | Sequence whose set of subsequential limits is [0,1]
+cummings-3.6 | easy | Convergent sequence of integers is eventually constant
+cummings-3.8 | easy | Limit laws: difference and quotient
+cummings-3.11 | introductory | convergent + divergent is divergent
+cummings-3.12 | introductory | bounded × (→0) → 0
+cummings-3.14 | introductory | Bolzano–Weierstrass application: bounded subsequence ⇒ convergent subsequence
+cummings-3.19 | medium | Cesàro mean of a convergent sequence converges to the same limit
+cummings-3.20 | easy | b_n = sup_{k≥n} a_k converges (limsup exists for bounded sequences)
+cummings-3.27 | easy | |a_n − b_n| is Cauchy if (a_n),(b_n) are Cauchy
+cummings-3.28 | introductory | Comparison of partial sums: Σ1/n³ converges using Σ1/n² bounded
+cummings-4.6 | easy | Σa_k conv, Σa_k² div, Σa_k³ conv: e.g. (−1)^k/√k
+cummings-4.9 | easy | Proof of the ratio test
+cummings-4.10 | easy | Proof of the root test
+cummings-4.13 | introductory | Comparison test fails without nonnegativity
+cummings-4.14 | medium | Convergent ⇒ Cesàro summable; converse false (1−1+1−…)
+cummings-4.15 | hard | Conditionally convergent series can be rearranged to diverge to ∞ (Riemann rearrangement)
+cummings-4.17 | hard | Rearrangement with prescribed limsup β and liminf α of partial sums
+cummings-5.2 | easy | Finite union / intersection of compact sets is compact
+cummings-5.4 | easy | Finite unions / arbitrary intersections of closed sets are closed
+cummings-5.5 | easy | Sequential vs. ε-neighborhood characterization of limit points
+cummings-5.6 | introductory | (0,4) not compact: open cover (1/k, 4−1/k) has no finite subcover
+cummings-5.9 | introductory | Compact ∩ bounded need not be compact
+cummings-5.10 | easy | Arbitrary intersection of compact sets is compact
+cummings-5.11 | medium | The only clopen subsets of R are ∅ and R (R is connected)
+cummings-6.2 | introductory | epsilon-delta: halving delta need not halve epsilon
+cummings-6.3 | easy | limit laws: sums/products of non-existent limits (examples or proofs)
+cummings-6.9 | easy | x on Q, -x off Q: limit exists only at 0
+cummings-6.10 | medium | Thomae's function: continuous at irrationals, discontinuous at rationals
+cummings-6.11 | medium | Thomae-type function from disjoint finite sets A_n: limit 0 everywhere
+cummings-6.15 | medium | function discontinuous exactly at {1/n} (and at 0)
+cummings-6.20 | easy | exactly four continuous f with f(x)^2 = x^2
+cummings-6.21 | easy | continuous image of [a,b] is a closed bounded interval; (a,b) can map onto [c,d]
+cummings-6.22 | medium | universal chord theorem (horizontal chord of length 1/2)
+cummings-6.23 | easy | continuous functions agreeing on a dense set agree everywhere
+cummings-6.24 | medium | uniformly continuous on bounded set implies bounded; sin(1/x) bounded but not UC
+cummings-6.28 | easy | uniformly continuous functions map Cauchy sequences to Cauchy sequences
+cummings-6.30 | easy | one-dimensional Brouwer fixed point theorem
+cummings-6.34 | easy | uniform continuity of f+g, fg (bounded), g∘f; x·x not UC
+cummings-6.35 | medium | monotone function has at most countably many discontinuities
+cummings-7.4 | easy | x/2 on Q, x off Q: continuous but not differentiable at 0
+cummings-7.7 | easy | x^a for x>=0, 0 for x<0: continuity/differentiability at 0 by a
+cummings-7.9 | easy | differentiable f on an interval is Lipschitz iff f' is bounded
+cummings-7.15 | medium | L'Hopital's rule, 0/0 case
+cummings-7.16 | hard | L'Hopital's rule, infinity/infinity case
+cummings-8.5 | easy | integrable on [a,d] implies integrable on subinterval [b,c]
+cummings-8.12 | easy | monotone functions are Riemann integrable
+cummings-8.13 | medium | Thomae's function is Riemann integrable (integral 0)
+cummings-8.14 | easy | f not integrable but f^2 integrable (±1 Dirichlet)
+cummings-8.15 | easy | modified Dirichlet function x·1_Q: lower integral 0, upper integral 8 on [0,4]
+cummings-8.16 | easy | ∫_a^x f = 0 for all x with f continuous implies f ≡ 0
+cummings-8.20 | medium | nonnegative f with positive integral is positive at infinitely many points; converse fails (Thomae)
+cummings-8.21 | easy | IVT via FTC + Darboux's theorem
+cummings-8.22 | easy | continuous nonnegative f, positive at a point, has positive integral
+cummings-8.28 | medium | f integrable iff squeezed between step functions with integrals within ε
+cummings-8.29 | medium | integrable f can be approximated from below in L^1 by continuous functions
+cummings-9.2 | introductory | x/n -> 0 pointwise but not uniformly on R
+cummings-9.3 | easy | uniform limit of unbounded functions is unbounded; pointwise limit need not be
+cummings-9.4 | medium | uniform limit of uniformly continuous functions is uniformly continuous
+cummings-9.6 | easy | pointwise limit of integrable functions need not be integrable (Dirichlet as limit)
+cummings-9.7 | easy | pointwise convergence does not allow interchanging limit and integral (spike functions)
+cummings-9.8 | medium | Cauchy criterion for uniform convergence
+lebl-0.3.4 | introductory | f(C ∪ D) = f(C) ∪ f(D); f(C ∩ D) ⊂ f(C) ∩ f(D), strict in general
+lebl-1.2.1 | introductory | Archimedean property: 1/n^2 < t for some n
+lebl-1.2.8 | easy | irrationals are dense in R
+lebl-1.2.11 | medium | existence and uniqueness of positive nth roots via supremum
+lebl-1.2.12 | introductory | sup approximation property: for every ε there is x in S with sup S − ε < x ≤ sup S
+lebl-1.2.15 | medium | sup{x in Q : x < y} = y; Dedekind cuts correspond to reals
+lebl-1.4.6 | easy | closed interval = countable intersection of open intervals; intersection of closed intervals is an interval, point, or empty
+lebl-1.4.7 | easy | any family of disjoint open intervals is countable
+lebl-1.4.9 | medium | algebraic numbers are countable; transcendental numbers exist
+lebl-1.5.5 | medium | |R| = |P(N)|
+lebl-2.1.6 | introductory | n/(n^2+1) → 0 via epsilon-N
+lebl-2.1.7 | introductory | x_n → 0 iff |x_n| → 0; |x_n| convergent does not imply x_n convergent
+lebl-2.1.11 | easy | monotone convergence theorem (decreasing case)
+lebl-2.1.16 | easy | two subsequences with different limits ⇒ divergence
+lebl-2.1.23 | easy | monotone sequence with a convergent subsequence converges
+lebl-2.2.7 | introductory | x_n^2 convergent does not imply x_n convergent ((-1)^n)
+lebl-2.2.10 | medium | lim x_n^{1/k} = (lim x_n)^{1/k}
+lebl-2.2.11 | medium | Newton/Babylonian iteration converges to sqrt(r)
+lebl-2.2.12 | easy | bounded sequence times null sequence → 0
+lebl-2.3.4 | medium | bounded sequence converges to x iff every convergent subsequence converges to x
+lebl-2.3.11 | medium | if every subsequence has a sub-subsequence converging to x, then x_n → x
+lebl-2.3.12 | medium | limsup x_n = inf{s : eventually x_n < r for every r > s}
+lebl-2.3.15 | easy | ratio test for sequences, limsup version
+lebl-2.3.20 | easy | limsup = ∞ ⇒ subsequence tending to ∞
+lebl-2.4.7 | easy | Cauchy sequence with a convergent (constant) subsequence converges to its limit
+lebl-2.5.6 | easy | ratio test (eventual ratio bound version)
+lebl-2.5.9 | easy | ∑|x_n|, ∑|y_n| < ∞ ⇒ ∑|x_n y_n| < ∞; (∑x_n)(∑y_n) ≠ ∑x_n y_n
+lebl-2.5.11 | easy | limit comparison test
+lebl-2.5.13 | medium | s_{mk} converges and x_n → 0 ⇒ series converges; fails for sparse subsequences
+lebl-2.5.14 | introductory | x_n ≥ 0, ∑x_n < ∞ ⇒ ∑x_n^2 < ∞
+lebl-2.5.17 | hard | Abel/Dirichlet test via summation by parts
+lebl-2.6.4 | hard | rearrangement of alternating harmonic series with every real as a subsequential limit of partial sums
+lebl-2.6.8 | medium | radius of convergence of sum/product can exceed both radii
+lebl-2.6.11 | medium | convergent ⇒ Cesàro summable to same value; Cesàro summable divergent series
+lebl-2.6.15 | hard | Tonelli/Fubini for double series
+lebl-3.1.1 | easy | computing/disproving function limits incl. x^2 cos(1/x), sin(1/x)cos(1/x)
+lebl-3.1.9 | medium | limit of composition g(f(x)) with g(c2)=L hypothesis
+lebl-3.1.10 | easy | f(x_n) convergent for every sequence implies f constant
+lebl-3.1.12 | easy | limit exists iff one-sided limits exist and are equal
+lebl-3.1.14 | medium | limit of composition fails without g(c2)=L (counterexample)
+lebl-3.2.3 | easy | f = x on Q, x^2 off Q: continuous exactly where x = x^2
+lebl-3.2.4 | easy | sin(1/x) (with f(0)=0) is discontinuous at 0
+lebl-3.2.9 | introductory | nowhere continuous f, g with f+g continuous (Dirichlet-type)
+lebl-3.2.13 | easy | f(x_n) convergent for all x_n -> c implies continuity at c
+lebl-3.2.16 | medium | additive function continuous at a point is linear (Cauchy functional equation)
+lebl-3.3.2 | easy | bounded discontinuous function on [0,1] with no max or min
+lebl-3.3.4 | medium | sin(1/x) (f(0)=0) has the intermediate value property but is discontinuous
+lebl-3.3.9 | easy | bounded polynomial on R is constant
+lebl-3.3.10 | easy | Brouwer fixed point theorem in 1D: continuous f:[0,1]->[0,1] has a fixed point
+lebl-3.3.13 | introductory | continuous f bounded on Z need not be bounded
+lebl-3.3.16 | medium | even-degree monic polynomial attains an absolute minimum on R
+lebl-3.4.2 | medium | uniformly continuous f on (a,b) has a limit at b (continuous extension)
+lebl-3.4.5 | medium | gluing uniformly continuous functions on overlapping intervals
+lebl-3.4.6 | medium | polynomials of degree >= 2 are not Lipschitz on R
+lebl-3.4.7 | easy | x(1-x)f(x) uniformly continuous for bounded continuous f on (0,1)
+lebl-3.4.10 | easy | continuous functions need not preserve Cauchy sequences; on R they do
+lebl-3.4.14 | easy | Lipschitz K with f(0)=f(1)=0 implies |f| <= K/2 (sharp)
+lebl-3.4.16 | introductory | |f(x)-f(y)| <= g(|x-y|) with g continuous at 0, g(0)=0 implies uniform continuity
+lebl-3.4.17 | hard | locally Lipschitz on [a,b] implies Lipschitz
+lebl-3.5.2 | easy | lim_{x->0+} f(1/x) = lim_{x->infinity} f(x)
+lebl-3.6.10 | medium | bounded increasing function on S extends to increasing function on R
+lebl-3.6.14 | medium | Dirichlet function is not a difference of two increasing functions
+lebl-4.1.12 | easy | squeeze theorem for derivatives
+lebl-4.1.14 | easy | differentiability as linear approximation with o(|x-c|) error
+lebl-4.1.16 | easy | f(c)=0, f'(c)>0 implies f changes sign from negative to positive at c
+lebl-4.2.3 | easy | bounded derivative implies Lipschitz
+lebl-4.2.4 | easy | f'(c) is a limit of f'(x_n) for some x_n -> c
+lebl-4.2.5 | easy | |f(x)-f(y)| <= |x-y|^2 implies f constant
+lebl-4.2.14 | medium | f' bounded on (0,1) gives continuous extension to 0, not necessarily differentiable
+lebl-4.2.15 | easy | Cauchy mean value theorem
+lebl-4.3.3 | easy | |x|^3 is C^2 but f'''(0) does not exist
+lebl-4.3.6 | medium | vanishing of derivatives up to n iff f(x)/(x-x0)^{n+1} has a limit
+lebl-4.3.8 | medium | x^3 sin(1/x^2)-type: |f| <= |x^3| but f''(0) fails to exist
+lebl-4.3.10 | medium | nth derivative test for extrema
+lebl-4.4.4 | easy | odd nth root is differentiable except at 0
+lebl-4.4.7 | easy | f' >= k > 0 implies f is a C^1 bijection of R
+lebl-4.4.8 | medium | differentiability of f from that of its inverse g; g'(y)=0 obstructs
+lebl-5.1.2 | introductory | integral of x on [0,1] from the definition (Darboux sums)
+lebl-5.1.3 | easy | sequence of partitions with U(P_k,f)-L(P_k,f)->0 implies integrable, integral = lim U = lim L
+lebl-5.1.6 | easy | changing a function at one point does not affect integrability or the integral
+lebl-5.1.10 | easy | lower sums over uniform partitions need not be monotone
+lebl-5.1.11 | medium | right-endpoint Riemann sums converge to the integral; converse fails
+lebl-5.1.14 | hard | f∘g not Riemann integrable with f integrable, g a bijection of [0,1]
+lebl-5.2.2 | easy | linearity of the Riemann integral: f+g integrable and ∫(f+g)=∫f+∫g
+lebl-5.2.4 | easy | mean value theorem for integrals
+lebl-5.2.5 | easy | continuous nonnegative function with zero integral is identically zero
+lebl-5.2.18 | medium | Riemann–Lebesgue lemma for continuous functions
+lebl-5.3.5 | easy | integration by parts
+lebl-5.3.8 | easy | ∫_a^x f = ∫_x^b f for all x forces f = 0 (FTC)
+lebl-5.3.12 | medium | integral of an increasing function with a jump is not differentiable there; continuous F non-differentiable at every rational
+lebl-5.4.4 | medium | ln(1+x) power series on (-1,1]; alternating harmonic series = ln 2
+lebl-5.4.5 | easy | e^x = lim (1 + x/n)^n
+lebl-5.4.11 | medium | e^{-1/x}: smooth (C^∞) but not analytic at 0
+lebl-5.5.8 | medium | Cauchy criterion for convergence of improper integrals
+lebl-5.5.9 | easy | decreasing nonnegative f with finite improper integral tends to 0; converse fails
+lebl-6.1.9 | easy | increasing f_n with f_n(0)=0, f_n(1)->0 converge uniformly to 0
+lebl-6.2.5 | easy | continuous functions converging pointwise to a continuous limit non-uniformly (moving bump)
+lebl-6.2.7 | medium | C^1([a,b]) is complete in the C^1 norm
+lebl-6.2.10 | hard | Dini's theorem
+lebl-6.2.12 | easy | pointwise convergence to 0 with integrals unbounded or oscillating
+lebl-6.2.16 | hard | Thomae's function is a pointwise limit of continuous functions
+lebl-6.2.17 | hard | Dirichlet function is a pointwise limit of pointwise limits of continuous functions
+lebl-6.2.18 | easy | uniform limits of Lipschitz functions need not be Lipschitz; uniformly K-Lipschitz limits are K-Lipschitz
+lebl-6.2.21 | hard | uniformly convergent differentiable functions whose derivatives converge to a function discontinuous at every rational
+lebl-6.3.5 | easy | continuous in x and uniformly Lipschitz in y implies jointly continuous
+lebl-7.1.1 | introductory | the discrete metric is a metric
+lebl-7.1.6 | introductory | sum and max metrics on a product of metric spaces
+lebl-7.1.8 | medium | Hausdorff distance is a pseudometric on nonempty bounded sets
+lebl-7.1.13 | medium | ℓ^2 Cauchy–Schwarz and ℓ^2 is a metric space
+lebl-7.2.2 | introductory | closed balls are closed
+lebl-7.2.4 | introductory | discrete metric space is connected iff it has one point
+lebl-7.2.5 | easy | Q is totally disconnected (totally separated)
+lebl-7.2.9 | easy | bi-Lipschitz equivalent metrics induce the same topology
+lebl-7.2.14 | introductory | interior = union of all open subsets
+lebl-7.2.16 | easy | every metric is topologically equivalent to a bounded metric
+lebl-7.3.1 | easy | limits of sequences in A lie in the closure of A
+lebl-7.3.7 | easy | R^n is separable (Q^n is a countable dense subset)
+lebl-7.3.8 | medium | nested open sets with ∩U_n={p} and x_n∈U_n need not converge to p
+lebl-7.3.13 | easy | x_n -> p iff every subsequence has a sub-subsequence converging to p
+lebl-7.3.14 | easy | Euclidean, taxicab, and max metrics on R^n give the same convergent sequences
+lebl-7.4.3 | easy | discrete metric space: complete; compact iff finite
+lebl-7.4.4 | introductory | finite unions of compact sets are compact; infinite unions need not be
+lebl-7.4.7 | medium | C([a,b],R) with the uniform metric is complete
+lebl-7.4.9 | medium | there is a metric making R compact
+lebl-7.4.11 | hard | bounded set of quadratic polynomials in C[0,1] is compact
+lebl-7.4.14 | easy | Bolzano–Weierstrass in R^n
+lebl-7.4.17 | medium | incomplete metric space has a closed bounded non-compact set
+lebl-7.4.20 | medium | relatively compact iff every sequence in S has a subsequence converging in X
+lebl-7.5.1 | easy | continuous integer-valued function on a connected space is constant
+lebl-7.5.3 | easy | f(closure A) ⊂ closure f(A), possibly strict
+lebl-7.5.4 | easy | f continuous iff preimages of open sets are open
+lebl-7.5.7 | medium | proper continuous maps (0,1)->(0,1) send boundary-escaping sequences to boundary-escaping sequences
+lebl-7.5.10 | medium | distance function is continuous; distance between compact sets is attained
+lebl-7.5.17 | medium | 2xy/(x^4+y^2): separately continuous, discontinuous at 0, and ∫_0^1 f(x,y)dx discontinuous in y
+lebl-7.6.9 | easy | Newton's method for sqrt(2) as a contraction on [1,∞)
+lebl-7.6.11 | medium | fixed point theorem when Σ Lip(f^n) < ∞
+ross-1.11 | introductory | induction step without base case proves nothing
+ross-3.5 | introductory | reverse triangle inequality ||a|-|b|| <= |a-b|
+ross-3.8 | introductory | if a <= b1 for every b1 > b then a <= b (epsilon-room lemma)
+ross-4.3 | introductory | compute sup of concrete sets
+ross-4.7 | easy | S ⊆ T ⇒ inf T ≤ inf S ≤ sup S ≤ sup T; sup(S∪T)=max(sup S, sup T)
+ross-4.8 | easy | s ≤ t for all s∈S, t∈T ⇒ sup S ≤ inf T
+ross-4.11 | easy | infinitely many rationals between any two reals
+ross-4.12 | easy | irrationals are dense in R
+ross-4.14 | easy | sup(A+B) = sup A + sup B
+ross-4.15 | introductory | a <= b + 1/n for all n implies a <= b
+ross-4.16 | easy | sup{r ∈ Q : r < a} = a
+ross-5.4 | easy | inf S = -sup(-S)
+ross-5.7 | easy | inf(A+B) = inf A + inf B for arbitrary nonempty sets
+ross-7.4 | introductory | sequence of rationals with irrational limit (and vice versa)
+ross-8.1 | introductory | epsilon-N proofs of explicit limits
+ross-8.3 | introductory | s_n → 0, s_n ≥ 0 ⇒ sqrt(s_n) → 0
+ross-8.4 | introductory | bounded sequence times null sequence tends to 0
+ross-8.5 | introductory | squeeze theorem for sequences
+ross-8.8 | easy | lim (sqrt(n^2+n) - n) = 1/2
+ross-8.9 | easy | order limit theorem: s_n ≥ a eventually ⇒ lim s_n ≥ a
+ross-8.10 | introductory | lim s_n > a ⇒ s_n > a eventually
+ross-9.6 | introductory | recursive sequence: must prove convergence before solving a = f(a)
+ross-9.9 | easy | comparison of limits: s_n ≤ t_n ⇒ lim s_n ≤ lim t_n (incl. ±∞)
+ross-9.12 | easy | ratio test for sequences: lim |s_{n+1}/s_n| < 1 ⇒ s_n → 0
+ross-9.13 | easy | lim a^n: 0, 1, +∞, or DNE
+ross-9.14 | easy | a^n/n^p limits
+ross-9.15 | easy | a^n/n! → 0
+ross-10.7 | introductory | sup S is a limit of a sequence in S
+ross-10.9 | easy | recursive sequence: monotone bounded, solve fixed-point equation
+ross-10.10 | easy | recursive sequence s_{n+1} = (s_n+1)/3: bounded below, decreasing, limit 1/2
+ross-10.11 | introductory | existence via monotone convergence vs. computing the value
+ross-11.3 | introductory | compute subsequential limits, limsup, liminf
+ross-11.5 | easy | enumeration of Q∩(0,1] has every point of [0,1] as subsequential limit
+ross-11.7 | easy | enumeration of Q has a subsequence tending to +∞
+ross-11.8 | easy | liminf s_n = -limsup(-s_n)
+ross-11.11 | easy | increasing sequence in S converging to sup S
+ross-12.1 | easy | s_n ≤ t_n eventually ⇒ limsup s_n ≤ limsup t_n, liminf s_n ≤ liminf t_n
+ross-12.2 | easy | limsup |s_n| = 0 iff s_n → 0
+ross-12.3 | introductory | strict inequality in limsup(s+t) ≤ limsup s + limsup t
+ross-12.4 | easy | limsup(s_n + t_n) ≤ limsup s_n + limsup t_n
+ross-12.8 | easy | limsup s_n t_n ≤ (limsup s_n)(limsup t_n) for nonnegative bounded sequences
+ross-12.9 | easy | s_n → +∞, liminf t_n > 0 ⇒ s_n t_n → +∞
+ross-12.11 | medium | liminf |s_{n+1}/s_n| ≤ liminf |s_n|^{1/n}
+ross-12.12 | medium | Cesàro mean: lim s_n = s ⇒ lim σ_n = s; converse false
+ross-12.14 | easy | (n!)^{1/n} → ∞ and (n!)^{1/n}/n → 1/e
+ross-13.1 | easy | max and taxicab metrics on R^k are complete
+ross-13.3 | easy | sup metric on bounded sequences (ℓ^∞)
+ross-13.4 | introductory | arbitrary unions / finite intersections of open sets are open
+ross-13.6 | medium | closed iff contains limits of its convergent sequences; closure = set of sequential limits
+ross-13.10 | easy | Q and the Cantor set have empty interior
+ross-13.11 | medium | compact iff sequentially compact in R^k
+ross-13.12 | easy | closed subset of compact is compact; finite union of compacts is compact
+ross-13.13 | easy | compact nonempty E ⊆ R has max and min
+ross-13.14 | medium | diameter of compact set is attained
+ross-13.15 | medium | closed bounded but not compact (unit ball in ℓ^∞)
+ross-14.4 | easy | convergence of sum n!/n^n and sum (sqrt(n+1)-sqrt(n))
+ross-14.6 | easy | sum |a_n| < ∞, (b_n) bounded ⇒ sum a_n b_n converges
+ross-14.7 | introductory | sum a_n < ∞, a_n ≥ 0, p > 1 ⇒ sum a_n^p < ∞
+ross-14.8 | introductory | sum sqrt(a_n b_n) converges if sum a_n, sum b_n converge
+ross-14.14 | introductory | harmonic series diverges (grouping in powers of 2)
+ross-15.5 | introductory | why comparison can't prove all p-series converge at once
+ross-15.6 | easy | sum a_n vs sum a_n^2: neither implies the other without sign condition
+ross-15.7 | medium | a_n decreasing and sum a_n converges ⇒ n a_n → 0
+ross-15.8 | medium | integral test
+ross-16.9 | easy | Euler–Mascheroni constant exists
+ross-17.5 | introductory | polynomials are continuous on R
+ross-17.10 | easy | sin(1/x) (and jump functions) discontinuous at 0 via sequences
+ross-17.11 | medium | continuity tested by monotone sequences
+ross-17.12 | easy | continuous functions agreeing on the rationals are equal
+ross-17.13 | easy | Dirichlet function nowhere continuous; x on Q, 0 off Q continuous only at 0
+ross-17.14 | medium | Thomae's function continuous exactly on the irrationals
+ross-18.5 | easy | IVT for f - g / fixed point of continuous map [0,1] -> [0,1]
+ross-18.9 | easy | odd-degree polynomial has a real root
+ross-18.10 | easy | horizontal chord theorem (chord of length 1)
+ross-19.6 | easy | sqrt x uniformly continuous although f' unbounded
+ross-19.7 | medium | uniform continuity on [0,k] and [k,infinity) gives uniform continuity on [0,infinity); sqrt x uniformly continuous on [0, infinity)
+ross-19.8 | introductory | sin is 1-Lipschitz hence uniformly continuous on R
+ross-19.9 | medium | x sin(1/x) is uniformly continuous on R
+ross-19.12 | medium | running supremum f*(x) = sup_{[a,x]} f is continuous and increasing
+ross-20.16 | easy | limits preserve <=, not <
+ross-20.17 | easy | squeeze theorem for functional limits
+ross-21.2 | easy | continuity at a point via open neighborhoods
+ross-21.3 | introductory | distance to a point is uniformly continuous (1-Lipschitz)
+ross-21.4 | easy | f continuous iff preimages of (rational) open intervals are open
+ross-21.10 | easy | continuous image of compact is compact: no continuous map [0,1] onto (0,1) or R
+ross-21.11 | hard | Q is not a countable intersection of open sets (not G_delta)
+ross-21.13 | easy | f continuous at x iff oscillation omega_f(x) = 0
+ross-22.1 | easy | continuous image of an interval is an interval (no continuous map onto disconnected set or Q)
+ross-22.3 | medium | closure of a connected set is connected
+ross-22.5 | easy | union of intersecting connected sets is connected; intersection need not be
+ross-22.6 | easy | C(S) with the sup metric is a metric space
+ross-22.10 | easy | translation x -> f(x + ·) is uniformly continuous into C(R) for uniformly continuous f
+ross-22.11 | easy | closed unit ball of C(S) is closed and connected; C(S) connected
+ross-23.1 | easy | radius and exact interval of convergence of power series (computation drill)
+ross-23.4 | easy | root test is stronger than ratio test; radius via limsup |a_n|^{1/n} when ratios oscillate
+ross-23.5 | easy | integer coefficients (infinitely many nonzero) or limsup|a_n|>0 forces R <= 1
+ross-23.6 | easy | nonnegative coefficients: convergence at R implies convergence at -R; power series with interval (-1,1]
+ross-23.8 | introductory | (1/n) sin nx -> 0 but derivatives cos nx do not converge
+ross-24.2 | introductory | x/n -> 0 uniformly on [0,1] but not on [0,infinity)
+ross-24.11 | introductory | f_n -> f, g_n -> g uniformly does not imply f_n g_n -> fg uniformly
+ross-24.14 | easy | nx/(1+n^2x^2): not uniform on [0,1] (value 1/2 at x=1/n), uniform on [1,infinity)
+ross-25.3 | easy | uniform convergence lets limit pass through integral (application)
+ross-25.4 | easy | uniformly convergent implies uniformly Cauchy
+ross-25.5 | easy | uniform limit of bounded functions is bounded
+ross-25.6 | easy | sum |a_k| < infinity implies sum a_k x^k converges uniformly on [-1,1] (M-test)
+ross-25.9 | easy | sum x^n converges uniformly on [-a,a] (a<1) but not on (-1,1)
+ross-25.11 | easy | sum (3/4)^n g(4^n x) is continuous (M-test); the Weierstrass-type nowhere-differentiable function
+ross-25.12 | easy | term-by-term integration of a uniformly convergent series of continuous functions
+ross-25.15 | hard | Dini's theorem
+ross-26.2 | introductory | sum n x^n = x/(1-x)^2 and evaluation of sum n/2^n
+ross-26.5 | introductory | exponential series satisfies f' = f
+ross-26.6 | easy | s(x)^2 + c(x)^2 = 1 from power-series definitions of sine and cosine
+ross-27.2 | easy | continuous f on R is a limit of polynomials uniformly on bounded sets
+ross-27.4 | easy | Weierstrass approximation with interpolation at the endpoints
+ross-28.3 | easy | derivatives of sqrt(x) and x^{1/3} from the definition; x^{1/3} not differentiable at 0
+ross-28.5 | introductory | the faulty proof of the chain rule (f(x)-f(a) can vanish arbitrarily close to a)
+ross-28.6 | introductory | x sin(1/x): continuous at 0 but not differentiable at 0
+ross-28.7 | introductory | x^2 for x>=0, 0 for x<0: C^1 but not twice differentiable
+ross-28.8 | easy | x^2 on Q, 0 on irrationals: differentiable only at 0
+ross-28.14 | easy | differentiable implies symmetric derivative exists and equals f'(a)
+ross-28.16 | easy | f'(a) exists iff f(x)-f(a) = (x-a)[f'(a) - eps(x)] with eps(x) -> 0
+ross-29.2 | introductory | |cos x - cos y| <= |x - y| via MVT
+ross-29.3 | medium | MVT + Darboux's theorem: derivative attains intermediate values
+ross-29.5 | easy | |f(x)-f(y)| <= (x-y)^2 implies f constant
+ross-29.13 | introductory | f(0)=g(0) and f' <= g' imply f <= g on [0, infinity)
+ross-29.17 | easy | piecewise-glued function differentiable at a iff values and derivatives match
+ross-29.18 | medium | contraction mapping / fixed point via sup|f'| < 1 (Banach fixed point on R)
+ross-30.7 | medium | Stolz counterexample: f'/g' -> 0 but f/g has no limit when g' vanishes
+ross-31.11 | easy | limit of convergent Newton iterates is a zero of f
+ross-32.6 | easy | sequences of upper/lower Darboux sums with U_n - L_n -> 0 give integrability and the integral
+ross-32.7 | easy | altering an integrable function at finitely many points preserves integrability and integral
+ross-32.8 | easy | integrable on [a,b] implies integrable on every subinterval [c,d]
+ross-33.7 | medium | f integrable implies f^2 integrable
+ross-33.8 | easy | product, max and min of integrable functions are integrable
+ross-33.9 | medium | uniform limit of Riemann integrable functions is integrable and integral of limit = limit of integrals
+ross-33.10 | medium | sin(1/x) (with f(0)=0) is Riemann integrable on [-1,1]
+ross-33.12 | medium | Thomae's (ruler) function is Riemann integrable with integral 0
+ross-33.13 | introductory | equal integrals of continuous f, g force f(x) = g(x) somewhere
+ross-33.14 | medium | weighted (second) mean value theorem for integrals
+ross-33.15 | easy | tent functions of height n and width 2/n: f_n -> 0 pointwise but integrals = 1
+ross-34.1 | easy | FTC II implies FTC I for continuously differentiable g
+ross-34.3 | easy | integral of a function with a jump: F continuous everywhere, not differentiable at the jump
+ross-34.5 | introductory | d/dx of integral from x-1 to x+1 of f is f(x+1) - f(x-1)
+ross-34.11 | easy | continuous f with integral of f^2 equal to 0 is identically 0
+ross-36.5 | easy | improper integral of a nonnegative continuous function = sup of integrals over compact subintervals
+ross-36.6 | easy | comparison test for improper integrals
+tao-3.3.5 | introductory | g∘f injective ⇒ f injective; g∘f surjective ⇒ g surjective (and not conversely)
+tao-3.4.2 | introductory | S ⊆ f^{-1}(f(S)) and f(f^{-1}(U)) ⊆ U, with strict containment possible
+tao-3.4.3 | introductory | f(A∩B) ⊆ f(A)∩f(B) (strict in general), f(A∪B)=f(A)∪f(B)
+tao-3.4.4 | introductory | preimages preserve unions, intersections, differences
+tao-3.6.8 | introductory | injection A→B gives surjection B→A (A nonempty)
+tao-5.4.3 | easy | existence/uniqueness of floor ⌊x⌋
+tao-5.4.4 | introductory | for x>0 there is N with 1/N < x
+tao-5.4.5 | easy | density of rationals
+tao-5.4.7 | introductory | x ≤ y + ε for all ε>0 ⇔ x ≤ y; |x−y| ≤ ε ∀ε ⇔ x=y
+tao-5.5.1 | introductory | inf(−E) = −sup(E)
+tao-5.5.5 | easy | density of irrationals
+tao-6.1.2 | introductory | ε–N definition of convergence (≤ε form)
+tao-6.1.5 | easy | convergent ⇒ Cauchy
+tao-6.1.8 | easy | algebraic limit theorem for sequences (sum, product, quotient, max/min)
+tao-6.1.9 | introductory | quotient law fails when denominator limit is 0
+tao-6.3.1 | introductory | sup{1/n}=1, inf{1/n}=0
+tao-6.3.3 | easy | monotone convergence theorem (bounded increasing ⇒ converges to sup)
+tao-6.4.1 | easy | a convergent sequence has its limit as its only limit point
+tao-6.4.4 | easy | a_n ≤ b_n ⇒ limsup a_n ≤ limsup b_n (comparison principle)
+tao-6.4.5 | easy | squeeze theorem for sequences
+tao-6.4.6 | introductory | a_n < b_n does not imply sup a_n < sup b_n
+tao-6.4.7 | introductory | a_n → 0 ⇔ |a_n| → 0; |a_n| → c ≠ 0 does not imply a_n → c
+tao-6.4.8 | easy | limsup is the largest subsequential limit (in the extended reals)
+tao-6.4.9 | easy | sequence with prescribed subsequential limits
+tao-6.4.10 | easy | limit points of limit points are limit points (set of subsequential limits is closed)
+tao-6.5.2 | easy | x^n → 0 for |x|<1, diverges for x=−1 or |x|>1
+tao-6.5.3 | easy | lim x^{1/n} = 1 for x>0
+tao-6.6.2 | introductory | two distinct sequences each a subsequence of the other
+tao-6.6.3 | easy | unbounded sequence has a subsequence with |b_n| → ∞
+tao-6.6.4 | easy | a_n → L iff every subsequence → L
+tao-6.6.5 | easy | L is a limit (cluster) point of (a_n) iff some subsequence converges to L
+tao-7.1.4 | easy | binomial theorem by induction
+tao-7.2.1 | introductory | Σ(−1)^n diverges (Grandi's series)
+tao-7.2.3 | introductory | nth-term (zero) test
+tao-7.2.4 | easy | absolute convergence ⇒ convergence, |Σa_n| ≤ Σ|a_n|
+tao-7.2.6 | introductory | telescoping series Σ(a_n − a_{n+1}) = a_0 − lim a_n
+tao-7.3.1 | introductory | comparison test
+tao-7.4.1 | easy | subseries of an absolutely convergent series converges absolutely
+tao-7.5.2 | easy | Σ n^q x^n converges absolutely for |x|<1, hence n^q x^n → 0
+tao-7.5.3 | introductory | ratio/root tests inconclusive when limit is 1 (Σ1/n vs Σ1/n²)
+tao-8.1.1 | medium | X infinite iff X is equinumerous with a proper subset
+tao-8.1.2 | easy | well-ordering principle
+tao-8.1.4 | easy | image of N under any map is at most countable
+tao-8.1.6 | easy | A at most countable iff there is an injection A → N
+tao-8.1.7 | introductory | union of two countable sets is countable
+tao-8.1.9 | easy | countable union of countable sets is countable
+tao-8.1.10 | medium | explicit bijection N → Q
+tao-8.2.2 | medium | absolutely summable family has at most countably many nonzero terms
+tao-8.2.4 | easy | positive and negative parts of a conditionally convergent series both diverge
+tao-8.2.5 | hard | Riemann rearrangement theorem
+tao-8.2.6 | hard | conditionally convergent series can be rearranged to diverge to +∞
+tao-8.3.3 | easy | Schröder–Bernstein theorem
+tao-8.3.4 | easy | |X| < |2^X|; transitivity of strict cardinality
+tao-8.3.5 | easy | no power set is countably infinite
+tao-A.5.1 | introductory | order of quantifiers matters (∀∃ vs ∃∀)
+tao-9.1.4 | introductory | closure of intersection can be strictly smaller than intersection of closures
+tao-9.1.5 | easy | x in closure of X iff x is a limit of a sequence in X
+tao-9.1.6 | easy | closure is the smallest closed set containing X
+tao-9.1.7 | easy | finite union of closed sets is closed
+tao-9.1.8 | introductory | arbitrary intersection of closed sets is closed
+tao-9.1.9 | easy | closure = limit points disjoint-union isolated points
+tao-9.1.13 | medium | subset of R is closed and bounded iff every sequence has a subsequence converging in the set
+tao-9.1.15 | easy | sup E lies in closure of E and of its complement
+tao-9.3.1 | medium | sequential characterization of functional limits
+tao-9.3.4 | medium | limsup/liminf of a function at a point and sequential characterization
+tao-9.3.5 | easy | squeeze theorem for function limits
+tao-9.4.1 | easy | equivalent formulations of continuity (sequential vs epsilon-delta)
+tao-9.5.1 | easy | definition of infinite limits and one-sided limits of 1/x at 0
+tao-9.6.1 | easy | extreme value theorem hypotheses are sharp (counterexamples)
+tao-9.7.1 | easy | continuous image of a closed bounded interval is a closed bounded interval
+tao-9.7.2 | easy | continuous f:[0,1]->[0,1] has a fixed point
+tao-9.8.1 | introductory | monotone functions on [a,b] attain max/min
+tao-9.8.2 | introductory | monotone function without intermediate value property
+tao-9.8.3 | medium | continuous injective function on an interval is strictly monotone
+tao-9.8.4 | medium | inverse of continuous strictly increasing function on [a,b] is continuous
+tao-9.8.5 | hard | monotone function discontinuous exactly at the rationals (sum of 2^{-n} jumps)
+tao-9.9.2 | medium | f uniformly continuous iff |x_n - y_n| -> 0 implies |f(x_n) - f(y_n)| -> 0
+tao-9.9.3 | easy | uniformly continuous functions preserve Cauchy sequences
+tao-9.9.4 | medium | uniformly continuous function has a limit at each boundary point / extends to closure
+tao-9.9.5 | medium | uniformly continuous function on a bounded set is bounded
+tao-9.9.6 | introductory | composition of uniformly continuous functions
+tao-10.1.3 | introductory | differentiable implies continuous
+tao-10.1.7 | medium | chain rule
+tao-10.2.2 | introductory | |x|: extremum without derivative
+tao-10.2.3 | introductory | x^3: stationary point that is not an extremum
+tao-10.2.4 | easy | Rolle's theorem
+tao-10.2.6 | easy | |f'| <= M implies f is M-Lipschitz
+tao-10.2.7 | introductory | bounded derivative implies uniformly continuous
+tao-10.3.3 | introductory | x^3 strictly increasing with f'(0)=0
+tao-10.3.4 | easy | f'>0 implies strictly increasing; f'=0 implies constant
+tao-10.4.1 | easy | x^{1/n} is continuous and differentiable with derivative (1/n)x^{1/n-1}
+tao-10.5.1 | easy | L'Hôpital's rule (0/0, g'(x0) != 0 version)
+tao-11.4.2 | easy | continuous nonnegative f with zero integral is identically zero
+tao-11.6.4 | medium | integral test fails without monotonicity
+tao-11.6.5 | easy | p-series converges iff p > 1 (via integral test)
+tao-11.9.1 | medium | integral of monotone function with dense jumps is non-differentiable at each jump
+tao-11.9.2 | easy | two antiderivatives differ by a constant
+tao-11.10.1 | easy | integration by parts

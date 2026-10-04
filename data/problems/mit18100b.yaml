@@ -1,0 +1,126 @@
+
+- id: mit18100b-2006-ps10-x1
+  source:
+    key: mit18100b
+    chapter: MIT 18.100B Fall 2006
+    section: Problem Set 10, Extra problems (mit18_100b_2006_pset10.pdf)
+    problemNumber: Extra problem 1
+    page: '2'
+  assignedIn:
+  - MIT 18.100B (Fall 2006) Problem Set 10, Extra problem 1
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - uniform-convergence
+  skills:
+  - contradiction
+  - diagonal-argument
+  - construct-counterexample
+  concept: pointwise convergence on C[0,1] is not induced by any norm or metric
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - pointwise-convergence
+  - metric-space
+  - norm
+  - impossibility
+  - diagonal-argument
+  - function-space
+  problemLatex: |
+    In class, we have seen that uniform convergence of a sequence of bounded functions on a set $E$ can be equivalently formulated in terms of the metric $d(f,g) = \sup_{x\in E} |f(x) - g(x)|$. That is, we have $d(f_n, f) \to 0$ if and only if $f_n \to f$ uniformly on $E$.
+
+    Having this in mind, we could ask whether an analogous statement holds with respect to pointwise convergence. More specifically, is there a metric $d(f,g)$ such that $d(f_n, f) \to 0$ if and only if $f_n \to f$ pointwise on $E$? Surprisingly, it turns out that the answer is NO when, for example, $E = [0,1]$. We therefore cordially invite you to prove the following theorem.
+
+    **Theorem 1.** *There is no metric $d(f,g)$ defined on $C([0,1])$ such that $d(f_n, f) \to 0$ if and only if $f_n \to f$ pointwise on $[0,1]$.*
+
+    Before proving this theorem, you may first show the following weaker statement whose proof requires less effort.
+
+    **Theorem 2.** *There is no norm $\|\cdot\|$ defined on $C([0,1])$ such that $\|f_n\| \to 0$ if and only if $f_n \to 0$ pointwise on $[0,1]$.*
+
+    *Hint (for proof of Theorem 2).* Consider $f_n \in C([0,1])$, with $n = 1, 2, 3, \dots$, such that
+    i) For every $x \in [0,1]$, there exists $n_0 = n_0(x)$ such that $f_n(x) = 0$ if $n \ge n_0$.
+    ii) $f_n \not\equiv 0$ for every $n \ge 1$.
+    (A possible choice is, for instance, given by $f_n(x) = \sin(n\pi x)$ if $x \in [0, 1/n]$, and $f_n(x) = 0$ if $x \in [1/n, 1]$.) By clever choice of a sequence of real-valued numbers $(c_n)$, prove the claim by considering the sequence $(c_nf_n)$.
+
+    *Hint (for proof of Theorem 1).* Assume there is such a metric $d(f,g)$ on $C([0,1])$. Then $f_n \to 0$ if and only if, for every $k \in \mathbb{N}$, we have that $f_n \in N_{1/k}(0) = \{y \in C([0,1]) : d(y, 0) < 1/k\}$, except for finitely many $f_n$. Use this fact and the specific choice $g_n(x) = e^{-n|x - x_0|}$ for suitable $x_0 \in [0,1]$ to show that $g_n \to 0$ pointwise on $[0,1]$, which is false! (Since $g(x_0) = 1$ for all $n$.)
+  notes: 'Verified against the rendered page. Kept as printed: the last hint writes g(x_0) for g_n(x_0), and its ''show that g_n -> 0 pointwise'' means ''derive that a suitable sequence built from the g_n would converge pointwise to 0, which is false''. The hint for Theorem 1 is terse, and the curator may want to trim or rephrase the hints. Extra problem: no posted solution.'
+  curation:
+    why: 'An impossibility theorem: no metric on C[0,1] gives exactly pointwise convergence.'
+  tier: upper
+
+- id: mit18100b-2006-ps3-7
+  source:
+    key: mit18100b
+    chapter: MIT 18.100B Fall 2006
+    section: Problem Set 3 (mit18_100b_2006_pset3.pdf)
+    problemNumber: Problem 7
+    page: '2'
+  assignedIn:
+  - MIT 18.100B (Fall 2006) Problem Set 3, Problem 7
+  topic: topology
+  subtopics:
+  - compactness
+  - metric-spaces
+  skills:
+  - open-cover-argument
+  - contradiction
+  - subsequence-extraction
+  concept: Lebesgue number lemma
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - open-cover
+  - Lebesgue-number
+  - metric-space
+  - machinery
+  problemLatex: |
+    Let $K$ be a compact subset of a metric space $M$, and let $\{\mathcal{U}_\alpha\}_{\alpha\in I}$ be an open cover of $K$. Show that there is a positive real number $\delta$ with the property that for every $x \in K$ there is some $\alpha \in I$ with
+    $$B_\delta(x) \subseteq \mathcal{U}_\alpha.$$
+  notes: 'Verified against the rendered page. Typo fixed: the original says ''some alpha in A'' although the index set is named I. Solution posted in mit18_100b_2006_pset3sol.pdf (Problem 7).'
+  curation:
+    why: 'The Lebesgue number lemma, the standard tool behind open-cover arguments.'
+- id: mit18100b-f10-ps10-5
+  source:
+    key: mit18100b
+    chapter: MIT 18.100B Fall 2010
+    section: Homework 10 (mit18_100bf10_pset10.pdf)
+    problemNumber: Problem 5 (with the metric d_1 of Problem 4)
+    page: '2'
+  assignedIn:
+  - MIT 18.100B (Fall 2010) Homework 10, Problem 5
+  topic: topology
+  subtopics:
+  - complete-metric-spaces
+  - metric-spaces
+  skills:
+  - integral-estimate
+  - contradiction
+  - construct-counterexample
+  concept: C[a,b] with the L^1 metric is not complete (ramp functions converging to a step)
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - metric-space
+  - completeness
+  - L1-metric
+  - Cauchy
+  - Riemann-integration
+  - function-space
+  problemLatex: |
+    *(Inlined from Problem 4: let $\mathscr{C}[a,b]$ denote the set of continuous real functions on $[a,b]$, and for $f, g \in \mathscr{C}[a,b]$ put
+    $$d_1(f,g) = \int_a^b |f - g|.$$
+    Problem 4(d) shows that $\mathscr{C}[a,b]$ is a metric space under the metric $d_1$; you may use this.)*
+
+    Consider the metric space $(\mathscr{C}[-1,1], d_1)$ from 4(d) (here $a = -1$, $b = 1$).
+    (a) Let $f_n$ denote the function
+    $$f_n(x) = \begin{cases} 1, & x > \frac{1}{n}, \\ nx, & 0 \le x \le \frac{1}{n}, \\ 0, & x < 0. \end{cases}$$
+    Show that $f_n \in \mathscr{C}[-1,1]$, and calculate $\int_0^1 f_n$.
+    (b) Show that the sequence $(f_n)$ is a Cauchy sequence in terms of the metric $d_1$.
+    (c) Does $f_n$ converge in $\mathscr{C}[-1,1]$? Is this metric space complete?
+  notes: 'Verified against the rendered page. The marked parenthetical inlines the definition of d_1 from Problem 4 (formula verbatim) and the conclusion of 4(d) that d_1 is a metric on continuous functions (the bank covers that fact in abbott-8.2.2); the routine parts of Problem 4 about R^1[a,b] and pseudometrics are omitted. Problem 5 itself is verbatim. No solutions posted for F10 homework.'
+  curation:
+    why: 'C[−1,1] is not complete under the L¹ metric, a first glimpse of why Lebesgue integration is needed.'

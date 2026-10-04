@@ -1,0 +1,483 @@
+# AI-written hints and solutions for the upper-tier / core-gap problems from Rudin and MIT 18.100B.
+- id: rudin-3.14
+  hints:
+    - |
+      For (a), the Cesàro mean can stay small even if $s_n$ is occasionally huge, provided the huge terms are rare enough. How sparse must the large terms be for their total up to $n$ to be $o(n)$?
+    - |
+      For (a), try making $s_n$ equal to $k$ at the perfect cubes $n = k^3$ and tiny (say $2^{-n}$) elsewhere, and bound $\sum_{k \le n} s_k$. For (b), telescope $\sum k a_k$ and use the fact (quoted in the problem) that Cesàro means of a null sequence tend to $0$, applied to the sequence $k a_k$.
+    - |
+      For (c), the identity in the outline comes from writing $\sum_{i=m+1}^n s_i = (n+1)\sigma_n - (m+1)\sigma_m$. The bound on $|s_n - s_i|$ comes from $s_n - s_i = a_{i+1} + \cdots + a_n$ with $|a_j| \le M/j$.
+    - |
+      For (c), the choice of $m$ is exactly what makes both $\frac{m+1}{n-m} \le \frac1\varepsilon$ and $\frac{n-m-1}{m+2} < \varepsilon$; check each by clearing denominators. Then note $m = m(n) \to \infty$, so $\sigma_n - \sigma_m \to 0$.
+  solution: |
+    **(a)** Yes. Define
+    $$s_n = \begin{cases} k, & n = k^3 \text{ for some integer } k \ge 1,\\ 2^{-n}, & \text{otherwise.}\end{cases}$$
+    Then $s_n > 0$ for all $n$, and $s_{k^3} = k \to \infty$, so $\limsup s_n = \infty$. For $n \ge 1$ let $K = \lfloor n^{1/3} \rfloor$, the number of cubes $k^3$ with $1 \le k^3 \le n$. Then
+    $$\sum_{j=0}^{n} s_j \le \sum_{j=0}^{\infty} 2^{-j} + \sum_{k=1}^{K} k \le 2 + \frac{K(K+1)}{2} \le 2 + K^2 \le 2 + n^{2/3},$$
+    so
+    $$0 < \sigma_n \le \frac{2 + n^{2/3}}{n+1} \le \frac{2}{n} + n^{-1/3} \to 0.$$
+    Hence $\lim \sigma_n = 0$.
+
+    **(b)** *The identity.* Since $a_k = s_k - s_{k-1}$,
+    $$\sum_{k=1}^n k a_k = \sum_{k=1}^n k s_k - \sum_{k=1}^{n} k s_{k-1} = \sum_{k=1}^n k s_k - \sum_{j=0}^{n-1} (j+1) s_j = n s_n - \sum_{j=0}^{n-1} s_j = (n+1)s_n - \sum_{j=0}^{n} s_j .$$
+    Dividing by $n+1$ gives $\dfrac{1}{n+1}\sum_{k=1}^n k a_k = s_n - \sigma_n$.
+
+    *The converse.* Put $t_0 = 0$ and $t_k = k a_k$ for $k \ge 1$, so $t_k \to 0$. We check that its Cesàro means $\tau_n = \frac{1}{n+1}\sum_{k=0}^n t_k$ tend to $0$ (this is the fact quoted in the problem; here is the short proof). Given $\varepsilon > 0$, pick $N$ with $|t_k| < \varepsilon$ for $k > N$, and let $C = \sum_{k=0}^N |t_k|$. For $n > N$,
+    $$|\tau_n| \le \frac{C}{n+1} + \frac{(n - N)\varepsilon}{n+1} \le \frac{C}{n+1} + \varepsilon,$$
+    which is $< 2\varepsilon$ for large $n$. So $\tau_n \to 0$. By the identity, $s_n - \sigma_n = \tau_n \to 0$. If $\sigma_n \to \sigma$, then $s_n = \sigma_n + (s_n - \sigma_n) \to \sigma$. So $\{s_n\}$ converges.
+
+    **(c)** Assume $|n a_n| \le M$ for all $n \ge 1$ and $\sigma_n \to \sigma$.
+
+    *Step 1 (the identity).* Let $0 \le m < n$. Since $\sum_{i=0}^{n} s_i = (n+1)\sigma_n$ and $\sum_{i=0}^m s_i = (m+1)\sigma_m$,
+    $$\sum_{i=m+1}^n (s_n - s_i) = (n-m)s_n - (n+1)\sigma_n + (m+1)\sigma_m = (n-m)(s_n - \sigma_n) - (m+1)(\sigma_n - \sigma_m),$$
+    where we wrote $(n+1)\sigma_n = (n-m)\sigma_n + (m+1)\sigma_n$. Dividing by $n - m$:
+    $$s_n - \sigma_n = \frac{m+1}{n-m}(\sigma_n - \sigma_m) + \frac{1}{n-m}\sum_{i=m+1}^n (s_n - s_i). \tag{1}$$
+
+    *Step 2 (the bound).* For $m+1 \le i \le n$, $s_n - s_i = \sum_{j=i+1}^n a_j$ and $|a_j| \le M/j \le M/(i+1)$ for $j \ge i+1$. Hence
+    $$|s_n - s_i| \le \frac{(n-i)M}{i+1} \le \frac{(n-m-1)M}{m+2},$$
+    using $n - i \le n - m - 1$ and $i + 1 \ge m + 2$.
+
+    *Step 3 (the choice of $m$).* Fix $\varepsilon > 0$. For $n \ge \varepsilon$ let $m = m(n)$ be the integer with
+    $$m \le \frac{n - \varepsilon}{1 + \varepsilon} < m + 1 .$$
+    Then $m \ge 0$, and $m < n$ because $\frac{n-\varepsilon}{1+\varepsilon} < n$. The left inequality is equivalent to $m(1+\varepsilon) \le n - \varepsilon$, i.e. $\varepsilon(m+1) \le n - m$, i.e.
+    $$\frac{m+1}{n-m} \le \frac{1}{\varepsilon}.$$
+    The right inequality is equivalent to $n - \varepsilon < (m+1)(1+\varepsilon) = m + 1 + \varepsilon(m+1)$, i.e. $n - m - 1 < \varepsilon(m+2)$, i.e.
+    $$\frac{n - m - 1}{m+2} < \varepsilon .$$
+    So by Step 2, $|s_n - s_i| \le \frac{(n-m-1)M}{m+2} \le M\varepsilon$ for $m < i \le n$ (with strict inequality when $M > 0$, as in the outline), and the average in (1) has absolute value $\le M\varepsilon$. From (1),
+    $$|s_n - \sigma_n| \le \frac{1}{\varepsilon}\,|\sigma_n - \sigma_{m(n)}| + M\varepsilon .$$
+
+    *Step 4 (the limit).* Since $m(n) > \frac{n - \varepsilon}{1+\varepsilon} - 1$, we have $m(n) \to \infty$ as $n \to \infty$, so $\sigma_n \to \sigma$ and $\sigma_{m(n)} \to \sigma$, and $|\sigma_n - \sigma_{m(n)}| \to 0$. Therefore $\limsup_n |s_n - \sigma_n| \le M\varepsilon$, and since $\sigma_n \to \sigma$,
+    $$\limsup_{n \to \infty} |s_n - \sigma| \le \limsup_{n\to\infty} |s_n - \sigma_n| + \lim_{n\to\infty} |\sigma_n - \sigma| \le M\varepsilon .$$
+    As $\varepsilon > 0$ was arbitrary, $\limsup |s_n - \sigma| = 0$, i.e. $\lim s_n = \sigma$. $\blacksquare$
+
+- id: rudin-4.17
+  hints:
+    - |
+      Split the simple discontinuities into types: $f(x-) < f(x+)$, $f(x-) > f(x+)$, and $f(x-) = f(x+) \ne f(x)$ (with $f(x)$ above or below the common limit). It suffices to show each type is at most countable.
+    - |
+      To check that a triple $(p, q, r)$ belongs to only one point of the first type, suppose it belongs to $x < y$. Look at a point $t$ strictly between $x$ and $y$: what do the conditions for $x$ and for $y$ say about $f(t)$?
+    - |
+      For the removable type $f(x-) = f(x+) = L < f(x)$, choose a rational $p$ with $L < p < f(x)$ and rationals $q < x < r$ such that $f(t) < p$ for all $t \ne x$ in $(q, r)$. Can two different points share such a triple?
+  solution: |
+    Throughout, "$f(x\pm)$ exists" means the one-sided limit exists as a real number. Let $S$ be the set of simple discontinuities of $f$ in $(a,b)$. If $x \in S$ and $f(x-) = f(x+)$, then $f(x) \ne f(x+)$, because otherwise $\lim_{t\to x} f(t) = f(x)$ and $f$ would be continuous at $x$. So $S = E_1 \cup E_2 \cup E_3 \cup E_4$, where
+    $$\begin{aligned} E_1 &= \{x : f(x-) < f(x+)\}, & E_2 &= \{x : f(x-) > f(x+)\},\\ E_3 &= \{x \in S : f(x-) = f(x+) < f(x)\}, & E_4 &= \{x \in S : f(x-) = f(x+) > f(x)\}. \end{aligned}$$
+    A countable union of at most countable sets is at most countable, so it suffices to treat each $E_i$. Note that $-f$ has the same simple discontinuities as $f$, and passing from $f$ to $-f$ swaps $E_1$ with $E_2$ and $E_3$ with $E_4$. So it suffices to show $E_1$ and $E_3$ are at most countable (for every $f$).
+
+    **$E_1$.** Let $x \in E_1$. Pick a rational $p$ with $f(x-) < p < f(x+)$. Since $f(t) \to f(x-) < p$ as $t \to x-$, there is $\delta > 0$ with $f(t) < p$ whenever $x - \delta < t < x$, $t > a$. Pick a rational $q$ with $\max(a, x - \delta) < q < x$; then $a < q < t < x$ implies $f(t) < p$. Similarly, since $f(t) \to f(x+) > p$ as $t \to x+$, there is a rational $r$ with $x < r < b$ such that $x < t < r$ implies $f(t) > p$. Assign to $x$ one such triple $\Phi(x) = (p, q, r) \in \mathbb{Q}^3$.
+
+    $\Phi$ is one-to-one on $E_1$. Suppose $x < y$ in $E_1$ have the same triple $(p,q,r)$. Then $q < x$ and $y < r$. Choose $t$ with $x < t < y$. Since $x < t < y < r$, the condition for $x$ gives $f(t) > p$. Since $a < q < x < t < y$, the condition for $y$ gives $f(t) < p$. This is a contradiction. Hence $E_1$ injects into the countable set $\mathbb{Q}^3$, so it is at most countable.
+
+    **$E_3$.** Let $x \in E_3$ and $L = f(x-) = f(x+) < f(x)$. Pick a rational $p$ with $L < p < f(x)$. Since both one-sided limits equal $L < p$, there are rationals $q, r$ with $a < q < x < r < b$ such that $f(t) < p$ for every $t \in (q, r)$ with $t \ne x$. Assign the triple $(p,q,r)$ to $x$. If $x \ne y$ in $E_3$ had the same triple, then $y \in (q, r)$ and $y \ne x$, so $f(y) < p$ by the condition for $x$. But $f(y) > p$ by the choice of $p$ for $y$, which is a contradiction. So $E_3$ injects into $\mathbb{Q}^3$ and is at most countable.
+
+    By the reduction above, $E_2$ and $E_4$ are also at most countable, and therefore so is $S$. $\blacksquare$
+
+- id: rudin-4.19
+  hints:
+    - |
+      Argue by contradiction. If $f$ is discontinuous at $x_0$, there is a sequence $x_n \to x_0$ with $f(x_n)$ staying a fixed distance away from $f(x_0)$, on one side.
+    - |
+      Place a rational $r$ strictly between $f(x_0)$ and all the values $f(x_n)$. The intermediate value property then produces points $t_n$ between $x_0$ and $x_n$.
+    - |
+      Where do the $t_n$ converge, and what does closedness of $\{x : f(x) = r\}$ say about that limit?
+  solution: |
+    **Proof.** Suppose $f$ is not continuous at some $x_0$. Then there are $\varepsilon > 0$ and a sequence $x_n \to x_0$ with $|f(x_n) - f(x_0)| \ge \varepsilon$ for all $n$. Infinitely many $n$ have $f(x_n) \ge f(x_0) + \varepsilon$, or infinitely many have $f(x_n) \le f(x_0) - \varepsilon$. Passing to a subsequence, we may assume one of these holds for all $n$.
+
+    *Case 1: $f(x_n) \ge f(x_0) + \varepsilon$ for all $n$.* By density of $\mathbb{Q}$, choose a rational $r$ with $f(x_0) < r < f(x_0) + \varepsilon$. Then $f(x_0) < r < f(x_n)$ for every $n$, and in particular $x_n \ne x_0$. By the intermediate value property there is $t_n$ between $x_0$ and $x_n$ with $f(t_n) = r$. Then $|t_n - x_0| \le |x_n - x_0| \to 0$, so $t_n \to x_0$. The set $Z_r = \{x : f(x) = r\}$ is closed and contains every $t_n$, so it contains their limit: $f(x_0) = r$. This contradicts $f(x_0) < r$.
+
+    *Case 2: $f(x_n) \le f(x_0) - \varepsilon$ for all $n$.* Choose a rational $r$ with $f(x_0) - \varepsilon < r < f(x_0)$. Then $f(x_n) < r < f(x_0)$, and the intermediate value property (with $a = x_n$, $b = x_0$) gives $t_n$ between $x_n$ and $x_0$ with $f(t_n) = r$. As before $t_n \to x_0$, and closedness of $Z_r$ gives $f(x_0) = r$, a contradiction.
+
+    Hence $f$ is continuous at every point. $\blacksquare$
+
+- id: rudin-4.5
+  hints:
+    - |
+      Off $E$, every point $x$ lies in a maximal open interval disjoint from $E$, whose finite endpoints lie in $E$ because $E$ is closed. Look at $\sup (E \cap (-\infty, x))$ and $\inf (E \cap (x, \infty))$.
+    - |
+      Define $g$ to be linear on each bounded complementary interval (matching $f$ at the two endpoints) and constant on an unbounded one. Continuity at points off $E$ is then clear. The real work is at points of $E$.
+    - |
+      At $x \in E$, look at one side at a time. Either $x$ is an endpoint of a complementary interval on that side, or points of $E$ accumulate at $x$ from that side. In the second case, $g(t)$ near $x$ lies between two values of $f$ at points of $E$ close to $x$.
+    - |
+      For the failure without "closed", look for a continuous function on an open interval that is unbounded.
+  solution: |
+    **Existence for closed $E$.** If $E = \varnothing$, take $g = 0$. Assume $E \ne \varnothing$ and let $U = R^1 \setminus E$, which is open. For $x \in U$ put
+    $$\alpha(x) = \sup\,(E \cap (-\infty, x)), \qquad \beta(x) = \inf\,(E \cap (x, \infty)),$$
+    with $\alpha(x) = -\infty$ (resp. $\beta(x) = +\infty$) if the set is empty. A nonempty closed set that is bounded above contains its supremum, so $\alpha(x) \in E$ when it is finite; likewise $\beta(x) \in E$ when it is finite. Also $\alpha(x) < x < \beta(x)$, since $x \notin E$, and $(\alpha(x), \beta(x)) \cap E = \varnothing$. Moreover $\alpha$ and $\beta$ are constant on $(\alpha(x), \beta(x))$: for $y$ in this interval, $E \cap (-\infty, y) = E \cap (-\infty, \alpha(x)]$, so $\alpha(y) = \alpha(x)$, and similarly $\beta(y) = \beta(x)$. Since $E \ne \varnothing$, at most one of $\alpha(x), \beta(x)$ is infinite. Define
+    $$g(x) = \begin{cases} f(x), & x \in E,\\[2pt] f(\alpha) + \dfrac{f(\beta) - f(\alpha)}{\beta - \alpha}(x - \alpha), & x \in U,\ \alpha = \alpha(x),\ \beta = \beta(x) \text{ both finite},\\[2pt] f(\beta(x)), & x \in U,\ \alpha(x) = -\infty,\\ f(\alpha(x)), & x \in U,\ \beta(x) = +\infty. \end{cases}$$
+    On each interval $(\alpha, \beta)$ making up $U$, $g$ is linear (or constant). For $\alpha, \beta$ finite, $g(x)$ is a convex combination of $f(\alpha)$ and $f(\beta)$, and $g(x) \to f(\alpha)$ as $x \to \alpha+$ and $g(x) \to f(\beta)$ as $x \to \beta-$.
+
+    *Continuity at $x \in U$:* $g$ is linear or constant on the open interval $(\alpha(x), \beta(x))$ containing $x$.
+
+    *Continuity at $x \in E$.* We show $g(t) \to f(x) = g(x)$ as $t \to x+$; the left side is symmetric. Let $\varepsilon > 0$, and use continuity of $f$ on $E$ to choose $\delta > 0$ with $|f(y) - f(x)| < \varepsilon$ for $y \in E$, $|y - x| < \delta$.
+
+    - If $(x, x + \eta) \cap E = \varnothing$ for some $\eta > 0$, then $(x, x+\eta) \subset U$ and every $t$ in it has $\alpha(t) = x$. So on $(x, \beta(x+\eta/2))$ the function $g$ is the linear function joining $f(x)$ to $f(\beta)$, or the constant $f(x)$ if $\beta = \infty$. Either way $g(t) \to f(x)$ as $t \to x+$.
+    - Otherwise there is $y \in E$ with $x < y < x + \delta$. Let $x < t < y$. If $t \in E$, then $|g(t) - f(x)| = |f(t) - f(x)| < \varepsilon$. If $t \in U$, then $x$ and $y$ lie in $E$ on either side of $t$, so $x \le \alpha(t) < t < \beta(t) \le y$. Both endpoints are in $E$ within $\delta$ of $x$, so $f(\alpha(t))$ and $f(\beta(t))$ lie in $(f(x) - \varepsilon, f(x) + \varepsilon)$, and so does their convex combination $g(t)$. Hence $|g(t) - f(x)| < \varepsilon$ for all $t \in (x, y)$.
+
+    So $g$ is continuous on $R^1$ and $g = f$ on $E$.
+
+    **"Closed" cannot be omitted.** Let $E = (0, 1)$ and $f(x) = 1/x$, which is continuous on $E$. If $g$ were a continuous extension to $R^1$, it would be bounded on the compact set $[0,1]$. But $g(1/n) = n$ is unbounded. So no extension exists.
+
+    **Vector-valued functions.** Let $\mathbf{f} = (f_1, \dots, f_k) : E \to R^k$ be continuous, with $E$ closed. Each $f_i$ is a continuous real function on $E$, so it has a continuous extension $g_i$. Then $\mathbf{g} = (g_1, \dots, g_k)$ is continuous on $R^1$ (a map into $R^k$ is continuous iff its components are) and $\mathbf{g} = \mathbf{f}$ on $E$. $\blacksquare$
+
+- id: rudin-5.15
+  hints:
+    - |
+      For the inequality, the textbook hint already gives $|f'(x)| \le hM_2 + M_0/h$ for every $h > 0$. The left side does not depend on $h$, so what is the best choice of $h$?
+    - |
+      Minimize $hM_2 + M_0/h$ over $h > 0$ (AM–GM). Treat separately the degenerate cases where $M_0$ or $M_2$ is $0$.
+    - |
+      For the example, compute $f'$ and $f''$ on each piece, check what happens at $0$, and find the extreme values of $4x/(x^2+1)^2$ and $4(1-3x^2)/(x^2+1)^3$ on $[0, \infty)$.
+    - |
+      For Exercise 16, apply the inequality on the half-line $(a, \infty)$. The quantity $M_0(a) = \sup_{x > a}|f(x)|$ tends to $0$ as $a \to \infty$, while $M_2(a)$ stays bounded.
+  solution: |
+    **The inequality.** If $M_0 = \infty$ or $M_2 = \infty$ (with the other positive), the right side is $+\infty$ and there is nothing to prove, so assume $M_0, M_2 < \infty$. (If one of them is infinite and the other is $0$, the product is undefined. That case does not arise in Exercise 16.)
+
+    Fix $x > a$ and $h > 0$. Since $f$ is twice differentiable on $(a, \infty)$, $f'$ is continuous on $[x, x+2h]$ and $f''$ exists on $(x, x+2h)$. Taylor's theorem with $n = 2$, $\alpha = x$, $\beta = x + 2h$ gives $\xi \in (x, x+2h)$ with
+    $$f(x+2h) = f(x) + 2h f'(x) + \frac{f''(\xi)}{2}(2h)^2 .$$
+    Hence $f'(x) = \frac{1}{2h}[f(x+2h) - f(x)] - h f''(\xi)$, and
+    $$|f'(x)| \le \frac{2M_0}{2h} + hM_2 = \frac{M_0}{h} + hM_2 \qquad (h > 0). \tag{1}$$
+    If $M_0 > 0$ and $M_2 > 0$, take $h = \sqrt{M_0/M_2}$ to get $|f'(x)| \le 2\sqrt{M_0M_2}$. If $M_2 = 0$, let $h \to \infty$ in (1); if $M_0 = 0$, let $h \to 0^+$. Either way $|f'(x)| \le 0 = 2\sqrt{M_0M_2}$. Thus $|f'(x)| \le 2\sqrt{M_0 M_2}$ for every $x > a$, so $M_1 \le 2\sqrt{M_0M_2}$, i.e.
+    $$M_1^2 \le 4M_0M_2 .$$
+
+    **Equality can occur.** Take $a = -1$ and $f$ as given. For $x \ge 0$ write $f(x) = 1 - \frac{2}{x^2+1}$. Then for $x > 0$,
+    $$f'(x) = \frac{4x}{(x^2+1)^2}, \qquad f''(x) = \frac{4(x^2+1)^2 - 4x\cdot 2(x^2+1)\cdot 2x}{(x^2+1)^4} = \frac{4(1 - 3x^2)}{(x^2+1)^3},$$
+    while for $-1 < x < 0$, $f'(x) = 4x$ and $f''(x) = 4$.
+
+    *At $0$.* $f(0) = -1 = \lim_{x\to 0^-}(2x^2-1)$, so $f$ is continuous. The one-sided difference quotients give $f'(0) = 0$ from both sides ($\frac{2x^2}{x} \to 0$ and $\frac{f(x)+1}{x} = \frac{2x}{x^2+1} \to 0$). Then $\frac{f'(x) - f'(0)}{x}$ equals $4$ for $x < 0$ and $\frac{4}{(x^2+1)^2} \to 4$ for $x > 0$, so $f''(0) = 4$. Thus $f$ is twice differentiable on $(-1,\infty)$.
+
+    *$M_0 = 1$.* On $(-1, 0)$, $-1 \le 2x^2 - 1 < 1$. On $[0, \infty)$, $-1 \le 1 - \frac{2}{x^2+1} < 1$, and $f(0) = -1$. So $M_0 = 1$.
+
+    *$M_1 = 4$.* On $(-1,0)$, $|f'(x)| = 4|x| < 4$, and $4|x| \to 4$ as $x \to -1^+$. On $[0, \infty)$, $f' \ge 0$ and $f'' = 0$ only at $x = 1/\sqrt3$, so $f'$ has maximum $f'(1/\sqrt3) = \frac{4/\sqrt3}{(4/3)^2} = \frac{3\sqrt3}{4} < 4$. Hence $M_1 = 4$.
+
+    *$M_2 = 4$.* On $(-1, 0]$, $f'' = 4$. For $x \ge 0$ put $u = x^2 \ge 0$. If $u \le 1/3$, then $0 \le f''(x) = \frac{4(1-3u)}{(1+u)^3} \le 4$. If $u > 1/3$, then $|f''(x)| = \frac{4(3u - 1)}{(1+u)^3}$, and since
+    $$\frac{d}{du}\frac{3u-1}{(1+u)^3} = \frac{6(1-u)}{(1+u)^4},$$
+    its maximum is at $u = 1$, with value $4\cdot \frac{2}{8} = 1$. Hence $M_2 = 4$, and $M_1^2 = 16 = 4 \cdot 1 \cdot 4 = 4M_0M_2$.
+
+    **Exercise 16.** Let $|f''| \le B$ on $(0, \infty)$ and $f(x) \to 0$. For $a > 0$ put $M_0(a) = \sup_{x > a}|f(x)|$, $M_1(a) = \sup_{x>a}|f'(x)|$, $M_2(a) = \sup_{x>a}|f''(x)| \le B$. Since $f \to 0$, $M_0(a)$ is finite for all large $a$ and $M_0(a) \to 0$ as $a \to \infty$. The restriction of $f$ to $(a, \infty)$ is twice differentiable there, so by Exercise 15,
+    $$M_1(a)^2 \le 4M_0(a)M_2(a) \le 4B\,M_0(a) \longrightarrow 0 \qquad (a \to \infty).$$
+    Given $\varepsilon > 0$, choose $a$ with $4BM_0(a) < \varepsilon^2$. Then $|f'(x)| \le M_1(a) < \varepsilon$ for all $x > a$. Hence $f'(x) \to 0$ as $x \to \infty$. $\blacksquare$
+
+- id: rudin-5.17
+  hints:
+    - |
+      Four conditions are given at the points $-1, 0, 1$, and they involve $f$ and $f'$ at $0$. Expand $f$ around $0$ to third order, once towards $1$ and once towards $-1$.
+    - |
+      The two expansions share the unknown term $f''(0)/2$. Combine them so that it cancels.
+    - |
+      Once you have $f^{(3)}(s) + f^{(3)}(t) = 6$, the two numbers cannot both be below $3$. Check the hypotheses of Taylor's theorem with $n = 3$.
+  solution: |
+    **Proof.** Since $f$ is three times differentiable on $[-1,1]$, $f''$ is differentiable and hence continuous there, and $f^{(3)}$ exists on $(-1,1)$. So Taylor's theorem (Theorem 5.15) applies with $n = 3$ and $\alpha = 0$. With $f(0) = f'(0) = 0$, it gives:
+
+    - $\beta = 1$: there is $s \in (0,1)$ with $1 = f(1) = \dfrac{f''(0)}{2} + \dfrac{f^{(3)}(s)}{6}$.
+    - $\beta = -1$: there is $t \in (-1, 0)$ with $0 = f(-1) = \dfrac{f''(0)}{2} - \dfrac{f^{(3)}(t)}{6}$.
+
+    Subtracting the second equation from the first:
+    $$1 = \frac{f^{(3)}(s) + f^{(3)}(t)}{6}, \qquad\text{i.e.}\qquad f^{(3)}(s) + f^{(3)}(t) = 6 .$$
+    If both $f^{(3)}(s) < 3$ and $f^{(3)}(t) < 3$, the sum would be $< 6$. Hence $f^{(3)}(x) \ge 3$ for $x = s$ or $x = t$, both of which lie in $(-1,1)$.
+
+    **Sharpness.** For $f(x) = \frac12(x^3 + x^2)$ we have $f(-1) = \frac12(-1+1) = 0$, $f(0) = 0$, $f(1) = 1$, $f'(x) = \frac12(3x^2 + 2x)$ so $f'(0) = 0$, and $f^{(3)} \equiv 3$. So the constant $3$ cannot be replaced by anything larger. $\blacksquare$
+
+- id: rudin-5.21
+  hints:
+    - |
+      Think about the complement of $E$: it is a disjoint union of at most countably many open intervals. If you could build, for one such interval, a smooth function that is positive exactly on that interval, how far would that get you?
+    - |
+      The function $\varphi(t) = e^{-1/t}$ for $t > 0$, $\varphi(t) = 0$ for $t \le 0$ is $C^\infty$ with all derivatives $0$ at $0$. Then $\varphi(x - a)\varphi(b - x)$ is smooth and positive exactly on $(a, b)$.
+    - |
+      Add the bumps for all the complementary intervals, with small positive coefficients. Choose the coefficients so that, for each $k$, the series of $k$-th derivatives converges uniformly (Weierstrass M-test). Then differentiate term by term.
+  solution: |
+    **Answer.** Yes: for every closed $E \subset R^1$ there is $f \in C^\infty(R^1)$ with $Z(f) = \{x : f(x) = 0\} = E$. In particular $f$ can be taken differentiable, or $n$ times differentiable.
+
+    If $E = R^1$ take $f = 0$; if $E = \varnothing$ take $f = 1$. Otherwise $U = R^1 \setminus E$ is a nonempty open set, so it is the union of an at most countable family of disjoint open intervals $I_1, I_2, \dots$ (its components; at most two of them are unbounded). We may take each $I_n$ maximal, so its finite endpoints lie in $E$.
+
+    **Step 1: a smooth bump.** Let $\varphi(t) = e^{-1/t}$ for $t > 0$ and $\varphi(t) = 0$ for $t \le 0$. By induction, for $t > 0$, $\varphi^{(k)}(t) = P_k(1/t)e^{-1/t}$ for a polynomial $P_k$. (Indeed $\frac{d}{dt}[P(1/t)e^{-1/t}] = [-t^{-2}P'(1/t) + t^{-2}P(1/t)]e^{-1/t}$.) Since $u^j e^{-u} \to 0$ as $u \to \infty$, every function $Q(1/t)e^{-1/t}$ with $Q$ a polynomial tends to $0$ as $t \to 0^+$. By induction on $k$, $\varphi^{(k)}(0)$ exists and equals $0$: the left difference quotient of $\varphi^{(k)}$ at $0$ is $0$, and the right one is $\varphi^{(k)}(t)/t = \frac1t P_k(1/t)e^{-1/t} \to 0$. So $\varphi \in C^\infty(R^1)$, with $\varphi > 0$ on $(0, \infty)$ and $\varphi = 0$ on $(-\infty, 0]$. Each $\varphi^{(k)}$ is bounded on $R^1$. It is $0$ for $t \le 0$. On $(0, 1]$ it is continuous with limit $0$ at $0^+$. On $[1, \infty)$ we have $|P_k(1/t)| \le \sum |\text{coefficients}|$ and $e^{-1/t} \le 1$.
+
+    For each component $I_n$ define
+    $$\psi_n(x) = \begin{cases} \varphi(x - a)\varphi(b - x), & I_n = (a, b),\\ \varphi(x - a), & I_n = (a, \infty),\\ \varphi(b - x), & I_n = (-\infty, b). \end{cases}$$
+    Each $\psi_n$ is $C^\infty$, $\psi_n > 0$ on $I_n$ and $\psi_n = 0$ off $I_n$. By the Leibniz rule each derivative $\psi_n^{(k)}$ is a finite sum of products of bounded functions, hence bounded. Let $B_n = \max_{0 \le k \le n} \sup_{R^1}|\psi_n^{(k)}| < \infty$.
+
+    **Step 2: the series.** Put $c_n = 2^{-n}/(1 + B_n) > 0$ and
+    $$f = \sum_n c_n \psi_n .$$
+    (If there are finitely many components, this is a finite sum and smoothness is immediate.) Fix $k \ge 0$. For $n \ge k$, $\sup|c_n \psi_n^{(k)}| \le c_n B_n \le 2^{-n}$. So by the Weierstrass M-test, $\sum_n c_n\psi_n^{(k)}$ converges uniformly on $R^1$ for every $k$. By the theorem on differentiating a series term by term (Rudin 7.17: if $\sum g_n$ converges at a point and $\sum g_n'$ converges uniformly, then $\sum g_n$ converges uniformly to a differentiable function and $(\sum g_n)' = \sum g_n'$), used on each interval $[-L, L]$ with $g_n = c_n\psi_n^{(k)}$ for $k = 0, 1, 2, \dots$, induction shows that $f$ has derivatives of all orders with $f^{(k)} = \sum_n c_n \psi_n^{(k)}$.
+
+    **Step 3: the zero set.** If $x \in E$, then $x$ lies in no $I_n$, so every $\psi_n(x) = 0$ and $f(x) = 0$. If $x \in U$, then $x \in I_m$ for exactly one $m$, and since all terms are $\ge 0$, $f(x) \ge c_m\psi_m(x) > 0$. Hence $Z(f) = E$. $\blacksquare$
+
+- id: rudin-5.26
+  hints:
+    - |
+      The inequality controls $f'$ by $f$ itself. On a short interval starting at a zero of $f$, the MVT bounds $|f|$ by (length) $\times$ (something like $A \sup|f|$).
+    - |
+      If $M_0 = \sup|f|$ over $[c, x_0]$ satisfies $M_0 \le A(x_0 - c)M_0$ with $A(x_0 - c) < 1$, then $M_0 = 0$. Why is $M_0$ finite?
+    - |
+      The length $h$ of a "safe" interval depends only on $A$, not on where it starts. So you can walk across $[a, b]$ in finitely many steps of length $h$.
+  solution: |
+    **Proof.** Replacing $A$ by $\max(A, 1)$ keeps the hypothesis true, so assume $A > 0$. Fix $h > 0$ with $Ah < 1$, say $h = \frac{1}{2A}$.
+
+    **Claim.** If $c \in [a,b]$ and $f(c) = 0$, then $f = 0$ on $[c, \min(c + h, b)]$.
+
+    *Proof of claim.* Let $x_0 \in (c, \min(c+h, b)]$; it suffices to show $f = 0$ on $[c, x_0]$. Since $f$ is differentiable, it is continuous, so $M_0 = \sup_{[c, x_0]}|f|$ is finite (EVT). For $x \in (c, x_0]$, the MVT gives $\xi \in (c, x)$ with
+    $$|f(x)| = |f(x) - f(c)| = |f'(\xi)|(x - c) \le A|f(\xi)|(x_0 - c) \le AhM_0 .$$
+    This also holds at $x = c$. Taking the sup over $x \in [c, x_0]$: $M_0 \le AhM_0$. Since $Ah < 1$ and $M_0 \ge 0$, $M_0 = 0$. This proves the claim.
+
+    Now let $c_j = a + jh$ for $j = 0, 1, 2, \dots$. We have $f(c_0) = f(a) = 0$, so the claim gives $f = 0$ on $[c_0, \min(c_1, b)]$. If $c_1 < b$ then $f(c_1) = 0$, and the claim gives $f = 0$ on $[c_1, \min(c_2, b)]$, and so on. After $N$ steps, where $N$ is an integer with $Nh \ge b - a$, we get $f = 0$ on all of $[a, b]$. $\blacksquare$
+
+- id: rudin-7.16
+  hints:
+    - |
+      Uniform convergence is equivalent to being uniformly Cauchy. Equicontinuity gives one $\delta$ that works for every $f_n$ at once.
+    - |
+      Compactness lets you cover $K$ by finitely many $\delta$-balls centred at points $p_1, \dots, p_m$ of $K$. At finitely many points, pointwise convergence is automatically uniform.
+    - |
+      For $x$ in the ball around $p_i$, estimate $|f_n(x) - f_k(x)|$ by passing through $p_i$: an $\varepsilon/3$ argument.
+  solution: |
+    **Proof.** If $K = \varnothing$ there is nothing to prove. Let $\varepsilon > 0$. By equicontinuity there is $\delta > 0$ such that
+    $$|f_n(x) - f_n(y)| < \varepsilon/3 \quad\text{whenever } x, y \in K,\ d(x, y) < \delta, \text{ and for all } n.$$
+    The open balls $B(p, \delta)$, $p \in K$, cover the compact set $K$, so there are $p_1, \dots, p_m \in K$ with $K \subset \bigcup_{i=1}^m B(p_i, \delta)$. Each sequence $\{f_n(p_i)\}$ converges, so it is Cauchy. Since there are finitely many $i$, there is $N$ with
+    $$|f_n(p_i) - f_k(p_i)| < \varepsilon/3 \quad\text{for all } n, k \ge N \text{ and } i = 1, \dots, m.$$
+    Now let $x \in K$ and $n, k \ge N$. Choose $i$ with $d(x, p_i) < \delta$. Then
+    $$|f_n(x) - f_k(x)| \le |f_n(x) - f_n(p_i)| + |f_n(p_i) - f_k(p_i)| + |f_k(p_i) - f_k(x)| < \tfrac{\varepsilon}{3} + \tfrac{\varepsilon}{3} + \tfrac{\varepsilon}{3} = \varepsilon .$$
+    Here $N$ does not depend on $x$. So $\{f_n\}$ is uniformly Cauchy on $K$, and by the Cauchy criterion for uniform convergence (Rudin 7.8) it converges uniformly on $K$. Its uniform limit is necessarily the pointwise limit. $\blacksquare$
+
+- id: rudin-7.13
+  hints:
+    - |
+      The values $f_n(x)$ all lie in $[0,1]$, so Bolzano–Weierstrass applies at each single point. A diagonal argument handles countably many points at once.
+    - |
+      At a point $x$ where the limit function is continuous, squeeze $f_{n_i}(x)$ between $f_{n_i}(r)$ and $f_{n_i}(s)$ for rationals $r < x < s$ close to $x$. That is where monotonicity is used.
+    - |
+      For (b), use uniform continuity of $f$ on $[\alpha, \beta]$ to choose finitely many partition points where $f$ increases by less than $\varepsilon$ between neighbours. Convergence at those finitely many points, together with monotonicity of each $f_{n_k}$ and of $f$, controls everything in between.
+  solution: |
+    **(a)** *Step 1: convergence on the rationals.* Enumerate $\mathbb{Q} = \{r_1, r_2, \dots\}$. Since $\{f_n(r_1)\} \subset [0,1]$, Bolzano–Weierstrass gives a subsequence $S_1$ of $\{f_n\}$ converging at $r_1$. Then a subsequence $S_2$ of $S_1$ converges at $r_2$, and so on. Let $g_i$ be the $i$-th term of $S_i$. For each $j$, $\{g_i\}_{i \ge j}$ is a subsequence of $S_j$, so $\{g_i\}$ converges at every rational. It is a subsequence of $\{f_n\}$. Let $\varphi(r) = \lim_i g_i(r) \in [0,1]$ for $r \in \mathbb{Q}$. Since each $g_i$ is increasing, so is $\varphi$.
+
+    *Step 2: a monotone extension.* For $x \in R^1$ let $F(x) = \sup\{\varphi(r) : r \in \mathbb{Q},\ r \le x\}$. Then $F$ is increasing with values in $[0,1]$, and $F(r) = \varphi(r)$ for rational $r$ (because $\varphi$ is increasing).
+
+    *Step 3: convergence at continuity points of $F$.* Let $F$ be continuous at $x$ and let $\varepsilon > 0$. Choose $\delta > 0$ with $|F(y) - F(x)| < \varepsilon$ for $|y - x| < \delta$, and rationals $r, s$ with $x - \delta < r < x < s < x + \delta$. Since each $g_i$ is increasing, $g_i(r) \le g_i(x) \le g_i(s)$. Letting $i \to \infty$,
+    $$F(x) - \varepsilon < F(r) \le \liminf_i g_i(x) \le \limsup_i g_i(x) \le F(s) < F(x) + \varepsilon .$$
+    As $\varepsilon$ is arbitrary, $g_i(x) \to F(x)$.
+
+    *Step 4: the remaining points.* $F$ is monotone, so its set $D$ of discontinuities is at most countable (Rudin, Theorem 4.30). Since $\{g_i(x)\} \subset [0,1]$, the diagonal argument of Step 1 applied to the points of $D$ (or finitely many extractions if $D$ is finite, or none if $D$ is empty) gives a subsequence $\{f_{n_k}\}$ of $\{g_i\}$ that converges at every point of $D$. Being a subsequence of $\{g_i\}$, it still converges to $F(x)$ at every $x \notin D$. Define $f(x) = \lim_k f_{n_k}(x)$ for all $x$. Then $f_{n_k} \to f$ pointwise on $R^1$.
+
+    **(b)** We show more generally: if increasing functions $h_k$ converge pointwise on $R^1$ to a continuous $f$, then they converge uniformly on every compact set. Apply this to $h_k = f_{n_k}$. Note that $f$ is increasing, being a pointwise limit of increasing functions.
+
+    Every compact set lies in some $[\alpha, \beta]$, so it suffices to treat $[\alpha,\beta]$. Let $\varepsilon > 0$. Since $f$ is uniformly continuous on $[\alpha, \beta]$, there is a partition $\alpha = x_0 < x_1 < \cdots < x_m = \beta$ with $0 \le f(x_j) - f(x_{j-1}) < \varepsilon$ for each $j$. Choose $K$ such that $|h_k(x_j) - f(x_j)| < \varepsilon$ for all $k \ge K$ and all $j = 0, \dots, m$; finitely many points make this possible. Let $x \in [x_{j-1}, x_j]$ and $k \ge K$. Using monotonicity of $h_k$ and of $f$:
+    $$h_k(x) \le h_k(x_j) < f(x_j) + \varepsilon < f(x_{j-1}) + 2\varepsilon \le f(x) + 2\varepsilon,$$
+    $$h_k(x) \ge h_k(x_{j-1}) > f(x_{j-1}) - \varepsilon > f(x_j) - 2\varepsilon \ge f(x) - 2\varepsilon .$$
+    So $\sup_{[\alpha,\beta]}|h_k - f| \le 2\varepsilon$ for $k \ge K$, i.e. $h_k \to f$ uniformly on $[\alpha, \beta]$. $\blacksquare$
+
+- id: rudin-7.10
+  hints:
+    - |
+      Each term satisfies $0 \le (nx)/n^2 < 1/n^2$, so the series converges uniformly on $R^1$. The question is where it is continuous. Start with one term: where is $x \mapsto (nx)$ discontinuous, and what do its one-sided limits look like there?
+    - |
+      $(t)$ is right-continuous everywhere and jumps down by $1$ at each integer. Uniform convergence lets you compute one-sided limits of $f$ term by term (Rudin 7.11).
+    - |
+      At $x = p/q$ in lowest terms, the terms with a jump are exactly those with $q \mid n$. Sum those jumps. For integrability, think about partial sums and uniform limits.
+  solution: |
+    **Uniform convergence.** Since $0 \le (t) < 1$, we have $0 \le (nx)/n^2 < 1/n^2$, and $\sum 1/n^2 < \infty$. By the Weierstrass M-test the partial sums $S_N(x) = \sum_{n=1}^N (nx)/n^2$ converge uniformly to $f$ on $R^1$.
+
+    **One-sided limits of a single term.** $(t) = t - [t]$ is continuous at non-integers. At an integer $k$, $(t) = t - k \to 0 = (k)$ as $t \to k+$, and $(t) = t - (k-1) \to 1$ as $t \to k-$. So $(t)$ is right-continuous everywhere, and its left limit at $t$ equals $(t)$ if $t \notin \mathbb{Z}$ and equals $(t) + 1$ if $t \in \mathbb{Z}$. Consequently, for every $x$,
+    $$S_N(x+) = S_N(x), \qquad S_N(x-) = S_N(x) + \sum_{\substack{1 \le n \le N\\ nx \in \mathbb{Z}}} \frac{1}{n^2}.$$
+
+    **One-sided limits of $f$.** By Rudin 7.11 (if $g_N \to g$ uniformly on $E$, $x$ is a limit point of $E$, and $\lim_{t \to x} g_N(t) = A_N$, then $\{A_N\}$ converges and $\lim_{t\to x} g(t) = \lim A_N$), applied with $E = (x, x+1)$ and with $E = (x-1, x)$,
+    $$f(x+) = \lim_N S_N(x) = f(x), \qquad f(x-) = \lim_N S_N(x-) = f(x) + \sum_{n \ge 1,\ nx \in \mathbb{Z}} \frac{1}{n^2}.$$
+
+    **The discontinuities.** If $x$ is irrational, then $nx \notin \mathbb{Z}$ for every $n \ge 1$. So $f(x-) = f(x+) = f(x)$ and $f$ is continuous at $x$. If $x$ is rational, write $x = p/q$ with $q \ge 1$ and $\gcd(p, q) = 1$ (for $x = 0$, take $p = 0$, $q = 1$). Then $nx = np/q \in \mathbb{Z}$ iff $q \mid n$. So
+    $$f(x-) - f(x) = \sum_{m=1}^\infty \frac{1}{(mq)^2} = \frac{1}{q^2}\sum_{m=1}^\infty \frac{1}{m^2} > 0,$$
+    and $f$ is discontinuous at $x$, with a jump: $f$ is right-continuous and $f(x-) > f(x)$. Hence the set of discontinuities of $f$ is exactly $\mathbb{Q}$, which is countable and dense in $R^1$.
+
+    **Integrability.** Fix a bounded interval $[a, b]$. Each $(nx)$ is bounded on $[a,b]$ and has only finitely many discontinuities there (at the points of $\frac1n\mathbb{Z}$). So it is Riemann integrable (Rudin 6.10), and so is each partial sum $S_N$. Since $S_N \to f$ uniformly on $[a,b]$, $f$ is Riemann integrable on $[a,b]$ (Rudin 7.16), and moreover $\int_a^b f = \sum_n \frac{1}{n^2}\int_a^b (nx)\,dx$. $\blacksquare$
+
+- id: rudin-2.27
+  hints:
+    - |
+      For (a), follow the textbook hint. A point fails to be a condensation point exactly when some neighbourhood meets $E$ in an at most countable set, and a countable base lets you shrink that neighbourhood to a basic set $V_n$.
+    - |
+      Once $P = W^c$ is known, $P$ is closed for free, and $E \cap P^c = E \cap W$ is a countable union of at most countable sets. For "every point of $P$ is a limit point of $P$", take a ball around $p \in P$: it meets $E$ uncountably, but only countably many of those points are outside $P$.
+    - |
+      For (b), split into the cases $F$ at most countable and $F$ uncountable. In the second case apply (a) with $E = F$, and check that condensation points of $F$ lie in $F$.
+    - |
+      For the corollary, a nonempty closed set with no isolated points is perfect. What does Rudin's Theorem 2.43 say about nonempty perfect sets in $R^k$?
+  solution: |
+    **(a)** *A countable base.* Let $\{V_n\}$ be the countable collection of open balls in $R^k$ with rational radius and center in $\mathbb{Q}^k$. It is a base: if $x \in G$ with $G$ open, choose $\varepsilon > 0$ with $B(x, \varepsilon) \subset G$, a rational $\rho \in (0, \varepsilon/2)$, and $q \in \mathbb{Q}^k$ with $|x - q| < \rho$ ($\mathbb{Q}^k$ is dense). Then $x \in B(q, \rho) \subset B(x, 2\rho) \subset G$.
+
+    Let $W$ be the union of those $V_n$ for which $E \cap V_n$ is at most countable.
+
+    *$P = W^c$.* If $p \in W$, then $p \in V_n$ for some $n$ with $E \cap V_n$ at most countable. Since $V_n$ is open, it contains a neighbourhood $N$ of $p$, and $N \cap E$ is at most countable. So $p \notin P$. Conversely, if $p \notin P$, some neighbourhood $N$ of $p$ has $N \cap E$ at most countable. Choose $V_n$ with $p \in V_n \subset N$; then $E \cap V_n$ is at most countable, so $V_n \subset W$ and $p \in W$. Hence $P = W^c$.
+
+    *$E \setminus P$ is at most countable.* $E \cap P^c = E \cap W = \bigcup (E \cap V_n)$, the union over the relevant $n$. This is a countable union of at most countable sets, so it is at most countable.
+
+    *$P$ is perfect.* $P = W^c$ is closed because $W$ is a union of open sets. Since $E$ is uncountable and $E \setminus P$ is countable, $E \cap P \ne \varnothing$, so $P \ne \varnothing$. Let $p \in P$ and let $N$ be any neighbourhood of $p$. Then $N \cap E$ is uncountable while $N \cap E \cap P^c$ is at most countable, so $N \cap E \cap P$ is uncountable. In particular it contains a point other than $p$. So $p$ is a limit point of $P$. Hence $P$ is perfect.
+
+    **(b)** Let $F \subset R^k$ be closed. If $F$ is at most countable, then $F = \varnothing \cup F$, and $\varnothing$ is perfect (it is closed and the condition on its points is vacuous). Suppose $F$ is uncountable and let $P$ be the set of condensation points of $F$. By (a), $P$ is perfect and $F \setminus P$ is at most countable. Also $P \subset F$: if $p \in P$, every neighbourhood of $p$ contains uncountably many, hence at least one other, points of $F$. So $p$ is a limit point of $F$, and $p \in F$ because $F$ is closed. Therefore
+    $$F = P \cup (F \setminus P)$$
+    with $P$ perfect and $F \setminus P$ at most countable.
+
+    *Corollary.* Let $F \subset R^k$ be closed, nonempty and at most countable. (For $F = \varnothing$ the statement is vacuous.) If $F$ had no isolated points, every point of $F$ would be a limit point of $F$, so $F$ would be a nonempty perfect set. By Rudin's Theorem 2.43 every nonempty perfect set in $R^k$ is uncountable, which is a contradiction. So $F$ has an isolated point. $\blacksquare$
+
+- id: rudin-4.25
+  hints:
+    - |
+      For (a), show that the complement of $K + C$ is open. Following the textbook hint, first check that $F = \mathbf{z} - C$ is closed and disjoint from $K$.
+    - |
+      If $\mathbf{x} + \mathbf{y}$ (with $\mathbf{x} \in K$, $\mathbf{y} \in C$) were within $\delta$ of $\mathbf{z}$, which point of $F$ would be within $\delta$ of the point $\mathbf{x}$ of $K$?
+    - |
+      For (b), $C_1 + C_2 = \{m + n\alpha : m, n \in \mathbb{Z}\}$ is an additive group. Use the pigeonhole principle on the fractional parts of $0, \alpha, 2\alpha, \dots, N\alpha$ to find a nonzero element of the group of absolute value $< 1/N$.
+    - |
+      All integer multiples of a small nonzero group element lie in the group and form a fine grid. Why does density, together with countability, rule out closedness?
+  solution: |
+    **(a)** If $K$ or $C$ is empty, then $K + C = \varnothing$ is closed. Assume both are nonempty, and let $\mathbf{z} \notin K + C$. Put $F = \mathbf{z} - C = \{\mathbf{z} - \mathbf{y} : \mathbf{y} \in C\}$.
+
+    *$F$ is closed:* if $\mathbf{w}_j \in F$ and $\mathbf{w}_j \to \mathbf{w}$, then $\mathbf{z} - \mathbf{w}_j \in C$ and $\mathbf{z} - \mathbf{w}_j \to \mathbf{z} - \mathbf{w}$. Since $C$ is closed, $\mathbf{z} - \mathbf{w} \in C$, i.e. $\mathbf{w} \in F$.
+
+    *$K \cap F = \varnothing$:* if $\mathbf{x} \in K$ and $\mathbf{x} = \mathbf{z} - \mathbf{y}$ with $\mathbf{y} \in C$, then $\mathbf{z} = \mathbf{x} + \mathbf{y} \in K + C$, which is false.
+
+    By Exercise 21 there is $\delta > 0$ with $|\mathbf{p} - \mathbf{q}| > \delta$ for all $\mathbf{p} \in K$, $\mathbf{q} \in F$. (Proof sketch: $\mathbf{p} \mapsto \inf_{\mathbf{q} \in F}|\mathbf{p} - \mathbf{q}|$ is continuous, and it is positive on $K$ because $F$ is closed and disjoint from $K$. So it has a positive minimum $\mu$ on the compact set $K$, and we can take $\delta = \mu/2$.)
+
+    Now suppose $\mathbf{w} = \mathbf{x} + \mathbf{y}$ with $\mathbf{x} \in K$, $\mathbf{y} \in C$ and $|\mathbf{w} - \mathbf{z}| < \delta$. Then $\mathbf{q} = \mathbf{z} - \mathbf{y} \in F$ and
+    $$|\mathbf{x} - \mathbf{q}| = |\mathbf{x} + \mathbf{y} - \mathbf{z}| = |\mathbf{w} - \mathbf{z}| < \delta,$$
+    contradicting the choice of $\delta$. So the open ball $B(\mathbf{z}, \delta)$ does not meet $K + C$. The complement of $K + C$ is therefore open, and $K + C$ is closed.
+
+    **(b)** *$C_1$ and $C_2$ are closed.* $R^1 \setminus \mathbb{Z} = \bigcup_{m}(m, m+1)$ is open. Since $\alpha \ne 0$ (it is irrational), $R^1 \setminus C_2$ is the union of the open intervals between consecutive points $n\alpha$, so it is open as well.
+
+    *$C_1 + C_2$ is countable:* it is the image of the countable set $\mathbb{Z} \times \mathbb{Z}$ under $(m, n) \mapsto m + n\alpha$.
+
+    *$C_1 + C_2$ is dense.* Write $G = C_1 + C_2$. It is closed under addition and negation. Fix an integer $N \ge 1$. The $N + 1$ numbers $k\alpha - [k\alpha] \in [0, 1)$, $k = 0, 1, \dots, N$, lie in the $N$ intervals $[\frac{j}{N}, \frac{j+1}{N})$, $j = 0, \dots, N-1$. So two of them, with $0 \le k < l \le N$, lie in the same interval. Then
+    $$\theta = (l - k)\alpha - ([l\alpha] - [k\alpha]) \in G, \qquad |\theta| < \frac1N .$$
+    Also $\theta \ne 0$, since otherwise $\alpha = ([l\alpha]-[k\alpha])/(l-k)$ would be rational. The multiples $j\theta$, $j \in \mathbb{Z}$, all lie in $G$ and are spaced $|\theta| < 1/N$ apart. So every open interval of length $1/N$ contains one of them. Given $x \in R^1$ and $\varepsilon > 0$, choose $N > 1/\varepsilon$. Then $(x - \varepsilon, x + \varepsilon)$, whose length $2\varepsilon$ exceeds $1/N$, contains a point of $G$. So $G$ is dense.
+
+    *$C_1 + C_2$ is not closed.* A closed dense subset of $R^1$ contains all its limit points, hence all of $R^1$. But $G$ is countable and $R^1$ is not. $\blacksquare$
+
+- id: rudin-5.14
+  hints:
+    - |
+      Start with the three-chord inequality for a convex $f$ and $s < t < u$: $\frac{f(t)-f(s)}{t-s} \le \frac{f(u)-f(s)}{u-s} \le \frac{f(u)-f(t)}{u-t}$. Derive it by writing $t$ as a convex combination of $s$ and $u$.
+    - |
+      For convex $\Rightarrow$ $f'$ increasing: let one endpoint of a chord tend to $x$ and then to $y$. For the converse, apply the MVT on $[x, t]$ and on $[t, y]$, where $t = \lambda x + (1-\lambda)y$.
+    - |
+      For the $f''$ statement, it is enough to show $f'$ increasing $\iff f'' \ge 0$. One direction is the MVT applied to $f'$; the other is the sign of a difference quotient.
+  solution: |
+    Throughout, "increasing" means non-decreasing, as in Rudin.
+
+    **Lemma (chord slopes).** If $f$ is convex on $(a,b)$ and $a < s < t < u < b$, then
+    $$\frac{f(t)-f(s)}{t-s} \le \frac{f(u)-f(s)}{u-s} \le \frac{f(u)-f(t)}{u-t}.$$
+    *Proof.* Write $t = \lambda s + (1-\lambda)u$ with $\lambda = \frac{u-t}{u-s} \in (0,1)$, so $1 - \lambda = \frac{t-s}{u-s}$. Convexity gives $f(t) \le \lambda f(s) + (1-\lambda) f(u)$. Subtracting $f(s)$: $f(t) - f(s) \le \frac{t-s}{u-s}(f(u) - f(s))$, which is the first inequality. Subtracting $f(u)$ instead: $f(t) - f(u) \le \frac{u-t}{u-s}(f(s) - f(u))$, i.e. $f(u) - f(t) \ge \frac{u-t}{u-s}(f(u) - f(s))$, which is the second.
+
+    **Convex $\Rightarrow$ $f'$ increasing.** Let $a < x < y < b$. For $x < t < y$, the lemma with $(s,t,u) = (x, t, y)$ gives
+    $$\frac{f(t) - f(x)}{t - x} \le \frac{f(y) - f(x)}{y - x} \le \frac{f(y) - f(t)}{y - t}.$$
+    Letting $t \to x+$ in the first inequality gives $f'(x) \le \frac{f(y)-f(x)}{y-x}$. Letting $t \to y-$ in the second gives $\frac{f(y)-f(x)}{y-x} \le f'(y)$. Hence $f'(x) \le f'(y)$.
+
+    **$f'$ increasing $\Rightarrow$ convex.** Let $x, y \in (a,b)$ and $0 < \lambda < 1$. If $x = y$ there is nothing to prove. By symmetry (swap $x \leftrightarrow y$ and $\lambda \leftrightarrow 1-\lambda$) assume $x < y$, and put $t = \lambda x + (1-\lambda) y \in (x, y)$. Then $t - x = (1-\lambda)(y-x)$ and $y - t = \lambda(y - x)$. By the MVT there are $\xi_1 \in (x, t)$ and $\xi_2 \in (t, y)$ with
+    $$f(t) - f(x) = f'(\xi_1)(1-\lambda)(y-x), \qquad f(y) - f(t) = f'(\xi_2)\lambda(y-x).$$
+    Since $\xi_1 < \xi_2$, $f'(\xi_1) \le f'(\xi_2)$, so
+    $$\lambda\,[f(t) - f(x)] = \lambda(1-\lambda)(y-x)f'(\xi_1) \le \lambda(1-\lambda)(y-x)f'(\xi_2) = (1-\lambda)[f(y) - f(t)].$$
+    Rearranged, this says $f(t) \le \lambda f(x) + (1-\lambda) f(y)$. So $f$ is convex.
+
+    **The second-derivative criterion.** Assume $f''$ exists on $(a,b)$. By the above it suffices to show that $f'$ is increasing iff $f'' \ge 0$. If $f'' \ge 0$ and $x < y$, the MVT applied to $f'$ gives $f'(y) - f'(x) = f''(\xi)(y - x) \ge 0$. Conversely, if $f'$ is increasing, then $\frac{f'(t) - f'(x)}{t - x} \ge 0$ for all $t \ne x$, and letting $t \to x$ gives $f''(x) \ge 0$. $\blacksquare$
+
+- id: rudin-7.20
+  hints:
+    - |
+      By linearity, $\int_0^1 f(x)P(x)\,dx = 0$ for every polynomial $P$. The aim is to replace $P$ by $f$ itself.
+    - |
+      Take polynomials $P_n \to f$ uniformly on $[0,1]$ (the quoted Weierstrass theorem). Bound $\left|\int_0^1 f^2 - \int_0^1 fP_n\right|$ using $\sup|f|$ and $\sup|f - P_n|$.
+    - |
+      Finally: a continuous, nonnegative function with integral $0$ over $[0,1]$ must vanish identically. Why?
+  solution: |
+    **Proof.** For a polynomial $P(x) = \sum_{k=0}^d c_k x^k$, linearity of the integral gives $\int_0^1 fP = \sum_k c_k \int_0^1 f(x)x^k\,dx = 0$.
+
+    Since $f$ is real and continuous on $[0,1]$, the Weierstrass theorem gives real polynomials $P_n$ with $P_n \to f$ uniformly on $[0,1]$. Let $B = \sup_{[0,1]}|f| < \infty$ (EVT). Then
+    $$\left|\int_0^1 f^2\,dx\right| = \left|\int_0^1 f^2\,dx - \int_0^1 fP_n\,dx\right| = \left|\int_0^1 f\,(f - P_n)\,dx\right| \le B\sup_{[0,1]}|f - P_n| \to 0 .$$
+    Hence $\int_0^1 f^2\,dx = 0$.
+
+    Now $f^2$ is continuous and $\ge 0$. Suppose $f^2(x_0) = c > 0$ for some $x_0 \in [0,1]$. By continuity there is an interval $J \subset [0,1]$ of positive length $\ell$ containing $x_0$ with $f^2 > c/2$ on $J$. Then $\int_0^1 f^2 \ge \int_J f^2 \ge \frac{c\ell}{2} > 0$, which is a contradiction. So $f^2 \equiv 0$, i.e. $f(x) = 0$ for all $x \in [0,1]$. $\blacksquare$
+
+- id: rudin-3.19
+  hints:
+    - |
+      First describe the intervals of $E_n$ explicitly in terms of ternary digits: each is $[c, c + 3^{-n}]$ with $c = \sum_{j=1}^n \alpha_j 3^{-j}$ and $\alpha_j \in \{0, 2\}$. Prove this by induction on $n$.
+    - |
+      To show $x(a)$ lies in the Cantor set, compare $x(a)$ with the partial sum $c_n = \sum_{j \le n}\alpha_j3^{-j}$. How large can the tail $\sum_{j > n}\alpha_j 3^{-j}$ be?
+    - |
+      For the converse, the $2^n$ intervals of $E_n$ are pairwise disjoint, so a point of the Cantor set picks out a unique digit string at each level. Check that these strings extend one another, and that the left endpoints converge to the point.
+  solution: |
+    For a finite string $\sigma = (\alpha_1, \dots, \alpha_n) \in \{0,2\}^n$ let $c(\sigma) = \sum_{j=1}^n \alpha_j 3^{-j}$ and $J(\sigma) = [c(\sigma), c(\sigma) + 3^{-n}]$. For the empty string ($n = 0$), $J = [0,1]$.
+
+    **Step 1: $E_n = \bigcup_{\sigma \in \{0,2\}^n} J(\sigma)$, and $J(\sigma) \supset J(\sigma, \alpha)$.** Removing the open middle third of $J(\sigma) = [c, c + 3^{-n}]$ leaves
+    $$[c, c + 3^{-n-1}] = J(\sigma, 0) \quad\text{and}\quad [c + 2\cdot 3^{-n-1}, c + 3^{-n}] = J(\sigma, 2).$$
+    So by induction on $n$ (starting from $E_0 = [0,1] = J(\varnothing)$), the intervals of $E_n$ are exactly the $J(\sigma)$ with $\sigma$ of length $n$, and each $J(\sigma, \alpha)$ is contained in $J(\sigma)$.
+
+    **Step 2: the intervals of $E_n$ are pairwise disjoint.** Let $\sigma \ne \tau$ have length $n$, and let $j$ be the first index where they differ, say $\sigma_j = 0$ and $\tau_j = 2$. Let $\rho$ be their common first $j - 1$ entries. By Step 1, $J(\sigma) \subset J(\rho, 0)$ and $J(\tau) \subset J(\rho, 2)$. These two are disjoint, because the open middle third of $J(\rho)$ lies between them.
+
+    **Step 3: every $x(a)$ is in $P$.** Let $a = \{\alpha_j\}$ and $c_n = \sum_{j=1}^n \alpha_j 3^{-j} = c(\alpha_1, \dots, \alpha_n)$. Then
+    $$0 \le x(a) - c_n = \sum_{j > n} \alpha_j 3^{-j} \le \sum_{j>n} 2\cdot 3^{-j} = 3^{-n},$$
+    so $x(a) \in J(\alpha_1, \dots, \alpha_n) \subset E_n$ for every $n$. Hence $x(a) \in P$.
+
+    **Step 4: every point of $P$ is some $x(a)$.** Let $x \in P$. For each $n$, $x \in E_n$, so by Steps 1–2 there is exactly one string $\sigma^{(n)}$ of length $n$ with $x \in J(\sigma^{(n)})$. The interval $J(\sigma^{(n+1)})$ lies inside $J(\sigma^{(n+1)}_1, \dots, \sigma^{(n+1)}_n)$, which therefore also contains $x$. By uniqueness this length-$n$ string is $\sigma^{(n)}$. So each $\sigma^{(n+1)}$ extends $\sigma^{(n)}$, and there is a single sequence $a = \{\alpha_j\}$ with $\sigma^{(n)} = (\alpha_1, \dots, \alpha_n)$ for all $n$. Then $x \in [c_n, c_n + 3^{-n}]$, so $|x - c_n| \le 3^{-n} \to 0$. Since $c_n \to x(a)$, we get $x = x(a)$.
+
+    Steps 3 and 4 together show that $\{x(a)\} = P$. $\blacksquare$
+
+- id: mit18100b-2006-ps10-x1
+  hints:
+    - |
+      For Theorem 2, take the $f_n$ from the hint, which converge to $0$ pointwise. Rescale them so that their norms cannot tend to $0$.
+    - |
+      For Theorem 1, use both directions of the assumed equivalence. Pointwise convergence to $0$ forces metric convergence. So for every $k$, the ball $\{g : d(g, 0) < 1/k\}$ contains "spikes" of height $1$ placed inside any interval you like.
+    - |
+      Build spikes $\tau_1, \tau_2, \dots$ with $d(\tau_k, 0) < 1/k$, each placed inside the region where the previous spike is $\ge 1/2$. Nested intervals then produce a point where every $\tau_k$ is $\ge 1/2$.
+  solution: |
+    For $c \in R^1$ and $w > 0$ let $T_{c,w}(x) = \max\left(0,\ 1 - |x - c|/w\right)$, a continuous "tent" of height $1$ at $c$ that vanishes outside $(c - w, c + w)$.
+
+    **Theorem 2.** Suppose such a norm exists. Let $f_n(x) = \sin(n\pi x)$ on $[0, 1/n]$ and $f_n = 0$ on $[1/n, 1]$. It is continuous because $\sin(n\pi \cdot \frac1n) = 0$, and $f_n \not\equiv 0$ because $f_n(\frac{1}{2n}) = 1$, so $\|f_n\| > 0$. Put $g_n = \frac{n}{\|f_n\|}f_n$, so $\|g_n\| = n \not\to 0$. But $g_n \to 0$ pointwise: $g_n(0) = 0$, and for $x > 0$, $g_n(x) = 0$ as soon as $n > 1/x$. This contradicts the assumed equivalence. (Theorem 2 also follows from Theorem 1 by taking $d(f,g) = \|f - g\|$.)
+
+    **Theorem 1.** Suppose $d$ is a metric on $C([0,1])$ such that $d(f_n, f) \to 0$ iff $f_n \to f$ pointwise on $[0,1]$. We use this only with $f = 0$.
+
+    *Lemma.* For every interval $[\alpha, \beta] \subset [0,1]$ with $\alpha < \beta$ and every $k \ge 1$, there is a tent $\tau = T_{c,w}$ with $[c - w, c + w] \subset (\alpha, \beta)$ and $d(\tau, 0) < 1/k$.
+
+    *Proof.* For $n \ge 4$ let $\sigma_n = T_{c_n, w_n}$ with $c_n = \alpha + 2(\beta - \alpha)/n$ and $w_n = (\beta - \alpha)/n$. Its support $[\alpha + (\beta-\alpha)/n,\ \alpha + 3(\beta-\alpha)/n]$ lies in $(\alpha, \beta)$. Also $\sigma_n \to 0$ pointwise on $[0,1]$: if $x \le \alpha$ then $\sigma_n(x) = 0$ for all $n$, and if $x > \alpha$ then $\sigma_n(x) = 0$ once $\alpha + 3(\beta-\alpha)/n < x$. By the "if" direction, $d(\sigma_n, 0) \to 0$, so some $\sigma_n$ has $d(\sigma_n, 0) < 1/k$. $\square$
+
+    *Construction.* Let $I_0 = [0, 1]$. Given a nondegenerate closed interval $I_{k-1} = [\alpha, \beta]$, the lemma gives a tent $\tau_k = T_{c_k, w_k}$ with support in $(\alpha, \beta)$ and $d(\tau_k, 0) < 1/k$. Let
+    $$I_k = [c_k - w_k/2,\ c_k + w_k/2] \subset I_{k-1};$$
+    on $I_k$ we have $\tau_k \ge 1/2$. The $I_k$ are nested, nonempty and compact, so there is $x^* \in \bigcap_k I_k$, and $\tau_k(x^*) \ge 1/2$ for every $k$.
+
+    *Contradiction.* $d(\tau_k, 0) < 1/k \to 0$, so by the "only if" direction $\tau_k \to 0$ pointwise on $[0,1]$, in particular at $x^*$. This is impossible since $\tau_k(x^*) \ge 1/2$ for all $k$. Hence no such metric exists. $\blacksquare$
+
+- id: mit18100b-2006-ps3-7
+  hints:
+    - |
+      Argue by contradiction: if no $\delta$ works, then for each $n$ some point $x_n \in K$ has a ball of radius $1/n$ that fits in no $\mathcal{U}_\alpha$.
+    - |
+      Compact subsets of metric spaces are sequentially compact. Pass to a convergent subsequence $x_{n_j} \to x \in K$, and use that $x$ lies in some open $\mathcal{U}_\beta$.
+    - |
+      If $B_r(x) \subseteq \mathcal{U}_\beta$, then the triangle inequality puts $B_{1/n_j}(x_{n_j})$ inside $B_r(x)$ once both $d(x_{n_j}, x)$ and $1/n_j$ are $< r/2$.
+  solution: |
+    **Proof.** If $K = \varnothing$, any $\delta > 0$ works. Assume $K \ne \varnothing$ and, for contradiction, that no $\delta > 0$ has the property. Then for each $n \ge 1$ (taking $\delta = 1/n$) there is $x_n \in K$ such that $B_{1/n}(x_n) \not\subseteq \mathcal{U}_\alpha$ for every $\alpha \in I$.
+
+    A compact subset of a metric space is sequentially compact, so a subsequence $x_{n_j}$ converges to some $x \in K$. Since the $\mathcal{U}_\alpha$ cover $K$, $x \in \mathcal{U}_\beta$ for some $\beta$. As $\mathcal{U}_\beta$ is open, there is $r > 0$ with $B_r(x) \subseteq \mathcal{U}_\beta$. Choose $j$ so large that $d(x_{n_j}, x) < r/2$ and $1/n_j < r/2$. If $y \in B_{1/n_j}(x_{n_j})$, then
+    $$d(y, x) \le d(y, x_{n_j}) + d(x_{n_j}, x) < \frac{r}{2} + \frac{r}{2} = r,$$
+    so $B_{1/n_j}(x_{n_j}) \subseteq B_r(x) \subseteq \mathcal{U}_\beta$. This contradicts the choice of $x_{n_j}$. Hence some $\delta > 0$ has the property: for every $x \in K$ there is $\alpha$ with $B_\delta(x) \subseteq \mathcal{U}_\alpha$. $\blacksquare$
+
+- id: mit18100b-f10-ps10-5
+  hints:
+    - |
+      For (a), check continuity at the two junction points $0$ and $1/n$. The integral splits into a triangle and a rectangle.
+    - |
+      For (b), note that $f_m \ge f_n$ when $m \ge n$, and that they differ only on $[0, 1/n]$. So $d_1(f_n, f_m)$ is a difference of the integrals from (a).
+    - |
+      For (c), suppose $f_n \to f$ in $d_1$ with $f$ continuous. On $[\eta, 1]$ (for $\eta > 0$) and on $[-1, 0]$, the $f_n$ are eventually constant. What does that force $f$ to be there, and is that compatible with continuity at $0$?
+  solution: |
+    **(a)** On $[-1, 0)$, $f_n = 0$; on $[0, 1/n]$, $f_n(x) = nx$; on $(1/n, 1]$, $f_n = 1$. Each piece is continuous. At $0$: $f_n(0) = 0$ and the left limit is $0$. At $1/n$: $f_n(1/n) = n\cdot\frac1n = 1$ and the right limit is $1$. So $f_n \in \mathscr{C}[-1,1]$. Also
+    $$\int_0^1 f_n = \int_0^{1/n} nx\,dx + \int_{1/n}^1 1\,dx = \frac{1}{2n} + 1 - \frac1n = 1 - \frac{1}{2n}.$$
+
+    **(b)** Note $f_n(x) = \min(1, \max(0, nx))$. So for $m \ge n$, $f_m \ge f_n$ everywhere, and both vanish on $[-1, 0]$. Hence
+    $$d_1(f_n, f_m) = \int_{-1}^1 (f_m - f_n) = \int_0^1 f_m - \int_0^1 f_n = \frac{1}{2n} - \frac{1}{2m} < \frac{1}{2n}.$$
+    Given $\varepsilon > 0$, take $N > 1/(2\varepsilon)$. Then $d_1(f_n, f_m) < \varepsilon$ for $m \ge n \ge N$, so $(f_n)$ is Cauchy.
+
+    **(c)** No, $(f_n)$ does not converge in $\mathscr{C}[-1,1]$, and so the space is not complete.
+
+    We use this fact: *if $g \ge 0$ is continuous on $[c, e]$ ($c < e$) and $\int_c^e g = 0$, then $g \equiv 0$ on $[c, e]$.* (If $g(x_0) > 0$, then $g > g(x_0)/2$ on a subinterval of positive length $\ell$, giving $\int_c^e g \ge \ell g(x_0)/2 > 0$.)
+
+    Suppose $d_1(f_n, f) \to 0$ for some $f \in \mathscr{C}[-1,1]$.
+
+    - On $[-1, 0]$, $f_n = 0$, so $\int_{-1}^0 |f| = \int_{-1}^0 |f_n - f| \le d_1(f_n, f) \to 0$. Hence $\int_{-1}^0|f| = 0$, so $f = 0$ on $[-1, 0]$.
+    - Fix $\eta \in (0, 1)$. For $n > 1/\eta$, $f_n = 1$ on $[\eta, 1]$, so $\int_\eta^1 |1 - f| \le d_1(f_n, f) \to 0$. Hence $f = 1$ on $[\eta, 1]$. Since $\eta$ is arbitrary, $f = 1$ on $(0, 1]$.
+
+    Then $f(0) = 0$ while $f(x) = 1$ for all $x > 0$, so $f$ is not continuous at $0$, which is a contradiction. Thus the Cauchy sequence $(f_n)$ has no limit in $\mathscr{C}[-1,1]$, and $(\mathscr{C}[-1,1], d_1)$ is not complete. $\blacksquare$

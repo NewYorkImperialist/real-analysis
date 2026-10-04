@@ -1,0 +1,303 @@
+chunk: "pugh-ch4"
+book: pugh
+pageOffsetNote: "printed page = pdfPage - 11 (PDF 274 = printed 263). Chunk is PDF 274-280, Exercises 4.1-4.43; 'More Prelim Problems' (PDF 281+) excluded."
+sectionsCovered:
+  - "Chapter 4 Exercises (Function Spaces) — 43 exercises (uniform convergence, equicontinuity/Arzela-Ascoli, Stone-Weierstrass, contractions and ODEs, analytic/smooth functions, Baire, sigma-compactness)"
+scopeNote: >
+  Equicontinuity on [a,b] is kept only where it is reachable in an undergraduate course that covers
+  uniform convergence (Rudin Ch. 7 level) and the problem stands on its own without the Arzela-Ascoli
+  theorem itself (4.9, 4.21). Problems that are applications or reformulations of Arzela-Ascoli
+  (4.13, 4.18, 4.23), Stone-Weierstrass (4.32), Picard/ODE theory (4.33-4.36), the Hausdorff metric
+  space K(R^2) (4.7), and local compactness / sigma*-compactness (4.40) are skipped as beyond the
+  undergraduate single-variable/metric-space scope of the bank.
+candidates:
+  - cid: pugh-4.9
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.9"
+    page: "264"
+    pdfPage: 275
+    verdict: strong
+    tier: upper
+    newExperience: "Short 'aha' problem: rescaling turns equicontinuity of the dilates f(nx) into a statement about f on all of R, forcing f to be constant; the bank has no equicontinuity problem at all."
+    closestExisting: [abbott-6.2.7, ross-22.10]
+    machinery: "Equicontinuity of a family; using a dilation to transport a local estimate at 0 to the whole line."
+    standardResult: "f(nx) equicontinuous forces f constant"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [rescaling, negate-definition, contradiction]
+    difficulty: medium
+    difficultyRationale: "Needs the definition of equicontinuity unpacked and the idea of fixing x near 0 and letting n vary; one clean insight, not a long chain."
+    category: synthesis
+    type: conceptual
+    tags: [equicontinuity, uniform-continuity, dilation, aha]
+    references: ["Definition of equicontinuity (Pugh p. 224, quoted)"]
+    problemLatex: |
+      If $f\colon \mathbb{R} \to \mathbb{R}$ is continuous and the sequence $f_n(x) = f(nx)$ is equicontinuous, what can be said about $f$?
+
+      *(Definition, from the text: a sequence of functions $(f_n)$ is equicontinuous if $\forall \epsilon > 0\ \exists \delta > 0$ such that $|s - t| < \delta$ and $n \in \mathbb{N}$ $\Rightarrow$ $|f_n(s) - f_n(t)| < \epsilon$.)*
+    transcriptionNotes: "Pugh states the equicontinuity definition for functions on [a,b] (p. 224); quoted verbatim with the domain left general since the exercise is on R. The conclusion holds under either uniform or pointwise equicontinuity."
+
+  - cid: pugh-4.20
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.20"
+    page: "265"
+    pdfPage: 276
+    verdict: strong
+    tier: upper
+    newExperience: "A two-parameter classification of uniform continuity for x^α sin(x^β), balancing amplitude growth against oscillation frequency, instead of checking single examples."
+    closestExisting: [ross-19.1, ross-19.9, lebl-3.4.8, abbott-4.4.2]
+    machinery: "Uniform continuity on unbounded domains: bounded derivative gives UC; growing slope on shrinking intervals destroys it; behaviour near 0 via continuous extension."
+    standardResult: "classify (α,β) for which x^α sin(x^β) is uniformly continuous on (0,∞)"
+    topic: continuity
+    subtopics: [uniform-continuity, lipschitz-holder]
+    skills: [MVT-application, sequential-characterization, construct-counterexample, case-analysis]
+    difficulty: hard
+    difficultyRationale: "Part (a) is a full classification over a two-parameter family requiring both a UC proof and a non-UC sequence argument in each regime; (b) asks to characterize which parameter sets give an equicontinuous family."
+    category: challenge
+    type: counterexample
+    tags: [uniform-continuity, equicontinuity, classification, oscillation, counterexample]
+    references: []
+    problemLatex: |
+      Given constants $\alpha, \beta > 0$ define
+      $$f_{\alpha,\beta}(x) = x^{\alpha}\sin(x^{\beta})$$
+      for $x > 0$.
+      (a) For which pairs $\alpha, \beta$ is $f_{\alpha,\beta}$ uniformly continuous?
+      (b) For which sets of $(\alpha, \beta)$ in $(0,\infty)^2$ is the family equicontinuous?
+      [Hint: Draw picture of the graphs when $\alpha \ge 2$ or $\beta \ge 2$. How about $\alpha > 1$ or $\beta > 1$?]
+    transcriptionNotes: "Starred (*) in the book. Hint is printed inside the exercise. Verified against page image. Part (b) is open-ended as printed (equicontinuity in Pugh's uniform sense)."
+
+  - cid: pugh-4.21
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.21"
+    page: "265"
+    pdfPage: 276
+    verdict: strong
+    tier: upper
+    newExperience: "Tests exactly which hypothesis makes the pointwise supremum of a family continuous, then asks whether the property characterizes equicontinuity — a which-implications-hold problem the bank lacks."
+    closestExisting: [lebl-1.3.7, ross-24.13]
+    machinery: "Equicontinuity on [a,b] as a uniform δ for a family; sup of a family of continuous functions; constructing families with discontinuous sup."
+    standardResult: "sup of a bounded equicontinuous family is continuous; converse fails"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [epsilon-delta-proof, sup-approximation, construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "(a)-(c) are medium (short proof plus two counterexamples); (d), whether the continuous-sup property for every subfamily forces equicontinuity, needs a genuinely new argument or construction."
+    category: synthesis
+    type: proof
+    tags: [equicontinuity, supremum, continuity, counterexample, converse]
+    references: ["C^0 = C^0([a,b],R) with sup norm (chapter exercise preamble, quoted)", "Definition of equicontinuous set (Pugh p. 224, quoted)"]
+    problemLatex: |
+      *(Throughout, $C^0 = C^0([a,b],\mathbb{R})$ is the space of continuous real-valued functions defined on the closed interval $[a,b]$, equipped with the sup norm $\|f\| = \sup\{|f(x)| : x \in [a,b]\}$. A set $\mathcal{E} \subset C^0$ is equicontinuous if $\forall \epsilon > 0\ \exists \delta > 0$ such that $|s-t| < \delta$ and $f \in \mathcal{E}$ $\Rightarrow$ $|f(s) - f(t)| < \epsilon$.)*
+
+      Suppose that $\mathcal{E} \subset C^0$ is equicontinuous and bounded.
+      (a) Prove that $\sup\{f(x) : f \in \mathcal{E}\}$ is a continuous function of $x$.
+      (b) Show that (a) fails without equicontinuity.
+      (c) Show that this continuous-sup property does not imply equicontinuity.
+      (d) Assume that the continuous-sup property is true for each subset $\mathcal{F} \subset \mathcal{E}$. Is $\mathcal{E}$ equicontinuous? Give a proof or counterexample.
+    transcriptionNotes: "The italic preamble quotes the chapter's exercise preamble (p. 263) and the definition of an equicontinuous set (p. 224). Verified against page image."
+
+  - cid: pugh-4.27
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.27"
+    page: "266"
+    pdfPage: 277
+    verdict: core
+    tier: upper
+    newExperience: "Fixed-point theorem without a contraction constant: compactness replaces the uniform ratio, proved by minimizing the continuous function d(x,f(x)) — the bank only has Banach's theorem and its counterexamples."
+    closestExisting: [abbott-4.3.11, ross-29.18, lebl-7.6.6, lebl-7.6.11]
+    machinery: "Compactness + continuity (EVT on a compact metric space) applied to a fixed-point problem; counterexamples separating weak contractions from contractions."
+    standardResult: "weak contraction (d(fx,fy) < d(x,y)) on a compact metric space has a unique fixed point (Edelstein)"
+    topic: topology
+    subtopics: [compactness, metric-spaces, complete-metric-spaces]
+    skills: [EVT-on-compact, construct-counterexample, contradiction]
+    difficulty: medium
+    difficultyRationale: "Part (c) needs the idea of minimizing d(x,f(x)) over a compact space; (a),(b) need short explicit counterexamples. Substantial but not long."
+    category: synthesis
+    type: proof
+    tags: [fixed-point, contraction, compactness, extreme-value-theorem, counterexample]
+    references: ["Definition of contraction (Pugh p. 240, quoted)"]
+    problemLatex: |
+      *(Definition, from the text: a contraction of a metric space $M$ is a mapping $f\colon M \to M$ such that for some constant $k < 1$ and all $x, y \in M$ we have $d(fx, fy) \le k\, d(x,y)$.)*
+
+      Suppose that $f\colon M \to M$ and for all $x, y \in M$, if $x \ne y$ then $d(fx, fy) < d(x, y)$. Such an $f$ is a **weak contraction**.
+      (a) Is a weak contraction a contraction? (Proof or counterexample.)
+      (b) If $M$ is compact is a weak contraction a contraction? (Proof or counterexample.)
+      (c) If $M$ is compact, prove that a weak contraction has a unique fixed-point.
+    transcriptionNotes: "Definition of contraction quoted from p. 240. Text-layer garbling of 'x ≠ y' fixed."
+
+  - cid: pugh-4.28
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.28"
+    page: "266"
+    pdfPage: 277
+    verdict: consider
+    tier: upper
+    newExperience: "Shows that |f'| < 1 pointwise (without a uniform bound below 1) gives only a weak contraction and need not give a fixed point on R — the hypothesis-removal companion to the bank's sup|f'| < 1 problems."
+    closestExisting: [ross-29.18, abbott-5.3.1, lebl-7.6.6, pugh-4.27]
+    machinery: "MVT turning derivative bounds into Lipschitz/contraction estimates; counterexample construction on a complete but noncompact space."
+    standardResult: "|f'| < 1 on R: weak contraction, not necessarily a contraction, may have no fixed point"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "MVT part is easy; finding a function with |f'|<1 and no fixed point (e.g. graph asymptotic to y=x) takes a real construction."
+    category: synthesis
+    type: counterexample
+    tags: [fixed-point, contraction, mean-value-theorem, counterexample]
+    references: ["Definitions of contraction and weak contraction (Pugh p. 240 and Exercise 4.27, quoted)"]
+    problemLatex: |
+      *(Definitions: $f\colon M \to M$ is a contraction if for some constant $k < 1$ and all $x, y \in M$ we have $d(fx, fy) \le k\, d(x,y)$; it is a weak contraction if for all $x, y \in M$ with $x \ne y$ we have $d(fx, fy) < d(x, y)$.)*
+
+      Suppose that $f\colon \mathbb{R} \to \mathbb{R}$ is differentiable and its derivative satisfies $|f'(x)| < 1$ for all $x \in \mathbb{R}$.
+      (a) Is $f$ a contraction?
+      (b) A weak one?
+      (c) Does it have a fixed-point?
+    transcriptionNotes: "Definitions quoted from p. 240 and Exercise 4.27. Partly overlaps pugh-4.27(a); curator should take at most one if space is tight (4.27 is the stronger)."
+
+  - cid: pugh-4.37
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.37"
+    page: "267"
+    pdfPage: 278
+    verdict: strong
+    tier: upper
+    newExperience: "Borel's lemma: build a smooth function with arbitrary prescribed derivatives at 0 by a cutoff series whose termwise derivatives converge uniformly — a construction that uses interchange-of-derivative machinery at full strength."
+    closestExisting: [ross-31.4, ross-31.5, abbott-6.6.6, lebl-5.4.11]
+    machinery: "Smooth bump functions, uniform convergence of all derived series (M-test on each derivative), termwise differentiation; Taylor series vs function."
+    standardResult: "Borel's lemma: every real sequence is the Taylor coefficient sequence of some smooth function"
+    topic: function-sequences
+    subtopics: [interchange-derivative, series-of-functions, weierstrass-m-test, taylor-series]
+    skills: [M-test, construct-counterexample, bump-function-cutoff, induction]
+    difficulty: very-hard
+    difficultyRationale: "(a) needs a careful choice of shrinking cutoffs so every derivative series converges uniformly; (c) requires a smooth function whose Taylor series diverges at every point. Double-starred in the book."
+    category: challenge
+    type: construction
+    tags: [smooth-functions, Taylor-series, radius-of-convergence, bump-function, uniform-convergence, construction]
+    references: ["Smooth function e(x) (Pugh p. 159, quoted)"]
+    problemLatex: |
+      (a) Prove **Borel's Lemma**, which states that given any sequence whatsoever of real numbers $(a_r)$, there is a smooth function $f\colon \mathbb{R} \to \mathbb{R}$ such that $f^{(r)}(0) = a_r$. [Hint: Try $f = \sum \beta_k(x) a_k x^k / k!$ where $\beta_k$ is a well-chosen bump function.]
+      (b) Infer that there are many Taylor series with radius of convergence $R = 0$.
+      (c) Construct a smooth function whose Taylor series at every $x$ has radius of convergence $R = 0$. [Hint: Try $\sum \beta_k(x)\, e(x + q_k)$ where $\{q_1, q_2, \ldots\} = \mathbb{Q}$.]
+
+      *(From the text: $e(x)$ denotes the smooth function $e(x) = e^{-1/x}$ if $x > 0$, $e(x) = 0$ if $x \le 0$.)*
+    transcriptionNotes: "Double-starred (**) in the book. Hints are printed inside the exercise. The function e(x) (a calligraphic e in the book) is quoted from p. 159. Verified against page images (PDF 278-279). Hint in (c) printed as e(x+q_k); left as printed."
+
+  - cid: pugh-4.38
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.38"
+    page: "268"
+    pdfPage: 279
+    verdict: strong
+    tier: upper
+    newExperience: "Upgrades the bank's local identity theorem for a power series to a global identity theorem on an interval (a connectedness/sup argument), probes where it fails, and ends with a characterization of all zero sets of analytic functions."
+    closestExisting: [abbott-6.5.10, abbott-6.6.6, lebl-5.4.11]
+    machinery: "Power series identity theorem, connectedness of an interval (open-closed argument), smooth nonanalytic functions, classification of zero sets."
+    standardResult: "identity theorem for real-analytic functions on an interval; zero locus characterization"
+    topic: function-sequences
+    subtopics: [power-series, taylor-series]
+    skills: [connectedness-argument, sup-argument, construct-counterexample, characterization]
+    difficulty: hard
+    difficultyRationale: "(a) needs the local identity theorem plus a global connectedness step; (b),(c) need counterexamples; (d) (double-starred) is a full characterization."
+    category: synthesis
+    type: proof
+    tags: [analytic-functions, identity-theorem, power-series, smooth-functions, zero-set, connectedness]
+    references: ["Definition of analytic function (Pugh p. 158, quoted)"]
+    problemLatex: |
+      *(Definition, from the text: the function $f\colon (a,b) \to \mathbb{R}$ is analytic if for each $x \in (a,b)$ there exist a power series $\sum a_r h^r$ and a $\delta > 0$ such that if $|h| < \delta$ then the series converges and $f(x+h) = \sum_{r=0}^{\infty} a_r h^r$.)*
+
+      Suppose that $T \subset (a,b)$ clusters at some point of $(a,b)$ and that $f, g\colon (a,b) \to \mathbb{R}$ are analytic. Assume that for all $t \in T$ we have $f(t) = g(t)$.
+      (a) Prove that $f = g$ everywhere in $(a,b)$.
+      (b) What if $f$ and $g$ are only $C^\infty$?
+      (c) What if $T$ is an infinite set but its only cluster points are $a$ and $b$?
+      (d) Find a necessary and sufficient condition for a subset $Z \subset (a,b)$ to be the **zero locus** of an analytic function $f$ defined on $(a,b)$, $Z = \{x \in (a,b) : f(x) = 0\}$. [Hint: Think Taylor. The result in (a) is known as the **Identity Theorem**. It states that if an equality between analytic functions is known to hold for points of $T$ then it is an "identity," an equality that holds everywhere.]
+    transcriptionNotes: "Starred (*), part (d) double-starred (**) in the book. Definition of analytic quoted from p. 158. 'havef(t)' spacing typo fixed. Verified against page image."
+
+  - cid: pugh-4.39
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.39"
+    page: "268"
+    pdfPage: 279
+    verdict: consider
+    tier: upper
+    newExperience: "Completing a metric space by embedding it isometrically in a space of bounded continuous functions (Kuratowski embedding) — the bank has no completion construction."
+    closestExisting: [lebl-7.4.7, abbott-8.2.5, lebl-7.4.16]
+    machinery: "Triangle inequality estimates, isometric embeddings, completeness of a sup-metric function space, closure of a subset of a complete space."
+    standardResult: "Kuratowski embedding M -> C_b(M) and the completion theorem"
+    topic: topology
+    subtopics: [metric-spaces, complete-metric-spaces]
+    skills: [triangle-inequality, isometry-check]
+    difficulty: medium
+    difficultyRationale: "Each step is a triangle-inequality estimate (sup attained at x=p or x=q for isometry), but the overall construction and its meaning must be assembled."
+    category: synthesis
+    type: construction
+    tags: [metric-space, completion, isometry, sup-metric, bounded-continuous-functions]
+    references: ["Completion Theorem 2.80 (quoted)", "C_b^0(M,R) = bounded continuous functions with sup metric (glossed)"]
+    problemLatex: |
+      Let $M$ be any metric space with metric $d$. Fix a point $p \in M$ and for each $q \in M$ define the function $f_q(x) = d(q, x) - d(p, x)$.
+      (a) Prove that $f_q$ is a bounded, continuous function of $x \in M$, and that the map $q \mapsto f_q$ sends $M$ isometrically onto a subset $M_0$ of $C^0_b(M, \mathbb{R})$.
+      (b) Since $C^0_b(M, \mathbb{R})$ is complete, infer that an isometric copy of $M$ is dense in a complete metric space, namely the closure of $M_0$, and hence that we have a second proof of the Completion Theorem 2.80.
+
+      *(Here $C^0_b(M,\mathbb{R})$ is the space of bounded continuous functions $M \to \mathbb{R}$ with the sup metric. Completion Theorem 2.80, from the text: "Every metric space can be completed." This means that we can take any metric space $M$ and find a complete metric space $\widehat{M}$ containing $M$ whose metric extends the metric of $M$.)*
+    transcriptionNotes: "Theorem 2.80 quoted from p. 119 (lightly trimmed: the comparison with R completing Q omitted). C_b^0 glossed in my own words since the book's definition is spread across Section 4.1."
+
+  - cid: pugh-4.6
+    chapter: "4 Function Spaces"
+    section: "Exercises"
+    number: "Exercise 4.6"
+    page: "263"
+    pdfPage: 274
+    verdict: consider
+    tier: upper
+    newExperience: "Cardinality argument that uses analysis: a continuous function is determined by its values on a countable dense set, so |C^0| = |R|; same for open sets via countable bases."
+    closestExisting: [abbott-1.6.9, abbott-1.5.6, lebl-7.3.7]
+    machinery: "Density of Q and continuity determining a function; countable unions of intervals with rational endpoints; cardinal arithmetic c^aleph0 = c."
+    standardResult: "C[a,b] and the open subsets of R have the cardinality of the continuum"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [dense-set-determines-function, injection-construction, countable-basis]
+    difficulty: medium
+    difficultyRationale: "(a) and (c) need one key idea each (restriction to Q is injective; open sets are unions of rational intervals) plus |R^N| = |R|; (b),(d) ask for generalizations."
+    category: synthesis
+    type: proof
+    tags: [cardinality, continuum, continuous-functions, open-sets, density, separable]
+    references: ["C^0 = C^0([a,b],R) (chapter exercise preamble, quoted)"]
+    problemLatex: |
+      *(Here $C^0 = C^0([a,b], \mathbb{R})$ is the space of continuous real-valued functions defined on the closed interval $[a,b]$.)*
+
+      (a) Prove that $C^0$ and $\mathbb{R}$ have equal cardinality. [Clearly there are at least as many functions as there are real numbers, for $C^0$ includes the constant functions. The issue is to show that there are no more continuous functions than there are real numbers.]
+      (b) Is the same true if we replace $[a,b]$ with $\mathbb{R}$ or a separable metric space?
+      (c) In the same vein, prove that the collection $\mathcal{T}$ of open subsets of $\mathbb{R}$ and $\mathbb{R}$ itself have equal cardinality.
+      (d) What about more general metric spaces in place of $\mathbb{R}$?
+    transcriptionNotes: "Double-starred (**) in the book, though (a) and (c) are medium by our scale. Bracketed remark is the book's own. Preamble quoted from p. 263."
+
+skipped:
+  - "4.1, 4.2 routine definitions / uniform limit of continuous functions is continuous (bank has it many times)"
+  - "4.3 continuity at a point under uniform limits + piecewise continuity: instance of abbott-6.2.6 style 'what survives uniform limits'; needs Pugh's piecewise-continuity definition"
+  - "4.4 duplicate of ross-24.13 / cummings-9.4 (uniform limit of UC is UC)"
+  - "4.5 discontinuity properties under uniform limits: largely covered by abbott-6.2.6; jump/oscillating parts depend on Pugh Exercise 3.36 definitions"
+  - "4.7 Hausdorff metric space K(R^2) of compact sets: outside bank scope"
+  - "4.8 ad hoc equicontinuity check of a specific formula (computational)"
+  - "4.10-4.14 pointwise vs uniform equicontinuity, closure of equicontinuous sets, Arzela-Ascoli on R, chain connectedness: technical Arzela-Ascoli-theory variants beyond undergraduate scope"
+  - "4.15-4.17 modulus of continuity / C^mu / Holder classes: definitional reformulations; 4.17 parts are routine once the definition is unwound"
+  - "4.18 equicontinuous + bounded at one point => uniformly bounded; reformulation of Arzela-Ascoli (scope)"
+  - "4.19 routine compactness (finite delta-dense subset)"
+  - "4.22 easy single counterexample (equicontinuous, unbounded derivatives); new instance only"
+  - "4.23 compactness of isometry group via Arzela-Ascoli + orthogonal matrices: AA application, linear algebra"
+  - "4.24 Dini's theorem: bank has abbott-6.2.11 (also lebl-6.2.10, ross-25.15 unselected)"
+  - "4.25 contraction extends to completion: needs completion machinery; 4.26 duplicate of lebl-7.6.6"
+  - "4.29, 4.30 Brouwer non-uniqueness / rotation of a circle: trivial examples (4.30 needs only a circle rotation)"
+  - "4.31 numerical constant from the Weierstrass approximation proof (computation)"
+  - "4.32 Lipschitz density via Stone-Weierstrass and *** open problems: beyond scope"
+  - "4.33-4.36 ODEs (flows, Picard non-uniqueness, blow-up, linear growth): ODE theory outside bank scope"
+  - "4.40 sigma-compact / sigma*-compact / local compactness, 8 parts: point-set topology beyond undergraduate scope (4.40(d) C^0 not sigma-compact via Baire is nice but tied to the rest)"
+  - "4.41 separately continuous + equicontinuous in one variable => jointly continuous: near-duplicate of lebl-6.3.5 (uniformly Lipschitz version) and lebl-7.5.2"
+  - "4.42 R not a countable union of Cantor sets: immediate from abbott-3.5.5 / abbott-8.2.15 (Baire)"
+  - "4.43 joke picture, not a problem"

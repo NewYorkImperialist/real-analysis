@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import '../styles/stats.css';
 import type { Problem } from '../lib/types';
 import { DIFFICULTIES, CATEGORIES } from '../lib/types';
-import { problems, byId, sources, topics, isMitAssigned, label, sourceLine, topicLabel } from '../lib/bank';
+import { problems, coreProblems, upperProblems, byId, sources, topics, isMitAssigned, label, sourceLine, topicLabel } from '../lib/bank';
 import { useProgress } from '../lib/useProgress';
 import {
   exportJSON,
@@ -306,43 +306,45 @@ function ImportExport() {
 
 export function ProgressPage() {
   const map = useProgress();
-  const total = countStatuses(problems, map);
-  const n = problems.length;
+  const core = coreProblems;
+  const total = countStatuses(core, map);
+  const upper = countStatuses(upperProblems, map);
+  const n = core.length;
 
   const topicRows: Row[] = topics.map((t) => ({
     key: t.key,
     label: t.label,
-    query: `topic=${encodeURIComponent(t.key)}`,
-    list: problems.filter((p) => p.topic === t.key),
+    query: `tier=core&topic=${encodeURIComponent(t.key)}`,
+    list: core.filter((p) => p.topic === t.key),
   }));
 
   const sourceRows: Row[] = sources.map((s) => {
     if (s.key === 'mit') {
-      const orig = problems.filter((p) => p.source.key === 'mit');
-      const lebl = problems.filter((p) => p.source.key !== 'mit' && isMitAssigned(p));
+      const orig = core.filter((p) => p.source.key === 'mit');
+      const lebl = core.filter((p) => p.source.key !== 'mit' && isMitAssigned(p));
       return {
         key: s.key,
         label: s.shortName,
-        query: 'source=mit',
+        query: 'tier=core&source=mit',
         list: [...orig, ...lebl],
         note: `${orig.length} original + ${lebl.length} Lebl assigned`,
       };
     }
-    return { key: s.key, label: s.shortName, query: `source=${s.key}`, list: problems.filter((p) => p.source.key === s.key) };
+    return { key: s.key, label: s.shortName, query: `tier=core&source=${s.key}`, list: core.filter((p) => p.source.key === s.key) };
   });
 
   const diffRows: Row[] = DIFFICULTIES.map((d) => ({
     key: d,
     label: label(d),
-    query: `difficulty=${d}`,
-    list: problems.filter((p) => p.difficulty === d),
+    query: `tier=core&difficulty=${d}`,
+    list: core.filter((p) => p.difficulty === d),
   }));
 
   const catRows: Row[] = CATEGORIES.map((c) => ({
     key: c,
     label: label(c),
-    query: `category=${c}`,
-    list: problems.filter((p) => p.category === c),
+    query: `tier=core&category=${c}`,
+    list: core.filter((p) => p.category === c),
   }));
 
   const recent = Object.entries(map)
@@ -363,7 +365,7 @@ export function ProgressPage() {
         <h2 id="totals-h" class="visually-hidden">Totals</h2>
         <dl class="stats-totals">
           <div>
-            <dt>Total</dt>
+            <dt>Core problems</dt>
             <dd>{n}</dd>
           </div>
           <div>
@@ -371,7 +373,7 @@ export function ProgressPage() {
               <span class="status-dot is-unseen" aria-hidden="true" /> Unseen
             </dt>
             <dd>
-              <a href={href('browse', 'status=unseen')}>{total.unseen}</a>
+              <a href={href('browse', 'tier=core&status=unseen')}>{total.unseen}</a>
             </dd>
           </div>
           <div>
@@ -379,7 +381,7 @@ export function ProgressPage() {
               <span class="status-dot is-attempted" aria-hidden="true" /> Attempted
             </dt>
             <dd>
-              <a href={href('browse', 'status=attempted')}>{total.attempted}</a>
+              <a href={href('browse', 'tier=core&status=attempted')}>{total.attempted}</a>
             </dd>
           </div>
           <div>
@@ -387,17 +389,29 @@ export function ProgressPage() {
               <span class="status-dot is-completed" aria-hidden="true" /> Completed
             </dt>
             <dd>
-              <a href={href('browse', 'status=completed')}>{total.completed}</a>
+              <a href={href('browse', 'tier=core&status=completed')}>{total.completed}</a>
             </dd>
           </div>
         </dl>
-        <StatusBar counts={total} label="All problems" />
+        <StatusBar counts={total} label="Core problems" />
         {orphan > 0 && (
           <p class="muted stats-small">
             {plural(orphan, 'stored entry', 'stored entries')} refer to problems not in the current bank; they are kept.
           </p>
         )}
       </section>
+
+      {upperProblems.length > 0 && (
+        <section class="stats-section" aria-labelledby="upper-h">
+          <h2 id="upper-h">Upper tier</h2>
+          <p class="muted stats-small">
+            An optional layer of {upperProblems.length} harder synthesis, construction and classification problems.
+            It is not counted in the core totals above or the breakdowns below.{' '}
+            <a href={href('browse', 'tier=upper')}>Browse the upper tier</a>
+          </p>
+          <StatusBar counts={upper} label="Upper tier" />
+        </section>
+      )}
 
       <section class="stats-section" aria-labelledby="topic-h">
         <h2 id="topic-h">By topic</h2>

@@ -1,0 +1,701 @@
+# AI-written hints and solutions for the upper-tier / core-gap Pugh problems (data/problems/pugh.yaml).
+- id: pugh-prelim-63
+  hints:
+    - |
+      Any sequence $c_n \to \infty$ must be adapted to how fast the series converges. What quantity measures how fast $\sum a_n$ converges?
+    - |
+      Work with the tails $r_n = \sum_{k \ge n} a_k$. They are positive, decrease to $0$, and $a_n = r_n - r_{n+1}$. Try $c_n$ as a function of $r_n$ that tends to $\infty$, but slowly.
+    - |
+      Look for a bounded function $\Phi$ on $(0, r_1]$ with $\Phi(r_{n+1}) - \Phi(r_n) \ge c_n (r_n - r_{n+1})$: then $\sum c_n a_n$ is bounded by a telescoping sum. Powers $r^p$ with $0 < p < 1$ are natural candidates for building $c_n$ and $\Phi$.
+  solution: |
+    **Proof.** Let $r_n = \sum_{k=n}^\infty a_k$ be the tails of the series. Since every $a_k > 0$ and the series converges, each $r_n$ is a positive real number, $r_n - r_{n+1} = a_n > 0$, and $r_n \to 0$ (the tails of a convergent series tend to $0$). Define
+    $$c_n = \frac{1}{\sqrt{r_n}}.$$
+    Since $r_n \to 0^+$, we have $c_n \to \infty$.
+
+    Now, using $r_{n+1} < r_n$,
+    $$c_n a_n = \frac{r_n - r_{n+1}}{\sqrt{r_n}} = \frac{(\sqrt{r_n} - \sqrt{r_{n+1}})(\sqrt{r_n} + \sqrt{r_{n+1}})}{\sqrt{r_n}} \le 2\left(\sqrt{r_n} - \sqrt{r_{n+1}}\right),$$
+    because $\sqrt{r_n} + \sqrt{r_{n+1}} \le 2\sqrt{r_n}$. Summing, the right side telescopes:
+    $$\sum_{n=1}^N c_n a_n \le 2\left(\sqrt{r_1} - \sqrt{r_{N+1}}\right) \le 2\sqrt{r_1}.$$
+    The terms $c_n a_n$ are positive and the partial sums are bounded, so $\sum c_n a_n$ converges by the monotone convergence theorem. $\blacksquare$
+
+    *Remark.* The point is that no convergent series of positive terms converges "as slowly as possible": $\sum c_n a_n$ is a convergent series whose terms are eventually much larger than the $a_n$.
+
+- id: pugh-3.73
+  hints:
+    - |
+      Write $C_n$ in terms of the partial sums $B_m$ of the second series: regroup $\sum_{k \le n} \sum_{i+j=k} a_i b_j$ by the index $i$.
+    - |
+      You should get $C_n = \sum_{i=0}^n a_i B_{n-i}$. Write $B_m = B + \beta_m$ with $\beta_m \to 0$, so $C_n = A_n B + \sum_{i=0}^n a_i \beta_{n-i}$. Everything comes down to showing the last sum tends to $0$.
+    - |
+      Split that sum at $i = n - N$, where $|\beta_m| < \epsilon$ for $m \ge N$. One piece is controlled by $\epsilon \sum |a_i|$; the other uses only finitely many $\beta$'s (all bounded) multiplied by a tail of $\sum |a_i|$.
+    - |
+      For (b), square a single alternating series whose terms decay slowly enough that the Cauchy product terms $c_k$ need not tend to $0$. To bound $|c_k|$ from below, bound each summand's denominator from above.
+  solution: |
+    Notation: $A_n = \sum_{i=0}^n a_i$, $B_n = \sum_{j=0}^n b_j$, $C_n = \sum_{k=0}^n c_k$.
+
+    **(a)** Assume $\sum a_i$ converges absolutely with sum $A$, and $\sum b_j$ converges with sum $B$. (The roles can be swapped, since $c_k$ is symmetric in the two series.) We show $C_n \to AB$. In particular $\sum c_k$ converges and its sum is $AB$.
+
+    *Step 1: a formula for $C_n$.* $C_n$ is the sum of $a_i b_j$ over all pairs $i, j \ge 0$ with $i + j \le n$. Grouping by $i$,
+    $$C_n = \sum_{i=0}^n a_i \sum_{j=0}^{n-i} b_j = \sum_{i=0}^n a_i B_{n-i}.$$
+    Put $\beta_m = B_m - B$, so $\beta_m \to 0$. Then
+    $$C_n = \sum_{i=0}^n a_i (B + \beta_{n-i}) = A_n B + \gamma_n, \qquad \gamma_n = \sum_{i=0}^n a_i \beta_{n-i}.$$
+    Since $A_n B \to AB$, it suffices to show $\gamma_n \to 0$.
+
+    *Step 2: $\gamma_n \to 0$.* Let $\alpha = \sum_{i=0}^\infty |a_i| < \infty$. A convergent sequence is bounded, so $|\beta_m| \le K$ for all $m$. Let $\epsilon > 0$ and choose $N$ with $|\beta_m| < \epsilon$ for all $m \ge N$. For $n \ge N$ split $\gamma_n$ according to whether $n - i \ge N$ (that is, $i \le n - N$) or $n - i < N$:
+    $$|\gamma_n| \le \sum_{i=0}^{n-N} |a_i|\,|\beta_{n-i}| + \sum_{i=n-N+1}^{n} |a_i|\,|\beta_{n-i}| \le \epsilon\,\alpha + K \sum_{i > n-N} |a_i|.$$
+    As $n \to \infty$ the last sum is a tail of the convergent series $\sum |a_i|$ (with $N$ fixed), so it tends to $0$. Hence $\limsup_n |\gamma_n| \le \epsilon\alpha$. Since $\epsilon > 0$ was arbitrary, $\gamma_n \to 0$, and therefore
+    $$\lim_{n\to\infty} C_n = AB = \Big(\lim A_n\Big)\Big(\lim B_n\Big). \qquad \blacksquare$$
+
+    **(b)** Let $a_n = b_n = \dfrac{(-1)^n}{\sqrt{n+1}}$ for $n \ge 0$. Since $1/\sqrt{n+1}$ decreases to $0$, $\sum a_n$ converges by the alternating series test. It converges only conditionally, since $\sum 1/\sqrt{n+1}$ diverges (comparison with $\sum 1/(n+1)$, or the $p$-test). The Cauchy product has terms
+    $$c_k = \sum_{i=0}^k \frac{(-1)^i (-1)^{k-i}}{\sqrt{(i+1)(k-i+1)}} = (-1)^k \sum_{i=0}^k \frac{1}{\sqrt{(i+1)(k-i+1)}}.$$
+    By the AM–GM inequality, $\sqrt{(i+1)(k-i+1)} \le \frac{(i+1) + (k-i+1)}{2} = \frac{k+2}{2}$, so each of the $k+1$ terms in the sum is at least $\frac{2}{k+2}$, and
+    $$|c_k| \ge \frac{2(k+1)}{k+2} \ge 1 \qquad (k \ge 0).$$
+    The terms $c_k$ do not tend to $0$, so $\sum c_k$ diverges. Thus the Cauchy product of two conditionally convergent series may diverge. $\blacksquare$
+
+- id: pugh-3.68
+  hints:
+    - |
+      A product of positive factors converges (to a nonzero limit) exactly when $\sum \log(1 + a_k)$ converges. So compare $\log(1+x)$ with its Taylor polynomial.
+    - |
+      Use $\log(1+x) = x - \tfrac{x^2}{2} + R(x)$ where $|R(x)| \le C|x|^3$ for small $|x|$. For $a_k = (-1)^k/\sqrt{k}$, $\sum a_k^3$ converges absolutely, but what about $\sum a_k^2$?
+    - |
+      In (a), $\sum a_k$ converges while $\sum a_k^2 = \sum 1/k$ diverges, which drives $\log$ of the partial products to $-\infty$. In (b), compute $b_k - b_k^2/2$ explicitly: the term $e_k/k$ is designed to cancel the divergent part of $b_k^2/2$.
+  solution: |
+    By the definition quoted from Exercise 67, the product converges when the partial products tend to a limit $C \ne 0$. In (a) the factor $1 + a_1 = 0$ violates $c_k > 0$, so, as in (b), we take both products from $k = 2$. Then every factor is positive: $1 + a_k \ge 1 - 1/\sqrt{2} > 0$ in (a), and in (b) $1 + b_k \ge 1 - 1/\sqrt{3} > 0$ for odd $k$, while $1 + b_k > 1$ for even $k$. Since $\log$ is continuous and $\exp$ is its inverse, the partial products $P_n$ converge to a nonzero limit if and only if $\log P_n = \sum_{k=2}^n \log(1 + c_k)$ converges to a finite limit. If $\log P_n \to -\infty$ then $P_n \to 0$ and the product diverges.
+
+    **Two facts about $\log$.** For $x > -1$ put $g(x) = \log(1+x) - x + \tfrac{x^2}{2}$. Then $g(0) = 0$ and $g'(x) = \frac{1}{1+x} - 1 + x = \frac{x^2}{1+x}$, so
+    $$g(x) = \int_0^x \frac{t^2}{1+t}\,dt.$$
+    (i) For $|x| \le \tfrac12$ we have $1 + t \ge \tfrac12$ between $0$ and $x$, so $|g(x)| \le 2\left|\int_0^x t^2\,dt\right| = \tfrac{2}{3}|x|^3$.
+    (ii) Also $\frac{t^2}{1+t} \le t^2$ for $t \ge 0$ and $\frac{t^2}{1+t} \ge t^2$ for $-1 < t \le 0$; in both cases this gives $g(x) \le \tfrac{x^3}{3}$ for every $x > -1$. Hence
+    $$\log(1+x) \le x - \frac{x^2}{2} + \frac{x^3}{3} \qquad (x > -1).$$
+
+    **(a)** $\sum_{k \ge 2} a_k = \sum (-1)^k/\sqrt{k}$ converges by the alternating series test. By (ii),
+    $$\log P_n = \sum_{k=2}^n \log(1 + a_k) \le \sum_{k=2}^n a_k - \frac12 \sum_{k=2}^n \frac1k + \frac13 \sum_{k=2}^n a_k^3 .$$
+    The first sum converges, the third converges absolutely ($|a_k|^3 = k^{-3/2}$), and $\sum 1/k$ diverges to $+\infty$. So $\log P_n \to -\infty$, $P_n \to 0$, and the product $\prod_{k\ge2}(1 + a_k)$ diverges.
+
+    **(b)** $\sum b_k$ diverges: $\sum (-1)^k/\sqrt{k}$ converges, while $\sum e_k/k = \sum_{m \ge 1} \frac{1}{2m}$ diverges to $+\infty$, so their sum diverges.
+
+    For the product, first compute $b_k^2$. If $k$ is odd, $b_k = -1/\sqrt{k}$ and $b_k^2 = 1/k$. If $k$ is even, $b_k = 1/k + 1/\sqrt{k}$ and $b_k^2 = 1/k^2 + 2/k^{3/2} + 1/k$. In both cases
+    $$b_k^2 = \frac1k + e_k\Big(\frac{1}{k^2} + \frac{2}{k^{3/2}}\Big).$$
+    Since $e_k - \tfrac12 = \tfrac12(-1)^k$,
+    $$b_k - \frac{b_k^2}{2} = \frac{(-1)^k}{\sqrt k} + \frac{(-1)^k}{2k} - e_k\Big(\frac{1}{2k^2} + \frac{1}{k^{3/2}}\Big).$$
+    The first two series converge by the alternating series test, and the third converges absolutely. Hence $\sum (b_k - b_k^2/2)$ converges.
+
+    For $k \ge 9$ we have $|b_k| \le \frac1k + \frac{1}{\sqrt k} \le \frac19 + \frac13 < \frac12$, so by (i), $|g(b_k)| \le \tfrac23 |b_k|^3 \le \tfrac23 (2/\sqrt{k})^3$, which is summable. Therefore
+    $$\sum_{k \ge 9} \log(1 + b_k) = \sum_{k\ge 9} \Big(b_k - \frac{b_k^2}{2}\Big) + \sum_{k \ge 9} g(b_k)$$
+    converges to a finite number $S$. Then $P_n = \Big(\prod_{k=2}^{8}(1+b_k)\Big)\exp\Big(\sum_{k=9}^n \log(1 + b_k)\Big) \to \Big(\prod_{k=2}^{8}(1+b_k)\Big) e^{S}$, which is positive. So $\prod_{k \ge 2}(1+b_k)$ converges although $\sum b_k$ diverges. $\blacksquare$
+
+- id: pugh-2.44
+  hints:
+    - |
+      In a metric space, closedness and compactness can be tested with sequences. A sequence $(p_n, y_n)$ in $M \times \mathbb{R}$ converges exactly when both coordinates converge.
+    - |
+      For (b), the graph is the image of $M$ under a natural continuous map. For (c), argue by contradiction with a sequence $p_n \to p$ along which $f(p_n)$ stays $\epsilon$ away from $f(p)$, and use compactness of the graph to extract a convergent subsequence of $(p_n, f p_n)$.
+    - |
+      For (d), the graph can be closed if $f$ "escapes to infinity" at its discontinuity instead of jumping to a finite value: then no sequence of graph points can converge to a wrong point above the discontinuity.
+  solution: |
+    Give $M \times \mathbb{R}$ any of the usual product metrics; then $(p_n, y_n) \to (p, y)$ if and only if $p_n \to p$ in $M$ and $y_n \to y$ in $\mathbb{R}$. Let $G = \{(p, fp) : p \in M\}$.
+
+    **(a)** Let $(p_n, y_n) \in G$ converge to $(p, y) \in M \times \mathbb{R}$. Then $y_n = f p_n$, $p_n \to p$ and $y_n \to y$. By continuity, $f p_n \to f p$. Limits are unique, so $y = fp$ and $(p, y) \in G$. Thus $G$ contains its limits and is closed.
+
+    **(b)** The map $\Phi\colon M \to M \times \mathbb{R}$, $\Phi(p) = (p, fp)$, is continuous because both coordinates are continuous. $G = \Phi(M)$ is the continuous image of a compact set, hence compact.
+
+    **(c)** Suppose $G$ is compact but $f$ is discontinuous at some $p$. Then there are $\epsilon > 0$ and a sequence $p_n \to p$ with $|f p_n - f p| \ge \epsilon$ for all $n$. The points $(p_n, f p_n)$ lie in the compact set $G$, so some subsequence converges to a point of $G$, say $(p_{n_k}, f p_{n_k}) \to (q, fq)$. The first coordinates give $p_{n_k} \to q$, but also $p_{n_k} \to p$, so $q = p$. The second coordinates give $f p_{n_k} \to fp$, contradicting $|f p_{n_k} - fp| \ge \epsilon$. Hence $f$ is continuous.
+
+    **(d)** A closed graph does not imply continuity. Let
+    $$f(x) = \begin{cases} 1/x & x \ne 0, \\ 0 & x = 0. \end{cases}$$
+    $f$ is discontinuous at $0$, since it is unbounded near $0$. Its graph $G$ is closed: let $(x_n, y_n) \in G$ converge to $(x, y)$.
+    - If $x \ne 0$, then $x_n \ne 0$ for all large $n$, so $y_n = 1/x_n \to 1/x$. Hence $y = 1/x = f(x)$.
+    - If $x = 0$: were $x_n \ne 0$ for infinitely many $n$, then along those $n$ we would have $|y_n| = 1/|x_n| \to \infty$, contradicting the convergence of $(y_n)$. So $x_n = 0$ and $y_n = f(0) = 0$ for all large $n$, giving $y = 0 = f(0)$.
+
+    In both cases $(x, y) \in G$, so $G$ is closed. $\blacksquare$
+
+- id: pugh-4.20
+  hints:
+    - |
+      Two things compete: the amplitude $x^\alpha$ grows, while the oscillations of $\sin(x^\beta)$ get closer together (if $\beta > 1$) or further apart (if $\beta < 1$). Near $0$ there is no problem, since $|f(x)| \le x^\alpha \to 0$.
+    - |
+      For the positive direction, bound $|f'(x)|$ on $[1, \infty)$. Which exponents appear in $f'$?
+    - |
+      For the negative direction, compare a zero of $\sin(x^\beta)$ with the next point where $|\sin(x^\beta)| = 1$. Use the fact that a uniformly continuous $f$ satisfies $|f(x) - f(y)| \le 1 + |x - y|/\delta$ for some $\delta > 0$, so its growth over a gap is at most linear in the gap length.
+    - |
+      Both directions are governed by one exponent: the power of $x$ multiplying $\cos(x^\beta)$ in $f'(x)$. Decide what its sign tells you, and check the boundary case where it is $0$.
+  solution: |
+    **Answer.** $f = f_{\alpha,\beta}$ is uniformly continuous on $(0,\infty)$ if and only if $\alpha + \beta \le 1$.
+
+    **Near $0$.** For $0 < x \le 1$, $|f(x)| \le x^\alpha \to 0$ as $x \to 0^+$. So setting $f(0) = 0$ extends $f$ to a continuous function on the compact interval $[0,1]$, which is uniformly continuous there. Hence $f$ is uniformly continuous on $(0,1]$ for all $\alpha, \beta > 0$.
+
+    **Gluing.** If $f$ is uniformly continuous on $(0,1]$ and on $[1,\infty)$, then it is uniformly continuous on $(0,\infty)$. Given $\epsilon > 0$, take $\delta = \min(\delta_1, \delta_2)$ where $\delta_1, \delta_2$ work for $\epsilon/2$ on the two pieces. If $|x - y| < \delta$ with $x < 1 < y$, then $|x - 1|, |y - 1| < \delta$, so $|f(x) - f(y)| \le |f(x) - f(1)| + |f(1) - f(y)| < \epsilon$. So everything depends on $[1,\infty)$.
+
+    **If $\alpha + \beta \le 1$.** For $x \ge 1$,
+    $$f'(x) = \alpha x^{\alpha - 1}\sin(x^\beta) + \beta x^{\alpha+\beta-1}\cos(x^\beta).$$
+    Here $\alpha - 1 < 0$ (as $\alpha < 1$) and $\alpha + \beta - 1 \le 0$, so $|f'(x)| \le \alpha + \beta$ for $x \ge 1$. By the MVT, $|f(x) - f(y)| \le (\alpha+\beta)|x - y|$ on $[1,\infty)$. So $f$ is Lipschitz there, hence uniformly continuous, and by the gluing step $f$ is uniformly continuous on $(0,\infty)$.
+
+    **If $\alpha + \beta > 1$.** Suppose $f$ were uniformly continuous on $[1,\infty)$, and pick $\delta > 0$ with $|f(x) - f(y)| \le 1$ whenever $x, y \ge 1$ and $|x - y| \le \delta$.
+
+    *Claim:* for $x, y \ge 1$, $|f(x) - f(y)| \le 1 + |x-y|/\delta$. Indeed, if $|x - y| \le m\delta$ with $m = \lceil |x-y|/\delta \rceil$ (or $m = 1$ when $x = y$), split the segment from $x$ to $y$ into $m$ steps of length $\le \delta$. Each step changes $f$ by at most $1$, so $|f(x)-f(y)| \le m \le 1 + |x-y|/\delta$.
+
+    For $n \ge 1$ put
+    $$y_n = (n\pi)^{1/\beta}, \qquad x_n = \left(n\pi + \tfrac{\pi}{2}\right)^{1/\beta}.$$
+    Then $1 \le y_n < x_n$, $x_n \to \infty$, $\sin(y_n^\beta) = 0$ and $\sin(x_n^\beta) = \pm 1$, so $|f(x_n) - f(y_n)| = x_n^\alpha$. By the MVT applied to $t \mapsto t^{1/\beta}$, for some $\xi \in (n\pi, n\pi + \pi/2)$,
+    $$x_n - y_n = \frac{\pi}{2}\cdot\frac{1}{\beta}\,\xi^{\frac1\beta - 1}.$$
+    The number $\xi^{1/\beta - 1}$ lies between $y_n^{1-\beta}$ and $x_n^{1-\beta}$ (since $\xi^{1/\beta} \in (y_n, x_n)$). Also $x_n / y_n = (1 + \frac{1}{2n})^{1/\beta} \le 2$ once $n$ is large, so $y_n \ge x_n/2$. Hence in either case ($\beta \le 1$ or $\beta > 1$), for large $n$,
+    $$x_n - y_n \le C\,x_n^{1-\beta}, \qquad C = \frac{\pi}{2\beta}\,2^{|1-\beta|}.$$
+    The claim then gives $x_n^\alpha \le 1 + C x_n^{1-\beta}/\delta$. Divide by $x_n^{1-\beta}$:
+    $$x_n^{\alpha+\beta-1} - x_n^{\beta - 1} \le \frac{C}{\delta}.$$
+    The left side equals $x_n^{\beta-1}(x_n^{\alpha} - 1)$. If $\beta \ge 1$, it is at least $x_n^\alpha - 1 \to \infty$. If $\beta < 1$, it is $x_n^{\alpha+\beta-1} - x_n^{\beta-1}$ with $x_n^{\alpha+\beta-1} \to \infty$ (as $\alpha+\beta > 1$) and $x_n^{\beta-1} \to 0$. Either way the left side tends to $\infty$, a contradiction. So $f$ is not uniformly continuous on $[1,\infty)$, hence not on $(0,\infty)$. $\blacksquare$
+
+    *Picture.* If $\beta \ge 1$, the function rises from $0$ to height $x^\alpha \to \infty$ over shorter and shorter distances. If $\beta < 1$, the waves get wider (width about $x^{1-\beta}$) but their height $x^\alpha$ grows faster than their width exactly when $\alpha > 1 - \beta$.
+
+- id: pugh-1.32
+  hints:
+    - |
+      For (a), write the middle point of $w < x < u$ as a convex combination of the outer two and apply the definition. Get the "three-chord" inequality $\sigma(w,x) \le \sigma(w,u) \le \sigma(x,u)$.
+    - |
+      For (b), (a) shows that $\sigma(x, u)$ decreases as $u \downarrow x$ and is bounded below by any $\sigma(w, x)$ with $w < x$. So one-sided derivatives $f'_-(x) \le f'_+(x)$ exist everywhere.
+    - |
+      Compare one-sided derivatives at different points: for $x < y$, $f'_+(x) \le \sigma(x,y) \le f'_-(y)$. So $f'_+$ is a monotone function. What does a monotone function's (countable) set of discontinuities have to do with the points where $f'_- \ne f'_+$?
+  solution: |
+    **(a) Three-chord lemma.** Let $a < w < x < u < b$. Write $x = s w + t u$ with
+    $$t = \frac{x - w}{u - w} \in (0,1), \qquad s = 1 - t = \frac{u - x}{u - w}.$$
+    Convexity gives $f(x) \le s f(w) + t f(u)$. Subtracting $f(w)$ gives $f(x) - f(w) \le t\,(f(u) - f(w))$. Dividing by $x - w = t(u - w) > 0$ gives
+    $$\sigma(w,x) \le \sigma(w,u).$$
+    Subtracting instead from $f(u)$ gives $f(u) - f(x) \ge f(u) - s f(w) - t f(u) = s\,(f(u) - f(w))$. Dividing by $u - x = s(u-w) > 0$ gives
+    $$\sigma(w,u) \le \sigma(x,u).$$
+    Now:
+    - *$\sigma$ increases with its first argument:* if $x < x' < u$, apply the second inequality to $x < x' < u$: $\sigma(x, u) \le \sigma(x', u)$.
+    - *$\sigma$ increases with its second argument:* if $x < u < u'$, apply the first inequality to $x < u < u'$: $\sigma(x,u) \le \sigma(x,u')$.
+
+    **(b)** Let $f\colon(a,b)\to\mathbb{R}$ be convex.
+
+    *Step 1: one-sided derivatives exist.* Fix $x \in (a,b)$. By (a), $u \mapsto \sigma(x,u)$ is nondecreasing on $(x, b)$. It is bounded below, since for any $w \in (a,x)$ the three-chord lemma gives $\sigma(w,x) \le \sigma(x,u)$. So the limit
+    $$f'_+(x) = \lim_{u \to x^+} \sigma(x,u) = \inf_{u > x} \sigma(x,u)$$
+    exists. Similarly $w \mapsto \sigma(w,x)$ is nondecreasing on $(a,x)$ and bounded above by $\sigma(x,u)$, so $f'_-(x) = \lim_{w\to x^-}\sigma(w,x) = \sup_{w<x}\sigma(w,x)$ exists. From $\sigma(w,x) \le \sigma(x,u)$ for all $w < x < u$ we get $f'_-(x) \le f'_+(x)$. Note $\sigma(w,x)$ is exactly the difference quotient $\frac{f(w) - f(x)}{w - x}$, so these are the left and right derivatives, and $f$ is differentiable at $x$ if and only if $f'_-(x) = f'_+(x)$.
+
+    *Step 2: comparing points.* Let $x < y$ in $(a,b)$. For $x < u < y$, (a) gives $\sigma(x,u) \le \sigma(x,y)$, so $f'_+(x) \le \sigma(x,y)$. For $x < w < y$, (a) gives $\sigma(x,y) \le \sigma(w,y)$, so $\sigma(x,y) \le f'_-(y)$. Hence
+    $$f'_+(x) \le \sigma(x,y) \le f'_-(y) \le f'_+(y) \qquad (x < y).$$
+    In particular $\phi = f'_+$ is nondecreasing on $(a,b)$, and for $x<y$, $\phi(x) \le f'_-(y) \le \phi(y)$. Letting $x \to y^-$ gives
+    $$\phi(y^-) \le f'_-(y) \le f'_+(y) = \phi(y),$$
+    where $\phi(y^-) = \lim_{x\to y^-}\phi(x)$ exists because $\phi$ is monotone.
+
+    *Step 3: counting.* If $f$ is not differentiable at $y$, then $f'_-(y) < f'_+(y)$, so $\phi(y^-) < \phi(y)$. Let $E$ be the set of such $y$. For $y \in E$, the open interval $J_y = (\phi(y^-), \phi(y))$ is nonempty. These intervals are pairwise disjoint: if $y < z$ are in $E$, pick $v \in (y,z)$; monotonicity gives $\phi(y) \le \phi(v) \le \phi(z^-)$, so $J_y$ lies to the left of $J_z$. Choosing a rational number $q_y \in J_y$ for each $y \in E$ defines an injection $E \to \mathbb{Q}$. Therefore $E$ is countable, and $f$ is differentiable at every point of $(a,b) \setminus E$. $\blacksquare$
+
+- id: pugh-prelim-45
+  hints:
+    - |
+      Argue by contradiction: if $f(x) \not\to 0$, there are points $x_n \to \infty$ where $|f(x_n)| \ge \epsilon$.
+    - |
+      Uniform continuity gives a fixed width $\delta$ (independent of $n$) such that $f$ stays at least $\epsilon/2$ in absolute value, with a constant sign, on $[x_n, x_n + \delta]$.
+    - |
+      Then $\left|\int_{x_n}^{x_n+\delta} f\right| \ge \epsilon\delta/2$ for every $n$. Why does convergence of $\int_0^\infty f$ forbid this? (Cauchy criterion.)
+  solution: |
+    **Proof.** Let $F(b) = \int_0^b f(x)\,dx$. (A uniformly continuous function is continuous, so it is integrable on each $[0,b]$.) By hypothesis $F(b) \to I$ as $b \to \infty$. In particular, for every fixed $\delta > 0$,
+    $$\int_x^{x+\delta} f = F(x + \delta) - F(x) \to I - I = 0 \qquad (x \to \infty). \tag{$*$}$$
+
+    Suppose $f(x) \not\to 0$. Then there is $\epsilon > 0$ such that for every $X$ there is $x \ge X$ with $|f(x)| \ge \epsilon$. This gives a sequence $x_n \to \infty$ with $|f(x_n)| \ge \epsilon$. By uniform continuity choose $\delta > 0$ such that $|s - t| \le \delta$ implies $|f(s) - f(t)| < \epsilon/2$. For $t \in [x_n, x_n + \delta]$ we have $|f(t) - f(x_n)| < \epsilon/2 \le |f(x_n)|/2$. So $f(t)$ has the same sign as $f(x_n)$ and $|f(t)| > |f(x_n)| - \epsilon/2 \ge \epsilon/2$. Hence
+    $$\left| \int_{x_n}^{x_n + \delta} f \right| = \int_{x_n}^{x_n+\delta} |f| \ge \frac{\epsilon\delta}{2}$$
+    for every $n$, contradicting $(*)$ along $x = x_n \to \infty$. Therefore $\lim_{x\to\infty} f(x) = 0$. $\blacksquare$
+
+    *Remark.* Uniform continuity is essential. A continuous $f$ made of triangular spikes of height $1$ and base $2^{-n}$ centered at $x = n$ has a convergent integral but does not tend to $0$.
+
+- id: pugh-prelim-56
+  hints:
+    - |
+      Name the integral: $F(x) = \int_0^x f(t)\,dt$. What is $F'$, and what does the hypothesis say in terms of $F$ and $F'$?
+    - |
+      The hypothesis is $F' + F \to L$, a first-order linear differential expression. Which integrating factor turns $F' + F$ into an exact derivative?
+    - |
+      Since $(e^x F)' = e^x (F + F')$, you can write $F(x) = e^{-x}\int_0^x e^t g(t)\,dt$ with $g = F + F' \to L$. Show this weighted average tends to $L$; then $f = g - F \to 0$.
+  solution: |
+    **Proof.** Let $F(x) = \int_0^x f(t)\,dt$. Since $f$ is continuous, the FTC gives that $F$ is differentiable with $F' = f$, and $F(0) = 0$. Let $g = f + F = F' + F$. By hypothesis $g(x) \to L$ for some real $L$. Note $g$ is continuous.
+
+    *Integrating factor.* $(e^x F(x))' = e^x(F'(x) + F(x)) = e^x g(x)$. This derivative is continuous, so by the FTC, $e^x F(x) - e^0 F(0) = \int_0^x e^t g(t)\,dt$, that is,
+    $$F(x) = e^{-x} \int_0^x e^t g(t)\,dt .$$
+    Since $e^{-x}\int_0^x e^t L\,dt = L(1 - e^{-x})$,
+    $$F(x) - L = e^{-x}\int_0^x e^t\big(g(t) - L\big)\,dt \;-\; L e^{-x}.$$
+
+    *$F \to L$.* Let $\epsilon > 0$ and choose $X$ with $|g(t) - L| < \epsilon$ for $t \ge X$. For $x > X$ split the integral at $X$:
+    $$|F(x) - L| \le e^{-x}\left|\int_0^X e^t (g(t) - L)\,dt\right| + e^{-x}\int_X^x e^t \epsilon\,dt + |L|e^{-x} \le K e^{-x} + \epsilon + |L|e^{-x},$$
+    where $K = \left|\int_0^X e^t(g - L)\right|$ does not depend on $x$, and we used $e^{-x}(e^x - e^X) \le 1$. Letting $x \to \infty$ gives $\limsup_{x\to\infty} |F(x) - L| \le \epsilon$. As $\epsilon$ was arbitrary, $F(x) \to L$.
+
+    *Conclusion.* $f(x) = g(x) - F(x) \to L - L = 0$. $\blacksquare$
+
+- id: pugh-prelim-7
+  hints:
+    - |
+      Near each point $x$, the function is nearly constant on a small interval to the right of $x$ (close to $f(x^+)$) and on a small interval to the left (close to $f(x^-)$). The value at $x$ itself may be anything.
+    - |
+      Fix $\epsilon > 0$. Try to show there is a partition $a = t_0 < \dots < t_n = b$ such that on each *open* subinterval $(t_{j-1}, t_j)$ the values of $f$ differ by at most $2\epsilon$. A "how far can we get" argument works: take the supremum of the points $c$ for which $[a,c]$ has such a partition.
+    - |
+      Once you have such a partition, the partition points are finitely many bad spots. Fence each off in a tiny interval; $f$ is bounded, so those intervals contribute little to $U - L$.
+  solution: |
+    **Proof.** Fix $\epsilon > 0$. Call $c \in (a, b]$ *good* if there is a partition $a = t_0 < t_1 < \dots < t_n = c$ such that
+    $$|f(s) - f(t)| \le 2\epsilon \quad \text{whenever } s, t \in (t_{j-1}, t_j), \text{ for each } j. \tag{$*$}$$
+
+    *Some point is good, and good points form an interval from $a$.* The right limit $f(a^+)$ exists, so there is $\delta > 0$ with $|f(t) - f(a^+)| < \epsilon$ for $t \in (a, a+\delta) \cap (a,b]$. Then $c = \min(a + \delta/2, b)$ is good with the partition $\{a, c\}$. If $c$ is good and $a < c' < c$, then $c'$ is good: keep the partition points less than $c'$ and add $c'$. Each new open subinterval lies inside an old one.
+
+    *The supremum is good.* Let $s = \sup\{c : c \text{ good}\} \in (a, b]$. The left limit $f(s^-)$ exists, so there is $\delta > 0$ with $|f(t) - f(s^-)| < \epsilon$ for $t \in (s - \delta, s)$, and we may take $\delta < s - a$. By the definition of supremum there is a good $c > s - \delta$. If $c = s$ we are done. Otherwise $c \in (s-\delta, s)$: take a partition of $[a,c]$ satisfying $(*)$ and add the point $s$. The new open interval $(c, s)$ lies in $(s - \delta, s)$, where any two values of $f$ differ by less than $2\epsilon$. So $s$ is good.
+
+    *$s = b$.* If $s < b$, the right limit $f(s^+)$ exists: there is $\delta>0$ with $|f(t) - f(s^+)| < \epsilon$ on $(s, s+\delta)$. Appending the point $\min(s + \delta/2, b)$ to a good partition of $[a, s]$ shows that a point larger than $s$ is good, a contradiction. Hence $b$ is good.
+
+    *Boundedness.* Let $a = t_0 < \dots < t_n = b$ satisfy $(*)$. On each $(t_{j-1}, t_j)$, fix a point $u_j$; then $|f(t)| \le |f(u_j)| + 2\epsilon$ there. Together with the finitely many values $f(t_j)$, this shows $f$ is bounded, say $|f| \le B$ on $[a,b]$.
+
+    *The Riemann criterion.* Let $0 < \eta < \tfrac12 \min_j (t_j - t_{j-1})$ and refine the partition by adding the points $t_j \pm \eta$ that lie in $[a,b]$. The resulting partition $P$ has two kinds of subintervals:
+    - $[t_{j-1} + \eta, t_j - \eta] \subset (t_{j-1}, t_j)$, on which $\sup f - \inf f \le 2\epsilon$ by $(*)$; their total length is at most $b - a$;
+    - at most $2n$ intervals of length $\eta$ adjacent to the points $t_j$, on which $\sup f - \inf f \le 2B$.
+
+    Hence
+    $$U(f,P) - L(f,P) \le 2\epsilon(b - a) + 2n \cdot 2B\eta .$$
+    Choosing $\eta$ also smaller than $\epsilon/(4nB + 1)$ gives $U - L \le \epsilon\,(2(b-a) + 1)$. Since $\epsilon > 0$ was arbitrary, Riemann's integrability criterion shows $f$ is Riemann integrable on $[a,b]$. $\blacksquare$
+
+    *Remark.* At $a$ only the right limit and at $b$ only the left limit are used, as the statement intends.
+
+- id: pugh-prelim-28
+  hints:
+    - |
+      Polynomials of degree $\le 10$ form an $11$-dimensional vector space. Such a polynomial is completely determined by its values at any $11$ distinct points.
+    - |
+      Use Lagrange interpolation at $11$ fixed nodes in $[0,1]$: $P(x) = \sum_{i=0}^{10} P(x_i) L_i(x)$ for every polynomial of degree $\le 10$.
+    - |
+      Each $L_i$ is a fixed polynomial, hence bounded on any bounded set, while only the $11$ numbers $P_n(x_i)$ change with $n$.
+  solution: |
+    **Proof.** Fix the $11$ nodes $x_i = i/10$, $i = 0, \dots, 10$, in $[0,1]$, and let
+    $$L_i(x) = \prod_{j \ne i} \frac{x - x_j}{x_i - x_j}, \qquad i = 0,\dots,10,$$
+    the Lagrange basis polynomials. Each has degree $10$ and $L_i(x_j) = 1$ if $j = i$, $0$ otherwise.
+
+    *Interpolation identity.* If $P$ has degree $\le 10$, then $Q = P - \sum_i P(x_i) L_i$ has degree $\le 10$ and vanishes at the $11$ distinct points $x_0, \dots, x_{10}$. A nonzero polynomial of degree $\le 10$ has at most $10$ roots, so $Q = 0$:
+    $$P(x) = \sum_{i=0}^{10} P(x_i)\,L_i(x) \quad \text{for all } x \in \mathbb{R}.$$
+
+    *Uniform convergence on bounded sets.* Let $K \subset \mathbb{R}$ be bounded, and let $M_K = \max_i \sup_{x \in K} |L_i(x)|$, which is finite because polynomials are bounded on bounded sets. Then for all $x \in K$,
+    $$|P_n(x)| \le M_K \sum_{i=0}^{10} |P_n(x_i)|.$$
+    The right side does not depend on $x$, and it tends to $0$ as $n \to \infty$ because $P_n(x_i) \to 0$ for each of the $11$ nodes in $[0,1]$. Hence $\sup_{x \in K} |P_n(x)| \to 0$.
+
+    Taking $K = [0,1]$ gives $P_n \rightrightarrows 0$ on $[0,1]$. Taking $K = [4,5]$ answers the question: $P_n(x) \to 0$ *uniformly* for $4 \le x \le 5$ as well, and in fact on every bounded subset of $\mathbb{R}$.
+
+    (The convergence need not be uniform on all of $\mathbb{R}$: $P_n(x) = x/n$ tends to $0$ pointwise everywhere, but $\sup_{\mathbb{R}} |P_n| = \infty$.) $\blacksquare$
+
+- id: pugh-3.23
+  hints:
+    - |
+      In (b), if $H_\ell$ contained an interval $J$, what would that say about the oscillation of $f$ at points of $J$, and how does that square with $J \subset (\alpha,\beta) \subset D_k$?
+    - |
+      In (d), the pointwise convergence $f_n(x) \to f(x)$ is used in both directions: if $f(x)$ is strictly inside $(a_\ell, b_\ell)$, then $f_n(x)$ is eventually inside a slightly smaller closed interval, and conversely, limits of points of a closed interval stay in it.
+    - |
+      In (e), apply Baire's Theorem to a closed interval $[\alpha', \beta'] \subset (\alpha,\beta)$, which is complete, written as the countable union of the closed sets $E_{\ell m N} \cap [\alpha', \beta']$.
+    - |
+      For (g), the set of discontinuities is $\bigcup_k D_k$. If some closed interval contained no continuity point, apply Baire again to it. For (h), extend $g$ linearly past $b$ so that $g(x + 1/n)$ makes sense, and note that the difference quotients are continuous in $x$.
+  solution: |
+    Throughout, "interval" means an interval with more than one point; every such interval contains an open interval. Since $D_k$ is closed, $D_k$ is nowhere dense exactly when it contains no interval.
+
+    **(a)** For each $x \in [a,b]$, the real number $f(x)$ lies in some $(a_\ell, b_\ell)$, because these intervals cover $\mathbb{R}$. Then $x \in H_\ell$. So $\bigcup_\ell H_\ell = [a,b]$.
+
+    **(b)** Suppose $J \subset H_\ell$ for some open interval $J \subset (\alpha,\beta)$. For $x \in J$ and small $r > 0$, $[x - r, x + r] \subset J$, and $f$ maps $J$ into $(a_\ell, b_\ell)$, so $\operatorname{diam} f([x-r,x+r]) \le b_\ell - a_\ell$. Hence $\operatorname{osc}_x f \le b_\ell - a_\ell < 1/k$, so $x \notin D_k$. But $x \in J \subset (\alpha,\beta) \subset D_k$, a contradiction. Thus no $H_\ell$ contains a subinterval of $(\alpha,\beta)$.
+
+    **(c)** $F_{\ell mn} = f_n^{-1}\big([a_\ell + \tfrac1m, b_\ell - \tfrac1m]\big)$ is the preimage of a closed set (possibly empty) under the continuous map $f_n$, so it is closed in $[a,b]$, hence closed in $\mathbb{R}$. $E_{\ell m N}$ is an intersection of closed sets, so it is closed.
+
+    **(d)** *($\supseteq$)* If $x \in E_{\ell m N}$, then $a_\ell + \frac1m \le f_n(x) \le b_\ell - \frac1m$ for all $n \ge N$. Letting $n \to \infty$ gives $a_\ell + \frac1m \le f(x) \le b_\ell - \frac1m$, so $f(x) \in (a_\ell, b_\ell)$ and $x \in H_\ell$.
+
+    *($\subseteq$)* If $x \in H_\ell$, then $a_\ell < f(x) < b_\ell$. Choose $m$ with $a_\ell + \frac2m < f(x) < b_\ell - \frac2m$. Since $f_n(x) \to f(x)$, there is $N$ with $|f_n(x) - f(x)| < \frac1m$ for $n \ge N$. For these $n$, $a_\ell + \frac1m < f_n(x) < b_\ell - \frac1m$, so $x \in F_{\ell m n}$ for all $n\ge N$, that is, $x \in E_{\ell m N}$.
+
+    **(e)** Choose $\alpha < \alpha' < \beta' < \beta$. The closed interval $I = [\alpha', \beta']$ is a complete metric space. By (a) and (d),
+    $$I = \bigcup_{\ell, m, N} \big(E_{\ell m N} \cap I\big),$$
+    a countable union of closed subsets of $I$. By Baire's Theorem one of them, say $E_{\ell m N} \cap I$, has nonempty interior in $I$. So it contains $I \cap (x - r, x + r)$ for some $x \in I$, $r > 0$, and this contains a subinterval of $(\alpha,\beta)$.
+
+    **(f)** By (d), $E_{\ell m N} \subset H_\ell$, so by (e) $H_\ell$ contains a subinterval of $(\alpha,\beta)$. This contradicts (b). Hence the assumption was false: $D_k$ is dense in no interval. Since $D_k$ is closed, it contains no interval, that is, it is nowhere dense.
+
+    **(g)** Since $f$ is continuous at $x$ iff $\operatorname{osc}_x f = 0$, the set of discontinuity points is $D = \bigcup_{k\ge1} D_k$. Let $J$ be any open interval meeting $[a,b]$ in more than one point; we show $J$ contains a continuity point. Choose a closed interval $I = [c,d] \subset J \cap [a,b]$ with $c < d$. If $I$ contained no continuity point, then $I = \bigcup_k (D_k \cap I)$, a countable union of closed subsets of the complete space $I$. By Baire's Theorem some $D_k \cap I$ has nonempty interior in $I$ and therefore contains an interval. This contradicts (f). So every such $J$ contains a point of continuity: the continuity points of $f$ are dense in $[a,b]$.
+
+    **(h)** Extend $g$ to $G\colon [a, b+1] \to \mathbb{R}$ by
+    $$G(x) = g(x) \ (x \le b), \qquad G(x) = g(b) + g'(b)(x - b) \ (b < x \le b+1).$$
+    $g$ is differentiable, hence continuous, on $[a,b]$, and the linear piece agrees with $g$ at $b$, so $G$ is continuous on $[a, b+1]$. Define, for $x \in [a,b]$ and $n \ge 1$,
+    $$f_n(x) = \frac{G(x + 1/n) - G(x)}{1/n}.$$
+    Each $f_n$ is continuous on $[a,b]$ (a composition and difference of continuous functions; note $x + 1/n \in [a, b+1]$).
+
+    *Pointwise convergence to $g'$.* Let $x \in [a, b)$. For $n > 1/(b - x)$ we have $x + 1/n \le b$, so $f_n(x) = n\big(g(x + 1/n) - g(x)\big)$. This tends to $g'(x)$ because $g$ is differentiable at $x$ (from the right, if $x = a$), and $h = 1/n \to 0^+$. For $x = b$, $f_n(b) = n\cdot g'(b)/n = g'(b)$ for every $n$. So $f_n \to g'$ pointwise on $[a,b]$, and $g'$ is of Baire class 1.
+
+    **(i)** By (h), $g'$ is of Baire class 1, so by (g) its continuity points are dense in $[a,b]$. A derivative cannot be discontinuous everywhere; it is continuous on a dense set. $\blacksquare$
+
+- id: pugh-4.37
+  hints:
+    - |
+      Near $0$ the polynomial $a_k x^k/k!$ has exactly the right $k$-th derivative and no other derivatives at $0$. The trouble is that $\sum a_k x^k/k!$ may diverge for every $x \ne 0$. Cut each term off to a tiny neighbourhood of $0$.
+    - |
+      Take a smooth $\eta$ with $\eta = 1$ on $[-1,1]$ and $\eta = 0$ outside $[-2,2]$, and use $\phi_k(x) = \frac{a_k x^k}{k!}\,\eta(x/\epsilon_k)$. What does shrinking $\epsilon_k$ do to $\sup|\phi_k^{(j)}|$ for $j < k$?
+    - |
+      Choose $\epsilon_k$ so small that $\sup_x |\phi_k^{(j)}(x)| \le 2^{-k}$ for all $j < k$. Then for each fixed $j$, the series of $j$-th derivatives converges uniformly (M-test), so you can differentiate term by term as often as you like.
+    - |
+      For (b), choose $a_r$ so large that $\sum a_r x^r / r!$ diverges for every $x \ne 0$.
+  solution: |
+    **A cutoff function.** Using the smooth function $e$ from the text, let
+    $$\eta(x) = \frac{e(2 - |x|)}{e(2 - |x|) + e(|x| - 1)}.$$
+    The denominator is never $0$: if $|x| < 2$ the first term is positive, and if $|x| \ge 2$ the second is. Hence $\eta$ is smooth wherever $|x|$ is, that is, for $x \ne 0$. On $|x| < 1$ we have $e(|x|-1) = 0$, so $\eta \equiv 1$ there, and $\eta$ is smooth near $0$ too. Also $0 \le \eta \le 1$, $\eta = 1$ on $[-1,1]$ and $\eta = 0$ for $|x| \ge 2$. Let $M_i = \sup_{\mathbb{R}} |\eta^{(i)}| < \infty$. Each $\eta^{(i)}$ is continuous and vanishes outside $[-2,2]$.
+
+    **(a)** For $k \ge 0$ and $0 < \epsilon \le 1$ let $\phi_{k,\epsilon}(x) = \dfrac{a_k x^k}{k!}\,\eta(x/\epsilon)$.
+
+    *Estimate.* Let $j < k$. By the Leibniz rule,
+    $$\phi_{k,\epsilon}^{(j)}(x) = \frac{a_k}{k!}\sum_{i=0}^{j} \binom{j}{i} \frac{k!}{(k - j + i)!}\, x^{k-j+i}\, \epsilon^{-i}\, \eta^{(i)}(x/\epsilon).$$
+    This vanishes unless $|x| \le 2\epsilon$, and then $|x|^{k-j+i}\epsilon^{-i} \le 2^{k-j+i}\epsilon^{k-j} \le 2^k \epsilon$, because $k - j \ge 1$ and $\epsilon \le 1$. Hence
+    $$\sup_x \big|\phi_{k,\epsilon}^{(j)}(x)\big| \le \epsilon\, A_{k,j}, \qquad A_{k,j} = |a_k|\, 2^k \sum_{i=0}^j \binom{j}{i} M_i .$$
+    Choose
+    $$\epsilon_k = \min\Big(1,\ \frac{2^{-k}}{1 + \max_{j<k} A_{k,j}}\Big)$$
+    (for $k = 0$ take $\epsilon_0 = 1$), and put $\phi_k = \phi_{k,\epsilon_k}$. Then
+    $$\sup_{x\in\mathbb{R}} |\phi_k^{(j)}(x)| \le 2^{-k} \qquad \text{whenever } j < k. \tag{$*$}$$
+
+    *Convergence.* Fix $j \ge 0$. All $\phi_k$ are smooth. By $(*)$, for $k > j$ the terms of $\sum_k \phi_k^{(j)}$ are bounded by $2^{-k}$, so by the Weierstrass M-test the series $\sum_{k} \phi_k^{(j)}$ converges uniformly on $\mathbb{R}$. (The finitely many terms with $k \le j$ do not affect this.) Let $f = \sum_k \phi_k$.
+
+    *Smoothness.* We show by induction on $j$ that $f^{(j)}$ exists and $f^{(j)} = \sum_k \phi_k^{(j)}$. The case $j = 0$ is the definition. If it holds for $j$, then on any interval $[-R, R]$ the series $\sum_k \phi_k^{(j)}$ converges (to $f^{(j)}$) and the differentiated series $\sum_k \phi_k^{(j+1)}$ converges uniformly. By the theorem on term-by-term differentiation, $f^{(j)}$ is differentiable with $f^{(j+1)} = \sum_k \phi_k^{(j+1)}$. Each $f^{(j)}$ is a uniform limit of continuous functions, hence continuous, so $f$ is smooth.
+
+    *Derivatives at $0$.* On $(-\epsilon_k, \epsilon_k)$ we have $\eta(x/\epsilon_k) = 1$, so $\phi_k(x) = a_k x^k/k!$ there. Thus $\phi_k^{(j)}(0) = a_k$ if $j = k$ and $0$ if $j \ne k$. Therefore
+    $$f^{(j)}(0) = \sum_k \phi_k^{(j)}(0) = a_j \qquad \text{for every } j \ge 0. \qquad \blacksquare$$
+
+    **(b)** The Taylor series of $f$ at $0$ is $\sum_r \frac{f^{(r)}(0)}{r!}x^r = \sum_r \frac{a_r}{r!} x^r$, and by (a) the sequence $(a_r)$ can be anything. Take any real sequence $(b_r)$ with $|b_r| \ge 1$ and set $a_r = b_r (r!)^2$. The Taylor series is $\sum_r b_r\, r!\, x^r$. For $x \ne 0$ its terms satisfy $|b_r r! x^r| \ge r!|x|^r \to \infty$, so it diverges at every $x \ne 0$: its radius of convergence is $R = 0$. Different sequences $(b_r)$ give different Taylor series, so there are uncountably many Taylor series with $R = 0$, and each is the Taylor series of a smooth function. $\blacksquare$
+
+- id: pugh-prelim-31
+  hints:
+    - |
+      Suppose some point $p$ is missed by $f$. Since $f(X)$ is compact, how far is $p$ from $f(X)$?
+    - |
+      Look at the orbit $p, f(p), f^2(p), \dots$. Use the isometry property to compute $d(f^m p, f^n p)$ in terms of $d(p, f^{n-m}p)$.
+    - |
+      Every pair of orbit points is at least $d(p, f(X)) > 0$ apart. Which property of compact metric spaces does that violate?
+  solution: |
+    **Proof.** An isometry is continuous (it is $1$-Lipschitz), so $f(X)$ is compact, hence closed in $X$. Suppose $f(X) \ne X$ and pick $p \in X \setminus f(X)$. Since $f(X)$ is closed and $p \notin f(X)$,
+    $$\epsilon = \inf_{y \in f(X)} d(p, y) > 0$$
+    (otherwise points of $f(X)$ would converge to $p$, forcing $p \in f(X)$).
+
+    Let $x_n = f^n(p)$ for $n \ge 0$, with $x_0 = p$. For $0 \le m < n$, applying the isometry property $m$ times,
+    $$d(x_m, x_n) = d\big(f^m(p), f^m(f^{n-m}(p))\big) = d\big(p, f^{n-m}(p)\big) \ge \epsilon,$$
+    because $f^{n-m}(p) \in f(X)$ when $n - m \ge 1$. So any two distinct terms of $(x_n)$ are at distance $\ge \epsilon$. No subsequence of $(x_n)$ is Cauchy, so none converges. This contradicts the sequential compactness of $X$. Hence $f(X) = X$. $\blacksquare$
+
+- id: pugh-2.49
+  hints:
+    - |
+      As the hint says, $A$ must be noncompact. A continuous bijection fails to be a homeomorphism when it "glues" something: for instance it sends an isolated point to the missing endpoint of a half-open interval.
+    - |
+      Sending an isolated point to $1$ and $[0,1)$ to itself closes $[0,1)$ up into $[0,1]$. But $f$ must map $A$ onto $A$, so $A$ needs room for both half-open and closed pieces, and for the isolated points that get used up. Use infinitely many pieces and shift them along.
+    - |
+      Try $A$ built from half-open intervals $[4k, 4k+1)$ ($k \le 0$), closed intervals $[4k, 4k+1]$ ($k \ge 1$), and isolated points $4k+2$ ($k \le 0$), with $f$ a translation by $4$ on most pieces.
+  solution: |
+    **Construction.** Let
+    $$A = \bigcup_{k \le 0} [4k, 4k+1) \;\cup\; \bigcup_{k \ge 1} [4k, 4k+1] \;\cup\; \{4k + 2 : k \le 0\},$$
+    with $k$ ranging over integers. Define $f\colon A \to A$ by
+    $$f(x) = \begin{cases} x + 4 & x \in [4k, 4k+1),\ k \le 0, \\ x + 4 & x \in [4k, 4k+1],\ k \ge 1, \\ x + 4 & x = 4k+2,\ k \le -1, \\ 5 & x = 2. \end{cases}$$
+
+    *$f$ maps into $A$ and is a bijection.* We follow each piece:
+    - $[4k, 4k+1)$ with $k \le -1$ goes onto $[4(k+1), 4(k+1)+1)$, which is again a half-open piece. As $k$ runs over $k \le -1$, these images are exactly the half-open pieces with index $\le 0$.
+    - $[0,1)$ goes onto $[4,5)$, and the point $2$ goes to $5$. Together they fill the closed piece $[4,5]$.
+    - $[4k, 4k+1]$ with $k \ge 1$ goes onto $[4(k+1), 4(k+1)+1]$, giving exactly the closed pieces with index $\ge 2$.
+    - $4k+2$ with $k \le -1$ goes to $4(k+1)+2$, giving exactly the isolated points $4j + 2$ with $j \le 0$.
+
+    The images listed are pairwise disjoint and together make up all of $A$, and $f$ is injective on each piece. So $f\colon A\to A$ is a bijection.
+
+    *$f$ is continuous.* Distinct pieces of $A$ are at distance at least $1$ from each other, so each piece is open in $A$. On each piece $f$ is a translation or a constant (on the one-point piece $\{2\}$), hence continuous. A function that is continuous on each member of an open cover of $A$ is continuous on $A$.
+
+    *$f^{-1}$ is not continuous.* $f^{-1}(5) = 2$. For $0 < t < 1$, $5 - t \in [4,5)$ and $f^{-1}(5 - t) = 1 - t$. As $t \to 0^+$, $5 - t \to 5$ in $A$, but $f^{-1}(5-t) \to 1 \ne 2 = f^{-1}(5)$. So $f^{-1}$ is discontinuous at $5$, and $f$ is a continuous bijection of $A$ onto itself that is not a homeomorphism. $\blacksquare$
+
+    (Consistent with the hint, $A$ is not compact: it is unbounded and also not closed.)
+
+- id: pugh-2.76
+  hints:
+    - |
+      For (a) and (b), think of two arcs, or two lines, joined only "at the top": the joining part can be removed step by step.
+    - |
+      For (c), assume $S = \bigcap S_n$ splits into two disjoint nonempty closed pieces $A, B$. Separate $A$ and $B$ by disjoint open sets $U \supset A$, $V \supset B$. Then use compactness: the nested compact sets $S_n \setminus (U \cup V)$ cannot all be nonempty.
+    - |
+      For (d), recall the topologist's sine curve: it is compact and connected but not path-connected. Can you write it as a nested intersection of compact path-connected sets, by thickening the bad part into rectangles $[0, 1/n] \times [-1,1]$?
+  solution: |
+    **(a)** In $\mathbb{R}^2$ let $P$ be the upper half of the unit circle and $Q$ the lower half, both including $(\pm1, 0)$. Each is a continuous image of an interval, hence connected. But $P \cap Q = \{(-1,0), (1,0)\}$ is disconnected (two points).
+
+    **(b)** No. Let
+    $$S_n = \big(\{-1\} \times \mathbb{R}\big) \cup \big(\{1\} \times \mathbb{R}\big) \cup \big([-1,1] \times [n, \infty)\big).$$
+    Each $S_n$ is closed (a finite union of closed sets) and path-connected, hence connected: from $(-1, y)$ go vertically to $(-1, n)$, across to $(1, n)$, then vertically to $(1, y')$. Also $S_1 \supset S_2 \supset \cdots$. A point $(x,y)$ with $|x| < 1$ lies in $S_n$ only if $y \ge n$, so it lies in no $S_n$ for $n > y$. Hence $\bigcap S_n = (\{-1\}\times\mathbb{R}) \cup (\{1\} \times \mathbb{R})$. These two lines are disjoint nonempty closed sets, so the intersection is disconnected.
+
+    **(c)** Yes: if the $S_n$ are nonempty, compact and connected, then $S = \bigcap S_n$ is connected (and nonempty).
+
+    *Proof.* $S$ is nonempty because the $S_n$ are nested nonempty compact sets, and $S$ is compact. Suppose $S = A \cup B$ with $A, B$ disjoint, nonempty and closed in $S$. Then $A, B$ are compact, so $d = \inf\{|a - b| : a \in A, b \in B\} > 0$: the continuous function $(a,b) \mapsto |a-b|$ attains its minimum on the compact set $A \times B$, and that minimum is positive. Let
+    $$U = \{p : \operatorname{dist}(p, A) < d/3\}, \qquad V = \{p : \operatorname{dist}(p, B) < d/3\}.$$
+    These are open, disjoint (by the triangle inequality), and $A \subset U$, $B \subset V$. The sets $K_n = S_n \setminus (U \cup V)$ are compact and nested. Their intersection is $S \setminus (U \cup V) = \emptyset$. Hence some $K_N$ is empty (otherwise nested nonempty compact sets would have nonempty intersection), that is, $S_N \subset U \cup V$. Now $S_N \cap U \supset A \ne \emptyset$ and $S_N \cap V \supset B \ne \emptyset$ are disjoint, relatively open in $S_N$, and cover $S_N$. This contradicts the connectedness of $S_N$. Hence $S$ is connected. $\blacksquare$
+
+    **(d)** By (c), the intersection of a nested decreasing sequence of nonempty compact path-connected sets is compact and connected. It need not be path-connected. Let
+    $$T = \{(x, \sin(1/x)) : 0 < x \le 1\} \cup \big(\{0\} \times [-1,1]\big),$$
+    $$S_n = \big([0, \tfrac1n] \times [-1,1]\big) \cup \{(x, \sin(1/x)) : \tfrac1n \le x \le 1\}.$$
+    - *$S_n$ is compact and path-connected.* It is the union of a closed rectangle and the graph of a continuous function on a closed interval, so it is compact. The rectangle is path-connected, and the graph is a path from $(\frac1n, \sin n)$, a point of the rectangle, to $(1, \sin 1)$.
+    - *Nested.* $S_{n+1} \subset S_n$, since the part of the graph over $[\frac{1}{n+1}, \frac1n]$ lies in the rectangle $[0, \frac1n] \times [-1,1]$.
+    - *$\bigcap S_n = T$.* Clearly $T \subset S_n$ for all $n$. Conversely, if $(x,y)$ lies in every $S_n$: when $x > 0$, choose $n$ with $1/n < x$; then $(x, y)$ is on the graph, so it lies in $T$. When $x = 0$, $|y| \le 1$, so again $(x,y) \in T$.
+
+    *$T$ is not path-connected.* Suppose $\gamma = (\gamma_1, \gamma_2)\colon [0,1] \to T$ is continuous with $\gamma(0) = (0,0)$ and $\gamma(1) = (1, \sin 1)$. The set $\{t : \gamma_1(t) = 0\}$ is closed and contains $0$; let $t^*$ be its maximum. Then $t^* < 1$ and $|\gamma_2(t^*)| \le 1$. By continuity there is $\eta > 0$ with $|\gamma_2(t) - \gamma_2(t^*)| < \frac12$ for $t \in [t^*, t^* + \eta]$. Now $\gamma_1(t^*) = 0 < c = \gamma_1(t^* + \eta)$. By the IVT, $\gamma_1$ takes every value in $[0, c]$ on $[t^*, t^*+\eta]$. In particular it takes values $x_+ = 1/(2\pi m + \pi/2)$ and $x_- = 1/(2\pi m + 3\pi/2)$ for $m$ large enough. At such times $\gamma_1 > 0$, so $\gamma(t)$ is on the graph and $\gamma_2 = \sin(1/\gamma_1) = 1$ or $-1$ respectively. Then both $|1 - \gamma_2(t^*)| < \frac12$ and $|-1 - \gamma_2(t^*)| < \frac12$, which is impossible since $1$ and $-1$ are $2$ apart. So no such path exists.
+
+    Hence nested compact path-connected sets can have an intersection that is connected but not path-connected. $\blacksquare$
+
+- id: pugh-2.78
+  hints:
+    - |
+      For (a), fix $\epsilon$ and $p$ and consider the set of points reachable from $p$ by an $\epsilon$-chain. Show it is both open and closed.
+    - |
+      For (b), if $M = A \cup B$ is a separation, then $A$ and $B$ are compact, and so they are a positive distance apart. What does an $\epsilon$-chain from $A$ to $B$ have to do?
+    - |
+      For (c), the gaps in $\mathbb{R}\setminus\mathbb{Z}$ are single points. For (d), look for two disjoint closed connected pieces in the plane that get arbitrarily close to each other at infinity, like a ray and a hyperbola.
+  solution: |
+    **(a)** Let $M$ be connected, $\epsilon > 0$ and $p \in M$. Let $C$ be the set of $q \in M$ that can be joined to $p$ by an $\epsilon$-chain. Then $p \in C$ (the chain $(p)$).
+
+    *$C$ is open:* if $q \in C$ and $d(q, r) < \epsilon$, append $r$ to a chain from $p$ to $q$; so $B_\epsilon(q) \subset C$.
+
+    *$M \setminus C$ is open:* if $q \notin C$ and $d(q,r) < \epsilon$, then $r \notin C$, since otherwise appending $q$ to a chain ending at $r$ would put $q$ in $C$.
+
+    $C$ is nonempty and clopen, so $C = M$ by connectedness. As $\epsilon$ and $p$ were arbitrary, $M$ is chain-connected.
+
+    **(b)** Let $M$ be compact and chain-connected, and suppose $M = A \cup B$ with $A, B$ disjoint, nonempty and closed. Then $A, B$ are compact, and $\epsilon = \inf\{d(a,b) : a \in A, b \in B\} > 0$, since the continuous function $d$ attains a minimum on $A \times B$ and that minimum is not $0$. Take $p \in A$, $q \in B$ and an $\epsilon$-chain $p = p_1, \dots, p_n = q$. Let $i$ be the last index with $p_i \in A$. Then $i < n$ and $p_{i+1} \in B$, so $d(p_i, p_{i+1}) \ge \epsilon$, a contradiction. Hence $M$ is connected.
+
+    **(c)** Yes. Let $p < q$ in $\mathbb{R} \setminus \mathbb{Z}$ and $\epsilon > 0$. Choose $N$ with $(q-p)/N < \epsilon/2$ and points $x_i = p + i(q-p)/N$, $0 \le i \le N$. If some $x_i$ with $0 < i < N$ is an integer, replace it by $x_i + \eta_i$ with $0 < \eta_i < \epsilon/4$ chosen so that $x_i + \eta_i \notin \mathbb{Z}$ (possible since the integers are at distance $1$ from each other). Consecutive points of the new list differ by less than $\epsilon/2 + 2\cdot\epsilon/4 = \epsilon$. So this is an $\epsilon$-chain in $\mathbb{R} \setminus\mathbb{Z}$ from $p$ to $q$. Thus $\mathbb{R} \setminus \mathbb{Z}$ is chain-connected, although it is not connected, which shows compactness cannot be dropped in (b).
+
+    **(d)** No. In $\mathbb{R}^2$ let
+    $$M = R \cup H, \qquad R = \{(x, 0) : x \ge 1\}, \qquad H = \{(x, 1/x) : x \ge 1\}.$$
+    - *Complete:* $R$ and $H$ are closed in $\mathbb{R}^2$ (a ray, and the graph of a continuous function on the closed set $[1, \infty)$). So $M$ is closed in the complete space $\mathbb{R}^2$, hence complete.
+    - *Not connected:* $R$ and $H$ are disjoint ($1/x \ne 0$), nonempty, and closed, so they separate $M$.
+    - *Chain-connected:* $R$ and $H$ are each connected (continuous images of $[1,\infty)$), so by (a) any two points of the same piece are joined by an $\epsilon$-chain. For $p \in R$, $q \in H$ and $\epsilon > 0$, choose $X \ge 1$ with $1/X < \epsilon$. Chain from $p$ to $(X, 0)$ in $R$, step to $(X, 1/X)$ (distance $1/X < \epsilon$), then chain to $q$ in $H$.
+
+    So a complete chain-connected space need not be connected. $\blacksquare$
+
+- id: pugh-prelim-43
+  hints:
+    - |
+      Suppose $[0,1] = \bigsqcup_n I_n$ with countably infinitely many disjoint closed intervals $I_n = [a_n, b_n]$. Look at the set of points that are not interior to their interval, essentially the set of endpoints. It is countable.
+    - |
+      Show that a suitable closed set of endpoints has no isolated points. Near an endpoint $x$, on the side away from its own interval, the points cannot all lie inside a single other interval, because the intervals are disjoint.
+    - |
+      A nonempty, countable, complete metric space must have an isolated point (Baire's Theorem applied to the union of its singletons). Be careful with $0$ and $1$, which can be isolated: restrict to the part between the interval containing $0$ and the interval containing $1$.
+  solution: |
+    **Proof.** Suppose $[0,1] = \bigcup_{n\ge1} I_n$ with $I_n = [a_n, b_n]$ ($a_n \le b_n$) pairwise disjoint and infinitely many of them. Let $I_p \ni 0$ and $I_q \ni 1$. Then $p \ne q$, since otherwise $I_p = [0,1]$ and there would be no room for other intervals. So $a_p = 0 \le b_p < a_q \le b_q = 1$.
+
+    Let $O = \bigcup_n (a_n, b_n)$, an open set (some terms may be empty), and
+    $$F = [b_p, a_q] \setminus O.$$
+
+    *$F$ is closed, nonempty and countable.* $F$ is a closed interval minus an open set, so it is closed. It contains $b_p$, since $b_p \in I_p$ and $b_p$ lies in no other $I_n$ and in no open interval $(a_n,b_n)$. Each $x \in F$ lies in some $I_n$ but not in $(a_n, b_n)$, so $x \in \{a_n, b_n\}$. Hence $F \subset \{a_n, b_n : n \ge 1\}$ is countable.
+
+    *Key observation.* Let $(u, v)$, $u < v$, be an open interval contained in $[b_p, a_q]$ and disjoint from $F$. Then $(u,v) \subset O$. The sets $(u,v) \cap (a_n, b_n)$ are pairwise disjoint, open, and cover $(u,v)$, so by connectedness $(u,v) \subset (a_m, b_m)$ for a single $m$; thus $a_m \le u$ and $v \le b_m$. Now suppose $u \in F$, say $u \in I_n$. If $a_m < u$, then $u \in (a_m, b_m) \subset O$, contradicting $u \in F$. So $a_m = u$, hence $u \in I_m \cap I_n$, so $m = n$, and $b_n = b_m \ge v > u$. In short: **if $u \in F \cap I_n$ and $F$ misses $(u, v)$, then $u = a_n < b_n$.** Symmetrically, if $v \in F \cap I_n$ and $F$ misses $(u,v)$, then $v = b_n > a_n$.
+
+    *$F$ has no isolated points.* Let $x \in F$, say $x \in I_n$, so $x = a_n$ or $x = b_n$.
+    - Suppose $x = b_n < a_q$. If $F$ missed $(x, x+\delta)$ for some $0 < \delta \le a_q - x$, the observation would give $a_n < b_n = x = a_n$, which is absurd. So every interval $(x, x+\delta)$ meets $F$.
+    - Suppose $x = a_n > b_p$. Symmetrically, every interval $(x - \delta, x)$ meets $F$.
+    - These cases cover everything. If $x = b_n$ and $x = a_q$, then $n = q$ (the intervals are disjoint) and $x = a_q > b_p$, so the second case applies. If $x = a_n$ and $x = b_p$, then $n = p$ and $x = b_p < a_q$, so the first case applies.
+
+    So every point of $F$ is a limit of other points of $F$.
+
+    *Contradiction with Baire.* $F$ is a closed subset of $\mathbb{R}$, hence a complete metric space, and $F = \bigcup_{x \in F}\{x\}$ is a countable union of closed sets. By Baire's Theorem some $\{x\}$ has nonempty interior in $F$, that is, $\{x\}$ is open in $F$, so $x$ is an isolated point of $F$. This contradicts the previous step. Hence $[0,1]$ is not a countably infinite union of disjoint closed subintervals. $\blacksquare$
+
+    (The proof never used $a_n < b_n$, so degenerate intervals $\{a_n\}$ are also excluded.)
+
+- id: pugh-2.148
+  hints:
+    - |
+      Write $k$ for closure and $c$ for complement. The chain from $S$ is $S, kS, ckS, kckS, ckckS, \dots$. The operator $i = ckc$ is the interior, so the chain mixes closures and interiors.
+    - |
+      Look for an identity that makes the chain repeat. For an open set $U$, compare $k\,i\,k\,U$ with $kU$; monotonicity of $k$ and $i$ does the work.
+    - |
+      Apply that identity with $U$ the first open set that appears in the chain. It makes a later term equal an earlier one, and from then on the chain repeats periodically. Count how many distinct terms can appear before the repetition starts, in each of the two chains.
+    - |
+      To reach $14$, build $S$ from pieces that react differently: two open intervals sharing an endpoint, an isolated point, and the rationals in an interval.
+  solution: |
+    **Answer.** Each chain contains at most $7$ distinct sets (in particular it is finite), so at most $14$ distinct sets arise in total, and $14$ is attained.
+
+    **Notation.** Write $kA = \operatorname{cl}(A)$, $cA = A^c$, and $iA = c\,k\,c\,A$, the interior of $A$. Both $k$ and $i$ are monotone ($A \subset B$ implies $kA \subset kB$ and $iA \subset iB$), $A \subset kA$, $iA \subset A$, $kkA = kA$, and $iU = U$ for open $U$.
+
+    **The chain from $S$.** It is $A_0 = S$, $A_1 = kA_0$, $A_2 = cA_1$, $A_3 = kA_2$, $A_4 = cA_3$, $A_5 = kA_4$, $A_6 = cA_5$, $A_7 = kA_6$, and so on, alternately applying $k$ and $c$.
+
+    *Claim: $A_7 = A_3$.* Put $U = A_2 = c\,k\,S$, an open set. Then $A_3 = kU$ and
+    $$A_7 = k\,c\,k\,c\,k\,U = k\,(c\,k\,c)\,k\,U = k\,i\,k\,U.$$
+    Since $U$ is open and $U \subset kU$, we have $U = iU \subset ikU$, so $kU \subset kikU$. Also $ikU \subset kU$, so $kikU \subset kkU = kU$. Hence $kikU = kU$, that is, $A_7 = A_3$.
+
+    Because each term is determined by the previous one, $A_7 = A_3$ forces $A_{n+4} = A_n$ for all $n \ge 3$. The chain is $A_0, A_1, \dots, A_6, A_3, A_4, A_5, A_6, \dots$ and has at most $7$ distinct members. The same holds for the chain from $S^c$. So at most $7 + 7 = 14$ distinct sets arise.
+
+    **A set attaining $14$.** Let
+    $$S = (0,1) \cup (1,2) \cup \{3\} \cup \big([4,5] \cap \mathbb{Q}\big).$$
+    The chain from $S$:
+    - $A_0 = S$
+    - $A_1 = [0,2] \cup \{3\} \cup [4,5]$
+    - $A_2 = (-\infty,0) \cup (2,3) \cup (3,4) \cup (5,\infty)$
+    - $A_3 = (-\infty,0] \cup [2,4] \cup [5,\infty)$
+    - $A_4 = (0,2) \cup (4,5)$
+    - $A_5 = [0,2] \cup [4,5]$
+    - $A_6 = (-\infty,0) \cup (2,4) \cup (5,\infty)$, and then $A_7 = A_3$.
+
+    The chain from $S^c = (-\infty,0] \cup \{1\} \cup [2,3) \cup (3,4) \cup ([4,5]\setminus\mathbb{Q}) \cup (5,\infty)$:
+    - $B_0 = S^c$
+    - $B_1 = (-\infty,0] \cup \{1\} \cup [2,\infty)$
+    - $B_2 = (0,1) \cup (1,2)$
+    - $B_3 = [0,2]$
+    - $B_4 = (-\infty,0) \cup (2,\infty)$
+    - $B_5 = (-\infty,0] \cup [2,\infty)$
+    - $B_6 = (0,2)$, and then $B_7 = [0,2] = B_3$.
+
+    *All $14$ are distinct.* $A_0, A_1, A_4, A_5, B_2, B_3, B_6$ are bounded and the other seven are unbounded. Record membership of the test points $0, 1, 3, 4.5$, in that order (note $4.5 \in \mathbb{Q}$), as a $4$-letter word, with Y for "in" and N for "out". Bounded sets first:
+
+    - $A_0$: NNYY
+    - $A_1$: YYYY
+    - $A_4$: NYNY
+    - $A_5$: YYNY
+    - $B_2$: NNNN
+    - $B_3$: YYNN
+    - $B_6$: NYNN
+
+    Unbounded sets:
+
+    - $A_2$: NNNN
+    - $A_3$: YNYN
+    - $A_6$: NNYN
+    - $B_0$: YYNN
+    - $B_1$: YYYY
+    - $B_4$: NNYY
+    - $B_5$: YNYY
+
+    Within the bounded group all seven words differ, and within the unbounded group all seven words differ. So the $14$ sets are distinct.
+
+    For comparison, $S = \mathbb{Q}$ produces only $4$ sets, as in the statement. Every chain is finite, of length at most $7$, and $14$ is the maximum total. $\blacksquare$
+
+- id: pugh-4.27
+  hints:
+    - |
+      For (a) and (b), a contraction needs a ratio $d(fx,fy)/d(x,y)$ bounded away from $1$. For a differentiable map of an interval, that ratio is a value of $f'$ (MVT). Look for $f$ with $|f'| < 1$ everywhere but $\sup|f'| = 1$.
+    - |
+      For (a), on a half-line, add to $x$ a positive term that decays at infinity, so that $f'$ creeps up to $1$. For (b), on $[0,1]$ look for a polynomial self-map whose derivative lies in $[0, 1)$ except that it equals $1$ at a single endpoint.
+    - |
+      For (c), minimize the continuous function $x \mapsto d(x, fx)$ over the compact space $M$. What happens at the minimizer if it is not a fixed point?
+    - |
+      For (d), the MVT settles (ii). For (iii), look for $f$ with $0 \le f' < 1$ whose graph stays strictly above the diagonal $y = x$ while approaching it as $x \to \infty$. A bounded increasing function with a horizontal asymptote, such as $\arctan$, helps.
+  solution: |
+    Throughout, $M$ is nonempty. A weak contraction is $1$-Lipschitz, hence continuous.
+
+    **(a)** No. Let $M = [1,\infty)$ (a complete metric space) and $f(x) = x + 1/x$, which maps $M$ into $M$. Since $f'(x) = 1 - 1/x^2 \in [0,1)$, for $x \ne y$ the MVT gives $|f(x) - f(y)| = f'(\xi)|x - y| < |x - y|$, so $f$ is a weak contraction. It is not a contraction: for $x \ne y$,
+    $$\frac{f(x) - f(y)}{x - y} = 1 - \frac{1}{xy},$$
+    which tends to $1$ as $x, y \to \infty$, so no constant $k < 1$ works. (This $f$ also has no fixed point, since $x + 1/x \ne x$.)
+
+    **(b)** Still no. Let $M = [0,1]$ and $f(x) = x - x^2/2$. Then $f$ maps $[0,1]$ into $[0, \frac12] \subset M$, and for $x \ne y$,
+    $$f(x) - f(y) = (x - y)\Big(1 - \frac{x+y}{2}\Big).$$
+    For $x \ne y$ in $[0,1]$ we have $0 < x + y \le 2$, so $0 \le 1 - \frac{x+y}{2} < 1$ and $|f(x) - f(y)| < |x-y|$: $f$ is a weak contraction. But the ratio $1 - \frac{x+y}{2} \to 1$ as $x, y \to 0$, so $f$ is not a contraction. Compactness alone does not upgrade a weak contraction to a contraction.
+
+    **(c)** *Existence.* Let $g(x) = d(x, fx)$. For $x, y \in M$, by the triangle inequality,
+    $$|g(x) - g(y)| \le d(x,y) + d(fx, fy) \le 2d(x,y),$$
+    so $g$ is continuous. On the compact space $M$ it attains a minimum at some $p$. If $fp \ne p$, then applying the weak contraction property to the pair $p \ne fp$ gives
+    $$g(fp) = d(fp, f(fp)) < d(p, fp) = g(p),$$
+    contradicting minimality. Hence $fp = p$.
+
+    *Uniqueness.* If $p \ne q$ were both fixed, then $d(p,q) = d(fp, fq) < d(p,q)$, which is absurd. $\blacksquare$
+
+    **(d)** (i) Not necessarily. Some such $f$ are contractions (e.g. $f(x) = x/2$), but $f(x) = x - \arctan x + \frac{\pi}{2}$ is not. It has $f'(x) = 1 - \frac{1}{1+x^2} = \frac{x^2}{1+x^2} \in [0,1)$, while
+    $$f(n+1) - f(n) = 1 - \big(\arctan(n+1) - \arctan n\big) \to 1,$$
+    so no $k < 1$ satisfies $|f(x) - f(y)| \le k|x-y|$ for all $x,y$.
+
+    (ii) Yes, always a weak contraction: for $x \ne y$, the MVT gives $\xi$ between them with $|f(x) - f(y)| = |f'(\xi)|\,|x - y| < |x - y|$.
+
+    (iii) Not necessarily. The same $f(x) = x - \arctan x + \frac{\pi}{2}$ has no fixed point, because $f(x) = x$ would mean $\arctan x = \frac{\pi}{2}$, but $\arctan x < \frac{\pi}{2}$ for all real $x$. (By (c), this cannot happen on a compact space; $\mathbb{R}$ is complete but not compact, and the uniform bound needed for Banach's theorem is missing.) If $f$ has a fixed point, it is unique by the argument in (c). $\blacksquare$
+
+- id: pugh-3.29
+  hints:
+    - |
+      For (a), reread the definition of a zero set: a covering may use countably many intervals, not just one.
+    - |
+      For (i), use Heine–Borel: a bad cover of the compact set $[a,b]$ has a finite subcover, and that subcover is still bad. For (iii), a single open interval containing $[a,b]$ is too long.
+    - |
+      For (iv) and (v), let $I_1 = (c,d)$ contain $a$. If $d > b$, the cover $\{I_1\}$ alone would be bad. Otherwise $d \in [a,b]$ is covered by some other $I_j$, which then overlaps $I_1$. Merging two overlapping intervals loses the length of their overlap.
+  solution: |
+    Assume $a < b$. A covering of $[a,b]$ by open intervals is *bad* if its total length is $< b - a$.
+
+    **(a)** The observation shows only that $[a,b]$ cannot be covered by a *single* open interval of total length $\le b - a$. A zero set is allowed a *countable* covering by many intervals, and a priori many short intervals could have total length less than $b - a$. Ruling that out is the content of the problem.
+
+    **Reduction.** If $[a,b]$ were a zero set, then taking $\epsilon = (b-a)/2$ in the definition would give a bad covering. So it suffices to show there is no bad covering.
+
+    **(b)(i)** Let $\{I_i\}$ be a bad covering. By the Heine–Borel theorem $[a,b]$ is compact, so finitely many of the $I_i$ already cover it. Their total length is at most that of the whole family, hence $< b - a$. So a finite bad covering exists.
+
+    **(ii)** The set of $n \ge 1$ for which a bad covering by $n$ intervals exists is nonempty, so by the well-ordering principle it has a least element $n$. Fix a bad covering $\mathcal{B} = \{I_1, \dots, I_n\}$.
+
+    **(iii)** If $n = 1$, then $[a,b] \subset I_1 = (c,d)$ forces $c < a$ and $b < d$, so $|I_1| = d - c > b - a$, and the covering is not bad. Hence $n \ge 2$.
+
+    **(iv)** Relabel so that $a \in I_1 = (c,d)$. Then $c < a < d$. If $d > b$, then $\{I_1\}$ alone covers $[a,b]$ with length $|I_1| \le \sum |I_i| < b - a$. That is a bad covering by one interval, contradicting (iii). So $a < d \le b$, and $d \in [a,b]$ is not in $I_1$, so $d \in I_j$ for some $j \ne 1$. Since $I_j$ is open, it contains $(d - \eta, d]$ for some $\eta > 0$, and points of $(\max(c, d - \eta), d)$ lie in both $I_1$ and $I_j$. Relabel so that $j = 2$. Then $a \in I_1$ and $I_1 \cap I_2 \ne \emptyset$.
+
+    **(v)** Two open intervals $I_1 = (c_1, d_1)$ and $I_2 = (c_2, d_2)$ that intersect have union
+    $$I = (\min(c_1,c_2), \max(d_1,d_2)).$$
+    Their intersection $I_1 \cap I_2 = (\max(c_1,c_2), \min(d_1,d_2))$ is a nonempty open interval, so it has positive length. Then
+    $$|I| = |I_1| + |I_2| - |I_1 \cap I_2| < |I_1| + |I_2|.$$
+    (Check the identity: $\max(d_1,d_2) - \min(c_1,c_2) = (d_1 - c_1) + (d_2 - c_2) - (\min(d_1,d_2) - \max(c_1,c_2))$, using $\max + \min = $ sum for each pair.)
+
+    **(vi)** $\mathcal{B}' = \{I, I_3, \dots, I_n\}$ covers $[a,b]$ because $I = I_1 \cup I_2$. Its total length is
+    $$|I| + \sum_{i \ge 3} |I_i| < \sum_{i=1}^n |I_i| < b - a.$$
+    So $\mathcal{B}'$ is a bad covering by $n - 1$ intervals, contradicting the minimality of $n$. Hence no bad covering exists, and $[a,b]$ is not a zero set. $\blacksquare$
+
+    *Remark.* The argument proves more: every countable covering of $[a,b]$ by open intervals has total length $\ge b - a$.
+
+- id: pugh-3.34
+  hints:
+    - |
+      Near a critical point $c$, $\psi'$ is small, so by the MVT $\psi$ maps a short interval around $c$ onto a set of tiny length compared with the interval.
+    - |
+      $\psi'$ is uniformly continuous on $[a,b]$. Given $\epsilon$, cut $[a,b]$ into short pieces so that on any piece containing a critical point, $|\psi'| < \epsilon$.
+    - |
+      Then the images of those pieces cover the critical values, and their total length is at most $\epsilon(b - a)$. For (b), write $\mathbb{R} = \bigcup_n [-n,n]$ and show that a countable union of zero sets is a zero set.
+  solution: |
+    **(a)** Let $V$ be the set of critical values and let $\epsilon > 0$. Since $\psi'$ is continuous on the compact interval $[a,b]$, it is uniformly continuous: there is $\delta > 0$ with $|\psi'(x) - \psi'(y)| < \epsilon$ whenever $|x - y| < \delta$. Partition $[a,b]$ into closed subintervals $J_1, \dots, J_N$ of lengths $|J_i| < \delta$, so $\sum |J_i| = b - a$.
+
+    Suppose $J_i$ contains a critical point $c$. For $x \in J_i$, $|x - c| < \delta$, so $|\psi'(x)| = |\psi'(x) - \psi'(c)| < \epsilon$. For $x, y \in J_i$ the MVT gives some $\xi$ between them, hence in $J_i$, with
+    $$|\psi(x) - \psi(y)| = |\psi'(\xi)|\,|x - y| \le \epsilon |J_i| .$$
+    So $\psi(J_i) \subset [m_i, m_i + \epsilon |J_i|]$, where $m_i = \min_{J_i}\psi$, and $\psi(J_i)$ lies in the open interval $U_i = (m_i - \epsilon|J_i|/2,\ m_i + \tfrac32\epsilon|J_i|)$ of length $2\epsilon|J_i|$.
+
+    Every critical value is $\psi(c)$ for a critical point $c$, which lies in some $J_i$ of this kind. So the finitely many intervals $U_i$ (over those $i$) cover $V$, with total length at most $2\epsilon\sum_i |J_i| = 2\epsilon(b - a)$. Since $\epsilon > 0$ is arbitrary, $V$ is a zero set. (If there are no critical points, $V = \emptyset$, which is trivially a zero set.)
+
+    **(b)** *Generalization.* If $\psi\colon \mathbb{R} \to \mathbb{R}$ is continuously differentiable, its set $V$ of critical values is a zero set.
+
+    *Proof.* For $n \ge 1$ let $V_n$ be the set of values $\psi(x)$ with $x \in [-n,n]$ and $\psi'(x) = 0$. The restriction of $\psi$ to $[-n,n]$ is continuously differentiable, with (one-sided at $\pm n$) derivative $\psi'$. So by (a) each $V_n$ is a zero set. Every critical point lies in some $[-n,n]$, so $V = \bigcup_n V_n$.
+
+    A countable union of zero sets is a zero set: given $\epsilon > 0$, cover $V_n$ by countably many open intervals of total length $\le \epsilon/2^n$. All these intervals together form a countable family (a countable union of countable families) that covers $V$, with total length $\le \sum_n \epsilon/2^n = \epsilon$. Hence $V$ is a zero set. $\blacksquare$
+
+- id: pugh-3.50
+  hints:
+    - |
+      By the Riemann–Lebesgue Theorem, the question is whether a bijection whose discontinuities form a zero set can have an inverse whose discontinuities do not. Think about a bijection that is continuous off the Cantor set $C$ but scrambles $C$.
+    - |
+      Find an increasing homeomorphism $g$ of $[0,1]$ that carries $C$ onto a "fat" Cantor set $F$ of positive length. Try $g(x) = (x + \varphi(x))/2$, where $\varphi$ is the Cantor function: it halves the length of every gap of $C$.
+    - |
+      Let $\sigma\colon C \to C$ swap $C \cap [0,\frac13]$ with $C \cap [\frac23, 1]$ (shift by $\pm\frac23$), so $\sigma$ has no fixed point. Set $f = g$ off $C$ and $f = g \circ \sigma$ on $C$. Where is $f$ continuous, and where is $f^{-1}$ continuous?
+    - |
+      Two things remain: compare $f^{-1}$ with $g^{-1}$ along points off $F$ to locate the discontinuities of $f^{-1}$, and show that $F$ is not a zero set. For the second, a cover of $F$ together with the gaps of $F$ covers $[0,1]$.
+  solution: |
+    **Answer: No.** The inverse of a Riemann integrable bijection need not be Riemann integrable. We construct a counterexample $f\colon [0,1] \to [0,1]$. For general $[a,b]$ and $[c,d]$, compose with the increasing affine bijections $[a,b] \to [0,1]$ and $[0,1] \to [c,d]$; these preserve continuity, boundedness and zero sets, so the counterexample transfers.
+
+    **Ingredients.**
+    1. *The Cantor set.* $C = \bigcap_n C_n$, where $C_n$ is the union of $2^n$ closed intervals of length $3^{-n}$. Its complement $[0,1] \setminus C$ is the disjoint union of the removed open "gaps", $2^{n-1}$ of length $3^{-n}$ at stage $n$, with total length $\sum_{n\ge1} 2^{n-1}3^{-n} = 1$. $C$ is a zero set: enlarge each of the $2^n$ intervals of $C_n$ to an open interval of length $2\cdot 3^{-n}$, for total length $2(2/3)^n \to 0$. $C$ contains no interval, since an interval of length $\ell$ would be covered by the $2^n$ intervals of $C_n$, which after a slight enlargement are open intervals of total length $< \ell$ once $(2/3)^n < \ell$, contradicting fact 4. So $[0,1]\setminus C$ is dense in $[0,1]$. Finally, $C \subset [0,\frac13] \cup [\frac23,1]$ and $C \cap [\frac23,1] = \frac23 + (C \cap [0,\frac13])$ (self-similarity: the construction inside $[\frac23,1]$ is the translate of that inside $[0,\frac13]$).
+    2. *The Cantor function* $\varphi\colon[0,1]\to[0,1]$ is continuous and nondecreasing, with $\varphi(0)=0$ and $\varphi(1)=1$, and constant on each gap of $C$ (hence on its closure).
+    3. *The swap.* Define $\sigma\colon C \to C$ by $\sigma(x) = x + \frac23$ if $x \le \frac13$ and $\sigma(x) = x - \frac23$ if $x \ge \frac23$. By 1, $\sigma$ maps $C$ into $C$ and $\sigma\circ\sigma = \mathrm{id}$, so $\sigma$ is a bijection of $C$, and $\sigma(x) \ne x$ for every $x$.
+    4. *Lengths.* If finitely many open intervals $I_1, \dots, I_m$ cover an interval $[u,v]$, then $\sum |I_i| \ge v - u$. Indeed $\sum_i \chi_{I_i} \ge \chi_{[u,v]}$ pointwise, and integrating these step functions gives the inequality. By compactness (Heine–Borel), the same holds for any countable cover of $[u,v]$ by open intervals.
+
+    **The homeomorphism $g$.** Let $g(x) = \frac12\big(x + \varphi(x)\big)$. It is continuous and strictly increasing, with $g(0) = 0$ and $g(1) = 1$. So $g$ is a bijection of $[0,1]$ (by the IVT), and its inverse is continuous, being the inverse of a continuous strictly increasing function on an interval. If $(u,v)$ is a gap of $C$, then $\varphi(u) = \varphi(v)$, so $g$ maps $(u,v)$ onto the open interval $(g(u), g(v))$ of length $\frac12(v - u)$. Let $F = g(C)$. Then $[0,1] \setminus F = g([0,1]\setminus C)$ is a disjoint union of open intervals of total length $\frac12 \cdot 1 = \frac12$, and it is dense in $[0,1]$ (the image of a dense set under a homeomorphism of $[0,1]$).
+
+    *$F$ is not a zero set.* Otherwise cover $F$ by countably many open intervals of total length $\le \frac14$. Together with the gaps of $F$, this gives a countable cover of $[0,1]$ by open intervals of total length $\le \frac14 + \frac12 < 1$, contradicting fact 4.
+
+    **The bijection.** Define
+    $$f(x) = \begin{cases} g(x) & x \in [0,1] \setminus C, \\ g(\sigma(x)) & x \in C. \end{cases}$$
+    $f$ maps $[0,1] \setminus C$ bijectively onto $[0,1] \setminus F$ (via $g$), and $C$ bijectively onto $F$ (via the bijection $\sigma$ of $C$ followed by $g$). So $f\colon[0,1]\to[0,1]$ is a bijection, and
+    $$f^{-1}(y) = \begin{cases} g^{-1}(y) & y \notin F, \\ \sigma(g^{-1}(y)) & y \in F. \end{cases}$$
+
+    **$f$ is integrable.** $f$ is bounded (values in $[0,1]$). Every $x \notin C$ lies in an open gap, a neighbourhood on which $f = g$ is continuous, so $f$ is continuous at $x$. Thus the discontinuity set of $f$ is contained in the zero set $C$, hence is a zero set (subsets of zero sets are zero sets). By the Riemann–Lebesgue Theorem, $f$ is Riemann integrable.
+
+    **$f^{-1}$ is not integrable.** Let $y \in F$. Since $[0,1]\setminus F$ is dense, there are $y_n \notin F$ with $y_n \to y$. Then $f^{-1}(y_n) = g^{-1}(y_n) \to g^{-1}(y)$ by continuity of $g^{-1}$. If $f^{-1}$ were continuous at $y$, we would get $f^{-1}(y) = g^{-1}(y)$, i.e. $\sigma(g^{-1}(y)) = g^{-1}(y)$. That is impossible, since $\sigma$ has no fixed point. So $f^{-1}$ is discontinuous at every point of $F$. Its discontinuity set contains $F$, which is not a zero set, so it is not a zero set either. By the Riemann–Lebesgue Theorem, $f^{-1}$ is not Riemann integrable. $\blacksquare$
+
+- id: pugh-2.93
+  hints:
+    - |
+      Closed sets with the finite intersection property and open covers with no finite subcover are the same thing seen through complements. Use De Morgan's laws.
+    - |
+      For (a), suppose $\bigcap_{C\in\mathcal{C}} C = \emptyset$. What do the complements $C^c$ do to $M$? Apply compactness.
+    - |
+      For (b), suppose an open cover $\{U_\alpha\}$ has no finite subcover. Then the closed sets $U_\alpha^c$ have the finite intersection property. What is their grand intersection?
+  solution: |
+    Both parts rest on De Morgan's law: $\big(\bigcap_\alpha A_\alpha\big)^c = \bigcup_\alpha A_\alpha^c$.
+
+    **(a)** Let $M$ be covering compact and let $\mathcal{C}$ be a (nonempty) collection of closed sets with the finite intersection property. Suppose, for contradiction, that $\bigcap_{C\in\mathcal{C}} C = \emptyset$. Then
+    $$\bigcup_{C\in\mathcal{C}} C^c = \Big(\bigcap_{C\in\mathcal{C}} C\Big)^c = M,$$
+    so $\mathcal{U} = \{C^c : C \in \mathcal{C}\}$ is an open covering of $M$ (each $C^c$ is open since $C$ is closed). By compactness there are finitely many $C_1, \dots, C_n \in \mathcal{C}$ with $C_1^c \cup \dots \cup C_n^c = M$. Taking complements, $C_1 \cap \dots \cap C_n = \emptyset$, contradicting the finite intersection property. Hence $\bigcap_{C\in\mathcal{C}} C \ne \emptyset$.
+
+    **(b)** Assume every collection of closed sets with the finite intersection property has nonempty grand intersection. Let $\mathcal{U} = \{U_\alpha\}$ be an open covering of $M$, and suppose, for contradiction, that no finite subcollection covers $M$. Let $\mathcal{C} = \{U_\alpha^c\}$, a collection of closed sets. For any finitely many indices,
+    $$U_{\alpha_1}^c \cap \dots \cap U_{\alpha_n}^c = \big(U_{\alpha_1} \cup \dots \cup U_{\alpha_n}\big)^c \ne \emptyset,$$
+    because the finite union does not cover $M$. So $\mathcal{C}$ has the finite intersection property, and by hypothesis $\bigcap_\alpha U_\alpha^c \ne \emptyset$. But $\bigcap_\alpha U_\alpha^c = \big(\bigcup_\alpha U_\alpha\big)^c = M^c = \emptyset$, a contradiction. Hence every open covering of $M$ has a finite subcovering: $M$ is covering compact.
+
+    Together, (a) and (b) show that $M$ is covering compact if and only if every collection of closed subsets of $M$ with the finite intersection property has nonempty grand intersection. $\blacksquare$

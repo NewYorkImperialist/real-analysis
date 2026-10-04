@@ -1,0 +1,471 @@
+chunk: "rudin-ch1-3"
+book: rudin
+pageOffsetNote: "printed page = pdfPage - 9 (confirmed: printed 21 = PDF 30, printed 43 = PDF 52, printed 78 = PDF 87). Scanned PDF; all problems transcribed from rendered page images at 150 dpi."
+sectionsCovered:
+  - "Chapter 1 The Real and Complex Number Systems, Exercises — 20 exercises (printed pp. 21–23)"
+  - "Chapter 2 Basic Topology, Exercises — 30 exercises (printed pp. 43–46)"
+  - "Chapter 3 Numerical Sequences and Series, Exercises — 25 exercises (printed pp. 78–82)"
+candidates:
+  - cid: rudin-2.13
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.13"
+    page: "44"
+    pdfPage: 53
+    verdict: consider
+    tier: upper
+    newExperience: "Constructing a set with a prescribed derived-set structure (infinitely many limit points, all forming a countable set) — the bank has limit-point facts but no 'build a set whose E' has a given shape' construction."
+    closestExisting: [abbott-3.2.10, tao-6.4.10, abbott-2.5.1]
+    machinery: "Limit points, compactness in R, iterated accumulation (limit points of limit points)."
+    standardResult: "compact set whose derived set is countably infinite (e.g. {1/m + 1/n} ∪ {1/m} ∪ {0})"
+    topic: topology
+    subtopics: [limit-points, compactness]
+    skills: [construct-counterexample, heine-borel]
+    difficulty: medium
+    difficultyRationale: "Requires designing a two-level accumulation structure and verifying closedness/boundedness and the exact derived set; not routine but short."
+    category: synthesis
+    type: construction
+    tags: [limit-point, derived-set, compactness, construction]
+    references: []
+    problemLatex: |
+      Construct a compact set of real numbers whose limit points form a countable set.
+    transcriptionNotes: "Exercise 2.5 (bounded set with exactly three limit points) is the easier finite version and is skipped in favour of this one."
+
+  - cid: rudin-2.17
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.17"
+    page: "44"
+    pdfPage: 53
+    verdict: consider
+    tier: upper
+    newExperience: "A four-question classification (countable? dense? compact? perfect?) of a digit-restricted Cantor-type set, done from scratch without being told it is a Cantor set."
+    closestExisting: [ross-13.10, abbott-3.3.7, abbott-1.6.4]
+    machinery: "Decimal expansions, countability via diagonal/bijection with 0-1 sequences, closedness, perfect sets."
+    standardResult: "set of x in [0,1] with decimal digits only 4 and 7: uncountable, not dense, compact, perfect"
+    topic: topology
+    subtopics: [cantor-set, perfect-sets, compactness, dense-sets]
+    skills: [decimal-expansion, diagonal-argument, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Each answer is short but closedness and perfectness require careful handling of decimal expansions."
+    category: synthesis
+    type: conceptual
+    tags: [cantor-set, perfect-set, decimal-expansion, compactness, countability]
+    references: []
+    problemLatex: |
+      Let $E$ be the set of all $x \in [0,1]$ whose decimal expansion contains only the digits 4 and 7. Is $E$ countable? Is $E$ dense in $[0,1]$? Is $E$ compact? Is $E$ perfect?
+    transcriptionNotes: "Rudin's definition (2.18(h)): E is perfect if E is closed and every point of E is a limit point of E. Could add this as a quoted note when displayed."
+
+  - cid: rudin-2.18
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.18"
+    page: "44"
+    pdfPage: 53
+    verdict: strong
+    tier: upper
+    newExperience: "Building a nonempty perfect set avoiding every rational — the bank has no perfect-set problems at all, and this forces a Cantor-type construction that dodges a countable dense set (or a clever algebraic choice)."
+    closestExisting: [ross-13.10, abbott-3.3.7, abbott-3.2.10]
+    machinery: "Perfect sets, Cantor-type nested constructions, enumeration of Q, compactness/nested intersections."
+    standardResult: "a nonempty perfect subset of R containing no rational (e.g. Cantor construction avoiding an enumeration of Q)"
+    topic: topology
+    subtopics: [perfect-sets, cantor-set, limit-points]
+    skills: [construct-counterexample, nested-intervals, enumeration-of-Q]
+    difficulty: hard
+    difficultyRationale: "Needs a genuine construction (removing intervals around an enumeration of Q while keeping every point a limit point, or a translate/irrational-digit trick) and verification of perfectness."
+    category: challenge
+    type: construction
+    tags: [perfect-set, rationals, cantor-set, construction, counterexample]
+    references: ["Definition 2.18(h) (quoted)"]
+    problemLatex: |
+      Is there a nonempty perfect set in $R^1$ which contains no rational number?
+
+      *(Definition 2.18(h): $E$ is perfect if $E$ is closed and if every point of $E$ is a limit point of $E$.)*
+    transcriptionNotes: "Definition of perfect quoted verbatim from Definition 2.18(h), p. 32."
+
+  - cid: rudin-2.19
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.19"
+    page: "44"
+    pdfPage: 53
+    verdict: strong
+    tier: upper
+    newExperience: "Proving every connected metric space with two points is uncountable via level sets of the distance function — an 'aha' cardinality argument from connectedness the bank lacks."
+    closestExisting: [lebl-7.2.4, lebl-7.5.1, cummings-5.11]
+    machinery: "Separated sets, closures in metric spaces, connectedness, cardinality of R."
+    standardResult: "a connected metric space with at least two points is uncountable"
+    topic: topology
+    subtopics: [connectedness, metric-spaces, cardinality]
+    skills: [contradiction, distance-function-level-sets]
+    difficulty: medium
+    difficultyRationale: "(a)–(c) are easy; (d) needs the idea that every radius δ in (0, d(p,q)) must be attained, else X splits — short but non-obvious."
+    category: synthesis
+    type: proof
+    tags: [connectedness, separated-sets, uncountable, metric-space]
+    references: ["Definition 2.45 (quoted)"]
+    problemLatex: |
+      (a) If $A$ and $B$ are disjoint closed sets in some metric space $X$, prove that they are separated.
+
+      (b) Prove the same for disjoint open sets.
+
+      (c) Fix $p \in X$, $\delta > 0$, define $A$ to be the set of all $q \in X$ for which $d(p,q) < \delta$, define $B$ similarly, with $>$ in place of $<$. Prove that $A$ and $B$ are separated.
+
+      (d) Prove that every connected metric space with at least two points is uncountable. *Hint:* Use (c).
+
+      *(Definition 2.45: Two subsets $A$ and $B$ of a metric space $X$ are said to be separated if both $A \cap \bar B$ and $\bar A \cap B$ are empty, i.e., if no point of $A$ lies in the closure of $B$ and no point of $B$ lies in the closure of $A$. A set $E \subset X$ is said to be connected if $E$ is not a union of two nonempty separated sets.)*
+    transcriptionNotes: "Definition 2.45 quoted verbatim from p. 42 for self-containedness. Hint is Rudin's own."
+
+  - cid: rudin-2.21
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.21"
+    page: "44"
+    pdfPage: 53
+    verdict: consider
+    tier: upper
+    newExperience: "Pulling a separation back along a line segment to reduce connectedness in R^k to connectedness of R (convex ⇒ connected); the bank never transfers connectedness between spaces this way except via continuous images."
+    closestExisting: [lebl-7.5.5, ross-22.1, cummings-5.11]
+    machinery: "Separated sets, preimages under affine maps, connectedness of intervals in R."
+    standardResult: "convex subsets of R^k are connected (via pulling back separated sets along a segment)"
+    topic: topology
+    subtopics: [connectedness, metric-spaces]
+    skills: [contradiction, preimage-argument]
+    difficulty: medium
+    difficultyRationale: "Guided outline; (a) requires checking separatedness survives the preimage, (b)–(c) follow from connectedness of [0,1]."
+    category: synthesis
+    type: proof
+    tags: [connectedness, convexity, separated-sets, R^k]
+    references: ["Definition 2.45 (quoted)", "definition of convex (quoted, Sec. 2.17)"]
+    problemLatex: |
+      Let $A$ and $B$ be separated subsets of some $R^k$, suppose $\mathbf{a} \in A$, $\mathbf{b} \in B$, and define
+      $$\mathbf{p}(t) = (1-t)\mathbf{a} + t\mathbf{b}$$
+      for $t \in R^1$. Put $A_0 = \mathbf{p}^{-1}(A)$, $B_0 = \mathbf{p}^{-1}(B)$. [Thus $t \in A_0$ if and only if $\mathbf{p}(t) \in A$.]
+
+      (a) Prove that $A_0$ and $B_0$ are separated subsets of $R^1$.
+
+      (b) Prove that there exists $t_0 \in (0,1)$ such that $\mathbf{p}(t_0) \notin A \cup B$.
+
+      (c) Prove that every convex subset of $R^k$ is connected.
+
+      *(Rudin: $A$ and $B$ are separated if both $A \cap \bar B$ and $\bar A \cap B$ are empty; $E$ is connected if $E$ is not a union of two nonempty separated sets. A set $E \subset R^k$ is convex if $\lambda\mathbf{x} + (1-\lambda)\mathbf{y} \in E$ whenever $\mathbf{x} \in E$, $\mathbf{y} \in E$, and $0 < \lambda < 1$.)*
+    transcriptionNotes: "Definitions of separated/connected (2.45, p. 42) and convex (p. 31) quoted from Rudin."
+
+  - cid: rudin-2.26
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.26"
+    page: "45"
+    pdfPage: 54
+    verdict: strong
+    tier: upper
+    newExperience: "Limit-point compactness implies open-cover compactness in a metric space, via separability → countable base → countable subcover → nested closed sets — a long proof chain the bank lacks (it only has the totally-bounded route)."
+    closestExisting: [lebl-7.4.12, ross-13.11, cummings-5.7, lebl-7.3.7]
+    machinery: "Separability, countable bases, Lindelöf reduction, nested closed sets, limit points."
+    standardResult: "in a metric space, every infinite subset has a limit point ⇒ compact (via separable, countable base, Lindelöf)"
+    topic: topology
+    subtopics: [compactness, sequential-compactness, metric-spaces, dense-sets]
+    skills: [open-cover-argument, contradiction, greedy-delta-net]
+    difficulty: hard
+    difficultyRationale: "Three-stage chain (δ-nets ⇒ separable ⇒ countable base ⇒ countable subcover ⇒ contradiction via a limit point); each step is guided but the whole is substantial."
+    category: challenge
+    type: proof
+    tags: [compactness, limit-point-compactness, separable, countable-base, metric-space]
+    references: ["Exercise 2.23 (quoted)", "Exercise 2.24 (quoted)"]
+    problemLatex: |
+      Let $X$ be a metric space in which every infinite subset has a limit point. Prove that $X$ is compact. *Hint:* By Exercises 23 and 24, $X$ has a countable base. It follows that every open cover of $X$ has a *countable* subcover $\{G_n\}$, $n = 1, 2, 3, \ldots$. If no finite subcollection of $\{G_n\}$ covers $X$, then the complement $F_n$ of $G_1 \cup \cdots \cup G_n$ is nonempty for each $n$, but $\bigcap F_n$ is empty. If $E$ is a set which contains a point from each $F_n$, consider a limit point of $E$, and obtain a contradiction.
+
+      *(Exercise 23: A collection $\{V_\alpha\}$ of open subsets of $X$ is said to be a base for $X$ if the following is true: For every $x \in X$ and every open set $G \subset X$ such that $x \in G$, we have $x \in V_\alpha \subset G$ for some $\alpha$. In other words, every open set in $X$ is the union of a subcollection of $\{V_\alpha\}$. Prove that every separable metric space has a countable base. Hint: Take all neighborhoods with rational radius and center in some countable dense subset of $X$.)*
+
+      *(Exercise 24: Let $X$ be a metric space in which every infinite subset has a limit point. Prove that $X$ is separable. Hint: Fix $\delta > 0$, and pick $x_1 \in X$. Having chosen $x_1, \ldots, x_j \in X$, choose $x_{j+1} \in X$, if possible, so that $d(x_i, x_{j+1}) \ge \delta$ for $i = 1, \ldots, j$. Show that this process must stop after a finite number of steps, and that $X$ can therefore be covered by finitely many neighborhoods of radius $\delta$. Take $\delta = 1/n$ $(n = 1, 2, 3, \ldots)$, and consider the centers of the corresponding neighborhoods.)*
+
+      *(Rudin: a metric space is separable if it contains a countable dense subset.)*
+    transcriptionNotes: "Exercises 2.23 and 2.24 quoted verbatim (pp. 45) since 2.26's hint depends on them; the curator may prefer to present 2.24 + 2.26 as a two-part problem. Definition of separable is from Exercise 2.22."
+
+  - cid: rudin-2.27
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.27"
+    page: "45"
+    pdfPage: 54
+    verdict: strong
+    tier: upper
+    newExperience: "Condensation points: showing the condensation points of an uncountable set form a perfect set capturing all but countably many points, via a countable base — a countable-base argument entirely absent from the bank."
+    closestExisting: [abbott-1.5.10, abbott-3.2.10, lebl-7.3.7]
+    machinery: "Countable bases of R^k, countable unions of countable sets, perfect sets, limit points."
+    standardResult: "condensation points of an uncountable E ⊂ R^k form a perfect set P with E \\ P countable"
+    topic: topology
+    subtopics: [perfect-sets, limit-points, cardinality]
+    skills: [countable-base-argument, contradiction, complement-characterization]
+    difficulty: hard
+    difficultyRationale: "Showing P = W^c, that P is perfect (every condensation point is a limit of condensation points), and E ∩ W countable requires coordinating several ideas."
+    category: challenge
+    type: proof
+    tags: [condensation-point, perfect-set, countable-base, uncountable, R^k]
+    references: ["countable base (Exercise 2.23, quoted)"]
+    problemLatex: |
+      Define a point $p$ in a metric space $X$ to be a *condensation point* of a set $E \subset X$ if every neighborhood of $p$ contains uncountably many points of $E$.
+
+      Suppose $E \subset R^k$, $E$ is uncountable, and let $P$ be the set of all condensation points of $E$. Prove that $P$ is perfect and that at most countably many points of $E$ are not in $P$. In other words, show that $P^c \cap E$ is at most countable. *Hint:* Let $\{V_n\}$ be a countable base of $R^k$, let $W$ be the union of those $V_n$ for which $E \cap V_n$ is at most countable, and show that $P = W^c$.
+
+      *(Rudin: a collection $\{V_\alpha\}$ of open subsets of $X$ is a base for $X$ if for every $x \in X$ and every open set $G \subset X$ with $x \in G$, we have $x \in V_\alpha \subset G$ for some $\alpha$. $E$ is perfect if $E$ is closed and every point of $E$ is a limit point of $E$.)*
+    transcriptionNotes: "Definitions of base (Exercise 2.23) and perfect (Definition 2.18(h)) quoted. That R^k has a countable base follows from Exercises 2.22–2.23."
+
+  - cid: rudin-2.28
+    chapter: "2 Basic Topology"
+    section: "Exercises"
+    number: "Exercise 2.28"
+    page: "45"
+    pdfPage: 54
+    verdict: consider
+    tier: upper
+    newExperience: "Cantor–Bendixson decomposition (closed = perfect ∪ countable) and its corollary that countable closed sets have isolated points."
+    closestExisting: [abbott-3.2.10, abbott-3.5.5]
+    machinery: "Condensation points, perfect sets, countable bases in separable metric spaces."
+    standardResult: "Cantor–Bendixson: every closed set in a separable metric space is perfect ∪ countable"
+    topic: topology
+    subtopics: [perfect-sets, closed-sets, metric-spaces]
+    skills: [theorem-application, countable-base-argument]
+    difficulty: hard
+    difficultyRationale: "Mostly an application of 2.27 once generalized to separable spaces, but the generalization and the corollary require care."
+    category: challenge
+    type: theorem-application
+    tags: [cantor-bendixson, perfect-set, closed-set, isolated-points, separable]
+    references: ["Exercise 2.27 (quoted)"]
+    problemLatex: |
+      Prove that every closed set in a separable metric space is the union of a (possibly empty) perfect set and a set which is at most countable. (*Corollary:* Every countable closed set in $R^k$ has isolated points.) *Hint:* Use Exercise 27.
+
+      *(Exercise 27: Define a point $p$ in a metric space $X$ to be a condensation point of a set $E \subset X$ if every neighborhood of $p$ contains uncountably many points of $E$. Suppose $E \subset R^k$, $E$ is uncountable, and let $P$ be the set of all condensation points of $E$. Prove that $P$ is perfect and that at most countably many points of $E$ are not in $P$.)*
+    transcriptionNotes: "Exercise 27 statement quoted (hint omitted from the quote). Heavily dependent on 2.27; curator might pair them or take only one."
+
+  - cid: rudin-3.11
+    chapter: "3 Numerical Sequences and Series"
+    section: "Exercises"
+    number: "Exercise 3.11"
+    page: "79"
+    pdfPage: 88
+    verdict: strong
+    tier: upper
+    newExperience: "Abel–Dini theorem: from any divergent positive series build one diverging more slowly (Σ a_n/s_n) and a convergent one (Σ a_n/s_n²) via block/telescoping estimates — the bank has no 'no slowest divergent series' problem."
+    closestExisting: [ross-15.7, lebl-2.5.15, abbott-2.7.7]
+    machinery: "Cauchy criterion for series, telescoping, comparison, partial-sum estimates."
+    standardResult: "Abel–Dini: Σa_n diverges ⇒ Σa_n/s_n diverges, Σa_n/s_n² converges"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [telescoping, cauchy-criterion, comparison-estimate, case-analysis]
+    difficulty: hard
+    difficultyRationale: "(b) needs a Cauchy-block estimate and the limiting argument; (d) is open-ended (Σa_n/(1+na_n) can go either way) and requires constructing examples."
+    category: challenge
+    type: proof
+    tags: [series, divergence, abel-dini, telescoping, comparison]
+    references: []
+    problemLatex: |
+      Suppose $a_n > 0$, $s_n = a_1 + \cdots + a_n$, and $\Sigma a_n$ diverges.
+
+      (a) Prove that $\displaystyle \Sigma \frac{a_n}{1 + a_n}$ diverges.
+
+      (b) Prove that
+      $$\frac{a_{N+1}}{s_{N+1}} + \cdots + \frac{a_{N+k}}{s_{N+k}} \ge 1 - \frac{s_N}{s_{N+k}}$$
+      and deduce that $\displaystyle \Sigma \frac{a_n}{s_n}$ diverges.
+
+      (c) Prove that
+      $$\frac{a_n}{s_n^2} \le \frac{1}{s_{n-1}} - \frac{1}{s_n}$$
+      and deduce that $\displaystyle \Sigma \frac{a_n}{s_n^2}$ converges.
+
+      (d) What can be said about
+      $$\Sigma \frac{a_n}{1 + n a_n} \quad\text{and}\quad \Sigma \frac{a_n}{1 + n^2 a_n}\,?$$
+
+  - cid: rudin-3.12
+    chapter: "3 Numerical Sequences and Series"
+    section: "Exercises"
+    number: "Exercise 3.12"
+    page: "79"
+    pdfPage: 88
+    verdict: strong
+    tier: upper
+    newExperience: "Dual of Abel–Dini: from any convergent positive series build one converging more slowly (Σ a_n/√r_n converges, Σ a_n/r_n diverges) using tails — no fastest-converging series."
+    closestExisting: [ross-15.7, lebl-2.5.15]
+    machinery: "Tails of convergent series, Cauchy criterion, telescoping with square roots."
+    standardResult: "no slowest convergent series: Σa_n/r_n diverges, Σa_n/√r_n converges (r_n tails)"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [telescoping, cauchy-criterion, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "Both parts are given as inequalities to prove; the work is spotting the telescoping/Cauchy deduction, a step easier than 3.11(d)."
+    category: synthesis
+    type: proof
+    tags: [series, tails, convergence, telescoping, comparison]
+    references: []
+    problemLatex: |
+      Suppose $a_n > 0$ and $\Sigma a_n$ converges. Put
+      $$r_n = \sum_{m=n}^{\infty} a_m.$$
+
+      (a) Prove that
+      $$\frac{a_m}{r_m} + \cdots + \frac{a_n}{r_n} > 1 - \frac{r_n}{r_m}$$
+      if $m < n$, and deduce that $\displaystyle \Sigma \frac{a_n}{r_n}$ diverges.
+
+      (b) Prove that
+      $$\frac{a_n}{\sqrt{r_n}} < 2\left(\sqrt{r_n} - \sqrt{r_{n+1}}\right)$$
+      and deduce that $\displaystyle \Sigma \frac{a_n}{\sqrt{r_n}}$ converges.
+    transcriptionNotes: "Natural pair with rudin-3.11; curator may want only one."
+
+  - cid: rudin-3.14
+    chapter: "3 Numerical Sequences and Series"
+    section: "Exercises"
+    number: "Exercise 3.14"
+    page: "80"
+    pdfPage: 89
+    verdict: strong
+    tier: upper
+    newExperience: "Goes beyond 'Cesàro is regular' (well covered) to an unbounded-positive Cesàro-null example and Hardy's Tauberian theorem (|n a_n| ≤ M plus Cesàro convergence ⇒ convergence) via a carefully chosen moving block m(n)."
+    closestExisting: [abbott-2.3.11, ross-12.12, lebl-2.6.11, cummings-4.14]
+    machinery: "Cesàro means, limsup estimates, choosing an auxiliary index depending on ε and n, Tauberian conditions."
+    standardResult: "Cesàro means: regularity, counterexamples, and Hardy's Tauberian theorem (n a_n bounded)"
+    topic: sequences
+    subtopics: [convergence, limsup-liminf]
+    skills: [epsilon-N-proof, construct-counterexample, block-estimate, limsup-argument]
+    difficulty: hard
+    difficultyRationale: "(a)–(b) are standard; (c) needs a sparse-spike construction and (e) a delicate Tauberian estimate, even with Rudin's outline."
+    category: challenge
+    type: proof
+    tags: [cesaro-means, tauberian, limsup, counterexample, sequences]
+    references: []
+    problemLatex: |
+      If $\{s_n\}$ is a complex sequence, define its arithmetic means $\sigma_n$ by
+      $$\sigma_n = \frac{s_0 + s_1 + \cdots + s_n}{n+1} \qquad (n = 0, 1, 2, \ldots).$$
+
+      (a) If $\lim s_n = s$, prove that $\lim \sigma_n = s$.
+
+      (b) Construct a sequence $\{s_n\}$ which does not converge, although $\lim \sigma_n = 0$.
+
+      (c) Can it happen that $s_n > 0$ for all $n$ and that $\limsup s_n = \infty$, although $\lim \sigma_n = 0$?
+
+      (d) Put $a_n = s_n - s_{n-1}$, for $n \ge 1$. Show that
+      $$s_n - \sigma_n = \frac{1}{n+1} \sum_{k=1}^{n} k a_k.$$
+      Assume that $\lim (n a_n) = 0$ and that $\{\sigma_n\}$ converges. Prove that $\{s_n\}$ converges. [This gives a converse of (a), but under the additional assumption that $n a_n \to 0$.]
+
+      (e) Derive the last conclusion from a weaker hypothesis: Assume $M < \infty$, $|n a_n| \le M$ for all $n$, and $\lim \sigma_n = \sigma$. Prove that $\lim s_n = \sigma$, by completing the following outline:
+
+      If $m < n$, then
+      $$s_n - \sigma_n = \frac{m+1}{n-m}(\sigma_n - \sigma_m) + \frac{1}{n-m} \sum_{i=m+1}^{n} (s_n - s_i).$$
+      For these $i$,
+      $$|s_n - s_i| \le \frac{(n-i)M}{i+1} \le \frac{(n-m-1)M}{m+2}.$$
+      Fix $\varepsilon > 0$ and associate with each $n$ the integer $m$ that satisfies
+      $$m \le \frac{n - \varepsilon}{1 + \varepsilon} < m + 1.$$
+      Then $(m+1)/(n-m) \le 1/\varepsilon$ and $|s_n - s_i| < M\varepsilon$. Hence
+      $$\limsup_{n\to\infty} |s_n - \sigma| \le M\varepsilon.$$
+      Since $\varepsilon$ was arbitrary, $\lim s_n = \sigma$.
+    transcriptionNotes: "Parts (a)–(b) duplicate bank items; the upper-tier value is (c)–(e). Curator could present only (c)–(e) but the brief forbids trimming, so all parts are transcribed."
+
+  - cid: rudin-3.17
+    chapter: "3 Numerical Sequences and Series"
+    section: "Exercises"
+    number: "Exercise 3.17"
+    page: "81"
+    pdfPage: 90
+    verdict: consider
+    tier: upper
+    newExperience: "A recursion that oscillates around its limit, handled by proving the odd and even subsequences are separately monotone and squeezing — the bank's recursive sequences are all eventually monotone."
+    closestExisting: [lebl-2.2.11, abbott-2.4.5, ross-10.9]
+    machinery: "Recursive sequences, monotone subsequences, monotone convergence theorem, fixed points, rate comparison."
+    standardResult: "x_{n+1} = (α + x_n)/(1 + x_n): odd terms decrease, even terms increase, both → √α"
+    topic: sequences
+    subtopics: [recursive-sequences, monotone-sequences, subsequences]
+    skills: [induction, subsequence-extraction, fixed-point-equation]
+    difficulty: medium
+    difficultyRationale: "Requires analysing the two-step map x_{n+2} in terms of x_n and identifying that both subsequence limits equal √α; part (d) is a qualitative comparison."
+    category: synthesis
+    type: proof
+    tags: [recursive-sequence, monotone-subsequences, square-root, rate-of-convergence]
+    references: ["Exercise 3.16 recursion (quoted)"]
+    problemLatex: |
+      Fix $\alpha > 1$. Take $x_1 > \sqrt{\alpha}$, and define
+      $$x_{n+1} = \frac{\alpha + x_n}{1 + x_n} = x_n + \frac{\alpha - x_n^2}{1 + x_n}.$$
+
+      (a) Prove that $x_1 > x_3 > x_5 > \cdots$.
+
+      (b) Prove that $x_2 < x_4 < x_6 < \cdots$.
+
+      (c) Prove that $\lim x_n = \sqrt{\alpha}$.
+
+      (d) Compare the rapidity of convergence of this process with the one described in Exercise 16.
+
+      *(Exercise 16: Fix a positive number $\alpha$. Choose $x_1 > \sqrt{\alpha}$, and define $x_2, x_3, x_4, \ldots$ by the recursion formula $x_{n+1} = \frac{1}{2}\left(x_n + \frac{\alpha}{x_n}\right)$; there $\varepsilon_n = x_n - \sqrt\alpha$ satisfies $\varepsilon_{n+1} < \beta(\varepsilon_1/\beta)^{2^n}$ with $\beta = 2\sqrt\alpha$.)*
+    transcriptionNotes: "Exercise 16's recursion quoted verbatim; the error bound from 16(b) is summarized in Rudin's notation (not a full quote of 16) so (d) is meaningful."
+
+  - cid: rudin-3.19
+    chapter: "3 Numerical Sequences and Series"
+    section: "Exercises"
+    number: "Exercise 3.19"
+    page: "81"
+    pdfPage: 90
+    verdict: consider
+    tier: core-gap
+    newExperience: "Proves the ternary-digit description of the Cantor set from the middle-thirds construction; bank problems (C + C = [0,2], Cantor function) use this description but nothing in the bank establishes it."
+    closestExisting: [abbott-3.3.7, abbott-6.2.12, ross-13.10]
+    machinery: "Series representations, nested intervals, induction on the construction stage."
+    standardResult: "Cantor set = {Σ α_n/3^n : α_n ∈ {0,2}}"
+    topic: topology
+    subtopics: [cantor-set]
+    skills: [induction, nested-intervals, double-inclusion]
+    difficulty: medium
+    difficultyRationale: "Two inclusions, each an induction on E_n with careful endpoint bookkeeping."
+    category: canonical
+    type: proof
+    tags: [cantor-set, ternary-expansion, series, nested-intervals]
+    references: ["Sec. 2.44 Cantor set construction (quoted)"]
+    problemLatex: |
+      Associate to each sequence $a = \{\alpha_n\}$, in which $\alpha_n$ is 0 or 2, the real number
+      $$x(a) = \sum_{n=1}^{\infty} \frac{\alpha_n}{3^n}.$$
+      Prove that the set of all $x(a)$ is precisely the Cantor set described in Sec. 2.44.
+
+      *(Sec. 2.44: Let $E_0$ be the interval $[0,1]$. Remove the segment $(\frac13, \frac23)$, and let $E_1$ be the union of the intervals $[0, \frac13]$, $[\frac23, 1]$. Remove the middle thirds of these intervals, and let $E_2$ be the union of the intervals $[0, \frac19]$, $[\frac29, \frac39]$, $[\frac69, \frac79]$, $[\frac89, 1]$. Continuing in this way, we obtain a sequence of compact sets $E_n$, such that (a) $E_1 \supset E_2 \supset E_3 \supset \cdots$; (b) $E_n$ is the union of $2^n$ intervals, each of length $3^{-n}$. The set $P = \bigcap_{n=1}^{\infty} E_n$ is called the Cantor set.)*
+    transcriptionNotes: "Construction from Sec. 2.44 (p. 41) quoted verbatim. Tier core-gap is a judgment call: modest difficulty, but it supplies the characterization other bank Cantor-set problems quietly rely on."
+
+  - cid: rudin-3.24
+    chapter: "3 Numerical Sequences and Series"
+    section: "Exercises"
+    number: "Exercise 3.24"
+    page: "82"
+    pdfPage: 91
+    verdict: strong
+    tier: upper
+    newExperience: "Constructing the completion of a metric space from equivalence classes of Cauchy sequences: well-definedness, completeness via a diagonal-type argument, isometric dense embedding — a long proof chain absent from the bank."
+    closestExisting: [lebl-2.4.3, lebl-7.4.16, abbott-8.2.5]
+    machinery: "Cauchy sequences, equivalence relations, well-definedness, completeness, density, isometries."
+    standardResult: "completion of a metric space via equivalence classes of Cauchy sequences"
+    topic: topology
+    subtopics: [complete-metric-spaces, cauchy-sequences, metric-spaces]
+    skills: [well-definedness, diagonal-argument, epsilon-over-3, triangle-inequality]
+    difficulty: hard
+    difficultyRationale: "Part (c) (completeness of X*) needs approximating each Cauchy class by constant classes and extracting a representative Cauchy sequence; the full chain is long."
+    category: challenge
+    type: construction
+    tags: [completion, cauchy-sequence, equivalence-class, metric-space, isometry, density]
+    references: ["Exercise 3.23 (quoted)"]
+    problemLatex: |
+      Let $X$ be a metric space.
+
+      (a) Call two Cauchy sequences $\{p_n\}$, $\{q_n\}$ in $X$ *equivalent* if
+      $$\lim_{n\to\infty} d(p_n, q_n) = 0.$$
+      Prove that this is an equivalence relation.
+
+      (b) Let $X^*$ be the set of all equivalence classes so obtained. If $P \in X^*$, $Q \in X^*$, $\{p_n\} \in P$, $\{q_n\} \in Q$, define
+      $$\Delta(P, Q) = \lim_{n\to\infty} d(p_n, q_n);$$
+      by Exercise 23, this limit exists. Show that the number $\Delta(P,Q)$ is unchanged if $\{p_n\}$ and $\{q_n\}$ are replaced by equivalent sequences, and hence that $\Delta$ is a distance function in $X^*$.
+
+      (c) Prove that the resulting metric space $X^*$ is complete.
+
+      (d) For each $p \in X$, there is a Cauchy sequence all of whose terms are $p$; let $P_p$ be the element of $X^*$ which contains this sequence. Prove that
+      $$\Delta(P_p, P_q) = d(p, q)$$
+      for all $p, q \in X$. In other words, the mapping $\varphi$ defined by $\varphi(p) = P_p$ is an isometry (i.e., a distance-preserving mapping) of $X$ into $X^*$.
+
+      (e) Prove that $\varphi(X)$ is dense in $X^*$, and that $\varphi(X) = X^*$ if $X$ is complete. By (d), we may identify $X$ and $\varphi(X)$ and thus regard $X$ as embedded in the complete metric space $X^*$. We call $X^*$ the *completion* of $X$.
+
+      *(Exercise 23: Suppose $\{p_n\}$ and $\{q_n\}$ are Cauchy sequences in a metric space $X$. Show that the sequence $\{d(p_n, q_n)\}$ converges.)*
+    transcriptionNotes: "Exercise 3.23 statement quoted (its hint omitted). Exercise 3.25 (completion of Q) is a one-line follow-up and is skipped."
+
+skipped:
+  - "1.1–1.5 routine field/sup facts (bank: lebl-1.1.1, abbott-1.3.3 etc.); 1.6–1.7 real exponents/logarithm via sup — same sup-construction experience as mit20-a2-7 / abbott-1.4.7; 1.8–1.9 C cannot be ordered / lexicographic order lacks LUB (lebl-1.1.14 covers the latter); 1.10–1.19 complex numbers and R^k vector algebra (out of scope / routine); 1.20 Dedekind-cut axiomatics (exotic)."
+  - "2.1 trivial; 2.2–2.4 algebraic numbers countable, transcendentals exist, irrationals uncountable (abbott-1.5.9, lebl-1.4.9, mit20-a3-3); 2.5 three limit points — easier version of 2.13; 2.6 derived set closed (abbott-3.2.7, mit20-a4-7); 2.7 closures of unions (abbott-3.2.11); 2.8 open/closed sets in R^2, easy; 2.9 interior properties (abbott-3.2.14, lebl-7.2.14, abbott-8.2.11); 2.10 discrete metric (lebl-7.1.1, lebl-7.4.3); 2.11 which d_i are metrics — routine checking (lebl-7.1.5); 2.12 {0}∪{1/n} compact by definition (lebl-7.4.2); 2.14 (0,1) cover (cummings-5.6); 2.15 nested-sets theorem fails for closed/bounded (abbott-3.3.5); 2.16 closed bounded non-compact in Q (lebl-7.4.17); 2.20 closures/interiors of connected sets (lebl-7.2.11, ross-22.3); 2.22 R^k separable (lebl-7.3.7); 2.23–2.25 separable ⇒ countable base, limit-point compact ⇒ separable, compact ⇒ separable — folded into rudin-2.26 (2.23, 2.24 quoted there); 2.29 open sets in R are countable unions of segments (ross-13.7); 2.30 Baire in R^k (abbott-3.5.4, abbott-3.5.5)."
+  - "3.1–3.2 routine; 3.3 √(2+√s_n) monotone recursion (ross-10.9 type); 3.4 limsup/liminf computation; 3.5 limsup subadditivity (mit20-mid-4a, ross-12.3); 3.6 routine series tests (ross-14.4); 3.7 Σ√a_n/n — same Cauchy–Schwarz/AM-GM trick as ross-14.8; 3.8 Abel's test (abbott-2.7.13); 3.9 radius computations (ross-23.1); 3.10 integer coefficients ⇒ R ≤ 1 (ross-23.5); 3.13 Cauchy product absolute (lebl-2.6.2); 3.15 extension to R^k (bookkeeping); 3.16 Newton square-root iteration with quadratic error bound (lebl-2.2.11, abbott-2.4.5; error estimate is computation); 3.18 p-th root generalization of 3.16 (same experience); 3.20 Cauchy with convergent subsequence converges (lebl-2.4.7); 3.21 Cantor intersection in complete spaces (lebl-7.4.10); 3.22 Baire theorem in complete metric spaces (abbott-8.2.14); 3.23 d(p_n,q_n) converges — quoted inside rudin-3.24; 3.25 completion of Q — one-line corollary of 3.24."

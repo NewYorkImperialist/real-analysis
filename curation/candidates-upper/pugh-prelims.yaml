@@ -1,0 +1,594 @@
+chunk: "pugh-prelims"
+book: pugh
+pageOffsetNote: "printed page = pdfPage - 11 (PDF 281 = printed 270)"
+sectionsCovered:
+  - "Chapter 4, More Prelim Problems (Berkeley prelims) — 66 problems, printed pp. 270–276"
+candidates:
+  - cid: pugh-prelim-1
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 1"
+    page: "270"
+    pdfPage: 281
+    verdict: strong
+    tier: upper
+    newExperience: "Continuous convergence of arbitrary (discontinuous) functions forces continuity of the limit — proved by building an interleaved test sequence, a diagonal-style construction the bank never asks for."
+    closestExisting: [ross-24.17, lebl-6.1.10]
+    machinery: "Sequential characterization of continuity combined with constructing a single sequence that interleaves points and indices."
+    standardResult: "continuous convergence (f_n(x_n) -> f(x) whenever x_n -> x) implies the limit f is continuous"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, sequential-continuity]
+    skills: [sequential-characterization, contradiction, diagonal-argument, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "Short once seen, but requires choosing increasing indices n_k and splicing them into one sequence converging to x; not a standard route."
+    category: challenge
+    type: proof
+    tags: [continuous-convergence, sequential-continuity, diagonal-argument, prelim]
+    references: []
+    problemLatex: |
+      Let $f$ and $f_n$, $n \in \mathbb{N}$, be functions from $\mathbb{R}$ to $\mathbb{R}$. Assume that $f_n(x_n) \to f(x)$ as $n \to \infty$ and $x_n \to x$. Show that $f$ is continuous. (Note: The functions $f_n$ are not assumed to be continuous.)
+    transcriptionNotes: "Verbatim. The hypothesis is meant for every x and every sequence x_n -> x (as the book's wording implies)."
+
+  - cid: pugh-prelim-3
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 3"
+    page: "270"
+    pdfPage: 281
+    verdict: consider
+    tier: upper
+    newExperience: "Existence of a maximizer for a functional on a function space via Arzelà–Ascoli compactness plus continuity of the functional — a 'direct method' existence argument the bank lacks."
+    closestExisting: [abbott-6.2.15, lebl-7.4.11]
+    machinery: "Arzelà–Ascoli (equi-Lipschitz, uniformly bounded family is compact in C[0,1]) + extreme value theorem on a compact metric space."
+    standardResult: "existence of a maximizer of an integral functional over 1-Lipschitz functions via Arzelà–Ascoli"
+    topic: function-sequences
+    subtopics: [uniform-convergence, interchange-integral, compactness]
+    skills: [arzela-ascoli-application, compactness-argument, uniform-convergence-estimate]
+    difficulty: hard
+    difficultyRationale: "Must recognize E as compact in the sup metric (closed, bounded, equicontinuous) and that phi is continuous; synthesis of several theorems with no tool named."
+    category: synthesis
+    type: theorem-application
+    tags: [arzela-ascoli, compactness, function-space, lipschitz, extreme-value, prelim]
+    references: []
+    problemLatex: |
+      Let $E$ be the set of all functions $u\colon [0,1] \to \mathbb{R}$ such that $u(0) = 0$ and $u$ satisfies a Lipschitz condition with Lipschitz constant $1$. Define $\phi\colon E \to \mathbb{R}$ according to the formula
+      $$\phi(u) = \int_0^1 \bigl(u(x)^2 - u(x)\bigr)\, dx.$$
+      Prove that there exists a function $u \in E$ at which $\phi(u)$ attains an absolute maximum.
+    transcriptionNotes: "Verified against page image. Arzelà–Ascoli is not named in the problem."
+
+  - cid: pugh-prelim-5
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 5"
+    page: "270"
+    pdfPage: 281
+    verdict: strong
+    tier: upper
+    newExperience: "A subsequence-extraction problem whose solution is a case split on the behavior of (a_n) (|a_n|→∞, a_n→a≠0, a_n→0) — the limit function changes form in each case."
+    closestExisting: [abbott-6.2.15, lebl-6.2.18]
+    machinery: "Bolzano–Weierstrass on (a_n) in the extended reals, uniform estimates, sin(t)/t → 1; or Arzelà–Ascoli on compacts."
+    standardResult: "(1/a_n) sin(a_n x) + cos(x + a_n) has a subsequence converging to a continuous function"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [subsequence-extraction, case-analysis, bolzano-weierstrass, uniform-estimate]
+    difficulty: medium
+    difficultyRationale: "No heavy machinery, but the solver must find the right case analysis (including a_n → 0 giving limit x + cos x) and handle the domain R."
+    category: synthesis
+    type: proof
+    tags: [subsequence, function-sequences, bolzano-weierstrass, case-analysis, prelim]
+    references: []
+    problemLatex: |
+      Let $(a_n)$ be a sequence of nonzero real numbers. Prove that the sequence of functions
+      $$f_n(x) = \frac{1}{a_n} \sin(a_n x) + \cos(x + a_n)$$
+      has a subsequence converging to a continuous function.
+    transcriptionNotes: "Verified against page image. The mode of convergence is not specified in the book."
+
+  - cid: pugh-prelim-7
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 7"
+    page: "270"
+    pdfPage: 281
+    verdict: consider
+    tier: upper
+    newExperience: "Integrability of functions with one-sided limits everywhere (regulated functions) via a compactness argument on one-sided neighborhoods — beyond the monotone/continuous/content-zero criteria in the bank."
+    closestExisting: [lebl-5.2.14, abbott-7.3.9, cummings-8.25]
+    machinery: "Riemann (Darboux) integrability criterion + open-cover compactness of [a,b] using one-sided limits."
+    standardResult: "regulated functions (one-sided limits everywhere) are Riemann integrable"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [open-cover-argument, partition-refinement, epsilon-argument]
+    difficulty: medium
+    difficultyRationale: "Requires building a partition from a finite subcover where oscillation is small on each open one-sided piece, then handling finitely many partition points."
+    category: synthesis
+    type: proof
+    tags: [riemann-integration, one-sided-limits, regulated-function, compactness, prelim]
+    references: []
+    problemLatex: |
+      Suppose that $f\colon [a,b] \to \mathbb{R}$ and the limits of $f(x)$ from the left and the right exist at all points of $[a,b]$. Prove that $f$ is Riemann integrable.
+    transcriptionNotes: "Verbatim. At the endpoints only the relevant one-sided limit makes sense. Pairs naturally with pugh-prelim-47 (same hypothesis)."
+
+  - cid: pugh-prelim-22
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 22"
+    page: "272"
+    pdfPage: 283
+    verdict: strong
+    tier: core-gap
+    newExperience: "Proving the Weierstrass approximation theorem itself; the bank only applies it (ross-27.2, ross-27.4) and never asks for a proof."
+    closestExisting: [ross-27.2, ross-27.4, abbott-6.7.11]
+    machinery: "Uniform continuity + an approximation scheme (Bernstein polynomials or convolution with polynomial kernels) + uniform estimates."
+    standardResult: "Weierstrass approximation theorem"
+    topic: function-sequences
+    subtopics: [approximation, uniform-convergence]
+    skills: [uniform-continuity-estimate, kernel-construction, epsilon-over-3]
+    difficulty: very-hard
+    difficultyRationale: "Matches the EXTRACTION_BRIEF very-hard example 'proving the Weierstrass approximation theorem'."
+    category: challenge
+    type: proof
+    tags: [weierstrass-approximation, polynomials, uniform-convergence, approximation, prelim]
+    references: []
+    problemLatex: |
+      Show that for any continuous function $f\colon [0,1] \to \mathbb{R}$ and for any $\epsilon > 0$ there is a function of the form
+      $$g(x) = \sum_{k=0}^{n} C_k x^k$$
+      for some $n \in \mathbb{N}$, and $|g(x) - f(x)| < \epsilon$ for all $x$ in $[0,1]$.
+    transcriptionNotes: "Verbatim. Core-gap justification: the bank uses Weierstrass approximation as a black box in several places but has no proof of it anywhere (no selected or unselected candidate)."
+
+  - cid: pugh-prelim-28
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 28"
+    page: "272"
+    pdfPage: 283
+    verdict: strong
+    tier: upper
+    newExperience: "Pointwise convergence upgrades to uniform convergence (even off the interval) because the functions live in a finite-dimensional space — an 'aha' via Lagrange interpolation not present anywhere in the bank."
+    closestExisting: [lebl-7.4.11, abbott-6.2.11]
+    machinery: "Lagrange interpolation at 11 nodes expresses P_n linearly in its values; uniform bounds on interpolation basis polynomials on compact sets."
+    standardResult: "pointwise convergence of polynomials of bounded degree on [0,1] is uniform on every bounded set"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [lagrange-interpolation, finite-dimensional-argument, uniform-estimate]
+    difficulty: medium
+    difficultyRationale: "Once the interpolation idea is found the estimate is a few lines; the difficulty is entirely in the insight."
+    category: challenge
+    type: proof
+    tags: [polynomials, uniform-convergence, interpolation, finite-dimension, prelim]
+    references: []
+    problemLatex: |
+      Let $(P_n)$ be a sequence of real polynomials of degree $\le 10$. Suppose that
+      $$\lim_{n\to\infty} P_n(x) = 0$$
+      for all $x \in [0,1]$. Prove that $P_n(x) \rightrightarrows 0$, $0 \le x \le 1$. What can you say about $P_n(x)$ for $4 \le x \le 5$?
+    transcriptionNotes: "Verified against page image (statement spans pp. 272–273). Pugh's $\\rightrightarrows$ denotes uniform convergence."
+
+  - cid: pugh-prelim-31
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 31"
+    page: "273"
+    pdfPage: 284
+    verdict: core
+    tier: upper
+    newExperience: "A compactness argument with no obvious handle: a point missed by f(X) is at positive distance from the compact set f(X), and iterating f produces an ε-separated infinite sequence, contradicting sequential compactness."
+    closestExisting: [lebl-7.4.12, lebl-7.6.6]
+    machinery: "Sequential compactness of metric spaces, isometries, iterates of a map."
+    standardResult: "an isometry of a compact metric space into itself is onto"
+    topic: topology
+    subtopics: [compactness, sequential-compactness, metric-spaces]
+    skills: [contradiction, iterate-the-map, subsequence-extraction]
+    difficulty: hard
+    difficultyRationale: "The iteration trick (orbit of the missed point stays separated) is a genuine idea; standard prelim 'aha'."
+    category: challenge
+    type: proof
+    tags: [isometry, compactness, metric-space, iteration, prelim]
+    references: []
+    problemLatex: |
+      Let $X$ be a compact metric space and $f\colon X \to X$ an isometry. (That is, $d(f(x), f(y)) = d(x,y)$ for all $x, y \in X$.) Prove that $f(X) = X$.
+    transcriptionNotes: "Verbatim."
+
+  - cid: pugh-prelim-38
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 38"
+    page: "273"
+    pdfPage: 284
+    verdict: strong
+    tier: upper
+    newExperience: "A fixed-point theorem without a contraction constant: compactness replaces completeness + Lipschitz constant <1 (minimize |f(x)−x| over E)."
+    closestExisting: [abbott-4.3.11, lebl-7.6.6, lebl-7.6.11]
+    machinery: "Extreme value theorem for the continuous function x ↦ |f(x) − x| on a compact set; strict contractivity for uniqueness."
+    standardResult: "Edelstein fixed point theorem: strictly contractive self-map of a compact set has a unique fixed point"
+    topic: topology
+    subtopics: [compactness, metric-spaces]
+    skills: [extreme-value-argument, contradiction, minimization-argument]
+    difficulty: medium
+    difficultyRationale: "Short proof once one thinks to minimize |f(x)-x|; the point is that the Banach iteration approach fails and a different tool is needed."
+    category: synthesis
+    type: proof
+    tags: [fixed-point, compactness, contraction, extreme-value, prelim]
+    references: []
+    problemLatex: |
+      Let $E$ be a closed, bounded, and nonempty subset of $\mathbb{R}^m$ and let $f\colon E \to E$ be a function satisfying $|f(x) - f(y)| < |x - y|$ for all $x, y \in E$, $x \ne y$. Prove that there is one and only one point $x_0 \in E$ such that $f(x_0) = x_0$.
+    transcriptionNotes: "Verbatim. Stated in R^m but entirely metric-space/compactness; works verbatim with m = 1."
+
+  - cid: pugh-prelim-43
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 43"
+    page: "274"
+    pdfPage: 285
+    verdict: strong
+    tier: upper
+    newExperience: "A surprising impossibility in R proved by a Baire-category or nested-compact-set argument on the set of interval endpoints; the bank's Baire problems are about Q / G_delta sets, not this kind of decomposition."
+    closestExisting: [abbott-3.5.4, abbott-8.2.15, lebl-7.4.10]
+    machinery: "Baire category theorem on a closed (complete) subset of [0,1], or a nested-interval construction avoiding all the intervals."
+    standardResult: "[0,1] is not a countably infinite union of disjoint closed intervals (Sierpiński-type)"
+    topic: topology
+    subtopics: [baire-category, closed-sets, compactness]
+    skills: [baire-category-argument, nested-intervals, contradiction]
+    difficulty: hard
+    difficultyRationale: "Must identify the right closed set (the closure of the endpoints, or the complement of the interiors) to which Baire applies; nontrivial construction."
+    category: challenge
+    type: proof
+    tags: [baire-category, closed-intervals, countable-union, impossibility, prelim]
+    references: []
+    problemLatex: |
+      Show that $[0,1]$ cannot be written as a countably infinite union of disjoint closed subintervals.
+    transcriptionNotes: "Verbatim. Presumably nondegenerate subintervals are intended (with single points allowed the statement still holds but the argument is the same)."
+
+  - cid: pugh-prelim-45
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 45"
+    page: "274"
+    pdfPage: 285
+    verdict: strong
+    tier: upper
+    newExperience: "Convergent improper integral + uniform continuity forces f → 0 (Barbalat's lemma); the bank only has the monotone version, where the mechanism is different."
+    closestExisting: [lebl-5.5.9, lebl-5.5.8, ross-15.7]
+    machinery: "Cauchy criterion for improper integrals + uniform continuity giving a fixed-width interval where |f| stays large."
+    standardResult: "uniformly continuous f with convergent ∫_0^∞ f has f(x) → 0 (Barbalat's lemma)"
+    topic: integration
+    subtopics: [improper-integrals]
+    skills: [contradiction, choose-delta, cauchy-criterion]
+    difficulty: medium
+    difficultyRationale: "Two standard ingredients combined: a bump of height ε/2 and width δ at arbitrarily large x contradicts the Cauchy criterion."
+    category: synthesis
+    type: proof
+    tags: [improper-integral, uniform-continuity, limits-at-infinity, hypothesis-necessity, prelim]
+    references: []
+    problemLatex: |
+      Let $f\colon [0,\infty) \to \mathbb{R}$ be uniformly continuous and assume that
+      $$\lim_{b\to\infty} \int_0^b f(x)\, dx$$
+      exists (as a finite limit). Prove that $\lim_{x\to\infty} f(x) = 0$.
+    transcriptionNotes: "Verified against page image."
+
+  - cid: pugh-prelim-46
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 46"
+    page: "274"
+    pdfPage: 285
+    verdict: strong
+    tier: upper
+    newExperience: "Shows the converse of L'Hôpital's rule fails — a hypothesis/direction counterexample the bank's L'Hôpital proofs never probe."
+    closestExisting: [lebl-4.2.9, cummings-7.15, abbott-5.2.7]
+    machinery: "L'Hôpital's rule (direction of implication) + oscillating x^2 sin(1/x)-type examples."
+    standardResult: "converse of L'Hôpital's rule is false (f = x^2 sin(1/x), g = x)"
+    topic: differentiation
+    subtopics: [lhopital, derivative-rules]
+    skills: [construct-counterexample, decide-true-false]
+    difficulty: medium
+    difficultyRationale: "Must decide the claim is false and produce a C^1 example satisfying every hypothesis (g, g' nonvanishing) with f'/g' oscillating."
+    category: canonical
+    type: counterexample
+    tags: [lhopital, counterexample, converse, oscillation, prelim]
+    references: []
+    problemLatex: |
+      Prove or supply a counterexample: If $f$ and $g$ are continuously differentiable functions defined on the interval $0 < x < 1$ which satisfy the conditions
+      $$\lim_{x\to 0} f(x) = 0 = \lim_{x\to 0} g(x) \quad\text{and}\quad \lim_{x\to 0} \frac{f(x)}{g(x)} = c$$
+      and if $g$ and $g'$ never vanish, then $\lim_{x\to 0} \frac{f'(x)}{g'(x)} = c$. (This is a converse of L'Hôpital's rule.)
+    transcriptionNotes: "Verified against page image."
+
+  - cid: pugh-prelim-47
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 47"
+    page: "274"
+    pdfPage: 285
+    verdict: strong
+    tier: upper
+    newExperience: "Generalizes 'monotone ⇒ countably many discontinuities' to functions with one-sided limits, where the jump-sum argument is unavailable and one must show the set of large-jump points has only isolated points."
+    closestExisting: [abbott-4.6.6, cummings-6.35, abbott-4.6.5]
+    machinery: "One-sided limits, isolated points of a subset of R are countable (rational separation), countable union over ε = 1/k."
+    standardResult: "a function with left and right limits everywhere has at most countably many discontinuities"
+    topic: continuity
+    subtopics: [discontinuities, functional-limits]
+    skills: [countable-union-argument, isolated-points, epsilon-argument]
+    difficulty: hard
+    difficultyRationale: "The monotone proof does not transfer; must show {x : jump/oscillation ≥ 1/k} has no accumulation points using the one-sided limits there, then count."
+    category: synthesis
+    type: proof
+    tags: [discontinuities, one-sided-limits, countability, regulated-function, prelim]
+    references: []
+    problemLatex: |
+      Prove or provide a counterexample: If the function $f$ from $\mathbb{R}$ to $\mathbb{R}$ has both a left and a right limit at each point of $\mathbb{R}$, then the set of discontinuities is at most countable.
+    transcriptionNotes: "Verbatim."
+
+  - cid: pugh-prelim-50
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 50"
+    page: "275"
+    pdfPage: 286
+    verdict: strong
+    tier: upper
+    newExperience: "An optimized Taylor estimate (choose the step h to balance two error terms) giving the sharp Landau inequality; the bank uses Taylor only for computation and single estimates."
+    closestExisting: [mit20-final-5a, abbott-6.6.8, lebl-3.4.14]
+    machinery: "Taylor's theorem with Lagrange remainder at x ± h, then optimizing over h > 0."
+    standardResult: "Landau's inequality ‖f'‖ ≤ 2√(‖f‖‖f''‖)"
+    topic: differentiation
+    subtopics: [taylor, inequalities]
+    skills: [taylor-estimate, optimize-parameter, triangle-inequality]
+    difficulty: medium
+    difficultyRationale: "Standard route once one expands f(x+h); the parameter optimization to get the exact constant 2 is the only subtle step."
+    category: synthesis
+    type: proof
+    tags: [landau-inequality, taylor, sharp-inequality, derivative-bounds, prelim]
+    references: []
+    problemLatex: |
+      Let $f$ be a $C^2$ function on the real line. Assume that $f$ is bounded with bounded second derivative. Let $A = \sup_x |f(x)|$ and $B = \sup_x |f''(x)|$. Prove that
+      $$\sup_x |f'(x)| \le 2\sqrt{AB}.$$
+    transcriptionNotes: "Verified against page image."
+
+  - cid: pugh-prelim-53
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 53"
+    page: "275"
+    pdfPage: 286
+    verdict: consider
+    tier: upper
+    newExperience: "Re-proving the extreme value theorem under a one-sided hypothesis (upper semicontinuity), forcing the student to see exactly which half of continuity the max argument uses."
+    closestExisting: [ross-21.5, abbott-4.4.14]
+    machinery: "Compactness of [0,1] (open cover or Bolzano–Weierstrass) + sup approximation, with only a one-sided ε–δ inequality."
+    standardResult: "upper semicontinuous function on [0,1] is bounded above and attains its maximum"
+    topic: continuity
+    subtopics: [EVT, epsilon-delta-continuity]
+    skills: [sequential-characterization, sup-approximation, open-cover-argument]
+    difficulty: medium
+    difficultyRationale: "Same structure as EVT but each step must be checked against the weaker one-sided hypothesis."
+    category: canonical
+    type: proof
+    tags: [semicontinuity, extreme-value-theorem, compactness, hypothesis-weakening, prelim]
+    references: []
+    problemLatex: |
+      A function $f\colon [0,1] \to \mathbb{R}$ is said to be **upper semicontinuous** if, given $x \in [0,1]$ and $\epsilon > 0$, there exists a $\delta > 0$ such that $|y - x| < \delta$ implies that $f(y) < f(x) + \epsilon$. Prove that an upper semicontinuous function on $[0,1]$ is bounded above and attains its maximum value at some point $p \in [0,1]$.
+    transcriptionNotes: "Verified against page image; bold term as in the book."
+
+  - cid: pugh-prelim-55
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 55"
+    page: "275"
+    pdfPage: 286
+    verdict: strong
+    tier: core-gap
+    newExperience: "The Lebesgue number lemma, a canonical compactness tool absent from the bank (no selected or unselected candidate mentions it)."
+    closestExisting: [abbott-4.4.14, lebl-7.4.12]
+    machinery: "Sequential compactness or finite subcover argument producing a uniform radius ε."
+    standardResult: "Lebesgue number lemma"
+    topic: topology
+    subtopics: [compactness, sequential-compactness, metric-spaces]
+    skills: [contradiction, subsequence-extraction, open-cover-argument]
+    difficulty: medium
+    difficultyRationale: "Standard contradiction-plus-subsequence proof; comparable to 'continuous on compact ⇒ uniformly continuous'."
+    category: canonical
+    type: proof
+    tags: [lebesgue-number, compactness, open-cover, metric-space, prelim]
+    references: []
+    problemLatex: |
+      Let $K$ be a compact subset of $\mathbb{R}^m$ and let $(B_j)$ be a sequence of open balls which cover $K$. Prove that there is an $\epsilon > 0$ such that each $\epsilon$-ball centered at a point of $K$ is contained in at least one of the balls $B_j$.
+    transcriptionNotes: "Verbatim. Stated in R^m; the argument is purely metric. Core-gap justification: Lebesgue numbers appear nowhere in BANK_INDEX."
+
+  - cid: pugh-prelim-56
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 56"
+    page: "275"
+    pdfPage: 286
+    verdict: strong
+    tier: upper
+    newExperience: "A limit-at-infinity problem with a hidden ODE: set F = ∫f, so F' + F → L, and an integrating factor / L'Hôpital-type argument shows F → L and f → 0. The tool is not named."
+    closestExisting: [lebl-5.5.9, lebl-4.2.9]
+    machinery: "Fundamental theorem of calculus, integrating factor e^x, L'Hôpital (∞/∞) or a direct ε-estimate."
+    standardResult: "if f + ∫_0^x f has a finite limit then f → 0 (F' + F → L ⇒ F → L)"
+    topic: integration
+    subtopics: [fundamental-theorem, improper-integrals]
+    skills: [integrating-factor, lhopital-infinity-over-infinity, epsilon-estimate]
+    difficulty: hard
+    difficultyRationale: "Requires reformulating in terms of F and finding the e^x F trick (or an equivalent estimate); not a standard textbook route."
+    category: challenge
+    type: proof
+    tags: [limits-at-infinity, fundamental-theorem, integrating-factor, lhopital, prelim]
+    references: []
+    problemLatex: |
+      Let $f$ be a continuous real-valued function on $[0,\infty)$ such that
+      $$\lim_{x\to\infty} \Bigl( f(x) + \int_0^x f(t)\, dt \Bigr)$$
+      exists (and is finite). Prove that $\lim_{x\to\infty} f(x) = 0$.
+    transcriptionNotes: "Verified against page image."
+
+  - cid: pugh-prelim-59
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 59"
+    page: "276"
+    pdfPage: 287
+    verdict: strong
+    tier: upper
+    newExperience: "Pólya's companion to Dini: monotonicity in x (not n) plus a continuous limit gives uniform convergence even for discontinuous f_n — a grid/sandwich argument rather than a compactness-in-n argument."
+    closestExisting: [abbott-6.2.11, lebl-6.2.10, ross-25.15]
+    machinery: "Uniform continuity of f on [0,1], a finite grid, and sandwiching f_n between its values at grid points using monotonicity."
+    standardResult: "Pólya's theorem: pointwise convergence of monotone functions to a continuous limit on [0,1] is uniform"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [grid-argument, monotonicity-sandwich, uniform-continuity-estimate]
+    difficulty: hard
+    difficultyRationale: "Comparable to Dini's theorem (a brief hard example); needs the finite-grid sandwich idea."
+    category: synthesis
+    type: proof
+    tags: [polya-theorem, dini, monotone-functions, uniform-convergence, prelim]
+    references: []
+    problemLatex: |
+      Suppose that $(f_n)$ is a sequence of nondecreasing functions which map the unit interval into itself. Suppose that $\lim_{n\to\infty} f_n(x) = f(x)$ pointwise and that $f$ is a continuous function. Prove that $f_n(x) \to f(x)$ uniformly as $n \to \infty$. Note that the functions $f_n$ are not necessarily continuous.
+    transcriptionNotes: "Verified against page image."
+
+  - cid: pugh-prelim-60
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 60"
+    page: "276"
+    pdfPage: 287
+    verdict: consider
+    tier: upper
+    newExperience: "A moment problem decided by Weierstrass approximation after a non-obvious reweighting (apply the moment conditions to x^2 f), turning an existence question into a uniqueness argument."
+    closestExisting: [ross-27.2, ross-27.4, abbott-7.4.10]
+    machinery: "Weierstrass approximation theorem + uniform convergence lets one pass limits through integrals; ∫ g^2 = 0 ⇒ g = 0 for continuous g."
+    standardResult: "moments ∫ x^n f = 0 for all n ≥ 2 force f ≡ 0 (Weierstrass approximation)"
+    topic: function-sequences
+    subtopics: [approximation, interchange-integral]
+    skills: [weierstrass-approximation-application, decide-true-false, contradiction]
+    difficulty: medium
+    difficultyRationale: "Once one sees that x^2 f is orthogonal to all polynomials the rest is a standard WAT argument."
+    category: synthesis
+    type: counterexample
+    tags: [weierstrass-approximation, moments, integration, polynomials, prelim]
+    references: []
+    problemLatex: |
+      Does there exist a continuous real-valued function $f(x)$, $0 \le x \le 1$, such that
+      $$\int_0^1 x f(x)\, dx = 1 \quad\text{and}\quad \int_0^1 x^n f(x)\, dx = 0$$
+      for all $n = 0, 2, 3, 4, 5, \ldots$? Give a proof or counterexample.
+    transcriptionNotes: "Verified against page image."
+
+  - cid: pugh-prelim-62
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 62"
+    page: "276"
+    pdfPage: 287
+    verdict: strong
+    tier: upper
+    newExperience: "Closed graph + compact codomain ⇒ continuity, a characterization the bank lacks; naturally invites the hypothesis-removal question (1/x with f(0)=0 has closed graph in R^2 but is discontinuous)."
+    closestExisting: [ross-21.5, abbott-4.4.4]
+    machinery: "Sequential characterization of continuity + Bolzano–Weierstrass in the bounded codomain + closedness of the graph."
+    standardResult: "closed graph theorem (real-variable version): closed graph in a compact codomain implies continuous"
+    topic: continuity
+    subtopics: [sequential-continuity, continuity-and-topology]
+    skills: [sequential-characterization, subsequence-extraction, contradiction]
+    difficulty: medium
+    difficultyRationale: "Short subsequence argument, but the student must see why compactness of [0,1] in the y-direction is essential."
+    category: synthesis
+    type: proof
+    tags: [closed-graph, continuity, compactness, subsequences, prelim]
+    references: []
+    problemLatex: |
+      Let $f$ be a function $[0,1] \to \mathbb{R}$ whose graph $\{(x, f(x)) : x \in [0,1]\}$ is a closed subset of the unit square. Prove that $f$ is continuous.
+    transcriptionNotes: "Verified against page image. 'Subset of the unit square' implicitly gives 0 ≤ f ≤ 1."
+
+  - cid: pugh-prelim-63
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 63"
+    page: "276"
+    pdfPage: 287
+    verdict: core
+    tier: upper
+    newExperience: "There is no 'slowest' convergent series: construct c_n → ∞ tailored to the tails (e.g. blocks where tails < 4^{-k}, or c_n = 1/√r_n with telescoping), a construction-from-tails experience absent from the bank."
+    closestExisting: [ross-15.7, ross-14.12, abbott-2.7.7]
+    machinery: "Cauchy criterion / tails r_n → 0 of a convergent series; block construction or a telescoping estimate."
+    standardResult: "no slowest convergent series: Σa_n < ∞ ⇒ ∃ c_n → ∞ with Σ c_n a_n < ∞"
+    topic: series
+    subtopics: [comparison, convergence-tests]
+    skills: [construction-from-tails, telescoping, block-argument]
+    difficulty: hard
+    difficultyRationale: "Requires designing c_n from the remainders; nontrivial construction though short once found."
+    category: challenge
+    type: construction
+    tags: [series, tails, no-slowest-convergence, construction, prelim]
+    references: []
+    problemLatex: |
+      Let $(a_n)$ be a sequence of positive numbers such that $\sum a_n$ converges. Prove that there exists a sequence of numbers $c_n \to \infty$ as $n \to \infty$ such that $\sum c_n a_n$ converges.
+    transcriptionNotes: "Verbatim."
+
+  - cid: pugh-prelim-66
+    chapter: "4 Function Spaces"
+    section: "More Prelim Problems"
+    number: "Prelim Problem 66"
+    page: "276"
+    pdfPage: 287
+    verdict: consider
+    tier: upper
+    newExperience: "Convergence by counting: group terms by number of digits (9^{k-1}·8 terms each ≤ 10^{-(k-1)}) to dominate by a geometric series — the Kempner series, an 'aha' about thin subseries of the harmonic series."
+    closestExisting: [mit20-mid-4b, lebl-2.5.15, ross-14.12]
+    machinery: "Comparison with a geometric series after grouping terms of a positive series."
+    standardResult: "Kempner series: reciprocals of integers without the digit 9 converge"
+    topic: series
+    subtopics: [comparison, convergence-tests]
+    skills: [grouping-terms, counting, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "Counting by digit length plus geometric comparison; standard once grouping is chosen."
+    category: challenge
+    type: proof
+    tags: [kempner-series, harmonic-series, comparison, counting, prelim]
+    references: []
+    problemLatex: |
+      Let $A$ be the set of all positive integers that do not contain the digit 9 in their decimal expansions. Prove that
+      $$\sum_{a\in A} \frac{1}{a} < \infty.$$
+      That is, $A$ defines a convergent subseries of the harmonic series.
+    transcriptionNotes: "Verified against page image; italic A as in the book."
+
+skipped:
+  - "2 Dini variant (monotone + pointwise to 0 ⇒ uniform ⇒ equicontinuous); dup of abbott-6.2.11/lebl-6.2.10 and of 40 here"
+  - "4, 20, 26 routine Arzelà–Ascoli applications (equi-Lipschitz/bounded families); 3 and 5 here are the better AA-type picks; nearest abbott-6.2.15"
+  - "6 integrating-factor sign argument (f' > f): short, easy; same trick as 56, which is the better problem"
+  - "8 uniformly continuous on [0,1) extends: dup of abbott-4.4.13 / tao-9.9.4"
+  - "9 UC on R ⇒ linear growth bound: nice but modest; close to ross-19.4 / cummings-6.24 (UC on bounded set ⇒ bounded)"
+  - "10 Taylor estimate O(1/n^2) for a series: routine Taylor (mit20-a11-3); note book sums from n=0 where the n=0 term is undefined"
+  - "11 every convergent subsequence ⇒ convergence: dup of lebl-2.3.4 / abbott-2.5.5"
+  - "12 ‖f‖^2 ≤ ∫(f')^2: routine FTC + Cauchy–Schwarz"
+  - "13 uniformly Lipschitz limit is continuous: dup of lebl-6.2.18"
+  - "14 connected subset of Q is a point: dup of abbott-3.4.7 / lebl-7.2.5"
+  - "15 uniform convergence of x^k/(x^2+n): routine computation"
+  - "16 bounded + integrable on [b,1] ⇒ integrable on [0,1]: close to cummings-8.25; routine"
+  - "17 unions of connected sets with common point: dup of lebl-7.2.10 / ross-22.5"
+  - "18 ∫_p^q f = 0 off a countable set ⇒ f ≡ 0: easy FTC + density"
+  - "19 monotone ⇒ countably many discontinuities: dup of abbott-4.6.6 (47 here generalizes it and is recorded)"
+  - "21 compact metric space is separable: standard but routine (totally bounded ⇒ separable); nearest lebl-7.3.7"
+  - "23 smooth bump function: dup of ross-31.4"
+  - "24 Darboux property of derivatives: dup of abbott-5.2.11 / ross-29.3"
+  - "25 uniformly continuous homeomorphism U → R^m: multivariable / out of scope"
+  - "27 continuity vs connected graph in R^m × R: multivariable; the 1-D counterexample is the topologist's sine curve, ross-22.4"
+  - "29 uncountably many components (Cantor set; open sets have countably many): mostly dup of abbott-1.5.6 + Cantor set facts; R^2 part out of scope"
+  - "30 Σ a^n/(n^b (log n)^c) classification: routine ratio/integral/alternating tests (ross-15.3 covers the core case)"
+  - "32 Q is not G_delta: dup of abbott-3.5.6 / ross-21.11"
+  - "33 x_n f(x_n), x_n f(-x_n) → 0 for integrable f: decent, but close to lebl-5.5.9 and weaker than 45/56"
+  - "34 lim ∫ x^n f and n∫ x^n f: (a) close to abbott-7.4.10, (b) routine approximate-identity estimate"
+  - "35 uncountable K ⊂ R^m has a point of K that is a limit of distinct points of K: close to abbott-1.5.10 (condensation point)"
+  - "36 connected + locally path-connected ⇒ path-connected in R^m: out of scope (path-connectedness, R^m)"
+  - "37 pointwise → 0 with bounded integrals, integrals need not → 0: dup of lebl-6.2.12 / ross-33.15"
+  - "39 Fourier sine coefficients: out of scope (Fourier); also false as printed (f = cos x satisfies the hypothesis)"
+  - "40 Dini's theorem: dup of abbott-6.2.11 / lebl-6.2.10 / ross-25.15"
+  - "41 decreasing integrable f ⇒ x f(x) → 0: dup of lebl-5.5.9 and series analog ross-15.7"
+  - "42 expanding continuous map of R^m is a homeomorphism: multivariable (invariance of domain flavor), out of scope"
+  - "44 continuous open map R → R is monotone: close to lebl-3.6.8 / tao-9.8.3 (continuous injection ⇒ monotone) after showing injectivity; modest"
+  - "48 nondecreasing f is a pointwise limit of continuous functions: reasonable construction but close to lebl-6.2.16 (Baire-class-1 constructions); optional"
+  - "49 polynomial homeomorphism approximation: long WAT application (approximate f' > 0, integrate); close to abbott-6.7.11; 60 is the crisper WAT application"
+  - "51 averaged translates f_n(x) → ∫_x^{x+1} f uniformly: uniform Riemann sums, close to lebl-5.1.11; routine UC estimate"
+  - "52 WAT with p(a) = f(a), p'(a) = 0: close to ross-27.4 (interpolation constraints)"
+  - "54 Riemann-sum error ≤ M/(2n): routine MVT estimate"
+  - "57 every continuous function bounded ⇒ compact: dup of ross-21.5"
+  - "58 sup of an equicontinuous family is continuous: short; 64 is the concrete special case and both are close to ross-19.12"
+  - "61 Young's integral inequality: mostly geometric/area argument; calculus flavor, optional"
+  - "64 max_y f(x,y) continuous: close to ross-19.12 (running sup) and to 58"
+  - "65 arclength of concave C^1 graph ≤ 3: calculus estimate (√(1+t^2) ≤ 1+|t|), modest"

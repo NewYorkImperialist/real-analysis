@@ -1,4 +1,4 @@
-import { problems, topics, byId, sources } from '../lib/bank';
+import { problems, coreProblems, upperProblems, topics, byId, sources } from '../lib/bank';
 import { href } from '../lib/router';
 import { useProgress } from '../lib/useProgress';
 import { ProblemList } from '../components/ProblemRow';
@@ -31,8 +31,9 @@ export function Home() {
       </nav>
 
       <p>
-        {problems.length} problems from {sources.length} approved sources, arranged in the usual order of an
-        undergraduate course. {completed > 0 || attempted > 0 ? (
+        {coreProblems.length} core problems from {sources.length} approved sources, arranged in the usual order of an
+        undergraduate course, plus an optional <a href={href('browse', 'tier=upper')}>upper tier</a> of{' '}
+        {upperProblems.length} harder problems. {completed > 0 || attempted > 0 ? (
           <span class="muted">You have completed {completed} and attempted {attempted}.</span>
         ) : (
           <span class="muted">Your progress is stored only in this browser.</span>
@@ -60,13 +61,13 @@ export function Home() {
           </thead>
           <tbody>
             {topics.map((t, i) => {
-              const ps = problems.filter((p) => p.topic === t.key);
+              const ps = coreProblems.filter((p) => p.topic === t.key);
               const done = ps.filter((p) => progress[p.id]?.status === 'completed').length;
               return (
                 <tr key={t.key}>
                   <td class="ord">{i + 1}</td>
                   <td>
-                    {ps.length ? <a href={href('browse', `topic=${encodeURIComponent(t.key)}`)}>{t.label}</a> : <span class="muted">{t.label}</span>}
+                    {ps.length ? <a href={href('browse', `tier=core&topic=${encodeURIComponent(t.key)}`)}>{t.label}</a> : <span class="muted">{t.label}</span>}
                   </td>
                   <td class="num">{ps.length}</td>
                   <td class="num">{ps.length ? `${done} / ${ps.length}` : '—'}</td>

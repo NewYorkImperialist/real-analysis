@@ -322,6 +322,12 @@ const CATEGORY_WORDS: Record<string, string> = {
   challenge: 'challenge', challenging: 'challenge',
 };
 
+// Upper tier is opt-in: requests without a tier word draw from the core bank only.
+const TIER_WORDS: Record<string, string[]> = {
+  'upper tier': ['upper'], 'upper-tier': ['upper'], upper: ['upper'], 'harder tier': ['upper'], 'upper level': ['upper'],
+  'all tiers': ['core', 'upper'], 'both tiers': ['core', 'upper'], 'any tier': ['core', 'upper'],
+};
+
 const STATUS_WORDS: Record<string, string> = {
   unseen: 'unseen', new: 'unseen', fresh: 'unseen', unattempted: 'unseen', untried: 'unseen',
   'not attempted': 'unseen', 'not yet attempted': 'unseen', 'never attempted': 'unseen', 'havent tried': 'unseen',
@@ -337,6 +343,9 @@ const SOURCE_WORDS: Record<string, string> = {
   ross: 'ross', 'elementary analysis': 'ross',
   cummings: 'cummings',
   tao: 'tao', 'analysis i': 'tao',
+  pugh: 'pugh', 'real mathematical analysis': 'pugh',
+  rudin: 'rudin', 'baby rudin': 'rudin', 'principles of mathematical analysis': 'rudin',
+  '18.100b': 'mit18100b', 'mit 18.100b': 'mit18100b',
 };
 
 const pushUnique = (arr: string[], v: string) => {
@@ -354,6 +363,7 @@ export function buildVocabulary(topics: Topic[], tags: string[], skills: string[
   };
 
   // 1. Structural words (highest priority).
+  for (const [w, ts] of Object.entries(TIER_WORDS)) add(w, ({ req }) => ts.forEach((t) => pushUnique(req.filters.tier, t)));
   for (const [w, d] of Object.entries(DIFF_WORDS))
     add(w, ({ req }) => pushUnique(req.filters.difficulty, d), { difficulty: d });
   for (const [w, t] of Object.entries(TYPE_WORDS))
@@ -497,7 +507,8 @@ export const conceptHits = (p: Problem, c: ConceptMatch) =>
 
 const mitAssigned = (p: Problem) => (p.assignedIn ?? []).some((a) => a.startsWith('MIT 18.100A'));
 
-/** Same semantics as filter.ts `matches`, with progress passed in (pure). */
+/** Same semantics as filter.ts `matches`, with progress passed in (pure), except that an
+ *  empty tier filter means core only (the upper tier is opt-in for practice sets). */
 export function matchesWith(p: Problem, f: Filters, statusOf: StatusLookup): boolean {
   if (f.topic.length && !f.topic.includes(p.topic)) return false;
   if (f.subtopic.length && !p.subtopics.some((s) => f.subtopic.includes(s))) return false;
@@ -505,6 +516,7 @@ export function matchesWith(p: Problem, f: Filters, statusOf: StatusLookup): boo
   if (f.difficulty.length && !f.difficulty.includes(p.difficulty)) return false;
   if (f.category.length && !f.category.includes(p.category)) return false;
   if (f.type.length && !f.type.includes(p.type)) return false;
+  if (!(f.tier.length ? f.tier : ['core']).includes(p.tier ?? 'core')) return false;
   if (f.tag.length && !f.tag.every((t) => p.tags.includes(t) || p.skills.includes(t))) return false;
   if (f.status.length || f.bookmarked) {
     const s = statusOf(p.id);
@@ -614,6 +626,7 @@ export function describeRequest(req: PracticeRequest, labelOf: (kind: string, v:
   if (f.subtopic.length) out.push(f.subtopic.map((d) => labelOf('subtopic', d)).join(' or '));
   if (f.source.length) out.push('from ' + f.source.map((d) => labelOf('source', d)).join(' or '));
   if (f.tag.length) out.push('tagged ' + f.tag.join(', '));
+  out.push(f.tier.includes('upper') ? (f.tier.includes('core') ? 'core and upper tier' : 'upper tier') : 'core');
   if (req.require.length) out.push(`involving ${req.require.map((c) => c.label).join(' or ')}`);
   if (f.status.length) out.push(f.status.map((d) => labelOf('status', d)).join(' or '));
   if (f.bookmarked) out.push('bookmarked');

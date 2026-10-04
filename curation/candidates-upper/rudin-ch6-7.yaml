@@ -1,0 +1,371 @@
+chunk: "rudin-ch6-7"
+book: rudin
+pageOffsetNote: "printed page = pdfPage - 9 (confirmed from rendered page headers, e.g. PDF 147 = printed 138, PDF 174 = printed 165)"
+sectionsCovered:
+  - "Chapter 6 The Riemann-Stieltjes Integral, Exercises (printed pp. 138-142) — 19 exercises"
+  - "Chapter 7 Sequences and Series of Functions, Exercises (printed pp. 165-171) — 26 exercises"
+candidates:
+  - cid: rudin-6.13
+    chapter: "6 The Riemann-Stieltjes Integral"
+    section: "Exercises"
+    number: "Exercise 6.13"
+    page: "140"
+    pdfPage: 149
+    verdict: strong
+    tier: upper
+    newExperience: "Sharp asymptotic analysis of an oscillatory integral (substitution + integration by parts + error estimate) leading to exact upper/lower limits and convergence of the Fresnel-type integral ∫ sin(t²)."
+    closestExisting: [lebl-5.5.8, ross-36.8, lebl-5.3.5]
+    machinery: "Integration by parts and substitution as estimation tools; limsup/liminf of a function; improper integrals of oscillating integrands."
+    standardResult: "∫_x^{x+1} sin(t^2) dt = O(1/x) with explicit asymptotics; ∫_0^∞ sin(t^2) dt converges"
+    topic: integration
+    subtopics: [improper-integrals, integral-inequalities]
+    skills: [integration-by-parts, change-of-variables, error-estimate, limsup-computation]
+    difficulty: medium
+    difficultyRationale: "Hints give the route, but (b)-(d) require controlling the remainder and extracting the exact limsup/liminf of x f(x); rated on (b)-(c)."
+    category: synthesis
+    type: proof
+    tags: [improper-integral, oscillatory-integral, integration-by-parts, asymptotics, limsup, estimate]
+    references: []
+    problemLatex: |
+      Define
+      $$f(x) = \int_x^{x+1} \sin(t^2)\,dt.$$
+      (a) Prove that $|f(x)| < 1/x$ if $x > 0$.
+
+      *Hint:* Put $t^2 = u$ and integrate by parts, to show that $f(x)$ is equal to
+      $$\frac{\cos(x^2)}{2x} - \frac{\cos[(x+1)^2]}{2(x+1)} - \int_{x^2}^{(x+1)^2} \frac{\cos u}{4u^{3/2}}\,du.$$
+      Replace $\cos u$ by $-1$.
+
+      (b) Prove that
+      $$2x f(x) = \cos(x^2) - \cos[(x+1)^2] + r(x)$$
+      where $|r(x)| < c/x$ and $c$ is a constant.
+
+      (c) Find the upper and lower limits of $x f(x)$, as $x \to \infty$.
+
+      (d) Does $\int_0^\infty \sin(t^2)\,dt$ converge?
+    transcriptionNotes: "Transcribed from the page image. Hint is Rudin's own, printed inside the exercise. The exercise uses only ordinary dt integrals, so it is meaningful as stated (alpha(x)=x throughout). Exercise 6.14 is the analogous problem for sin(e^t) and is skipped as a near-duplicate."
+
+  - cid: rudin-6.15
+    chapter: "6 The Riemann-Stieltjes Integral"
+    section: "Exercises"
+    number: "Exercise 6.15"
+    page: "141"
+    pdfPage: 150
+    verdict: strong
+    tier: upper
+    newExperience: "An uncertainty-principle inequality: integration by parts with boundary terms vanishing, then Cauchy–Schwarz for integrals, plus an equality-case argument to get strict inequality."
+    closestExisting: [lebl-5.3.5, tao-11.10.1, mit20-a7-3]
+    machinery: "Integration by parts, Cauchy–Schwarz for integrals and its equality case, C^1 functions."
+    standardResult: "Heisenberg-type inequality ∫(f')² · ∫x²f² > 1/4 for C^1 f vanishing at endpoints with ∫f²=1"
+    topic: integration
+    subtopics: [integral-inequalities, fundamental-theorem]
+    skills: [integration-by-parts, cauchy-schwarz, equality-case-analysis]
+    difficulty: medium
+    difficultyRationale: "The identity is a one-line integration by parts; the strict inequality needs Cauchy–Schwarz plus ruling out the equality case (f' proportional to x f with f(a)=f(b)=0)."
+    category: synthesis
+    type: proof
+    tags: [integration-by-parts, Cauchy-Schwarz, inequality, uncertainty-principle, Riemann-integration]
+    references: []
+    problemLatex: |
+      Suppose $f$ is a real, continuously differentiable function on $[a,b]$, $f(a) = f(b) = 0$, and
+      $$\int_a^b f^2(x)\,dx = 1.$$
+      Prove that
+      $$\int_a^b x f(x) f'(x)\,dx = -\tfrac{1}{2}$$
+      and that
+      $$\int_a^b [f'(x)]^2\,dx \cdot \int_a^b x^2 f^2(x)\,dx > \tfrac{1}{4}.$$
+    transcriptionNotes: "Transcribed from the page image. Only ordinary dx integrals appear, so it is meaningful as stated (alpha(x)=x). Cauchy–Schwarz for integrals is not named; in Rudin it is Exercise 6.10 (Hölder with p=q=2)."
+
+  - cid: rudin-7.10
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.10"
+    page: "167"
+    pdfPage: 176
+    verdict: consider
+    tier: upper
+    newExperience: "Locate exactly the discontinuities of a uniformly convergent series of discontinuous terms by computing one-sided jumps term-by-term, then show integrability despite a dense discontinuity set."
+    closestExisting: [abbott-6.4.10, tao-9.8.5, abbott-4.3.7]
+    machinery: "Weierstrass M-test, interchange of one-sided limits with uniform convergence, Riemann integrability of uniform limits."
+    standardResult: "Σ (nx)/n²: discontinuous exactly at the rationals, yet Riemann integrable"
+    topic: function-sequences
+    subtopics: [series-of-functions, interchange-limits, weierstrass-m-test]
+    skills: [M-test, one-sided-limits, jump-computation, uniform-limit-integrability]
+    difficulty: hard
+    difficultyRationale: "Requires computing the jump at x=p/q as a sum over multiples of q (nonzero), and arguing continuity elsewhere by uniform convergence; not just quoting a theorem."
+    category: challenge
+    type: proof
+    tags: [series-of-functions, discontinuities, dense-set, uniform-convergence, Riemann-integration, counterexample]
+    references: ["Exercise 16, Chap. 4 (definition of (x), quoted)"]
+    problemLatex: |
+      Letting $(x)$ denote the fractional part of the real number $x$ (see Exercise 16, Chap. 4, for the definition), consider the function
+      $$f(x) = \sum_{n=1}^{\infty} \frac{(nx)}{n^2} \qquad (x \text{ real}).$$
+      Find all discontinuities of $f$, and show that they form a countable dense set. Show that $f$ is nevertheless Riemann-integrable on every bounded interval.
+
+      *(Exercise 16, Chap. 4: Let $[x]$ denote the largest integer contained in $x$, that is, $[x]$ is the integer such that $x - 1 < [x] \le x$; and let $(x) = x - [x]$ denote the fractional part of $x$.)*
+    transcriptionNotes: "Transcribed from the page image; the definition of (x) is quoted verbatim from Rudin Ch. 4 Exercise 16 (printed p. 100) and marked as such."
+
+  - cid: rudin-7.13
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.13"
+    page: "167"
+    pdfPage: 176
+    verdict: strong
+    tier: upper
+    newExperience: "Helly's selection theorem: a diagonal argument on the rationals combined with monotonicity and the countability of discontinuities of monotone functions to get pointwise (and locally uniform) convergence everywhere."
+    closestExisting: [abbott-6.2.13, abbott-6.2.15, abbott-4.6.6, cummings-6.35]
+    machinery: "Diagonal subsequence extraction, monotone functions and their countable discontinuity sets, sup over rationals, upgrading pointwise to uniform convergence on compacts."
+    standardResult: "Helly's selection theorem"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence, monotone-functions]
+    skills: [diagonal-argument, subsequence-extraction, sup-approximation, monotonicity-squeeze]
+    difficulty: hard
+    difficultyRationale: "Multi-stage construction (diagonalize on Q, define f via sups, handle continuity points, then countably many discontinuities, then uniformity); guided by hint but substantial."
+    category: synthesis
+    type: proof
+    tags: [Helly-selection, diagonal-argument, monotone-functions, pointwise-convergence, uniform-convergence, compactness]
+    references: []
+    problemLatex: |
+      Assume that $\{f_n\}$ is a sequence of monotonically increasing functions on $R^1$ with $0 \le f_n(x) \le 1$ for all $x$ and all $n$.
+
+      (a) Prove that there is a function $f$ and a sequence $\{n_k\}$ such that
+      $$f(x) = \lim_{k\to\infty} f_{n_k}(x)$$
+      for every $x \in R^1$. (The existence of such a pointwise convergent subsequence is usually called *Helly's selection theorem*.)
+
+      (b) If, moreover, $f$ is continuous, prove that $f_{n_k} \to f$ uniformly on compact sets.
+
+      *Hint:* (i) Some subsequence $\{f_{n_i}\}$ converges at all rational points $r$, say, to $f(r)$. (ii) Define $f(x)$, for any $x \in R^1$, to be $\sup f(r)$, the sup being taken over all $r \le x$. (iii) Show that $f_{n_i}(x) \to f(x)$ at every $x$ at which $f$ is continuous. (This is where monotonicity is strongly used.) (iv) A subsequence of $\{f_{n_i}\}$ converges at every point of discontinuity of $f$ since there are at most countably many such points. This proves (a). To prove (b), modify your proof of (iii) appropriately.
+    transcriptionNotes: "Transcribed from the page image; hint is Rudin's own. $R^1$ is Rudin's notation for the real line. (Note: in (a) the f obtained is the limit along a further subsequence; the problem statement is as printed.)"
+
+  - cid: rudin-7.14
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.14"
+    page: "168"
+    pdfPage: 177
+    verdict: strong
+    tier: upper
+    newExperience: "Construct a continuous surjection [0,1] → [0,1]² (space-filling curve) by an M-test series and a digit-coding argument through the Cantor set."
+    closestExisting: [ross-25.11, abbott-6.2.12, abbott-3.3.7]
+    machinery: "Weierstrass M-test for continuity of a series, ternary/binary expansions, the Cantor set."
+    standardResult: "Schoenberg space-filling curve: continuous map of [0,1] (even of the Cantor set) onto the unit square"
+    topic: function-sequences
+    subtopics: [series-of-functions, weierstrass-m-test, cantor-set]
+    skills: [M-test, digit-expansion-coding, construction-verification]
+    difficulty: hard
+    difficultyRationale: "Continuity is an M-test; the substance is verifying f(3^k t_0)=a_k from the ternary expansion and periodicity — a genuine construction, made tractable by the hint."
+    category: challenge
+    type: construction
+    tags: [space-filling-curve, Cantor-set, M-test, uniform-convergence, pathological, construction]
+    references: []
+    problemLatex: |
+      Let $f$ be a continuous real function on $R^1$ with the following properties: $0 \le f(t) \le 1$, $f(t+2) = f(t)$ for every $t$, and
+      $$f(t) = \begin{cases} 0 & (0 \le t \le \tfrac{1}{3}) \\ 1 & (\tfrac{2}{3} \le t \le 1). \end{cases}$$
+      Put $\Phi(t) = (x(t), y(t))$, where
+      $$x(t) = \sum_{n=1}^{\infty} 2^{-n} f(3^{2n-1} t), \qquad y(t) = \sum_{n=1}^{\infty} 2^{-n} f(3^{2n} t).$$
+      Prove that $\Phi$ is *continuous* and that $\Phi$ maps $I = [0,1]$ *onto* the unit square $I^2 \subset R^2$. In fact, show that $\Phi$ maps the Cantor set onto $I^2$.
+
+      *Hint:* Each $(x_0, y_0) \in I^2$ has the form
+      $$x_0 = \sum_{n=1}^{\infty} 2^{-n} a_{2n-1}, \qquad y_0 = \sum_{n=1}^{\infty} 2^{-n} a_{2n}$$
+      where each $a_i$ is 0 or 1. If
+      $$t_0 = \sum_{i=1}^{\infty} 3^{-i-1}(2a_i)$$
+      show that $f(3^k t_0) = a_k$, and hence that $x(t_0) = x_0$, $y(t_0) = y_0$.
+
+      (This simple example of a so-called "space-filling curve" is due to I. J. Schoenberg, Bull. A.M.S., vol. 44, 1938, pp. 519.)
+    transcriptionNotes: "Transcribed from the page image. The book prints 'If fact' (typo) — corrected to 'In fact'. The exponent in t_0 is printed as 3^{-i-1}, transcribed exactly as printed. Output is in R^2 but continuity is coordinatewise, so it stays within single-variable/metric-space analysis."
+
+  - cid: rudin-7.15
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.15"
+    page: "168"
+    pdfPage: 177
+    verdict: strong
+    tier: upper
+    newExperience: "An open-ended 'what can you conclude' problem where equicontinuity of dilates f(nt) forces f to be constant on [0,∞) — the conclusion must be discovered, not proved."
+    closestExisting: [abbott-6.2.15, lebl-3.1.10]
+    machinery: "Definition of equicontinuity, scaling/rescaling arguments, continuity at 0."
+    standardResult: "f(nt) equicontinuous on [0,1] ⇒ f constant on [0,∞)"
+    topic: function-sequences
+    subtopics: [uniform-convergence, epsilon-delta-continuity]
+    skills: [negate-definition, rescaling-argument, discover-the-conclusion]
+    difficulty: medium
+    difficultyRationale: "Short once seen (compare f(s) with f(0) via t=s/n), but the answer must be guessed and the domain [0,∞) vs. negatives noticed."
+    category: challenge
+    type: conceptual
+    tags: [equicontinuity, scaling, aha, open-ended, continuity]
+    references: []
+    problemLatex: |
+      Suppose $f$ is a real continuous function on $R^1$, $f_n(t) = f(nt)$ for $n = 1, 2, 3, \ldots$, and $\{f_n\}$ is equicontinuous on $[0,1]$. What conclusion can you draw about $f$?
+    transcriptionNotes: "Transcribed from the page image. Equicontinuity is Rudin's Definition 7.22 (for every ε>0 there is δ>0 with |f(x)−f(y)|<ε whenever d(x,y)<δ, x,y∈E, n=1,2,...); the curator may wish to add it as a quoted note."
+
+  - cid: rudin-7.16
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.16"
+    page: "168"
+    pdfPage: 177
+    verdict: strong
+    tier: upper
+    newExperience: "Upgrade pointwise to uniform convergence using equicontinuity plus a finite ε-net from compactness (an ε/3 argument with a finite cover) — the bank has no equicontinuity problem besides Arzelà–Ascoli itself."
+    closestExisting: [abbott-6.2.15, abbott-6.2.11, lebl-6.2.10]
+    machinery: "Equicontinuity, compactness via finite covers, ε/3 argument, uniform Cauchy criterion."
+    standardResult: "equicontinuous + pointwise convergent on compact K ⇒ uniformly convergent"
+    topic: function-sequences
+    subtopics: [uniform-convergence, uniform-cauchy, pointwise-convergence]
+    skills: [epsilon-over-3, open-cover-argument, uniform-cauchy-criterion]
+    difficulty: medium
+    difficultyRationale: "Standard compactness + ε/3 pattern but with the equicontinuity hypothesis doing the uniformizing work; comparable to Dini-level but shorter."
+    category: synthesis
+    type: proof
+    tags: [equicontinuity, compactness, uniform-convergence, epsilon-over-3, Arzela-Ascoli]
+    references: []
+    problemLatex: |
+      Suppose $\{f_n\}$ is an equicontinuous sequence of functions on a compact set $K$, and $\{f_n\}$ converges pointwise on $K$. Prove that $\{f_n\}$ converges uniformly on $K$.
+    transcriptionNotes: "Transcribed from the page image. As with 7.15, Rudin's Definition 7.22 of equicontinuity is assumed."
+
+  - cid: rudin-7.20
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.20"
+    page: "169"
+    pdfPage: 178
+    verdict: core
+    tier: core-gap
+    newExperience: "The canonical application of the Weierstrass approximation theorem inside an integral (vanishing moments ⇒ f ≡ 0); the bank states Weierstrass approximation but never uses it this way."
+    closestExisting: [ross-27.2, ross-27.4, ross-34.11, abbott-6.7.11]
+    machinery: "Weierstrass approximation theorem, interchange of uniform limit and integral, ∫f²=0 with f continuous ⇒ f=0."
+    standardResult: "vanishing moments: ∫_0^1 f(x)x^n dx = 0 for all n ⇒ f ≡ 0 (via Weierstrass approximation)"
+    topic: function-sequences
+    subtopics: [approximation, interchange-integral]
+    skills: [weierstrass-approximation, uniform-limit-integral, positivity-argument]
+    difficulty: medium
+    difficultyRationale: "Theorem recognition plus a clean interchange-of-limit argument; standard prelim problem."
+    category: canonical
+    type: theorem-application
+    tags: [Weierstrass-approximation, moments, uniform-convergence, Riemann-integration, prelim]
+    references: []
+    problemLatex: |
+      If $f$ is continuous on $[0,1]$ and if
+      $$\int_0^1 f(x)\,x^n\,dx = 0 \qquad (n = 0, 1, 2, \ldots),$$
+      prove that $f(x) = 0$ on $[0,1]$. *Hint:* The integral of the product of $f$ with any polynomial is zero. Use the Weierstrass theorem to show that $\int_0^1 f^2(x)\,dx = 0$.
+    transcriptionNotes: "Transcribed from the page image; hint is Rudin's own. Core-gap justification: BANK_INDEX has no vanishing-moments / integral application of Weierstrass approximation (rg 'moment', 'x^n dx' found nothing)."
+
+  - cid: rudin-7.24
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.24"
+    page: "170"
+    pdfPage: 179
+    verdict: strong
+    tier: upper
+    newExperience: "Construct the completion of an arbitrary metric space by an isometric embedding into the complete space C(X) (Kuratowski embedding) — the bank has no completion construction."
+    closestExisting: [lebl-7.4.16, lebl-7.4.19, ross-22.6]
+    machinery: "Sup-norm metric on bounded continuous functions, completeness of C(X), triangle inequality, closures of subsets of complete spaces."
+    standardResult: "every metric space is isometric to a dense subset of a complete metric space (Kuratowski embedding into C(X))"
+    topic: topology
+    subtopics: [complete-metric-spaces, metric-spaces, dense-sets]
+    skills: [triangle-inequality, isometry-verification, sup-norm-estimate]
+    difficulty: medium
+    difficultyRationale: "Each step is short (triangle inequality, attain the sup at x=p or x=q), but assembling the embedding and seeing why Y is complete is a genuine multi-step construction."
+    category: synthesis
+    type: construction
+    tags: [metric-completion, isometry, Kuratowski-embedding, sup-norm, complete-metric-space]
+    references: ["Definition 7.14 (C(X) and sup norm, quoted)", "Theorem 7.15 (C(X) is complete, quoted)"]
+    problemLatex: |
+      Let $X$ be a metric space, with metric $d$. Fix a point $a \in X$. Assign to each $p \in X$ the function $f_p$ defined by
+      $$f_p(x) = d(x,p) - d(x,a) \qquad (x \in X).$$
+      Prove that $|f_p(x)| \le d(a,p)$ for all $x \in X$, and that therefore $f_p \in \mathscr{C}(X)$.
+
+      Prove that
+      $$\|f_p - f_q\| = d(p,q)$$
+      for all $p, q \in X$.
+
+      If $\Phi(p) = f_p$ it follows that $\Phi$ is an *isometry* (a distance-preserving mapping) of $X$ onto $\Phi(X) \subset \mathscr{C}(X)$.
+
+      Let $Y$ be the closure of $\Phi(X)$ in $\mathscr{C}(X)$. Show that $Y$ is complete.
+
+      *Conclusion: $X$ is isometric to a dense subset of a complete metric space $Y$.*
+
+      *(Definition 7.14: If $X$ is a metric space, $\mathscr{C}(X)$ will denote the set of all complex-valued, continuous, bounded functions with domain $X$. ... We associate with each $f \in \mathscr{C}(X)$ its supremum norm $\|f\| = \sup_{x\in X} |f(x)|$. Theorem 7.15: The above metric [$\|f-g\|$] makes $\mathscr{C}(X)$ into a complete metric space.)*
+    transcriptionNotes: "Transcribed from the page image. The book's closing parenthetical '(Exercise 24, Chap. 3 contains a different proof of this.)' is omitted as a cross-reference. Definition 7.14 and Theorem 7.15 quoted verbatim from printed pp. 150-151 (with an ellipsis and a bracketed clarification), marked as quoted. Note that with Theorem 7.15 available, completeness of Y is immediate; the substance is the isometry."
+
+  - cid: rudin-7.25
+    chapter: "7 Sequences and Series of Functions"
+    section: "Exercises"
+    number: "Exercise 7.25"
+    page: "170"
+    pdfPage: 179
+    verdict: strong
+    tier: upper
+    newExperience: "A guided proof of the Peano existence theorem: Euler polygons, equicontinuity, Arzelà–Ascoli extraction, and uniform continuity to pass to the limit in an integral equation — a long proof chain combining four tools."
+    closestExisting: [abbott-6.2.15, ross-29.18, lebl-7.6.11]
+    machinery: "Arzelà–Ascoli, uniform continuity on compact rectangles, interchange of uniform limit and integral, fundamental theorem of calculus."
+    standardResult: "Peano existence theorem for y' = φ(x,y) via Euler polygons and Arzelà–Ascoli"
+    topic: function-sequences
+    subtopics: [uniform-convergence, interchange-integral, approximation]
+    skills: [arzela-ascoli-extraction, uniform-continuity-estimate, integral-equation, epsilon-management]
+    difficulty: hard
+    difficultyRationale: "Step-by-step guidance is given, but verifying (a)-(f) requires Arzelà–Ascoli, a uniform-continuity estimate for Δ_n, and passing the limit through the integral; a long synthesis chain."
+    category: synthesis
+    type: proof
+    tags: [Peano-existence, ODE, Arzela-Ascoli, equicontinuity, uniform-convergence, Euler-polygon, long-proof-chain]
+    references: ["Exercise 27, Chap. 5 (cross-reference only, not needed)"]
+    problemLatex: |
+      Suppose $\phi$ is a continuous bounded real function in the strip defined by $0 \le x \le 1$, $-\infty < y < \infty$. Prove that the initial-value problem
+      $$y' = \phi(x, y), \qquad y(0) = c$$
+      has a solution. (Note that the hypotheses of this existence theorem are less stringent than those of the corresponding uniqueness theorem; see Exercise 27, Chap. 5.)
+
+      *Hint:* Fix $n$. For $i = 0, \ldots, n$, put $x_i = i/n$. Let $f_n$ be a continuous function on $[0,1]$ such that $f_n(0) = c$,
+      $$f_n'(t) = \phi(x_i, f_n(x_i)) \qquad \text{if } x_i < t < x_{i+1},$$
+      and put
+      $$\Delta_n(t) = f_n'(t) - \phi(t, f_n(t)),$$
+      except at the points $x_i$, where $\Delta_n(t) = 0$. Then
+      $$f_n(x) = c + \int_0^x [\phi(t, f_n(t)) + \Delta_n(t)]\,dt.$$
+      Choose $M < \infty$ so that $|\phi| \le M$. Verify the following assertions.
+
+      (a) $|f_n'| \le M$, $|\Delta_n| \le 2M$, $\Delta_n \in \mathscr{R}$, and $|f_n| \le |c| + M = M_1$, say, on $[0,1]$, for all $n$.
+
+      (b) $\{f_n\}$ is equicontinuous on $[0,1]$, since $|f_n'| \le M$.
+
+      (c) Some $\{f_{n_k}\}$ converges to some $f$, uniformly on $[0,1]$.
+
+      (d) Since $\phi$ is uniformly continuous on the rectangle $0 \le x \le 1$, $|y| \le M_1$,
+      $$\phi(t, f_{n_k}(t)) \to \phi(t, f(t))$$
+      uniformly on $[0,1]$.
+
+      (e) $\Delta_n(t) \to 0$ uniformly on $[0,1]$, since
+      $$\Delta_n(t) = \phi(x_i, f_n(x_i)) - \phi(t, f_n(t))$$
+      in $(x_i, x_{i+1})$.
+
+      (f) Hence
+      $$f(x) = c + \int_0^x \phi(t, f(t))\,dt.$$
+      This $f$ is a solution of the given problem.
+    transcriptionNotes: "Transcribed from the page images (printed pp. 170-171). The hint is Rudin's own. $\\mathscr{R}$ denotes the Riemann-integrable functions. Step (c) implicitly uses Arzelà–Ascoli (Rudin's Theorem 7.25). φ is a function of two variables only through continuity on a rectangle; no multivariable calculus is needed. Exercise 7.26 (vector-valued version) skipped."
+
+skipped:
+  - "6.1, 6.3, 6.17 Stieltjes-specific (point masses / step integrators / integration by parts against alpha) — not meaningful with alpha(x)=x."
+  - "6.2 continuous f>=0 with zero integral is 0 — bank ross-34.11."
+  - "6.4 Dirichlet function not integrable — bank abbott-7.3.5, cummings-9.6."
+  - "6.5 f^2 (f^3) integrable vs f integrable — bank cummings-8.14, ross-33.7."
+  - "6.6 continuous off the Cantor set => integrable — bank abbott-7.3.9."
+  - "6.7 improper integral at 0, conditionally convergent example — lebl-5.5.10, lebl-5.5.8, ross-36.8; 6.8 integral test — tao-11.6.3, ross-15.8."
+  - "6.9 integration by parts for improper integrals (cos x/(1+x) vs sin x/(1+x)^2) — marginal over lebl-5.5.8/ross-36.8; omitted to keep count low."
+  - "6.10 Young/Hölder inequality (Stieltjes form) — standard inequality, near mit20-a7-3; 6.11 L2 triangle inequality routine."
+  - "6.12 L2 approximation of integrable f by continuous g — consider-level, omitted (no new upper-tier experience beyond partition piecewise-linear interpolation)."
+  - "6.14 near-duplicate of 6.13 (sin(e^t) instead of sin(t^2))."
+  - "6.16 zeta function integral representation — special function."
+  - "6.18, 6.19 curves in C / R^k, rectifiability and reparametrization — multivariable/curves, out of scope."
+  - "7.1, 7.2, 7.3 routine uniform convergence algebra — ross-24.11, lebl-6.1.6."
+  - "7.4 sum 1/(1+n^2 x) convergence classification — routine M-test/region analysis (abbott-6.4.x)."
+  - "7.5 abs. convergence everywhere without uniform convergence; 7.6 uniform but nowhere absolute — abbott-6.4.2, lebl-6.1.10."
+  - "7.7 x/(1+nx^2): limit of derivatives fails at 0 — lebl-6.2.2, abbott-6.3.1."
+  - "7.8 sum c_n I(x-x_n) jump function — abbott-6.4.10, tao-9.8.5."
+  - "7.9 f_n(x_n) -> f(x) under uniform convergence — ross-24.17."
+  - "7.11 Dirichlet test, uniform version — abbott-2.7.14, lebl-2.5.17 (routine adaptation)."
+  - "7.12 weak dominated convergence for improper Riemann integrals — routine tail-splitting; closest lebl-6.2.22; omitted."
+  - "7.17 extend theorems to metric-space/vector-valued maps — bookkeeping referencing many theorem numbers."
+  - "7.18 Arzelà–Ascoli application to F_n = ∫ f_n; 7.19 compactness in C(K) iff closed, pointwise bounded, equicontinuous — both covered by abbott-6.2.15 (Arzelà–Ascoli) and need Rudin's Sec. 7.14 vocabulary."
+  - "7.21 Stone–Weierstrass fails for complex algebras on the circle — complex/Fourier, out of scope."
+  - "7.22 L2(alpha) polynomial approximation — Stieltjes; with alpha=x it is 6.12 + Weierstrass."
+  - "7.23 Newton-type polynomials P_n -> |x| uniformly — consider-level, omitted; closest lebl-6.2.1, ross-27.4."
+  - "7.26 vector-valued version of 7.25 — multivariable."

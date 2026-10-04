@@ -67,3 +67,40 @@
   year: "2016"
   publisher: "Hindustan Book Agency / Springer (Texts and Readings in Mathematics 37)"
   citation: "T. Tao, Analysis I, 3rd ed., Hindustan Book Agency / Springer, 2016."
+
+# Upper-tier sources (added for the optional harder layer; see curation/UPPER_SHORTLIST.md).
+- key: pugh
+  tier: supplementary
+  name: "Pugh — Real Mathematical Analysis"
+  shortName: "Pugh"
+  author: "Charles C. Pugh"
+  title: "Real Mathematical Analysis"
+  edition: "2nd edition"
+  year: "2015"
+  publisher: "Springer (Undergraduate Texts in Mathematics)"
+  description: >-
+    Chapters 1–4, including the Berkeley preliminary-exam problems at the ends of
+    Chapters 2 and 4 (stored as prelim problems).
+  citation: "C. C. Pugh, Real Mathematical Analysis, 2nd ed., Springer, 2015."
+
+- key: rudin
+  tier: supplementary
+  name: "Rudin — Principles of Mathematical Analysis"
+  shortName: "Rudin"
+  author: "Walter Rudin"
+  title: "Principles of Mathematical Analysis"
+  edition: "3rd edition"
+  year: "1976"
+  publisher: "McGraw-Hill"
+  citation: "W. Rudin, Principles of Mathematical Analysis, 3rd ed., McGraw-Hill, 1976."
+
+- key: mit18100b
+  tier: supplementary
+  name: "MIT 18.100B Real Analysis — 2006, 2010, 2025"
+  shortName: "MIT 18.100B"
+  author: "MIT OpenCourseWare"
+  title: "18.100B Real Analysis / Analysis I — problem sets and practice exams (2006, Fall 2010, Spring 2025)"
+  year: "2006–2025"
+  description: >-
+    Original problems only; problems that 18.100B assigned from Rudin are stored under Rudin.
+  citation: "MIT OpenCourseWare, 18.100B Analysis I (Fall 2010, incl. 2006 materials) and 18.100B Real Analysis (Spring 2025). https://ocw.mit.edu"

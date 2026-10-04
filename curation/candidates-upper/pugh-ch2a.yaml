@@ -1,0 +1,439 @@
+chunk: "pugh-ch2a"
+book: pugh
+pageOffsetNote: "printed page = pdfPage - 11 (PDF 136 = printed 125)"
+sectionsCovered:
+  - "Chapter 2 (A Taste of Topology) end-of-chapter Exercises 1–100 (PDF pp. 136–145)"
+candidates:
+  - cid: pugh-2.13
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 13"
+    page: "126"
+    pdfPage: 137
+    verdict: strong
+    tier: upper
+    newExperience: "Weakening a characterization: only 'convergent goes to convergent' is assumed, and the limit must be recovered by interleaving a sequence with a constant one."
+    closestExisting: [mit20-a4-7]
+    machinery: "Sequential characterization of continuity in metric spaces; interleaving sequences."
+    standardResult: "f maps convergent sequences to convergent sequences ⇒ f continuous (interleaving trick)"
+    topic: continuity
+    subtopics: [sequential-continuity, continuity-metric-spaces]
+    skills: [sequential-characterization, interleave-sequences, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "Short once seen, but the key idea (interleave p_n with the constant sequence p so the image limit is forced to be f(p)) is not obvious."
+    category: synthesis
+    type: proof
+    tags: [continuity, sequential-continuity, metric-space, interleaving, aha]
+    references: []
+    problemLatex: |
+      Assume that $f\colon M \to N$ is a function from one metric space to another which satisfies the following condition: If a sequence $(p_n)$ in $M$ converges then the sequence $(f(p_n))$ in $N$ converges.
+      Prove that $f$ is continuous.
+    transcriptionNotes: "Omitted the closing remark '[This result improves Theorem 4.]'. In Pugh, f is continuous by definition if it preserves sequential convergence (p_n → p ⇒ f(p_n) → f(p)); the point of the exercise is that the hypothesis does not say f(p_n) → f(p)."
+  - cid: pugh-2.28
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 28"
+    page: "127"
+    pdfPage: 138
+    verdict: strong
+    tier: upper
+    newExperience: "Sort out which implications hold between open, continuous, bijective and homeomorphism, including the non-obvious fact that a continuous open surjection of R is injective, and see that this fails on the circle."
+    closestExisting: [lebl-7.5.8]
+    machinery: "Open maps vs continuity; EVT/IVT on R forcing strict monotonicity; homeomorphisms."
+    standardResult: "open maps: open ≠ continuous; continuous open surjection R→R is a homeomorphism; z ↦ z^2 on S^1"
+    topic: continuity
+    subtopics: [continuity-and-topology, IVT, EVT, monotone-functions]
+    skills: [construct-counterexample, contradiction, extreme-value-argument]
+    difficulty: medium
+    difficultyRationale: "Most parts are quick examples; (e) needs an argument that a non-injective continuous map of R attains an interior extremum on some [a,b], contradicting openness."
+    category: synthesis
+    type: counterexample
+    tags: [open-map, continuity, homeomorphism, counterexample, classification]
+    references: []
+    problemLatex: |
+      A map $f\colon M \to N$ is *open* if for each open set $U \subset M$, the image set $f(U)$ is open in $N$.
+      (a) If $f$ is open, is it continuous?
+      (b) If $f$ is a homeomorphism, is it open?
+      (c) If $f$ is an open, continuous bijection, is it a homeomorphism?
+      (d) If $f\colon \mathbb{R} \to \mathbb{R}$ is a continuous surjection, must it be open?
+      (e) If $f\colon \mathbb{R} \to \mathbb{R}$ is a continuous, open surjection, must it be a homeomorphism?
+      (f) What happens in (e) if $\mathbb{R}$ is replaced by the unit circle $S^1$?
+    transcriptionNotes: ""
+  - cid: pugh-2.31
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 31"
+    page: "127"
+    pdfPage: 138
+    verdict: consider
+    tier: upper
+    newExperience: "Beyond the structure theorem for open sets (already a candidate), proves uniqueness of the decomposition and classifies open subsets of R up to homeomorphism by the number of components."
+    closestExisting: [ross-13.7, abbott-1.5.6]
+    machinery: "Structure of open subsets of R (maximal intervals), connectedness, homeomorphism invariants."
+    standardResult: "open subset of R = countable disjoint union of open intervals; uniqueness; homeomorphism type = number of intervals"
+    topic: topology
+    subtopics: [open-sets, connectedness]
+    skills: [maximal-interval-argument, countability-via-rationals, connectedness-invariant]
+    difficulty: hard
+    difficultyRationale: "Part (a) is the standard hard structure theorem; (b)–(c) add a connectedness/component-counting argument."
+    category: challenge
+    type: proof
+    tags: [open-set, structure-of-open-sets, connectedness, homeomorphism, components]
+    references: []
+    problemLatex: |
+      Prove the following.
+      (a) If $U$ is an open subset of $\mathbb{R}$ then it consists of countably many disjoint intervals $U = \bigsqcup U_i$. (Unbounded intervals $(-\infty, b)$, $(a, \infty)$, and $(-\infty, \infty)$ are permitted.)
+      (b) Prove that these intervals $U_i$ are uniquely determined by $U$. In other words, there is only one way to express $U$ as a disjoint union of open intervals.
+      (c) If $U, V \subset \mathbb{R}$ are both open, so $U = \bigsqcup U_i$ and $V = \bigsqcup V_j$ where $U_i$ and $V_j$ are open intervals, show that $U$ and $V$ are homeomorphic if and only if there are equally many $U_i$ and $V_j$.
+    transcriptionNotes: "Book's disjoint-union symbol rendered as \\bigsqcup. Part (a) duplicates the unselected candidate ross-13.7; value is in (b)–(c)."
+  - cid: pugh-2.40
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 40"
+    page: "128"
+    pdfPage: 139
+    verdict: strong
+    tier: upper
+    newExperience: "A six-way equivalence that characterizes discrete-type metric spaces, connecting continuity, homeomorphisms, cluster points, clopen sets and compactness."
+    closestExisting: [lebl-7.4.3, lebl-7.1.1, lebl-7.2.4]
+    machinery: "Isolated points, open/clopen sets, sequential continuity, sequential compactness in metric spaces."
+    standardResult: "characterizations of metric spaces with no cluster points (topologically discrete)"
+    topic: topology
+    subtopics: [metric-spaces, limit-points, compactness, continuity-and-topology]
+    skills: [cycle-of-implications, construct-counterexample, contrapositive]
+    difficulty: medium
+    difficultyRationale: "Each implication is short, but organizing the cycle and the less obvious directions ((c) ⇒ (d) via a transposition, (f) ⇒ (d)) takes real thought."
+    category: synthesis
+    type: proof
+    tags: [discrete-metric, cluster-point, clopen, homeomorphism, compactness, equivalence]
+    references: []
+    problemLatex: |
+      Let $M$ be a metric space with metric $d$. Prove that the following are equivalent.
+      (a) $M$ is homeomorphic to $M$ equipped with the discrete metric.
+      (b) Every function $f\colon M \to M$ is continuous.
+      (c) Every bijection $g\colon M \to M$ is a homeomorphism.
+      (d) $M$ has no cluster points.
+      (e) Every subset of $M$ is clopen.
+      (f) Every compact subset of $M$ is finite.
+    transcriptionNotes: "In Pugh, p is a cluster point of M if every ball M_r p contains infinitely many points of M; 'compact' means sequentially compact."
+  - cid: pugh-2.42
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 42"
+    page: "128"
+    pdfPage: 139
+    verdict: consider
+    tier: upper
+    newExperience: "Diagnose a plausible but wrong proof: the subsequences for the two coordinates need not share indices, so a successive-subsequence (refinement) argument is needed."
+    closestExisting: [ross-28.5]
+    machinery: "Sequential compactness of products; successive subsequence extraction."
+    standardResult: "product of compact sets is compact (flawed proof: independent subsequences)"
+    topic: topology
+    subtopics: [sequential-compactness, metric-spaces]
+    skills: [find-the-error, subsequence-extraction]
+    difficulty: easy
+    difficultyRationale: "Spotting the error and repairing it with a sub-subsequence is short."
+    category: canonical
+    type: conceptual
+    tags: [compactness, product-space, subsequence, faulty-proof]
+    references: ["Theorem 28 (quoted)"]
+    problemLatex: |
+      What is wrong with the following "proof" of Theorem 28? *(Theorem 28: The Cartesian product of two compact sets is compact.)* "Let $((a_n, b_n))$ be any sequence in $A \times B$ where $A$ and $B$ are compact. Compactness implies the existence of subsequences $(a_{n_k})$ and $(b_{n_k})$ converging to $a \in A$ and $b \in B$ as $k \to \infty$. Therefore $((a_{n_k}, b_{n_k}))$ is a subsequence of $((a_n, b_n))$ that converges to a limit in $A \times B$, proving that $A \times B$ is compact."
+    transcriptionNotes: "Quoted Theorem 28 verbatim from the chapter text. Pugh's 'compact' means sequentially compact."
+  - cid: pugh-2.44
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 44"
+    page: "128"
+    pdfPage: 139
+    verdict: strong
+    tier: upper
+    newExperience: "Relate continuity to topological properties of the graph, including the converse 'compact graph ⇒ continuous' and a discontinuous function with closed graph."
+    closestExisting: [mit20-a4-7, lebl-7.5.10]
+    machinery: "Closed sets, sequential compactness, continuity via sequences in M × R."
+    standardResult: "closed graph / compact graph vs continuity"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, continuity-and-topology, compactness]
+    skills: [sequential-characterization, subsequence-extraction, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a),(b) are routine; (c) needs a subsequence argument with uniqueness of the graph value; (d) needs a construction such as 1/x with f(0)=0."
+    category: synthesis
+    type: proof
+    tags: [graph, closed-set, compactness, continuity, counterexample, closed-graph]
+    references: []
+    problemLatex: |
+      Consider a function $f\colon M \to \mathbb{R}$. Its graph is the set
+      $$\{(p, y) \in M \times \mathbb{R} : y = fp\}.$$
+      (a) Prove that if $f$ is continuous then its graph is closed (as a subset of $M \times \mathbb{R}$).
+      (b) Prove that if $f$ is continuous and $M$ is compact then its graph is compact.
+      (c) Prove that if the graph of $f$ is compact then $f$ is continuous.
+      (d) What if the graph is merely closed? Give an example of a discontinuous function $f\colon \mathbb{R} \to \mathbb{R}$ whose graph is closed.
+    transcriptionNotes: "Pugh writes fp for f(p)."
+  - cid: pugh-2.49
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 49 (starred)"
+    page: "129"
+    pdfPage: 140
+    verdict: strong
+    tier: upper
+    newExperience: "Construct a pathological self-map of a subset of R: a continuous bijection whose inverse is not continuous, showing compactness is essential in the 'continuous bijection on compact is a homeomorphism' theorem."
+    closestExisting: [lebl-7.5.8]
+    machinery: "Continuous bijections, homeomorphisms, role of compactness; subsets of R built from pieces."
+    standardResult: "continuous bijection A → A (A ⊂ R) that is not a homeomorphism"
+    topic: topology
+    subtopics: [compactness, continuity-and-topology]
+    skills: [construct-counterexample, hypothesis-removal]
+    difficulty: hard
+    difficultyRationale: "Requires an inventive construction (the domain and codomain are the same set), not a routine example."
+    category: challenge
+    type: construction
+    tags: [homeomorphism, continuous-bijection, compactness, counterexample, pathological]
+    references: ["Theorem 36 (quoted)"]
+    problemLatex: |
+      Construct a subset $A \subset \mathbb{R}$ and a continuous bijection $f\colon A \to A$ that is not a homeomorphism. [Hint: By Theorem 36 $A$ must be noncompact.]
+      *(Theorem 36: If $f\colon M \to N$ is continuous and $A$ is a compact subset of $M$ then $fA$ is a compact subset of $N$. That is, the continuous image of a compact is compact.)*
+    transcriptionNotes: "Starred in the book. Theorem 36 quoted verbatim; the hint is the book's own."
+  - cid: pugh-2.53
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 53"
+    page: "129"
+    pdfPage: 140
+    verdict: strong
+    tier: upper
+    newExperience: "Show a metric quantity (diameter) passes to the limit of a nested compact intersection: pairs of far-apart points, subsequence extraction and continuity of the metric combined."
+    closestExisting: [lebl-7.4.10, ross-13.14]
+    machinery: "Cantor intersection theorem, sequential compactness, continuity of the metric."
+    standardResult: "nested compact sets with diam ≥ μ have intersection of diam ≥ μ"
+    topic: topology
+    subtopics: [compactness, sequential-compactness, metric-spaces]
+    skills: [subsequence-extraction, diagonal-pairs, nested-sets]
+    difficulty: medium
+    difficultyRationale: "Pick p_n, q_n ∈ K_n nearly μ apart, extract convergent subsequences, check limits lie in every K_n; a multistep but standard argument."
+    category: synthesis
+    type: proof
+    tags: [compactness, diameter, nested-sets, Cantor-intersection]
+    references: []
+    problemLatex: |
+      Suppose that $(K_n)$ is a nested sequence of compact nonempty sets, $K_1 \supset K_2 \supset \ldots$, and $K = \bigcap K_n$. If for some $\mu > 0$, $\operatorname{diam} K_n \geq \mu$ for all $n$, is it true that $\operatorname{diam} K \geq \mu$?
+    transcriptionNotes: ""
+  - cid: pugh-2.59
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 59 (starred)"
+    page: "130"
+    pdfPage: 141
+    verdict: strong
+    tier: upper
+    newExperience: "Countability argument in a general metric space: the distances from a point take only countably many values, so some sphere misses M and splits it."
+    closestExisting: [lebl-7.2.5, abbott-3.4.7]
+    machinery: "Connectedness, open balls, countability of R-valued images."
+    standardResult: "every countable metric space with ≥ 2 points is disconnected"
+    topic: topology
+    subtopics: [connectedness, metric-spaces, cardinality]
+    skills: [countability-argument, separation-by-distance]
+    difficulty: medium
+    difficultyRationale: "Short proof, but the key idea (choose a radius not in the countable set of distances) is the whole problem."
+    category: synthesis
+    type: proof
+    tags: [connectedness, countable, metric-space, aha]
+    references: []
+    problemLatex: |
+      Prove that every countable metric space (not empty and not a singleton) is disconnected. [Astonishingly, there exists a countable topological space which is connected. Its topology does not arise from a metric.]
+    transcriptionNotes: "Starred in the book. Bracketed remark is the book's own."
+  - cid: pugh-2.70
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 70"
+    page: "131"
+    pdfPage: 142
+    verdict: consider
+    tier: upper
+    newExperience: "Use a topological invariant (connectedness after removing a point) to prove two spaces are not homeomorphic."
+    closestExisting: []
+    machinery: "Connectedness of intervals, homeomorphisms preserve connectedness of complements."
+    standardResult: "(a,b) and [a,b) are not homeomorphic (cut-point argument)"
+    topic: topology
+    subtopics: [connectedness, continuity-and-topology]
+    skills: [topological-invariant, cut-point-argument, contradiction]
+    difficulty: easy
+    difficultyRationale: "Once the idea of removing the image of the endpoint is seen, it is a two-line connectedness argument."
+    category: canonical
+    type: proof
+    tags: [homeomorphism, connectedness, cut-point, intervals]
+    references: []
+    problemLatex: |
+      Prove that $(a, b)$ and $[a, b)$ are not homeomorphic metric spaces.
+    transcriptionNotes: ""
+  - cid: pugh-2.76
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 76"
+    page: "131"
+    pdfPage: 142
+    verdict: strong
+    tier: upper
+    newExperience: "Combine compactness and connectedness: nested closed connected sets can have disconnected intersection, but compactness rescues connectedness (and not path-connectedness)."
+    closestExisting: [ross-22.5, lebl-7.4.10, ross-22.4]
+    machinery: "Connectedness, Cantor intersection / finite intersection property, separation of disjoint compact sets."
+    standardResult: "nested intersection of compact connected sets is connected; fails for closed sets and for path-connectedness"
+    topic: topology
+    subtopics: [connectedness, compactness]
+    skills: [construct-counterexample, open-cover-argument, separation-by-open-sets]
+    difficulty: hard
+    difficultyRationale: "Part (c) needs a genuine compactness argument (separate the two pieces by disjoint open sets and show some S_n lies in their union); (b),(d) need clever planar counterexamples."
+    category: challenge
+    type: proof
+    tags: [connectedness, compactness, nested-sets, path-connected, counterexample]
+    references: []
+    problemLatex: |
+      (a) The intersection of connected sets need not be connected. Give an example.
+      (b) Suppose that $S_1, S_2, S_3, \ldots$ is a sequence of connected, closed subsets of the plane and $S_1 \supset S_2 \supset \ldots$. Is $S = \bigcap S_n$ connected? Give a proof or counterexample.
+      *(c) Does the answer change if the sets are compact?
+      (d) What is the situation for a nested decreasing sequence of compact path-connected sets?
+    transcriptionNotes: "Part (c) is starred in the book."
+  - cid: pugh-2.78
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 78"
+    page: "131"
+    pdfPage: 142
+    verdict: strong
+    tier: upper
+    newExperience: "Test a new definition (ε-chain connectedness) against connectedness, showing where compactness is needed and that completeness is not enough."
+    closestExisting: [lebl-7.5.10, abbott-3.3.8]
+    machinery: "Connectedness, compactness (positive distance between disjoint closed pieces), completeness."
+    standardResult: "chain-connected vs connected: equivalent for compact metric spaces"
+    topic: topology
+    subtopics: [connectedness, compactness, complete-metric-spaces]
+    skills: [clopen-set-argument, construct-counterexample, hypothesis-removal]
+    difficulty: medium
+    difficultyRationale: "(a) uses the clopen set of points reachable by ε-chains; (b) uses positive distance between disjoint compact sets; (d) needs a closed planar counterexample."
+    category: synthesis
+    type: proof
+    tags: [connectedness, chain-connected, compactness, completeness, counterexample]
+    references: []
+    problemLatex: |
+      $(p_1, \ldots, p_n)$ is an **$\epsilon$-chain** in a metric space $M$ if for each $i$ we have $p_i \in M$ and $d(p_i, p_{i+1}) < \epsilon$. The metric space is **chain-connected** if for each $\epsilon > 0$ and each pair of points $p, q \in M$ there is an $\epsilon$-chain from $p$ to $q$.
+      (a) Show that every connected metric space is chain-connected.
+      (b) Show that if $M$ is compact and chain-connected then it is connected.
+      (c) Is $\mathbb{R} \setminus \mathbb{Z}$ chain-connected?
+      (d) If $M$ is complete and chain-connected, is it connected?
+    transcriptionNotes: ""
+  - cid: pugh-2.85
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 85"
+    page: "133"
+    pdfPage: 144
+    verdict: consider
+    tier: upper
+    newExperience: "A non-standard open-cover reduction: preserve a 'double covering' property while passing to a finite subcover."
+    closestExisting: [abbott-4.4.14, lebl-7.4.2]
+    machinery: "Covering compactness; building an auxiliary open cover from pairwise intersections."
+    standardResult: "redundant (double) open cover of a compact space has a finite redundant subcover"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument, auxiliary-cover]
+    difficulty: medium
+    difficultyRationale: "Requires designing the right auxiliary cover (e.g. by intersections U ∩ V of distinct members) rather than applying compactness directly."
+    category: synthesis
+    type: proof
+    tags: [compactness, open-cover, finite-subcover]
+    references: []
+    problemLatex: |
+      Suppose that $M$ is compact and that $\mathcal{U}$ is an open covering of $M$ which is "redundant" in the sense that each $p \in M$ is contained in at least two members of $\mathcal{U}$. Show that $\mathcal{U}$ reduces to a finite subcovering with the same property.
+    transcriptionNotes: "'Reduces to a finite subcovering' is Pugh's phrase for having a finite subcover."
+  - cid: pugh-2.86
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 86"
+    page: "133"
+    pdfPage: 144
+    verdict: consider
+    tier: upper
+    newExperience: "Shows the Lebesgue-number property alone does not give compactness, separating the two ingredients of the compactness proof."
+    closestExisting: [abbott-4.4.14, lebl-7.4.3]
+    machinery: "Lebesgue numbers, open covers, non-compact spaces."
+    standardResult: "every open cover has a Lebesgue number but M not compact (e.g. infinite discrete space)"
+    topic: topology
+    subtopics: [compactness, metric-spaces]
+    skills: [construct-counterexample, hypothesis-removal]
+    difficulty: easy
+    difficultyRationale: "An infinite discrete (or uniformly discrete) space works once the definition is understood."
+    category: canonical
+    type: counterexample
+    tags: [Lebesgue-number, compactness, counterexample, discrete-metric]
+    references: ["Definition of Lebesgue number (quoted)"]
+    problemLatex: |
+      Suppose that every open covering of $M$ has a positive Lebesgue number. Give an example of such an $M$ that is not compact.
+      *(Definition: A Lebesgue number for a covering $\mathcal{U}$ of $A$ is a positive real number $\lambda$ such that for each $a \in A$ there is some $U \in \mathcal{U}$ with $M_\lambda a \subset U$.)*
+    transcriptionNotes: "Definition quoted from the book's Section 7 (Coverings); M_λ a denotes the open ball of radius λ about a."
+  - cid: pugh-2.93
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 93"
+    page: "134"
+    pdfPage: 145
+    verdict: strong
+    tier: core-gap
+    newExperience: "The finite intersection property formulation of compactness (complement duality between open covers and closed sets), which the bank lacks entirely."
+    closestExisting: [lebl-7.4.10, abbott-3.3.13]
+    machinery: "Open-cover compactness, complements, finite intersection property."
+    standardResult: "compact ⇒ every family of closed sets with the FIP has nonempty intersection"
+    topic: topology
+    subtopics: [compactness, closed-sets]
+    skills: [open-cover-argument, complement-duality, contradiction]
+    difficulty: easy
+    difficultyRationale: "A direct complement argument from the definition, guided by the hint."
+    category: canonical
+    type: proof
+    tags: [compactness, finite-intersection-property, open-cover, closed-set]
+    references: ["Exercise 92 (quoted)", "Definition of covering compact (quoted)"]
+    problemLatex: |
+      Generalize Exercise 92 as follows. Suppose that $M$ is covering compact and $\mathcal{C}$ is a collection of closed subsets of $M$ such that every intersection of finitely many members of $\mathcal{C}$ is nonempty. (Such a collection $\mathcal{C}$ is said to have the **finite intersection property**.) Prove that the **grand intersection** $\bigcap_{C \in \mathcal{C}} C$ is nonempty. [Hint: Consider the collection of open sets $\mathcal{U} = \{C^c : C \in \mathcal{C}\}$.]
+      *(Exercise 92: Give a direct proof that the nested decreasing intersection of nonempty covering compact sets is nonempty.)*
+      *(Definition: If every open covering of $A$ reduces to a finite subcovering of $A$ then we say that $A$ is covering compact.)*
+    transcriptionNotes: "Exercise 92 and the definition of covering compact quoted verbatim (Exercise 92's hint omitted). Book's hint has a missing closing brace '{C^c : C ∈ C.]'; fixed."
+  - cid: pugh-2.94
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 94"
+    page: "134"
+    pdfPage: 145
+    verdict: consider
+    tier: core-gap
+    newExperience: "Converse of the FIP characterization, completing 'compact iff every closed family with the FIP has nonempty intersection'."
+    closestExisting: [pugh-2.93]
+    machinery: "Open-cover compactness via complements; finite intersection property."
+    standardResult: "FIP for closed families ⇒ compact"
+    topic: topology
+    subtopics: [compactness, closed-sets]
+    skills: [complement-duality, contrapositive]
+    difficulty: easy
+    difficultyRationale: "Mirror image of Exercise 93 via the hint."
+    category: canonical
+    type: proof
+    tags: [compactness, finite-intersection-property, open-cover]
+    references: ["Definition of covering compact (quoted)"]
+    problemLatex: |
+      If every collection of closed subsets of $M$ which has the finite intersection property also has a nonempty grand intersection, prove that $M$ is covering compact. [Hint: Given an open covering $\mathcal{U} = \{U_\alpha\}$, consider the collection of closed sets $\mathcal{C} = \{U_\alpha^c\}$.]
+      *(Definition: If every open covering of $A$ reduces to a finite subcovering of $A$ then we say that $A$ is covering compact. A collection of sets has the finite intersection property if every intersection of finitely many of its members is nonempty.)*
+    transcriptionNotes: "Definitions quoted from the text and from Exercise 93. Best paired with pugh-2.93 as one two-direction item if the curator wants the full equivalence."
+skipped:
+  - "1–6 metric definitions/geometry (ant/spider metric, taxicab, discrete metric = lebl-7.1.1, angular metric, sin|p−q|) — routine or non-analysis"
+  - "7, 39 convergent ⇒ bounded (routine); 8 |x_n| converse = lebl-2.1.7; 9 monotone convergence = tao-6.3.3; 10 LUB ⇔ monotone sequence property ~ abbott-2.4.4/lebl-2.4.3; 11 monotone subsequence = lebl-2.3.10"
+  - "12 rearranging sequences by injections/surjections — small, easy; not a new experience"
+  - "14–21 isometry/homeomorphism examples (R vs Q, Q vs N, letters of alphabet, plane minus points) — routine or planar topology"
+  - "22 closed bounded ⇒ compact implies complete = contrapositive of lebl-7.4.17; 23–27, 29, 30, 32 routine definition checks; 24 clopen sets of Q ~ abbott-3.4.7"
+  - "33 boundary of ball vs sphere ~ abbott-8.2.12; 34 internal (Inheritance Principle/Corollary 15); 35, 36 routine cluster points; 37 continuous exactly on Z ~ lebl-3.2.3/ross-17.13/abbott-4.3.14; 38 product metrics = lebl-7.1.6"
+  - "41 norm ball compact in R^m — multivariable; 43 projections of compact product routine; 45 Cantor chords — planar geometry; 46 closest points = abbott-3.3.8"
+  - "47, 48, 50 planar embedding/complement topology (out of scope); 51 (***) research-level"
+  - "52 complete + diam→0 nested intersection ~ lebl-7.4.10, abbott-1.4.8; 54 UC extension = lebl-3.4.9/tao-9.9.4; 55 distance function = abbott-4.3.12/lebl-7.5.10"
+  - "56 sphere vs plane — geometric; 57, 58 interior/closure of (dis)connected sets = lebl-7.2.11/ross-22.3; 60 integer-valued on connected = lebl-7.5.1"
+  - "61–69 cones, annuli, starlike/convex sets in R^m, convex sets up to homeomorphism — Euclidean geometry/multivariable; 66 connected open ⊂ R^m is path-connected — multivariable"
+  - "71 products connected — routine; 72–74 planar connectedness (X ∪ hyperbola, disc minus countable set, R^2 minus Q^2) — planar, out of scope; 75 arc-connectedness — hard point-set topology; 77 ~ lebl-7.2.10"
+  - "79 compact locally path-connected (refers ahead to Exercise 143); 80 Hawaiian earring; 81 topologist's sine circle ~ ross-22.4; 82 graph connectedness — weaker than 2.44 and overlaps ross-22.4; 83, 84 planar homeomorphisms"
+  - "87 direct Heine–Borel for [a,b] = abbott-3.3.10; 88–90 routine covering proofs (90 = lebl-7.5.8); 91 Lebesgue number ⇒ UC = abbott-4.4.14; 92 subsumed by 93"
+  - "95–98 closure/interior/boundary/density basics — routine; 99, 100 Cantor spaces/pieces — Pugh-specific definitions and depend on the Moore–Kline characterization"

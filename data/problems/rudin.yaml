@@ -1,0 +1,626 @@
+
+- id: rudin-3.14
+  source:
+    key: rudin
+    chapter: 3 Numerical Sequences and Series
+    section: Exercises
+    problemNumber: Exercise 3.14 (c)–(e)
+    page: '80'
+  topic: sequences
+  subtopics:
+  - convergence
+  - limsup-liminf
+  skills:
+  - epsilon-N-proof
+  - construct-counterexample
+  - block-estimate
+  - limsup-argument
+  concept: 'Cesàro means: a positive unbounded Cesàro-null sequence; Tauberian converses (n a_n → 0, and Hardy''s n a_n bounded)'
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - cesaro-means
+  - tauberian
+  - limsup
+  - counterexample
+  - sequences
+  problemLatex: |
+    If $\{s_n\}$ is a complex sequence, define its arithmetic means $\sigma_n$ by
+    $$\sigma_n = \frac{s_0 + s_1 + \cdots + s_n}{n+1} \qquad (n = 0, 1, 2, \ldots).$$
+
+    *(Rudin's parts (a)–(b), omitted here: if $\lim s_n = s$ then $\lim \sigma_n = s$; and there are divergent sequences $\{s_n\}$ with $\lim \sigma_n = 0$.)*
+
+    (a) Can it happen that $s_n > 0$ for all $n$ and that $\limsup s_n = \infty$, although $\lim \sigma_n = 0$?
+
+    (b) Put $a_n = s_n - s_{n-1}$, for $n \ge 1$. Show that
+    $$s_n - \sigma_n = \frac{1}{n+1} \sum_{k=1}^{n} k a_k.$$
+    Assume that $\lim (n a_n) = 0$ and that $\{\sigma_n\}$ converges. Prove that $\{s_n\}$ converges. [This gives a converse of the fact that $\lim s_n = s$ implies $\lim \sigma_n = s$, but under the additional assumption that $n a_n \to 0$.]
+
+    (c) Derive the last conclusion from a weaker hypothesis: Assume $M < \infty$, $|n a_n| \le M$ for all $n$, and $\lim \sigma_n = \sigma$. Prove that $\lim s_n = \sigma$, by completing the following outline:
+
+    If $m < n$, then
+    $$s_n - \sigma_n = \frac{m+1}{n-m}(\sigma_n - \sigma_m) + \frac{1}{n-m} \sum_{i=m+1}^{n} (s_n - s_i).$$
+    For these $i$,
+    $$|s_n - s_i| \le \frac{(n-i)M}{i+1} \le \frac{(n-m-1)M}{m+2}.$$
+    Fix $\varepsilon > 0$ and associate with each $n$ the integer $m$ that satisfies
+    $$m \le \frac{n - \varepsilon}{1 + \varepsilon} < m + 1.$$
+    Then $(m+1)/(n-m) \le 1/\varepsilon$ and $|s_n - s_i| < M\varepsilon$. Hence
+    $$\limsup_{n\to\infty} |s_n - \sigma| \le M\varepsilon.$$
+    Since $\varepsilon$ was arbitrary, $\lim s_n = \sigma$.
+  notes: 'Trimmed to Rudin''s parts (c)–(e), relabelled (a)–(c); Rudin''s (a)–(b) duplicate abbott-2.3.11 and are summarized in the marked parenthetical. The bracketed remark in (b) originally read "a converse of (a)" and was reworded to name the fact. The definitions of sigma_n and a_n are kept verbatim.'
+  curation:
+    why: 'Beyond ''Cesàro means are regular'': how badly Cesàro convergence can fail to imply convergence, and Hardy''s Tauberian theorem.'
+  tier: upper
+
+- id: rudin-4.17
+  source:
+    key: rudin
+    chapter: 4 Continuity
+    section: Exercises
+    problemNumber: Exercise 4.17
+    page: '100'
+  topic: continuity
+  subtopics:
+  - discontinuities
+  - functional-limits
+  skills:
+  - injection-into-countable-set
+  - rational-approximation
+  - case-analysis
+  concept: any real function has at most countably many simple (first-kind) discontinuities
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - simple-discontinuity
+  - one-sided-limits
+  - countable
+  - jump-discontinuity
+  - rationals
+  problemLatex: |
+    Let $f$ be a real function defined on $(a, b)$. Prove that the set of points at which $f$ has a simple discontinuity is at most countable.
+
+    *(Rudin, Definition 4.26, quoted: Let $f$ be defined on $(a, b)$. If $f$ is discontinuous at a point $x$, and if $f(x+)$ and $f(x-)$ exist, then $f$ is said to have a discontinuity of the first kind, or a simple discontinuity, at $x$. Otherwise the discontinuity is said to be of the second kind. There are two ways in which a function can have a simple discontinuity: either $f(x+) \ne f(x-)$ [in which case the value $f(x)$ is immaterial], or $f(x+) = f(x-) \ne f(x)$.)*
+
+    *(Here $f(x+)$ and $f(x-)$ are the right- and left-hand limits of $f$ at $x$.)*
+  hints:
+  - text: |
+      Let $E$ be the set on which $f(x-) < f(x+)$. With each point $x$ of $E$, associate a triple $(p, q, r)$ of rational numbers such that
+
+      (a) $f(x-) < p < f(x+)$,
+      (b) $a < q < t < x$ implies $f(t) < p$,
+      (c) $x < t < r < b$ implies $f(t) > p$.
+
+      The set of all such triples is countable. Show that each triple is associated with at most one point of $E$. Deal similarly with the other possible types of simple discontinuities.
+    source: Rudin, Principles of Mathematical Analysis (3rd ed.), hint to Exercise 4.17
+    kind: textbook
+  notes: 'Stated bare per curation; Rudin''s printed hint (the rational triples) moved verbatim into the hints. Definition 4.26 (simple discontinuity) quoted verbatim from printed p. 94 (pdf 103).'
+  curation:
+    why: 'Jump and removable discontinuities of an arbitrary function form a countable set.'
+  tier: upper
+
+- id: rudin-4.19
+  source:
+    key: rudin
+    chapter: 4 Continuity
+    section: Exercises
+    problemNumber: Exercise 4.19
+    page: '100'
+  topic: continuity
+  subtopics:
+  - IVT
+  - sequential-continuity
+  - continuity-and-topology
+  skills:
+  - contradiction
+  - sequential-characterization
+  - density-of-Q
+  - closed-set-limit
+  concept: Darboux (IVP) function with closed rational level sets is continuous (N. J. Fine)
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - intermediate-value-property
+  - Darboux-function
+  - level-sets
+  - closed-set
+  - continuity
+  - aha
+  problemLatex: |
+    Suppose $f$ is a real function with domain $R^1$ which has the intermediate value property: If $f(a) < c < f(b)$, then $f(x) = c$ for some $x$ between $a$ and $b$.
+
+    Suppose also, for every rational $r$, that the set of all $x$ with $f(x) = r$ is closed.
+
+    Prove that $f$ is continuous.
+
+    *Hint:* If $x_n \to x_0$ but $f(x_n) > r > f(x_0)$ for some $r$ and all $n$, then $f(t_n) = r$ for some $t_n$ between $x_0$ and $x_n$; thus $t_n \to x_0$. Find a contradiction. (N. J. Fine, *Amer. Math. Monthly*, vol. 73, 1966, p. 782.)
+  curation:
+    why: 'Recovering continuity from the intermediate value property plus a closedness condition (Fine''s theorem).'
+  tier: upper
+
+- id: rudin-4.5
+  source:
+    key: rudin
+    chapter: 4 Continuity
+    section: Exercises
+    problemNumber: Exercise 4.5
+    page: '99'
+  topic: continuity
+  subtopics:
+  - continuity-and-topology
+  - epsilon-delta-continuity
+  skills:
+  - construct-extension
+  - structure-of-open-sets
+  - construct-counterexample
+  - case-analysis
+  concept: 'Tietze extension on R: continuous f on closed E ⊂ R extends continuously to R; fails for non-closed E'
+  difficulty: medium
+  category: synthesis
+  type: construction
+  tags:
+  - continuous-extension
+  - closed-set
+  - open-sets-in-R
+  - Tietze
+  - counterexample
+  problemLatex: |
+    If $f$ is a real continuous function defined on a closed set $E \subset R^1$, prove that there exist continuous real functions $g$ on $R^1$ such that $g(x) = f(x)$ for all $x \in E$. (Such functions $g$ are called *continuous extensions* of $f$ from $E$ to $R^1$.) Show that the result becomes false if the word "closed" is omitted. Extend the result to vector-valued functions. *Hint:* Let the graph of $g$ be a straight line on each of the segments which constitute the complement of $E$ (compare Exercise 29, Chap. 2). The result remains true if $R^1$ is replaced by any metric space, but the proof is not so simple.
+
+    *(Exercise 29, Chap. 2: Prove that every open set in $R^1$ is the union of an at most countable collection of disjoint segments.)*
+  notes: Exercise 29 of Chapter 2 quoted verbatim from printed p. 45 (pdf 54); its own hint 'Use Exercise 22' omitted. 'Segments' in Rudin means open intervals (possibly unbounded components here).
+  curation:
+    why: 'Extending a continuous function from a closed subset of R, and why closedness is needed.'
+  tier: upper
+
+- id: rudin-5.15
+  source:
+    key: rudin
+    chapter: 5 Differentiation
+    section: Exercises
+    problemNumber: Exercise 5.15 (with Exercise 5.16)
+    page: '115'
+  topic: differentiation
+  subtopics:
+  - taylor
+  skills:
+  - taylor-estimate
+  - optimize-free-parameter
+  - verify-extremal-example
+  - tail-argument
+  concept: 'Landau–Kolmogorov inequality M_1^2 ≤ 4 M_0 M_2 on a half-line; consequence: f → 0 and f'''' bounded ⇒ f'' → 0'
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - Landau-inequality
+  - Taylor
+  - derivative-bounds
+  - sharp-inequality
+  - prelim
+  problemLatex: |
+    Suppose $a \in R^1$, $f$ is a twice-differentiable real function on $(a, \infty)$, and $M_0, M_1, M_2$ are the least upper bounds of $|f(x)|$, $|f'(x)|$, $|f''(x)|$, respectively, on $(a, \infty)$. Prove that
+    $$M_1^2 \le 4 M_0 M_2.$$
+    *Hint:* If $h > 0$, Taylor's theorem shows that
+    $$f'(x) = \frac{1}{2h}\left[f(x + 2h) - f(x)\right] - h f''(\xi)$$
+    for some $\xi \in (x, x + 2h)$. Hence
+    $$|f'(x)| \le h M_2 + \frac{M_0}{h}.$$
+    To show that $M_1^2 = 4 M_0 M_2$ can actually happen, take $a = -1$, define
+    $$f(x) = \begin{cases} 2x^2 - 1 & (-1 < x < 0), \\ \dfrac{x^2 - 1}{x^2 + 1} & (0 \le x < \infty), \end{cases}$$
+    and show that $M_0 = 1$, $M_1 = 4$, $M_2 = 4$.
+
+    **(Exercise 16.)** Suppose $f$ is twice-differentiable on $(0, \infty)$, $f''$ is bounded on $(0, \infty)$, and $f(x) \to 0$ as $x \to \infty$. Prove that $f'(x) \to 0$ as $x \to \infty$.
+
+    *Hint:* Let $a \to \infty$ in Exercise 15.
+  notes: |
+    Exercise 15 spans printed pp. 115-116; its closing question about vector-valued functions is dropped. Exercise 16 (printed p. 116, pdf 125) is appended verbatim as the final part; "Exercise 15" in its hint means the inequality above. In the extremal example f is twice differentiable at 0 as well: f'(0) = 0 and both one-sided limits of f''(x) at 0 equal 4, so f''(0) = 4 (an earlier note claiming otherwise was wrong).
+
+  curation:
+    why: 'Landau''s inequality bounding f'' by f and f'''', with its sharp constant.'
+  tier: upper
+
+- id: rudin-5.17
+  source:
+    key: rudin
+    chapter: 5 Differentiation
+    section: Exercises
+    problemNumber: Exercise 5.17
+    page: '116'
+  topic: differentiation
+  subtopics:
+  - taylor
+  skills:
+  - taylor-two-sided
+  - cancellation
+  - averaging-argument
+  concept: f(−1)=f(0)=0, f(1)=1, f'(0)=0 ⇒ f'''(x) ≥ 3 for some x ∈ (−1,1)
+  difficulty: medium
+  category: challenge
+  type: theorem-application
+  tags:
+  - Taylor
+  - third-derivative
+  - sharp-bound
+  - Putnam-style
+  problemLatex: |
+    Suppose $f$ is a real, three times differentiable function on $[-1, 1]$, such that
+    $$f(-1) = 0, \qquad f(0) = 0, \qquad f(1) = 1, \qquad f'(0) = 0.$$
+    Prove that $f^{(3)}(x) \ge 3$ for some $x \in (-1, 1)$.
+
+    Note that equality holds for $\frac{1}{2}(x^3 + x^2)$.
+
+    *Hint:* Use Theorem 5.15, with $\alpha = 0$ and $\beta = \pm 1$, to show that there exist $s \in (0, 1)$ and $t \in (-1, 0)$ such that
+    $$f^{(3)}(s) + f^{(3)}(t) = 6.$$
+
+    *(Theorem 5.15 (Taylor's theorem): Suppose $f$ is a real function on $[a, b]$, $n$ is a positive integer, $f^{(n-1)}$ is continuous on $[a, b]$, $f^{(n)}(t)$ exists for every $t \in (a, b)$. Let $\alpha, \beta$ be distinct points of $[a, b]$, and define $$P(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k.$$ Then there exists a point $x$ between $\alpha$ and $\beta$ such that $$f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!}(\beta - \alpha)^n.$$)*
+  notes: Theorem 5.15 quoted verbatim from printed pp. 110-111 (pdf 119-120). The book prints '½(x³ + x²)'.
+  curation:
+    why: 'A sharp lower bound on a third derivative from four conditions on f.'
+  tier: upper
+
+- id: rudin-5.21
+  source:
+    key: rudin
+    chapter: 5 Differentiation
+    section: Exercises
+    problemNumber: Exercise 5.21
+    page: '117'
+  topic: differentiation
+  subtopics:
+  - differentiability
+  - taylor
+  skills:
+  - structure-of-open-sets
+  - smooth-bump-construction
+  - series-with-derivative-bounds
+  concept: every closed subset of R is the zero set of a C^∞ function
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - zero-set
+  - closed-set
+  - smooth-functions
+  - bump-function
+  - construction
+  - open-ended
+  problemLatex: |
+    Let $E$ be a closed subset of $R^1$. We saw in Exercise 22, Chap. 4, that there is a real continuous function $f$ on $R^1$ whose zero set is $E$. Is it possible, for each closed set $E$, to find such an $f$ which is differentiable on $R^1$, or one which is $n$ times differentiable, or even one which has derivatives of all orders on $R^1$?
+  notes: 'Self-contained: the referenced fact is stated in the exercise. Full C^∞ answer uses uniform convergence of derivative series (Chapter 7 machinery); difficulty reflects that.'
+  curation:
+    why: 'Which subsets of R can be the zero set of a smooth function.'
+  tier: upper
+
+- id: rudin-5.26
+  source:
+    key: rudin
+    chapter: 5 Differentiation
+    section: Exercises
+    problemNumber: Exercise 5.26
+    page: '119'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  skills:
+  - MVT-application
+  - sup-bootstrapping
+  - interval-stepping
+  concept: differential inequality |f'| ≤ A|f|, f(a) = 0 ⇒ f ≡ 0 (Gronwall-type uniqueness)
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - Gronwall
+  - uniqueness
+  - differential-inequality
+  - mean-value-theorem
+  - ODE-uniqueness
+  problemLatex: |
+    Suppose $f$ is differentiable on $[a, b]$, $f(a) = 0$, and there is a real number $A$ such that $|f'(x)| \le A|f(x)|$ on $[a, b]$. Prove that $f(x) = 0$ for all $x \in [a, b]$. *Hint:* Fix $x_0 \in [a, b]$, let
+    $$M_0 = \sup |f(x)|, \qquad M_1 = \sup |f'(x)|$$
+    for $a \le x \le x_0$. For any such $x$,
+    $$|f(x)| \le M_1(x_0 - a) \le A(x_0 - a)M_0.$$
+    Hence $M_0 = 0$ if $A(x_0 - a) < 1$. That is, $f = 0$ on $[a, x_0]$. Proceed.
+  notes: Note M_1 could a priori be +∞ if f' is unbounded; the inequality |f'| ≤ A|f| with f continuous makes it finite. Transcribed as printed.
+  curation:
+    why: 'A differential inequality that forces uniqueness (Gronwall type).'
+  tier: upper
+
+- id: rudin-7.16
+  source:
+    key: rudin
+    chapter: 7 Sequences and Series of Functions
+    section: Exercises
+    problemNumber: Exercise 7.16
+    page: '168'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  - uniform-cauchy
+  - pointwise-convergence
+  skills:
+  - epsilon-over-3
+  - open-cover-argument
+  - uniform-cauchy-criterion
+  concept: equicontinuous + pointwise convergent on compact K ⇒ uniformly convergent
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - equicontinuity
+  - compactness
+  - uniform-convergence
+  - epsilon-over-3
+  - Arzela-Ascoli
+  problemLatex: |
+    Suppose $\{f_n\}$ is an equicontinuous sequence of functions on a compact set $K$, and $\{f_n\}$ converges pointwise on $K$. Prove that $\{f_n\}$ converges uniformly on $K$.
+
+    *(Rudin, Definition 7.22, quoted: A family $\mathscr{F}$ of complex functions $f$ defined on a set $E$ in a metric space $X$ is said to be equicontinuous on $E$ if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that $|f(x) - f(y)| < \varepsilon$ whenever $d(x, y) < \delta$, $x \in E$, $y \in E$, and $f \in \mathscr{F}$. Here $d$ denotes the metric of $X$.)*
+  notes: Transcribed from the page image. Rudin's Definition 7.22 of equicontinuity quoted verbatim from printed p. 156 (pdf 165).
+  curation:
+    why: 'Equicontinuity upgrades pointwise convergence to uniform convergence on compact sets.'
+  tier: upper
+
+- id: rudin-7.13
+  source:
+    key: rudin
+    chapter: 7 Sequences and Series of Functions
+    section: Exercises
+    problemNumber: Exercise 7.13
+    page: '167'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - uniform-convergence
+  skills:
+  - diagonal-argument
+  - subsequence-extraction
+  - sup-approximation
+  - monotonicity-squeeze
+  concept: Helly's selection theorem
+  difficulty: hard
+  category: synthesis
+  type: proof
+  tags:
+  - Helly-selection
+  - diagonal-argument
+  - monotone-functions
+  - pointwise-convergence
+  - uniform-convergence
+  - compactness
+  problemLatex: |
+    Assume that $\{f_n\}$ is a sequence of monotonically increasing functions on $R^1$ with $0 \le f_n(x) \le 1$ for all $x$ and all $n$.
+
+    (a) Prove that there is a function $f$ and a sequence $\{n_k\}$ such that
+    $$f(x) = \lim_{k\to\infty} f_{n_k}(x)$$
+    for every $x \in R^1$. (The existence of such a pointwise convergent subsequence is usually called *Helly's selection theorem*.)
+
+    (b) If, moreover, $f$ is continuous, prove that $f_{n_k} \to f$ uniformly on compact sets.
+
+    *Hint:* (i) Some subsequence $\{f_{n_i}\}$ converges at all rational points $r$, say, to $f(r)$. (ii) Define $f(x)$, for any $x \in R^1$, to be $\sup f(r)$, the sup being taken over all $r \le x$. (iii) Show that $f_{n_i}(x) \to f(x)$ at every $x$ at which $f$ is continuous. (This is where monotonicity is strongly used.) (iv) A subsequence of $\{f_{n_i}\}$ converges at every point of discontinuity of $f$ since there are at most countably many such points. This proves (a). To prove (b), modify your proof of (iii) appropriately.
+  notes: 'Transcribed from the page image; hint is Rudin''s own. $R^1$ is Rudin''s notation for the real line. (Note: in (a) the f obtained is the limit along a further subsequence; the problem statement is as printed.)'
+  curation:
+    why: 'Helly''s selection theorem for uniformly bounded monotone functions.'
+  tier: upper
+
+- id: rudin-7.10
+  source:
+    key: rudin
+    chapter: 7 Sequences and Series of Functions
+    section: Exercises
+    problemNumber: Exercise 7.10
+    page: '167'
+  topic: function-sequences
+  subtopics:
+  - series-of-functions
+  - interchange-limits
+  - weierstrass-m-test
+  skills:
+  - M-test
+  - one-sided-limits
+  - jump-computation
+  - uniform-limit-integrability
+  concept: 'Σ (nx)/n²: discontinuous exactly at the rationals, yet Riemann integrable'
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - series-of-functions
+  - discontinuities
+  - dense-set
+  - uniform-convergence
+  - Riemann-integration
+  - counterexample
+  problemLatex: |
+    Letting $(x)$ denote the fractional part of the real number $x$ (see Exercise 16, Chap. 4, for the definition), consider the function
+    $$f(x) = \sum_{n=1}^{\infty} \frac{(nx)}{n^2} \qquad (x \text{ real}).$$
+    Find all discontinuities of $f$, and show that they form a countable dense set. Show that $f$ is nevertheless Riemann-integrable on every bounded interval.
+
+    *(Exercise 16, Chap. 4: Let $[x]$ denote the largest integer contained in $x$, that is, $[x]$ is the integer such that $x - 1 < [x] \le x$; and let $(x) = x - [x]$ denote the fractional part of $x$.)*
+  notes: Transcribed from the page image; the definition of (x) is quoted verbatim from Rudin Ch. 4 Exercise 16 (printed p. 100) and marked as such.
+  curation:
+    why: 'A uniformly convergent series of discontinuous functions: locating its discontinuities and deciding integrability.'
+  tier: upper
+
+- id: rudin-2.27
+  source:
+    key: rudin
+    chapter: 2 Basic Topology
+    section: Exercises
+    problemNumber: Exercise 2.27 (with Exercise 2.28)
+    page: '45'
+  topic: topology
+  subtopics:
+  - perfect-sets
+  - limit-points
+  - closed-sets
+  skills:
+  - countable-base-argument
+  - contradiction
+  - complement-characterization
+  concept: 'condensation points of an uncountable E ⊂ R^k form a perfect set P with E \ P countable; Cantor–Bendixson: closed = perfect ∪ countable' 
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - condensation-point
+  - perfect-set
+  - countable-base
+  - uncountable
+  - R^k
+  - cantor-bendixson
+  - isolated-points
+  problemLatex: |
+    Define a point $p$ in a metric space $X$ to be a *condensation point* of a set $E \subset X$ if every neighborhood of $p$ contains uncountably many points of $E$.
+
+    (a) Suppose $E \subset R^k$, $E$ is uncountable, and let $P$ be the set of all condensation points of $E$. Prove that $P$ is perfect and that at most countably many points of $E$ are not in $P$. In other words, show that $P^c \cap E$ is at most countable. *Hint:* Let $\{V_n\}$ be a countable base of $R^k$, let $W$ be the union of those $V_n$ for which $E \cap V_n$ is at most countable, and show that $P = W^c$.
+
+    (b) **(Exercise 28, restricted to $R^k$.)** Prove that every closed set in $R^k$ is the union of a (possibly empty) perfect set and a set which is at most countable. (*Corollary:* Every countable closed set in $R^k$ has isolated points.) *Hint:* Use part (a).
+
+    *(Rudin: a collection $\{V_\alpha\}$ of open subsets of $X$ is a base for $X$ if for every $x \in X$ and every open set $G \subset X$ with $x \in G$, we have $x \in V_\alpha \subset G$ for some $\alpha$. $E$ is perfect if $E$ is closed and every point of $E$ is a limit point of $E$.)*
+  notes: 'Definitions of base (Exercise 2.23) and perfect (Definition 2.18(h)) quoted. That R^k has a countable base follows from Exercises 2.22–2.23. Part (b) is Exercise 2.28 (printed p. 45, pdf 54) with "separable metric space" replaced by $R^k$ and "Exercise 27" by "part (a)"; otherwise verbatim.' 
+  curation:
+    why: 'Condensation points and the Cantor–Bendixson decomposition of closed sets.'
+  tier: upper
+
+- id: rudin-4.25
+  source:
+    key: rudin
+    chapter: 4 Continuity
+    section: Exercises
+    problemNumber: Exercise 4.25
+    page: '102'
+  topic: topology
+  subtopics:
+  - compactness
+  - closed-sets
+  - dense-sets
+  skills:
+  - positive-distance
+  - pigeonhole
+  - construct-counterexample
+  - open-ball-argument
+  concept: K + C closed for K compact, C closed; Z + αZ (α irrational) is dense, so sum of closed sets need not be closed
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - Minkowski-sum
+  - compactness
+  - closed-set
+  - irrational-rotation
+  - density
+  - counterexample
+  problemLatex: |
+    If $A \subset R^k$ and $B \subset R^k$, define $A + B$ to be the set of all sums $\mathbf{x} + \mathbf{y}$ with $\mathbf{x} \in A$, $\mathbf{y} \in B$.
+
+    (a) If $K$ is compact and $C$ is closed in $R^k$, prove that $K + C$ is closed.
+
+    *Hint:* Take $\mathbf{z} \notin K + C$, put $F = \mathbf{z} - C$, the set of all $\mathbf{z} - \mathbf{y}$ with $\mathbf{y} \in C$. Then $K$ and $F$ are disjoint. Choose $\delta$ as in Exercise 21. Show that the open ball with center $\mathbf{z}$ and radius $\delta$ does not intersect $K + C$.
+
+    (b) Let $\alpha$ be an irrational real number. Let $C_1$ be the set of all integers, let $C_2$ be the set of all $n\alpha$ with $n \in C_1$. Show that $C_1$ and $C_2$ are closed subsets of $R^1$ whose sum $C_1 + C_2$ is *not* closed, by showing that $C_1 + C_2$ is a countable dense subset of $R^1$.
+
+    *(Exercise 21: Suppose $K$ and $F$ are disjoint sets in a metric space $X$, $K$ is compact, $F$ is closed. Prove that there exists $\delta > 0$ such that $d(p, q) > \delta$ if $p \in K$, $q \in F$.)*
+  notes: Exercise 21 quoted verbatim (its hint and second paragraph omitted) from printed p. 101.
+  curation:
+    why: 'Sums of sets: when K + C is closed, and when it need not be.'
+  tier: upper
+
+- id: rudin-5.14
+  source:
+    key: rudin
+    chapter: 5 Differentiation
+    section: Exercises
+    problemNumber: Exercise 5.14
+    page: '115'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  skills:
+  - MVT-application
+  - slope-comparison
+  - contradiction
+  concept: differentiable f is convex iff f' is increasing iff (when f'' exists) f'' ≥ 0
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - convexity
+  - mean-value-theorem
+  - monotone-derivative
+  - second-derivative
+  problemLatex: |
+    Let $f$ be a differentiable real function defined in $(a, b)$. Prove that $f$ is convex if and only if $f'$ is monotonically increasing. Assume next that $f''(x)$ exists for every $x \in (a, b)$, and prove that $f$ is convex if and only if $f''(x) \ge 0$ for all $x \in (a, b)$.
+
+    *(Rudin, Exercise 4.23, definition quoted: A real-valued function $f$ defined in $(a, b)$ is said to be convex if $$f(\lambda x + (1 - \lambda) y) \le \lambda f(x) + (1 - \lambda) f(y)$$ whenever $a < x < b$, $a < y < b$, $0 < \lambda < 1$.)*
+  notes: 'Definition of convexity quoted verbatim from Rudin Exercise 4.23 (printed p. 101, pdf 110). "Monotonically increasing" in Rudin means non-decreasing.'
+  curation:
+    why: 'The derivative characterization of convexity.'
+- id: rudin-7.20
+  source:
+    key: rudin
+    chapter: 7 Sequences and Series of Functions
+    section: Exercises
+    problemNumber: Exercise 7.20
+    page: '169'
+  topic: function-sequences
+  subtopics:
+  - approximation
+  - interchange-integral
+  skills:
+  - weierstrass-approximation
+  - uniform-limit-integral
+  - positivity-argument
+  concept: 'vanishing moments: ∫_0^1 f(x)x^n dx = 0 for all n ⇒ f ≡ 0 (via Weierstrass approximation)'
+  difficulty: medium
+  category: canonical
+  type: theorem-application
+  tags:
+  - Weierstrass-approximation
+  - moments
+  - uniform-convergence
+  - Riemann-integration
+  - prelim
+  problemLatex: |
+    If $f$ is continuous on $[0,1]$ and if
+    $$\int_0^1 f(x)\,x^n\,dx = 0 \qquad (n = 0, 1, 2, \ldots),$$
+    prove that $f(x) = 0$ on $[0,1]$. *Hint:* The integral of the product of $f$ with any polynomial is zero. Use the Weierstrass theorem to show that $\int_0^1 f^2(x)\,dx = 0$.
+
+    *(Rudin, Theorem 7.26 (Weierstrass approximation theorem), quoted: If $f$ is a continuous complex function on $[a, b]$, there exists a sequence of polynomials $P_n$ such that $$\lim_{n\to\infty} P_n(x) = f(x)$$ uniformly on $[a, b]$. If $f$ is real, the $P_n$ may be taken real.)*
+  notes: 'Transcribed from the page image; hint is Rudin''s own. Theorem 7.26 quoted verbatim from printed p. 159 (pdf 168) so the problem is self-contained; it may be used. Core-gap justification: BANK_INDEX has no vanishing-moments / integral application of Weierstrass approximation (rg ''moment'', ''x^n dx'' found nothing).'
+  curation:
+    why: 'A canonical application of the Weierstrass approximation theorem inside an integral.'
+- id: rudin-3.19
+  source:
+    key: rudin
+    chapter: 3 Numerical Sequences and Series
+    section: Exercises
+    problemNumber: Exercise 3.19
+    page: '81'
+  topic: topology
+  subtopics:
+  - cantor-set
+  skills:
+  - induction
+  - nested-intervals
+  - double-inclusion
+  concept: 'Cantor set = {Σ α_n/3^n : α_n ∈ {0,2}}'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - cantor-set
+  - ternary-expansion
+  - series
+  - nested-intervals
+  problemLatex: |
+    Associate to each sequence $a = \{\alpha_n\}$, in which $\alpha_n$ is 0 or 2, the real number
+    $$x(a) = \sum_{n=1}^{\infty} \frac{\alpha_n}{3^n}.$$
+    Prove that the set of all $x(a)$ is precisely the Cantor set described in Sec. 2.44.
+
+    *(Sec. 2.44: Let $E_0$ be the interval $[0,1]$. Remove the segment $(\frac13, \frac23)$, and let $E_1$ be the union of the intervals $[0, \frac13]$, $[\frac23, 1]$. Remove the middle thirds of these intervals, and let $E_2$ be the union of the intervals $[0, \frac19]$, $[\frac29, \frac39]$, $[\frac69, \frac79]$, $[\frac89, 1]$. Continuing in this way, we obtain a sequence of compact sets $E_n$, such that (a) $E_1 \supset E_2 \supset E_3 \supset \cdots$; (b) $E_n$ is the union of $2^n$ intervals, each of length $3^{-n}$. The set $P = \bigcap_{n=1}^{\infty} E_n$ is called the Cantor set.)*
+  notes: 'Construction from Sec. 2.44 (p. 41) quoted verbatim. Tier core-gap is a judgment call: modest difficulty, but it supplies the characterization other bank Cantor-set problems quietly rely on.'
+  curation:
+    why: 'The ternary-digit description of the Cantor set, which other Cantor-set problems rely on.'

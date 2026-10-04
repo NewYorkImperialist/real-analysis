@@ -1,5 +1,5 @@
 import type { Problem } from './types';
-import { isMitAssigned } from './bank';
+import { isMitAssigned, tierOf } from './bank';
 import { get as getProgress } from './progress';
 
 // Every facet is a list of accepted values; empty/absent = no constraint.
@@ -11,15 +11,16 @@ export type Filters = {
   difficulty: string[];
   category: string[];
   type: string[];
+  tier: string[];
   tag: string[];
   status: string[];
   bookmarked: boolean;
 };
 
-export const FACETS = ['topic', 'subtopic', 'source', 'difficulty', 'category', 'type', 'tag', 'status'] as const;
+export const FACETS = ['topic', 'subtopic', 'source', 'difficulty', 'category', 'type', 'tier', 'tag', 'status'] as const;
 
 export const emptyFilters = (): Filters => ({
-  topic: [], subtopic: [], source: [], difficulty: [], category: [], type: [], tag: [], status: [], bookmarked: false,
+  topic: [], subtopic: [], source: [], difficulty: [], category: [], type: [], tier: [], tag: [], status: [], bookmarked: false,
 });
 
 export function matches(p: Problem, f: Filters): boolean {
@@ -32,6 +33,7 @@ export function matches(p: Problem, f: Filters): boolean {
   if (f.difficulty.length && !f.difficulty.includes(p.difficulty)) return false;
   if (f.category.length && !f.category.includes(p.category)) return false;
   if (f.type.length && !f.type.includes(p.type)) return false;
+  if (f.tier.length && !f.tier.includes(tierOf(p))) return false;
   if (f.tag.length && !f.tag.every((t) => p.tags.includes(t) || p.skills.includes(t))) return false;
   if (f.status.length || f.bookmarked) {
     const pr = getProgress(p.id);

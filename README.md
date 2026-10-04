@@ -18,16 +18,24 @@ npm run check     # validate the problem data only
 
 ## The bank
 
-There are **324 problems**, all from the six approved sources:
+There are **366 problems**: a **core** of 330 and an optional **upper tier** of 36 harder problems.
 
-| Source | Problems |
-|---|---|
-| MIT 18.100A Real Analysis — 2020 (assignments, midterm, final) | 54 original, plus 38 Lebl exercises the course assigned |
-| Abbott, *Understanding Analysis* (2nd ed.) | 94 |
-| Lebl, *Basic Analysis I* (v6.3) | 102 |
-| Ross, *Elementary Analysis* (2nd ed.) | 38 |
-| Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 22 |
-| Tao, *Analysis I* (3rd ed.) | 14 |
+| Source | Core | Upper tier |
+|---|---|---|
+| MIT 18.100A Real Analysis — 2020 (assignments, midterm, final) | 54 original, plus 38 Lebl exercises the course assigned | — |
+| Abbott, *Understanding Analysis* (2nd ed.) | 94 | — |
+| Lebl, *Basic Analysis I* (v6.3) | 102 | — |
+| Ross, *Elementary Analysis* (2nd ed.) | 38 | — |
+| Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 22 | — |
+| Tao, *Analysis I* (3rd ed.) | 14 | — |
+| Pugh, *Real Mathematical Analysis* (2nd ed.) | 1 | 22 |
+| Rudin, *Principles of Mathematical Analysis* (3rd ed.) | 3 | 13 |
+| MIT 18.100B (2006, Fall 2010, Spring 2025) | 2 | 1 |
+
+The upper tier (`tier: upper` in the data) holds synthesis, construction, classification and
+hypothesis-necessity problems that add a problem-solving experience the core lacks; three of them
+(tag `bridge-to-measure-theory`) preview measure-zero ideas. It is excluded from core progress and
+from practice sets unless requested. See `curation/UPPER_TIER_BRIEF.md` and `curation/UPPER_SHORTLIST.md`.
 
 How the bank was built:
 
@@ -38,8 +46,9 @@ How the bank was built:
 - **Audits.** Every selected problem was checked symbol by symbol against the rendered page images.
   - Book typos are kept as printed and explained in `notes`.
   - Any bracketed context that is not a verbatim quote is labeled as a summary.
-- **No invented content.** There are no invented problems, hints or solutions. The 15 hints in the bank are
-  Ross's own back-of-book hints and are labeled as such.
+- **No invented problems.** Every problem is transcribed from a source. Textbook hints (Ross's back-of-book
+  hints, and a few printed by Pugh and Rudin) are labeled as such. All other hints and every solution are
+  AI-generated, independently reviewed, and labeled "AI-generated · not verified by a human" on the site.
 
 ## Data layout
 

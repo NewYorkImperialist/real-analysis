@@ -27,6 +27,7 @@ export function ProblemRow({ problem: p, index, linkQuery }: { problem: Problem;
           <p class="meta-line">
             <span>{topicLabel(p.topic)}</span>
             <span>{label(p.difficulty)}</span>
+            {p.tier === 'upper' && <span class="tier-badge">Upper tier</span>}
             <span>{label(p.category)}</span>
             <span>{label(p.type)}</span>
           </p>

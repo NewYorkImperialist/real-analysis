@@ -1,0 +1,474 @@
+chunk: "rudin-ch4-5"
+book: rudin
+pageOffsetNote: "printed page = pdfPage - 9 (confirmed: pdf 107 shows printed 98, pdf 123 shows printed 114). Scan; all text transcribed from rendered page images."
+sectionsCovered:
+  - "Chapter 4 Continuity, Exercises 1-26 (printed pp. 98-102)"
+  - "Chapter 5 Differentiation, Exercises 1-29 (printed pp. 114-119)"
+candidates:
+  - cid: rudin-4.5
+    chapter: "4 Continuity"
+    section: "Exercises"
+    number: "Exercise 4.5"
+    page: "99"
+    pdfPage: 108
+    verdict: strong
+    tier: upper
+    newExperience: "Build a continuous extension from an arbitrary closed subset of R (piecewise-linear across the complementary intervals) and show closedness is necessary; the bank only extends from intervals or dense sets."
+    closestExisting: [abbott-4.4.13, lebl-3.4.9, tao-9.9.4, lebl-3.6.10]
+    machinery: "Structure of open sets in R plus continuity at boundary points of a closed set; hypothesis-necessity counterexample."
+    standardResult: "Tietze extension on R: continuous f on closed E ⊂ R extends continuously to R; fails for non-closed E"
+    topic: continuity
+    subtopics: [continuity-and-topology, epsilon-delta-continuity]
+    skills: [construct-extension, structure-of-open-sets, construct-counterexample, case-analysis]
+    difficulty: medium
+    difficultyRationale: "The construction is guided by the hint, but verifying continuity at boundary points of E (including accumulation points of the gap intervals) takes care."
+    category: synthesis
+    type: construction
+    tags: [continuous-extension, closed-set, open-sets-in-R, Tietze, counterexample]
+    references: ["Exercise 29, Chap. 2 (quoted)"]
+    problemLatex: |
+      If $f$ is a real continuous function defined on a closed set $E \subset R^1$, prove that there exist continuous real functions $g$ on $R^1$ such that $g(x) = f(x)$ for all $x \in E$. (Such functions $g$ are called *continuous extensions* of $f$ from $E$ to $R^1$.) Show that the result becomes false if the word "closed" is omitted. Extend the result to vector-valued functions. *Hint:* Let the graph of $g$ be a straight line on each of the segments which constitute the complement of $E$ (compare Exercise 29, Chap. 2). The result remains true if $R^1$ is replaced by any metric space, but the proof is not so simple.
+
+      *(Exercise 29, Chap. 2: Prove that every open set in $R^1$ is the union of an at most countable collection of disjoint segments.)*
+    transcriptionNotes: "Exercise 29 of Chapter 2 quoted verbatim from printed p. 45 (pdf 54); its own hint 'Use Exercise 22' omitted. 'Segments' in Rudin means open intervals (possibly unbounded components here)."
+
+  - cid: rudin-4.6
+    chapter: "4 Continuity"
+    section: "Exercises"
+    number: "Exercise 4.6"
+    page: "99"
+    pdfPage: 108
+    verdict: strong
+    tier: upper
+    newExperience: "An equivalence characterizing continuity by compactness of the graph; the converse direction needs a subsequence/contradiction argument in the product space that no bank problem rehearses."
+    closestExisting: [lebl-7.5.4, abbott-4.4.4]
+    machinery: "Sequential compactness in metric spaces, continuity via sequences, closed-graph reasoning."
+    standardResult: "on compact E, f is continuous iff its graph is compact"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, compactness, sequential-compactness]
+    skills: [sequential-characterization, subsequence-extraction, contradiction]
+    difficulty: medium
+    difficultyRationale: "Forward direction is routine (continuous image of compact); the converse requires a careful subsequence argument using compactness of the graph."
+    category: synthesis
+    type: proof
+    tags: [graph, compactness, continuity, equivalence, metric-spaces]
+    references: []
+    problemLatex: |
+      If $f$ is defined on $E$, the *graph* of $f$ is the set of points $(x, f(x))$, for $x \in E$. In particular, if $E$ is a set of real numbers, and $f$ is real-valued, the graph of $f$ is a subset of the plane.
+
+      Suppose $E$ is compact, and prove that $f$ is continuous on $E$ if and only if its graph is compact.
+    transcriptionNotes: "Context in Rudin is metric spaces; E compact, f into a metric space (graph in E × Y). Transcribed as printed."
+
+  - cid: rudin-4.15
+    chapter: "4 Continuity"
+    section: "Exercises"
+    number: "Exercise 4.15"
+    page: "100"
+    pdfPage: 109
+    verdict: strong
+    tier: upper
+    newExperience: "Use openness of a map (not injectivity) together with EVT/IVT to force monotonicity; a topological hypothesis is converted into an order conclusion."
+    closestExisting: [tao-9.8.3, abbott-4.5.4]
+    machinery: "Extreme value theorem on intervals, open maps, continuous injective implies monotone."
+    standardResult: "continuous open map R → R is monotonic"
+    topic: continuity
+    subtopics: [continuity-and-topology, EVT, monotone-functions]
+    skills: [contradiction, EVT-on-subinterval, open-set-argument]
+    difficulty: medium
+    difficultyRationale: "Key aha: a non-monotone continuous f attains an interior max or min on some [a,b], so f((a,b)) is not open; then show strict monotonicity via injectivity."
+    category: challenge
+    type: proof
+    tags: [open-map, monotone, extreme-value-theorem, continuity, topology]
+    references: []
+    problemLatex: |
+      Call a mapping of $X$ into $Y$ *open* if $f(V)$ is an open set in $Y$ whenever $V$ is an open set in $X$.
+
+      Prove that every continuous open mapping of $R^1$ into $R^1$ is monotonic.
+    transcriptionNotes: ""
+
+  - cid: rudin-4.17
+    chapter: "4 Continuity"
+    section: "Exercises"
+    number: "Exercise 4.17"
+    page: "100"
+    pdfPage: 109
+    verdict: core
+    tier: upper
+    newExperience: "Countability of simple (jump/removable) discontinuities for an ARBITRARY function, via injecting the bad set into rational triples; the bank only proves the monotone case."
+    closestExisting: [abbott-4.6.6, cummings-6.35, abbott-4.6.5]
+    machinery: "One-sided limits, injection into Q^3 to prove countability, case analysis over discontinuity types."
+    standardResult: "any real function has at most countably many simple (first-kind) discontinuities"
+    topic: continuity
+    subtopics: [discontinuities, functional-limits]
+    skills: [injection-into-countable-set, rational-approximation, case-analysis]
+    difficulty: hard
+    difficultyRationale: "Even with the hint, showing each triple determines at most one point and handling all simple-discontinuity types (including removable ones) is a substantial argument."
+    category: challenge
+    type: proof
+    tags: [simple-discontinuity, one-sided-limits, countable, jump-discontinuity, rationals]
+    references: []
+    problemLatex: |
+      Let $f$ be a real function defined on $(a, b)$. Prove that the set of points at which $f$ has a simple discontinuity is at most countable. *Hint:* Let $E$ be the set on which $f(x-) < f(x+)$. With each point $x$ of $E$, associate a triple $(p, q, r)$ of rational numbers such that
+
+      (a) $f(x-) < p < f(x+)$,
+      (b) $a < q < t < x$ implies $f(t) < p$,
+      (c) $x < t < r < b$ implies $f(t) > p$.
+
+      The set of all such triples is countable. Show that each triple is associated with at most one point of $E$. Deal similarly with the other possible types of simple discontinuities.
+    transcriptionNotes: "Rudin's 'simple discontinuity' (Def. 4.26) = discontinuity of the first kind: both one-sided limits f(x+), f(x-) exist but f is discontinuous at x. Curator may wish to add this definition as a note."
+
+  - cid: rudin-4.19
+    chapter: "4 Continuity"
+    section: "Exercises"
+    number: "Exercise 4.19"
+    page: "100"
+    pdfPage: 109
+    verdict: core
+    tier: upper
+    newExperience: "Recover continuity from the intermediate value property plus closed rational level sets (Fine's theorem): an unusual combination of IVP, density of Q, and closedness under limits."
+    closestExisting: [abbott-4.5.3, ross-18.12, lebl-3.3.4]
+    machinery: "Sequential continuity by contradiction, intermediate value property, closed sets contain limits, density of Q."
+    standardResult: "Darboux (IVP) function with closed rational level sets is continuous (N. J. Fine)"
+    topic: continuity
+    subtopics: [IVT, sequential-continuity, continuity-and-topology]
+    skills: [contradiction, sequential-characterization, density-of-Q, closed-set-limit]
+    difficulty: hard
+    difficultyRationale: "Non-obvious synthesis: must set up the contradiction with a rational r strictly between, produce t_n via IVP, and use closedness of the level set."
+    category: challenge
+    type: proof
+    tags: [intermediate-value-property, Darboux-function, level-sets, closed-set, continuity, aha]
+    references: []
+    problemLatex: |
+      Suppose $f$ is a real function with domain $R^1$ which has the intermediate value property: If $f(a) < c < f(b)$, then $f(x) = c$ for some $x$ between $a$ and $b$.
+
+      Suppose also, for every rational $r$, that the set of all $x$ with $f(x) = r$ is closed.
+
+      Prove that $f$ is continuous.
+
+      *Hint:* If $x_n \to x_0$ but $f(x_n) > r > f(x_0)$ for some $r$ and all $n$, then $f(t_n) = r$ for some $t_n$ between $x_0$ and $x_n$; thus $t_n \to x_0$. Find a contradiction. (N. J. Fine, *Amer. Math. Monthly*, vol. 73, 1966, p. 782.)
+    transcriptionNotes: ""
+
+  - cid: rudin-4.24
+    chapter: "4 Continuity"
+    section: "Exercises"
+    number: "Exercise 4.24"
+    page: "101"
+    pdfPage: 110
+    verdict: strong
+    tier: upper
+    newExperience: "Midpoint convexity + continuity implies convexity: an induction over dyadic rationals followed by a density/continuity limit, a pattern absent from the bank."
+    closestExisting: [lebl-3.2.19]
+    machinery: "Induction to dyadic weights, density of dyadic rationals, passing to the limit via continuity."
+    standardResult: "continuous midpoint-convex function is convex"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity, dense-sets]
+    skills: [induction, dyadic-approximation, density-argument, continuity-limit]
+    difficulty: medium
+    difficultyRationale: "Two clear stages (dyadic λ by induction, then continuity) but the induction step requires a correct inductive formulation."
+    category: synthesis
+    type: proof
+    tags: [convexity, midpoint-convex, dyadic-rationals, density, continuity, Jensen]
+    references: []
+    problemLatex: |
+      Assume that $f$ is a continuous real function defined in $(a, b)$ such that
+      $$f\left(\frac{x+y}{2}\right) \le \frac{f(x)+f(y)}{2}$$
+      for all $x, y \in (a, b)$. Prove that $f$ is convex.
+    transcriptionNotes: "Rudin's definition of convex (Exercise 4.23): f(λx + (1−λ)y) ≤ λf(x) + (1−λ)f(y) whenever a<x<b, a<y<b, 0<λ<1. Curator may add this as a note for self-containedness."
+
+  - cid: rudin-4.25
+    chapter: "4 Continuity"
+    section: "Exercises"
+    number: "Exercise 4.25"
+    page: "102"
+    pdfPage: 111
+    verdict: strong
+    tier: upper
+    newExperience: "Algebraic sums of sets: compact + closed is closed, but closed + closed need not be (Z + αZ dense), combining a positive-distance argument with density of an additive subgroup."
+    closestExisting: [abbott-3.3.8, lebl-7.5.10, abbott-1.3.6]
+    machinery: "Positive distance between compact and disjoint closed sets; density of {m + nα} for irrational α (pigeonhole)."
+    standardResult: "K + C closed for K compact, C closed; Z + αZ (α irrational) is dense, so sum of closed sets need not be closed"
+    topic: topology
+    subtopics: [compactness, closed-sets, dense-sets]
+    skills: [positive-distance, pigeonhole, construct-counterexample, open-ball-argument]
+    difficulty: medium
+    difficultyRationale: "Part (a) is guided by the hint; part (b) needs the density of Z + αZ (pigeonhole/Dirichlet argument), the hardest essential part."
+    category: synthesis
+    type: counterexample
+    tags: [Minkowski-sum, compactness, closed-set, irrational-rotation, density, counterexample]
+    references: ["Exercise 21 (quoted)"]
+    problemLatex: |
+      If $A \subset R^k$ and $B \subset R^k$, define $A + B$ to be the set of all sums $\mathbf{x} + \mathbf{y}$ with $\mathbf{x} \in A$, $\mathbf{y} \in B$.
+
+      (a) If $K$ is compact and $C$ is closed in $R^k$, prove that $K + C$ is closed.
+
+      *Hint:* Take $\mathbf{z} \notin K + C$, put $F = \mathbf{z} - C$, the set of all $\mathbf{z} - \mathbf{y}$ with $\mathbf{y} \in C$. Then $K$ and $F$ are disjoint. Choose $\delta$ as in Exercise 21. Show that the open ball with center $\mathbf{z}$ and radius $\delta$ does not intersect $K + C$.
+
+      (b) Let $\alpha$ be an irrational real number. Let $C_1$ be the set of all integers, let $C_2$ be the set of all $n\alpha$ with $n \in C_1$. Show that $C_1$ and $C_2$ are closed subsets of $R^1$ whose sum $C_1 + C_2$ is *not* closed, by showing that $C_1 + C_2$ is a countable dense subset of $R^1$.
+
+      *(Exercise 21: Suppose $K$ and $F$ are disjoint sets in a metric space $X$, $K$ is compact, $F$ is closed. Prove that there exists $\delta > 0$ such that $d(p, q) > \delta$ if $p \in K$, $q \in F$.)*
+    transcriptionNotes: "Exercise 21 quoted verbatim (its hint and second paragraph omitted) from printed p. 101."
+
+  - cid: rudin-5.13
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.13"
+    page: "115"
+    pdfPage: 124
+    verdict: consider
+    tier: upper
+    newExperience: "Full two-parameter classification (a, c) of continuity/differentiability/boundedness of derivatives for x^a sin(|x|^{-c}); a sharper, quantitative version of the bank's c = 1 example."
+    closestExisting: [abbott-5.2.7, ross-28.4, cummings-7.7, lebl-4.3.8]
+    machinery: "Derivative from the definition, chain rule, boundedness/limit analysis of oscillating terms, sequences to disprove bounds."
+    standardResult: "x^a sin(|x|^{-c}): exact thresholds for continuity, differentiability, bounded/continuous f', f''"
+    topic: differentiation
+    subtopics: [differentiability, derivative-definition, derivative-rules]
+    skills: [compute-derivative, oscillation-sequences, exponent-bookkeeping, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Each part is routine, but seven iff statements with both directions and careful exponent bookkeeping make it a substantial classification."
+    category: synthesis
+    type: counterexample
+    tags: [x-sin-1-over-x, classification, differentiability, oscillation, counterexample]
+    references: []
+    problemLatex: |
+      Suppose $a$ and $c$ are real numbers, $c > 0$, and $f$ is defined on $[-1, 1]$ by
+      $$f(x) = \begin{cases} x^a \sin(|x|^{-c}) & (\text{if } x \ne 0), \\ 0 & (\text{if } x = 0). \end{cases}$$
+      Prove the following statements:
+
+      (a) $f$ is continuous if and only if $a > 0$.
+      (b) $f'(0)$ exists if and only if $a > 1$.
+      (c) $f'$ is bounded if and only if $a \ge 1 + c$.
+      (d) $f'$ is continuous if and only if $a > 1 + c$.
+      (e) $f''(0)$ exists if and only if $a > 2 + c$.
+      (f) $f''$ is bounded if and only if $a \ge 2 + 2c$.
+      (g) $f''$ is continuous if and only if $a > 2 + 2c$.
+    transcriptionNotes: "Printed as x^a sin(|x|^{-c}); for non-integer a, x^a is undefined for x<0, and the standard reading (Rudin errata) is |x|^a. Transcribed as printed; curator may want to note |x|^a."
+
+  - cid: rudin-5.14
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.14"
+    page: "115"
+    pdfPage: 124
+    verdict: consider
+    tier: core-gap
+    newExperience: "The bank has continuity of convex functions but no derivative characterization of convexity (f' increasing, f'' ≥ 0)."
+    closestExisting: [lebl-3.2.19]
+    machinery: "Mean value theorem applied to slopes of chords; monotonicity from sign of derivative."
+    standardResult: "differentiable f is convex iff f' is increasing iff (when f'' exists) f'' ≥ 0"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, slope-comparison, contradiction]
+    difficulty: medium
+    difficultyRationale: "The converse (f' increasing ⇒ convex) needs a two-sided MVT comparison of chord slopes; the f'' part is then immediate."
+    category: canonical
+    type: proof
+    tags: [convexity, mean-value-theorem, monotone-derivative, second-derivative]
+    references: []
+    problemLatex: |
+      Let $f$ be a differentiable real function defined in $(a, b)$. Prove that $f$ is convex if and only if $f'$ is monotonically increasing. Assume next that $f''(x)$ exists for every $x \in (a, b)$, and prove that $f$ is convex if and only if $f''(x) \ge 0$ for all $x \in (a, b)$.
+    transcriptionNotes: "Convexity as defined in Rudin Exercise 4.23: f(λx + (1−λ)y) ≤ λf(x) + (1−λ)f(y) for a<x<b, a<y<b, 0<λ<1. Core-gap only if the curator wants convexity covered; otherwise drop."
+
+  - cid: rudin-5.15
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.15"
+    page: "115"
+    pdfPage: 124
+    verdict: core
+    tier: upper
+    newExperience: "Landau's inequality M_1^2 ≤ 4 M_0 M_2: bound a middle derivative by optimizing a Taylor estimate over a free step h, with a sharpness example; a classic prelim pattern missing from the bank."
+    closestExisting: [abbott-6.6.8, mit20-a11-4]
+    machinery: "Taylor's theorem with Lagrange remainder, optimizing over an auxiliary parameter, sharpness construction."
+    standardResult: "Landau–Kolmogorov inequality M_1^2 ≤ 4 M_0 M_2 on a half-line"
+    topic: differentiation
+    subtopics: [taylor, inequalities]
+    skills: [taylor-estimate, optimize-free-parameter, verify-extremal-example]
+    difficulty: hard
+    difficultyRationale: "With the hint the inequality is a medium Taylor estimate; the sharpness verification and the vector-valued question raise it to hard."
+    category: challenge
+    type: proof
+    tags: [Landau-inequality, Taylor, derivative-bounds, sharp-inequality, prelim]
+    references: []
+    problemLatex: |
+      Suppose $a \in R^1$, $f$ is a twice-differentiable real function on $(a, \infty)$, and $M_0, M_1, M_2$ are the least upper bounds of $|f(x)|$, $|f'(x)|$, $|f''(x)|$, respectively, on $(a, \infty)$. Prove that
+      $$M_1^2 \le 4 M_0 M_2.$$
+      *Hint:* If $h > 0$, Taylor's theorem shows that
+      $$f'(x) = \frac{1}{2h}\left[f(x + 2h) - f(x)\right] - h f''(\xi)$$
+      for some $\xi \in (x, x + 2h)$. Hence
+      $$|f'(x)| \le h M_2 + \frac{M_0}{h}.$$
+      To show that $M_1^2 = 4 M_0 M_2$ can actually happen, take $a = -1$, define
+      $$f(x) = \begin{cases} 2x^2 - 1 & (-1 < x < 0), \\ \dfrac{x^2 - 1}{x^2 + 1} & (0 \le x < \infty), \end{cases}$$
+      and show that $M_0 = 1$, $M_1 = 4$, $M_2 = 4$.
+
+      Does $M_1^2 \le 4 M_0 M_2$ hold for vector-valued functions too?
+    transcriptionNotes: "Exercise spans printed pp. 115-116. In the extremal example, f'' fails to exist at 0 in the classical sense (one-sided second derivatives 4 and −2); transcribed exactly as printed."
+
+  - cid: rudin-5.16
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.16"
+    page: "116"
+    pdfPage: 125
+    verdict: strong
+    tier: upper
+    newExperience: "f → 0 at infinity with bounded f'' forces f' → 0: apply a derivative inequality on tails [a, ∞) and let a → ∞; a standard prelim pattern (contrast f → 0 does not imply f' → 0)."
+    closestExisting: [abbott-5.3.8, lebl-4.2.13]
+    machinery: "Landau inequality on tails, limits at infinity, Taylor estimate."
+    standardResult: "f → 0 and f'' bounded on (0, ∞) imply f' → 0"
+    topic: differentiation
+    subtopics: [taylor, mvt-applications]
+    skills: [taylor-estimate, tail-argument, limits-at-infinity]
+    difficulty: medium
+    difficultyRationale: "Given Exercise 15 it is a short tail argument; done from scratch it needs the Taylor-step-optimization idea."
+    category: synthesis
+    type: theorem-application
+    tags: [limits-at-infinity, second-derivative-bound, Taylor, Landau-inequality, prelim]
+    references: ["Exercise 15 (quoted)"]
+    problemLatex: |
+      Suppose $f$ is twice-differentiable on $(0, \infty)$, $f''$ is bounded on $(0, \infty)$, and $f(x) \to 0$ as $x \to \infty$. Prove that $f'(x) \to 0$ as $x \to \infty$.
+
+      *Hint:* Let $a \to \infty$ in Exercise 15.
+
+      *(Exercise 15: Suppose $a \in R^1$, $f$ is a twice-differentiable real function on $(a, \infty)$, and $M_0, M_1, M_2$ are the least upper bounds of $|f(x)|$, $|f'(x)|$, $|f''(x)|$, respectively, on $(a, \infty)$. Prove that $M_1^2 \le 4M_0M_2$.)*
+    transcriptionNotes: "Exercise 15's main statement quoted verbatim (its hint/sharpness discussion omitted). Pairs naturally with rudin-5.15; curator could keep one."
+
+  - cid: rudin-5.17
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.17"
+    page: "116"
+    pdfPage: 125
+    verdict: strong
+    tier: upper
+    newExperience: "Extract a lower bound on f''' from four interpolation conditions by expanding Taylor at 0 in two directions and subtracting; a slick two-sided Taylor trick with a sharp extremal example."
+    closestExisting: [mit20-a11-4, mit20-a11-3]
+    machinery: "Taylor's theorem with Lagrange remainder applied at two points, cancellation, averaging."
+    standardResult: "f(−1)=f(0)=0, f(1)=1, f'(0)=0 ⇒ f'''(x) ≥ 3 for some x ∈ (−1,1)"
+    topic: differentiation
+    subtopics: [taylor]
+    skills: [taylor-two-sided, cancellation, averaging-argument]
+    difficulty: medium
+    difficultyRationale: "With the hint it is a clean computation plus averaging; the aha is expanding at α = 0 toward both endpoints."
+    category: challenge
+    type: theorem-application
+    tags: [Taylor, third-derivative, sharp-bound, Putnam-style]
+    references: ["Theorem 5.15 (quoted)"]
+    problemLatex: |
+      Suppose $f$ is a real, three times differentiable function on $[-1, 1]$, such that
+      $$f(-1) = 0, \qquad f(0) = 0, \qquad f(1) = 1, \qquad f'(0) = 0.$$
+      Prove that $f^{(3)}(x) \ge 3$ for some $x \in (-1, 1)$.
+
+      Note that equality holds for $\frac{1}{2}(x^3 + x^2)$.
+
+      *Hint:* Use Theorem 5.15, with $\alpha = 0$ and $\beta = \pm 1$, to show that there exist $s \in (0, 1)$ and $t \in (-1, 0)$ such that
+      $$f^{(3)}(s) + f^{(3)}(t) = 6.$$
+
+      *(Theorem 5.15 (Taylor's theorem): Suppose $f$ is a real function on $[a, b]$, $n$ is a positive integer, $f^{(n-1)}$ is continuous on $[a, b]$, $f^{(n)}(t)$ exists for every $t \in (a, b)$. Let $\alpha, \beta$ be distinct points of $[a, b]$, and define $$P(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k.$$ Then there exists a point $x$ between $\alpha$ and $\beta$ such that $$f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!}(\beta - \alpha)^n.$$)*
+    transcriptionNotes: "Theorem 5.15 quoted verbatim from printed pp. 110-111 (pdf 119-120). The book prints '½(x³ + x²)'."
+
+  - cid: rudin-5.19
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.19"
+    page: "116"
+    pdfPage: 125
+    verdict: strong
+    tier: upper
+    newExperience: "Which non-symmetric difference quotients converge to f'(0): straddling points, a bounded-ratio condition, or continuity of f' suffice, with a counterexample otherwise; a classification of when an approximation scheme works."
+    closestExisting: [ross-28.14, abbott-5.2.9, lebl-4.2.4]
+    machinery: "Definition of derivative, convex-combination decomposition of difference quotients, MVT, x² sin(1/x)-type counterexample."
+    standardResult: "convergence of difference quotients D_n = (f(β_n) − f(α_n))/(β_n − α_n) to f'(0)"
+    topic: differentiation
+    subtopics: [derivative-definition, mvt-applications]
+    skills: [convex-combination-of-quotients, MVT-application, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a)-(c) each need a small idea (weighted average of one-sided quotients, MVT); the counterexample requires choosing α_n, β_n on oscillation points of x² sin(1/x)."
+    category: synthesis
+    type: proof
+    tags: [difference-quotient, derivative, counterexample, x-squared-sin-1-over-x, classification]
+    references: []
+    problemLatex: |
+      Suppose $f$ is defined in $(-1, 1)$ and $f'(0)$ exists. Suppose $-1 < \alpha_n < \beta_n < 1$, $\alpha_n \to 0$, and $\beta_n \to 0$ as $n \to \infty$. Define the difference quotients
+      $$D_n = \frac{f(\beta_n) - f(\alpha_n)}{\beta_n - \alpha_n}.$$
+      Prove the following statements:
+
+      (a) If $\alpha_n < 0 < \beta_n$, then $\lim D_n = f'(0)$.
+      (b) If $0 < \alpha_n < \beta_n$ and $\{\beta_n/(\beta_n - \alpha_n)\}$ is bounded, then $\lim D_n = f'(0)$.
+      (c) If $f'$ is continuous in $(-1, 1)$, then $\lim D_n = f'(0)$.
+
+      Give an example in which $f$ is differentiable in $(-1, 1)$ (but $f'$ is not continuous at 0) and in which $\alpha_n, \beta_n$ tend to 0 in such a way that $\lim D_n$ exists but is different from $f'(0)$.
+    transcriptionNotes: "Spans printed pp. 116-117."
+
+  - cid: rudin-5.21
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.21"
+    page: "117"
+    pdfPage: 126
+    verdict: core
+    tier: upper
+    newExperience: "Every closed set in R is the zero set of a C^∞ function: combine the open-interval decomposition of the complement with smooth bumps and a convergent series with controlled derivatives; an open-ended construction problem."
+    closestExisting: [ross-31.4, abbott-4.3.9, ross-31.5]
+    machinery: "Structure of open sets in R, smooth bump functions from e^{-1/x}, term-by-term differentiation of series with derivative bounds."
+    standardResult: "every closed subset of R is the zero set of a C^∞ function"
+    topic: differentiation
+    subtopics: [differentiability, taylor]
+    skills: [structure-of-open-sets, smooth-bump-construction, series-with-derivative-bounds]
+    difficulty: hard
+    difficultyRationale: "The differentiable case is moderate; the C^∞ case requires gluing countably many bumps with weights controlling all derivatives (uniform convergence of derivative series)."
+    category: challenge
+    type: construction
+    tags: [zero-set, closed-set, smooth-functions, bump-function, construction, open-ended]
+    references: ["Exercise 22, Chap. 4 (fact stated within the exercise)"]
+    problemLatex: |
+      Let $E$ be a closed subset of $R^1$. We saw in Exercise 22, Chap. 4, that there is a real continuous function $f$ on $R^1$ whose zero set is $E$. Is it possible, for each closed set $E$, to find such an $f$ which is differentiable on $R^1$, or one which is $n$ times differentiable, or even one which has derivatives of all orders on $R^1$?
+    transcriptionNotes: "Self-contained: the referenced fact is stated in the exercise. Full C^∞ answer uses uniform convergence of derivative series (Chapter 7 machinery); difficulty reflects that."
+
+  - cid: rudin-5.26
+    chapter: "5 Differentiation"
+    section: "Exercises"
+    number: "Exercise 5.26"
+    page: "119"
+    pdfPage: 128
+    verdict: strong
+    tier: upper
+    newExperience: "Gronwall-type uniqueness: |f'| ≤ A|f| and f(a)=0 force f ≡ 0, via a bootstrapping argument on short subintervals; the bank has no differential-inequality/uniqueness problem."
+    closestExisting: [mit20-a12-1, lebl-4.2.5]
+    machinery: "MVT estimate, sup bound bootstrapping, stepping across an interval in pieces of fixed length."
+    standardResult: "differential inequality |f'| ≤ A|f|, f(a) = 0 ⇒ f ≡ 0 (Gronwall-type uniqueness)"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, sup-bootstrapping, interval-stepping]
+    difficulty: medium
+    difficultyRationale: "Hint gives the first step; the student must make the 'Proceed' step rigorous by iterating over subintervals of length < 1/A."
+    category: synthesis
+    type: proof
+    tags: [Gronwall, uniqueness, differential-inequality, mean-value-theorem, ODE-uniqueness]
+    references: []
+    problemLatex: |
+      Suppose $f$ is differentiable on $[a, b]$, $f(a) = 0$, and there is a real number $A$ such that $|f'(x)| \le A|f(x)|$ on $[a, b]$. Prove that $f(x) = 0$ for all $x \in [a, b]$. *Hint:* Fix $x_0 \in [a, b]$, let
+      $$M_0 = \sup |f(x)|, \qquad M_1 = \sup |f'(x)|$$
+      for $a \le x \le x_0$. For any such $x$,
+      $$|f(x)| \le M_1(x_0 - a) \le A(x_0 - a)M_0.$$
+      Hence $M_0 = 0$ if $A(x_0 - a) < 1$. That is, $f = 0$ on $[a, x_0]$. Proceed.
+    transcriptionNotes: "Note M_1 could a priori be +∞ if f' is unbounded; the inequality |f'| ≤ A|f| with f continuous makes it finite. Transcribed as printed."
+skipped:
+  - "4.1 symmetric-difference limit vs continuity: easy one-line counterexample, below upper tier (closest ross-28.14)"
+  - "4.2 f(closure E) ⊂ closure f(E): lebl-7.5.3; 4.3 zero set closed: abbott-4.3.9; 4.4 dense image / determined by dense subset: routine"
+  - "4.7 R^2 function bounded/unbounded but continuous on lines: multivariable (cf. lebl-7.5.2, lebl-7.5.17)"
+  - "4.8 UC on bounded set is bounded: ross-19.4/tao-9.9.5; 4.9 diameter rephrasing of UC: routine; 4.10 alternate proof of compact ⇒ UC: book-development"
+  - "4.11 UC preserves Cauchy: cummings-6.28/tao-9.9.3; 4.12 composition of UC: tao-9.9.6"
+  - "4.13 UC on dense subset extends continuously (with range-space questions): lebl-3.4.9/tao-9.9.4 already cover the core; range-space part is the only new bit"
+  - "4.14 fixed point of [0,1]: abbott-4.5.7 etc.; 4.16 floor/fractional part discontinuities: routine; 4.18 Thomae: abbott-4.3.7"
+  - "4.20 distance function: abbott-4.3.12/lebl-7.5.10; 4.21 positive distance compact vs closed: abbott-3.3.8 (counterexample half is minor)"
+  - "4.22 Urysohn function / normality of metric spaces: routine given distance function (abbott-4.3.12); optional"
+  - "4.23 convex ⇒ continuous: lebl-3.2.19; increasing-convex composition and slope inequality routine"
+  - "4.26 f uniformly continuous if g∘f is, Y compact: decent hypothesis-removal but depends on Example 4.21 context; optional, lower value"
+  - "5.1 |f(x)-f(y)| ≤ (x-y)^2: lebl-4.2.5/ross-29.5; 5.2 inverse derivative: abbott-5.2.12; 5.3 x+εg injective: routine MVT"
+  - "5.4 root via Rolle on antiderivative polynomial: routine MVT trick; 5.5 f'→0 ⇒ f(x+1)-f(x)→0: routine MVT; 5.6 f(x)/x increasing: routine MVT"
+  - "5.7 simple L'Hospital: tao-10.5.1; 5.8 uniformly differentiable: abbott-5.2.8; 5.9 f'→3 ⇒ f'(0)=3: abbott-5.3.8/lebl-4.2.13; 5.10 complex L'Hospital: outside scope"
+  - "5.11 second symmetric difference → f''(x): abbott-5.3.12 / lebl-4.3.11 close; 5.12 |x|^3: lebl-4.3.3"
+  - "5.18 Taylor via Q(t): book-development; 5.20 vector-valued Taylor inequality: open-ended/vector-valued"
+  - "5.22 fixed points / contraction / t+(1+e^t)^{-1}: ross-29.18, lebl-7.6.6, abbott-4.3.11; 5.23 iteration of (x^3+1)/3: recursive-sequence routine"
+  - "5.24 convergence-rate comparison of iterations: open-ended, depends on Chap. 3 exercises; 5.25 Newton's method quadratic convergence: lebl-2.2.11/lebl-7.6.9/ross-31.11 cover the pattern"
+  - "5.27 ODE uniqueness under Lipschitz condition (y'=y^{1/2}): direct corollary of 5.26, ODE-flavored; 5.28-5.29 systems / linear ODEs: outside scope"

@@ -20,6 +20,7 @@ const EXAMPLE_REQUESTS = [
   '8 undergraduate sequence problems focused on convergence and subsequences',
   '5 introductory or medium epsilon-delta problems',
   '6 unseen easy to hard problems on continuity and differentiation',
+  '4 upper tier topology problems',
 ];
 
 const STATUS_LABEL: Record<string, string> = { unseen: 'Unseen', attempted: 'Attempted', completed: 'Completed' };

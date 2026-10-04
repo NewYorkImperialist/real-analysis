@@ -22,8 +22,20 @@ export function About() {
       </section>
 
       <section class="stack">
+        <h2>Core and upper tier</h2>
+        <p>
+          The <strong>core</strong> is the finishable bank: the undergraduate machinery a graduate course assumes.
+          The <strong>upper tier</strong> is an optional layer of harder problems, mostly from Pugh, Rudin and
+          MIT 18.100B: multi-step synthesis, constructions, hypothesis-necessity counterexamples and classification
+          problems, chosen only when they add a problem-solving experience the core lacks. Upper-tier problems are
+          not counted in core progress and appear in practice sets only when you ask for them (“upper tier”).
+          A few, tagged <em>bridge to measure theory</em>, preview measure-zero ideas.
+        </p>
+      </section>
+
+      <section class="stack">
         <h2>Sources</h2>
-        <p>Every problem is taken from one of six approved sources and cited to chapter, section and number.</p>
+        <p>Every problem is taken from one of the approved sources and cited to chapter, section and number.</p>
         <dl class="defs">
           {sources.map((s) => (
             <Fragment key={s.key}>

@@ -22,7 +22,7 @@ const load = (f) => yaml.load(fs.readFileSync(f, 'utf8'));
 
 const sources = load(path.join(dataDir, 'sources.yaml'));
 const taxonomy = load(path.join(dataDir, 'taxonomy.yaml'));
-const APPROVED = ['mit', 'abbott', 'lebl', 'ross', 'cummings', 'tao'];
+const APPROVED = ['mit', 'abbott', 'lebl', 'ross', 'cummings', 'tao', 'pugh', 'rudin', 'mit18100b'];
 for (const s of sources) if (!APPROVED.includes(s.key)) err('sources.yaml', `unapproved source key "${s.key}"`);
 const sourceKeys = new Set(sources.map((s) => s.key));
 
@@ -105,6 +105,7 @@ for (const f of files) {
         else checkLatex(`${where} solution`, s.latex);
       }
     }
+    if (p.tier !== undefined && p.tier !== 'upper') err(where, `tier must be "upper" or absent (core), got "${p.tier}"`);
     if (p.assignedIn && !Array.isArray(p.assignedIn)) err(where, 'assignedIn must be a list');
     if (p.notes) checkLatex(`${where} notes`, p.notes);
     if (p.curation?.why) checkLatex(`${where} curation`, p.curation.why);
@@ -182,7 +183,8 @@ if (errors.length) {
 
 const counts = {};
 for (const p of problems) counts[p.source.key] = (counts[p.source.key] ?? 0) + 1;
-console.log(`✓ ${problems.length} problems valid`, counts, `· AI hints: ${aiHints}, AI solutions: ${aiSolutions}`);
+const nUpper = problems.filter((p) => p.tier === 'upper').length;
+console.log(`✓ ${problems.length} problems valid (${problems.length - nUpper} core, ${nUpper} upper tier)`, counts, `· AI hints: ${aiHints}, AI solutions: ${aiSolutions}`);
 
 if (!checkOnly) {
   const bank = {

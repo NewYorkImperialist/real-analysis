@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import type { Problem } from '../lib/types';
 import { DIFFICULTIES, CATEGORIES, TYPES } from '../lib/types';
-import { problems as allProblems, sources, topics, topicByKey, allTags, label } from '../lib/bank';
+import { problems as allProblems, sources, topics, topicByKey, allTags, label, TIER_LABEL } from '../lib/bank';
 import { matches, emptyFilters, type Filters } from '../lib/filter';
 import { STATUSES } from '../lib/progress';
 import { useProgress } from '../lib/useProgress';
@@ -9,12 +9,12 @@ import '../styles/explore.css';
 
 export const MIT_SOURCE_LABEL = 'MIT 18.100A (2020) incl. assigned Lebl exercises';
 
-type ListFacet = 'topic' | 'subtopic' | 'source' | 'difficulty' | 'category' | 'type' | 'status';
+type ListFacet = 'topic' | 'subtopic' | 'source' | 'difficulty' | 'category' | 'type' | 'tier' | 'status';
 type Option = { value: string; label: string };
 
 export function activeFilterCount(f: Filters): number {
   return f.topic.length + f.subtopic.length + f.source.length + f.difficulty.length + f.category.length +
-    f.type.length + f.tag.length + f.status.length + (f.bookmarked ? 1 : 0);
+    f.type.length + f.tier.length + f.tag.length + f.status.length + (f.bookmarked ? 1 : 0);
 }
 
 export const sourceOptionLabel = (key: string) =>
@@ -136,6 +136,7 @@ export function FilterPanel({
           <p class="fp-hint muted">Choose a topic to narrow by subtopic.</p>
         )}
 
+        {group('tier', 'Tier', (['core', 'upper'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })))}
         {group('difficulty', 'Difficulty', DIFFICULTIES.map((d) => ({ value: d, label: label(d) })))}
         {group('category', 'Category', CATEGORIES.map((d) => ({ value: d, label: label(d) })))}
         {group('type', 'Type', TYPES.map((d) => ({ value: d, label: label(d) })))}

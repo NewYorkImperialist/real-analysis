@@ -17,6 +17,12 @@ export const sourceShort = (k: string) => sourceByKey.get(k as Source["key"])?.s
 const CAP: Record<string, string> = { 'very-hard': 'Very hard', 'theorem-application': 'Theorem application' };
 export const label = (s: string) => CAP[s] ?? s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, ' ');
 
+/** 'core' unless the problem is in the optional upper tier. */
+export const tierOf = (p: Problem): 'core' | 'upper' => p.tier ?? 'core';
+export const coreProblems = problems.filter((p) => !p.tier);
+export const upperProblems = problems.filter((p) => p.tier === 'upper');
+export const TIER_LABEL = { core: 'Core', upper: 'Upper tier' } as const;
+
 export const difficultyRank = (d: Difficulty) => DIFFICULTIES.indexOf(d);
 
 // "Assigned in MIT 18.100A (2020)" counts toward the MIT source filter.

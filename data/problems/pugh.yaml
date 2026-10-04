@@ -1,0 +1,874 @@
+
+- id: pugh-prelim-63
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: More Prelim Problems
+    problemNumber: Prelim Problem 63
+    page: '276'
+  topic: series
+  subtopics:
+  - comparison
+  - convergence-tests
+  skills:
+  - construction-from-tails
+  - telescoping
+  - block-argument
+  concept: 'no slowest convergent series: Σa_n < ∞ ⇒ ∃ c_n → ∞ with Σ c_n a_n < ∞'
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - series
+  - tails
+  - no-slowest-convergence
+  - construction
+  - prelim
+  problemLatex: |
+    Let $(a_n)$ be a sequence of positive numbers such that $\sum a_n$ converges. Prove that there exists a sequence of numbers $c_n \to \infty$ as $n \to \infty$ such that $\sum c_n a_n$ converges.
+  notes: Verbatim.
+  curation:
+    why: 'There is no slowest convergent series: a construction built from the tails of a series.'
+  tier: upper
+
+- id: pugh-3.73
+  source:
+    key: pugh
+    chapter: 3 Functions of a Real Variable
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 73
+    page: '210'
+  topic: series
+  subtopics:
+  - double-series-products
+  - absolute-convergence
+  - conditional-convergence
+  skills:
+  - tail-estimate
+  - epsilon-over-2
+  - index-splitting
+  - construct-counterexample
+  - AM-GM
+  concept: Mertens' theorem (one series absolutely convergent suffices) and divergent Cauchy square of (-1)^n/sqrt(n+1)
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - Cauchy-product
+  - Mertens-theorem
+  - absolute-convergence
+  - conditional-convergence
+  - counterexample
+  - hypothesis-removal
+  problemLatex: |
+    With reference to Exercise 72,
+
+    (a) Reduce the hypothesis that both series $\sum a_i$ and $\sum b_j$ are absolutely convergent to merely one being absolutely convergent and the other convergent. (Exercises 72 and 73(a) are known as **Mertens' Theorem**.)
+
+    (b) Find an example to show that the Cauchy product of two conditionally convergent series may diverge.
+
+    *(Exercise 72: Absolutely convergent series can be multiplied in a natural way, the result being their **Cauchy product**,
+    $$\Big(\sum_{i=0}^\infty a_i\Big)\Big(\sum_{j=0}^\infty b_j\Big) = \sum_{k=0}^\infty c_k$$
+    where $c_k = a_0b_k + a_1b_{k-1} + \cdots + a_kb_0$. (a) Prove that $\sum c_k$ converges absolutely. The hint to 72 says: letting $A_n, B_n, C_n$ be the $n$th partial sums of $\sum a_i, \sum b_j, \sum c_k$, "you are asked to prove that $(\lim A_n)(\lim B_n) = \lim C_n$.")*
+  notes: Checked against the page image. The relevant content of Exercise 72 is quoted (the definition, part (a), and the sentence from its hint that states the intended conclusion), since 73(a) asks for the conclusion of 72 under the weaker hypothesis. Pugh marks this exercise **.
+  curation:
+    why: 'Mertens'' theorem on Cauchy products, and why its absolute-convergence hypothesis cannot simply be dropped.'
+  tier: upper
+
+- id: pugh-3.68
+  source:
+    key: pugh
+    chapter: 3 Functions of a Real Variable
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 68
+    page: '209'
+  topic: series
+  subtopics:
+  - conditional-convergence
+  skills:
+  - taylor-estimate
+  - grouping-terms
+  - logarithm-trick
+  - construct-counterexample
+  concept: sum a_k and prod(1+a_k) can converge/diverge independently when a_k changes sign ((-1)^k/sqrt k examples)
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - infinite-product
+  - conditional-convergence
+  - logarithm
+  - Taylor
+  - counterexample
+  - alternating-series
+  problemLatex: |
+    Show that conditional convergence of the series $\sum a_k$ and the product $\prod(1+a_k)$ can be unrelated to each other:
+
+    (a) Set $a_k = (-1)^k/\sqrt{k}$. The series $\sum a_k$ converges but the corresponding product $\prod(1+a_k)$ diverges. [Hint: Group the terms in the product two at a time.]
+
+    (b) Let $e_k = 0$ when $k$ is odd and $e_k = 1$ when $k$ is even. Set $b_k = e_k/k + (-1)^k/\sqrt{k}$. The series $\sum b_k$ diverges while the corresponding product $\prod_{k\ge 2}(1+b_k)$ converges.
+
+    *(Exercise 67: An **infinite product** is an expression $\prod c_k$ where $c_k > 0$. The $n$th **partial product** is $C_n = c_1\cdots c_n$. If $C_n$ converges to a limit $C\ne 0$ then the product converges to $C$.)*
+  notes: 'Checked against the page image. The definitions from Exercise 67 are quoted. In (a), 1 + a_1 = 0, so the k = 1 factor violates c_k > 0. That is the book''s own sloppiness; part (b) starts at k >= 2, and (a) is presumably meant from k = 2 as well. Exercise 67 itself (constant-sign a_k: sum converges iff product converges) is canonical and the bank has no infinite products. The curator may want to add it as a core-gap companion (see skipped).'
+  curation:
+    why: 'Infinite products: without a sign condition, convergence of a series and of the matching product are unrelated.'
+  tier: upper
+
+- id: pugh-2.44
+  source:
+    key: pugh
+    chapter: 2 A Taste of Topology
+    section: Exercises
+    problemNumber: Exercise 44
+    page: '128'
+  topic: continuity
+  subtopics:
+  - continuity-metric-spaces
+  - continuity-and-topology
+  skills:
+  - sequential-characterization
+  - subsequence-extraction
+  - construct-counterexample
+  concept: closed graph / compact graph vs continuity
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - graph
+  - closed-set
+  - compactness
+  - continuity
+  - counterexample
+  - closed-graph
+  problemLatex: |
+    Consider a function $f\colon M \to \mathbb{R}$. Its graph is the set
+    $$\{(p, y) \in M \times \mathbb{R} : y = fp\}.$$
+    (a) Prove that if $f$ is continuous then its graph is closed (as a subset of $M \times \mathbb{R}$).
+    (b) Prove that if $f$ is continuous and $M$ is compact then its graph is compact.
+    (c) Prove that if the graph of $f$ is compact then $f$ is continuous.
+    (d) What if the graph is merely closed? Give an example of a discontinuous function $f\colon \mathbb{R} \to \mathbb{R}$ whose graph is closed.
+  notes: Pugh writes fp for f(p).
+  curation:
+    why: 'How continuity relates to topological properties of the graph, in both directions.'
+  tier: upper
+
+- id: pugh-4.20
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: Exercises
+    problemNumber: Exercise 4.20
+    page: '265'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  - lipschitz-holder
+  skills:
+  - MVT-application
+  - sequential-characterization
+  - construct-counterexample
+  - case-analysis
+  concept: classify (α,β) for which x^α sin(x^β) is uniformly continuous on (0,∞)
+  difficulty: hard
+  category: challenge
+  type: counterexample
+  tags:
+  - uniform-continuity
+  - equicontinuity
+  - classification
+  - oscillation
+  - counterexample
+  problemLatex: |
+    Given constants $\alpha, \beta > 0$ define
+    $$f_{\alpha,\beta}(x) = x^{\alpha}\sin(x^{\beta})$$
+    for $x > 0$. For which pairs $\alpha, \beta$ is $f_{\alpha,\beta}$ uniformly continuous on $(0,\infty)$?
+    [Hint: Draw picture of the graphs when $\alpha \ge 2$ or $\beta \ge 2$. How about $\alpha > 1$ or $\beta > 1$?]
+  notes: 'Starred (*) in the book. Hint is printed inside the exercise. Verified against page image. Trimmed to part (a) only; the book''s part (b) (for which sets of (alpha, beta) is the family equicontinuous?) was dropped at curation. "On (0, infinity)" is added for clarity; the book defines f for x > 0.'
+  curation:
+    why: 'A two-parameter classification of uniform continuity: amplitude growth against oscillation.'
+  tier: upper
+
+- id: pugh-1.32
+  source:
+    key: pugh
+    chapter: 1 Real Numbers
+    section: Chapter 1 Exercises
+    problemNumber: Exercise 32
+    page: '49'
+  topic: differentiation
+  subtopics:
+  - differentiability
+  skills:
+  - slope-comparison
+  - one-sided-derivatives
+  - countability-argument
+  concept: convex function is differentiable except at countably many points
+  difficulty: hard
+  category: synthesis
+  type: proof
+  tags:
+  - convex-function
+  - differentiability
+  - countable-set
+  - monotone-function
+  - one-sided-derivative
+  - synthesis
+  problemLatex: |
+    *(Definition, quoted from Exercise 30.)* A function $f\colon (a,b) \to \mathbb{R}$ is a **convex function** if for all $x, y \in (a,b)$ and all $s, t \in [0,1]$ with $s + t = 1$ we have
+    $$f(sx + ty) \le s f(x) + t f(y).$$
+
+    (a) *(Exercise 30(c).)* Suppose that $f$ is convex and $a < x < u < b$. The slope $\sigma$ of the line through $(x, f(x))$ and $(u, f(u))$ depends on $x$ and $u$, say $\sigma = \sigma(x,u)$. Prove that $\sigma$ increases when $x$ increases, and $\sigma$ increases when $u$ increases.
+
+    (b) *(Exercise 32(b).)* Show that a convex function has a derivative except at a countable set of points.
+  notes: 'Verified against page images (printed pp. 49–50). Merged and trimmed at curation: part (a) is Pugh''s Exercise 30(c), transcribed verbatim, and part (b) is Exercise 32(b) (starred *), whose word "Similarly" referred to the dropped plane-curve part 32(a) and has been removed. The definition of convex function is quoted verbatim from Exercise 30. "Increases" means "does not decrease".'
+  curation:
+    why: 'Convex functions are differentiable at all but countably many points.'
+  tier: upper
+
+- id: pugh-prelim-45
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: More Prelim Problems
+    problemNumber: Prelim Problem 45
+    page: '274'
+  topic: integration
+  subtopics:
+  - improper-integrals
+  skills:
+  - contradiction
+  - choose-delta
+  - cauchy-criterion
+  concept: uniformly continuous f with convergent ∫_0^∞ f has f(x) → 0 (Barbalat's lemma)
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - improper-integral
+  - uniform-continuity
+  - limits-at-infinity
+  - hypothesis-necessity
+  - prelim
+  problemLatex: |
+    Let $f\colon [0,\infty) \to \mathbb{R}$ be uniformly continuous and assume that
+    $$\lim_{b\to\infty} \int_0^b f(x)\, dx$$
+    exists (as a finite limit). Prove that $\lim_{x\to\infty} f(x) = 0$.
+  notes: Verified against page image.
+  curation:
+    why: 'A convergent improper integral plus uniform continuity forces decay (Barbalat''s lemma).'
+  tier: upper
+
+- id: pugh-prelim-56
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: More Prelim Problems
+    problemNumber: Prelim Problem 56
+    page: '275'
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  - improper-integrals
+  skills:
+  - integrating-factor
+  - lhopital-infinity-over-infinity
+  - epsilon-estimate
+  concept: if f + ∫_0^x f has a finite limit then f → 0 (F' + F → L ⇒ F → L)
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - limits-at-infinity
+  - fundamental-theorem
+  - integrating-factor
+  - lhopital
+  - prelim
+  problemLatex: |
+    Let $f$ be a continuous real-valued function on $[0,\infty)$ such that
+    $$\lim_{x\to\infty} \Bigl( f(x) + \int_0^x f(t)\, dt \Bigr)$$
+    exists (and is finite). Prove that $\lim_{x\to\infty} f(x) = 0$.
+  notes: Verified against page image.
+  curation:
+    why: 'A limit-at-infinity problem whose tool is not named.'
+  tier: upper
+
+- id: pugh-prelim-7
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: More Prelim Problems
+    problemNumber: Prelim Problem 7
+    page: '270'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - open-cover-argument
+  - partition-refinement
+  - epsilon-argument
+  concept: regulated functions (one-sided limits everywhere) are Riemann integrable
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - riemann-integration
+  - one-sided-limits
+  - regulated-function
+  - compactness
+  - prelim
+  problemLatex: |
+    Suppose that $f\colon [a,b] \to \mathbb{R}$ and the limits of $f(x)$ from the left and the right exist at all points of $[a,b]$. Prove that $f$ is Riemann integrable.
+  notes: Verbatim. At the endpoints only the relevant one-sided limit makes sense. Pairs naturally with pugh-prelim-47 (same hypothesis).
+  curation:
+    why: 'Riemann integrability of functions with one-sided limits everywhere, beyond the bank''s monotone and continuous criteria.'
+  tier: upper
+
+- id: pugh-prelim-28
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: More Prelim Problems
+    problemNumber: Prelim Problem 28
+    page: '272'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - uniform-convergence
+  skills:
+  - lagrange-interpolation
+  - finite-dimensional-argument
+  - uniform-estimate
+  concept: pointwise convergence of polynomials of bounded degree on [0,1] is uniform on every bounded set
+  difficulty: medium
+  category: challenge
+  type: proof
+  tags:
+  - polynomials
+  - uniform-convergence
+  - interpolation
+  - finite-dimension
+  - prelim
+  problemLatex: |
+    Let $(P_n)$ be a sequence of real polynomials of degree $\le 10$. Suppose that
+    $$\lim_{n\to\infty} P_n(x) = 0$$
+    for all $x \in [0,1]$. Prove that $P_n(x) \rightrightarrows 0$, $0 \le x \le 1$. What can you say about $P_n(x)$ for $4 \le x \le 5$?
+  notes: Verified against page image (statement spans pp. 272–273). Pugh's $\rightrightarrows$ denotes uniform convergence.
+  curation:
+    why: 'When pointwise convergence of polynomials is automatically uniform.'
+  tier: upper
+
+- id: pugh-3.23
+  source:
+    key: pugh
+    chapter: 3 Functions of a Real Variable
+    section: Chapter 3 Exercises
+    problemNumber: Exercises 23–25 (merged)
+    page: '201'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  skills:
+  - baire-category-argument
+  - closed-set-decomposition
+  - contradiction
+  - oscillation-argument
+  - difference-quotient-approximation
+  concept: 'Baire class 1 ⇒ continuity points are dense (the sets {osc ≥ 1/k} are closed and nowhere dense); hence every derivative is continuous on a dense set'
+  difficulty: very-hard
+  category: challenge
+  type: proof
+  tags:
+  - Baire-class-1
+  - Baire-category
+  - pointwise-convergence
+  - oscillation
+  - nowhere-dense
+  - discontinuity-set
+  - derivative
+  - continuity-points
+  problemLatex: |
+    *(Facts and definitions from the text, which you may use.)* The **oscillation** of a function $f\colon[a,b]\to\mathbb{R}$ at $x$ is
+    $$\operatorname{osc}_x f = \limsup_{t\to x} f(t) - \liminf_{t\to x} f(t),$$
+    equivalently $\operatorname{osc}_x f = \lim_{r\to 0} \operatorname{diam} f([x-r,x+r])$ (with $r>0$, and $[x-r,x+r]$ intersected with $[a,b]$; the value $+\infty$ is allowed). The function $f$ is continuous at $x$ if and only if $\operatorname{osc}_x f = 0$. For $k \in \mathbb{N}$ let $D_k = \{x\in[a,b] : \operatorname{osc}_x f \ge 1/k\}$; each $D_k$ is closed (Exercise 19(a)). **Baire's Theorem:** if a complete metric space is the countable union of closed subsets then at least one of them has nonempty interior.
+
+    Suppose that $f_n\colon[a,b]\to\mathbb{R}$ is a sequence of continuous functions that converges pointwise to a limit function $f\colon[a,b]\to\mathbb{R}$. Such an $f$ is said to be of **Baire class 1**. (Pointwise convergence means: for each $x$, $f_n(x)$ converges to $f(x)$ as $n\to\infty$.)
+
+    Prove that the set $D_k$ of discontinuity points with oscillation $\ge 1/k$ is nowhere dense, as follows. To arrive at a contradiction, suppose that $D_k$ is dense in some interval $(\alpha,\beta)\subset[a,b]$. Since $D_k$ is closed, it contains $(\alpha,\beta)$. Cover $\mathbb{R}$ by countably many intervals $(a_\ell, b_\ell)$ of length $< 1/k$ and set
+    $$H_\ell = f^{\mathrm{pre}}(a_\ell, b_\ell).$$
+
+    (a) Why does $\bigcup_\ell H_\ell = [a,b]$?
+
+    (b) Show that no $H_\ell$ contains a subinterval of $(\alpha,\beta)$.
+
+    (c) Why are
+    $$F_{\ell mn} = \left\{x\in[a,b] : a_\ell + \frac{1}{m} \le f_n(x) \le b_\ell - \frac{1}{m}\right\}, \qquad E_{\ell mN} = \bigcap_{n\ge N} F_{\ell mn}$$
+    closed?
+
+    (d) Show that
+    $$H_\ell = \bigcup_{m,N\in\mathbb{N}} E_{\ell mN}.$$
+
+    (e) Use (a) and Baire's Theorem to deduce that some $E_{\ell mN}$ contains a subinterval of $(\alpha,\beta)$.
+
+    (f) Why does (e) contradict (b) and complete the proof that $D_k$ is nowhere dense?
+
+    (g) *(Exercise 24.)* Combine the closedness of $D_k$, the result of (a)–(f), and Baire's Theorem to show that a Baire class 1 function has a dense set of continuity points.
+
+    (h) *(Exercise 25(a).)* Suppose that $g\colon[a,b]\to\mathbb{R}$ is differentiable. Prove that $g'$ is of Baire class 1. [Hint: Extend $g$ to a differentiable function defined on a larger interval and consider
+    $$f_n(x) = \frac{g(x+1/n) - g(x)}{1/n}$$
+    for $x\in[a,b]$. Is $f_n(x)$ continuous? Does $f_n(x)$ converge pointwise to $g'(x)$ as $n\to\infty$?]
+
+    (i) *(Exercise 25(b).)* Infer from (g) that *a derivative cannot be everywhere discontinuous*. It must be continuous on a dense subset of its domain of definition.
+  notes: 'Merged at curation: Pugh''s Exercises 23, 24 and 25 form one item. Parts (a)–(f) are Exercise 23, (g) is Exercise 24 and (h)–(i) are Exercise 25(a)–(b), all checked against the page images (printed pp. 201–202). Edits: Pugh''s long parenthetical on Baire class r and the Boas reference are condensed to the definition of pointwise convergence; "By Exercise 19, D_k is closed" became "Since D_k is closed", with that fact quoted in the opening paragraph; Exercise 24''s "Combine Exercises 19, 23, and Baire''s Theorem" and 25(b)''s "Infer from Exercise 24" are reworded to refer to the parts of this item. The oscillation definitions (both forms), the fact that continuity at x is equivalent to zero oscillation, and Exercise 19(a) are quoted from Section 3.2 and Exercise 19; Baire''s Theorem is quoted as stated in Exercise 20 (Pugh cites it as page 256 in Ex. 20 and page 243 in Ex. 23). f^pre is Pugh''s notation for preimage. At an endpoint of [a,b], "differentiable" means one-sided differentiable. Pugh marks Exercise 23 **.'
+  curation:
+    why: 'Baire category applied to functions: where a pointwise limit of continuous functions must be continuous, and what that says about derivatives.'
+  tier: upper
+
+- id: pugh-4.37
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: Exercises
+    problemNumber: Exercise 4.37
+    page: '267'
+  topic: function-sequences
+  subtopics:
+  - interchange-derivative
+  - series-of-functions
+  - weierstrass-m-test
+  - taylor-series
+  skills:
+  - M-test
+  - construct-counterexample
+  - bump-function-cutoff
+  - induction
+  concept: 'Borel''s lemma: every real sequence is the Taylor coefficient sequence of some smooth function'
+  difficulty: very-hard
+  category: challenge
+  type: construction
+  tags:
+  - smooth-functions
+  - Taylor-series
+  - radius-of-convergence
+  - bump-function
+  - uniform-convergence
+  - construction
+  problemLatex: |
+    (a) Prove **Borel's Lemma**, which states that given any sequence whatsoever of real numbers $(a_r)$, there is a smooth function $f\colon \mathbb{R} \to \mathbb{R}$ such that $f^{(r)}(0) = a_r$. [Hint: Try $f = \sum \beta_k(x) a_k x^k / k!$ where $\beta_k$ is a well-chosen bump function.]
+    (b) Infer that there are many Taylor series with radius of convergence $R = 0$.
+
+    *(From the text: $e(x)$ denotes the smooth function $e(x) = e^{-1/x}$ if $x > 0$, $e(x) = 0$ if $x \le 0$. Exercise 3.17(c): the **bump function** $\beta(x) = e^2\, e(1-x)\, e(x+1)$ is smooth, identically zero outside $(-1,1)$, positive inside $(-1,1)$, and takes the value $1$ at $x = 0$.)*
+  notes: 'Double-starred (**) in the book. Hints are printed inside the exercise. The function e(x) (a calligraphic e in the book) is quoted from p. 159; the bump function of Exercise 3.17(c) (printed p. 200) is also quoted, since the hint refers to bump functions. Verified against page images (PDF 278-279). Trimmed at curation to parts (a)–(b): the book''s part (c) (a smooth function whose Taylor series at every x has radius of convergence 0) was dropped as too heavy.'
+  curation:
+    why: 'Borel''s lemma: a smooth function with any prescribed derivatives at a point.'
+  tier: upper
+
+- id: pugh-prelim-31
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: More Prelim Problems
+    problemNumber: Prelim Problem 31
+    page: '273'
+  topic: topology
+  subtopics:
+  - compactness
+  - sequential-compactness
+  - metric-spaces
+  skills:
+  - contradiction
+  - iterate-the-map
+  - subsequence-extraction
+  concept: an isometry of a compact metric space into itself is onto
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - isometry
+  - compactness
+  - metric-space
+  - iteration
+  - prelim
+  problemLatex: |
+    Let $X$ be a compact metric space and $f\colon X \to X$ an isometry. (That is, $d(f(x), f(y)) = d(x,y)$ for all $x, y \in X$.) Prove that $f(X) = X$.
+  notes: Verbatim.
+  curation:
+    why: 'Isometries of a compact metric space into itself: a compactness argument with no obvious handle.'
+  tier: upper
+
+- id: pugh-2.49
+  source:
+    key: pugh
+    chapter: 2 A Taste of Topology
+    section: Exercises
+    problemNumber: Exercise 49 (starred)
+    page: '129'
+  topic: topology
+  subtopics:
+  - compactness
+  skills:
+  - construct-counterexample
+  - hypothesis-removal
+  concept: continuous bijection A → A (A ⊂ R) that is not a homeomorphism
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - homeomorphism
+  - continuous-bijection
+  - compactness
+  - counterexample
+  - pathological
+  problemLatex: |
+    Construct a subset $A \subset \mathbb{R}$ and a continuous bijection $f\colon A \to A$ that is not a homeomorphism. [Hint: By Theorem 36 $A$ must be noncompact.]
+    *(Theorem 36: If $f\colon M \to N$ is continuous and $A$ is a compact subset of $M$ then $fA$ is a compact subset of $N$. That is, the continuous image of a compact is compact.)*
+  notes: Starred in the book. Theorem 36 quoted verbatim; the hint is the book's own.
+  curation:
+    why: 'Why compactness is needed in ''a continuous bijection of a compact space is a homeomorphism''.'
+  tier: upper
+
+- id: pugh-2.76
+  source:
+    key: pugh
+    chapter: 2 A Taste of Topology
+    section: Exercises
+    problemNumber: Exercise 76
+    page: '131'
+  topic: topology
+  subtopics:
+  - connectedness
+  - compactness
+  skills:
+  - construct-counterexample
+  - open-cover-argument
+  - separation-by-open-sets
+  concept: nested intersection of compact connected sets is connected; fails for closed sets and for path-connectedness
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - connectedness
+  - compactness
+  - nested-sets
+  - path-connected
+  - counterexample
+  problemLatex: |
+    (a) The intersection of connected sets need not be connected. Give an example.
+    (b) Suppose that $S_1, S_2, S_3, \ldots$ is a sequence of connected, closed subsets of the plane and $S_1 \supset S_2 \supset \ldots$. Is $S = \bigcap S_n$ connected? Give a proof or counterexample.
+    *(c) Does the answer change if the sets are compact?
+    (d) What is the situation for a nested decreasing sequence of compact path-connected sets?
+  notes: Part (c) is starred in the book.
+  curation:
+    why: 'Nested intersections of connected sets: what survives with and without compactness.'
+  tier: upper
+
+- id: pugh-2.78
+  source:
+    key: pugh
+    chapter: 2 A Taste of Topology
+    section: Exercises
+    problemNumber: Exercise 78
+    page: '131'
+  topic: topology
+  subtopics:
+  - connectedness
+  - compactness
+  - complete-metric-spaces
+  skills:
+  - clopen-set-argument
+  - construct-counterexample
+  - hypothesis-removal
+  concept: 'chain-connected vs connected: equivalent for compact metric spaces'
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - connectedness
+  - chain-connected
+  - compactness
+  - completeness
+  - counterexample
+  problemLatex: |
+    $(p_1, \ldots, p_n)$ is an **$\epsilon$-chain** in a metric space $M$ if for each $i$ we have $p_i \in M$ and $d(p_i, p_{i+1}) < \epsilon$. The metric space is **chain-connected** if for each $\epsilon > 0$ and each pair of points $p, q \in M$ there is an $\epsilon$-chain from $p$ to $q$.
+    (a) Show that every connected metric space is chain-connected.
+    (b) Show that if $M$ is compact and chain-connected then it is connected.
+    (c) Is $\mathbb{R} \setminus \mathbb{Z}$ chain-connected?
+    (d) If $M$ is complete and chain-connected, is it connected?
+  curation:
+    why: 'Testing a new definition (ε-chain connectedness) against connectedness, and finding which hypotheses matter.'
+  tier: upper
+
+- id: pugh-prelim-43
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: More Prelim Problems
+    problemNumber: Prelim Problem 43
+    page: '274'
+  topic: topology
+  subtopics:
+  - baire-category
+  - closed-sets
+  - compactness
+  skills:
+  - baire-category-argument
+  - nested-intervals
+  - contradiction
+  concept: '[0,1] is not a countably infinite union of disjoint closed intervals (Sierpiński-type)'
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - baire-category
+  - closed-intervals
+  - countable-union
+  - impossibility
+  - prelim
+  problemLatex: |
+    Show that $[0,1]$ cannot be written as a countably infinite union of disjoint closed subintervals.
+  notes: Verbatim. Presumably nondegenerate subintervals are intended (with single points allowed the statement still holds but the argument is the same).
+  curation:
+    why: 'A surprising impossibility about decomposing [0,1] into closed intervals.'
+  tier: upper
+
+- id: pugh-2.148
+  source:
+    key: pugh
+    chapter: 2 A Taste of Topology
+    section: Exercises
+    problemNumber: Exercise 148
+    page: '145'
+  topic: topology
+  subtopics:
+  - interior-closure-boundary
+  - open-sets
+  - closed-sets
+  skills:
+  - set-identity-chasing
+  - construct-example
+  - monotonicity-of-closure
+  - case-analysis
+  concept: Kuratowski closure-complement problem (chain S, cl S, (cl S)^c, ... stabilizes; at most 14 sets overall)
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - closure
+  - complement
+  - interior
+  - Kuratowski
+  - regular-open-set
+  - classification
+  - counterexample
+  problemLatex: |
+    Start with a set $S \subset \mathbb{R}$ and successively take its closure, the complement of its closure, the closure of that, and so on: $S$, $\operatorname{cl}(S)$, $(\operatorname{cl}(S))^c, \ldots$. Do the same to $S^c$. In total, how many distinct subsets of $\mathbb{R}$ can be produced this way? In particular decide whether each chain $S, \operatorname{cl}(S), \ldots$ consists of only finitely many sets. For example, if $S = \mathbb{Q}$ then we get $\mathbb{Q}, \mathbb{R}, \emptyset, \emptyset, \mathbb{R}, \mathbb{R}, \ldots$ and $\mathbb{Q}^c, \mathbb{R}, \emptyset, \emptyset, \mathbb{R}, \mathbb{R}, \ldots$ for a total of four sets.
+  notes: Verbatim; double-starred in the book. 'How many' is to be read as the maximum over S (the answer depends on S).
+  curation:
+    why: 'Kuratowski''s closure–complement problem: an open-ended classification.'
+  tier: upper
+
+- id: pugh-4.27
+  source:
+    key: pugh
+    chapter: 4 Function Spaces
+    section: Exercises
+    problemNumber: Exercises 4.27–4.28
+    page: '266'
+  topic: topology
+  subtopics:
+  - compactness
+  - metric-spaces
+  - complete-metric-spaces
+  skills:
+  - EVT-on-compact
+  - construct-counterexample
+  - contradiction
+  concept: weak contraction (d(fx,fy) < d(x,y)) on a compact metric space has a unique fixed point (Edelstein); |f'| < 1 on R gives only a weak contraction, possibly fixed-point-free
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - fixed-point
+  - contraction
+  - compactness
+  - extreme-value-theorem
+  - counterexample
+  problemLatex: |
+    *(Definition, from the text: a contraction of a metric space $M$ is a mapping $f\colon M \to M$ such that for some constant $k < 1$ and all $x, y \in M$ we have $d(fx, fy) \le k\, d(x,y)$.)*
+
+    Suppose that $f\colon M \to M$ and for all $x, y \in M$, if $x \ne y$ then $d(fx, fy) < d(x, y)$. Such an $f$ is a **weak contraction**.
+    (a) Is a weak contraction a contraction? (Proof or counterexample.)
+    (b) If $M$ is compact is a weak contraction a contraction? (Proof or counterexample.)
+    (c) If $M$ is compact, prove that a weak contraction has a unique fixed-point.
+    (d) *(Exercise 4.28.)* Suppose that $f\colon \mathbb{R} \to \mathbb{R}$ is differentiable and its derivative satisfies $|f'(x)| < 1$ for all $x \in \mathbb{R}$. (i) Is $f$ a contraction? (ii) A weak one? (iii) Does it have a fixed-point?
+  notes: 'Definition of contraction quoted from p. 240. Text-layer garbling of ''x ≠ y'' fixed. Part (d) is Pugh''s Exercise 4.28, appended at curation and transcribed verbatim from the page image (printed p. 266), with its parts (a)–(c) relabeled (i)–(iii).'
+  curation:
+    why: 'Fixed points for maps that shrink distances without a uniform contraction constant.'
+  tier: upper
+
+- id: pugh-3.29
+  source:
+    key: pugh
+    chapter: 3 Functions of a Real Variable
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 29
+    page: '203'
+  topic: topology
+  subtopics:
+  - compactness
+  skills:
+  - open-cover-argument
+  - minimal-counterexample
+  - contradiction
+  - well-ordering
+  concept: '[a,b] is not a zero set (measure zero): proof via minimal bad finite cover'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - zero-set
+  - measure-zero
+  - Heine-Borel
+  - compactness
+  - open-cover
+  - minimal-counterexample
+  - bridge-to-measure-theory
+  problemLatex: |
+    Prove that the interval $[a,b]$ is not a zero set.
+
+    (a) Explain why the following observation is not a solution to the problem: "Every open interval that contains $[a,b]$ has length $> b-a$."
+
+    (b) Instead, suppose there is a "bad" covering of $[a,b]$ by open intervals $\{I_i\}$ whose total length is $< b-a$, and justify the following steps.
+
+    (i) It is enough to deal with finite bad coverings.
+
+    (ii) Let $\mathcal{B} = \{I_1,\dots,I_n\}$ be a bad covering such that $n$ is minimal among all bad coverings.
+
+    (iii) Show that no bad covering has $n=1$ so we have $n\ge 2$.
+
+    (iv) Show that it is no loss of generality to assume $a\in I_1$ and $I_1\cap I_2 \ne \emptyset$.
+
+    (v) Show that $I = I_1\cup I_2$ is an open interval and $|I| < |I_1| + |I_2|$.
+
+    (vi) Show that $\mathcal{B}' = \{I, I_3,\dots,I_n\}$ is a bad covering of $[a,b]$ with fewer intervals, a contradiction to minimality of $n$.
+
+    *(Definition from the text: a set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ such that $\sum_{i=1}^\infty b_i - a_i \le \epsilon$.)*
+  notes: Checked against the page image. The zero-set definition is quoted from Section 3.2. The book writes the coverings with calligraphic B.
+  curation:
+    why: 'Bridge to measure theory: proving that an interval does not have measure zero, which is less obvious than it sounds.'
+  tier: upper
+
+- id: pugh-3.34
+  source:
+    key: pugh
+    chapter: 3 Functions of a Real Variable
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 34
+    page: '204'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  skills:
+  - MVT-application
+  - uniform-continuity-estimate
+  - covering-argument
+  - epsilon-argument
+  concept: 'Morse–Sard theorem in dimension one: critical values of a C^1 function form a measure-zero set'
+  difficulty: hard
+  category: synthesis
+  type: proof
+  tags:
+  - Morse-Sard
+  - critical-value
+  - zero-set
+  - measure-zero
+  - mean-value-theorem
+  - uniform-continuity
+  - C1
+  - bridge-to-measure-theory
+  problemLatex: |
+    Assume that $\psi\colon[a,b]\to\mathbb{R}$ is continuously differentiable. A **critical point** of $\psi$ is an $x$ such that $\psi'(x) = 0$. A **critical value** is a number $y$ such that for at least one critical point $x$ we have $y = \psi(x)$.
+
+    (a) Prove that the set of critical values is a zero set. (This is the **Morse-Sard Theorem** in dimension one.)
+
+    (b) Generalize this to continuously differentiable functions $\mathbb{R}\to\mathbb{R}$.
+
+    *(Definition from the text: a set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ such that $\sum_{i=1}^\infty b_i - a_i \le \epsilon$.)*
+  notes: Checked against the page image. The zero-set definition is quoted from Section 3.2.
+  curation:
+    why: 'Bridge to measure theory: the one-dimensional Morse–Sard theorem.'
+  tier: upper
+
+- id: pugh-3.50
+  source:
+    key: pugh
+    chapter: 3 Functions of a Real Variable
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 50
+    page: '207'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  skills:
+  - construct-counterexample
+  - theorem-application
+  - piecewise-construction
+  concept: the inverse of a Riemann integrable bijection need not be Riemann integrable
+  difficulty: hard
+  category: challenge
+  type: counterexample
+  tags:
+  - inverse-function
+  - Riemann-integrable
+  - bijection
+  - fat-Cantor-set
+  - Cantor-set
+  - pathological
+  - Riemann-Lebesgue-theorem
+  - bridge-to-measure-theory
+  problemLatex: |
+    Assume that $f\colon[a,b]\to[c,d]$ is a Riemann integrable bijection. Is the inverse bijection also Riemann integrable? Prove or disprove.
+
+    *(Definition and theorem from the text, which you may use.)* A set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ such that $\sum_{i=1}^\infty b_i - a_i \le \epsilon$. **Riemann–Lebesgue Theorem:** a function $f\colon [a,b]\to\mathbb{R}$ is Riemann integrable if and only if it is bounded and its set of discontinuity points is a zero set.
+  notes: 'Checked against the page image. Pugh marks this exercise **. The zero-set definition and the Riemann–Lebesgue Theorem are quoted verbatim from Section 3.2 (printed p. 175) so the problem is self-contained. The book prints no answer; the answer was verified at curation (see the solution).'
+  curation:
+    why: 'Bridge to measure theory: does Riemann integrability survive taking the inverse of a bijection?'
+  tier: upper
+
+- id: pugh-2.93
+  source:
+    key: pugh
+    chapter: 2 A Taste of Topology
+    section: Exercises
+    problemNumber: Exercises 93–94 (merged)
+    page: '134'
+  topic: topology
+  subtopics:
+  - compactness
+  - closed-sets
+  skills:
+  - open-cover-argument
+  - complement-duality
+  - contradiction
+  - contrapositive
+  concept: M is covering compact ⇔ every family of closed sets with the finite intersection property has nonempty intersection
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - finite-intersection-property
+  - open-cover
+  - closed-set
+  - characterization
+  problemLatex: |
+    *(Definition from the text: if every open covering of $A$ reduces to a finite subcovering of $A$ then we say that $A$ is **covering compact**.)*
+
+    A collection $\mathcal{C}$ of subsets of $M$ such that every intersection of finitely many members of $\mathcal{C}$ is nonempty is said to have the **finite intersection property**. Prove that $M$ is covering compact if and only if every collection of closed subsets of $M$ with the finite intersection property has nonempty grand intersection $\bigcap_{C \in \mathcal{C}} C$:
+
+    (a) *(Exercise 93.)* Suppose that $M$ is covering compact and $\mathcal{C}$ is a collection of closed subsets of $M$ such that every intersection of finitely many members of $\mathcal{C}$ is nonempty. Prove that the grand intersection $\bigcap_{C \in \mathcal{C}} C$ is nonempty. [Hint: Consider the collection of open sets $\mathcal{U} = \{C^c : C \in \mathcal{C}\}$.]
+
+    (b) *(Exercise 94.)* If every collection of closed subsets of $M$ which has the finite intersection property also has a nonempty grand intersection, prove that $M$ is covering compact. [Hint: Given an open covering $\mathcal{U} = \{U_\alpha\}$, consider the collection of closed sets $\mathcal{C} = \{U_\alpha^c\}$.]
+  notes: 'Merged at curation: Pugh''s Exercises 93 and 94 form one two-direction item, (a) = Exercise 93 and (b) = Exercise 94, both transcribed from the page image (printed p. 134) with their printed hints. Edits: the opening "Generalize Exercise 92 as follows" of Exercise 93 is dropped (Exercise 92 asks for a direct proof that a nested decreasing sequence of nonempty covering compact sets has nonempty intersection), the parenthetical definition of the finite intersection property is moved into the framing sentence, and the framing "if and only if" sentence is editorial. The definition of covering compact is quoted from the text. The book''s hint in (a) has a missing closing brace; fixed. M is a (nonempty) metric space and collections are nonempty.'
+  curation:
+    why: 'Compactness characterized by the finite intersection property for closed sets.'

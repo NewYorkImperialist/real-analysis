@@ -158,6 +158,8 @@ main { padding: 2.25rem 0 4rem; min-height: 60vh; }
 }
 .meta-line > * + *::before { content: "·"; margin: 0 0.45em; color: var(--rule-strong); }
 .meta-line a { color: inherit; }
+.meta-line .tier-badge { color: var(--accent); font-weight: 600; text-decoration: none; }
+.meta-line a.tier-badge:hover { text-decoration: underline; }
 
 .provenance { font-family: var(--font-ui); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.01em; }
 .note { border-left: 2px solid var(--rule-strong); padding: 0.1rem 0 0.1rem 1rem; color: var(--ink-2); }

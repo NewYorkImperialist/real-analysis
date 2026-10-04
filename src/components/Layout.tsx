@@ -118,7 +118,7 @@ export function Layout({ active, children }: { active: string; children: Compone
       </main>
       <footer class="site-footer">
         <div class="site-footer-inner">
-          <span>Problems are drawn only from the six approved sources, cited on every problem.</span>
+          <span>Problems are drawn only from the approved sources, cited on every problem.</span>
           <span>
             <a href={href('about')} aria-current={active === 'about' ? 'page' : undefined}>About</a>
             {' · '}

@@ -24,7 +24,7 @@ export const TYPES: ProblemType[] = [
   'conceptual',
 ];
 
-export type SourceKey = 'mit' | 'abbott' | 'lebl' | 'ross' | 'cummings' | 'tao';
+export type SourceKey = 'mit' | 'abbott' | 'lebl' | 'ross' | 'cummings' | 'tao' | 'pugh' | 'rudin' | 'mit18100b';
 
 export type Source = {
   key: SourceKey;
@@ -79,6 +79,8 @@ export type Problem = {
   notes?: string; // transcription / source notes
   curation?: { why?: string };
   related?: string[]; // ids
+  /** Optional harder layer; absent = core bank. Upper-tier problems are excluded from core progress. */
+  tier?: 'upper';
 };
 
 export type Topic = {

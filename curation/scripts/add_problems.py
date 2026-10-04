@@ -3,6 +3,7 @@
 
     python3 curation/scripts/add_problems.py lebl-2.2.11 abbott-4.4.1 ...
     python3 curation/scripts/add_problems.py --why "Reason shown on the site" ross-12.8
+    python3 curation/scripts/add_problems.py --tier upper rudin-4.19   # optional harder layer
 
 Safe by design: problems already in data/problems/ are NEVER modified or re-written
 (they contain post-audit fixes that the candidate files do not). Only new ids are
@@ -18,7 +19,7 @@ import sys
 import yaml
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-CAND = os.path.join(ROOT, 'curation', 'candidates')
+CANDS = [os.path.join(ROOT, 'curation', 'candidates'), os.path.join(ROOT, 'curation', 'candidates-upper')]
 DATA = os.path.join(ROOT, 'data', 'problems')
 BOOKHINT_SOURCE = {'ross': 'Ross, Elementary Analysis — Selected Hints and Answers (back of book)'}
 
@@ -41,12 +42,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('cids', nargs='+', help='candidate ids, e.g. lebl-2.2.11')
     ap.add_argument('--why', help='curation note (defaults to the extractor\'s "machinery" line)')
+    ap.add_argument('--tier', choices=['upper'], help='mark as the optional upper tier (default: core)')
     a = ap.parse_args()
 
     tax = yaml.safe_load(open(os.path.join(ROOT, 'data', 'taxonomy.yaml')))
     subs = {t['key']: set(t['subtopics']) for t in tax['topics']}
     cands = {}
-    for f in glob.glob(os.path.join(CAND, '*.yaml')):
+    for f in (f for d in CANDS for f in glob.glob(os.path.join(d, '*.yaml'))):
         for c in yaml.safe_load(open(f))['candidates']:
             cands[c['cid'].lower()] = c
     existing = set()
@@ -82,7 +84,9 @@ def main():
             p['hints'] = [{'text': clean(c['bookHint']), 'source': BOOKHINT_SOURCE.get(book, book), 'kind': 'textbook'}]
         if c.get('transcriptionNotes'):
             p['notes'] = str(c['transcriptionNotes']).strip()
-        p['curation'] = {'why': a.why or str(c.get('machinery'))}
+        p['curation'] = {'why': a.why or str(c.get('newExperience') or c.get('machinery'))}
+        if a.tier:
+            p['tier'] = a.tier
         with open(os.path.join(DATA, f'{book}.yaml'), 'a') as out:
             out.write('\n')
             yaml.dump([p], out, Dumper=Dumper, sort_keys=False, allow_unicode=True, width=10000)

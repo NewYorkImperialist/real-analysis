@@ -111,7 +111,7 @@ function SourceIndex() {
     <div class="stats-page">
       <h1>Sources</h1>
       <p class="muted">
-        Every problem in the bank is selected from one of these six sources, and each problem cites its exact location.
+        Every problem in the bank is selected from one of these sources, and each problem cites its exact location.
       </p>
       {tiers.map(({ tier, title }) => (
         <section key={tier} class="stats-section" aria-labelledby={`tier-${tier}`}>

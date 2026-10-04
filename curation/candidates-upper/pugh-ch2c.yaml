@@ -1,0 +1,132 @@
+chunk: "pugh-ch2c"
+book: pugh
+pageOffsetNote: "printed page = pdfPage - 11 (Exercises 148-152 on printed pp. 145-146 = PDF 156-157; verified against rendered PDF page 156)."
+sectionsCovered:
+  - "Chapter 2 Exercises 148-152 — 5 exercises (all double-starred)"
+candidates:
+  - cid: pugh-2.148
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 148"
+    page: "145"
+    pdfPage: 156
+    verdict: strong
+    tier: upper
+    newExperience: "Open-ended classification of an operator algebra on sets (Kuratowski closure-complement phenomenon): find the identity that forces the chain to stabilize and an extremal example — the bank only has single closure/interior/complement identities."
+    closestExisting: [abbott-3.2.14, abbott-8.2.11]
+    machinery: "Closure and complement (equivalently interior) identities on R; regular-open/regular-closed sets; constructing a set of R with pathological closure behavior."
+    standardResult: "Kuratowski closure-complement problem (chain S, cl S, (cl S)^c, ... stabilizes; at most 14 sets overall)"
+    topic: topology
+    subtopics: [interior-closure-boundary, open-sets, closed-sets]
+    skills: [set-identity-chasing, construct-example, monotonicity-of-closure, case-analysis]
+    difficulty: hard
+    difficultyRationale: "Needs the non-obvious idempotence identity (int cl int cl = int cl) to prove each chain is finite, plus a carefully built subset of R achieving the maximal count."
+    category: challenge
+    type: construction
+    tags: [closure, complement, interior, Kuratowski, regular-open-set, classification, counterexample]
+    references: []
+    problemLatex: |
+      Start with a set $S \subset \mathbb{R}$ and successively take its closure, the complement of its closure, the closure of that, and so on: $S$, $\operatorname{cl}(S)$, $(\operatorname{cl}(S))^c, \ldots$. Do the same to $S^c$. In total, how many distinct subsets of $\mathbb{R}$ can be produced this way? In particular decide whether each chain $S, \operatorname{cl}(S), \ldots$ consists of only finitely many sets. For example, if $S = \mathbb{Q}$ then we get $\mathbb{Q}, \mathbb{R}, \emptyset, \emptyset, \mathbb{R}, \mathbb{R}, \ldots$ and $\mathbb{Q}^c, \mathbb{R}, \emptyset, \emptyset, \mathbb{R}, \mathbb{R}, \ldots$ for a total of four sets.
+    transcriptionNotes: "Verbatim; double-starred in the book. 'How many' is to be read as the maximum over S (the answer depends on S)."
+
+  - cid: pugh-2.149
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 149"
+    page: "145"
+    pdfPage: 156
+    verdict: consider
+    tier: upper
+    newExperience: "A countability/pigeonhole argument in the plane (Moore's T theorem): tag each copy by rational data and show two copies with the same tag must intersect — a genuinely new 'aha' type absent from the bank."
+    closestExisting: [abbott-1.5.10]
+    machinery: "Countability of Q^2 (or of a countable base), pigeonhole over uncountable families, elementary plane topology."
+    standardResult: "Moore's theorem: no uncountable disjoint family of T's (triods) in the plane"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [countable-tagging, pigeonhole, contradiction]
+    difficulty: very-hard
+    difficultyRationale: "(a) with the hint is hard; (b) (homeomorphic copies, i.e. triods) is Moore's theorem and very hard; (c)-(e) are open-ended extensions."
+    category: challenge
+    type: proof
+    tags: [countability, uncountable-family, plane-topology, triod, pigeonhole, aha]
+    references: []
+    problemLatex: |
+      Consider the letter T.
+
+      (a) Prove that there is no way to place uncountably many copies of the letter T disjointly in the plane. [Hint: First prove this when the unit square replaces the plane.]
+
+      (b) Prove that there is no way to place uncountably many homeomorphic copies of the letter T disjointly in the plane.
+
+      (c) For which other letters of the alphabet is this true?
+
+      (d) Let $U$ be a set in $\mathbb{R}^3$ formed like an umbrella: It is a disc with a perpendicular segment attached to its center. Prove that uncountably many copies of $U$ cannot be placed disjointly in $\mathbb{R}^3$.
+
+      (e) What if the perpendicular segment is attached to the boundary of the disc?
+    transcriptionNotes: "Verbatim; double-starred. Borderline scope (plane/space geometric topology); the curator may want only (a), which is the undergraduate-accessible countability argument. 'Copies' in (a) is presumably congruent/similar copies (book does not specify)."
+
+  - cid: pugh-2.150
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 150"
+    page: "145"
+    pdfPage: 156
+    verdict: strong
+    tier: upper
+    newExperience: "Structure theorem for closed sets (Cantor–Bendixson): existence and uniqueness of the countable + perfect decomposition via condensation points, using separability — the bank has no structure theorem of this kind."
+    closestExisting: [pugh-2.137, abbott-1.5.10]
+    machinery: "Condensation points, countable base from separability, closedness of the condensation set, uniqueness via 'perfect sets in complete separable spaces are uncountable near each point'."
+    standardResult: "Cantor–Bendixson theorem: closed set = countable set ⊔ perfect closed set, uniquely"
+    topic: topology
+    subtopics: [perfect-sets, closed-sets, complete-metric-spaces]
+    skills: [countable-base-argument, condensation-points, uniqueness-argument, contradiction]
+    difficulty: hard
+    difficultyRationale: "Existence needs the countable-base argument that non-condensation points of K are countable and that the condensation set is perfect; uniqueness needs the 137-type fact that perfect closed sets have only condensation points."
+    category: challenge
+    type: proof
+    tags: [Cantor-Bendixson, perfect-set, condensation-point, separable, complete-metric-space, structure-theorem]
+    references: ["Book definition of perfect (quoted): M is perfect if M' = M, i.e., each point is a cluster point"]
+    problemLatex: |
+      Let $M$ be a complete, separable metric space such as $\mathbb{R}^m$. Prove the **Cupcake Theorem**: Each closed set $K \subset M$ can be expressed uniquely as the disjoint union of a countable set and a perfect closed set,
+      $$C \sqcup P = K.$$
+
+      *(Book definition: A metric space $M$ is perfect if $M' = M$, i.e., each $p \in M$ is a cluster point of $M$ — each $r$-neighborhood $M_r p$ contains infinitely many points of $M$. A metric space is separable if it contains a countable dense subset.)*
+    transcriptionNotes: "Verbatim; double-starred. Definitions of perfect (Ch. 2 'Perfect Metric Spaces') and separable (Exercise 127) quoted from the book. Overlaps pugh-2.137 (ch2b), which is essentially the uniqueness lemma; the curator should pick one (150 is the fuller result) or pair them."
+
+  - cid: pugh-2.151
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 151"
+    page: "145"
+    pdfPage: 156
+    verdict: consider
+    tier: upper
+    newExperience: "Cantor-scheme construction of an embedded Cantor set in any uncountable compact metric space, then using it to settle CH for closed sets — a binary-tree construction plus a cardinality payoff."
+    closestExisting: [pugh-2.137, pugh-2.150, abbott-1.5.10]
+    machinery: "Condensation points, nested closed balls with shrinking diameters (Cantor scheme), compactness, Schroeder–Bernstein."
+    standardResult: "uncountable compact metric space contains a Cantor set; uncountable closed subsets of R have cardinality of the continuum"
+    topic: topology
+    subtopics: [cantor-set, compactness, perfect-sets, cardinality]
+    skills: [binary-tree-construction, nested-closed-sets, condensation-points, diagonal-address-map]
+    difficulty: hard
+    difficultyRationale: "(a) is the essential part: a Cantor-scheme construction inside condensation points with disjoint closed pieces and an address homeomorphism; (b)-(c) are short inferences given the quoted results."
+    category: challenge
+    type: construction
+    tags: [Cantor-set, embedding, uncountable, compactness, continuum-hypothesis, Cantor-scheme]
+    references: ["Cantor Surjection Theorem 70 (quoted)", "Exercise 112 (quoted)", "Cupcake Theorem = Exercise 150"]
+    problemLatex: |
+      Let $M$ be an uncountable compact metric space.
+
+      (a) Prove that $M$ contains a homeomorphic copy of the Cantor set. [Hint: Imitate the construction of the standard Cantor set $C$.]
+
+      (b) Infer that Cantor sets are ubiquitous. There is a continuous surjection $\sigma : C \to M$ and there is a continuous injection $i : C \to M$.
+
+      (c) Infer that every uncountable closed set $S \subset \mathbb{R}$ has $\#S = \#\mathbb{R}$, and hence that the Continuum Hypothesis is valid for closed sets in $\mathbb{R}$. [Hint: Cupcake and Exercise 112.]
+
+      (d) Is the same true if $M$ is separable, uncountable, and complete?
+
+      *(Theorem 70, Cantor Surjection Theorem: Given a compact nonempty metric space $M$, there is a continuous surjection of $C$ onto $M$.)*
+      *(Exercise 112: Prove that $\#C = \#\mathbb{R}$.)*
+      *(Cupcake Theorem, Exercise 150: Let $M$ be a complete, separable metric space such as $\mathbb{R}^m$. Each closed set $K \subset M$ can be expressed uniquely as the disjoint union of a countable set and a perfect closed set.)*
+    transcriptionNotes: "Verbatim; double-starred. C is the standard middle-thirds Cantor set. Theorem 70, Exercise 112 and Exercise 150 quoted from the book. Heavy overlap with 2.137/2.150; (a) alone is the distinctive content and the curator may prefer to trim to (a) and (c)."
+skipped:
+  - "152 write jingles — not a mathematics exercise"

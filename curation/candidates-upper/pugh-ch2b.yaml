@@ -1,0 +1,530 @@
+chunk: "pugh-ch2b"
+book: pugh
+pageOffsetNote: "printed page = pdfPage - 11 (Exercises 101-147 on printed pp. 135-144 = PDF 146-155; Prelim Problems on printed pp. 147-148 = PDF 158-159)."
+sectionsCovered:
+  - "Chapter 2 Exercises 101-147 — 47 exercises"
+  - "Chapter 2 Prelim Problems (U.C. Berkeley) 1-15 — 15 problems"
+candidates:
+  # ---------------- Exercises 101-147 ----------------
+  - cid: pugh-2.102
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 102"
+    page: "135"
+    pdfPage: 146
+    verdict: strong
+    tier: upper
+    newExperience: "A topological invariant argument (removing a point disconnects an interval but not a disc) combined with compact-to-Hausdorff homeomorphism to prove an impossibility."
+    closestExisting: [lebl-7.5.8, ross-22.1]
+    machinery: "Continuous bijection from a compact space is a homeomorphism onto its image; connectedness under removal of a point as an invariant."
+    standardResult: "no injective space-filling curve (Peano curve cannot be one-to-one)"
+    topic: topology
+    subtopics: [connectedness, compactness, metric-spaces]
+    skills: [contradiction, compact-to-homeomorphism, cut-point-argument]
+    difficulty: medium
+    difficultyRationale: "Short once one sees the two ingredients (inverse continuity on compacta, cut points), but neither is named."
+    category: challenge
+    type: proof
+    tags: [Peano-curve, homeomorphism, connectedness, compactness, impossibility, aha]
+    references: []
+    problemLatex: |
+      Prove that no Peano curve is one-to-one. (Recall that a Peano curve is a continuous map $f\colon [0,1] \to \mathbb{R}^2$ whose image has a nonempty interior.)
+    transcriptionNotes: "Verbatim; the definition of Peano curve is given by the book inside the exercise."
+
+  - cid: pugh-2.109
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 109"
+    page: "136"
+    pdfPage: 147
+    verdict: strong
+    tier: upper
+    newExperience: "Working in a non-Archimedean (ultrametric) geometry where intuition fails: isosceles triangles, balls are clopen, total disconnectedness, and comparing two metrics on sequence space."
+    closestExisting: [lebl-7.2.9, lebl-7.2.16, abbott-3.4.7]
+    machinery: "Metric axioms, clopen balls, total disconnectedness, and showing two metrics induce the same topology."
+    standardResult: "ultrametric spaces: all triangles isosceles, totally disconnected; d* on {0,1}^N equivalent to the sum metric"
+    topic: topology
+    subtopics: [metric-spaces, connectedness]
+    skills: [verify-metric-axioms, case-analysis, compare-metrics]
+    difficulty: medium
+    difficultyRationale: "(b) and (c) need the right observation (the max is attained twice; balls are clopen); (d) requires two-sided ball containment estimates."
+    category: synthesis
+    type: proof
+    tags: [ultrametric, metric-space, totally-disconnected, clopen, homeomorphism, sequence-space]
+    references: ["Exercise 101 (definition of Σ and d, quoted)"]
+    problemLatex: |
+      A metric on $M$ is an **ultrametric** if for all $x, y, z \in M$ we have
+      $$d(x,z) \le \max\{d(x,y), d(y,z)\}.$$
+      (Intuitively this means that the trip from $x$ to $z$ cannot be broken into shorter legs by making a stopover at some $y$.)
+
+      (a) Show that the ultrametric property implies the triangle inequality.
+
+      (b) In an ultrametric space show that "all triangles are isosceles."
+
+      (c) Show that a metric space with an ultrametric is totally disconnected.
+
+      (d) Define a metric on the set $\Sigma$ of strings of zeroes and ones in Exercise 101 as
+      $$d_*(a,b) = \begin{cases} \dfrac{1}{2^n} & \text{if } n \text{ is the smallest index for which } a_n \ne b_n \\ 0 & \text{if } a = b. \end{cases}$$
+      Show that $d_*$ is an ultrametric and prove that the identity map is a homeomorphism $(\Sigma, d) \to (\Sigma, d_*)$.
+
+      *(Exercise 101: Let $\Sigma$ be the set of all infinite sequences of zeroes and ones. For example, $(100111000011111\ldots) \in \Sigma$. Define the metric $d(a,b) = \sum \dfrac{|a_n - b_n|}{2^n}$ where $a = (a_n)$ and $b = (b_n)$ are points in $\Sigma$.)*
+    transcriptionNotes: "Starred (*) in the book. Definition of Σ and d quoted verbatim from Exercise 101 (same page spread). 'Totally disconnected' in Pugh: every point has arbitrarily small clopen neighborhoods / no connected subset with more than one point."
+
+  - cid: pugh-2.115
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 115"
+    page: "138"
+    pdfPage: 149
+    verdict: strong
+    tier: upper
+    newExperience: "Density via pigeonhole: irrational rotation orbits are dense (Kronecker/Dirichlet), a classic aha the bank lacks."
+    closestExisting: [lebl-1.2.8, ross-4.12]
+    machinery: "Pigeonhole on a compact circle, Archimedean property, density of a subgroup."
+    standardResult: "irrational rotation of the circle has dense orbits (Kronecker / {nα mod 1} dense)"
+    topic: topology
+    subtopics: [dense-sets, compactness]
+    skills: [pigeonhole, archimedean-argument, contradiction]
+    difficulty: medium
+    difficultyRationale: "(b) needs the pigeonhole idea to get two orbit points arbitrarily close, then iterating the small rotation."
+    category: challenge
+    type: proof
+    tags: [irrational-rotation, dense-orbit, pigeonhole, Kronecker, density, aha]
+    references: []
+    problemLatex: |
+      Rotate the unit circle $S^1$ by a fixed angle $\alpha$, say $R\colon S^1 \to S^1$. (In polar coordinates, the transformation $R$ sends $(1, \theta)$ to $(1, \theta + \alpha)$.)
+
+      (a) If $\alpha/\pi$ is rational, show that each orbit of $R$ is a finite set.
+
+      *(b) If $\alpha/\pi$ is irrational, show that each orbit is infinite and has closure equal to $S^1$.
+    transcriptionNotes: "Verbatim; part (b) starred in the book. 'Orbit' means {p, R(p), R^2(p), ...} (term used by the book; defined in Exercise 117 for a general map)."
+
+  - cid: pugh-2.118
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 118"
+    page: "138"
+    pdfPage: 149
+    verdict: strong
+    tier: upper
+    newExperience: "Converse direction of compactness theorems in a general metric space: building a continuous 'spike' function on disjoint balls around a non-clustering sequence to defeat boundedness / max attainment."
+    closestExisting: [ross-21.5, ross-18.4, lebl-7.4.10]
+    machinery: "Sequential compactness, construction of continuous functions from the metric, disjoint neighborhoods of a non-clustering sequence."
+    standardResult: "M compact iff every continuous real function is bounded / attains max / has compact range iff nested closed sets have nonempty intersection (metric space)"
+    topic: topology
+    subtopics: [compactness, sequential-compactness, continuity-and-topology]
+    skills: [contrapositive, construct-counterexample, bump-function-construction]
+    difficulty: hard
+    difficultyRationale: "Even with the hint, choosing radii and spike parameters so f is continuous and unbounded (or bounded without max) is a substantial construction; (d) needs its own argument."
+    category: synthesis
+    type: proof
+    tags: [compactness, equivalent-definitions, continuous-functions, construction, metric-space, counterexample]
+    references: ["Theorems 63 and 65 (mentioned only in a remark; not needed for the statement)"]
+    problemLatex: |
+      The implications of compactness are frequently equivalent to it. Prove
+
+      (a) If every continuous function $f\colon M \to \mathbb{R}$ is bounded then $M$ is compact.
+
+      (b) If every continuous bounded function $f\colon M \to \mathbb{R}$ achieves a maximum or minimum then $M$ is compact.
+
+      (c) If every continuous function $f\colon M \to \mathbb{R}$ has compact range $fM$ then $M$ is compact.
+
+      (d) If every nested decreasing sequence of nonempty closed subsets of $M$ has nonempty intersection then $M$ is compact.
+
+      Together with Theorems 63 and 65, (a)–(d) give seven equivalent definitions of compactness. [Hint: Reason contrapositively. If $M$ is not compact then it contains a sequence $(p_n)$ that has no convergent subsequence. It is fair to assume that the points $p_n$ are distinct. Find radii $r_n > 0$ such that the neighborhoods $M_{r_n}(p_n)$ are disjoint and no sequence $q_n \in M_{r_n}(p_n)$ has a convergent subsequence. Using the metric define a function $f_n\colon M_{r_n}(p_n) \to \mathbb{R}$ with a spike at $p_n$, such as
+      $$f_n(x) = \frac{r_n - d(x, p_n)}{a_n + d(x, p_n)}$$
+      where $a_n > 0$. Set $f(x) = f_n(x)$ if $x \in M_{r_n}(p_n)$, and $f(x) = 0$ if $x$ belongs to no $M_{r_n}(p_n)$. Show that $f$ is continuous. With the right choice of $a_n$ show that $f$ is unbounded. With a different choice of $a_n$, it is bounded but achieves no maximum, and so on.]
+    transcriptionNotes: "Starred in the book. Verbatim including the book's in-exercise hint. M is a metric space; Pugh's 'compact' means sequentially compact (every sequence has a subsequence converging in M), and M_r(p) is the r-neighborhood of p. Spans PDF pp. 149-150."
+
+  - cid: pugh-2.121
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 121"
+    page: "140"
+    pdfPage: 151
+    verdict: strong
+    tier: upper
+    newExperience: "Hypothesis-removal around the converse of Heine–Cantor: 'all continuous functions are uniformly continuous' does not force compactness in general, but does inside a compact ambient space."
+    closestExisting: [abbott-4.4.14, lebl-7.4.3, ross-18.4]
+    machinery: "Uniform continuity, discrete metric, closure in a compact space, 1/d(x,p) as a non-uniformly-continuous function."
+    standardResult: "converse of Heine–Cantor: every continuous f uniformly continuous does not imply compact (discrete spaces), but does for subspaces of compact spaces"
+    topic: continuity
+    subtopics: [uniform-continuity, continuity-metric-spaces, compactness]
+    skills: [construct-counterexample, contrapositive, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "(c) requires seeing that M must be closed in K and producing a continuous non-UC function near a missing limit point."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, compactness, discrete-metric, converse, counterexample, metric-space]
+    references: []
+    problemLatex: |
+      (a) Prove that every function defined on a discrete metric space is uniformly continuous.
+
+      (b) Infer that it is false to assert that if every continuous function $f\colon M \to \mathbb{R}$ is uniformly continuous then $M$ is compact.
+
+      (c) Prove, however, that if $M$ is a metric subspace of a compact metric space $K$ and every continuous function $f\colon M \to \mathbb{R}$ is uniformly continuous then $M$ is compact.
+    transcriptionNotes: "Verbatim."
+
+  - cid: pugh-2.137
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 137"
+    page: "142"
+    pdfPage: 153
+    verdict: consider
+    tier: upper
+    newExperience: "Perfect sets are 'fat': in a separable complete space every point of a closed perfect set has uncountably many points of the set nearby (Cantor-scheme / Baire argument); the bank has nothing on perfect sets."
+    closestExisting: [abbott-1.5.10, abbott-8.2.15, abbott-3.2.10]
+    machinery: "Completeness and separability; nested closed balls (Cantor scheme) or Baire category to produce uncountably many points."
+    standardResult: "nonempty perfect closed set in a complete separable metric space is uncountable near each of its points (P = P' implies P = P*)"
+    topic: topology
+    subtopics: [perfect-sets, complete-metric-spaces, baire-category]
+    skills: [nested-closed-sets, binary-tree-construction, contradiction]
+    difficulty: hard
+    difficultyRationale: "Requires building a Cantor-type tree of nested closed balls inside P (or a Baire argument) and handling separability."
+    category: challenge
+    type: proof
+    tags: [perfect-set, condensation-point, uncountable, completeness, separable, Cantor-scheme]
+    references: ["Definitions of cluster point S', condensation point S*, separable (quoted from Exercises 122, 123, 127)"]
+    problemLatex: |
+      Let $P$ be a closed perfect subset of a separable complete metric space $M$. Prove that each point of $P$ is a condensation point of $P$. In symbols, $P = P' \Rightarrow P = P^*$.
+
+      *(Exercise 122: $p$ is a cluster point of $S$ if each $M_r p$ contains infinitely many points of $S$. The set of cluster points of $S$ is denoted as $S'$.)*
+      *(Exercise 123: $p$ is a condensation point of $S$ if each $M_r p$ contains uncountably many points of $S$. The set of condensation points of $S$ is denoted as $S^*$.)*
+      *(Exercise 127: The metric space $M$ is separable if it contains a countable dense subset.)*
+    transcriptionNotes: "Starred in the book. Definitions quoted verbatim from Exercises 122, 123, 127; M_r p is the r-neighborhood of p. Implicitly P nonempty is irrelevant (empty P trivially works)."
+
+  - cid: pugh-2.140
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 140"
+    page: "143"
+    pdfPage: 154
+    verdict: consider
+    tier: upper
+    newExperience: "Compactness of an infinite-dimensional set via a diagonal 'sequences of sequences' argument, contrasting with the non-compact unit balls the bank already has."
+    closestExisting: [lebl-7.4.11, abbott-6.2.13, ross-13.15, lebl-7.4.8]
+    machinery: "Sequential compactness via diagonal subsequence extraction; using the decaying bound |x_n| <= 1/2^n to control the sup metric."
+    standardResult: "Hilbert cube is compact (diagonal argument)"
+    topic: topology
+    subtopics: [sequential-compactness, metric-spaces]
+    skills: [diagonal-argument, subsequence-extraction, epsilon-over-3]
+    difficulty: medium
+    difficultyRationale: "Diagonal extraction plus a tail estimate; standard once the idea of coordinatewise convergence + uniform tail is found."
+    category: synthesis
+    type: proof
+    tags: [Hilbert-cube, compactness, diagonal-argument, infinite-dimensional, sup-metric]
+    references: []
+    problemLatex: |
+      Consider the **Hilbert cube**
+      $$H = \{(x_1, x_2, \ldots) \in [0,1]^\infty : \text{for each } n \in \mathbb{N} \text{ we have } |x_n| \le 1/2^n\}.$$
+      Prove that $H$ is compact with respect to the metric
+      $$d(x,y) = \sup_n |x_n - y_n|$$
+      where $x = (x_n)$, $y = (y_n)$. [Hint: Sequences of sequences.]
+
+      **Remark** Although compact, $H$ is infinite-dimensional and is homeomorphic to no subset of $\mathbb{R}^m$.
+    transcriptionNotes: "Starred in the book. Fixed typo 'd(x, y))' (extra parenthesis) to d(x,y). Remark is the book's own."
+
+  - cid: pugh-2.147
+    chapter: "2 A Taste of Topology"
+    section: "Exercises"
+    number: "Exercise 147"
+    page: "144"
+    pdfPage: 155
+    verdict: strong
+    tier: upper
+    newExperience: "Topology of a space whose points are sets: the Hausdorff metric, density of finite sets, and compactness of the hyperspace (Blaschke-type selection) — a long multi-part chain."
+    closestExisting: [lebl-7.1.8, lebl-7.4.12]
+    machinery: "Metric axioms with infima, total boundedness / sequential compactness, epsilon-nets, connectedness."
+    standardResult: "Hausdorff metric on nonempty compact subsets; finite sets dense; hyperspace of a compact space is compact"
+    topic: topology
+    subtopics: [metric-spaces, compactness, connectedness]
+    skills: [epsilon-net, verify-metric-axioms, total-boundedness, subsequence-extraction]
+    difficulty: hard
+    difficultyRationale: "(a),(b) are medium; (c) compactness of the hyperspace is a substantial argument (hardest essential part); (e) is double-starred and optional."
+    category: challenge
+    type: proof
+    tags: [Hausdorff-metric, hyperspace, compactness, total-boundedness, connectedness, metric-space]
+    references: []
+    problemLatex: |
+      Let $M$ be a metric space and let $\mathcal{K}$ denote the class of nonempty compact subsets of $M$. The $r$-neighborhood of $A \in \mathcal{K}$ is
+      $$M_r A = \{x \in M : \exists a \in A \text{ and } d(x,a) < r\} = \bigcup_{a \in A} M_r a.$$
+      For $A, B \in \mathcal{K}$ define
+      $$D(A,B) = \inf\{r > 0 : A \subset M_r B \text{ and } B \subset M_r A\}.$$
+
+      (a) Show that $D$ is a metric on $\mathcal{K}$. (It is called the **Hausdorff metric** and $\mathcal{K}$ is called the **hyperspace** of $M$.)
+
+      (b) Denote by $\mathcal{F}$ the collection of finite nonempty subsets of $M$ and prove that $\mathcal{F}$ is dense in $\mathcal{K}$. That is, given $A \in \mathcal{K}$ and given $\epsilon > 0$ show there exists $F \in \mathcal{F}$ such that $D(A,F) < \epsilon$.
+
+      *(c) If $M$ is compact prove that $\mathcal{K}$ is compact.
+
+      (d) If $M$ is connected prove that $\mathcal{K}$ is connected.
+
+      **(e) If $M$ is path-connected is $\mathcal{K}$ path-connected?
+
+      (f) Do homeomorphic metric spaces have homeomorphic hyperspaces?
+
+      **Remark** The converse to (f), $\mathcal{K}(M) \cong \mathcal{K}(N) \Rightarrow M \cong N$ is false. The hyperspace of every Peano space is the Hilbert cube. This is a difficult result but a good place to begin reading about hyperspaces is Sam Nadler's book *Continuum Theory*.
+    transcriptionNotes: "Verbatim; (c) starred, (e) double-starred in the book. The curator may wish to trim to (a)-(d). Closest bank item lebl-7.1.8 only does the pseudometric on bounded sets."
+
+  # ---------------- Prelim Problems ----------------
+  - cid: pugh-2.prelim-1
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 1"
+    page: "147"
+    pdfPage: 158
+    verdict: consider
+    tier: upper
+    newExperience: "Recovering continuity from set-mapping properties (compact images + commuting with nested intersections) by building a compact set from a convergent sequence."
+    closestExisting: [abbott-4.4.4, lebl-7.4.10]
+    machinery: "Sequential characterization of continuity; compactness of {x} ∪ {x_n}; nested compact sets."
+    standardResult: "compact-preserving map commuting with nested intersections of compacts is continuous"
+    topic: continuity
+    subtopics: [continuity-and-topology, sequential-continuity, compactness]
+    skills: [sequential-characterization, contradiction, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "Key move is applying (ii) to K_n = {x} ∪ {x_k : k >= n}; after that it is a short subsequence argument."
+    category: synthesis
+    type: proof
+    tags: [continuity, compactness, nested-intersection, prelim, converse]
+    references: []
+    problemLatex: |
+      Suppose that $f\colon \mathbb{R}^m \to \mathbb{R}$ satisfies two conditions:
+
+      (i) For each compact set $K$, $f(K)$ is compact.
+
+      (ii) For every nested decreasing sequence of compacts $(K_n)$,
+      $$f\left(\bigcap K_n\right) = \bigcap f(K_n).$$
+
+      Prove that $f$ is continuous.
+    transcriptionNotes: "Verbatim. Berkeley prelim. Weaker sibling of Prelim 4 (which replaces (ii) with separate continuity and is harder)."
+
+  - cid: pugh-2.prelim-2
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 2"
+    page: "147"
+    pdfPage: 158
+    verdict: consider
+    tier: upper
+    newExperience: "An 'almost Lipschitz' estimate from uniform continuity plus boundedness, splitting into near and far pairs — a prelim trick not in the bank."
+    closestExisting: [abbott-4.4.14, mit20-a9-4]
+    machinery: "Heine–Cantor (uniform continuity on compacta) and boundedness (EVT), case split on |x - y| < δ."
+    standardResult: "continuous f on compact X: for every ε there is M with |f(x)-f(y)| <= M|x-y| + ε"
+    topic: continuity
+    subtopics: [uniform-continuity, lipschitz-holder, EVT]
+    skills: [case-analysis, choose-delta, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Two lines once uniform continuity and boundedness are invoked; the content is recognizing the split."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, Lipschitz, compactness, estimate, prelim]
+    references: []
+    problemLatex: |
+      Let $X \subset \mathbb{R}^m$ be compact and $f\colon X \to \mathbb{R}$ be continuous. Given $\epsilon > 0$, show that there is a constant $M$ such that for all $x, y \in X$ we have $|f(x) - f(y)| \le M|x - y| + \epsilon$.
+    transcriptionNotes: "Verbatim. Berkeley prelim."
+
+  - cid: pugh-2.prelim-4
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 4"
+    page: "147"
+    pdfPage: 158
+    verdict: strong
+    tier: upper
+    newExperience: "Separately continuous + compact-preserving implies continuous: requires constructing a cunning compact set (via IVT on horizontal segments) whose image is not closed."
+    closestExisting: [lebl-7.5.2, lebl-7.5.17, abbott-4.4.4]
+    machinery: "Sequences, IVT along segments, compactness of a convergent sequence with its limit, closedness of compact images."
+    standardResult: "separately continuous f: R^2 -> R mapping compacts to compacts is continuous"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, compactness, IVT]
+    skills: [contradiction, construct-compact-set, IVT-application, subsequence-extraction]
+    difficulty: hard
+    difficultyRationale: "Nontrivial construction: one must produce a compact set whose image accumulates at a value not attained, combining separate continuity, IVT and compactness."
+    category: challenge
+    type: proof
+    tags: [separate-continuity, compactness, IVT, continuity, prelim, synthesis]
+    references: []
+    problemLatex: |
+      Let $f\colon \mathbb{R}^2 \to \mathbb{R}$ satisfy the following properties. For each fixed $x_0 \in \mathbb{R}$ the function $y \mapsto f(x_0, y)$ is continuous and for each fixed $y_0 \in \mathbb{R}$ the function $x \mapsto f(x, y_0)$ is continuous. Also assume that if $K$ is any compact subset of $\mathbb{R}^2$ then $f(K)$ is compact. Prove that $f$ is continuous.
+    transcriptionNotes: "Verbatim. Berkeley prelim. Pairs naturally with Prelim 3 (separately continuous but not continuous), which duplicates lebl-7.5.2."
+
+  - cid: pugh-2.prelim-5
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 5"
+    page: "147"
+    pdfPage: 158
+    verdict: strong
+    tier: upper
+    newExperience: "Continuity of a parametrized maximum (marginal max) — uniform continuity on the square transfers to the sup over a parameter; the bank has no such 'sup of a family' continuity problem."
+    closestExisting: [lebl-7.5.17, abbott-4.4.14]
+    machinery: "Uniform continuity on a compact square; |max A - max B| <= sup |a - b| estimate."
+    standardResult: "g(x) = max_y f(x,y) is continuous for continuous f on [0,1]^2"
+    topic: continuity
+    subtopics: [uniform-continuity, continuity-metric-spaces, EVT]
+    skills: [theorem-recognition, sup-estimate, choose-delta]
+    difficulty: medium
+    difficultyRationale: "Needs uniform (not pointwise) continuity in x uniformly over y and a careful max comparison."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, compactness, parameter, maximum, prelim]
+    references: []
+    problemLatex: |
+      Let $f(x,y)$ be a continuous real-valued function defined on the unit square $[0,1] \times [0,1]$. Prove that
+      $$g(x) = \max\{f(x,y) : y \in [0,1]\}$$
+      is continuous.
+    transcriptionNotes: "Verbatim. Berkeley prelim."
+
+  - cid: pugh-2.prelim-7
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 7"
+    page: "147"
+    pdfPage: 158
+    verdict: strong
+    tier: core-gap
+    newExperience: "Extreme value theorem with only one-sided (upper semi-) continuity — forces the student to see which half of continuity the EVT proof actually uses."
+    closestExisting: [mit20-final-3, ross-21.5, mit20-final-2a]
+    machinery: "Compactness of [0,1] (Bolzano–Weierstrass or open covers) with one-sided ε–δ control; sup attained."
+    standardResult: "upper semicontinuous function on [0,1] is bounded above and attains its maximum"
+    topic: continuity
+    subtopics: [EVT, epsilon-delta-continuity, compactness]
+    skills: [open-cover-argument, subsequence-extraction, sup-approximation]
+    difficulty: medium
+    difficultyRationale: "Adapting the EVT proof to semicontinuity: boundedness via finite subcover, attainment via a maximizing sequence and the one-sided inequality."
+    category: canonical
+    type: proof
+    tags: [semicontinuity, extreme-value-theorem, compactness, prelim]
+    references: []
+    problemLatex: |
+      A function $f\colon [0,1] \to \mathbb{R}$ is said to be **upper semicontinuous** if given $x \in [0,1]$ and $\epsilon > 0$ there exists a $\delta > 0$ such that $|y - x| < \delta$ implies that $f(y) < f(x) + \epsilon$. Prove that an upper semicontinuous function on $[0,1]$ is bounded above and attains its maximum value at some point $p \in [0,1]$.
+    transcriptionNotes: "Verbatim. Berkeley prelim. Marked core-gap: semicontinuity does not appear anywhere in the bank or the unselected candidates (rg 'semicontinu' on BANK_INDEX finds nothing), and the semicontinuous EVT is a standard graduate-prep fact. Could equally be upper-tier."
+
+  - cid: pugh-2.prelim-8
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 8"
+    page: "147"
+    pdfPage: 158
+    verdict: strong
+    tier: upper
+    newExperience: "Open continuous maps of R are monotone — combining EVT on a closed interval with the open-map property to rule out interior extrema."
+    closestExisting: [abbott-4.5.3, ross-22.1]
+    machinery: "Extreme value theorem on [a,b], IVT, open-set images; injectivity implies monotonicity for continuous functions."
+    standardResult: "continuous open map R -> R is (strictly) monotone"
+    topic: continuity
+    subtopics: [continuity-and-topology, monotone-functions, EVT]
+    skills: [contradiction, theorem-recognition, IVT-application]
+    difficulty: medium
+    difficultyRationale: "Requires seeing that an interior max/min on an interval contradicts openness of the image, then passing from 'no interior extrema' to monotone."
+    category: synthesis
+    type: proof
+    tags: [open-map, monotone, extreme-value-theorem, IVT, prelim]
+    references: []
+    problemLatex: |
+      Prove that a continuous function $f\colon \mathbb{R} \to \mathbb{R}$ which sends open sets to open sets must be monotonic.
+    transcriptionNotes: "Verbatim. Berkeley prelim."
+
+  - cid: pugh-2.prelim-9
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 9"
+    page: "147"
+    pdfPage: 158
+    verdict: core
+    tier: upper
+    newExperience: "Sierpiński-type impossibility: [0,1] is not a countably infinite disjoint union of closed intervals — via Baire category or a nested-interval / Cantor-set construction on endpoints."
+    closestExisting: [abbott-3.5.4, abbott-8.2.15, abbott-1.5.6, cummings-5.11]
+    machinery: "Baire category theorem (or nested intervals) applied to the closed set of endpoints; connectedness of [0,1]."
+    standardResult: "[0,1] is not a countably infinite disjoint union of closed subintervals (Sierpiński)"
+    topic: topology
+    subtopics: [baire-category, connectedness, closed-sets]
+    skills: [baire-category-argument, nested-intervals, contradiction]
+    difficulty: hard
+    difficultyRationale: "Nonobvious: one must find the right complete space (the closure of the set of endpoints, or the complement of the interiors) on which to run Baire/nested intervals."
+    category: challenge
+    type: proof
+    tags: [Baire-category, closed-intervals, connectedness, impossibility, prelim, aha]
+    references: []
+    problemLatex: |
+      Show that $[0,1]$ cannot be written as a countably infinite union of disjoint closed subintervals.
+    transcriptionNotes: "Verbatim. Berkeley prelim. Note: interpreting 'closed subintervals' to include degenerate ones [a,a] is the standard (harder) reading; with nondegenerate intervals only, it still requires an argument (the Baire-type one). The curator may want to state this explicitly when presenting."
+
+  - cid: pugh-2.prelim-11
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 11"
+    page: "148"
+    pdfPage: 159
+    verdict: strong
+    tier: upper
+    newExperience: "Clopen argument driven by uniform continuity (Cauchy sequences go to Cauchy sequences) plus continuity of the inverse: shows a uniformly continuous homeomorphism onto R^m forces the domain to be all of R^m."
+    closestExisting: [cummings-6.28, tao-9.9.3, cummings-5.11]
+    machinery: "Uniform continuity preserves Cauchy sequences; completeness of R^m; continuity of h^{-1}; connectedness of R^m (clopen sets)."
+    standardResult: "uniformly continuous homeomorphism of an open U ⊂ R^m onto R^m forces U = R^m"
+    topic: topology
+    subtopics: [connectedness, complete-metric-spaces, uniform-continuity]
+    skills: [clopen-argument, sequential-characterization, theorem-recognition]
+    difficulty: medium
+    difficultyRationale: "Each step is standard, but combining UC, completeness, inverse continuity and connectedness without being told is the challenge."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, homeomorphism, connectedness, clopen, Cauchy, prelim]
+    references: []
+    problemLatex: |
+      Let $U \subset \mathbb{R}^m$ be an open set. Suppose that the map $h\colon U \to \mathbb{R}^m$ is a homeomorphism from $U$ onto $\mathbb{R}^m$ which is uniformly continuous. Prove that $U = \mathbb{R}^m$.
+    transcriptionNotes: "Verbatim. Berkeley prelim. Implicitly U nonempty (since h is onto R^m)."
+
+  - cid: pugh-2.prelim-14
+    chapter: "2 A Taste of Topology"
+    section: "Prelim Problems"
+    number: "Prelim Problem 14"
+    page: "148"
+    pdfPage: 159
+    verdict: strong
+    tier: upper
+    newExperience: "Uniform continuity forces at-most-linear growth — a chaining (step-counting) estimate rather than an ε–δ verification."
+    closestExisting: [ross-19.4, tao-9.9.5, abbott-4.4.1]
+    machinery: "Uniform continuity with a fixed ε = 1, chaining |x|/δ steps, triangle inequality."
+    standardResult: "uniformly continuous f: R -> R satisfies |f(x)| <= A + B|x|"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [chaining-argument, triangle-inequality, archimedean-argument]
+    difficulty: medium
+    difficultyRationale: "The chaining idea is not immediate; once found, the estimate is short."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, growth-bound, linear-growth, estimate, prelim]
+    references: []
+    problemLatex: |
+      Assume that $f\colon \mathbb{R} \to \mathbb{R}$ is uniformly continuous. Prove that there are constants $A, B$ such that $|f(x)| \le A + B|x|$ for all $x \in \mathbb{R}$.
+    transcriptionNotes: "Verbatim. Berkeley prelim. Gives a strong explanation of why x^2 is not uniformly continuous (cf. abbott-4.4.1)."
+
+skipped:
+  - "101 Σ compact and homeomorphic to Cantor set — interesting but subsumed by 109(d) (which quotes Σ); (b) requires the book's Cantor-space machinery"
+  - "103 continuous surjection R → R² — depends on the book's Peano curve Theorem 72"
+  - "104, 105 homeomorphism-classification puzzles (complements, ambient homeomorphisms) — geometric topology, low analysis value"
+  - "106 uniqueness of completion — part (a) depends on the construction in the proof of Theorem 80 (pages of context); (b)-(c) mechanism close to lebl-3.4.9 (UC extension from a dense set). 107 routine"
+  - "108 C_max → C_int continuous with discontinuous inverse — near abbott-8.2.2 / lebl-7.2.9 (metrics on C[0,1], equivalent metrics); routine example"
+  - "110 p-adic metric — number-theoretic flavor, (c)-(e) need completion and local compactness; ultrametric experience already in 109"
+  - "111, 113 routine bookkeeping of dyadic/Cantor divisions; 112 #C = #R — hint gives the whole proof, cardinality standard; 114 Cantor surjection onto [0,1] — dup of Cantor function abbott-6.2.12"
+  - "116 bounded metric d/(1+d) — dup lebl-7.2.16; 117 paper folding / tent-map orbits — informal, (f) open-ended"
+  - "119 cone metric — routine metric-axiom verification; 120 absolutely closed/bounded ⇒ compact — relies on 118, 119 and the book's embedding definitions; 118 is the better problem"
+  - "122 derived sets — dup mit20-a4-7 (derived set closed) plus routine computations; 123 condensation point algebra — routine (a)-(f), (h)-(i) exotic function-space examples"
+  - "124, 125 interior/boundary identities — routine set-topology"
+  - "126 uncountable E ⊂ R condenses somewhere — dup abbott-1.5.10; 133 uncountable subsets condense at uncountably many of their own points — extends 126/abbott-1.5.10, overlaps 137 (kept 137)"
+  - "127, 129, 130, 131 separability / countable bases — routine (127(a) dup lebl-7.3.7); 128 subspace of separable is separable — mildly nice but standard; 132 condensation-point identities in separable spaces — depends heavily on 123, hint-driven"
+  - "134, 135 construction of R via Cauchy sequences — constructing number systems (excluded)"
+  - "136 Peano curve à la Cantor Surjection Theorem, compare with Munkres — book-dependent/open-ended; 138, 139 Cantor sets in R²/Antoine's necklace — geometric topology, beyond scope"
+  - "141 Hilbert cube perfect and H ≅ H × H — weaker follow-on to 140; 142 open-ended research question (***)"
+  - "143 Peano spaces compact/path-connected/locally path-connected, 144 Hahn–Mazurkiewicz — rely on Cantor Surjection Theorem, continuum theory beyond scope"
+  - "145 Jordan curve theorem for polygons, 146 utility problem on surfaces — plane/surface topology, outside scope"
+  - "Prelim 3 separately continuous but not continuous — dup lebl-7.5.2"
+  - "Prelim 6 locally finite open shrinking of a cover of R^m — paracompactness-style, more general topology than undergrad analysis"
+  - "Prelim 10 uncountably many components (Cantor set; open sets impossible) — open case dup abbott-1.5.6, rest light"
+  - "Prelim 12 connected subset of Q is a singleton — dup abbott-3.4.7 / lebl-7.2.5"
+  - "Prelim 13 every convergent subsequence → x in compact A ⇒ x_n → x — dup lebl-2.3.11 / lebl-7.3.13"
+  - "Prelim 15 uniformly continuous h on [0,1) extends to [0,1] — dup abbott-4.4.13 / tao-9.9.4"
+  - "Note: Exercises 148-152 (printed pp. 145-146: closure-complement chain, letter T, Cupcake/Cantor–Bendixson, uncountable compact contains a Cantor set, jingles) fall between the two assigned chunks and were not evaluated here"

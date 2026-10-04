@@ -1,0 +1,184 @@
+chunk: "pugh-ch1"
+book: pugh
+pageOffsetNote: "printed page = pdfPage - 12"
+sectionsCovered:
+  - "Chapter 1 Real Numbers, Exercises 0–52 (pdf pages 56–67)"
+candidates:
+  - cid: pugh-1.18
+    chapter: "1 Real Numbers"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 18"
+    page: "46"
+    pdfPage: 58
+    verdict: consider
+    tier: core-gap
+    newExperience: "The bank has no problem on decimal expansions at all; this builds the real-number/decimal correspondence rigorously from floor functions and the l.u.b. property, including the nines-termination subtlety."
+    closestExisting: [lebl-1.2.11, abbott-1.6.9]
+    machinery: "Archimedean property / floor function plus least upper bound property to establish existence and uniqueness of decimal expansions."
+    standardResult: "bijection between R and decimal expansions not ending in repeating 9s"
+    topic: real-numbers
+    subtopics: [decimal-representation, supremum-infimum, completeness]
+    skills: [sup-approximation, induction, contradiction]
+    difficulty: medium
+    difficultyRationale: "Parts (b) and (c) need careful inequalities (no tail of 9s; sup of partial sums recovers the same digits); each step is standard but the bookkeeping is multi-step."
+    category: canonical
+    type: proof
+    tags: [decimal-expansion, supremum, completeness, Archimedean-property, floor-function]
+    references: []
+    problemLatex: |
+      Prove that real numbers correspond bijectively to decimal expansions not terminating in an infinite strings of nines, as follows. The decimal expansion of $x \in \mathbb{R}$ is $N.x_1x_2\ldots$, where $N$ is the largest integer $\le x$, $x_1$ is the largest integer $\le 10(x - N)$, $x_2$ is the largest integer $\le 100(x - (N + x_1/10))$, and so on.
+
+      (a) Show that each $x_k$ is a digit between $0$ and $9$.
+
+      (b) Show that for each $k$ there is an $\ell \ge k$ such that $x_\ell \ne 9$.
+
+      (c) Conversely, show that for each such expansion $N.x_1x_2\ldots$ not terminating in an infinite string of nines, the set
+      $$\left\{N,\ N + \frac{x_1}{10},\ N + \frac{x_1}{10} + \frac{x_2}{100},\ \ldots\right\}$$
+      is bounded and its least upper bound is a real number $x$ with decimal expansion $N.x_1x_2\ldots$.
+
+      (d) Repeat the exercise with a general base in place of $10$.
+    transcriptionNotes: "Verified against page image. 'infinite strings of nines' is the book's wording. Pugh constructs R by Dedekind cuts, but the exercise only uses the l.u.b. property and is self-contained."
+
+  - cid: pugh-1.30
+    chapter: "1 Real Numbers"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 30"
+    page: "49"
+    pdfPage: 61
+    verdict: strong
+    tier: upper
+    newExperience: "A full development of convex functions (epigraph, continuity, three-slope monotonicity, f'' >= 0 characterization); the bank has only convex-implies-continuous, nothing on slope monotonicity or the second-derivative characterization."
+    closestExisting: [lebl-3.2.19]
+    machinery: "Convexity inequality manipulated into slope inequalities; continuity from slope bounds; MVT to link convexity with f''."
+    standardResult: "convex functions: epigraph convex, continuous, increasing chord slopes, convex iff f'' >= 0"
+    topic: differentiation
+    subtopics: [mvt-applications, epsilon-delta-continuity, inequalities]
+    skills: [slope-comparison, MVT-application, epsilon-delta-proof, contradiction]
+    difficulty: hard
+    difficultyRationale: "Hardest part is (b) (convex => continuous, rated hard in the bank as lebl-3.2.19); (c) and (d) are medium but chain together."
+    category: synthesis
+    type: proof
+    tags: [convex-function, continuity, mean-value-theorem, second-derivative, slopes, synthesis]
+    references: []
+    problemLatex: |
+      A function $f\colon (a,b) \to \mathbb{R}$ is a **convex function** if for all $x, y \in (a,b)$ and all $s, t \in [0,1]$ with $s + t = 1$ we have
+      $$f(sx + ty) \le s f(x) + t f(y).$$
+
+      (a) Prove that $f$ is convex if and only if the set $S$ of points above its graph is convex in $\mathbb{R}^2$. The set $S$ is $\{(x,y) : f(x) \le y\}$.
+
+      *(b) Prove that every convex function is continuous.
+
+      (c) Suppose that $f$ is convex and $a < x < u < b$. The slope $\sigma$ of the line through $(x, f(x))$ and $(u, f(u))$ depends on $x$ and $u$, say $\sigma = \sigma(x,u)$. Prove that $\sigma$ increases when $x$ increases, and $\sigma$ increases when $u$ increases.
+
+      (d) Suppose that $f$ is second-order differentiable. That is, $f$ is differentiable and its derivative $f'$ is also differentiable. As is standard, we write $(f')' = f''$. Prove that $f$ is convex if and only if $f''(x) \ge 0$ for all $x \in (a,b)$.
+
+      (e) Formulate a definition of convexity for a function $f\colon M \to \mathbb{R}$ where $M \subset \mathbb{R}^m$ is a convex set. [Hint: Start with $m = 2$.]
+    transcriptionNotes: "Verified against page image. The star on (b) is the book's difficulty marker. (a) uses 'convex set' in R^2 (a set containing the segment between any two of its points, defined in Pugh's text); part (e) is a brief multivariable aside a curator may drop."
+
+  - cid: pugh-1.32
+    chapter: "1 Real Numbers"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 32"
+    page: "49"
+    pdfPage: 61
+    verdict: strong
+    tier: upper
+    newExperience: "Combines convexity (monotone one-sided derivatives) with the countable-jumps argument for monotone functions to get differentiability off a countable set; the tool (monotone-discontinuity counting) is not named."
+    closestExisting: [abbott-4.6.6, lebl-3.2.19, pugh-1.30]
+    machinery: "Monotonicity of chord slopes gives one-sided derivatives f'_-<=f'_+ that are monotone; a monotone function has countably many discontinuities, and f is differentiable where they agree."
+    standardResult: "convex function is differentiable except at countably many points"
+    topic: differentiation
+    subtopics: [differentiability, monotone-functions, cardinality]
+    skills: [slope-comparison, one-sided-derivatives, countability-argument]
+    difficulty: hard
+    difficultyRationale: "Requires establishing one-sided derivatives, showing f'_+(x) <= f'_-(y) for x<y, and reducing to countably many jumps of a monotone function; a non-obvious synthesis."
+    category: synthesis
+    type: proof
+    tags: [convex-function, differentiability, countable-set, monotone-function, one-sided-derivative, synthesis]
+    references: []
+    problemLatex: |
+      Suppose that $E$ is a convex region in the plane bounded by a curve $C$.
+
+      (a) Show that $C$ has a tangent line except at a countable number of points. [For example, the circle has a tangent line at all its points. The triangle has a tangent line except at three points, and so on.]
+
+      (b) Similarly, show that a convex function has a derivative except at a countable set of points.
+    transcriptionNotes: "Verified against page images (starts bottom of printed p. 49, continues p. 50). Starred (*) in the book. 'Convex function' is as defined in Exercise 30 (f: (a,b) -> R with f(sx+ty) <= s f(x) + t f(y) for s,t in [0,1], s+t=1); a curator may want to quote that definition. Part (a) is geometric and informal; (b) is the analytic core."
+
+  - cid: pugh-1.43
+    chapter: "1 Real Numbers"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 43"
+    page: "52"
+    pdfPage: 64
+    verdict: consider
+    tier: upper
+    newExperience: "Proves Heine–Cantor by a 'continuous induction' sup-argument (how far along [a,b] does a single delta work?) rather than by open covers or Bolzano–Weierstrass; the bank has no sup-creeping proof technique."
+    closestExisting: [abbott-4.4.14]
+    machinery: "Least upper bound property used as a real-induction argument: the set of good right endpoints has sup b and contains b."
+    standardResult: "continuous on [a,b] implies uniformly continuous (via l.u.b. / real induction)"
+    topic: continuity
+    subtopics: [uniform-continuity, supremum-infimum, completeness]
+    skills: [sup-argument, real-induction, epsilon-delta-proof, contradiction]
+    difficulty: medium
+    difficultyRationale: "Same theorem as a medium bank item; the prescribed route needs care (showing sup A belongs to A and equals b, shrinking delta near the sup) but is guided by the hint."
+    category: challenge
+    type: proof
+    tags: [uniform-continuity, supremum, least-upper-bound, real-induction, compactness-free]
+    references: []
+    problemLatex: |
+      Prove that a continuous function defined on an interval $[a,b]$ is uniformly continuous. [Hint: Let $\epsilon > 0$ be given. Think of $\epsilon$ as fixed and consider the sets
+      $$A(\delta) = \{u \in [a,b] : \text{if } x, t \in [a,u] \text{ and } |x - t| < \delta \text{ then } |f(x) - f(t)| < \epsilon\}$$
+      $$A = \bigcup_{\delta > 0} A(\delta).$$
+      Using the Least Upper Bound Property, prove that $b \in A$. Infer that $f$ is uniformly continuous. The fact that continuity on $[a,b]$ implies uniform continuity is one of the important, fundamental principles of continuous functions.]
+    transcriptionNotes: "Verified against page image (union symbol over delta>0 was garbled in text extraction). Starred (*) in the book. Uniform continuity is defined in the book's Exercise 42: for each epsilon>0 there is delta>0 with |x-t|<delta implying |f(x)-f(t)|<epsilon."
+
+  - cid: pugh-1.47
+    chapter: "1 Real Numbers"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 47"
+    page: "53"
+    pdfPage: 65
+    verdict: consider
+    tier: upper
+    newExperience: "A long guided proof chain (Jordan–von Neumann) whose final step extends an identity from Q to R by continuity, a density-plus-continuity aha the bank only touches in function-extension problems."
+    closestExisting: [lebl-3.4.9]
+    machinery: "Algebraic identities from the parallelogram law, induction to get Q-homogeneity, then continuity of the norm and density of Q to get R-homogeneity."
+    standardResult: "parallelogram law characterizes inner-product norms (Jordan–von Neumann)"
+    topic: topology
+    subtopics: [metric-spaces, density-of-Q]
+    skills: [induction, density-argument, continuity-extension, algebraic-identity]
+    difficulty: hard
+    difficultyRationale: "Part (b) is a multi-step chain: additivity from the parallelogram law, rational homogeneity by induction, real homogeneity by continuity; (a) is a computation."
+    category: challenge
+    type: proof
+    tags: [parallelogram-law, inner-product, norm, density, continuity, long-proof-chain]
+    references: []
+    problemLatex: |
+      Assume that $V$ is an inner product space whose inner product induces a norm as $|x| = \sqrt{\langle x, x\rangle}$.
+
+      (a) Show that $|\ |$ obeys the **parallelogram law**
+      $$|x + y|^2 + |x - y|^2 = 2|x|^2 + 2|y|^2$$
+      for all $x, y \in V$.
+
+      *(b) Show that any norm obeying the parallelogram law arises from a unique inner product. [Hints: Define the prospective inner product as
+      $$\langle x, y\rangle = \left|\frac{x+y}{2}\right|^2 - \left|\frac{x-y}{2}\right|^2$$
+      Checking that $\langle\ ,\ \rangle$ satisfies the inner product properties of symmetry and positive definiteness is easy. Also, it is immediate that $|x|^2 = \langle x, x\rangle$, so $\langle\ ,\ \rangle$ induces the given norm. Checking bilinearity is another story.
+
+      (i) Let $x, y, z \in V$ be arbitrary. Show that the parallelogram law implies
+      $$\langle x + y, z\rangle + \langle x - y, z\rangle = 2\langle x, z\rangle,$$
+      and infer that $\langle 2x, z\rangle = 2\langle x, z\rangle$. For arbitrary $u, v \in V$ set $x = \frac12(u+v)$ and $y = \frac12(u - v)$, plug in to the previous equation, and deduce
+      $$\langle u, z\rangle + \langle v, z\rangle = \langle u + v, z\rangle,$$
+      which is additive bilinearity in the first variable. Why does it now follow at once that $\langle\ ,\ \rangle$ is also additively bilinear in the second variable?
+
+      (ii) To check multiplicative bilinearity, prove by induction that if $m \in \mathbb{Z}$ then $m\langle x, y\rangle = \langle mx, y\rangle$, and if $n \in \mathbb{N}$ then $\frac1n\langle x, y\rangle = \langle \frac1n x, y\rangle$. Infer that $r\langle x, y\rangle = \langle rx, y\rangle$ when $r$ is rational. Is $\lambda \mapsto \langle \lambda x, y\rangle - \lambda\langle x, y\rangle$ a continuous function of $\lambda \in \mathbb{R}$, and does this give multiplicative bilinearity?]
+    transcriptionNotes: "Verified against page images (pp. 53–54). Typo fixed: the book prints '⟨x + y, z⟩ + ⟨x − y, z⟩ = 2⟨x, y⟩' in hint (i); the right side must be 2⟨x, z⟩ (setting y = x then gives ⟨2x,z⟩ = 2⟨x,z⟩ as the hint says). Scope caution: this is normed/inner-product-space material (linear algebra flavour); the analysis content is the Q-to-R continuity step. Real vector space V is implicit."
+skipped:
+  - "0–2 set algebra/De Morgan (lebl-0.3.6); 3–5 English/logic grammar; 6–8 parity and irrationality of nth roots (elementary number theory)"
+  - "9–11, 14 Dedekind-cut construction of R (exotic: constructing R); 12, 13, 19, 20 routine sup/glb/unique limits (mit20-a3-4, cummings-1.9)"
+  - "15–17 continuity of u^n and existence/uniqueness of nth roots (lebl-1.2.11); 17(a) also has a typo (needs x,y>0)"
+  - "21 graphs of functions (set theory); 22 fixed points (abbott-4.5.7, lebl-3.3.10); 23–29 dyadic cubes, balls/cubes, disc packing, lattice-point counting, convex sets in R^m (multivariable geometry)"
+  - "31 monotone function has countably many discontinuities (abbott-4.6.6, cummings-6.35); 33 face counts of m-cube (combinatorics)"
+  - "34–40 cardinality: pairing bijection, countable unions (abbott-1.5.3), Hilbert-hotel [a,b]~(a,b) and R\\C~R (lebl-1.4.5, mit20-a3-3), R^2~R digit shuffle, Cantor power-set (mit20-a3-2, tao-8.3.5), algebraic numbers (abbott-1.5.9), finite/infinite words (abbott-1.6.4) — bank covers cardinality well"
+  - "41 smallest/largest x with f(x)=v (essentially closed zero set, abbott-4.3.9 + EVT); 42 sin(1/x) not UC, x^2, 2x (lebl-3.4.8, abbott-4.4.1)"
+  - "44 Schroeder–Bernstein bijection from f(n)=g(n)=2n (cardinality curiosity; tao-8.3.2/8.3.3); 45 limsup basics (tao-6.4.3)"
+  - "46 geometric characterization of norm unit balls in R^2/R^m (convex geometry, depends on Ch.2 Ex.41; outside scope); 48–52 knots, linked circles, Klein bottle, Flatland, 4-cube visualization (not analysis)"

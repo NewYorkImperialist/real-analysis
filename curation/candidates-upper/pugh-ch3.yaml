@@ -1,0 +1,558 @@
+chunk: "pugh-ch3"
+book: pugh
+pageOffsetNote: "printed page = pdfPage - 11"
+sectionsCovered:
+  - "Chapter 3 Functions of a Real Variable, Exercises 1–74 (pdf pages 209–221). The chapter has no prelim problems; Exercise 74 ends on p.221 (printed 210)."
+candidates:
+  - cid: pugh-3.12
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 12"
+    page: "199"
+    pdfPage: 210
+    verdict: strong
+    tier: upper
+    newExperience: "Decide which ways of letting secant endpoints shrink to 0 recover f'(0): straddling secants, secants on one side with a ratio bound, or any secants when f' is continuous. Then break the general case with x^2 sin(1/x). The bank only has symmetric derivatives and x^2 sin(1/x) as a discontinuous-derivative example."
+    closestExisting: [ross-28.14, ross-28.4, lebl-4.2.4]
+    machinery: "Writing a difference quotient as a convex combination of one-sided difference quotients; MVT plus continuity of f'; building a counterexample from the oscillation of x^2 sin(1/x)."
+    standardResult: "secant slopes D_n -> f'(0) under straddling / ratio-bound / C^1 hypotheses; fails for x^2 sin(1/x)"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability, rolle-mvt]
+    skills: [convex-combination, MVT-application, construct-counterexample, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Part (a)(ii) needs the convex-combination identity plus the ratio bound. Part (b) needs a deliberate choice of points where the x^2 sin(1/x) quotients stay bounded away from 0. Each step is short."
+    category: synthesis
+    type: proof
+    tags: [derivative, difference-quotient, secant, mean-value-theorem, counterexample, x2-sin-1-over-x]
+    references: []
+    problemLatex: |
+      Assume that $f\colon(-1,1)\to\mathbb{R}$ and $f'(0)$ exists. If $\alpha_n,\ \beta_n \to 0$ as $n\to\infty$, define the difference quotient
+      $$D_n = \frac{f(\beta_n) - f(\alpha_n)}{\beta_n - \alpha_n}.$$
+
+      (a) Prove that $\lim_{n\to\infty} D_n = f'(0)$ under each of the following conditions.
+
+      (i) $\alpha_n < 0 < \beta_n$.
+
+      (ii) $0 < \alpha_n < \beta_n$ and $\dfrac{\beta_n}{\beta_n - \alpha_n} \le M$.
+
+      (iii) $f'(x)$ exists and is continuous for all $x \in (-1,1)$.
+
+      (b) Set $f(x) = x^2\sin(1/x)$ for $x \ne 0$ and $f(0) = 0$. Observe that $f$ is differentiable everywhere in $(-1,1)$ and $f'(0) = 0$. Find $\alpha_n, \beta_n$ that tend to $0$ in such a way that $D_n$ converges to a limit unequal to $f'(0)$.
+    transcriptionNotes: "Checked against the page image. Typo fixed: the book prints f(a_n) in the numerator of D_n; it should be f(alpha_n)."
+
+  - cid: pugh-3.18
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 18"
+    page: "200"
+    pdfPage: 211
+    verdict: strong
+    tier: upper
+    newExperience: "Combine the topology of R (an open set is a countable union of disjoint open intervals) with a carefully weighted series of smooth bumps that converges in every C^k norm. The result is that every closed set is the exact zero set of a smooth function. The bank only builds individual bump functions."
+    closestExisting: [ross-31.4, lebl-5.4.11, abbott-6.6.6]
+    machinery: "Structure of open subsets of R; rescaled bump functions on each component interval; a weighted series with summable C^k bounds so that term-by-term differentiation is valid."
+    standardResult: "every closed subset of R is the zero set of a smooth function"
+    topic: function-sequences
+    subtopics: [series-of-functions, interchange-derivative, open-sets]
+    skills: [construct-counterexample, M-test, open-set-decomposition, rescaling]
+    difficulty: hard
+    difficultyRationale: "The construction is clear once the open complement is split into intervals. The real work is choosing weights so that every derivative of the sum converges uniformly while the sum stays positive exactly off L."
+    category: synthesis
+    type: construction
+    tags: [smooth-function, bump-function, closed-set, open-set, term-by-term-differentiation, uniform-convergence, construction]
+    references: ["Exercise 17(c) (quoted)"]
+    problemLatex: |
+      Let $L$ be any closed set in $\mathbb{R}$. Prove that there is a smooth function $f\colon\mathbb{R}\to[0,1]$ such that $f(x) = 0$ if and only if $x \in L$. To put it another way, every closed set in $\mathbb{R}$ is the zero locus of some smooth function. [Hint: Use Exercise 17(c).]
+
+      *(Exercise 17(c): With $e(x) = e^{-1/x}$ for $x > 0$ and $e(x) = 0$ for $x \le 0$, the bump function $\beta(x) = e^2\, e(1-x)\cdot e(x+1)$ is smooth, identically zero outside the interval $(-1,1)$, positive inside the interval $(-1,1)$, and takes value $1$ at $x = 0$. Here $e^2$ is the square of the base of the natural logarithms, while $e(x)$ is the function just defined.)*
+    transcriptionNotes: "Checked against the page image. Exercise 17(c) is quoted from the book. Pugh writes the function as a script e, rendered here as e(x). Pugh marks this exercise **."
+
+  - cid: pugh-3.22
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 22"
+    page: "201"
+    pdfPage: 212
+    verdict: strong
+    tier: upper
+    newExperience: "A pure counting argument: there are 2^c subsets of the Cantor set but only c F_sigma sets. This proves that a non-constructive set exists which is never a discontinuity set. It joins cardinality, topology and the Lebesgue criterion in a way the bank never does."
+    closestExisting: [abbott-4.6.8, abbott-3.5.6, abbott-1.6.9, abbott-4.3.14]
+    machinery: "The discontinuity set is F_sigma (via oscillation). There are only continuum-many closed sets, since each is determined by its countable dense subset or by rational intervals in its complement. Cantor's theorem |P(C)| > |C| = |R|. The Lebesgue criterion."
+    standardResult: "some subset of the Cantor set is not the discontinuity set of any function (counting F_sigma sets)"
+    topic: continuity
+    subtopics: [discontinuities, cardinality, cantor-set]
+    skills: [cardinality-counting, contradiction, oscillation-argument]
+    difficulty: hard
+    difficultyRationale: "Two non-obvious ideas are needed. First, discontinuity sets are F_sigma. Second, there are only c closed sets, against 2^c subsets of C. Each needs its own proof."
+    category: challenge
+    type: proof
+    tags: [discontinuity-set, F-sigma, cardinality, Cantor-set, zero-set, Riemann-Lebesgue-theorem, counting-argument]
+    references: ["Pugh's definition of zero set (quoted)", "Riemann–Lebesgue Theorem 23 (quoted)"]
+    problemLatex: |
+      Show that there exists a subset $S$ of the middle-thirds Cantor set which is never the discontinuity set of a function $f\colon\mathbb{R}\to\mathbb{R}$. Infer that some zero sets are never discontinuity sets of Riemann integrable functions. [Hint: How many subsets of $C$ are there? How many can be countable unions of closed sets?]
+
+      *(Definitions from the text: a set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ such that $\sum_{i=1}^\infty b_i - a_i \le \epsilon$. **Riemann–Lebesgue Theorem:** a function $f\colon[a,b]\to\mathbb{R}$ is Riemann integrable if and only if it is bounded and its set of discontinuity points is a zero set.)*
+    transcriptionNotes: "Checked against the page image. The zero-set definition and Theorem 23 are quoted from Section 3.2 so the problem stands on its own. The F_sigma property of discontinuity sets is Exercise 19(b) in the book. It is not referenced here, so the solver has to supply it. Pugh marks this exercise **."
+
+  - cid: pugh-3.23
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 23"
+    page: "201"
+    pdfPage: 212
+    verdict: strong
+    tier: upper
+    newExperience: "A guided proof using the Baire category theorem that, for a pointwise limit of continuous functions, each set of points of oscillation >= 1/k is nowhere dense. This is the bank's first real application of Baire to function theory rather than to sets."
+    closestExisting: [abbott-8.2.15, abbott-3.5.4, abbott-4.6.8, lebl-6.2.16]
+    machinery: "Preimages under a pointwise limit written as countable unions of closed sets built from the continuous f_n; the Baire category theorem on a closed interval; oscillation."
+    standardResult: "Baire class 1 functions: the sets {osc >= 1/k} are nowhere dense"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, baire-category, discontinuities]
+    skills: [baire-category-argument, closed-set-decomposition, contradiction, oscillation-argument]
+    difficulty: hard
+    difficultyRationale: "Even with the guidance, the solver must prove the set identity in (d) and see how Baire forces some E_{lmN} to contain an interval. This is substantial synthesis, but the steps are given."
+    category: challenge
+    type: proof
+    tags: [Baire-class-1, Baire-category, pointwise-convergence, oscillation, nowhere-dense, discontinuity-set]
+    references: ["Exercise 19(a) (quoted)", "Baire's Theorem (quoted)"]
+    problemLatex: |
+      Suppose that $f_n\colon[a,b]\to\mathbb{R}$ is a sequence of continuous functions that converges pointwise to a limit function $f\colon[a,b]\to\mathbb{R}$. Such an $f$ is said to be of **Baire class 1**. (Pointwise convergence means: for each $x$, $f_n(x)$ converges to $f(x)$ as $n\to\infty$.)
+
+      Prove that the set $D_k$ of discontinuity points with oscillation $\ge 1/k$ is nowhere dense, as follows. To arrive at a contradiction, suppose that $D_k$ is dense in some interval $(\alpha,\beta)\subset[a,b]$. By Exercise 19, $D_k$ is closed, so it contains $(\alpha,\beta)$. Cover $\mathbb{R}$ by countably many intervals $(a_\ell, b_\ell)$ of length $< 1/k$ and set
+      $$H_\ell = f^{\mathrm{pre}}(a_\ell, b_\ell).$$
+
+      (a) Why does $\bigcup_\ell H_\ell = [a,b]$?
+
+      (b) Show that no $H_\ell$ contains a subinterval of $(\alpha,\beta)$.
+
+      (c) Why are
+      $$F_{\ell mn} = \left\{x\in[a,b] : a_\ell + \frac{1}{m} \le f_n(x) \le b_\ell - \frac{1}{m}\right\}, \qquad E_{\ell mN} = \bigcap_{n\ge N} F_{\ell mn}$$
+      closed?
+
+      (d) Show that
+      $$H_\ell = \bigcup_{m,N\in\mathbb{N}} E_{\ell mN}.$$
+
+      (e) Use (a) and Baire's Theorem to deduce that some $E_{\ell mN}$ contains a subinterval of $(\alpha,\beta)$.
+
+      (f) Why does (e) contradict (b) and complete the proof that $D_k$ is nowhere dense?
+
+      *(From the text: the oscillation of $f$ at $x$ is $\operatorname{osc}_x f = \limsup_{t\to x} f(t) - \liminf_{t\to x} f(t)$. Exercise 19(a) asks the reader to prove that $D_k$ is closed. Baire's Theorem: if a complete metric space is the countable union of closed subsets then at least one of them has nonempty interior.)*
+    transcriptionNotes: "Checked against the page image. Two things are condensed: Pugh's long parenthetical on Baire class r and the Boas reference (only the definition of pointwise convergence is kept), and the page reference for Baire's Theorem. The book cites it as page 256 in Ex. 20 and page 243 in Ex. 23, so the statement given in Ex. 20 is quoted instead. f^pre is Pugh's notation for preimage. The definitions of oscillation and Exercise 19(a) are quoted. Pugh marks this exercise **."
+
+  - cid: pugh-3.25
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 25"
+    page: "202"
+    pdfPage: 213
+    verdict: strong
+    tier: upper
+    newExperience: "Show that a derivative cannot be discontinuous everywhere: g' is a pointwise limit of continuous difference quotients, so it has a dense set of continuity points. The bank has Darboux's theorem but nothing on how large the continuity set of a derivative must be."
+    closestExisting: [abbott-5.2.11, abbott-7.5.2, lebl-6.2.21]
+    machinery: "Difference quotients as continuous approximants; pointwise convergence to g'; extending a differentiable function past the endpoints; a Baire-category theorem for Baire class 1 functions."
+    standardResult: "a derivative is Baire class 1, hence continuous on a dense set"
+    topic: differentiation
+    subtopics: [differentiability, darboux-property, baire-category]
+    skills: [difference-quotient-approximation, extension-argument, theorem-application]
+    difficulty: medium
+    difficultyRationale: "Given the quoted Exercise 24 result, (a) asks for a careful extension of g and a check that the f_n are continuous and converge pointwise, and (b) is then immediate. Without Exercise 24 it would be hard."
+    category: synthesis
+    type: theorem-application
+    tags: [derivative, Baire-class-1, continuity-points, pointwise-convergence, Darboux, dense-set]
+    references: ["Exercise 24 (quoted)"]
+    problemLatex: |
+      Suppose that $g\colon[a,b]\to\mathbb{R}$ is differentiable.
+
+      (a) Prove that $g'$ is of Baire class 1. [Hint: Extend $g$ to a differentiable function defined on a larger interval and consider
+      $$f_n(x) = \frac{g(x+1/n) - g(x)}{1/n}$$
+      for $x\in[a,b]$. Is $f_n(x)$ continuous? Does $f_n(x)$ converge pointwise to $g'(x)$ as $n\to\infty$?]
+
+      (b) Infer from Exercise 24 that *a derivative cannot be everywhere discontinuous*. It must be continuous on a dense subset of its domain of definition.
+
+      *(Definitions and results from the text: $f\colon[a,b]\to\mathbb{R}$ is of **Baire class 1** if it is the pointwise limit of a sequence of continuous functions $f_n\colon[a,b]\to\mathbb{R}$. Exercise 24: a Baire class 1 function has a dense set of continuity points.)*
+    transcriptionNotes: "Checked against the page image. The Baire class 1 definition (Exercise 23) and the statement of Exercise 24 are quoted so the problem stands on its own. Exercise 24 is the step that links pugh-3.23 to this problem. If the curator wants a self-contained hard version, pair this with pugh-3.23."
+
+  - cid: pugh-3.29
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 29"
+    page: "203"
+    pdfPage: 214
+    verdict: strong
+    tier: upper
+    newExperience: "Prove that an interval is not negligible, which sounds obvious. The solver has to see why the naive argument fails, then reduce to a finite cover by Heine–Borel and run a minimal-counterexample (least n) induction that merges overlapping intervals. The bank uses measure zero but never proves that intervals do not have it."
+    closestExisting: [abbott-7.6.3, abbott-7.6.18]
+    machinery: "Compactness of [a,b] (Heine–Borel) to pass to finite covers; a minimal counterexample (well-ordering); merging two overlapping open intervals."
+    standardResult: "[a,b] is not a zero set (measure zero): proof via minimal bad finite cover"
+    topic: topology
+    subtopics: [compactness, sets]
+    skills: [open-cover-argument, minimal-counterexample, contradiction, well-ordering]
+    difficulty: medium
+    difficultyRationale: "The steps are given, but (a) asks the solver to find the gap in the naive argument, and (iv)–(vi) need careful case handling for the merge."
+    category: canonical
+    type: proof
+    tags: [zero-set, measure-zero, Heine-Borel, compactness, open-cover, minimal-counterexample]
+    references: ["Pugh's definition of zero set (quoted)"]
+    problemLatex: |
+      Prove that the interval $[a,b]$ is not a zero set.
+
+      (a) Explain why the following observation is not a solution to the problem: "Every open interval that contains $[a,b]$ has length $> b-a$."
+
+      (b) Instead, suppose there is a "bad" covering of $[a,b]$ by open intervals $\{I_i\}$ whose total length is $< b-a$, and justify the following steps.
+
+      (i) It is enough to deal with finite bad coverings.
+
+      (ii) Let $\mathcal{B} = \{I_1,\dots,I_n\}$ be a bad covering such that $n$ is minimal among all bad coverings.
+
+      (iii) Show that no bad covering has $n=1$ so we have $n\ge 2$.
+
+      (iv) Show that it is no loss of generality to assume $a\in I_1$ and $I_1\cap I_2 \ne \emptyset$.
+
+      (v) Show that $I = I_1\cup I_2$ is an open interval and $|I| < |I_1| + |I_2|$.
+
+      (vi) Show that $\mathcal{B}' = \{I, I_3,\dots,I_n\}$ is a bad covering of $[a,b]$ with fewer intervals, a contradiction to minimality of $n$.
+
+      *(Definition from the text: a set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ such that $\sum_{i=1}^\infty b_i - a_i \le \epsilon$.)*
+    transcriptionNotes: "Checked against the page image. The zero-set definition is quoted from Section 3.2. The book writes the coverings with calligraphic B."
+
+  - cid: pugh-3.34
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 34"
+    page: "204"
+    pdfPage: 215
+    verdict: strong
+    tier: upper
+    newExperience: "The one-dimensional Morse–Sard theorem: the critical values of a C^1 function form a zero set. The proof combines compactness, uniform continuity of psi', and MVT length estimates. Part (b) then extends it from [a,b] to R with a countable-union argument."
+    closestExisting: [abbott-7.6.3, abbott-4.4.9]
+    machinery: "Uniform continuity of psi' on [a,b]; covering the critical set by short intervals on which |psi'| < epsilon; MVT bound on the length of each image; countable union of zero sets."
+    standardResult: "Morse–Sard theorem in dimension one: critical values of a C^1 function form a measure-zero set"
+    topic: differentiation
+    subtopics: [mvt-applications, uniform-continuity, compactness]
+    skills: [MVT-application, uniform-continuity-estimate, covering-argument, epsilon-argument]
+    difficulty: hard
+    difficultyRationale: "There is no guidance. The solver must decide to partition [a,b] into short intervals using uniform continuity of psi', bound the image of each interval that meets the critical set by epsilon times its length, and sum."
+    category: synthesis
+    type: proof
+    tags: [Morse-Sard, critical-value, zero-set, measure-zero, mean-value-theorem, uniform-continuity, C1]
+    references: ["Pugh's definition of zero set (quoted)"]
+    problemLatex: |
+      Assume that $\psi\colon[a,b]\to\mathbb{R}$ is continuously differentiable. A **critical point** of $\psi$ is an $x$ such that $\psi'(x) = 0$. A **critical value** is a number $y$ such that for at least one critical point $x$ we have $y = \psi(x)$.
+
+      (a) Prove that the set of critical values is a zero set. (This is the **Morse-Sard Theorem** in dimension one.)
+
+      (b) Generalize this to continuously differentiable functions $\mathbb{R}\to\mathbb{R}$.
+
+      *(Definition from the text: a set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ such that $\sum_{i=1}^\infty b_i - a_i \le \epsilon$.)*
+    transcriptionNotes: "Checked against the page image. The zero-set definition is quoted from Section 3.2."
+
+  - cid: pugh-3.36
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 36"
+    page: "204"
+    pdfPage: 215
+    verdict: strong
+    tier: upper
+    newExperience: "Show that an arbitrary function (not just a monotone one) has at most countably many jump discontinuities. With no monotonicity to give disjoint intervals, the solver needs a different injection, for example into triples of rationals. The bank only has the monotone case."
+    closestExisting: [abbott-4.6.6, cummings-6.35, abbott-1.5.6]
+    machinery: "One-sided limits; mapping each jump point injectively to a tuple of rationals (or a countable union over k of sets where the jump exceeds 1/k, each of which is discrete); countability."
+    standardResult: "any f: R -> R has at most countably many jump (first-kind) discontinuities"
+    topic: continuity
+    subtopics: [discontinuities, cardinality, functional-limits]
+    skills: [injection-into-countable-set, one-sided-limits, countable-union]
+    difficulty: medium
+    difficultyRationale: "Part (a) is the essential part. It needs a non-obvious countability device because monotonicity is not available. Parts (b) and (c) are quick checks of the definitions."
+    category: synthesis
+    type: proof
+    tags: [jump-discontinuity, one-sided-limits, countable, discontinuity-classification, second-kind]
+    references: []
+    problemLatex: |
+      Generalizing Exercise 1.31, we say that $f\colon(a,b)\to\mathbb{R}$ has a **jump discontinuity** (or a discontinuity of the **first kind**) at $c\in(a,b)$ if
+      $$f(c^-) = \lim_{x\to c^-} f(x) \quad\text{and}\quad f(c^+) = \lim_{x\to c^+} f(x)$$
+      exist, but are either unequal or are unequal to $f(c)$. (The three quantities exist and are equal if and only if $f$ is continuous at $c$.) An **oscillating discontinuity** (or a discontinuity of the **second kind**) is any nonjump discontinuity.
+
+      (a) Show that $f\colon\mathbb{R}\to\mathbb{R}$ has at most countably many jump discontinuities.
+
+      (b) What about the function
+      $$f(x) = \begin{cases} \sin\dfrac{1}{x} & \text{if } x > 0 \\ 0 & \text{if } x \le 0? \end{cases}$$
+
+      (c) What about the characteristic function of the rationals?
+    transcriptionNotes: "Checked against the page images (pp. 215–216). The mention of Exercise 1.31 is kept as the book's wording; the definition is fully stated, so nothing else is needed. A missing closing parenthesis in the book's '(or a discontinuity of the second kind' is restored. Note that the book's definition counts removable discontinuities as jumps."
+
+  - cid: pugh-3.38
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 38"
+    page: "205"
+    pdfPage: 216
+    verdict: consider
+    tier: upper
+    newExperience: "Count the Riemann integrable functions. Any function on a null uncountable set such as the Cantor set gives 2^c of them, but modulo zero sets there are only c classes. This combines cardinality with the Lebesgue criterion and shows why one identifies functions almost everywhere."
+    closestExisting: [abbott-1.6.9, tao-8.3.4, abbott-7.6.13]
+    machinery: "Cantor-set-supported functions are integrable (via the Lebesgue criterion); each equivalence class is determined by values on a countable dense set of continuity points; cardinal arithmetic c^aleph_0 = c; Corollary 31-style integral-zero arguments."
+    standardResult: "|Riemann integrable functions| = 2^c, but integral-equivalence classes have cardinality c"
+    topic: integration
+    subtopics: [integrability-criteria, cardinality]
+    skills: [cardinality-counting, injection-argument, theorem-application]
+    difficulty: hard
+    difficultyRationale: "Part (b) is the hard part. It needs the insight that a class is determined by the function's values on a countable dense subset of its continuity points, plus cardinal arithmetic."
+    category: challenge
+    type: proof
+    tags: [cardinality, Riemann-integrable, zero-set, Cantor-set, almost-everywhere, Riemann-Lebesgue-theorem]
+    references: ["Pugh's definition of zero set (quoted)", "Riemann–Lebesgue Theorem 23 (quoted)"]
+    problemLatex: |
+      Recall that $\mathcal{P}(S) = 2^S$ is the power set of $S$, the collection of all subsets of $S$, and $\mathcal{R}$ is the set of Riemann integrable functions $f\colon[a,b]\to\mathbb{R}$.
+
+      (a) Prove that the cardinality of $\mathcal{R}$ is the same as the cardinality of $\mathcal{P}(\mathbb{R})$, which is greater than the cardinality of $\mathbb{R}$.
+
+      (b) Call two functions in $\mathcal{R}$ **integrally equivalent** if they differ only on a zero set. Prove that the collection of integral equivalence classes of $\mathcal{R}$ has the same cardinality as $\mathbb{R}$, namely $2^{\mathbb{N}}$.
+
+      (c) Is it better to count Riemann integrable functions or integral equivalence classes of Riemann integrable functions?
+
+      (d) Show that $f, g\in\mathcal{R}$ are integrally equivalent if and only if the integral of $|f-g|$ is zero.
+
+      *(From the text: a set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ such that $\sum_{i=1}^\infty b_i - a_i \le \epsilon$. **Riemann–Lebesgue Theorem:** a function $f\colon[a,b]\to\mathbb{R}$ is Riemann integrable if and only if it is bounded and its set of discontinuity points is a zero set.)*
+    transcriptionNotes: "Checked against the page image. The zero-set definition and Theorem 23 are quoted. Part (c) is open-ended or opinion. Pugh marks this exercise **. It leans toward set theory, so the curator may prefer pugh-3.22 as the single cardinality-meets-analysis problem."
+
+  - cid: pugh-3.44
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 44"
+    page: "206"
+    pdfPage: 217
+    verdict: consider
+    tier: upper
+    newExperience: "Characterize exactly which C^1 changes of variable psi keep f∘psi Riemann integrable for every integrable f: those whose critical set is a zero set. This is an iff classification that sharpens the bank's single counterexample (composition can fail)."
+    closestExisting: [abbott-7.3.4, abbott-7.6.13]
+    machinery: "Lebesgue criterion; local inverse of psi away from critical points with Lipschitz inverse; Morse–Sard (critical values are null) to build a bad f for the converse; fat-Cantor-type sets."
+    standardResult: "for C^1 psi: f∘psi is integrable for all integrable f iff the critical set of psi has measure zero"
+    topic: integration
+    subtopics: [integrability-criteria, inverse-functions]
+    skills: [theorem-application, local-inverse, construct-counterexample, covering-argument]
+    difficulty: hard
+    difficultyRationale: "Part (a) needs local Lipschitz inverses plus the zero-set bookkeeping. Part (b) needs an f whose discontinuities sit on the image of a positive-measure critical set, which uses Morse–Sard. Parts (c)–(e) are refinements."
+    category: challenge
+    type: proof
+    tags: [composition, change-of-variables, Riemann-integrable, critical-point, zero-set, Riemann-Lebesgue-theorem, Morse-Sard]
+    references: ["Pugh's definition of zero set and Riemann–Lebesgue Theorem 23 (quoted)", "Exercises 34 and 35(a) (quoted)"]
+    problemLatex: |
+      Assume that $\psi\colon[c,d]\to[a,b]$ is continuously differentiable.
+
+      (a) If the critical points of $\psi$ form a zero set in $[c,d]$ and $f$ is Riemann integrable on $[a,b]$ prove that $f\circ\psi$ is Riemann integrable on $[c,d]$.
+
+      (b) Conversely, prove that if $f\circ\psi$ is Riemann integrable for each Riemann integrable $f$ on $[a,b]$, then the critical points of $\psi$ form a zero set. [Hint: Think in terms of Exercise 34.]
+
+      (c) Prove (a) and (b) under the weaker assumption that $\psi$ is continuously differentiable except at finitely many points of $[c,d]$.
+
+      (d) Derive part (a) of Exercise 35 from (c).
+
+      (e) Weaken the assumption further to $\psi$ being continuously differentiable on an open subset of $[c,d]$ whose complement is a zero set.
+
+      *(From the text: a set $Z\subset\mathbb{R}$ is a **zero set** if for each $\epsilon>0$ there is a countable covering of $Z$ by open intervals $(a_i,b_i)$ with $\sum b_i - a_i \le \epsilon$. **Riemann–Lebesgue Theorem:** $f\colon[a,b]\to\mathbb{R}$ is Riemann integrable if and only if it is bounded and its set of discontinuity points is a zero set. A **critical point** of $\psi$ is an $x$ with $\psi'(x)=0$. Exercise 34(a): the set of critical values of a continuously differentiable $\psi\colon[a,b]\to\mathbb{R}$ is a zero set. Exercise 35: let $F\subset[0,1]$ be the fat Cantor set obtained by removing from $[0,1]$ the middle interval of length $1/4$, then from each of the remaining two intervals the middle interval of length $1/16$, then from each of the remaining four the middle interval of length $1/64$, and so on; define $\psi(x) = \int_0^x \operatorname{dist}(t,F)\,dt$; (a) Why is $\psi$ a continuously differentiable homeomorphism from $[0,1]$ onto $[0,L]$ where $L = \psi(1)$?)*
+    transcriptionNotes: "Checked against the page image. Quoted for self-containedness: the zero-set definition, Theorem 23, the critical-point definition and Exercise 34(a), and the fat Cantor set construction (Exercise 31) with Exercise 35(a). Part (d) is a minor add-on. If the bracket is too heavy, the curator could keep (a)–(b) as the core. Pugh marks this exercise *."
+
+  - cid: pugh-3.47
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 47"
+    page: "206"
+    pdfPage: 217
+    verdict: consider
+    tier: upper
+    newExperience: "Find the exact condition on a continuous phi under which phi∘f and f always have the same discontinuity set. The solver must find a sufficient condition, then ask whether it is necessary, which leads to injectivity and continuity of the inverse."
+    closestExisting: [abbott-7.6.13, abbott-4.5.8]
+    machinery: "Sequential characterization of continuity; a continuous injective map on an interval has a continuous inverse; building f that jumps between two points with the same phi-value."
+    standardResult: "discontinuity set of phi∘f is contained in that of f; equality for all f iff phi is injective"
+    topic: continuity
+    subtopics: [discontinuities, sequential-continuity, inverse-functions]
+    skills: [sequential-characterization, construct-counterexample, necessity-sufficiency]
+    difficulty: medium
+    difficultyRationale: "Part (a) is easy. Parts (c)–(d) need the right condition (injectivity) and a matching construction for necessity."
+    category: synthesis
+    type: conceptual
+    tags: [composition, discontinuity-set, injective, continuous-inverse, Riemann-integrable, classification]
+    references: ["Corollary 28 (quoted)"]
+    problemLatex: |
+      In the proof of Corollary 28 of the Riemann-Lebesgue Theorem, it is asserted that when $\phi$ is continuous the discontinuity set of $\phi\circ f$ is contained in the discontinuity set of $f$.
+
+      (a) Prove this.
+
+      (b) Give an example where the inclusion is not an equality.
+
+      (c) Find a sufficient condition on $\phi$ so that $\phi\circ f$ and $f$ have equal discontinuity sets for all $f\in\mathcal{R}$.
+
+      (d) Is your condition necessary too?
+
+      *(Corollary 28: If $f\colon[a,b]\to[c,d]$ is Riemann integrable and $\phi\colon[c,d]\to\mathbb{R}$ is continuous, then the composite $\phi\circ f$ is Riemann integrable. Here $\mathcal{R}$ denotes the set of Riemann integrable functions $f\colon[a,b]\to\mathbb{R}$.)*
+    transcriptionNotes: "Checked against the page image. Corollary 28 is quoted and the meaning of R is supplied. The book has no period after 'for all f in R' in (c); one is added."
+
+  - cid: pugh-3.50
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 50"
+    page: "207"
+    pdfPage: 218
+    verdict: strong
+    tier: upper
+    newExperience: "An open prove-or-disprove question about whether integrability survives taking the inverse of a bijection. The expected route is a pathological construction, for example matching the null Cantor set to a fat Cantor set and gap intervals to gap intervals, so that f is discontinuous only on a null set while its inverse is discontinuous on a set of positive length."
+    closestExisting: [abbott-7.3.4, abbott-7.6.18, abbott-4.5.8]
+    machinery: "Lebesgue criterion; Cantor set vs fat Cantor set (same cardinality, complements both countable unions of open intervals); affine maps between gap intervals; positive-measure discontinuity sets."
+    standardResult: "the inverse of a Riemann integrable bijection need not be Riemann integrable"
+    topic: integration
+    subtopics: [integrability-criteria, cantor-set]
+    skills: [construct-counterexample, theorem-application, piecewise-construction]
+    difficulty: hard
+    difficultyRationale: "The question is open-ended and the counterexample needs a non-obvious pairing of a null Cantor set with a fat one. It is not a long chain once the idea is found."
+    category: challenge
+    type: counterexample
+    tags: [inverse-function, Riemann-integrable, bijection, fat-Cantor-set, Cantor-set, pathological, Riemann-Lebesgue-theorem]
+    references: []
+    problemLatex: |
+      Assume that $f\colon[a,b]\to[c,d]$ is a Riemann integrable bijection. Is the inverse bijection also Riemann integrable? Prove or disprove.
+    transcriptionNotes: "Checked against the page image. Pugh marks this exercise **. Uncertainty: the book prints no answer. I believe the answer is 'no', via a bijection that maps the middle-thirds Cantor set onto a fat Cantor set and maps the gaps affinely onto the gaps, scrambling them so that f^{-1} is discontinuous on the whole fat set. The solution writer should verify this."
+
+  - cid: pugh-3.59
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 59"
+    page: "208"
+    pdfPage: 219
+    verdict: consider
+    tier: upper
+    newExperience: "A classic prelim one-liner. The comparison test does not apply directly; the trick is the AM–GM or Cauchy–Schwarz bound sqrt(a_n)/n <= (a_n + 1/n^2)/2. No bank problem asks the solver to find a product inequality like this."
+    closestExisting: [abbott-2.7.8, lebl-2.6.13]
+    machinery: "Comparison test after an AM–GM or Cauchy–Schwarz inequality; convergence of sum 1/n^2."
+    standardResult: "a_n >= 0, sum a_n < infinity implies sum sqrt(a_n)/n < infinity (AM–GM / Cauchy–Schwarz)"
+    topic: series
+    subtopics: [comparison, convergence-tests]
+    skills: [AM-GM, Cauchy-Schwarz, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "The proof is one line once the inequality is spotted. Spotting it is the whole difficulty, which puts it above easy."
+    category: challenge
+    type: proof
+    tags: [series, comparison-test, AM-GM, Cauchy-Schwarz, prelim-style]
+    references: []
+    problemLatex: |
+      Prove that if $a_n \ge 0$ and $\sum a_n$ converges then $\sum (\sqrt{a_n})/n$ converges.
+    transcriptionNotes: "Checked against the page image."
+
+  - cid: pugh-3.66
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 66"
+    page: "208"
+    pdfPage: 219
+    verdict: consider
+    tier: upper
+    newExperience: "Show that the limit comparison test fails without absolute convergence: build a_k/b_k -> 1 with sum b_k conditionally convergent and sum a_k divergent, then explain why absolute convergence of sum b_k rules this out."
+    closestExisting: [lebl-2.6.13, abbott-2.7.8, lebl-2.6.12]
+    machinery: "Perturbing a conditionally convergent series by a divergent positive series of smaller order, e.g. b_k = (-1)^k/sqrt(k), a_k = b_k + 1/k; limit comparison for absolutely convergent series."
+    standardResult: "limit comparison fails for conditionally convergent series (a_k/b_k -> 1, sum b_k converges, sum a_k diverges)"
+    topic: series
+    subtopics: [comparison, conditional-convergence, absolute-convergence]
+    skills: [construct-counterexample, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "The construction is short once the solver thinks of adding a smaller-order divergent term. Part (b) is the standard limit comparison."
+    category: canonical
+    type: counterexample
+    tags: [limit-comparison, conditional-convergence, absolute-convergence, counterexample, hypothesis-removal]
+    references: []
+    problemLatex: |
+      Show that there is no simple comparison test for conditionally convergent series:
+
+      (a) Find two series $\sum a_k$ and $\sum b_k$ such that $\sum b_k$ converges conditionally, $a_k/b_k \to 1$ as $k\to\infty$, and $\sum a_k$ diverges.
+
+      (b) Why is this impossible if the series $\sum b_k$ is absolutely convergent?
+    transcriptionNotes: "Checked against the page images (pp. 219–220)."
+
+  - cid: pugh-3.68
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 68"
+    page: "209"
+    pdfPage: 220
+    verdict: strong
+    tier: upper
+    newExperience: "The bank has no infinite products. These two counterexamples show that, without a sign condition, convergence of sum a_k and of prod (1+a_k) are unrelated. The solver has to work with the second-order term of log(1+x) and pair up terms."
+    closestExisting: [lebl-2.6.13, abbott-2.7.4]
+    machinery: "Taylor expansion log(1+x) = x - x^2/2 + O(x^3); grouping terms in pairs; comparing with the harmonic series; the definition of infinite product convergence."
+    standardResult: "sum a_k and prod(1+a_k) can converge/diverge independently when a_k changes sign ((-1)^k/sqrt k examples)"
+    topic: series
+    subtopics: [conditional-convergence, infinite-products]
+    skills: [taylor-estimate, grouping-terms, logarithm-trick, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Each part needs a second-order estimate of log(1+x) and careful pairing. These are not routine for undergraduates, but they are not long chains."
+    category: synthesis
+    type: counterexample
+    tags: [infinite-product, conditional-convergence, logarithm, Taylor, counterexample, alternating-series]
+    references: ["Exercise 67 definitions (quoted)"]
+    problemLatex: |
+      Show that conditional convergence of the series $\sum a_k$ and the product $\prod(1+a_k)$ can be unrelated to each other:
+
+      (a) Set $a_k = (-1)^k/\sqrt{k}$. The series $\sum a_k$ converges but the corresponding product $\prod(1+a_k)$ diverges. [Hint: Group the terms in the product two at a time.]
+
+      (b) Let $e_k = 0$ when $k$ is odd and $e_k = 1$ when $k$ is even. Set $b_k = e_k/k + (-1)^k/\sqrt{k}$. The series $\sum b_k$ diverges while the corresponding product $\prod_{k\ge 2}(1+b_k)$ converges.
+
+      *(Exercise 67: An **infinite product** is an expression $\prod c_k$ where $c_k > 0$. The $n$th **partial product** is $C_n = c_1\cdots c_n$. If $C_n$ converges to a limit $C\ne 0$ then the product converges to $C$.)*
+    transcriptionNotes: "Checked against the page image. The definitions from Exercise 67 are quoted. In (a), 1 + a_1 = 0, so the k = 1 factor violates c_k > 0. That is the book's own sloppiness; part (b) starts at k >= 2, and (a) is presumably meant from k = 2 as well. Exercise 67 itself (constant-sign a_k: sum converges iff product converges) is canonical and the bank has no infinite products. The curator may want to add it as a core-gap companion (see skipped)."
+
+  - cid: pugh-3.73
+    chapter: "3 Functions of a Real Variable"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 73"
+    page: "210"
+    pdfPage: 221
+    verdict: strong
+    tier: upper
+    newExperience: "Mertens' theorem: the Cauchy product converges to AB when only one factor converges absolutely. This needs a delicate tail estimate that the bank's absolutely-convergent version never requires. It pairs with the classic sum (-1)^n/sqrt(n+1), whose Cauchy square diverges, to show the hypothesis is needed."
+    closestExisting: [abbott-2.8.7, lebl-2.6.2]
+    machinery: "Rewriting C_n via tails B - B_{n-k} of the conditionally convergent series; splitting the sum into early and late indices with an epsilon/2 argument; AM–GM lower bound on the terms of the Cauchy square of (-1)^n/sqrt(n+1)."
+    standardResult: "Mertens' theorem (one series absolutely convergent suffices) and divergent Cauchy square of (-1)^n/sqrt(n+1)"
+    topic: series
+    subtopics: [double-series-products, absolute-convergence, conditional-convergence]
+    skills: [tail-estimate, epsilon-over-2, index-splitting, construct-counterexample, AM-GM]
+    difficulty: hard
+    difficultyRationale: "Part (a) needs a non-obvious rearrangement into tails and a split epsilon argument. Part (b) is a known example but needs a lower bound on c_n."
+    category: challenge
+    type: proof
+    tags: [Cauchy-product, Mertens-theorem, absolute-convergence, conditional-convergence, counterexample, hypothesis-removal]
+    references: ["Exercise 72 (quoted)"]
+    problemLatex: |
+      With reference to Exercise 72,
+
+      (a) Reduce the hypothesis that both series $\sum a_i$ and $\sum b_j$ are absolutely convergent to merely one being absolutely convergent and the other convergent. (Exercises 72 and 73(a) are known as **Mertens' Theorem**.)
+
+      (b) Find an example to show that the Cauchy product of two conditionally convergent series may diverge.
+
+      *(Exercise 72: Absolutely convergent series can be multiplied in a natural way, the result being their **Cauchy product**,
+      $$\Big(\sum_{i=0}^\infty a_i\Big)\Big(\sum_{j=0}^\infty b_j\Big) = \sum_{k=0}^\infty c_k$$
+      where $c_k = a_0b_k + a_1b_{k-1} + \cdots + a_kb_0$. (a) Prove that $\sum c_k$ converges absolutely. The hint to 72 says: letting $A_n, B_n, C_n$ be the $n$th partial sums of $\sum a_i, \sum b_j, \sum c_k$, "you are asked to prove that $(\lim A_n)(\lim B_n) = \lim C_n$.")*
+    transcriptionNotes: "Checked against the page image. The relevant content of Exercise 72 is quoted (the definition, part (a), and the sentence from its hint that states the intended conclusion), since 73(a) asks for the conclusion of 72 under the weaker hypothesis. Pugh marks this exercise **."
+
+skipped:
+  - "3.1 duplicate of mit20-a10-1 (|f(t)-f(x)| <= |t-x|^2 forces constant); 3.2 Holder: (c) is mit20-a10-1, (a) is a routine uniform-continuity extension; 3.3, 3.4 routine MVT / sequence limit"
+  - "3.5 lim f'(x) = L implies f'(0) = L: lebl-4.2.13 / abbott-5.3.8; 3.6 L'Hopital at infinity routine; 3.7 infinity/infinity L'Hopital: cummings-7.16 (unselected)"
+  - "3.8 routine example plus MVT check; 3.9 one-sided bound f' < L < 1 gives a unique fixed point via IVT. Close to ross-29.18 and lebl-7.6.6; a small twist, not enough to record"
+  - "3.10 and 3.37 function with no jumps but without IVP: easy sin(1/x) variant (3.37 is the same question as 3.10). Closest ross-18.12, abbott-4.3.14"
+  - "3.11 symmetric second difference: (a) is abbott-5.3.12 / ross-28.14 territory. (Book typo: the limit should be f''(x), not f'(x).) (b) is a quick example"
+  - "3.13 Leibniz rule by induction routine; 3.14 C^r not C^{r+1}: lebl-4.3.3; 3.15 easy conceptual; 3.16 log via integral: abbott-7.5.8 (unselected)"
+  - "3.17 e^{-1/x} smooth and the bump function: ross-31.4, lebl-5.4.11, abbott-6.6.6 (quoted inside pugh-3.18)"
+  - "3.19 D_k closed, discontinuity set F_sigma: abbott-4.6.8 / abbott-7.6.8 (unselected); 3.20 irrationals not F_sigma: abbott-3.5.6; 3.21 one-line combination of 19 and 20 (no function continuous exactly on Q). The pieces are already in the bank or the unselected pool"
+  - "3.24 link step (Baire class 1 has dense continuity points). Its statement is quoted in pugh-3.25 and it follows from pugh-3.23"
+  - "3.26 dyadic and equal partitions routine; 3.27 midpoint-sum 'calculus integral' (b) is an easy Dirichlet-type example; 3.28 equivalent zero-set definitions routine; 3.30 middle-quarters / middle-beta Cantor set zero set routine"
+  - "3.31 fat Cantor set has positive measure: abbott-7.6.18; 3.32 dyadic ruler function: Thomae duplicate (lebl-5.2.11, abbott-4.3.7); 3.33 composition of integrable functions not integrable via homeomorphism C -> F: abbott-7.3.4"
+  - "3.35 C^1 homeomorphism psi with f∘psi non-integrable: same phenomenon as abbott-7.3.4, and pugh-3.44 subsumes it (35(a) is quoted there)"
+  - "3.39 integration-by-parts paradox: easy conceptual; 3.40 sin(pi/x) has an antiderivative, the step function has none: Darboux's theorem (abbott-5.2.11, abbott-7.5.2); 3.41 tao-11.9.2"
+  - "3.42 preimages of zero sets are zero sets implies f∘psi integrable: easy Lebesgue-criterion application, subsumed by pugh-3.44; 3.43 instance of 3.42 / 3.44"
+  - "3.45 oscillation in metric spaces: routine generalization of ross-21.13 / abbott-7.6.8; 3.46 Zeno / Devil's staircase integral: computation"
+  - "3.48 reciprocal integrable iff bounded away from 0: routine; 3.49 piecewise-continuous phi breaks Corollary 28: abbott-7.3.4 (same ruler and indicator construction)"
+  - "3.51 strict inequality of integrals for f < g: needs a continuity point, which follows easily from Pugh's Corollary 31 (close to cummings-8.22, abbott-7.4.3). Borderline, not recorded"
+  - "3.52 true/false on |f|, f^2, f^3, 1/f: covered by ross-33.4, ross-33.7, cummings-8.14, abbott-7.4.3. The f^3 and sqrt parts are quick via Corollary 28"
+  - "3.53 max/min: ross-33.8; 3.54 functions equal off the Cantor set have equal integrals: easy; 3.55 unbounded continuous f with improper integral 0: close to lebl-5.5.10"
+  - "3.56 absolute vs conditional improper integrals: ross-36.8 territory; 3.57 principal value exists but improper integral does not: easy 1/x-type construction; 3.58 integral-test variant routine"
+  - "3.60 Abel's test: abbott-2.7.13 (unselected) / abbott-2.7.14; 3.61 converges with limsup ratio = infinity: easy; 3.62 condensation: lebl-2.5.15; 3.63 ross-15.3; 3.64 alternating sign but divergent: lebl-2.6.12; 3.65 root vs ratio: tao-7.5.1, ross-14.10"
+  - "3.67 infinite products with constant-sign a_k: sum converges iff product converges. Canonical and the bank has no infinite products, so a possible core-gap. Not recorded separately to avoid padding; its definitions are quoted in pugh-3.68"
+  - "3.69 rearrangements of nonnegative / absolutely convergent series: cummings-4.18; 3.70 Riemann rearrangement: lebl-2.6.3, tao-8.2.5"
+  - "3.71 subsequential-limit set of rearranged partial sums is closed and connected, and every such set is achieved: (a) ross-22.14, (c) cummings-4.17 / lebl-2.6.4. The Hausdorff-metric part (b) is outside scope"
+  - "3.72 Cauchy product of absolutely convergent series: lebl-2.6.2, abbott-2.8.7 (quoted in pugh-3.73); 3.74 Euler product for zeta: number-theoretic application, special-function flavour, excluded"

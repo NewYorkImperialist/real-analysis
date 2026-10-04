@@ -1,0 +1,559 @@
+chunk: "mit18100b"
+book: mit18100b
+pageOffsetNote: "Course handouts, not a book: 'page' and pdfPage are both the PDF page number inside the named handout file (given in section/transcriptionNotes). Paths are relative to pdfs/."
+sectionsCovered:
+  - "S25 (MIT 18.100B Spring 2025, Colding): Problem Sets 1-10 (48 problems), midterm review (4 example problems), final review (summary of definitions/theorems only, no problems)"
+  - "F10 (MIT 18.100B Fall 2010, section R2): Homeworks 1-12 (~55 problems, about half are bare Rudin citations), Practice Quizzes 1-4, Practice Final (10 problems). NOTE: mit18_100bf10_prac3.pdf is a duplicate of Practice Quiz 2; the Practice Quiz 3 problem statements survive only in the scanned solution file mit18_100bf10_practice3sol.pdf (read from rendered pages)"
+  - "2006 (MIT 18.100B Fall 2006): Problem Sets 1-10 (~65 problems plus ~25 'extra problems'); many are uncited verbatim Rudin exercises (listed in rudinAssigned). Solutions posted for the main problems only (mit18_100b_2006_psetNsol.pdf), not for the extra problems"
+rudinAssigned:
+  # Explicitly cited by the Fall 2010 homeworks (page numbers as MIT printed them)
+  - "1.6 (F10 HW1 #2, p.22)"
+  - "1.9 (F10 HW1 #3, lexicographic order on C, restated with extra questions)"
+  - "2.7 (F10 HW2 #3, p.43)"
+  - "2.8 (F10 HW2 #4, p.43)"
+  - "2.9 (F10 HW2 #5, p.43)"
+  - "2.12 (F10 HW3 #2, p.44)"
+  - "2.14 (F10 HW3 #3, p.44)"
+  - "2.16 (F10 HW3 #4, p.44)"
+  - "2.30 (F10 HW3 #5, p.46)"
+  - "3.4 (F10 HW5 #3, p.78)"
+  - "3.6(b) and 3.6(c) (F10 HW6 #1a,b, p.78)"
+  - "3.9(a),(c) (F10 HW6 #4a, p.79, plus boundary behaviour)"
+  - "4.1 (F10 HW7 #1a, p.98)"
+  - "4.3 (F10 HW7 #1b, p.98)"
+  - "4.4 (F10 HW8 #1a, p.98)"
+  - "4.14 (F10 HW8 #1b, p.100)"
+  - "4.6 (F10 HW8 #3b, p.99)"
+  - "5.2 (F10 HW9 #2, p.114)"
+  - "5.7 (F10 HW9 #3a, p.114)"
+  - "5.13 (F10 HW9 #4b, p.115, function x^a sin(|x|^-c))"
+  - "5.26 (F10 HW9 #5b, p.119)"
+  - "6.8 (F10 HW10 #2, p.138)"
+  - "6.3 (F10 HW11 #1, p.138)"
+  - "6.7 (F10 HW11 #2, p.138)"
+  - "6.17 (F10 HW11 #4, p.141)"
+  - "7.2 (F10 HW12 #1a, p.165)"
+  - "7.3 (F10 HW12 #1b, p.165)"
+  - "7.9 (F10 HW12 #3, p.166)"
+  - "7.10 (F10 HW12 #4, p.166)"
+  # Uncited in the 2006 problem sets but reproduced (near-)verbatim from Rudin; numbers identified from memory -- verify
+  - "1.2 (2006 PS1 #1, uncited: no rational square is 12)"
+  - "1.6 (2006 PS1 #4, uncited: b^r, b^x via sup)"
+  - "1.8 (2006 PS1 #5, uncited: C cannot be ordered)"
+  - "1.9 (2006 PS1 #6, uncited: lexicographic order on C)"
+  - "1.17 (2006 PS1 #7, uncited: parallelogram law)"
+  - "1.13 (2006 PS2 #2, uncited: ||x|-|y|| <= |x-y|)"
+  - "2.1 (2006 PS2 #1, uncited: empty set is a subset of every set)"
+  - "2.9(a)-(c) (2006 PS2 #7, uncited: interior)"
+  - "2.2 (2006 PS2 extra #2, uncited: algebraic numbers countable)"
+  - "2.11 (2006 PS3 #2 is the d/(1+d) case of Rudin 2.11, uncited)"
+  - "2.12 (2006 PS3 #6, uncited: {0,1,1/2,...} compact from the definition)"
+  - "2.16 (2006 PS4 #4, uncited: {x in Q: 2<x^2<3})"
+  - "2.20 (2006 PS4 #8, uncited: closures/interiors of connected sets)"
+  - "2.29 (2006 PS4 extra #1, uncited: open subsets of R are countable unions of disjoint intervals)"
+  - "3.5 (2006 PS5 #3, uncited variant: limsup of a sum)"
+  - "3.16 (2006 PS5 extra #3, uncited: Newton iteration for sqrt(alpha))"
+  - "3.7 (2006 PS6 #4, uncited: sum sqrt(a_n)/n)"
+  - "4.1 (2006 PS6 #7, uncited)"
+  - "4.2 (2006 PS6 #6(c) contains Rudin 4.2's inclusion f(closure A) in closure f(A))"
+  - "4.4 (2006 PS7 #3, uncited: images of dense sets; agreement on a dense set)"
+  - "4.11 (2006 PS7 #5(a), uncited: uniformly continuous maps send Cauchy to Cauchy)"
+  - "4.20 (2006 PS7 #6, uncited: distance function to a set)"
+  - "4.21 (2006 PS7 #7, uncited: positive distance from compact to disjoint closed set)"
+  - "4.23 and 4.24 (2006 PS7 extra #2, uncited: convex functions; midpoint convexity)"
+  - "5.4 (2006 PS8 #3, uncited: C_0 + C_1/2 + ... + C_n/(n+1) = 0)"
+  - "5.5 (2006 PS8 #2, uncited: f'(x) -> 0 implies f(x+1)-f(x) -> 0)"
+  - "5.9 (2006 PS8 #5, uncited: f'(x) -> 3 as x -> 0)"
+  - "5.12 (2006 PS8 #7, uncited: |x|^3)"
+  - "5.15 (2006 PS8 extra #2, uncited: M_1^2 <= 4 M_0 M_2)"
+  - "5.17 (2006 PS8 extra #3, uncited: f''' >= 3 somewhere)"
+  - "5.22(a)-(c) (2006 PS8 #4, uncited: fixed points)"
+  - "7.1 (2006 PS9 #3, uncited: uniformly convergent bounded functions are uniformly bounded)"
+  - "7.2 (2006 PS9 #4, uncited: sums/products of uniformly convergent sequences)"
+  - "7.3 (2006 PS9 #5 is an explicit-example version of Rudin 7.3)"
+  - "7.23 (2006 PS9 #7, uncited: polynomials P_{n+1} = P_n + (x - P_n^2)/2 -> sqrt x, hence |x|)"
+  - "7.9 (2006 PS10 #4, uncited)"
+  - "7.16 (2006 PS10 #6, uncited: equicontinuous + pointwise on compact => uniform)"
+  - "7.13 (2006 PS10 extra #2, uncited: Helly selection theorem)"
+  - "Theorem 7.25 Arzela-Ascoli (cited in the hint of 2006 PS10 #7)"
+candidates:
+  - cid: mit18100b-s25-ps1-5
+    chapter: "MIT 18.100B Spring 2025"
+    section: "Problem Set 1 (mit18_100b_s25_pset01.pdf)"
+    number: "Problem 5 (with the setup of Problem 4)"
+    page: "1"
+    pdfPage: 1
+    verdict: consider
+    tier: core-gap
+    newExperience: "The bank never exhibits an ordered algebraic structure in which the Archimedean property fails; this forces the student to see what the property actually says (x is an 'infinitely large' element)."
+    closestExisting: [lebl-1.1.14, abbott-2.4.4, lebl-1.2.1]
+    machinery: "Archimedean property as an axiom-level statement; checking it in a concrete non-Archimedean ordered structure."
+    standardResult: "non-Archimedean ordered structure: polynomials ordered by eventual positivity (x is infinitely large)"
+    topic: real-numbers
+    subtopics: [ordered-fields, archimedean-property]
+    skills: [construct-counterexample, negate-definition]
+    difficulty: easy
+    difficultyRationale: "Once the Archimedean property is negated, the witness (f = 1, g = x) is quick; the value is conceptual."
+    category: canonical
+    type: counterexample
+    tags: [Archimedean-property, ordered-set, polynomials, counterexample, non-Archimedean]
+    references: ["Problem 4 of the same problem set (setup quoted)"]
+    problemLatex: |
+      Let $\mathbb{M}$ be the set of polynomials with integer coefficients,
+      $$\mathbb{M} := \{f(x) = a_0 + a_1x + a_2x^2 + \dots + a_nx^n \mid a_i \in \mathbb{Z}\}.$$
+      Define the relation $0 \prec f$ if $0 < f(x)$ for $x$ large enough. To be more precise, we say $0 \prec f$ if there exists $M > 0$ such that $f(x) > 0$ for all $x > M$. Then define $f \prec g$ if $0 \prec g - f$.
+      *(Problem 4 of the same set: show that $(\mathbb{M}, \prec)$ is an ordered set. You may use without proof: if $f(x) = a_0 + a_1x + \dots + a_nx^n$ with $0 < a_n$, then $0 < f(x)$ for $x$ large enough.)*
+
+      Show that $(\mathbb{M}, \prec)$ doesn't satisfy the Archimedean property.
+    transcriptionNotes: "The setup is quoted verbatim from Problem 4 (which asks to verify the ordered-set axioms (O1), (O2)); Problem 5 alone refers back to it. The pset does not restate the Archimedean property; the curator may want to add the course's formulation (for 0 < f and any g there is n in N with g < nf). No solutions posted for S25."
+    mitAssigned: "MIT 18.100B (Spring 2025) Problem Set 1, Problems 4-5"
+  - cid: mit18100b-s25-ps4-5
+    chapter: "MIT 18.100B Spring 2025"
+    section: "Problem Set 4 (mit18_100b_s25_pset04.pdf)"
+    number: "Problem 5"
+    page: "2"
+    pdfPage: 2
+    verdict: strong
+    tier: upper
+    newExperience: "A pigeonhole (Dirichlet approximation) argument to show fractional parts of sqrt(2) n come arbitrarily close to 1; the bank has no pigeonhole or Kronecker-type density argument."
+    closestExisting: [lebl-2.1.17, cummings-3.5, abbott-2.5.1]
+    machinery: "Bolzano-Weierstrass, pigeonhole principle, irrationality, building a subsequence converging to a non-attained limit."
+    standardResult: "fractional parts of sqrt(2) n have a subsequence converging to 1 (Dirichlet pigeonhole approximation)"
+    topic: sequences
+    subtopics: [subsequences, bolzano-weierstrass, density-of-Q]
+    skills: [pigeonhole, subsequence-extraction, sup-approximation, contradiction]
+    difficulty: medium
+    difficultyRationale: "Hardest part is (3): combining the pigeonhole hint with irrationality (a_m > 0) and part (2); the hints lay out the route."
+    category: synthesis
+    type: proof
+    tags: [subsequence, pigeonhole, fractional-part, irrational, Bolzano-Weierstrass, density]
+    references: ["Lemma 1 printed after the problem (statement quoted; MIT also prints its proof)"]
+    problemLatex: |
+      For any real number $x \in \mathbb{R}$, let $\lfloor x \rfloor$ be the largest integer which is less or equal to $x$. Equivalently, $\lfloor x \rfloor$ is the integer such that
+      $$0 \le x - \lfloor x \rfloor < 1.$$
+      For example $\lfloor 1.3 \rfloor = 1$, $\lfloor -3 \rfloor = -3$ and $\lfloor \sqrt{5} \rfloor = 2$. Define a sequence
+      $$a_n = \sqrt{2}\,n - \lfloor \sqrt{2}\,n \rfloor.$$
+      (1) Show that $a_n$ has a convergent subsequence.
+      (2) Let $N \in \mathbb{N}$ be an integer. Suppose $0 < a_m < 1/N$ for some integer $m$. Show that there exists $n \in \mathbb{N}$ such that
+      $$a_n > 1 - \frac{1}{N}.$$
+      Hint: Consider $n = km$ for integers $k$.
+      (3) Show that for all $N \in \mathbb{N}$, there exists $n \in \mathbb{N}$ such that
+      $$a_n > 1 - \frac{1}{N}.$$
+      Hint: Applying the following fact to $a_n$. Suppose $a_1, a_2, \dots, a_{N+1}$ are $N+1$ numbers contained in $[0,1)$. Then there exist two distinct numbers $k$ and $\ell$ such that $|a_k - a_\ell| < \frac{1}{N}$.
+      (4) Let $E := \{a_n \mid n \in \mathbb{N}\}$. Show that there exists a sequence $b_k \in E$ such that $\lim_{k\to\infty} b_k = 1$.
+      We remark that $b_k$ is **not** required to be a subsequence of $a_n$ and that $b_k$ are **not** required to be distinct between different $k$'s.
+
+      The purpose of (2), (3) and (4) is to prepare ingredients that eventually show that $a_n$ has a subsequence which converges to 1. The last piece of ingredient is the following lemma.
+      **Lemma 1.** Let $a_n$ be a sequence of real numbers and $E := \{a_n \mid n \in \mathbb{N}\}$. Suppose there exists a sequence $b_k \in E$ such that $\lim_{k\to\infty} b_k = L$. Further assume that $L \notin E$. Then $a_n$ has a subsequence $a_{n_k}$ such that $\lim_{k\to\infty} a_{n_k} = L$.
+    transcriptionNotes: "Verified against the rendered page. The handout prints a proof of Lemma 1 on page 3 (omitted here; it is a given tool, not part of the exercise). The pigeonhole fact in the hint has a small index clash (it reuses a_k for arbitrary numbers); kept as printed. No solutions posted for S25."
+    mitAssigned: "MIT 18.100B (Spring 2025) Problem Set 4, Problem 5"
+  - cid: mit18100b-s25-ps9-5
+    chapter: "MIT 18.100B Spring 2025"
+    section: "Problem Set 9 (mit18_100b_s25_pset09.pdf)"
+    number: "Problem 5"
+    page: "2"
+    pdfPage: 2
+    verdict: strong
+    tier: upper
+    newExperience: "Uniqueness for an ODE by converting to an integral equation and running a local contraction estimate plus a continuation (step-by-step) argument; the bank has no ODE/integral-equation problem."
+    closestExisting: [mit20-a12-1, abbott-4.3.11, ross-29.18]
+    machinery: "Fundamental theorem of calculus (both directions), max-norm estimates on short intervals, Lipschitz bound for y^2 on a bounded range, iteration over subintervals."
+    standardResult: "uniqueness for y' = y^2 via the integral equation and a local contraction estimate (Picard-Lindelof uniqueness)"
+    topic: integration
+    subtopics: [fundamental-theorem, integral-inequalities]
+    skills: [FTC-application, contraction-estimate, epsilon-over-3, induction]
+    difficulty: medium
+    difficultyRationale: "Part (2) requires choosing b using a bound on |y1|+|y2| (from continuity on [0,1]) to get the factor 1/2; part (3) is a covering/continuation argument. Guided by the hint."
+    category: synthesis
+    type: proof
+    tags: [ODE, integral-equation, uniqueness, fundamental-theorem-of-calculus, contraction, Picard]
+    references: []
+    problemLatex: |
+      In this problem, we concern the uniqueness of the continuous solution of the equation
+      $$y'(x) = y(x)^2, \text{ for all } x \in [0,1], \qquad y(0) = a. \qquad (\star)$$
+      (1) Let $y(x)$ be a continuous function on $[0,1]$. Show that $y(x)$ solves $(\star)$ if and only if
+      $$y(x) = a + \int_0^x y(t)^2\,dt \quad \text{for all } x \in [0,1]. \qquad (\star\star)$$
+      (2) Let $y_1(x)$ and $y_2(x)$ be two continuous functions on $[0,1]$. Show that there exists $1 > b > 0$ such that the following holds. Suppose $y_1(x)$ and $y_2(x)$ both satisfy $(\star\star)$ and $y_1(x_0) = y_2(x_0)$ for some $x_0 \in [0, 1-b]$. Then
+      $$y_1(x) = y_2(x) \text{ for all } x \in [x_0, x_0 + b].$$
+      Hint: Pick a suitable $b$ to deduce
+      $$\max_{x\in[x_0,x_0+b]} |y_1(x) - y_2(x)| \le \frac{1}{2} \max_{x\in[x_0,x_0+b]} |y_1(x) - y_2(x)|.$$
+      (3) Let $y_1(x)$ and $y_2(x)$ be two continuous functions on $[0,1]$. Suppose $y_1(x)$ and $y_2(x)$ both solve $(\star)$. Show that $y_1(x) = y_2(x)$ for all $x \in [0,1]$.
+    transcriptionNotes: "Verified against the rendered page. In (2) b may depend on y1, y2 (it is chosen after them), as the quantifier order printed indicates. No solutions posted for S25."
+    mitAssigned: "MIT 18.100B (Spring 2025) Problem Set 9, Problem 5"
+  - cid: mit18100b-s25-ps10-5
+    chapter: "MIT 18.100B Spring 2025"
+    section: "Problem Set 10 (mit18_100b_s25_pset10.pdf)"
+    number: "Problem 5"
+    page: "1"
+    pdfPage: 1
+    verdict: strong
+    tier: upper
+    newExperience: "Equicontinuity in its simplest form (a common Lipschitz constant) upgrades pointwise convergence to uniform convergence on a compact interval, and the student shows the common constant cannot be dropped; the bank has no equicontinuity problem below Arzela-Ascoli."
+    closestExisting: [abbott-6.2.15, abbott-6.2.11, abbott-6.2.10, abbott-6.2.6]
+    machinery: "Passing Lipschitz bounds to limits; finite epsilon-net of [a,b] plus epsilon/3 argument; counterexamples showing a hypothesis is needed."
+    standardResult: "equi-Lipschitz sequence: pointwise limit is L-Lipschitz and convergence is uniform on [a,b]; fails without a common constant"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [epsilon-over-3, finite-net-argument, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Part (2) needs a finite grid on [a,b] combined with the uniform Lipschitz bound; (3) needs counterexamples (e.g. x^n on [0,1])."
+    category: synthesis
+    type: proof
+    tags: [uniform-convergence, Lipschitz, equicontinuity, compactness, counterexample]
+    references: []
+    problemLatex: |
+      Let $f_n$ be a sequence of Lipschitz functions on $[a,b]$ with common Lipschitz constant $L$. (This means that
+      $$|f_n(x) - f_n(y)| \le L\,|x - y|$$
+      for all $n \in \mathbb{N}$, $x, y \in [a,b]$.)
+      (1) If $f = \lim_n f_n$ pointwise, then $f$ is continuous and, in fact, satisfies a Lipschitz condition with constant $L$.
+      (2) If $f = \lim_n f_n$ pointwise the convergence is uniform.
+      (3) Show by example that the results in (1) and (2) fail if we weaken our hypotheses by requiring only that each function is a Lipschitz function. (Here, the constant $L$ may depend on $n$.)
+    transcriptionNotes: "Verified against the rendered pages ((3) continues on page 2). (1) and (2) are printed as statements; 'Show that' is implicit. No solutions posted for S25."
+    mitAssigned: "MIT 18.100B (Spring 2025) Problem Set 10, Problem 5"
+  - cid: mit18100b-f10-ps8-5
+    chapter: "MIT 18.100B Fall 2010"
+    section: "Homework 8 (mit18_100bf10_pset8.pdf)"
+    number: "Problem 5"
+    page: "2"
+    pdfPage: 2
+    verdict: consider
+    tier: upper
+    newExperience: "Treats the best delta as a function of x and epsilon, so pointwise and uniform continuity become statements about that function (positive vs. positive infimum), and computes it exactly for x^2."
+    closestExisting: [ross-19.2, abbott-4.3.2, mit20-final-1]
+    machinery: "Quantifier structure of continuity vs uniform continuity; sup/inf in the extended reals; an exact computation of the optimal delta."
+    standardResult: "optimal delta function delta_f(x, epsilon): continuity iff positive, uniform continuity iff inf over x positive; x^2 on [0,infinity)"
+    topic: continuity
+    subtopics: [uniform-continuity, epsilon-delta-continuity, continuity-metric-spaces]
+    skills: [negate-definition, sup-approximation, epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "(a),(b) unwind definitions with care about the supremum; (c),(d) are a guided computation."
+    category: canonical
+    type: definition
+    tags: [uniform-continuity, epsilon-delta, quantifiers, supremum, metric-space]
+    references: []
+    problemLatex: |
+      Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces. For any continuous map $f\colon X \to Y$ define a function $\delta_f\colon X \times (0,\infty) \to (0,\infty) \cup \{\infty\}$ as follows:
+      $$\delta_f(x,\epsilon) = \sup\{\delta > 0 \mid \forall t \in X\ \ d_X(x,t) < \delta \Rightarrow d_Y(f(x), f(t)) < \epsilon\}.$$
+      Note that this supremum may be $\infty$ if the continuity condition holds for all $\delta > 0$; e.g. for $f$ constant. In the following, we use the definition of order $<$ and infimum in the extended reals.
+      (a) Show that the statement "$f$ is continuous at $x$" is equivalent to "$\delta_f(x,\epsilon) > 0$ for each $\epsilon > 0$".
+      (b) Show that $f$ is uniformly continuous on $X$ iff $\inf_{x\in X} \delta_f(x,\epsilon) > 0$.
+      (c) Consider the function $f(x) = x^2$ defined on the metric space $X = [0,\infty)$. Show that for each $x \in X$
+      $$\sup_{t\in X,\ d_X(x,t)<\delta} |f(x) - f(t)| = 2x\delta + \delta^2.$$
+      (d) Use part (c) to show that $\delta_f(x,\epsilon) = \sqrt{x^2+\epsilon} - x$. Show that, for fixed $\epsilon > 0$, $\lim_{x\to\infty}[\sqrt{x^2+\epsilon} - x] = 0$. Conclude that $f$ is *not* uniformly continuous on $X$. [*Hint*: you can use Calculus here, but you needn't. Set $\varphi(x) = \sqrt{x^2+\epsilon} - x$. Show that $\varphi(x) \ge 0$, and that $\varphi(x)^2 + 2x\,\varphi(x) = \epsilon$ for every $x$. Hence $0 \le \varphi(x) \le \epsilon/2x$.]
+    transcriptionNotes: "Verified against the rendered page. As printed, (a) is stated for a map already assumed continuous in the definition of delta_f; the definition makes sense for any map. (b) is meant 'for each epsilon > 0'. Kept as printed. A related 2006 item (PS7 extra #3(b): delta(x) is continuous, hence attains a positive minimum on [a,b]) gives another proof of Heine-Cantor; skipped in favour of this one. No solutions posted for F10 homework."
+    mitAssigned: "MIT 18.100B (Fall 2010) Homework 8, Problem 5"
+  - cid: mit18100b-f10-ps10-5
+    chapter: "MIT 18.100B Fall 2010"
+    section: "Homework 10 (mit18_100bf10_pset10.pdf)"
+    number: "Problem 5 (with the metric d_1 of Problem 4)"
+    page: "2"
+    pdfPage: 2
+    verdict: consider
+    tier: core-gap
+    newExperience: "Shows that C[-1,1] is not complete under the L^1 metric: a d_1-Cauchy sequence of continuous ramps whose would-be limit is a jump. The bank has the L^1 metric only as a definition, and only shows incompleteness for C^1 under the sup metric."
+    closestExisting: [abbott-8.2.2, abbott-8.2.5, abbott-8.2.6, lebl-7.4.17]
+    machinery: "Cauchy sequences in a function-space metric; integral estimates; proving that no continuous function is the limit (a limit must equal 0 on [-1,0) and 1 on (0,1])."
+    standardResult: "C[a,b] with the L^1 metric is not complete (ramp functions converging to a step)"
+    topic: topology
+    subtopics: [complete-metric-spaces, metric-spaces]
+    skills: [integral-estimate, contradiction, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a),(b) are computations; (c) needs an argument that any d_1-limit must agree with the step function away from 0, which is impossible for a continuous function."
+    category: canonical
+    type: counterexample
+    tags: [metric-space, completeness, L1-metric, Cauchy, Riemann-integration, function-space]
+    references: ["Problem 4(d) of the same homework (definition of d_1 quoted)"]
+    problemLatex: |
+      *(From Problem 4: for continuous $f, g$ on $[a,b]$ put $d_1(f,g) = \int_a^b |f - g|$; Problem 4(d) shows that the set $\mathscr{C}[a,b]$ of continuous functions on $[a,b]$ is a metric space under $d_1$.)*
+
+      Consider the metric space $(\mathscr{C}[-1,1], d_1)$ from 4(d) (here $a = -1$, $b = 1$).
+      (a) Let $f_n$ denote the function
+      $$f_n(x) = \begin{cases} 1, & x > \frac{1}{n}, \\ nx, & 0 \le x \le \frac{1}{n}, \\ 0, & x < 0. \end{cases}$$
+      Show that $f_n \in \mathscr{C}[-1,1]$, and calculate $\int_0^1 f_n$.
+      (b) Show that the sequence $(f_n)$ is a Cauchy sequence in terms of the metric $d_1$.
+      (c) Does $f_n$ converge in $\mathscr{C}[-1,1]$? Is this metric space complete?
+    transcriptionNotes: "Verified against the rendered page. The parenthetical summarizes the definition from Problem 4 (whose own parts are routine: R^1[a,b], d_1 a pseudometric, d_1 a metric on continuous functions); quoted formula d_1(f,g) = int_a^b |f-g| is verbatim. No solutions posted for F10 homework."
+    mitAssigned: "MIT 18.100B (Fall 2010) Homework 10, Problem 5"
+  - cid: mit18100b-f10-finprac-8
+    chapter: "MIT 18.100B Fall 2010"
+    section: "Practice Final Exam (mit18_100bf10_final_prac.pdf)"
+    number: "Problem 8"
+    page: "10"
+    pdfPage: 10
+    verdict: consider
+    tier: upper
+    newExperience: "Introduces equicontinuity through the contrast between finitely many uniformly continuous functions (automatically equicontinuous) and an explicit sequence of uniformly continuous functions that is not equicontinuous, detected via the lack of a uniformly convergent subsequence."
+    closestExisting: [abbott-6.2.15, abbott-6.2.13, mit20-final-7a]
+    machinery: "Definition of equicontinuity; min over finitely many deltas; uniform convergence vs. pointwise limit with a jump; Arzela-Ascoli (contrapositive) or a direct argument."
+    standardResult: "finite family of uniformly continuous functions is equicontinuous; x/(x+1/n) on [0,1] is not equicontinuous"
+    topic: function-sequences
+    subtopics: [uniform-convergence, pointwise-convergence]
+    skills: [choose-delta, contradiction, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a),(b) are easy; (c) requires showing that no subsequence converges uniformly (the pointwise limit is discontinuous at 0) and drawing the equicontinuity conclusion."
+    category: synthesis
+    type: counterexample
+    tags: [equicontinuity, uniform-continuity, uniform-convergence, Arzela-Ascoli, counterexample]
+    references: []
+    problemLatex: |
+      (a) Let $\mathscr{F} = \{f_1, \dots, f_n\}$ be a *finite* collection of uniformly continuous functions. Prove that $\mathscr{F}$ is equicontinuous.
+      (b) Consider the infinite sequence of functions
+      $$f_n(x) = \frac{x}{x + \frac{1}{n}}, \qquad x \in [0,1],\ n \in \mathbb{N}.$$
+      Show that each function $f_n$ is uniformly continuous.
+      (c) Show that the sequence of functions in (b) has no uniformly convergent subsequence. Conclude that it is not equicontinuous.
+    transcriptionNotes: "Verified against the rendered pages 10-11. The course's definition of equicontinuity (Rudin 7.22) is not restated in the problem; the curator may want to add it. Typed solutions posted in mit18_100bf10_fin_prac_sol.pdf."
+    mitAssigned: "MIT 18.100B (Fall 2010) Practice Final, Problem 8"
+  - cid: mit18100b-f10-prac3-4e
+    chapter: "MIT 18.100B Fall 2010"
+    section: "Practice Quiz 3 (statement only in the scanned solution file mit18_100bf10_practice3sol.pdf)"
+    number: "Problem 4(e)"
+    page: "7"
+    pdfPage: 7
+    verdict: consider
+    tier: upper
+    newExperience: "Hypothesis-separation counterexample: a C^1 function on R that is uniformly continuous but has unbounded derivative. Bounded f' implies uniformly continuous, but the converse fails because of fast oscillation with decaying amplitude. The bank only has the forward direction."
+    closestExisting: [mit20-a10-3, mit20-a9-5, lebl-4.2.10, abbott-4.4.9]
+    machinery: "Uniform continuity on R via decay at infinity plus compactness; constructing fast oscillation with decaying amplitude."
+    standardResult: "uniformly continuous C^1 function on R with unbounded derivative (e.g. sin(x^4)/(x^2+1))"
+    topic: continuity
+    subtopics: [uniform-continuity, lipschitz-holder]
+    skills: [construct-counterexample, epsilon-over-3]
+    difficulty: medium
+    difficultyRationale: "Requires inventing the oscillating-but-decaying example and proving uniform continuity on R by splitting into a compact piece and a tail."
+    category: challenge
+    type: counterexample
+    tags: [uniform-continuity, derivative, counterexample, oscillation, true-false]
+    references: []
+    problemLatex: |
+      True or false? (On the quiz, no proof was required.)
+      Let $f\colon \mathbb{R} \to \mathbb{R}$ be continuously differentiable and uniformly continuous. Then $|f'|$ is bounded.
+    transcriptionNotes: "Read from the rendered scanned page (printed statement; handwritten solution beneath). Practice Quiz 3's own PDF (mit18_100bf10_prac3.pdf) is a mis-upload duplicate of Practice Quiz 2, so the statement survives only here. The posted answer and counterexample are in mit18_100bf10_practice3sol.pdf p.7 and typed in mit18_100bf10_prac3soltyp.pdf. For the bank, the curator may want to reword it as 'prove or give a counterexample'."
+    mitAssigned: "MIT 18.100B (Fall 2010) Practice Quiz 3, Problem 4(e)"
+  - cid: mit18100b-2006-ps3-7
+    chapter: "MIT 18.100B Fall 2006"
+    section: "Problem Set 3 (mit18_100b_2006_pset3.pdf)"
+    number: "Problem 7"
+    page: "2"
+    pdfPage: 2
+    verdict: strong
+    tier: core-gap
+    newExperience: "The Lebesgue number lemma, the standard tool behind open-cover proofs of uniform continuity, is absent from the bank and from the unselected candidates."
+    closestExisting: [abbott-4.4.14, abbott-3.3.8, lebl-7.5.10]
+    machinery: "Open-cover compactness (or sequential compactness) in metric spaces; a uniform radius from a cover."
+    standardResult: "Lebesgue number lemma"
+    topic: topology
+    subtopics: [compactness, metric-spaces]
+    skills: [open-cover-argument, contradiction, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "Standard but non-trivial: needs either a half-radius finite subcover trick or a sequential-compactness contradiction."
+    category: canonical
+    type: proof
+    tags: [compactness, open-cover, Lebesgue-number, metric-space, machinery]
+    references: []
+    problemLatex: |
+      Let $K$ be a compact subset of a metric space $M$, and let $\{\mathcal{U}_\alpha\}_{\alpha\in I}$ be an open cover of $K$. Show that there is a positive real number $\delta$ with the property that for every $x \in K$ there is some $\alpha \in I$ with
+      $$B_\delta(x) \subseteq \mathcal{U}_\alpha.$$
+    transcriptionNotes: "Verified against the rendered page. Typo fixed: the original says 'some alpha in A' although the index set is named I. Solution posted in mit18_100b_2006_pset3sol.pdf (Problem 7)."
+    mitAssigned: "MIT 18.100B (Fall 2006) Problem Set 3, Problem 7"
+  - cid: mit18100b-2006-ps6-x2
+    chapter: "MIT 18.100B Fall 2006"
+    section: "Problem Set 6, Extra problems (mit18_100b_2006_pset6.pdf)"
+    number: "Extra problem 2"
+    page: "2"
+    pdfPage: 2
+    verdict: consider
+    tier: upper
+    newExperience: "A divergence proof by counting (Erdos's argument for the sum of 1/p): play an upper bound against a lower bound for a counting function. The bank has no counting-style series argument."
+    closestExisting: [abbott-2.7.11, lebl-2.6.10]
+    machinery: "Tails of a convergent series; counting integers with restricted prime factors; square-free factorization; contradiction from incompatible growth rates."
+    standardResult: "sum of reciprocals of primes diverges (Erdos counting proof)"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [contradiction, counting-argument, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "The scaffold gives the plan; the work is proving N(x) <= 2^l sqrt(x) and x/2 < N(x), which needs a careful counting estimate."
+    category: challenge
+    type: proof
+    tags: [series, primes, divergence, counting, contradiction]
+    references: []
+    problemLatex: |
+      Let $(p_k) = (2, 3, 5, 7, 11, \dots)$ be the sequence of prime numbers. Prove that the series
+      $$\sum_{k=1}^{\infty} \frac{1}{p_k}$$
+      diverges, for instance, by working out the details of the following argument.
+
+      Suppose $\sum \frac{1}{p_k}$ converges. Then, there is an integer $\ell$ such that
+      $$\sum_{k=\ell+1}^{\infty} \frac{1}{p_k} = \sum_{k=1}^{\infty} \frac{1}{p_{k+\ell}} < \frac{1}{2}.$$
+      Next, for any given $x \ge 0$, we let $N(x)$ be the number of positive integers $n \le x$ that are not divisible by any prime $p_k$ with $k > \ell$. By writing $n = km^2$ with $k$ square-free (which can be done with any integer), prove that
+      $$N(x) \le 2^{\ell}\sqrt{x} \quad \text{and conclude that} \quad \frac{x}{2} < N(x) < 2^{\ell}\sqrt{x}.$$
+      This is a contradiction whenever $x \ge 2^{2\ell+2}$ holds.
+    transcriptionNotes: "Verified against the rendered page. The 'Trivia' paragraph on Brun's constant that follows the problem is omitted (it is commentary). The letter k is reused (prime index and square-free part), as printed. This is an extra problem, so no posted solution (pset6sol covers Problems 1-7 only). Borderline scope: a number-theory flavour, but the content is series divergence."
+    mitAssigned: "MIT 18.100B (Fall 2006) Problem Set 6, Extra problem 2"
+  - cid: mit18100b-2006-ps7-x1
+    chapter: "MIT 18.100B Fall 2006"
+    section: "Problem Set 7, Extra problems (mit18_100b_2006_pset7.pdf)"
+    number: "Extra problem 1"
+    page: "2"
+    pdfPage: 2
+    verdict: consider
+    tier: upper
+    newExperience: "Recovering continuity (and uniform continuity) of f from that of g∘f using compactness of the middle space, plus a counterexample showing compactness of Y is necessary; this is a hypothesis-necessity problem built on 'continuous bijection from a compact space has continuous inverse'."
+    closestExisting: [abbott-4.5.8, tao-9.8.4, lebl-7.5.5]
+    machinery: "Sequential compactness in metric spaces, uniqueness of subsequential limits through injectivity, uniform continuity via sequences; counterexample construction."
+    standardResult: "g injective continuous with compact domain Y: g∘f (uniformly) continuous implies f (uniformly) continuous; compactness needed"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, uniform-continuity, continuity-and-topology]
+    skills: [subsequence-extraction, sequential-characterization, construct-counterexample, contradiction]
+    difficulty: medium
+    difficultyRationale: "(a),(b) are subsequence arguments in compact Y; (c) needs a counterexample with compact X and Z (e.g. a continuous bijection from [0,2pi) onto the circle composed suitably)."
+    category: synthesis
+    type: proof
+    tags: [compactness, continuity, uniform-continuity, injective, counterexample, metric-space]
+    references: []
+    problemLatex: |
+      Suppose $X$, $Y$, and $Z$ are metric spaces, and $Y$ is compact. Let
+      $$X \xrightarrow{\ f\ } Y \xrightarrow{\ g\ } Z$$
+      and assume that $g$ is one-to-one.
+      a) Show that if $g$ is continuous and $g \circ f$ is continuous then $f$ is continuous.
+      b) Show that if $g$ is continuous and $g \circ f$ is uniformly continuous then $f$ is uniformly continuous.
+      c) Show that compactness of $Y$ is necessary, even if $X$ and $Z$ are compact.
+    transcriptionNotes: "Verified against the rendered page. Typo fixed: the displayed diagram prints the target of g as X, but the text (and part c) clearly mean Z. Extra problem: no posted solution. Possibly adapted from a textbook exercise; not a Rudin exercise as far as I can tell."
+    mitAssigned: "MIT 18.100B (Fall 2006) Problem Set 7, Extra problem 1"
+  - cid: mit18100b-2006-ps8-1
+    chapter: "MIT 18.100B Fall 2006"
+    section: "Problem Set 8 (mit18_100b_2006_pset8.pdf)"
+    number: "Problem 1"
+    page: "1"
+    pdfPage: 1
+    verdict: consider
+    tier: upper
+    newExperience: "A functional-equation trick: iterate x -> x^(1/2^n) (or x^(2^n)) toward a fixed point of the dynamics and use continuity there. The bank's only functional equations are Cauchy additive ones."
+    closestExisting: [abbott-4.3.13, lebl-3.2.16]
+    machinery: "Sequential continuity applied along an iterated sequence (x^{1/2^n} -> 1, x^{2^n} -> 0)."
+    standardResult: "continuous f with f(x^2) = f(x) on [0,infinity) is constant"
+    topic: continuity
+    subtopics: [sequential-continuity]
+    skills: [sequential-characterization, iteration]
+    difficulty: easy
+    difficultyRationale: "Short once the iteration idea is seen; the hint states the two target identities."
+    category: synthesis
+    type: proof
+    tags: [functional-equation, continuity, sequences, iteration]
+    references: []
+    problemLatex: |
+      Let $f\colon [0,\infty) \to \mathbb{R}$ be continuous, and suppose
+      $$f(x^2) = f(x)$$
+      holds for every $x \ge 0$. Prove that $f$ has to be a constant function.
+      Hint: Show that $f(0) = f(x)$ if $0 \le x < 1$, and $f(1) = f(x)$ if $x \ge 1$.
+    transcriptionNotes: "Verified against the rendered page. Solution posted in mit18_100b_2006_pset8sol.pdf (Problem 1)."
+    mitAssigned: "MIT 18.100B (Fall 2006) Problem Set 8, Problem 1"
+  - cid: mit18100b-2006-ps10-5
+    chapter: "MIT 18.100B Fall 2006"
+    section: "Problem Set 10 (mit18_100b_2006_pset10.pdf)"
+    number: "Problem 5"
+    page: "1"
+    pdfPage: 1
+    verdict: consider
+    tier: upper
+    newExperience: "Swapping a limit with an improper integral using a dominating function (a Riemann-integral 'dominated convergence'), and showing the domination is needed; the bank has only the counterexample half."
+    closestExisting: [lebl-6.2.22, ross-36.6, lebl-5.5.8]
+    machinery: "Splitting an improper integral into a compact piece (uniform convergence) and a tail (domination by e^{-t}); counterexample construction."
+    standardResult: "dominated convergence for improper Riemann integrals under locally uniform convergence; fails without domination"
+    topic: function-sequences
+    subtopics: [interchange-integral, uniform-convergence]
+    skills: [epsilon-over-2, tail-estimate, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Two-piece estimate (choose b for the tail, then n for [0,b]) plus a counterexample such as moving bumps of fixed area."
+    category: synthesis
+    type: proof
+    tags: [improper-integral, uniform-convergence, interchange-of-limits, dominated-convergence, counterexample]
+    references: []
+    problemLatex: |
+      Suppose $(f_n)$ is a sequence of real-valued functions that are Riemann-integrable on all compact subintervals of $[0,\infty)$. Assume further that:
+      a) $f_n \to 0$ uniformly on every compact subset of $[0,\infty)$;
+      b) $0 \le f_n(t) \le e^{-t}$ for all $t \ge 0$ and $n \in \mathbb{N}$.
+      Prove that
+      $$\lim_{n\to\infty} \int_0^\infty f_n(t)\,dt = 0,$$
+      where the improper integral $\int_0^\infty f_n(t)\,dt$ is defined as $\lim_{b\to\infty} \int_0^b f_n(t)\,dt$. Moreover, give an explicit example for a sequence $(f_n)$, so that condition b) does not hold and the conclusion above fails.
+
+      *Remark:* In fact, one can relax condition a) to "$f_n \to 0$ pointwise on $[0,\infty)$." But then the proof (of this "dominated convergence theorem") becomes by far more involved when using Riemann's theory of integration.
+    transcriptionNotes: "Verified against the rendered page. Solution posted in mit18_100b_2006_pset10sol.pdf (Problem 5)."
+    mitAssigned: "MIT 18.100B (Fall 2006) Problem Set 10, Problem 5"
+  - cid: mit18100b-2006-ps10-x1
+    chapter: "MIT 18.100B Fall 2006"
+    section: "Problem Set 10, Extra problems (mit18_100b_2006_pset10.pdf)"
+    number: "Extra problem 1"
+    page: "2"
+    pdfPage: 2
+    verdict: strong
+    tier: upper
+    newExperience: "An impossibility theorem about metrics: no metric (or norm) on C[0,1] induces pointwise convergence. The student turns a hypothetical metric into a diagonal construction that contradicts it; nothing in the bank asks to rule out every possible metric."
+    closestExisting: [abbott-8.2.2, abbott-8.2.6, ross-22.6]
+    machinery: "Sequences in metric spaces (neighborhood characterization of convergence), scaling to defeat a norm, diagonal choice of points/indices, pointwise vs uniform convergence."
+    standardResult: "pointwise convergence on C[0,1] is not induced by any norm or metric"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [contradiction, diagonal-argument, construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "Theorem 2 (norm) is a clever scaling argument; Theorem 1 (metric) needs a nested/diagonal choice of x_0 and indices to manufacture a pointwise-null sequence of bumps that stays away from 0, even with the hints."
+    category: challenge
+    type: proof
+    tags: [pointwise-convergence, metric-space, norm, impossibility, diagonal-argument, function-space]
+    references: []
+    problemLatex: |
+      In class, we have seen that uniform convergence of a sequence of bounded functions on a set $E$ can be equivalently formulated in terms of the metric $d(f,g) = \sup_{x\in E} |f(x) - g(x)|$. That is, we have $d(f_n, f) \to 0$ if and only if $f_n \to f$ uniformly on $E$.
+
+      Having this in mind, we could ask whether an analogous statement holds with respect to pointwise convergence. More specifically, is there a metric $d(f,g)$ such that $d(f_n, f) \to 0$ if and only if $f_n \to f$ pointwise on $E$? Surprisingly, it turns out that the answer is NO when, for example, $E = [0,1]$. We therefore cordially invite you to prove the following theorem.
+
+      **Theorem 1.** *There is no metric $d(f,g)$ defined on $C([0,1])$ such that $d(f_n, f) \to 0$ if and only if $f_n \to f$ pointwise on $[0,1]$.*
+
+      Before proving this theorem, you may first show the following weaker statement whose proof requires less effort.
+
+      **Theorem 2.** *There is no norm $\|\cdot\|$ defined on $C([0,1])$ such that $\|f_n\| \to 0$ if and only if $f_n \to 0$ pointwise on $[0,1]$.*
+
+      *Hint (for proof of Theorem 2).* Consider $f_n \in C([0,1])$, with $n = 1, 2, 3, \dots$, such that
+      i) For every $x \in [0,1]$, there exists $n_0 = n_0(x)$ such that $f_n(x) = 0$ if $n \ge n_0$.
+      ii) $f_n \not\equiv 0$ for every $n \ge 1$.
+      (A possible choice is, for instance, given by $f_n(x) = \sin(n\pi x)$ if $x \in [0, 1/n]$, and $f_n(x) = 0$ if $x \in [1/n, 1]$.) By clever choice of a sequence of real-valued numbers $(c_n)$, prove the claim by considering the sequence $(c_nf_n)$.
+
+      *Hint (for proof of Theorem 1).* Assume there is such a metric $d(f,g)$ on $C([0,1])$. Then $f_n \to 0$ if and only if, for every $k \in \mathbb{N}$, we have that $f_n \in N_{1/k}(0) = \{y \in C([0,1]) : d(y, 0) < 1/k\}$, except for finitely many $f_n$. Use this fact and the specific choice $g_n(x) = e^{-n|x - x_0|}$ for suitable $x_0 \in [0,1]$ to show that $g_n \to 0$ pointwise on $[0,1]$, which is false! (Since $g(x_0) = 1$ for all $n$.)
+    transcriptionNotes: "Verified against the rendered page. Kept as printed: the last hint writes g(x_0) for g_n(x_0), and its 'show that g_n -> 0 pointwise' means 'derive that a suitable sequence built from the g_n would converge pointwise to 0, which is false'. The hint for Theorem 1 is terse, and the curator may want to trim or rephrase the hints. Extra problem: no posted solution."
+    mitAssigned: "MIT 18.100B (Fall 2006) Problem Set 10, Extra problem 1"
+skipped:
+  - "S25 PS1: 1 (1>0 in an ordered field) axiomatics; 2 well-definedness of + on Q, foundational; 3 routine sup/inf; 4 is the setup of PS1-5 (verifying the order axioms is routine, quoted there); 6 inf from sup, bank has abbott-1.3.3; 7 cube roots via sup, bank has lebl-1.2.11"
+  - "S25 PS2: 1 product of limits, routine (2) trivial example; 2 routine limits; 3 subsequence iff infinitely many terms near L, standard; 4 routine"
+  - "S25 PS3: 1 density of Q, bank; 2 sup{x^2}, easy; 3 sequence to sup, bank mit20-a4-6; 4 recursive sequence, routine; 5 contraction iterates Cauchy, bank lebl-2.4.2/abbott-4.3.11"
+  - "S25 PS4: 1 |a_{n+1}-a_n|->0 but divergent, bank abbott-2.6.5; 2 p-series, routine; 3 routine tests; 4 alternating series test, bank"
+  - "S25 PS5: 1 M-test-style Fourier comparison, routine (and Fourier); 2 f^2 vs f^3 continuity, easy (cube root continuity in bank abbott-4.3.1); 3 floor continuity, routine; 4 agree on Q implies equal, standard; 5 continuity of exp via uniform convergence, guided, bank-covered"
+  - "S25 PS6: 1-4 routine metric/open-set facts (bank); 5 compact + nested closed finite-intersection property, routine compactness"
+  - "S25 PS7: 1 l^2 metric and orthonormal basis has no convergent subsequence, bank lebl-7.1.13/ross-13.15; 2 isolated points, easy; 3 lim f' gives f'(0), bank lebl-4.2.13; 4 e^x >= 1+x, routine MVT; 5 C[0,1] complete, bank abbott-8.2.5"
+  - "S25 PS8: 1 derivative of f(x)/x, routine; 2 sinh from S'=C, C'=S, routine Taylor; 3 inverse function derivative, bank-covered; 4 one-point-modified integrand, routine; 5 convex iff f''>=0 via symmetric second difference, Rudin 5.14 territory and bank abbott-5.3.12"
+  - "S25 PS9: 1 monotonicity of the integral, f=g if equal integrals, bank mit20-a12-1; 2 integral MVT and Riemann-sum error M/n, routine; 3 integration by parts; 4 substitution, routine"
+  - "S25 PS10: 1 phi'=2x phi via term-by-term differentiation, routine; 2 integrals of uniformly convergent sequences, bank; 3 exp series uniform on [-L,L], not on R, bank; 4 implicit function theorem, multivariable (out of scope)"
+  - "S25 midterm review examples 1-4: box metric, radii of convergence, x_{n+1}=x_n/n, sum with |a_n|<1/n^2 -- all routine. S25 final review: no problems."
+  - "F10 HW1: 1 strict order from a partial order (trichotomy fails), easy foundations; 2,3 Rudin (listed); 4 Archimedean property of Q / LUB vs Archimedean, easy-conceptual (bank abbott-2.4.4); 5 induction (sum of cubes, Bernoulli), routine"
+  - "F10 HW2: 1 R uncountable, bank; 2 rational intervals countable, P(N) uncountable, bank mit20-a3-2; 3-5 Rudin (listed)"
+  - "F10 HW3: 1 product of compact sets compact in R^2, routine; 2-5 Rudin (listed); 6 Cantor set measure-zero cover and compactness, bank-covered"
+  - "F10 HW4: 1 'Lemma 3' of unposted course notes, not self-contained; 2 clopen sets in connected space, bank abbott-3.2.13; 3 connectedness is intrinsic, easy; 4 no convergent subsequence implies |a_n|->infinity (fails in Q), easy BW contrapositive"
+  - "F10 HW5: 1 'common ancestor' relation, non-analysis; 2 reciprocals of non-null Cauchy sequences in Q, construction of R (excluded); 3 Rudin (listed); 4 liminf definitions agree, routine; 5 finite symmetric difference equivalence classes countable, set theory"
+  - "F10 HW6: 1 Rudin (listed) + telescoping sum, routine; 2 limit comparison test, bank; 3 Lagrange identity, Cauchy-Schwarz, l^2 metric, bank mit20-a7-3/lebl-7.1.13; 4 Rudin (listed); 5 Banach fixed point theorem, guided, bank abbott-4.3.11/ross-29.18/lebl-7.6.11"
+  - "F10 HW7: 1 Rudin (listed); 2 g(d(x,x0)) continuous, easy; 3 maps from/to discrete spaces, easy; 4 indicator of {x^2>2} on Q continuous without continuous extension, easy (complement of bank lebl-3.4.9); 5 continuity of complex exp via tail estimate, routine"
+  - "F10 HW8: 1 Rudin (listed); 2 one-sided limit reformulation, routine; 3(a) UC preserves Cauchy, 1/x^2 not UC, bank; 3(b) Rudin 4.6 (listed); 4 l^1 metric on power series, evaluation uniformly continuous, routine"
+  - "F10 HW9: 1 Hölder alpha>1 constant, bank mit20-a10-1; 2,3(a),5(b) Rudin (listed); 3(b) polynomial vs e^x, ln x limits, routine; 4 |sin x - x| <= |x|^3/6 and a limit, routine; 5(a) bounded derivative gives convergent f(1/n), easy (bank lebl-4.2.14 nearby)"
+  - "F10 HW10: 1 1_{1/n} integrable, n at 1/n not, bank-covered; 2 Rudin (listed); 3 measure-zero sets (complement dense, no open ones, examples), routine; 4 d_1 is a pseudometric on R^1, |g| integrable but g not, bank cummings-8.14 (definition quoted into F10 HW10-5)"
+  - "F10 HW11: 1,2,4 Rudin (listed); 3 convergence of improper integrals of sin t / t^alpha and e^{-t}/t^beta, routine"
+  - "F10 HW12: 1,3,4 Rudin (listed); 2 (e^x)'=e^x via Rudin Thm 7.17, routine; 5 Taylor polynomials converge uniformly inside the radius; remainder criterion for f = T, essentially a restatement of Lagrange remainder (bank abbott-6.6.8, ross-31.5)"
+  - "F10 Practice Quiz 1 (solutions: mit18_100bf10_prac1soltyp.pdf, scanned mit18_100bf10_practice1sol.pdf): 1 compactness definition/finite sets, 2 countable unions, sup(S+T), 3 {0}∪{1/n} limit points/closed/compact subsets, 4 T/F (int(closure A)=A, pseudometric, countability of {x+y in Q}) -- all routine or bank-covered"
+  - "F10 Practice Quiz 2 (solutions: mit18_100bf10_prac2soltyp.pdf, scanned mit18_100bf10_practice2sol.pdf; mit18_100bf10_prac3.pdf is a duplicate of this quiz): 1 connected iff no nontrivial clopen set, bank abbott-3.2.13; 2 limsup/liminf of sin(n pi/4), squeeze, routine; 3 sum sqrt(a_n)/n, Rudin 3.7 / bank ross-14.8; 4 T/F (closure = sequential limits, Q∩(-1,1) disconnected, d(x_n,x_{n+1})<=1/n not Cauchy, power series on boundary) -- routine, bank-covered"
+  - "F10 Practice Quiz 3 (only in scanned mit18_100bf10_practice3sol.pdf; typed mit18_100bf10_prac3soltyp.pdf): 1 max(f,g) continuous, not differentiable, routine; 2 continuous image of connected is connected, bank lebl-7.5.5; 3 MVT statement, x+eps g injective (Rudin 5.3 content), lim f' gives f'(0) (bank lebl-4.2.13); 4(a)-(d) T/F routine; 4(e) recorded"
+  - "F10 Practice Quiz 4 (solutions: scanned mit18_100bf10_practice4sol.pdf, typed mit18_100bf10_prac4soltyp.pdf): 1 finitely many spikes integrable, routine; 2 nonnegative continuous zero integral, bank mit20-a12-1; 3 sum e^{-kx}cos(kx) M-test/continuity/integral bound, routine; 4 T/F (differentiable on (a,b) integrable?, F continuous, a.e.-continuity of uniform limits) routine"
+  - "F10 Practice Final (solutions: mit18_100bf10_fin_prac_sol.pdf): 1 0<=x<=eps implies x=0 from ordered field axioms, introductory; 2 sum sqrt(a_n a_{n+1}) and monotone converse, close to bank ross-14.8; 3 continuous images (0,1)->(0,1] etc., bank abbott-4.4.8/ross-22.1/ross-21.10; 4 uniform limit of UC functions is UC, bank abbott-6.2.6; 5 continuous image of compact (open covers), bank; 6 Riemann-Stieltjes (excluded); 7 measure zero / a.e. equality equivalence relation and equal integrals, routine; 8 recorded; 9 every subsequence has a sub-subsequence converging to p, bank lebl-2.3.11/lebl-7.3.13; 10 (bonus) closed/open subsets of (C(X),d_inf), routine"
+  - "2006 PS1 (sol: mit18_100b_2006_pset1sol.pdf): 1,4,5,6,7 Rudin (listed); 2 sup ± 1/n, routine; 3 sup of union, routine; extra 1 descent proof sqrt2 irrational, extra 2 sqrt of integer integer or irrational, foundational"
+  - "2006 PS2 (sol: pset2sol): 1,2,7 Rudin (listed); 3 sup/inf computations; 4 square-free number puzzle, non-analysis; 5 X~R, Y countable disjoint implies X∪Y ~ R, easy cardinality; 6 bounded sets with 3 / countably many limit points, routine; extra 1 images under 1/z (complex, sketch); extra 2 Rudin 2.2 (listed); extra 3 Schroeder-Bernstein, bank tao-8.3.2/8.3.3; extra 4 [0,1]^2 ~ [0,1], cardinality (foundations, not upper-tier)"
+  - "2006 PS3 (sol: pset3sol): 1 norm induces metric, 2 d/(1+d) (Rudin 2.11 case), 3 interior of unions/intersections, 4 boundary facts, 5 closure of open ball (bank lebl-7.2.13/abbott-8.2.12), 6 Rudin 2.12 (listed) -- routine; 7 recorded; extra 1 metric axioms from two conditions (easy), extra 2 boundaries of Q etc., extra 3 interior of Cantor set, extra 4 equivalent metrics -- routine"
+  - "2006 PS4 (sol: pset4sol): 1 open cover of the disc without finite subcover, routine; 2 'post office' metric ||x||+||y||, comparing open sets, routine; 3 compact sets in a discrete space, routine; 4,8 Rudin (listed); 5 unions/intersections of compact sets, routine; 6 limit vs limit point, easy; 7 sequence with all of [0,1] as subsequential limits, bank cummings-3.5; extra 1 Rudin 2.29 (listed); extra 2 subsequential limits exclude only 1/2? impossible, bank ross-11.9; extra 3 monotone subsequence, bank lebl-2.3.10"
+  - "2006 PS5 (sol: pset5sol): 1 closed iff complete in complete space, bank abbott-3.2.5; 2 even/odd/5n subsequences, easy; 3 Rudin 3.5 (listed); 4 Cesaro liminf/limsup sandwich, near-duplicate of bank abbott-2.3.11/ross-12.12; 5 x_{n+1}=1-sqrt(1-x_n), ratio->1/2, routine; 6 golden ratio (continued fraction/radical/Fibonacci), routine recursive sequences; extra 1 bank lebl-2.3.11; extra 2 ratio vs root liminf/limsup (Rudin Thm 3.37), bank ross-23.4; extra 3 Rudin 3.16 (listed)"
+  - "2006 PS6 (sol: pset6sol): 1 sum|a_n| converges implies sum|a_n|^2, routine; 2 telescoping, routine; 3 routine tests; 4 Rudin 3.7 (listed); 5 n a_n -> 0, bank ross-15.7; 6 equivalent continuity characterizations incl. f(closure A) ⊆ closure f(A), bank abbott-4.4.11/lebl-7.5.3; 7 Rudin 4.1 (listed); extra 1 rearrangement to +infinity, bank cummings-4.15/tao-8.2.6; extra 2 recorded; extra 3 Euler product formula, number theory (out of scope)"
+  - "2006 PS7 (sol: pset7sol): 1 alternating series test, bank; 2 Thomae's function, bank abbott-4.3.7; 3 Rudin 4.4 (listed); 4 bounded domain with unbounded image / UC preserves boundedness, routine; 5 Rudin 4.11-type (listed), x^2 preserves Cauchy, easy; 6,7 Rudin 4.20/4.21 (listed, bank abbott-3.3.8/abbott-4.3.12); extra 1 recorded; extra 2 Rudin 4.23/4.24 (listed); extra 3 two proofs of Heine-Cantor (bank abbott-4.4.14; the delta(x) variant is mentioned under F10 HW8-5)"
+  - "2006 PS8 (sol: pset8sol): 1 recorded; 2,3,4,5,7 Rudin (listed); 6 higher-derivative test via Taylor, bank mit20-a11-4/lebl-4.3.11; extra 1 Hölder continuity (bank mit20-a10-1, abbott-4.4.9); extra 2 Rudin 5.15, extra 3 Rudin 5.17 (listed)"
+  - "2006 PS9 (sol: pset9sol): 1 1/(nx+1) vs x/(nx+1) uniform convergence, routine; 2 x/(1+nx^2), f' vs lim f_n', bank-covered interchange-derivative examples; 3,4,7 Rudin (listed); 5 explicit f_n g_n not uniform, bank lebl-6.1.6/ross-24.11; 6 g∘f_n -> g∘f uniformly, routine UC application; extra 1 McCarthy and extra 2 van der Waerden nowhere-differentiable functions -- same experience as bank abbott-5.4.7 (very-hard)"
+  - "2006 PS10 (sol: pset10sol): 1 iterates of (2/3)x+1 converge uniformly, routine contraction; 2 iterates of phi(t)<=t/(2+t) summable, continuity via M-test, routine; 3 sum sin^2(t/k) differentiable, bank abbott-6.4.7-type; 4 Rudin 7.9 (listed); 5 recorded; 6 Rudin 7.16 (listed); 7 Arzela-Ascoli application (Rudin Thm 7.25), routine; extra 1 recorded; extra 2 Rudin 7.13 Helly (listed)"
