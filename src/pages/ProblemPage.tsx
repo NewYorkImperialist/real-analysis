@@ -229,8 +229,15 @@ function neighbours(p: Problem, practice: boolean): { list: string[]; label: str
     const ids = readPracticeIds();
     if (ids && ids.includes(p.id)) return { list: ids, label: 'practice set' };
   }
-  return { list: problems.filter((q) => q.topic === p.topic).map((q) => q.id), label: topicLabel(p.topic) };
+  // The learning path runs across topics in bank order (data/curriculum.yaml). From a core problem,
+  // Next follows the core path; from an upper-tier detour, it follows the full path, which rejoins the
+  // core at the start of the next topic.
+  if (p.tier !== 'upper') return { list: corePath, label: 'the core path' };
+  return { list: fullPath, label: 'the full path' };
 }
+
+const corePath = problems.filter((q) => q.tier !== 'upper').map((q) => q.id);
+const fullPath = problems.map((q) => q.id);
 
 export function ProblemPage({ id, query }: { id: string; query: URLSearchParams }) {
   const p = id ? byId.get(id) : undefined;
@@ -351,10 +358,12 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
             <a href={href(`p/${encodeURIComponent(prevId)}`, linkQ)} rel="prev">← Previous</a>
           )}
         </span>
-        <span class="muted">{idx >= 0 ? `${idx + 1} / ${nav.list.length} in ${nav.label}` : ''}</span>
+        <span class="muted">{idx >= 0 ? `${idx + 1} / ${nav.list.length} on ${nav.label}` : ''}</span>
         <span>
           {nextId ? (
-            <a href={href(`p/${encodeURIComponent(nextId)}`, linkQ)} rel="next">Next →</a>
+            <a href={href(`p/${encodeURIComponent(nextId)}`, linkQ)} rel="next">
+              {!inPractice && byId.get(nextId)!.topic !== p.topic ? `Next: start ${topicLabel(byId.get(nextId)!.topic)} →` : 'Next →'}
+            </a>
           ) : inPractice ? (
             <a href={href('practice')}>End of set</a>
           ) : null}

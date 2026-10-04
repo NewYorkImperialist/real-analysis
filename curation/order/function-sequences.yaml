@@ -1,0 +1,78 @@
+topic: function-sequences
+order:
+  # group: pointwise vs uniform convergence
+  - mit20-final-1
+  - lebl-6.1.2
+  - ross-24.12
+  - abbott-6.2.1
+  - lebl-6.1.10
+  - mit20-final-7a
+  - mit20-final-7b
+  - lebl-6.1.5
+  - lebl-6.1.6
+  # group: what passes to the limit
+  - cummings-9.12
+  - abbott-6.2.6
+  - ross-24.13
+  - ross-24.17
+  # group: uniform Cauchy criterion and Dini
+  - abbott-6.2.5
+  - abbott-6.2.11
+  # group: limits and integrals
+  - ross-23.9
+  - abbott-7.2.5
+  - abbott-7.3.5
+  - ross-33.9
+  - ross-24.9
+  - lebl-6.2.22
+  # group: limits and derivatives
+  - lebl-6.2.2
+  - lebl-6.2.1
+  - abbott-6.3.4
+  - abbott-6.3.7
+  # group: series of functions, M-test
+  - abbott-6.4.1
+  - lebl-6.1.14
+  - abbott-6.4.2
+  - abbott-6.4.7
+  # group: power series as functions
+  - cummings-9.16
+  - abbott-6.5.5
+  - ross-26.7
+  - abbott-6.5.10
+  - ross-26.8
+  # group: approximation
+  - abbott-6.7.2
+  - ross-27.3
+  - rudin-7.20
+  # group: function spaces
+  - abbott-8.2.2
+  - lebl-7.4.8
+  - abbott-8.2.5
+  - mit18100b-f10-ps10-5
+  - lebl-7.5.12
+  # group: fixed points and contractions
+  - abbott-4.3.11
+  - lebl-7.6.6
+  # group: constructions and compactness (challenge)
+  - abbott-6.2.12
+  - abbott-6.2.15
+  # group: upper tier
+  - pugh-prelim-28
+  - rudin-7.16
+  - rudin-7.10
+  - rudin-7.13
+  - mit18100b-2006-ps10-x1
+  - pugh-3.23
+  - pugh-4.37
+forward_refs: []
+notes: |
+  - fixed-point is last in the taxonomy but its two problems need only Cauchy sequences, continuity
+    and (for lebl-7.6.6) metric spaces from Topology. They do not depend on anything else in this
+    topic. Keeping them near the end works, but they would also fit at the end of Continuity
+    (abbott-4.3.11) and Topology/complete metric spaces (lebl-7.6.6).
+  - taylor-series is used only by the upper-tier pugh-4.37 (Borel's lemma), so there is no
+    taylor-series content in the core.
+  - uniform-cauchy is listed before the interchange subtopics. That is correct here: abbott-6.3.7
+    (differentiable limit theorem) and abbott-6.4.1 (M-test) both rely on the Cauchy criterion
+    proved in abbott-6.2.5.

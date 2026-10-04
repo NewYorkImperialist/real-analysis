@@ -1,0 +1,64 @@
+violations:
+  - id: ross-16.8
+    uses: "convergence of the decimal series sum e_n 10^-n via 'increasing partial sums bounded above converge' (Monotone Convergence) and geometric-series sums (2/3, 7/9); the uniqueness-of-expansions proof also sums a geometric tail"
+    first_appears: "cummings-3.16 (MCT, sequences); geometric series only at tao-7.3.2 / lebl-2.5.4 (series). Nothing in foundations or real-numbers supplies it."
+    fix: "move to end of foundations core and record as a forward_ref (needs MCT + geometric series), or rewrite the solution to take decimal expansions as given, as Abbott 1.6 does. mit20-a3-3 and mit20-mid-1bc do not depend on it: a3-3 lets you take 'R is uncountable' as given."
+  - id: mit20-a3-2
+    uses: "same as ross-16.8: decimal series converge because their partial sums increase and are bounded (MCT), plus geometric sums 1/9, 2/9 and a geometric tail estimate in the key lemma"
+    first_appears: "cummings-3.16 (sequences); geometric series in the series topic"
+    fix: "same treatment as ross-16.8: move to end of foundations core with a forward_ref, or state the decimal-expansion facts as given"
+  - id: abbott-1.5.8
+    uses: "Archimedean property (for each b > 0 there is n with 1/n < b), used to show B = union of B_n"
+    first_appears: "Archimedean property is never proved on the path; it is first used again at cummings-1.19 and abbott-1.4.8 (real-numbers), after the completeness axiom. Abbott proves it in 1.4.2, which comes before Abbott 1.5, so it is covered by the text but not by the path."
+    fix: "low severity. Either accept it (Abbott 1.4 comes before 1.5) or move to topic real-numbers after abbott-1.4.4"
+  - id: abbott-1.5.6
+    uses: "density of Q in R (each open interval contains a rational) and an enumeration of Q"
+    first_appears: "density is used in the real-numbers 'density and roots' group (abbott-1.4.4). On the path it was only sketched earlier, in the solution to abbott-1.2.11(c), and that sketch rests on the Archimedean property, which is not yet available"
+    fix: "low severity (Abbott text order covers it). If the path should be self-contained, move to topic real-numbers after abbott-1.4.4"
+  - id: cummings-1.19
+    uses: "Archimedean property (n > 1/epsilon) to show sup{n/(n+1)} = 1"
+    first_appears: "Abbott Thm 1.4.2; on the path the 'density and roots' group (abbott-1.4.4) is the first Abbott-1.4 material"
+    fix: "move after abbott-1.4.4 (into the density/Archimedean group); its sibling abbott-1.3.3 needs only completeness"
+  - id: mit20-a3-1
+    uses: "existence of sqrt(2) as a real number (plus its irrationality) to shift a rational into an irrational"
+    first_appears: "the sup-based existence-of-roots argument comes at mit20-a2-7, which is placed right after it (Abbott Thm 1.4.5 covers sqrt 2 in the text)"
+    fix: "move after mit20-a2-7 (swap the two) so that the existence of roots is established before it is used"
+  - id: ross-8.7
+    uses: "part (b): convergent sequences are bounded (Ross Thm 9.1 / Abbott Thm 2.3.2)"
+    first_appears: "Abbott 2.3.2 is in the text of Section 2.3; on the path it is first cited in the limit-laws group (abbott-2.3.7, abbott-2.3.9). ross-8.7 sits in the 'divergence' group before it"
+    fix: "low severity: move after abbott-2.3.2 (start of limit laws), or keep it and note that boundedness of convergent sequences is the cited fact"
+ok_notes: |
+  I walked all three topics in path order (foundations 25, real-numbers 24, sequences 63 with
+  rudin-3.14 in the upper tier) and read every statement and solution.
+
+  Foundations: the quantifier, set-algebra, image/preimage, injection, induction and counting
+  groups are in prerequisite order. mit20-a3-3(a) proves the two-set union case itself, before
+  abbott-1.5.3 generalises it. mid-1bc uses only a3-3(a) and the uncountability of R. abbott-1.5.9
+  uses 1.5.3(c) and Thm 1.5.8, both earlier. tao-8.3.2 (Schröder–Bernstein lemma) comes before
+  tao-8.3.4, which uses Schröder–Bernstein, and pugh-1.38 (Cantor) also comes before tao-8.3.4.
+  abbott-1.2.11's solution invokes Archimedean/density, but the exercise only asks for an
+  intuitive guess, so it is not flagged. The real problem is that ross-16.8 and mit20-a3-2 depend
+  on MCT and geometric series. abbott-1.5.6 and abbott-1.5.8 are milder: they depend on facts
+  that come from completeness.
+
+  Real-numbers: the ordered-field material, then sup/inf by definition, then completeness, then
+  the sup/inf algebra, then density and roots, then nested intervals, is sound. Counterexamples
+  come after their claims: lebl-1.1.14 after the sup definition, abbott-1.3.9(b) and
+  1.3.11(c), lebl-1.3.5(b) and 1.3.7(b). abbott-1.4.8(d) uses the NIP from cummings-1.22
+  directly before it. lebl-1.1.6 uses 'countably infinite' from foundations, which is fine.
+
+  Sequences: definition, then uniqueness (abbott-2.2.6, before cummings-3.6(c) uses it), then
+  limit laws, then the order limit theorem (abbott-2.3.12, before abbott-2.3.13(d) uses it).
+  cummings-3.16 (MCT) comes before the r^n, recursive and limsup problems. cummings-4.3 (r^n)
+  comes before lebl-2.2.9, lebl-2.4.2 and cummings-3.25. lebl-2.3.10 proves BW at the head of the
+  BW group, before abbott-2.5.2(c), 2.5.5 and lebl-2.3.9 use it. abbott-2.6.1 (convergent ⇒
+  Cauchy) comes before lebl-2.4.8, and the Cauchy criterion (Abbott text 2.6.4) is cited only
+  after BW. abbott-2.4.7 defines limsup/liminf at the head of its group, before mit20-a5-6,
+  a5-5, lebl-2.3.6/2.3.7 and ross-12.13. tao-6.4.3(e) ('limsup is a limit point') comes before
+  ross-22.14, which uses it, and ross-11.9 (subsequential limits form a closed set) also comes
+  before ross-22.14. The squeeze lemma (lebl-2.2.5, lebl-2.2.9) and ALT/order-limit results are
+  Abbott/Lebl text theorems; I did not count them as violations.
+
+  Minor, not flagged: ross-10.4's commentary says Ross proves Cauchy ⇒ convergent 'via liminf
+  and limsup', which only reaches the path later; it is narrative, not a step the reader must use.
+  tao-6.3.4 partly duplicates cummings-4.3 but does not depend on anything later.

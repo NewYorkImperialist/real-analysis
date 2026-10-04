@@ -274,10 +274,11 @@
     section: Exercises
     problemNumber: Exercise 5.21
     page: '117'
-  topic: differentiation
+  topic: function-sequences
   subtopics:
-  - differentiability
-  - taylor
+  - series-of-functions
+  - weierstrass-m-test
+  - interchange-derivative
   skills:
   - structure-of-open-sets
   - smooth-bump-construction
@@ -505,11 +506,10 @@
     section: Exercises
     problemNumber: Exercise 4.25
     page: '102'
-  topic: topology
+  topic: continuity
   subtopics:
-  - compactness
-  - closed-sets
-  - dense-sets
+  - continuity-and-topology
+  - EVT
   skills:
   - positive-distance
   - pigeonhole

@@ -391,10 +391,10 @@
     section: 11.6 Riemann integrability of monotone functions
     problemNumber: Exercise 11.6.3
     page: '290'
-  topic: series
+  topic: integration
   subtopics:
-  - convergence-tests
-  - comparison
+  - improper-integrals
+  - integral-inequalities
   skills:
   - comparison-estimate
   - monotone-bounds

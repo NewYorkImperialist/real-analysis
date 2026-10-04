@@ -1,0 +1,75 @@
+topic: differentiation
+order:
+  # group: the definition; differentiable implies continuous
+  - mit20-final-4a
+  - mit20-final-4b
+  - tao-10.1.2
+  - lebl-4.1.11
+  - lebl-4.1.5
+  # group: derivative rules (chain rule proved)
+  - abbott-5.2.4
+  # group: the x^a sin(1/x) family
+  - ross-28.4
+  - abbott-5.2.7
+  # group: inverse functions
+  - abbott-5.2.12
+  - lebl-4.4.6
+  # group: Fermat, Rolle, the MVT
+  - tao-10.2.1
+  - tao-10.2.5
+  - cummings-7.10
+  - mit20-a11-1
+  - ross-29.4
+  # group: consequences of the MVT
+  - mit20-a10-3
+  - lebl-4.2.10
+  - mit20-a10-1
+  - lebl-4.2.13
+  - tao-10.3.5
+  - ross-29.10
+  - rudin-5.14
+  # group: Darboux's theorem
+  - abbott-5.2.11
+  - lebl-4.2.7
+  # group: second derivative test
+  - lebl-4.3.11
+  # group: Cauchy MVT and L'Hôpital
+  - cummings-7.14
+  - lebl-4.2.9
+  - cummings-7.16
+  - ross-30.6
+  - abbott-5.3.12
+  # group: Taylor's theorem
+  - mit20-a11-2
+  - mit20-final-5a
+  - mit20-a11-3
+  - mit20-a11-4
+  # group: smooth functions, flat at a point
+  - ross-31.5
+  - ross-31.4
+  # group: capstone counterexample
+  - abbott-5.4.7
+  # group: upper tier
+  - rudin-5.26
+  - pugh-4.27
+  - pugh-1.32
+  - pugh-3.34
+  - rudin-5.17
+  - rudin-5.15
+  - rudin-5.21
+forward_refs:
+  - id: abbott-5.4.7
+    needs: "the function g is an infinite series of functions; that it is continuous (the point of the example) rests on the Weierstrass M-test / uniform limits (Sequences & Series of Functions). The exercise itself only asks for non-differentiability, which uses finite sums of slopes."
+    suggestion: "keep at end of Differentiation core"
+  - id: rudin-5.21
+    needs: "the full C-infinity answer needs termwise differentiation of a uniformly convergent series of bump functions (Sequences & Series of Functions: limits & derivatives)"
+    suggestion: "keep at end of Differentiation upper tier"
+notes: |
+  - lhopital is listed after taylor in data/taxonomy.yaml, but L'Hôpital is the immediate corollary of the
+    Cauchy MVT (itself a Rolle argument), while Taylor's theorem with Lagrange remainder is a further
+    generalisation. Placing L'Hôpital first also lets abbott-5.3.12 (a 0/0 L'Hôpital argument) and the
+    limit computations in mit20-a11-3 follow naturally. Suggest swapping the two subtopics.
+  - darboux-property does not depend on the MVT (it uses the extreme value theorem and Fermat), so it
+    could sit right after local-extrema; its position after mvt-applications is harmless.
+  - inverse-functions is last in the taxonomy, but abbott-5.2.12 and lebl-4.4.6 use only the definition,
+    the derivative rules and continuity of the inverse/IVT, so they come right after the derivative rules.

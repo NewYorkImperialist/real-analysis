@@ -1,0 +1,64 @@
+topic: integration
+order:
+  # group: Darboux sums from the definition
+  - lebl-5.1.15
+  - abbott-7.2.3
+  - mit20-a11-5
+  - ross-32.2
+  # group: first consequences of the criterion
+  - cummings-8.5
+  - lebl-5.2.2
+  # group: which functions are integrable
+  - lebl-5.2.14
+  - cummings-8.25
+  - abbott-7.3.7
+  - lebl-5.2.11
+  - abbott-7.3.9
+  - abbott-7.6.3
+  - lebl-5.1.13
+  # group: absolute values, products, inequalities
+  - lebl-5.2.15
+  - ross-33.4
+  - abbott-7.4.6
+  - cummings-8.27
+  - ross-34.12
+  - abbott-7.4.4
+  - abbott-7.4.10
+  # group: fundamental theorem of calculus
+  - lebl-5.3.1
+  - mit20-final-6b
+  - lebl-5.3.9
+  - abbott-7.5.2
+  - tao-11.9.3
+  # group: integration by parts and substitution
+  - lebl-5.3.5
+  - abbott-7.5.10
+  - mit20-final-5b
+  - mit20-final-6c
+  - mit20-a12-1
+  # group: logarithm as an integral
+  - lebl-5.4.6
+  # group: improper integrals
+  - ross-36.3
+  - mit20-final-6a
+  - ross-36.8
+  - lebl-5.5.10
+  # group: series and integrals
+  - tao-11.6.3
+  # group: upper tier
+  - cummings-8.28
+  - pugh-prelim-7
+  - pugh-3.50
+  - pugh-prelim-45
+  - pugh-prelim-56
+forward_refs:
+notes: |
+  - log-exp is listed after improper-integrals, but the improper-integral problems use log
+    (ross-36.3 for p = 1, mit20-final-6a computes the integral of x log x). Lebl defines ln as the
+    integral of 1/t in §5.4, before improper integrals in §5.5. log-exp should precede
+    improper-integrals; lebl-5.4.6 is placed accordingly.
+  - integral-properties (linearity) must come before most of integrability-criteria: abbott-7.3.7,
+    lebl-5.2.14(b,c) and abbott-7.4.6 all build integrability from linearity. The order here puts
+    linearity (lebl-5.2.2) right after the first Darboux-sum problems.
+  - integral-inequalities and fundamental-theorem are interleaved, not sequential: some inequality
+    problems (mit20-final-6b, mit20-final-6c) need the FTC or integration by parts.

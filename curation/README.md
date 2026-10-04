@@ -17,8 +17,11 @@ The site itself only reads `data/`.
 pip install pyyaml
 python3 curation/scripts/add_problems.py lebl-2.2.11 ross-12.8
 python3 curation/scripts/add_problems.py --why "Your reason" abbott-4.4.1
+# then place each new id in data/curriculum.yaml (the learning path; see CURRICULUM_BRIEF.md)
 npm run check
 ```
+
+`npm run check` fails until every new problem has a place in `data/curriculum.yaml`.
 
 `add_problems.py` only **appends** new ids to `data/problems/<source>.yaml`. It never modifies problems already
 in the bank, because those carry fixes from the final audit that the candidate files lack. Always treat

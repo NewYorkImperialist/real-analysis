@@ -1,0 +1,90 @@
+topic: topology
+order:
+  # group: open sets in R
+  - mit20-a3-5
+  # group: closed sets, and closed = sequentially closed
+  - mit20-a4-1
+  - mit20-a4-2
+  - cummings-5.3
+  - mit20-a4-3
+  - mit20-mid-2
+  # group: limit points and closure
+  - mit20-a7-4
+  - mit20-mid-4b
+  - mit20-a4-7
+  - abbott-3.2.7
+  - abbott-3.2.5
+  - abbott-3.2.10
+  - abbott-3.2.6
+  - ross-13.7
+  # group: compactness in R (sequential, then open covers)
+  - cummings-5.7
+  - abbott-3.3.5
+  - abbott-3.3.8
+  - lebl-7.4.2
+  - abbott-3.3.9
+  - cummings-5.8
+  # group: the Cantor set and perfect sets
+  - rudin-3.19
+  - abbott-3.3.7
+  - rudin-2.17
+  # group: connectedness in R
+  - abbott-3.2.13
+  - abbott-3.4.6
+  # group: Baire category in R
+  - abbott-3.5.4
+  - abbott-3.5.6
+  # group: metric spaces
+  - lebl-7.1.5
+  - lebl-7.3.2
+  - lebl-7.2.7
+  - lebl-7.2.13
+  # group: completeness
+  - lebl-7.4.16
+  # group: compactness in metric spaces
+  - lebl-7.4.6
+  - lebl-7.4.10
+  - pugh-2.93
+  - mit18100b-2006-ps3-7
+  - lebl-7.4.12
+  # group: connectedness in metric spaces
+  - lebl-7.2.10
+  - lebl-7.2.11
+  # group: forward reference (needs continuity)
+  - lebl-7.4.19
+  # group: upper tier
+  - pugh-2.148
+  - rudin-2.27
+  - pugh-prelim-43
+  - rudin-4.25
+  - pugh-3.29
+  - pugh-2.78
+  - pugh-2.76
+  - pugh-prelim-31
+forward_refs:
+  - id: lebl-7.4.19
+    needs: "continuity of x/(1+|x|) and of its inverse to compare convergent sequences (Continuity topic)"
+    suggestion: "keep at end of Topology"
+  - id: pugh-2.78
+    needs: "a continuous function attains its minimum on a compact set (Continuity topic)"
+    suggestion: "keep in Topology upper tier"
+  - id: pugh-2.76
+    needs: "continuous images of intervals are connected; path-connectedness (Continuity topic)"
+    suggestion: "keep in Topology upper tier"
+  - id: pugh-prelim-31
+    needs: "continuous image of a compact set is compact (Continuity topic)"
+    suggestion: "keep in Topology upper tier, or move to Continuity upper tier"
+notes: |
+  - sequential-compactness is listed after compactness, but Abbott (and MIT 18.100A) define compactness
+    sequentially, so in R the sequential version (cummings-5.7) comes first and the open-cover form
+    (lebl-7.4.2, abbott-3.3.9) follows as Heine-Borel.
+  - connectedness is listed before metric-spaces, but the bank's connectedness problems split: two are in R
+    (abbott-3.2.13, abbott-3.4.6) and two are in general metric spaces (lebl-7.2.10, 7.2.11), which must
+    follow the metric-space definitions. The path treats them as two groups.
+  - interior-closure-boundary's metric problems (lebl-7.2.7, 7.2.13) are stated in metric spaces, so they
+    sit after metric-spaces despite the taxonomy listing them early; the R-based closure work is in the
+    limit-points group.
+  - cantor-set, perfect-sets and baire-category are R-only in the core and follow Abbott's chapter 3 order,
+    so they come before metric-spaces rather than after complete-metric-spaces.
+  - Many of the metric-space problems (function spaces C[0,1], L1 metric) need continuity, integration or
+    uniform convergence; the topic sits too early in the path for them.

@@ -1,0 +1,61 @@
+topic: series
+order:
+  # group: partial sums and the geometric series
+  - tao-7.3.2
+  - lebl-2.5.4
+  # group: Cauchy criterion and absolute convergence
+  - tao-7.2.2
+  - cummings-4.2
+  - lebl-2.5.10
+  # group: comparison
+  - mit20-mid-5a
+  - lebl-2.5.3
+  - ross-14.12
+  - mit20-a7-3
+  # group: the alternating series test
+  - abbott-2.7.1
+  - lebl-2.6.12
+  - lebl-2.6.13
+  # group: absolute vs conditional convergence
+  - cummings-4.5
+  - abbott-2.7.8
+  - abbott-2.7.4
+  # group: summation by parts
+  - abbott-2.7.14
+  # group: ratio and root tests
+  - abbott-2.7.9
+  - tao-7.5.1
+  - ross-14.10
+  - lebl-2.6.1
+  # group: condensation and decreasing terms
+  - lebl-2.5.15
+  - ross-15.3
+  - lebl-2.5.7
+  # group: power series
+  - mit20-a7-2
+  - mit20-mid-5b
+  - lebl-2.6.10
+  # group: Cauchy products
+  - lebl-2.6.2
+  # group: rearrangements
+  - cummings-4.18
+  - lebl-2.6.3
+  # group: upper tier
+  - pugh-prelim-63
+  - pugh-3.73
+  - pugh-3.68
+forward_refs:
+  - id: pugh-3.68
+    needs: "log/exp and a Taylor-type remainder estimate for log(1+x), proved via derivatives and integrals (Differentiation, Integration topics)"
+    suggestion: "keep at end of Series upper tier (optional detour); or move to Integration upper tier"
+notes: |
+  - Taxonomy lists alternating-series after absolute/conditional convergence, but most of the bank's
+    conditional-convergence problems (abbott-2.7.4, abbott-2.7.8, cummings-4.5(b), lebl-2.6.13) take
+    their examples from the alternating series test, so the AST group is placed before them.
+  - Rearrangements are placed last in the core (after power series and Cauchy products), so the core
+    ends on the Riemann rearrangement theorem. Nothing in the power-series or product problems uses
+    rearrangements.
+  - ross-15.3 is kept in the core after Cauchy condensation, which settles it without integrals;
+    Ross's own hint and the stored solution use the integral test (a soft forward reference).
+  - ross-14.10 uses continuity of t -> 2^t in its solution, but divergence is also immediate since
+    a_n -> infinity; not treated as a forward reference.

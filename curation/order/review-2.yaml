@@ -1,0 +1,87 @@
+# Independent prerequisite review of the canonical path: series, topology, continuity.
+violations:
+  # ---------- series ----------
+  - id: lebl-2.6.13
+    uses: "counterexample (sum (-1)^n/sqrt n converges, sum of squares diverges) to the claim 'x_n >= 0 and sum x_n converges => sum x_n^2 converges' (Lebl Ex 2.5.14, which is not in the bank)"
+    first_appears: "cummings-4.5 (proves exactly that claim in (a), then gives the same counterexample in (b)); it comes next on the path"
+    fix: "move after cummings-4.5 (into the 'absolute vs conditional convergence' group)"
+  - id: ross-15.3
+    uses: "integral comparison test: Riemann integrals of 1/(x (log x)^p) and the substitution u = log x"
+    first_appears: "later topic (integration)"
+    fix: "move to topic integration, or keep it here right after lebl-2.5.15 with the solution rewritten to use Cauchy condensation (sum 2^n/(2^n (n log 2)^p) is a p-series)"
+  - id: lebl-2.6.10
+    uses: "(b) radius of convergence R = 1/limsup |a_n|^(1/n) (Cauchy–Hadamard, via the root test). The path never proves this, and Abbott treats power series only in Ch. 6"
+    first_appears: "nowhere on the path; power series theory belongs with function-sequences"
+    fix: "move to topic function-sequences (power series), or keep it last in series and list it as a forward reference"
+  - id: pugh-3.68
+    uses: "log/exp as inverse continuous functions, the derivative of log(1+x), and the integral of t^2/(1+t)"
+    first_appears: "later topics (continuity, differentiation, integration)"
+    fix: "move to the upper tier of integration (or of function-sequences)"
+
+  # ---------- topology ----------
+  - id: lebl-7.4.2
+    uses: "the open-cover definition of compactness, where the solution builds explicit open covers. On the path (and in Abbott) compactness was defined sequentially (cummings-5.7), and open covers only become equivalent in abbott-3.3.9"
+    first_appears: "abbott-3.3.9 (Heine–Borel open-cover direction), two problems later"
+    fix: "move after abbott-3.3.9 (just before cummings-5.8, which also uses open covers)"
+  - id: lebl-7.2.11
+    uses: "(b) continuous paths, preimages of open sets under a continuous map, and connectedness of [0,1] in the metric (open-set) sense"
+    first_appears: "continuity (mit20-a8-5 for the preimage criterion; lebl-7.5.5 for continuous images of connected sets)"
+    fix: "move to topic continuity, metric-spaces group, after lebl-7.5.5 (or at least into topology's 'forward reference (needs continuity)' group with lebl-7.4.19)"
+  - id: rudin-4.25
+    uses: "Rudin Ex 4.21: the distance to a closed set is continuous and attains a positive minimum on a compact set (continuity plus the EVT). It is a Rudin Ch. 4 (continuity) exercise"
+    first_appears: "continuity (abbott-4.3.12 distance function; mit20-final-3 / EVT)"
+    fix: "move to topic continuity (upper tier)"
+  - id: pugh-2.78
+    uses: "(b) a continuous d attains its minimum on a compact A×B; (d) continuous images of [1,∞) are connected"
+    first_appears: "continuity (mit20-final-3, lebl-7.5.5)"
+    fix: "move to topic continuity (upper tier)"
+  - id: pugh-2.76
+    uses: "continuous images of intervals are connected (path-connected ⇒ connected), the IVT, continuity of sin(1/x), and a positive minimum of a continuous function on a compact set"
+    first_appears: "continuity (lebl-7.5.5, abbott-4.5.7, ross-22.4)"
+    fix: "move to topic continuity (upper tier), after ross-22.4"
+  - id: pugh-prelim-31
+    uses: "an isometry is continuous, so f(X) is compact (continuous image of a compact set)"
+    first_appears: "continuity (mit20-final-3; lebl-7.5.8 for metric spaces)"
+    fix: "move to topic continuity (upper tier)"
+
+  # ---------- continuity ----------
+  - id: pugh-4.20
+    uses: "the derivative f'(x) and the Mean Value Theorem (both directions of the proof)"
+    first_appears: "later topic (differentiation)"
+    fix: "move to topic differentiation (upper tier)"
+
+ok_notes: |
+  I read every statement and solution in series, topology and continuity in path order, and
+  checked each against the earlier topics (foundations, real-numbers, sequences) and the problems
+  before it.
+
+  Series: the Cauchy criterion, absolute convergence, the AST (abbott-2.7.1) and the ratio test
+  (abbott-2.7.9) are proved before they are used, and the rearrangement/Cauchy-product order is
+  sound. Divergence of the harmonic series and convergence of p-series are never proved on the path
+  (condensation, lebl-2.5.15, comes after many uses, e.g. lebl-2.5.3, lebl-2.6.1(c), abbott-2.7.4).
+  Abbott proves these in §2.4, so I let that pass. The root test is never proved on the path either
+  (ross-14.10, lebl-2.6.1(d)). Abbott does not cover it, but Ross and Lebl do in their text, so I
+  noted it here rather than as a violation. ross-14.10 also cites continuity of 2^t, which is
+  avoidable via 2^(1/n) → 1. mit20-mid-5a (limit comparison) placed before plain comparison examples
+  is a matter of taste.
+
+  Topology: the order open → closed → sequentially closed → limit points (mit20-a4-7 gives the
+  sequential characterization that abbott-3.2.7 and abbott-3.4.6 rely on) is sound. Sequential
+  compactness (cummings-5.7) comes before the Heine–Borel uses. The Cantor set is used in
+  abbott-3.2.6(e) before the Cantor group, but Abbott defines it in §3.1, so that is fine.
+  lebl-7.4.16 comes before lebl-7.4.12, which uses it. The metric-space problems assume
+  "compact ⇔ sequentially compact" and "compact ⇒ closed" (Lebl's text). Neither is proved on the
+  path; that is acceptable but worth knowing. lebl-7.4.19 needs continuity of x/(1+|x|) and its
+  inverse, but it is already labelled as a forward reference. pugh-prelim-43 (upper tier) uses Baire
+  for complete metric spaces, while the path only has Abbott's R-version (abbott-3.5.4). That is
+  minor, and it is upper tier.
+
+  Continuity: functional limits → sequential criterion → ε–δ → algebra/composition → the dense-set
+  extension (it needs the sequential criterion from mit20-a8-2/abbott-4.3.7, which come first) →
+  open preimages → compact image/EVT → uniform continuity. abbott-4.4.14 (UC on compact) comes
+  before abbott-4.4.2(c), lebl-3.4.15, abbott-4.4.13(b⇐) and ross-19.1, which use it.
+  abbott-4.4.13(a) (UC preserves Cauchy) comes before ross-19.4 and ross-19.1. IVT/EVT
+  counterexamples (lebl-3.3.11, mit20-final-2a) come after the compact-image result and after the
+  first IVT use. Metric continuity uses only results proved just before it (lebl-7.5.5 before
+  ross-22.4; topology's cummings-5.8 and lebl-7.4.x before lebl-7.5.8). mit20-a9-5 mentions the MVT
+  and the compact⇒UC theorem only as alternatives, so I did not flag it.

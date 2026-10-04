@@ -93,10 +93,9 @@
     page: '2'
   assignedIn:
   - MIT 18.100B (Fall 2010) Homework 10, Problem 5
-  topic: topology
+  topic: function-sequences
   subtopics:
-  - complete-metric-spaces
-  - metric-spaces
+  - function-spaces
   skills:
   - integral-estimate
   - contradiction

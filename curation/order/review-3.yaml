@@ -1,0 +1,56 @@
+violations:
+  - id: rudin-5.21
+    uses: "Weierstrass M-test and term-by-term differentiation of a series of functions (Rudin 7.17), applied to all derivatives, to build a C^infinity function with a prescribed closed zero set; the solution cannot reach the C^infinity (or even C^n for infinitely many components) case without it"
+    first_appears: "abbott-6.4.1 (M-test) and abbott-6.4.7 (term-by-term differentiation), function-sequences"
+    fix: "move to topic function-sequences (upper tier), e.g. before pugh-4.37, which uses the same bump-function + M-test + term-by-term machinery"
+  - id: pugh-3.50
+    uses: "the Cantor function (continuous, nondecreasing, constant on each gap of C) as a ready-made ingredient of the counterexample; only the zero-set definition and the Riemann-Lebesgue theorem are supplied in the statement"
+    first_appears: "abbott-6.2.12 (Cantor function constructed as a uniform limit), function-sequences"
+    fix: "move to topic function-sequences (upper tier), after abbott-6.2.12; or supply the Cantor function's properties in the statement"
+ok_notes: |
+  Walked differentiation, integration and function-sequences in path order. For each problem I read
+  the statement and the AI solution's steps and checked them against the earlier topics and the
+  earlier problems in this section.
+
+  Differentiation. The chain rule is proved (abbott-5.2.4) before ross-28.4 and the rest of the
+  x^a sin(1/x) family. Fermat (tao-10.2.1), then Rolle to the MVT (tao-10.2.5), come before every MVT
+  use. Darboux's theorem (abbott-5.2.11) comes before lebl-4.2.7. Cauchy MVT (cummings-7.14) comes
+  before the l'Hopital problems (lebl-4.2.9, cummings-7.16), and those come before ross-30.6 and
+  abbott-5.3.12. Counterexamples tao-10.3.5 and ross-29.10 follow the MVT-monotonicity results they
+  test (stated in the problems). ross-31.5 and ross-31.4 both rest on Ross's Example 3 (quoted).
+  abbott-5.4.7 uses only pointwise convergence of the sum and a Cauchy-sequence argument, not the
+  M-test. Borderline items that I did not count as violations:
+  (i) Taylor's theorem with Lagrange remainder (mit20-final-5a, mit20-a11-3/4, rudin-5.15/5.17) is
+  used but never proved on the path. Abbott only proves it in 6.6, but Lebl, Ross, Rudin and MIT
+  all place it here.
+  (ii) e^x and its derivative are assumed (ross-29.4, ross-30.6, mit20-final-5a).
+  (iii) ross-30.6 needs l'Hopital's rule for infinity/infinity as x -> infinity, while cummings-7.16
+  covers a finite endpoint.
+  (iv) pugh-4.27 (upper tier) uses contractions before abbott-4.3.11 and lebl-7.6.6. It defines
+  the term itself and proves (c) from scratch, so it is acceptable.
+
+  Integration. The refinement/criterion problems come before the additivity, linearity, product and
+  |f| results. abbott-7.4.6 (products are integrable) comes before cummings-8.27(d), which uses it.
+  The content-zero result (abbott-7.3.9) comes before the finite-discontinuity uses in
+  function-sequences (abbott-7.3.5). FTC problems come before integration by parts and substitution,
+  which come before mit20-final-5b, mit20-final-6c and mit20-a12-1. lebl-5.2.15 (|integral f| <=
+  integral |f|) comes before mit20-final-6c. Improper integrals come before lebl-6.2.22 and
+  tao-11.6.3. Soft observation: lebl-5.1.13 (Riemann sums = Darboux integral) sits among the
+  integrability-class problems, but it belongs with the definition. It would read better right after
+  mit20-a11-5, whose tagged Riemann-sum limit gets its meaning from it. Nothing later depends on it,
+  so I did not list it.
+
+  Function-sequences. The negation and definition problem (mit20-final-1) and the sup reformulation
+  (ross-24.12) come before the not-uniform proofs. The continuous limit theorem is quoted where used.
+  The uniform Cauchy criterion (abbott-6.2.5) comes before abbott-6.3.7, abbott-6.4.x and
+  abbott-6.2.12. abbott-7.2.5 comes before abbott-7.3.5, ross-33.9 and rudin-7.10. The M-test
+  (abbott-6.4.1) comes before lebl-6.1.14, abbott-6.4.7 and cummings-9.16. abbott-6.5.5 (the
+  differentiated series) comes before ross-26.7 and ross-26.8. Polygonal approximation and
+  Weierstrass (quoted) come before rudin-7.20. Metrics on C[0,1] (abbott-8.2.2) come before
+  compactness and completeness (lebl-7.4.8, abbott-8.2.5, mit18100b-f10-ps10-5) and before
+  lebl-7.5.12. Equicontinuity (abbott-6.2.15) comes before rudin-7.16. The metric-space background
+  (compactness, completeness, closed balls) is already on the path from topology/continuity. Soft
+  observation: ross-23.9 (n x^n, integrals do not converge) opens "limits and integrals" before the
+  uniform-convergence interchange theorem (abbott-7.2.5 / ross-33.9). It is a motivating example of
+  pointwise failure, the same pattern as cummings-9.12 before the continuous limit theorem, not a
+  counterexample to a stated claim, so I did not list it.

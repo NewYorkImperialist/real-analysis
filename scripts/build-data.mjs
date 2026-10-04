@@ -183,17 +183,34 @@ for (const p of problems) {
   delete p.textbookHintsLast;
 }
 
-// Order: curriculum topic order, then source tier order, then natural number order.
-const topicOrder = new Map(taxonomy.topics.map((t, i) => [t.key, i]));
-const sourceOrder = new Map(sources.map((s, i) => [s.key, i]));
-const diffOrder = new Map(DIFF.map((d, i) => [d, i]));
-problems.sort(
-  (a, b) =>
-    topicOrder.get(a.topic) - topicOrder.get(b.topic) ||
-    diffOrder.get(a.difficulty) - diffOrder.get(b.difficulty) ||
-    sourceOrder.get(a.source.key) - sourceOrder.get(b.source.key) ||
-    a.id.localeCompare(b.id, 'en', { numeric: true }),
-);
+// Order: the canonical learning path in data/curriculum.yaml (see curation/CURRICULUM_BRIEF.md).
+// Topics follow the taxonomy; within a topic the order is hand-curated from the mathematics, core
+// problems first and upper-tier detours after. Every problem must appear exactly once, under its topic.
+const curriculumFile = path.join(dataDir, 'curriculum.yaml');
+const position = new Map();
+if (!fs.existsSync(curriculumFile)) err('curriculum.yaml', 'missing: every problem needs a place in the learning path');
+else {
+  const cur = load(curriculumFile) ?? {};
+  const topicKeys = taxonomy.topics.map((t) => t.key);
+  for (const k of Object.keys(cur)) if (!topicKeys.includes(k)) err('curriculum.yaml', `unknown topic "${k}"`);
+  let pos = 0;
+  for (const t of topicKeys) {
+    let seenUpper = false;
+    for (const id of cur[t] ?? []) {
+      const p = byId.get(id);
+      if (!p) err('curriculum.yaml', `${t}: unknown problem id "${id}"`);
+      else if (position.has(id)) err('curriculum.yaml', `${id} listed more than once`);
+      else {
+        if (p.topic !== t) err('curriculum.yaml', `${id} is listed under ${t} but its topic is ${p.topic}`);
+        if (p.tier === 'upper') seenUpper = true;
+        else if (seenUpper) err('curriculum.yaml', `${t}: core problem ${id} comes after an upper-tier problem`);
+        position.set(id, pos++);
+      }
+    }
+  }
+  for (const p of problems) if (!position.has(p.id)) err('curriculum.yaml', `${p.id} (${p.topic}) is missing from the learning path`);
+}
+problems.sort((a, b) => (position.get(a.id) ?? Infinity) - (position.get(b.id) ?? Infinity));
 
 for (const w of warnings) console.warn('warning:', w);
 if (errors.length) {

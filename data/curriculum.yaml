@@ -1,0 +1,520 @@
+# The canonical learning path through the problem bank.
+#
+# A learner starts at the first Foundations problem and presses "Next" through every problem to the
+# end of Sequences & Series of Functions; the site orders every problem by its position here.
+#
+# - Topics appear in taxonomy order (data/taxonomy.yaml).
+# - Within a topic the order is curated from the mathematics (see curation/CURRICULUM_BRIEF.md): a
+#   problem comes after the definitions, theorems and techniques it uses, counterexamples after the
+#   claims they test; difficulty only breaks ties.
+# - Core problems come first; upper-tier problems (optional detours) follow all core problems of
+#   their topic.
+# - The "# group:" comments name the clusters of the path.
+#
+# To add a problem, insert its id here under its own topic at the right point. scripts/build-data.mjs
+# checks that every problem appears exactly once, under its own topic, with core before upper tier.
+
+foundations:
+  # group: quantifiers and negation
+  - tao-a.5.1
+  - abbott-1.2.11
+  # group: set algebra
+  - lebl-0.3.6
+  # group: images and preimages
+  - mit20-mid-1a
+  - lebl-0.3.27
+  # group: injective, surjective, composition
+  - lebl-0.3.10
+  - tao-3.4.5
+  # group: induction
+  - lebl-0.3.11
+  - lebl-0.3.15
+  - lebl-0.3.12
+  # group: countable sets
+  - lebl-0.3.19
+  - mit20-a1-6
+  # group: the reals are uncountable
+  - mit20-a3-3
+  - mit20-mid-1bc
+  # group: countable unions and counting arguments
+  - abbott-1.5.3
+  - abbott-1.5.6
+  - abbott-1.5.8
+  - abbott-1.5.9
+  # group: bijections, Cantor, Schröder–Bernstein
+  - lebl-1.4.5
+  - pugh-1.38
+  - tao-8.3.2
+  - tao-8.3.4
+  # group: forward reference (needs monotone convergence and geometric series)
+  - ross-16.8
+  - mit20-a3-2
+
+real-numbers:
+  # group: ordered-field axioms and absolute value
+  - lebl-1.1.1
+  - abbott-1.2.6
+  - cummings-1.9
+  - lebl-1.2.13
+  # group: sup and inf from the definition (ordered sets)
+  - lebl-1.1.5
+  - lebl-1.1.2
+  - mit20-a3-4
+  - lebl-1.1.6
+  - lebl-1.1.14
+  # group: completeness gives infima; first computations
+  - abbott-1.3.3
+  # group: algebra of suprema and infima
+  - abbott-1.3.5
+  - lebl-1.2.9
+  - abbott-1.3.9
+  - abbott-1.3.11
+  - lebl-1.3.5
+  - lebl-1.3.7
+  # group: density and roots
+  - abbott-1.4.4
+  - cummings-1.19
+  - mit20-a2-7
+  - mit20-a3-1
+  - lebl-1.2.7
+  # group: nested intervals
+  - cummings-1.22
+  - abbott-1.4.8
+
+sequences:
+  # group: convergence from the definition
+  - mit20-a3-6
+  - mit20-mid-3a
+  - abbott-2.2.2
+  - abbott-2.2.1
+  - abbott-2.2.6
+  - cummings-3.6
+  - mit20-a4-6
+  # group: limit laws
+  - abbott-2.3.2
+  - ross-8.7
+  - cummings-3.8
+  - abbott-2.3.9
+  - lebl-2.2.3
+  - lebl-2.2.5
+  # group: order and limits; testing the laws
+  - abbott-2.3.12
+  - abbott-2.3.10
+  - abbott-2.3.7
+  # group: averages and double limits
+  - abbott-2.3.11
+  - abbott-2.3.13
+  # group: monotone convergence and r^n
+  - cummings-3.16
+  - cummings-4.3
+  - tao-6.3.4
+  - lebl-2.2.9
+  # group: recursive sequences
+  - cummings-3.24
+  - abbott-2.4.5
+  - abbott-2.4.6
+  # group: subsequences
+  - mit20-mid-3b
+  - lebl-2.1.22
+  # group: Bolzano–Weierstrass and subsequential limits
+  - lebl-2.3.10
+  - abbott-2.5.2
+  - abbott-2.5.5
+  - lebl-2.3.9
+  - lebl-2.1.17
+  - ross-11.9
+  - abbott-2.5.4
+  # group: Cauchy sequences
+  - abbott-2.6.1
+  - cummings-3.15
+  - lebl-2.4.7
+  - lebl-2.4.8
+  - abbott-2.6.2
+  - ross-10.4
+  - lebl-2.4.3
+  # group: Cauchy estimates (telescoping)
+  - ross-10.6
+  - lebl-2.5.12
+  - lebl-2.4.2
+  - cummings-3.25
+  # group: limsup and liminf
+  - abbott-2.4.7
+  - lebl-2.3.5
+  - mit20-a5-6
+  - mit20-a5-5
+  - lebl-2.3.6
+  - mit20-mid-4a
+  - lebl-2.3.7
+  - ross-12.13
+  - tao-6.4.3
+  - ross-22.14
+  # group: upper tier
+  - rudin-3.14
+
+series:
+  # group: partial sums and the geometric series
+  - tao-7.3.2
+  - lebl-2.5.4
+  # group: Cauchy criterion and absolute convergence
+  - tao-7.2.2
+  - cummings-4.2
+  - lebl-2.5.10
+  # group: comparison
+  - mit20-mid-5a
+  - lebl-2.5.3
+  - ross-14.12
+  - mit20-a7-3
+  # group: the alternating series test
+  - abbott-2.7.1
+  - lebl-2.6.12
+  # group: absolute vs conditional convergence
+  - cummings-4.5
+  - lebl-2.6.13
+  - abbott-2.7.8
+  - abbott-2.7.4
+  # group: summation by parts
+  - abbott-2.7.14
+  # group: ratio and root tests
+  - abbott-2.7.9
+  - tao-7.5.1
+  - ross-14.10
+  - lebl-2.6.1
+  # group: condensation and decreasing terms
+  - lebl-2.5.15
+  - lebl-2.5.7
+  # group: power series
+  - mit20-a7-2
+  - mit20-mid-5b
+  - lebl-2.6.10
+  # group: Cauchy products
+  - lebl-2.6.2
+  # group: rearrangements
+  - cummings-4.18
+  - lebl-2.6.3
+  # group: upper tier
+  - pugh-prelim-63
+  - pugh-3.73
+
+topology:
+  # group: open sets in R
+  - mit20-a3-5
+  # group: closed sets, and closed = sequentially closed
+  - mit20-a4-1
+  - mit20-a4-2
+  - cummings-5.3
+  - mit20-a4-3
+  - mit20-mid-2
+  # group: limit points and closure
+  - mit20-a7-4
+  - mit20-mid-4b
+  - mit20-a4-7
+  - abbott-3.2.7
+  - abbott-3.2.5
+  - abbott-3.2.10
+  - abbott-3.2.6
+  - ross-13.7
+  # group: compactness in R (sequential, then open covers)
+  - cummings-5.7
+  - abbott-3.3.5
+  - abbott-3.3.8
+  - abbott-3.3.9
+  - lebl-7.4.2
+  - cummings-5.8
+  # group: the Cantor set and perfect sets
+  - rudin-3.19
+  - abbott-3.3.7
+  - rudin-2.17
+  # group: connectedness in R
+  - abbott-3.2.13
+  - abbott-3.4.6
+  # group: Baire category in R
+  - abbott-3.5.4
+  - abbott-3.5.6
+  # group: metric spaces
+  - lebl-7.1.5
+  - lebl-7.3.2
+  - lebl-7.2.7
+  - lebl-7.2.13
+  # group: completeness
+  - lebl-7.4.16
+  # group: compactness in metric spaces
+  - lebl-7.4.6
+  - lebl-7.4.10
+  - pugh-2.93
+  - mit18100b-2006-ps3-7
+  - lebl-7.4.12
+  # group: connectedness in metric spaces
+  - lebl-7.2.10
+  # group: forward reference (needs continuity)
+  - lebl-7.4.19
+  # group: upper tier
+  - pugh-2.148
+  - rudin-2.27
+  - pugh-prelim-43
+  - pugh-3.29
+
+continuity:
+  # group: functional limits from the definition
+  - mit20-a7-6
+  - abbott-4.2.10
+  # group: sequential criterion for limits
+  - lebl-3.1.3
+  - lebl-3.1.11
+  - lebl-3.1.13
+  - mit20-a9-6
+  # group: ε–δ continuity
+  - abbott-4.3.2
+  - ross-17.9
+  - lebl-3.2.11
+  - lebl-3.2.14
+  - mit20-final-2b
+  # group: sequential criterion and discontinuity
+  - mit20-a8-2
+  - abbott-4.3.7
+  - abbott-4.3.6
+  - abbott-4.3.4
+  # group: extending from a dense set
+  - lebl-3.2.10
+  - abbott-4.3.13
+  # group: challenge: convex functions
+  - lebl-3.2.19
+  # group: continuity and open/closed sets
+  - mit20-a8-5
+  - abbott-4.3.12
+  # group: compactness and the EVT
+  - mit20-final-3
+  - lebl-3.3.11
+  - ross-18.4
+  - lebl-3.3.3
+  - lebl-3.3.14
+  # group: uniform continuity and Lipschitz
+  - ross-19.2
+  - lebl-3.4.8
+  - abbott-4.4.10
+  - mit20-a9-4
+  - lebl-3.4.3
+  - mit20-a9-5
+  # group: uniform continuity on compact sets
+  - abbott-4.4.14
+  - abbott-4.4.2
+  - lebl-3.4.15
+  # group: Cauchy sequences and continuous extension
+  - abbott-4.4.13
+  - ross-19.4
+  - ross-19.1
+  - lebl-3.4.9
+  # group: the IVT
+  - abbott-4.5.7
+  - mit20-final-2a
+  - abbott-4.4.8
+  - cummings-6.33
+  - ross-18.12
+  - abbott-4.5.6
+  # group: monotone functions and inverses
+  - abbott-4.6.5
+  - abbott-4.6.6
+  - lebl-3.6.11
+  - abbott-4.5.3
+  - lebl-3.6.8
+  - abbott-4.5.8
+  # group: IVT/EVT synthesis
+  - cummings-6.32
+  # group: continuity on metric spaces
+  - lebl-7.5.2
+  - ross-21.5
+  - lebl-7.5.5
+  - lebl-7.2.11
+  - ross-22.4
+  - lebl-7.5.8
+  # group: upper tier
+  - rudin-4.17
+  - rudin-4.19
+  - rudin-4.5
+  - rudin-4.25
+  - pugh-2.44
+  - pugh-2.49
+  - pugh-prelim-31
+  - pugh-2.78
+  - pugh-2.76
+
+differentiation:
+  # group: the definition; differentiable implies continuous
+  - mit20-final-4a
+  - mit20-final-4b
+  - tao-10.1.2
+  - lebl-4.1.11
+  - lebl-4.1.5
+  # group: derivative rules (chain rule proved)
+  - abbott-5.2.4
+  # group: the x^a sin(1/x) family
+  - ross-28.4
+  - abbott-5.2.7
+  # group: inverse functions
+  - abbott-5.2.12
+  - lebl-4.4.6
+  # group: Fermat, Rolle, the MVT
+  - tao-10.2.1
+  - tao-10.2.5
+  - cummings-7.10
+  - mit20-a11-1
+  - ross-29.4
+  # group: consequences of the MVT
+  - mit20-a10-3
+  - lebl-4.2.10
+  - mit20-a10-1
+  - lebl-4.2.13
+  - tao-10.3.5
+  - ross-29.10
+  - rudin-5.14
+  # group: Darboux's theorem
+  - abbott-5.2.11
+  - lebl-4.2.7
+  # group: second derivative test
+  - lebl-4.3.11
+  # group: Cauchy MVT and L'Hôpital
+  - cummings-7.14
+  - lebl-4.2.9
+  - cummings-7.16
+  - ross-30.6
+  - abbott-5.3.12
+  # group: Taylor's theorem
+  - mit20-a11-2
+  - mit20-final-5a
+  - mit20-a11-3
+  - mit20-a11-4
+  # group: smooth functions, flat at a point
+  - ross-31.5
+  - ross-31.4
+  # group: capstone counterexample
+  - abbott-5.4.7
+  # group: upper tier
+  - rudin-5.26
+  - pugh-4.27
+  - pugh-4.20
+  - pugh-1.32
+  - pugh-3.34
+  - rudin-5.17
+  - rudin-5.15
+
+integration:
+  # group: Darboux sums from the definition
+  - lebl-5.1.15
+  - abbott-7.2.3
+  - mit20-a11-5
+  - lebl-5.1.13
+  - ross-32.2
+  # group: first consequences of the criterion
+  - cummings-8.5
+  - lebl-5.2.2
+  # group: which functions are integrable
+  - lebl-5.2.14
+  - cummings-8.25
+  - abbott-7.3.7
+  - lebl-5.2.11
+  - abbott-7.3.9
+  - abbott-7.6.3
+  # group: absolute values, products, inequalities
+  - lebl-5.2.15
+  - ross-33.4
+  - abbott-7.4.6
+  - cummings-8.27
+  - ross-34.12
+  - abbott-7.4.4
+  - abbott-7.4.10
+  # group: fundamental theorem of calculus
+  - lebl-5.3.1
+  - mit20-final-6b
+  - lebl-5.3.9
+  - abbott-7.5.2
+  - tao-11.9.3
+  # group: integration by parts and substitution
+  - lebl-5.3.5
+  - abbott-7.5.10
+  - mit20-final-5b
+  - mit20-final-6c
+  - mit20-a12-1
+  # group: logarithm as an integral
+  - lebl-5.4.6
+  # group: improper integrals
+  - ross-36.3
+  - mit20-final-6a
+  - ross-36.8
+  - lebl-5.5.10
+  # group: series and integrals
+  - tao-11.6.3
+  - ross-15.3
+  # group: upper tier
+  - cummings-8.28
+  - pugh-3.68
+  - pugh-prelim-7
+  - pugh-prelim-45
+  - pugh-prelim-56
+
+function-sequences:
+  # group: pointwise vs uniform convergence
+  - mit20-final-1
+  - lebl-6.1.2
+  - ross-24.12
+  - abbott-6.2.1
+  - lebl-6.1.10
+  - mit20-final-7a
+  - mit20-final-7b
+  - lebl-6.1.5
+  - lebl-6.1.6
+  # group: what passes to the limit
+  - cummings-9.12
+  - abbott-6.2.6
+  - ross-24.13
+  - ross-24.17
+  # group: uniform Cauchy criterion and Dini
+  - abbott-6.2.5
+  - abbott-6.2.11
+  # group: limits and integrals
+  - ross-23.9
+  - abbott-7.2.5
+  - abbott-7.3.5
+  - ross-33.9
+  - ross-24.9
+  - lebl-6.2.22
+  # group: limits and derivatives
+  - lebl-6.2.2
+  - lebl-6.2.1
+  - abbott-6.3.4
+  - abbott-6.3.7
+  # group: series of functions, M-test
+  - abbott-6.4.1
+  - lebl-6.1.14
+  - abbott-6.4.2
+  - abbott-6.4.7
+  # group: power series as functions
+  - cummings-9.16
+  - abbott-6.5.5
+  - ross-26.7
+  - abbott-6.5.10
+  - ross-26.8
+  # group: approximation
+  - abbott-6.7.2
+  - ross-27.3
+  - rudin-7.20
+  # group: function spaces
+  - abbott-8.2.2
+  - lebl-7.4.8
+  - abbott-8.2.5
+  - mit18100b-f10-ps10-5
+  - lebl-7.5.12
+  # group: fixed points and contractions
+  - abbott-4.3.11
+  - lebl-7.6.6
+  # group: constructions and compactness (challenge)
+  - abbott-6.2.12
+  - abbott-6.2.15
+  # group: upper tier
+  - pugh-prelim-28
+  - rudin-7.16
+  - rudin-7.10
+  - rudin-7.13
+  - mit18100b-2006-ps10-x1
+  - pugh-3.23
+  - pugh-3.50
+  - rudin-5.21
+  - pugh-4.37

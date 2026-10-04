@@ -301,8 +301,9 @@
     section: "Reading: Lebl §2.1, §2.2"
     problemNumber: "Problem 6"
     page: "1"
-  topic: real-numbers
-  subtopics: [supremum-infimum]
+  topic: sequences
+  subtopics:
+  - convergence
   skills: [sup-approximation, sequential-characterization]
   concept: "sequential characterization of the supremum"
   title: Sequential characterization of the supremum
@@ -1034,8 +1035,9 @@
     chapter: "Final Assignment (December 6, 2020)"
     problemNumber: "Problem 1"
     page: "2–3"
-  topic: foundations
-  subtopics: [logic-quantifiers]
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
   skills: [negate-definition]
   concept: "negating continuity, uniform continuity, uniform convergence"
   title: Negating continuity, uniform continuity and uniform convergence
@@ -1104,8 +1106,10 @@
     chapter: "Final Assignment (December 6, 2020)"
     problemNumber: "Problem 3"
     page: "6–7"
-  topic: topology
-  subtopics: [sequential-compactness, compactness]
+  topic: continuity
+  subtopics:
+  - continuity-and-topology
+  - sequential-continuity
   skills: [Bolzano-Weierstrass, closed-sets-contain-limits, subsequence-extraction, continuity-sequential]
   concept: "[a,b] is (sequentially) compact; continuous image of [a,b] is compact"
   title: Compactness of $[a,b]$ and of its continuous images

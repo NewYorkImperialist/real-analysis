@@ -867,10 +867,9 @@
     section: 2.4 Cauchy sequences
     problemNumber: Exercise 2.4.3
     page: '86'
-  topic: real-numbers
+  topic: sequences
   subtopics:
-  - completeness
-  - supremum-infimum
+  - cauchy-sequences
   skills:
   - bisection
   - nested-intervals
@@ -2593,10 +2592,10 @@
     section: 7.2 Open and closed sets
     problemNumber: Exercise 7.2.11
     page: '272'
-  topic: topology
+  topic: continuity
   subtopics:
-  - connectedness
-  - interior-closure-boundary
+  - continuity-and-topology
+  - continuity-metric-spaces
   skills:
   - construct-counterexample
   - contradiction
@@ -2747,10 +2746,9 @@
     section: 7.4 Completeness and compactness
     problemNumber: Exercise 7.4.8
     page: '286'
-  topic: topology
+  topic: function-sequences
   subtopics:
-  - compactness
-  - metric-spaces
+  - function-spaces
   skills:
   - construct-counterexample
   - sequential-characterization
@@ -2988,9 +2986,9 @@
     section: 7.5 Continuous functions
     problemNumber: Exercise 7.5.12
     page: '295'
-  topic: continuity
+  topic: function-sequences
   subtopics:
-  - continuity-metric-spaces
+  - function-spaces
   skills:
   - construct-counterexample
   - sup-norm-estimate

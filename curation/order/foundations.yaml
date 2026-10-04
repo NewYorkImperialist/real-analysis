@@ -1,0 +1,44 @@
+topic: foundations
+order:
+  # group: quantifiers and negation
+  - tao-a.5.1
+  - abbott-1.2.11
+  # group: set algebra
+  - lebl-0.3.6
+  # group: images and preimages
+  - mit20-mid-1a
+  - lebl-0.3.27
+  # group: injective, surjective, composition
+  - lebl-0.3.10
+  - tao-3.4.5
+  # group: induction
+  - lebl-0.3.11
+  - lebl-0.3.15
+  - lebl-0.3.12
+  # group: countable sets
+  - lebl-0.3.19
+  - mit20-a1-6
+  # group: the reals are uncountable
+  - ross-16.8
+  - mit20-a3-3
+  - mit20-mid-1bc
+  # group: countable unions and counting arguments
+  - abbott-1.5.3
+  - abbott-1.5.6
+  - abbott-1.5.8
+  - abbott-1.5.9
+  # group: bijections, Cantor, Schröder–Bernstein
+  - lebl-1.4.5
+  - pugh-1.38
+  - mit20-a3-2
+  - tao-8.3.2
+  - tao-8.3.4
+forward_refs: []
+notes: |
+  Cardinality sits before Real Numbers in data/taxonomy.yaml, but several cardinality problems lean on
+  real-number facts: abbott-1.5.6 uses density of Q, abbott-1.5.8 the Archimedean property, and
+  ross-16.8 and mit20-a3-2 use decimal expansions (and convergence of their series). Abbott covers all
+  of these (1.4 and 1.6 informally) before these exercises, so they stay here and are not forward refs,
+  but on the bank's own path they precede the real-numbers problems on density, Archimedes and decimal
+  representation. Moving the "uncountable reals" and counting-argument groups to the end of Real Numbers
+  (Abbott's own order: 1.4 then 1.5–1.6) would remove that tension.

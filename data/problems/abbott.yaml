@@ -834,10 +834,9 @@
     section: 2.5 Subsequences and the Bolzano–Weierstrass Theorem
     problemNumber: Exercise 2.5.4
     page: '65'
-  topic: real-numbers
+  topic: sequences
   subtopics:
-  - completeness
-  - supremum-infimum
+  - bolzano-weierstrass
   skills:
   - bisection
   - nested-intervals
@@ -2773,10 +2772,9 @@
     section: 7.2 The Definition of the Riemann Integral
     problemNumber: Exercise 7.2.5
     page: '223'
-  topic: integration
+  topic: function-sequences
   subtopics:
-  - integrability-criteria
-  - partitions-darboux-sums
+  - interchange-integral
   skills:
   - epsilon-over-3
   - sup-norm-estimate
@@ -2800,9 +2798,10 @@
     section: 7.3 Integrating Functions with Discontinuities
     problemNumber: Exercise 7.3.5
     page: '227'
-  topic: integration
+  topic: function-sequences
   subtopics:
-  - integrability-criteria
+  - interchange-integral
+  - pointwise-convergence
   skills:
   - construct-counterexample
   - theorem-recognition
@@ -3060,9 +3059,9 @@
     section: 8.2 Metric Spaces and the Baire Category Theorem
     problemNumber: Exercise 8.2.2
     page: '258'
-  topic: topology
+  topic: function-sequences
   subtopics:
-  - metric-spaces
+  - function-spaces
   skills:
   - verify-axioms
   - construct-counterexample
@@ -3096,10 +3095,10 @@
     section: 8.2 Metric Spaces and the Baire Category Theorem
     problemNumber: Exercise 8.2.5
     page: '259'
-  topic: topology
+  topic: function-sequences
   subtopics:
-  - complete-metric-spaces
-  - metric-spaces
+  - function-spaces
+  - uniform-cauchy
   skills:
   - uniform-cauchy
   - construct-counterexample

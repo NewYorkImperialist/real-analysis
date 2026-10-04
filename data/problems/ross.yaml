@@ -279,9 +279,9 @@
     section: §15 Alternating Series and Integral Tests
     problemNumber: Exercise 15.3
     page: '109'
-  topic: series
+  topic: integration
   subtopics:
-  - convergence-tests
+  - improper-integrals
   skills:
   - integral-test
   - substitution
@@ -541,9 +541,10 @@
     section: '§21 More on Metric Spaces: Continuity'
     problemNumber: Exercise 21.5
     page: '177'
-  topic: topology
+  topic: continuity
   subtopics:
-  - compactness
+  - continuity-metric-spaces
+  - EVT
   skills:
   - construct-counterexample
   - case-analysis
@@ -578,10 +579,10 @@
     section: '§22 More on Metric Spaces: Connectedness'
     problemNumber: Exercise 22.4
     page: '184'
-  topic: topology
+  topic: continuity
   subtopics:
-  - connectedness
-  - interior-closure-boundary
+  - continuity-and-topology
+  - continuity-metric-spaces
   skills:
   - construct-counterexample
   - sequential-characterization

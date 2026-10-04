@@ -84,9 +84,9 @@
     section: Chapter 3 Exercises
     problemNumber: Exercise 68
     page: '209'
-  topic: series
+  topic: integration
   subtopics:
-  - conditional-convergence
+  - log-exp
   skills:
   - taylor-estimate
   - grouping-terms
@@ -163,10 +163,9 @@
     section: Exercises
     problemNumber: Exercise 4.20
     page: '265'
-  topic: continuity
+  topic: differentiation
   subtopics:
-  - uniform-continuity
-  - lipschitz-holder
+  - mvt-applications
   skills:
   - MVT-application
   - sequential-characterization
@@ -482,11 +481,10 @@
     section: More Prelim Problems
     problemNumber: Prelim Problem 31
     page: '273'
-  topic: topology
+  topic: continuity
   subtopics:
-  - compactness
-  - sequential-compactness
-  - metric-spaces
+  - continuity-metric-spaces
+  - continuity-and-topology
   skills:
   - contradiction
   - iterate-the-map
@@ -516,9 +514,10 @@
     section: Exercises
     problemNumber: Exercise 49 (starred)
     page: '129'
-  topic: topology
+  topic: continuity
   subtopics:
-  - compactness
+  - continuity-and-topology
+  - continuity-metric-spaces
   skills:
   - construct-counterexample
   - hypothesis-removal
@@ -548,10 +547,10 @@
     section: Exercises
     problemNumber: Exercise 76
     page: '131'
-  topic: topology
+  topic: continuity
   subtopics:
-  - connectedness
-  - compactness
+  - continuity-and-topology
+  - continuity-metric-spaces
   skills:
   - construct-counterexample
   - open-cover-argument
@@ -584,11 +583,10 @@
     section: Exercises
     problemNumber: Exercise 78
     page: '131'
-  topic: topology
+  topic: continuity
   subtopics:
-  - connectedness
-  - compactness
-  - complete-metric-spaces
+  - continuity-and-topology
+  - continuity-metric-spaces
   skills:
   - clopen-set-argument
   - construct-counterexample
@@ -692,11 +690,9 @@
     section: Exercises
     problemNumber: Exercises 4.27–4.28
     page: '266'
-  topic: topology
+  topic: differentiation
   subtopics:
-  - compactness
-  - metric-spaces
-  - complete-metric-spaces
+  - mvt-applications
   skills:
   - EVT-on-compact
   - construct-counterexample
@@ -827,9 +823,9 @@
     section: Chapter 3 Exercises
     problemNumber: Exercise 50
     page: '207'
-  topic: integration
+  topic: function-sequences
   subtopics:
-  - integrability-criteria
+  - interchange-integral
   skills:
   - construct-counterexample
   - theorem-application

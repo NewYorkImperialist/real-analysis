@@ -130,6 +130,7 @@ topics:
       power-series: Power series as functions
       taylor-series: Taylor series
       approximation: Approximation theorems
+      function-spaces: Spaces of functions (metrics on C[a,b])
       fixed-point: Fixed points & contractions
 
 difficulties:

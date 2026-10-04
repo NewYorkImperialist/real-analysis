@@ -1,0 +1,81 @@
+topic: sequences
+order:
+  # group: convergence from the definition
+  - mit20-a3-6
+  - mit20-mid-3a
+  - abbott-2.2.2
+  - abbott-2.2.1
+  - abbott-2.2.6
+  - cummings-3.6
+  - mit20-a4-6
+  # group: divergence
+  - ross-8.7
+  # group: limit laws
+  - abbott-2.3.2
+  - cummings-3.8
+  - abbott-2.3.9
+  - lebl-2.2.3
+  - lebl-2.2.5
+  # group: order and limits; testing the laws
+  - abbott-2.3.12
+  - abbott-2.3.10
+  - abbott-2.3.7
+  # group: averages and double limits
+  - abbott-2.3.11
+  - abbott-2.3.13
+  # group: monotone convergence and r^n
+  - cummings-3.16
+  - cummings-4.3
+  - tao-6.3.4
+  - lebl-2.2.9
+  # group: recursive sequences
+  - cummings-3.24
+  - abbott-2.4.5
+  - abbott-2.4.6
+  # group: subsequences
+  - mit20-mid-3b
+  - lebl-2.1.22
+  # group: Bolzano–Weierstrass and subsequential limits
+  - lebl-2.3.10
+  - abbott-2.5.2
+  - abbott-2.5.5
+  - lebl-2.3.9
+  - lebl-2.1.17
+  - ross-11.9
+  - abbott-2.5.4
+  # group: Cauchy sequences
+  - abbott-2.6.1
+  - cummings-3.15
+  - lebl-2.4.7
+  - lebl-2.4.8
+  - abbott-2.6.2
+  - ross-10.4
+  - lebl-2.4.3
+  # group: Cauchy estimates (telescoping)
+  - ross-10.6
+  - lebl-2.5.12
+  - lebl-2.4.2
+  - cummings-3.25
+  # group: limsup and liminf
+  - abbott-2.4.7
+  - lebl-2.3.5
+  - mit20-a5-6
+  - mit20-a5-5
+  - lebl-2.3.6
+  - mit20-mid-4a
+  - lebl-2.3.7
+  - ross-12.13
+  - tao-6.4.3
+  - ross-22.14
+  # group: upper tier
+  - rudin-3.14
+forward_refs: []
+notes: |
+  The taxonomy order (subsequences, Bolzano–Weierstrass, then Cauchy) fits: the Cauchy criterion
+  (Cauchy => convergent) is proved through Bolzano–Weierstrass in Abbott, and abbott-2.6.2 asks about
+  Cauchy subsequences. So Cauchy follows BW here, although the curator's selection placed it before.
+  "bounded-sequences" has no problems of its own. Its content (convergent => bounded, abbott-2.2.1)
+  belongs with convergence and limit laws, which is where those problems sit.
+  limsup/liminf as a definition (abbott-2.4.7) needs only monotone convergence and could follow it
+  directly, but most limsup problems here (ross-12.13, tao-6.4.3, ross-22.14, lebl-2.3.7's hint)
+  use subsequential limits, so keeping limsup last is right.

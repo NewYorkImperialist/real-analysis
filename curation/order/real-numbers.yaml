@@ -1,0 +1,39 @@
+topic: real-numbers
+order:
+  # group: ordered-field axioms and absolute value
+  - lebl-1.1.1
+  - abbott-1.2.6
+  - cummings-1.9
+  - lebl-1.2.13
+  # group: sup and inf from the definition (ordered sets)
+  - lebl-1.1.5
+  - lebl-1.1.2
+  - mit20-a3-4
+  - lebl-1.1.6
+  - lebl-1.1.14
+  # group: completeness gives infima; first computations
+  - abbott-1.3.3
+  - cummings-1.19
+  # group: algebra of suprema and infima
+  - abbott-1.3.5
+  - lebl-1.2.9
+  - abbott-1.3.9
+  - abbott-1.3.11
+  - lebl-1.3.5
+  - lebl-1.3.7
+  # group: density and roots
+  - abbott-1.4.4
+  - mit20-a3-1
+  - mit20-a2-7
+  - lebl-1.2.7
+  # group: nested intervals
+  - cummings-1.22
+  - abbott-1.4.8
+forward_refs: []
+notes: |
+  - taxonomy lists archimedean-property before supremum-infimum and completeness, but in Abbott and
+    Lebl the Archimedean property is proved from completeness; it should come after completeness.
+  - absolute-value and inequalities are listed last, but they are elementary ordered-field material
+    used in every later epsilon argument; they belong right after ordered-fields. AM-GM (lebl-1.2.7) is
+    the exception: it uses square roots, whose existence needs completeness, so it sits after mit20-a2-7.
+  - decimal-representation currently has no problems in this topic (ross-16.8 lives in foundations).

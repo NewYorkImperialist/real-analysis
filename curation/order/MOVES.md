@@ -1,0 +1,29 @@
+# Topic moves applied when assembling data/curriculum.yaml
+
+- mit20-a4-6: real-numbers → sequences [convergence]; end of "convergence from the definition" (after cummings-3.6): needs only the definition of a limit (|a_n − a_0| < 1/n).
+- abbott-2.5.4: real-numbers → sequences [bolzano-weierstrass]; end of "Bolzano–Weierstrass and subsequential limits" (after ross-11.9): reuses the BW bisection strategy and (1/2^n) → 0.
+- lebl-2.4.3: real-numbers → sequences [cauchy-sequences]; end of "Cauchy sequences" (after ross-10.4, before the telescoping estimates): needs Cauchy sequences and the Cauchy-completeness idea, contrasted with ross-10.4 in Q.
+- tao-11.6.3: series → integration [improper-integrals, integral-inequalities]; new group "series and integrals" after improper integrals (after lebl-5.5.10): integral test needs integrability of monotone functions, monotonicity/additivity of the integral, and reads as a statement about improper integrals.
+- mit20-final-3: topology → continuity [continuity-and-topology, sequential-continuity]; start of "compactness and the EVT" (before lebl-3.3.11): proves continuous image of [a,b] is (sequentially) compact, the step behind the EVT.
+- ross-21.5: topology → continuity [continuity-metric-spaces, EVT]; "continuity on metric spaces", after lebl-7.5.2: continuous functions on subsets of R^k, converse of EVT, uses continuity of 1/d(x, x0).
+- ross-22.4: topology → continuity [continuity-and-topology, continuity-metric-spaces]; "continuity on metric spaces", after lebl-7.5.5: needs continuous images of connected sets (lebl-7.5.5) and paths.
+- pugh-2.49 (upper): topology → continuity [continuity-and-topology, continuity-metric-spaces]; continuity upper tier after pugh-2.44, before pugh-4.20: continuous bijection vs homeomorphism, needs continuous image of compact is compact.
+- pugh-4.27 (upper): topology → differentiation [mvt-applications]; differentiation upper tier after rudin-5.26: weak contractions; part (d) uses the MVT.
+- mit20-final-1: foundations → function-sequences [uniform-convergence]; first problem of the topic (before lebl-6.1.2): negating ε–δ continuity, uniform continuity and uniform convergence, used immediately to show non-uniform convergence.
+- abbott-7.2.5: integration → function-sequences [interchange-integral]; "limits and integrals", after ross-23.9, before ross-33.9: uniform limits of integrable functions are integrable, the prerequisite for interchanging limit and integral.
+- abbott-7.3.5: integration → function-sequences [interchange-integral, pointwise-convergence]; right after abbott-7.2.5: examples testing that theorem (pointwise vs uniform).
+- abbott-8.2.2: topology → function-sequences [function-spaces]; new group "function spaces" after approximation, first: sup and L¹ metrics on C[0,1] (needs EVT and the integral).
+- lebl-7.4.8: topology → function-sequences [function-spaces]; "function spaces", after abbott-8.2.2: closed unit ball of (C[0,1], sup) is not compact.
+- abbott-8.2.5: topology → function-sequences [function-spaces, uniform-cauchy]; "function spaces", after lebl-7.4.8: completeness of C[0,1] in the sup metric uses the uniform Cauchy criterion and continuous limit theorem; C¹ incompleteness.
+- mit18100b-f10-ps10-5: topology → function-sequences [function-spaces]; "function spaces", after abbott-8.2.5: the L¹ metric on C[−1,1] is not complete, contrasting with the sup metric.
+- lebl-7.5.12: continuity → function-sequences [function-spaces]; "function spaces", last (before fixed points): the derivative operator is continuous for d_{C¹} but not for the sup metric; needs C¹ functions and both metrics.
+- ross-15.3: series → integration [improper-integrals]; "series and integrals", after tao-11.6.3: the solution compares with the improper integral of 1/(x (log x)^p) via u = log x (review-2).
+- lebl-7.2.11: topology → continuity [continuity-and-topology, continuity-metric-spaces]; "continuity on metric spaces", after lebl-7.5.5: (b) needs continuous paths and continuous images of connected sets (review-2).
+- rudin-4.25 (upper): topology → continuity [continuity-and-topology, EVT]; continuity upper tier after rudin-4.5: positive distance from a compact set to a disjoint closed set (continuity plus EVT, Rudin Ex 4.21) (review-2).
+- pugh-prelim-31 (upper): topology → continuity [continuity-metric-spaces, continuity-and-topology]; continuity upper tier after pugh-2.49: an isometry is continuous, so f(X) is compact (review-2).
+- pugh-2.78 (upper): topology → continuity [continuity-and-topology, continuity-metric-spaces]; continuity upper tier after pugh-prelim-31: continuous d attains its minimum on A×B; continuous images of [1,∞) are connected (review-2).
+- pugh-2.76 (upper): topology → continuity [continuity-and-topology, continuity-metric-spaces]; continuity upper tier, last (after pugh-2.78): continuous images of intervals are connected, the IVT, sin(1/x), positive minimum on a compact set (review-2).
+- pugh-3.68 (upper): series → integration [log-exp]; integration upper tier after cummings-8.28: uses log/exp, the derivative of log(1+x) and an integral of t^2/(1+t) (review-2).
+- pugh-4.20 (upper): continuity → differentiation [mvt-applications]; differentiation upper tier after pugh-4.27: both directions of the proof use the derivative and the MVT (review-2).
+- pugh-3.50 (upper): integration → function-sequences [interchange-integral]; function-sequences upper tier after pugh-3.23, before rudin-5.21: the counterexample uses the Cantor function, constructed as a uniform limit in abbott-6.2.12 (review-3).
+- rudin-5.21 (upper): differentiation → function-sequences [series-of-functions, weierstrass-m-test, interchange-derivative]; function-sequences upper tier, right before pugh-4.37: the C^∞ case needs the M-test and term-by-term differentiation (review-3).
