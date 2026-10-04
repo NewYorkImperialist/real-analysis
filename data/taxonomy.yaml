@@ -10,7 +10,6 @@ topics:
       functions: Functions, images & preimages
       induction: Induction
       cardinality: Cardinality & countability
-      proof-techniques: Proof techniques
 
   - key: real-numbers
     label: Real Numbers
@@ -23,7 +22,6 @@ topics:
       density-of-Q: Density of Q
       absolute-value: Absolute value
       inequalities: Inequalities
-      decimal-representation: Decimal representation
 
   - key: sequences
     label: Sequences
