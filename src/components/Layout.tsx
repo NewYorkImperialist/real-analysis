@@ -4,6 +4,7 @@ import { href, navigate } from '../lib/router';
 
 type Theme = 'system' | 'light' | 'dark';
 const THEME_KEY = 'rapb.theme';
+const ISSUE_URL = 'https://github.com/NewYorkImperialist/real-analysis/issues/new';
 
 function readTheme(): Theme {
   try {
@@ -123,6 +124,8 @@ export function Layout({ active, children }: { active: string; children: Compone
             <a href={href('about')} aria-current={active === 'about' ? 'page' : undefined}>About</a>
             {' · '}
             <a href={href('sources')}>Sources</a>
+            {' · '}
+            <a href={ISSUE_URL} target="_blank" rel="noopener noreferrer">Report an issue</a>
           </span>
         </div>
       </footer>
