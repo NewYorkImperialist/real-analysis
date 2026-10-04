@@ -8,7 +8,7 @@ import { RichText, InlineRich } from '../components/RichText';
 import { StatusControl } from '../components/StatusControl';
 import { ProblemList } from '../components/ProblemRow';
 
-const PRACTICE_KEY = 'uapb.practice.current';
+const PRACTICE_KEY = 'rapb.practice.current';
 
 function readPracticeIds(): string[] | null {
   try {

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { href, navigate } from '../lib/router';
 
 type Theme = 'system' | 'light' | 'dark';
-const THEME_KEY = 'uapb.theme';
+const THEME_KEY = 'rapb.theme';
 
 function readTheme(): Theme {
   try {
@@ -97,7 +97,7 @@ export function Layout({ active, children }: { active: string; children: Compone
       </a>
       <header class="site-header">
         <div class="site-header-inner">
-          <a class="site-title" href={href('')}>Undergraduate Analysis Problem Bank</a>
+          <a class="site-title" href={href('')}>Real Analysis Problem Bank</a>
           <div class="site-tools">
             <HeaderSearch active={active} />
             <ThemeToggle />

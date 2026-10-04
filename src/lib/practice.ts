@@ -40,7 +40,7 @@ export type SavedSet = { ids: string[]; createdAt: string; request: PracticeRequ
 
 export const DEFAULT_COUNT = 5;
 export const MAX_COUNT = 40;
-export const STORAGE_KEY = 'uapb.practice.current';
+export const STORAGE_KEY = 'rapb.practice.current';
 
 // ---------------------------------------------------------------- text normalisation
 

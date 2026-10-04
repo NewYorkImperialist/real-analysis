@@ -1,6 +1,6 @@
-# Undergraduate Analysis Problem Bank
+# Real Analysis Problem Bank
 
-A curated collection of canonical problems for rebuilding the foundations of real analysis.
+A curated collection of canonical problems for building the foundations of real analysis.
 
 A static site (Vite + Preact + TypeScript, KaTeX for math). There is no backend. Progress lives in your
 browser's localStorage.
@@ -92,13 +92,13 @@ escaping. Put a blank line between paragraphs, and start a new line for each par
 
 ## Progress
 
-Progress is stored in localStorage under `uapb.progress.v1`, separately from the problem data.
+Progress is stored in localStorage under `rapb.progress.v1`, separately from the problem data.
 
 - **States:** `unseen`, `attempted` and `completed`. Status changes only when you click a button. Opening a
   problem or viewing a hint or solution never changes it.
 - **Migration:** older data with the retired value `mastered` is read as `completed`.
 - **Export and import:** these are on the Progress page as a versioned JSON file
-  (`format: undergraduate-analysis-progress`, `version: 1`).
+  (`format: real-analysis-progress`, `version: 1`).
 - **Merge or replace:** when importing you choose explicitly. Merge keeps the newer entry for each problem;
   Replace overwrites all current progress.
 

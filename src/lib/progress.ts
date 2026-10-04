@@ -18,9 +18,9 @@ export type ProblemProgress = {
 
 export type ProgressMap = Record<string, ProblemProgress>;
 
-export const EXPORT_FORMAT = 'undergraduate-analysis-progress';
+export const EXPORT_FORMAT = 'real-analysis-progress';
 export const EXPORT_VERSION = 1;
-const STORAGE_KEY = 'uapb.progress.v1';
+const STORAGE_KEY = 'rapb.progress.v1';
 
 // Older data may contain the retired status "mastered"; it is read as "completed".
 function normalizeStatus(s: unknown): Status {

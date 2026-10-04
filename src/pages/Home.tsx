@@ -18,8 +18,8 @@ export function Home() {
   return (
     <div class="stack-lg">
       <header>
-        <h1>Undergraduate Analysis Problem Bank</h1>
-        <p class="subtitle">A curated collection of canonical problems for rebuilding the foundations of real analysis.</p>
+        <h1>Real Analysis Problem Bank</h1>
+        <p class="subtitle">A curated collection of canonical problems for building the foundations of real analysis.</p>
       </header>
 
       <nav class="row" aria-label="Start">
