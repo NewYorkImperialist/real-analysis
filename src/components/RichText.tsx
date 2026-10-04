@@ -22,8 +22,14 @@ function renderText(s: string): string {
     .replace(/(^|[^*])\*([^*\s][^*]*?)\*/g, '$1<em>$2</em>');
 }
 
+// Emphasis is applied to the whole paragraph with math swapped for placeholders, so *…$x$…* and
+// **…$x$…** spans that contain math still pair up. Math is rendered separately and restored after.
 function blockHtml(tokens: Token[]): string {
-  return tokens.map((t) => (t.kind === 'math' ? renderMath(t.value, t.display) : renderText(t.value))).join('');
+  const math: string[] = [];
+  const text = tokens
+    .map((t) => (t.kind === 'math' ? `\u0000${math.push(renderMath(t.value, t.display)) - 1}\u0000` : t.value))
+    .join('');
+  return renderText(text).replace(/\u0000(\d+)\u0000/g, (_, i) => math[Number(i)]);
 }
 
 /** Renders the canonical problem-text format (LaTeX in $…$/$$…$$, paragraphs, parts). */

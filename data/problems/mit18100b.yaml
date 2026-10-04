@@ -111,9 +111,9 @@
   - Riemann-integration
   - function-space
   problemLatex: |
-    *(Inlined from Problem 4: let $\mathscr{C}[a,b]$ denote the set of continuous real functions on $[a,b]$, and for $f, g \in \mathscr{C}[a,b]$ put
+    *(Inlined from Problem 4: let $\mathscr{C}[a,b]$ denote the set of continuous real functions on $[a,b]$, and for $f, g \in \mathscr{C}[a,b]$ put*
     $$d_1(f,g) = \int_a^b |f - g|.$$
-    Problem 4(d) shows that $\mathscr{C}[a,b]$ is a metric space under the metric $d_1$; you may use this.)*
+    *Problem 4(d) shows that $\mathscr{C}[a,b]$ is a metric space under the metric $d_1$; you may use this.)*
 
     Consider the metric space $(\mathscr{C}[-1,1], d_1)$ from 4(d) (here $a = -1$, $b = 1$).
     (a) Let $f_n$ denote the function

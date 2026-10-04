@@ -67,9 +67,9 @@
 
     (b) Find an example to show that the Cauchy product of two conditionally convergent series may diverge.
 
-    *(Exercise 72: Absolutely convergent series can be multiplied in a natural way, the result being their **Cauchy product**,
+    *(Exercise 72: Absolutely convergent series can be multiplied in a natural way, the result being their **Cauchy product**,*
     $$\Big(\sum_{i=0}^\infty a_i\Big)\Big(\sum_{j=0}^\infty b_j\Big) = \sum_{k=0}^\infty c_k$$
-    where $c_k = a_0b_k + a_1b_{k-1} + \cdots + a_kb_0$. (a) Prove that $\sum c_k$ converges absolutely. The hint to 72 says: letting $A_n, B_n, C_n$ be the $n$th partial sums of $\sum a_i, \sum b_j, \sum c_k$, "you are asked to prove that $(\lim A_n)(\lim B_n) = \lim C_n$.")*
+    *where $c_k = a_0b_k + a_1b_{k-1} + \cdots + a_kb_0$. (a) Prove that $\sum c_k$ converges absolutely. The hint to 72 says: letting $A_n, B_n, C_n$ be the $n$th partial sums of $\sum a_i, \sum b_j, \sum c_k$, "you are asked to prove that $(\lim A_n)(\lim B_n) = \lim C_n$.")*
   notes: Checked against the page image. The relevant content of Exercise 72 is quoted (the definition, part (a), and the sentence from its hint that states the intended conclusion), since 73(a) asks for the conclusion of 72 under the weaker hypothesis. Pugh marks this exercise **.
   curation:
     why: 'Mertens'' theorem on Cauchy products, and why its absolute-convergence hypothesis cannot simply be dropped.'

@@ -1572,9 +1572,9 @@
 
     (c) Use the characterization of continuity in Theorem 4.3.2 (iii) to show that Thomae's function is continuous at every irrational point in $\mathbb{R}$. (Given $\epsilon > 0$, consider the set of points $\{x \in \mathbb{R} : t(x) \ge \epsilon\}$.)
 
-    *(Summary, not verbatim — Section 4.1: Dirichlet's function is $g(x) = 1$ if $x \in \mathbb{Q}$ and $g(x) = 0$ if $x \notin \mathbb{Q}$. Thomae's function is
+    *(Summary, not verbatim — Section 4.1: Dirichlet's function is $g(x) = 1$ if $x \in \mathbb{Q}$ and $g(x) = 0$ if $x \notin \mathbb{Q}$. Thomae's function is*
     $$t(x) = \begin{cases} 1 & \text{if } x = 0 \\ 1/n & \text{if } x = m/n \in \mathbb{Q}\setminus\{0\} \text{ is in lowest terms with } n > 0 \\ 0 & \text{if } x \notin \mathbb{Q}. \end{cases}$$
-    Theorem 4.3.2 (iii): $f$ is continuous at $c$ if and only if: if $(x_n) \to c$ (with $x_n \in A$), then $f(x_n) \to f(c)$.)*
+    *Theorem 4.3.2 (iii): $f$ is continuous at $c$ if and only if: if $(x_n) \to c$ (with $x_n \in A$), then $f(x_n) \to f(c)$.)*
   notes: Definitions of Dirichlet's and Thomae's functions quoted from Section 4.1 (pp. 112–113); Theorem 4.3.2(iii) quoted from p. 123 (lightly abridged to the one condition). The book's own hint for (c) is printed as given; arguably the epsilon-delta characterization (i) is more natural for (c), but the book says (iii).
   curation:
     why: 'Dirichlet and Thomae: the two functions every analyst knows. Thomae''s continuity at irrationals uses the finiteness of {t ≥ ε} in a bounded set.'
@@ -2198,9 +2198,9 @@
   - sawtooth
   - dyadic
   problemLatex: |
-    *(Summary, not verbatim — setup assembled from Section 5.4: Define $h(x) = |x|$ on the interval $[-1,1]$ and extend the definition of $h$ to all of $\mathbb{R}$ by requiring that $h(x+2) = h(x)$. Define
+    *(Summary, not verbatim — setup assembled from Section 5.4: Define $h(x) = |x|$ on the interval $[-1,1]$ and extend the definition of $h$ to all of $\mathbb{R}$ by requiring that $h(x+2) = h(x)$. Define*
     $$g(x) = \sum_{n=0}^\infty h_n(x) = \sum_{n=0}^\infty \frac{1}{2^n} h(2^n x).$$
-    Assume $x$ is not a dyadic number. For a fixed value of $m \in \mathbb{N}\cup\{0\}$, $x$ falls between two adjacent dyadic points, $\frac{p_m}{2^m} < x < \frac{p_m+1}{2^m}$. Set $x_m = p_m/2^m$ and $y_m = (p_m+1)/2^m$. Repeating this for each $m$ yields two sequences $(x_m)$ and $(y_m)$ satisfying $\lim x_m = \lim y_m = x$ and $x_m < x < y_m$.)*
+    *Assume $x$ is not a dyadic number. For a fixed value of $m \in \mathbb{N}\cup\{0\}$, $x$ falls between two adjacent dyadic points, $\frac{p_m}{2^m} < x < \frac{p_m+1}{2^m}$. Set $x_m = p_m/2^m$ and $y_m = (p_m+1)/2^m$. Repeating this for each $m$ yields two sequences $(x_m)$ and $(y_m)$ satisfying $\lim x_m = \lim y_m = x$ and $x_m < x < y_m$.)*
 
     (a) First prove the following general lemma: Let $f$ be defined on an open interval $J$ and assume $f$ is differentiable at $a \in J$. If $(a_n)$ and $(b_n)$ are sequences satisfying $a_n < a < b_n$ and $\lim a_n = \lim b_n = a$, show
     $$f'(a) = \lim_{n\to\infty} \frac{f(b_n) - f(a_n)}{b_n - a_n}.$$
