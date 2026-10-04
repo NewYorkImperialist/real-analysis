@@ -28,11 +28,11 @@
     - |
       Use $\mathbb{R} = E \cup (\mathbb{R} \setminus E)$. What do you know about a union of two countable sets?
     - |
-      For (b), argue by contradiction and use that $\mathbb{R}$ is uncountable. For (c), try to find an uncountable set whose complement is also uncountable, for example one built from an interval.
+      For (a), argue by contradiction and use that $\mathbb{R}$ is uncountable. For (b), try to find an uncountable set whose complement is also uncountable, for example one built from an interval.
   solution: |
-    **(b) Yes.** Suppose $E$ is countable but $\mathbb{R} \setminus E$ is countable too. A union of two countable sets is countable: if $a_1, a_2, \ldots$ lists $E$ and $b_1, b_2, \ldots$ lists $\mathbb{R} \setminus E$, then $a_1, b_1, a_2, b_2, \ldots$ lists the union, and repetitions or finite lists change nothing. So $\mathbb{R} = E \cup (\mathbb{R} \setminus E)$ would be countable. That contradicts the uncountability of $\mathbb{R}$. Hence $\mathbb{R} \setminus E$ is uncountable.
+    **(a) Yes.** Suppose $E$ is countable but $\mathbb{R} \setminus E$ is countable too. A union of two countable sets is countable: if $a_1, a_2, \ldots$ lists $E$ and $b_1, b_2, \ldots$ lists $\mathbb{R} \setminus E$, then $a_1, b_1, a_2, b_2, \ldots$ lists the union, and repetitions or finite lists change nothing. So $\mathbb{R} = E \cup (\mathbb{R} \setminus E)$ would be countable. That contradicts the uncountability of $\mathbb{R}$. Hence $\mathbb{R} \setminus E$ is uncountable.
 
-    **(c) No.** Take $E = (0, \infty)$. It is uncountable: $x \mapsto x + 1$ is an injection from the uncountable set $(0, 1)$ into $E$, and a subset of a countable set is countable. Its complement $\mathbb{R} \setminus E = (-\infty, 0]$ contains $(-1, 0)$, which is in bijection with $(0, 1)$ via $x \mapsto x + 1$. So the complement is also uncountable.
+    **(b) No.** Take $E = (0, \infty)$. It is uncountable: $x \mapsto x + 1$ is an injection from the uncountable set $(0, 1)$ into $E$, and a subset of a countable set is countable. Its complement $\mathbb{R} \setminus E = (-\infty, 0]$ contains $(-1, 0)$, which is in bijection with $(0, 1)$ via $x \mapsto x + 1$. So the complement is also uncountable.
 
     (Taking $E = \mathbb{R}$ gives the complement $\emptyset$, which is countable. So both outcomes can happen when $E$ is uncountable.)
 

@@ -59,22 +59,6 @@
 
     Let $c$ be any upper bound for $A$. Since $b \in A$ and $c$ is an upper bound for $A$, we have $b \le c$. Thus $b$ is an upper bound that is less than or equal to every upper bound, so $b = \sup A$. $\blacksquare$
 
-- id: lebl-1.2.7
-  hints:
-    - |
-      Both sides are positive, so it suffices to compare squares. Which expression that is obviously $\ge 0$ could produce $x + y - 2\sqrt{xy}$ or $(x+y)^2 - 4xy$?
-    - |
-      Consider $(x - y)^2 \ge 0$ and rewrite it in terms of $(x+y)^2$ and $xy$.
-    - |
-      For the equality case, track exactly when each step is an equality; the only non-equality step is $(x-y)^2 \ge 0$.
-  solution: |
-    Let $x, y > 0$. Then
-    $$(x+y)^2 - 4xy = x^2 - 2xy + y^2 = (x - y)^2 \ge 0,$$
-    so $4xy \le (x+y)^2$, i.e. $xy \le \left(\frac{x+y}{2}\right)^2$. Both $\sqrt{xy}$ and $\frac{x+y}{2}$ are positive, and for nonnegative $u, v$ we have $u \le v$ if and only if $u^2 \le v^2$ (if $u > v \ge 0$ then $u^2 > uv \ge v^2$; conversely $u \le v$ gives $u^2 \le uv \le v^2$). Applying this with $u = \sqrt{xy}$, $v = \frac{x+y}{2}$, we get
-    $$\sqrt{xy} \le \frac{x+y}{2}.$$
-
-    **Equality.** By the same equivalence (for nonnegative $u,v$, $u = v$ iff $u^2 = v^2$), equality $\sqrt{xy} = \frac{x+y}{2}$ holds iff $xy = \frac{(x+y)^2}{4}$, iff $(x+y)^2 - 4xy = 0$, iff $(x - y)^2 = 0$, iff $x = y$. $\blacksquare$
-
 - id: cummings-1.9
   hints:
     - |

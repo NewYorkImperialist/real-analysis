@@ -1006,43 +1006,6 @@
   notes: Verified against page image. No book hint.
   curation:
     why: A Rolle argument on the auxiliary function f·e^g; learning to invent the auxiliary function.
-- id: ross-29.10
-  source:
-    key: ross
-    chapter: 5 Differentiation
-    section: §29 The Mean Value Theorem
-    problemNumber: Exercise 29.10
-    page: '240'
-  topic: differentiation
-  subtopics:
-  - derivative-definition
-  - mvt-applications
-  skills:
-  - construct-counterexample
-  - sequential-criterion
-  concept: f'(0) > 0 but f not increasing on any neighborhood of 0 (x^2 sin(1/x) + x/2)
-  title: Positive derivative at a point without local increase
-  difficulty: medium
-  category: canonical
-  type: counterexample
-  tags:
-  - derivative
-  - monotonicity
-  - x-squared-sin-one-over-x
-  - counterexample
-  problemLatex: |
-    Let $f(x) = x^2 \sin(\frac1x) + \frac{x}{2}$ for $x \neq 0$ and $f(0) = 0$.
-
-    (a) Show $f'(0) > 0$; see Exercise 28.4.
-
-    (b) Show $f$ is not increasing on any open interval containing 0.
-
-    (c) Compare this example with Corollary 29.7(i).
-
-    *(Corollary 29.7(i): Let $f$ be a differentiable function on an interval $(a, b)$. Then $f$ is strictly increasing if $f'(x) > 0$ for all $x \in (a, b)$.)*
-  notes: Verified against page image. Corollary 29.7 stem and part (i) quoted verbatim (assembled). Exercise 28.4 is x^2 sin(1/x) (ross-28.4). Ross's 'increasing' means non-decreasing (Definition 29.6). No book hint.
-  curation:
-    why: f′(0) > 0 but f is not increasing on any neighborhood of 0.
 - id: ross-30.6
   source:
     key: ross

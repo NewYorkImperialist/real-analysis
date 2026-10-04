@@ -84,6 +84,8 @@ MIT problems were judged by the same standard as every other source.
   and reason, is kept in `curation/REMOVED.yaml` for restoration.
 - **Context fixed (9):** the 8 issue-4 problems plus mit20-a11-5 (undefined lecture notation; kept instead
   of cut).
-- **Kept despite the flags:** lebl-0.3.6, lebl-0.3.19, lebl-0.3.12, mit20-a1-6, lebl-3.4.3, ross-18.4,
-  lebl-3.3.14, lebl-1.2.7, ross-29.10, lebl-6.2.2, ross-36.3 and
+- **Kept despite the flags:** lebl-0.3.6, lebl-0.3.19, lebl-0.3.12, mit20-a1-6, ross-18.4,
+  lebl-6.2.2, ross-36.3 and
   cummings-8.28 (upper tier, the owner's choice).
+- **Also cut after a second look (4):** lebl-3.4.3, lebl-3.3.14, lebl-1.2.7, ross-29.10. Each is the weaker copy of a
+  canonical problem that stays (ross-19.2, abbott-4.4.8, abbott-2.4.6, lebl-4.4.6).

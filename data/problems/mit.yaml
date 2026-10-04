@@ -712,7 +712,7 @@
   source:
     key: mit
     chapter: "Midterm Exam (October 16, 2020)"
-    problemNumber: "Problem 1(b)–(c)"
+    problemNumber: "Problem 1(a)–(b)"
     page: "3"
   topic: foundations
   subtopics: [cardinality]
@@ -724,9 +724,10 @@
   type: conceptual
   tags: [cardinality, countable, uncountable, counterexample]
   problemLatex: |
-    (b) When $E$ is a countable subset of $\mathbb{R}$, is the complement $\mathbb{R} \setminus E$ always uncountable? Explain why or why not.
+    (a) When $E$ is a countable subset of $\mathbb{R}$, is the complement $\mathbb{R} \setminus E$ always uncountable? Explain why or why not.
 
-    (c) When $E$ is an uncountable subset of $\mathbb{R}$, is the complement $\mathbb{R} \setminus E$ always countable? Explain why or why not.
+    (b) When $E$ is an uncountable subset of $\mathbb{R}$, is the complement $\mathbb{R} \setminus E$ always countable? Explain why or why not.
+  notes: "Parts (b)–(c) of the midterm's Problem 1, relabelled (a)–(b) here; part (a) of the exam problem is not in the bank."
   curation:
     why: "Quick check that you can use ‘countable ∪ countable is countable’ and produce a counterexample for the false converse."
 

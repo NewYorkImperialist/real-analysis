@@ -324,36 +324,6 @@
     c) Find a bounded subset of $S$ that has no least upper bound.
   curation:
     why: An ordered set where every subset is bounded yet the least-upper-bound property fails — separates boundedness from completeness.
-- id: lebl-1.2.7
-  source:
-    key: lebl
-    chapter: 1 Real Numbers
-    section: 1.2 The set of real numbers
-    problemNumber: Exercise 1.2.7
-    page: '34'
-  assignedIn:
-  - MIT 18.100A (Fall 2020) Assignment 2, Problem 5
-  topic: real-numbers
-  subtopics:
-  - inequalities
-  skills:
-  - algebraic-manipulation
-  - squares-nonnegative
-  concept: AM-GM inequality for two numbers
-  title: The AM-GM inequality for two numbers
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags:
-  - AM-GM
-  - inequality
-  problemLatex: |
-    Prove the arithmetic-geometric mean inequality. For two positive real numbers $x, y$,
-    $$\sqrt{xy} \leq \frac{x+y}{2}.$$
-    Furthermore, equality occurs if and only if $x = y$.
-  notes: Topically consistent with the MIT reading (1.2).
-  curation:
-    why: Basic real inequality manipulation including the equality case.
 - id: lebl-1.2.9
   source:
     key: lebl
@@ -1464,62 +1434,6 @@
   notes: 'Topic matches MIT reading (3.3, 3.4, 3.5): consistent.'
   curation:
     why: Shows compactness of the domain is essential in the extreme value theorem.
-- id: lebl-3.3.14
-  source:
-    key: lebl
-    chapter: 3 Continuous Functions
-    section: 3.3 Extreme and intermediate value theorems
-    problemNumber: Exercise 3.3.14
-    page: '137'
-  topic: continuity
-  subtopics:
-  - EVT
-  - continuity-and-topology
-  skills:
-  - contradiction
-  - EVT-application
-  concept: no continuous bijection [0,1] -> (0,1)
-  title: No continuous bijection from $[0,1]$ to $(0,1)$
-  difficulty: easy
-  category: canonical
-  type: proof
-  tags:
-  - EVT
-  - bijection
-  - compactness
-  - contradiction
-  problemLatex: |
-    Suppose $f\colon [0,1] \to (0,1)$ is a bijection. Prove that $f$ is not continuous.
-  curation:
-    why: A one-line consequence of the EVT (and compactness) that rules out a continuous bijection [0,1] → (0,1).
-- id: lebl-3.4.3
-  source:
-    key: lebl
-    chapter: 3 Continuous Functions
-    section: 3.4 Uniform continuity
-    problemNumber: Exercise 3.4.3
-    page: '143'
-  assignedIn:
-  - MIT 18.100A (Fall 2020) Assignment 9, Problem 2
-  topic: continuity
-  subtopics:
-  - lipschitz-holder
-  skills:
-  - algebraic-estimate
-  concept: 1/x is Lipschitz on (c, infinity) for c > 0
-  title: '$1/x$ is Lipschitz on $(c, \infty)$'
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags:
-  - Lipschitz
-  - 1-over-x
-  - estimate
-  problemLatex: |
-    Show that $f\colon (c, \infty) \to \mathbb{R}$ for some $c > 0$ and defined by $f(x) := 1/x$ is Lipschitz continuous.
-  notes: 'Topic matches MIT reading (3.3, 3.4, 3.5): consistent. Pairs naturally with Exercise 3.4.4 (not Lipschitz on (0,∞)).'
-  curation:
-    why: Lipschitz estimate |1/x - 1/y| = |x-y|/(xy) with xy bounded below.
 - id: lebl-3.4.8
   source:
     key: lebl

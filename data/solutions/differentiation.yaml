@@ -479,26 +479,6 @@
     Since $\lim_{t\to x_n}\frac{f(t) - f(x_n)}{t - x_n} = -1<0$, there is $t\in(0,x_n)$ with $\frac{f(t)-f(x_n)}{t-x_n} < 0$. As $t - x_n<0$, this gives $f(t) > f(x_n)$.
 
     So $f(0) < f(x_n) < f(t)$ with $0<t<x_n$. The function $f$ is continuous on $[0,t]$, so by the Intermediate Value Theorem there is $s\in(0,t)$ with $f(s) = f(x_n)$. Since $s<t<x_n$, we have $s\neq x_n$, so $f$ is not one-to-one on $J$. Hence $f$ is not invertible on any open interval containing $0$. $\blacksquare$
-- id: ross-29.10
-  hints:
-    - |
-      Write $f = F + \frac{x}{2}$, where $F$ is the function from Exercise 28.4, and reuse what you know about $F$ and $F'$.
-    - |
-      If $f$ were increasing (non-decreasing) on an open interval, every difference quotient, and hence every derivative, would be $\ge0$ there. Look for points arbitrarily close to $0$ where $f'<0$.
-    - |
-      For (c), what is the hypothesis of Corollary 29.7(i), and does this $f$ satisfy $f'>0$ on a whole open interval around $0$?
-  solution: |
-    Let $F(x) = x^2\sin(1/x)$ for $x\ne0$, $F(0)=0$, as in Exercise 28.4, so $f(x) = F(x) + \frac x2$. Recall from Exercise 28.4 that $F'(0) = 0$ and $F'(x) = 2x\sin(1/x) - \cos(1/x)$ for $x\ne0$. ("Increasing" here means non-decreasing, as in Ross's Definition 29.6.)
-
-    **(a)** By the sum rule, $f$ is differentiable everywhere with $f'(x) = F'(x) + \frac12$. In particular $f'(0) = 0 + \frac12 = \frac12 > 0$.
-
-    **(b)** First, if $f$ is increasing on an open interval $J$ and $x\in J$, then for $t\in J$, $t\neq x$, the difference quotient $\frac{f(t)-f(x)}{t-x}$ is $\ge0$ (numerator and denominator have the same sign or the numerator is $0$). Passing to the limit, $f'(x)\ge0$.
-
-    Now let $J$ be any open interval containing $0$. For $x_n = \frac{1}{2\pi n}$ we have $x_n\to0$, so $x_n\in J$ for large $n$. But
-    $$f'(x_n) = 2x_n\sin(2\pi n) - \cos(2\pi n) + \tfrac12 = 0 - 1 + \tfrac12 = -\tfrac12 < 0.$$
-    By the previous paragraph, $f$ is not increasing on $J$.
-
-    **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here $f'(0)>0$, but $f'$ is not positive on any open interval around $0$. Every neighborhood of $0$ contains points where $f'<0$: by (b), $f'(\frac{1}{2\pi n}) = -\frac12$ for every $n$. (This can happen only because $f'$ is not continuous at $0$; the term $-\cos(1/x)$ oscillates between $-1$ and $1$.) So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
 - id: ross-30.6
   hints:
     - |

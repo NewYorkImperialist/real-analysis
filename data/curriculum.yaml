@@ -73,7 +73,6 @@ real-numbers:
   - cummings-1.19
   - mit20-a2-7
   - mit20-a3-1
-  - lebl-1.2.7
   # group: nested intervals
   - cummings-1.22
   - abbott-1.4.8
@@ -276,12 +275,10 @@ continuity:
   - lebl-3.3.11
   - ross-18.4
   - lebl-3.3.3
-  - lebl-3.3.14
   # group: uniform continuity and Lipschitz
   - ross-19.2
   - lebl-3.4.8
   - abbott-4.4.10
-  - lebl-3.4.3
   - mit20-a9-5
   # group: uniform continuity on compact sets
   - abbott-4.4.14
@@ -352,7 +349,6 @@ differentiation:
   - mit20-a10-1
   - lebl-4.2.13
   - tao-10.3.5
-  - ross-29.10
   - rudin-5.14
   # group: Darboux's theorem
   - abbott-5.2.11

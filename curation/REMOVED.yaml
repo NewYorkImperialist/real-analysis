@@ -910,3 +910,205 @@
         so $x_n \ne x$ and $|x_n - x| = 10^{-n}/9$.
 
         Now let $\epsilon > 0$. Choose $n$ with $10^{-n} < 9\epsilon$ (possible since $10^{-n} \le 1/n \to 0$). Then $x_n \in (x-\epsilon, x+\epsilon) \cap E \setminus \{x\}$. As $\epsilon$ was arbitrary, $0.111\ldots$ is a cluster point of $E$.
+
+- id: lebl-3.4.3
+  reason: "near-duplicate: ross-19.2(c) has the same estimate for 1/x"
+  problem: |
+    - id: lebl-3.4.3
+      source:
+        key: lebl
+        chapter: 3 Continuous Functions
+        section: 3.4 Uniform continuity
+        problemNumber: Exercise 3.4.3
+        page: '143'
+      assignedIn:
+      - MIT 18.100A (Fall 2020) Assignment 9, Problem 2
+      topic: continuity
+      subtopics:
+      - lipschitz-holder
+      skills:
+      - algebraic-estimate
+      concept: 1/x is Lipschitz on (c, infinity) for c > 0
+      title: '$1/x$ is Lipschitz on $(c, \infty)$'
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags:
+      - Lipschitz
+      - 1-over-x
+      - estimate
+      problemLatex: |
+        Show that $f\colon (c, \infty) \to \mathbb{R}$ for some $c > 0$ and defined by $f(x) := 1/x$ is Lipschitz continuous.
+      notes: 'Topic matches MIT reading (3.3, 3.4, 3.5): consistent. Pairs naturally with Exercise 3.4.4 (not Lipschitz on (0,∞)).'
+      curation:
+        why: Lipschitz estimate |1/x - 1/y| = |x-y|/(xy) with xy bounded below.
+  solution: |
+    - id: lebl-3.4.3
+      hints:
+        - |
+          Put $\frac1x - \frac1y$ over a common denominator.
+        - |
+          You get $|x - y|$ divided by $xy$. On $(c,\infty)$, how small can $xy$ be?
+      solution: |
+        **Proof.** For $x, y \in (c, \infty)$,
+        $$\left|\frac1x - \frac1y\right| = \frac{|y - x|}{xy}.$$
+        Since $x > c > 0$ and $y > c > 0$, we have $xy > c^2$, so
+        $$\left|\frac1x - \frac1y\right| \le \frac{1}{c^2}\,|x - y|.$$
+        Thus $f$ is Lipschitz continuous on $(c,\infty)$ with constant $L = 1/c^2$. $\blacksquare$
+
+        (The constant blows up as $c \to 0$. This matches the fact that $1/x$ is not Lipschitz on $(0,\infty)$.)
+
+- id: lebl-3.3.14
+  reason: "near-duplicate: abbott-4.4.8(a) is the same compactness argument without assuming injectivity"
+  problem: |
+    - id: lebl-3.3.14
+      source:
+        key: lebl
+        chapter: 3 Continuous Functions
+        section: 3.3 Extreme and intermediate value theorems
+        problemNumber: Exercise 3.3.14
+        page: '137'
+      topic: continuity
+      subtopics:
+      - EVT
+      - continuity-and-topology
+      skills:
+      - contradiction
+      - EVT-application
+      concept: no continuous bijection [0,1] -> (0,1)
+      title: No continuous bijection from $[0,1]$ to $(0,1)$
+      difficulty: easy
+      category: canonical
+      type: proof
+      tags:
+      - EVT
+      - bijection
+      - compactness
+      - contradiction
+      problemLatex: |
+        Suppose $f\colon [0,1] \to (0,1)$ is a bijection. Prove that $f$ is not continuous.
+      curation:
+        why: A one-line consequence of the EVT (and compactness) that rules out a continuous bijection [0,1] → (0,1).
+  solution: |
+    - id: lebl-3.3.14
+      hints:
+        - |
+          Suppose $f$ were continuous. What does the Extreme Value Theorem say about $f$ on $[0,1]$?
+        - |
+          A maximum value $M$ of $f$ would be a number in $(0,1)$. Use surjectivity onto $(0,1)$ to find a value of $f$ that is larger.
+      solution: |
+        **Proof.** Suppose, for contradiction, that $f$ is continuous. By the Extreme Value Theorem, $f$ attains an absolute maximum on $[0,1]$: there is $x_0$ with $f(x) \le M := f(x_0)$ for all $x \in [0,1]$. Since $f$ maps into $(0,1)$, $M < 1$, so $\frac{M+1}{2} \in (0,1)$. Because $f$ is onto $(0,1)$, there is $x_1 \in [0,1]$ with $f(x_1) = \frac{M+1}{2} > M$, contradicting maximality. Hence $f$ is not continuous. $\blacksquare$
+
+        (Only surjectivity was used. Injectivity is not needed.)
+
+- id: lebl-1.2.7
+  reason: "near-duplicate: abbott-2.4.6(a) asks for AM-GM and then uses it"
+  problem: |
+    - id: lebl-1.2.7
+      source:
+        key: lebl
+        chapter: 1 Real Numbers
+        section: 1.2 The set of real numbers
+        problemNumber: Exercise 1.2.7
+        page: '34'
+      assignedIn:
+      - MIT 18.100A (Fall 2020) Assignment 2, Problem 5
+      topic: real-numbers
+      subtopics:
+      - inequalities
+      skills:
+      - algebraic-manipulation
+      - squares-nonnegative
+      concept: AM-GM inequality for two numbers
+      title: The AM-GM inequality for two numbers
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags:
+      - AM-GM
+      - inequality
+      problemLatex: |
+        Prove the arithmetic-geometric mean inequality. For two positive real numbers $x, y$,
+        $$\sqrt{xy} \leq \frac{x+y}{2}.$$
+        Furthermore, equality occurs if and only if $x = y$.
+      notes: Topically consistent with the MIT reading (1.2).
+      curation:
+        why: Basic real inequality manipulation including the equality case.
+  solution: |
+    - id: lebl-1.2.7
+      hints:
+        - |
+          Both sides are positive, so it suffices to compare squares. Which expression that is obviously $\ge 0$ could produce $x + y - 2\sqrt{xy}$ or $(x+y)^2 - 4xy$?
+        - |
+          Consider $(x - y)^2 \ge 0$ and rewrite it in terms of $(x+y)^2$ and $xy$.
+        - |
+          For the equality case, track exactly when each step is an equality; the only non-equality step is $(x-y)^2 \ge 0$.
+      solution: |
+        Let $x, y > 0$. Then
+        $$(x+y)^2 - 4xy = x^2 - 2xy + y^2 = (x - y)^2 \ge 0,$$
+        so $4xy \le (x+y)^2$, i.e. $xy \le \left(\frac{x+y}{2}\right)^2$. Both $\sqrt{xy}$ and $\frac{x+y}{2}$ are positive, and for nonnegative $u, v$ we have $u \le v$ if and only if $u^2 \le v^2$ (if $u > v \ge 0$ then $u^2 > uv \ge v^2$; conversely $u \le v$ gives $u^2 \le uv \le v^2$). Applying this with $u = \sqrt{xy}$, $v = \frac{x+y}{2}$, we get
+        $$\sqrt{xy} \le \frac{x+y}{2}.$$
+
+        **Equality.** By the same equivalence (for nonnegative $u,v$, $u = v$ iff $u^2 = v^2$), equality $\sqrt{xy} = \frac{x+y}{2}$ holds iff $xy = \frac{(x+y)^2}{4}$, iff $(x+y)^2 - 4xy = 0$, iff $(x - y)^2 = 0$, iff $x = y$. $\blacksquare$
+
+- id: ross-29.10
+  reason: "near-duplicate: lebl-4.4.6 is the same example family (x^2 sin(1/x) + cx) and adds invertibility"
+  problem: |
+    - id: ross-29.10
+      source:
+        key: ross
+        chapter: 5 Differentiation
+        section: §29 The Mean Value Theorem
+        problemNumber: Exercise 29.10
+        page: '240'
+      topic: differentiation
+      subtopics:
+      - derivative-definition
+      - mvt-applications
+      skills:
+      - construct-counterexample
+      - sequential-criterion
+      concept: f'(0) > 0 but f not increasing on any neighborhood of 0 (x^2 sin(1/x) + x/2)
+      title: Positive derivative at a point without local increase
+      difficulty: medium
+      category: canonical
+      type: counterexample
+      tags:
+      - derivative
+      - monotonicity
+      - x-squared-sin-one-over-x
+      - counterexample
+      problemLatex: |
+        Let $f(x) = x^2 \sin(\frac1x) + \frac{x}{2}$ for $x \neq 0$ and $f(0) = 0$.
+
+        (a) Show $f'(0) > 0$; see Exercise 28.4.
+
+        (b) Show $f$ is not increasing on any open interval containing 0.
+
+        (c) Compare this example with Corollary 29.7(i).
+
+        *(Corollary 29.7(i): Let $f$ be a differentiable function on an interval $(a, b)$. Then $f$ is strictly increasing if $f'(x) > 0$ for all $x \in (a, b)$.)*
+      notes: Verified against page image. Corollary 29.7 stem and part (i) quoted verbatim (assembled). Exercise 28.4 is x^2 sin(1/x) (ross-28.4). Ross's 'increasing' means non-decreasing (Definition 29.6). No book hint.
+      curation:
+        why: f′(0) > 0 but f is not increasing on any neighborhood of 0.
+  solution: |
+    - id: ross-29.10
+      hints:
+        - |
+          Write $f = F + \frac{x}{2}$, where $F$ is the function from Exercise 28.4, and reuse what you know about $F$ and $F'$.
+        - |
+          If $f$ were increasing (non-decreasing) on an open interval, every difference quotient, and hence every derivative, would be $\ge0$ there. Look for points arbitrarily close to $0$ where $f'<0$.
+        - |
+          For (c), what is the hypothesis of Corollary 29.7(i), and does this $f$ satisfy $f'>0$ on a whole open interval around $0$?
+      solution: |
+        Let $F(x) = x^2\sin(1/x)$ for $x\ne0$, $F(0)=0$, as in Exercise 28.4, so $f(x) = F(x) + \frac x2$. Recall from Exercise 28.4 that $F'(0) = 0$ and $F'(x) = 2x\sin(1/x) - \cos(1/x)$ for $x\ne0$. ("Increasing" here means non-decreasing, as in Ross's Definition 29.6.)
+
+        **(a)** By the sum rule, $f$ is differentiable everywhere with $f'(x) = F'(x) + \frac12$. In particular $f'(0) = 0 + \frac12 = \frac12 > 0$.
+
+        **(b)** First, if $f$ is increasing on an open interval $J$ and $x\in J$, then for $t\in J$, $t\neq x$, the difference quotient $\frac{f(t)-f(x)}{t-x}$ is $\ge0$ (numerator and denominator have the same sign or the numerator is $0$). Passing to the limit, $f'(x)\ge0$.
+
+        Now let $J$ be any open interval containing $0$. For $x_n = \frac{1}{2\pi n}$ we have $x_n\to0$, so $x_n\in J$ for large $n$. But
+        $$f'(x_n) = 2x_n\sin(2\pi n) - \cos(2\pi n) + \tfrac12 = 0 - 1 + \tfrac12 = -\tfrac12 < 0.$$
+        By the previous paragraph, $f$ is not increasing on $J$.
+
+        **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here $f'(0)>0$, but $f'$ is not positive on any open interval around $0$. Every neighborhood of $0$ contains points where $f'<0$: by (b), $f'(\frac{1}{2\pi n}) = -\frac12$ for every $n$. (This can happen only because $f'$ is not continuous at $0$; the term $-\cos(1/x)$ oscillates between $-1$ and $1$.) So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
