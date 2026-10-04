@@ -1,0 +1,1662 @@
+chunk: "abbott-ch1-2"
+book: abbott
+pageOffsetNote: "Chapter 1 (PDF pp. 24-49): printed page = pdfPage - 13. Chapter 2 (PDF pp. 51-95): printed page = pdfPage - 12 (an unnumbered blank page precedes Chapter 2)."
+sectionsCovered:
+  - "1.2 Some Preliminaries — 13 exercises"
+  - "1.3 The Axiom of Completeness — 11 exercises"
+  - "1.4 Consequences of Completeness — 8 exercises"
+  - "1.5 Cardinality — 11 exercises"
+  - "1.6 Cantor's Theorem — 10 exercises"
+  - "2.2 The Limit of a Sequence — 8 exercises"
+  - "2.3 The Algebraic and Order Limit Theorems — 13 exercises"
+  - "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series — 10 exercises"
+  - "2.5 Subsequences and the Bolzano–Weierstrass Theorem — 9 exercises"
+  - "2.6 The Cauchy Criterion — 7 exercises"
+  - "2.7 Properties of Infinite Series — 14 exercises"
+  - "2.8 Double Summations and Products of Infinite Series — 7 exercises"
+candidates:
+  # ---------------- 1.2 ----------------
+  - cid: abbott-1.2.6
+    chapter: "1 The Real Numbers"
+    section: "1.2 Some Preliminaries"
+    number: "Exercise 1.2.6"
+    page: "12"
+    pdfPage: 25
+    verdict: strong
+    machinery: "Triangle inequality and reverse triangle inequality, the basic estimating tools of analysis."
+    standardResult: "triangle inequality and reverse triangle inequality ||a|-|b|| <= |a-b|"
+    topic: real-numbers
+    subtopics: [absolute-value, inequalities]
+    skills: [case-analysis, triangle-inequality, add-and-subtract]
+    difficulty: introductory
+    difficultyRationale: "All parts are short manipulations; (d) needs the add-and-subtract trick."
+    category: canonical
+    type: proof
+    tags: [triangle-inequality, absolute-value, reverse-triangle-inequality, machinery]
+    references: []
+    problemLatex: |
+      (a) Verify the triangle inequality in the special case where $a$ and $b$ have the same sign.
+      (b) Find an efficient proof for all the cases at once by first demonstrating $(a+b)^2 \le (|a|+|b|)^2$.
+      (c) Prove $|a-b| \le |a-c| + |c-d| + |d-b|$ for all $a$, $b$, $c$, and $d$.
+      (d) Prove $||a|-|b|| \le |a-b|$. (The unremarkable identity $a = a - b + b$ may be useful.)
+    transcriptionNotes: "Triangle inequality in the book: $|a+b| \\le |a|+|b|$."
+
+  - cid: abbott-1.2.10
+    chapter: "1 The Real Numbers"
+    section: "1.2 Some Preliminaries"
+    number: "Exercise 1.2.10"
+    page: "13"
+    pdfPage: 26
+    verdict: strong
+    machinery: "The epsilon characterization of inequality (a <= b iff a < b + eps for all eps > 0), the basic move behind every epsilon proof."
+    standardResult: "a <= b iff a < b + epsilon for all epsilon > 0 (and why strict < fails)"
+    topic: real-numbers
+    subtopics: [inequalities, archimedean-property]
+    skills: [construct-counterexample, contradiction, epsilon-argument]
+    difficulty: easy
+    difficultyRationale: "Short, but requires care to see exactly which direction/version holds."
+    category: canonical
+    type: counterexample
+    tags: [epsilon, inequalities, quantifiers, true-false, counterexample]
+    references: []
+    problemLatex: |
+      Decide which of the following are true statements. Provide a short justification for those that are valid and a counterexample for those that are not:
+      (a) Two real numbers satisfy $a < b$ if and only if $a < b + \epsilon$ for every $\epsilon > 0$.
+      (b) Two real numbers satisfy $a < b$ if $a < b + \epsilon$ for every $\epsilon > 0$.
+      (c) Two real numbers satisfy $a \le b$ if and only if $a < b + \epsilon$ for every $\epsilon > 0$.
+
+  - cid: abbott-1.2.11
+    chapter: "1 The Real Numbers"
+    section: "1.2 Some Preliminaries"
+    number: "Exercise 1.2.11"
+    page: "13"
+    pdfPage: 26
+    verdict: consider
+    machinery: "Negating nested quantifier statements about real numbers into positive form."
+    standardResult: "negating quantified statements (Archimedean / density)"
+    topic: foundations
+    subtopics: [logic-quantifiers]
+    skills: [negate-definition]
+    difficulty: introductory
+    difficultyRationale: "Mechanical negation plus intuitive truth judgment."
+    category: canonical
+    type: definition
+    tags: [quantifiers, negation, logic, Archimedean-property, density]
+    references: []
+    problemLatex: |
+      Form the logical negation of each claim. One trivial way to do this is to simply add "It is not the case that..." in front of each assertion. To make this interesting, fashion the negation into a positive statement that avoids using the word "not" altogether. In each case, make an intuitive guess as to whether the claim or its negation is the true statement.
+      (a) For all real numbers satisfying $a < b$, there exists an $n \in \mathbb{N}$ such that $a + 1/n < b$.
+      (b) There exists a real number $x > 0$ such that $x < 1/n$ for all $n \in \mathbb{N}$.
+      (c) Between every two distinct real numbers there is a rational number.
+
+  # ---------------- 1.3 ----------------
+  - cid: abbott-1.3.3
+    chapter: "1 The Real Numbers"
+    section: "1.3 The Axiom of Completeness"
+    number: "Exercise 1.3.3"
+    page: "18"
+    pdfPage: 31
+    verdict: strong
+    machinery: "Existence of infima from the Axiom of Completeness via the set of lower bounds."
+    standardResult: "inf A = sup of the set of lower bounds of A (infima exist from AoC)"
+    topic: real-numbers
+    subtopics: [supremum-infimum, completeness]
+    skills: [sup-definition-two-parts, upper-bound-argument]
+    difficulty: easy
+    difficultyRationale: "Requires checking both parts of the definitions of sup and inf carefully."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, Axiom-of-Completeness, lower-bound]
+    references: []
+    problemLatex: |
+      (a) Let $A$ be nonempty and bounded below, and define $B = \{b \in \mathbb{R} : b \text{ is a lower bound for } A\}$. Show that $\sup B = \inf A$.
+      (b) Use (a) to explain why there is no need to assert that greatest lower bounds exist as part of the Axiom of Completeness.
+    transcriptionNotes: "Axiom of Completeness (book): Every nonempty set of real numbers that is bounded above has a least upper bound."
+
+  - cid: abbott-1.3.5
+    chapter: "1 The Real Numbers"
+    section: "1.3 The Axiom of Completeness"
+    number: "Exercise 1.3.5"
+    page: "19"
+    pdfPage: 32
+    verdict: strong
+    machinery: "Sup manipulation under scaling; sign flip turns sup into inf."
+    standardResult: "sup(cA) = c sup A for c >= 0; sup(cA) = c inf A for c < 0"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-definition-two-parts]
+    difficulty: easy
+    difficultyRationale: "Standard two-sided sup argument plus formulating the c<0 analogue."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, scaling]
+    references: []
+    problemLatex: |
+      As in Example 1.3.7, let $A \subseteq \mathbb{R}$ be nonempty and bounded above, and let $c \in \mathbb{R}$. This time define the set $cA = \{ca : a \in A\}$.
+      (a) If $c \ge 0$, show that $\sup(cA) = c \sup A$.
+      (b) Postulate a similar type of statement for $\sup(cA)$ for the case $c < 0$.
+    transcriptionNotes: "'As in Example 1.3.7' only refers to the same setup (A nonempty and bounded above, c real), which is restated in the exercise itself; Example 1.3.7 treats c + A."
+
+  - cid: abbott-1.3.6
+    chapter: "1 The Real Numbers"
+    section: "1.3 The Axiom of Completeness"
+    number: "Exercise 1.3.6"
+    page: "19"
+    pdfPage: 32
+    verdict: core
+    machinery: "The two-part definition of supremum and the epsilon characterization (Lemma 1.3.8)."
+    standardResult: "sup(A+B) = sup A + sup B"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-definition-two-parts, sup-approximation, epsilon-argument]
+    difficulty: easy
+    difficultyRationale: "Guided two-step argument; part (d) requires an epsilon/2 approximation argument."
+    category: canonical
+    type: proof
+    tags: [supremum, sum-of-sets, epsilon, machinery]
+    references: ["Lemma 1.3.8 (quoted)"]
+    problemLatex: |
+      Given sets $A$ and $B$, define $A + B = \{a + b : a \in A \text{ and } b \in B\}$. Follow these steps to prove that if $A$ and $B$ are nonempty and bounded above then $\sup(A+B) = \sup A + \sup B$.
+      (a) Let $s = \sup A$ and $t = \sup B$. Show $s + t$ is an upper bound for $A + B$.
+      (b) Now let $u$ be an arbitrary upper bound for $A + B$, and temporarily fix $a \in A$. Show $t \le u - a$.
+      (c) Finally, show $\sup(A+B) = s + t$.
+      (d) Construct another proof of this same fact using Lemma 1.3.8.
+
+      *(Lemma 1.3.8: Assume $s \in \mathbb{R}$ is an upper bound for a set $A \subseteq \mathbb{R}$. Then, $s = \sup A$ if and only if, for every choice of $\epsilon > 0$, there exists an element $a \in A$ satisfying $s - \epsilon < a$.)*
+    transcriptionNotes: "Lemma 1.3.8 quoted verbatim from p. 17."
+
+  - cid: abbott-1.3.9
+    chapter: "1 The Real Numbers"
+    section: "1.3 The Axiom of Completeness"
+    number: "Exercise 1.3.9"
+    page: "19"
+    pdfPage: 32
+    verdict: strong
+    machinery: "Using the 'least' part of sup: anything below sup B is exceeded by some element of B."
+    standardResult: "sup A < sup B implies some b in B is an upper bound for A"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-approximation, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "One application of the approximation property plus a simple counterexample."
+    category: canonical
+    type: proof
+    tags: [supremum, upper-bound, counterexample]
+    references: []
+    problemLatex: |
+      (a) If $\sup A < \sup B$, show that there exists an element $b \in B$ that is an upper bound for $A$.
+      (b) Give an example to show that this is not always the case if we only assume $\sup A \le \sup B$.
+
+  - cid: abbott-1.3.10
+    chapter: "1 The Real Numbers"
+    section: "1.3 The Axiom of Completeness"
+    number: "Exercise 1.3.10"
+    page: "19"
+    pdfPage: 32
+    verdict: consider
+    machinery: "Equivalent formulations of completeness: AoC <=> Cut Property; failure in Q."
+    standardResult: "Cut Property (Dedekind cuts) equivalent to the least upper bound property"
+    topic: real-numbers
+    subtopics: [completeness, supremum-infimum]
+    skills: [sup-definition-two-parts, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Part (b) requires constructing a suitable cut from an arbitrary bounded set."
+    category: synthesis
+    type: proof
+    tags: [completeness, Dedekind-cut, Axiom-of-Completeness, rationals]
+    references: []
+    problemLatex: |
+      **(Cut Property).** The Cut Property of the real numbers is the following:
+
+      If $A$ and $B$ are nonempty, disjoint sets with $A \cup B = \mathbb{R}$ and $a < b$ for all $a \in A$ and $b \in B$, then there exists $c \in \mathbb{R}$ such that $x \le c$ whenever $x \in A$ and $x \ge c$ whenever $x \in B$.
+      (a) Use the Axiom of Completeness to prove the Cut Property.
+      (b) Show that the implication goes the other way; that is, assume $\mathbb{R}$ possesses the Cut Property and let $E$ be a nonempty set that is bounded above. Prove $\sup E$ exists.
+      (c) The punchline of parts (a) and (b) is that the Cut Property could be used in place of the Axiom of Completeness as the fundamental axiom that distinguishes the real numbers from the rational numbers. To drive this point home, give a concrete example showing that the Cut Property is not a valid statement when $\mathbb{R}$ is replaced by $\mathbb{Q}$.
+
+  - cid: abbott-1.3.11
+    chapter: "1 The Real Numbers"
+    section: "1.3 The Axiom of Completeness"
+    number: "Exercise 1.3.11"
+    page: "20"
+    pdfPage: 33
+    verdict: strong
+    machinery: "Sup/inf order facts, and the subtle strict-vs-nonstrict inequality issue."
+    standardResult: "A subset B implies sup A <= sup B; sup A < inf B vs. separating constant"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [construct-counterexample, sup-definition-two-parts]
+    difficulty: easy
+    difficultyRationale: "Short arguments; (c) needs noticing a strict inequality can fail in the limit."
+    category: canonical
+    type: counterexample
+    tags: [supremum, infimum, true-false, counterexample]
+    references: []
+    problemLatex: |
+      Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
+      (a) If $A$ and $B$ are nonempty, bounded, and satisfy $A \subseteq B$, then $\sup A \le \sup B$.
+      (b) If $\sup A < \inf B$ for sets $A$ and $B$, then there exists a $c \in \mathbb{R}$ satisfying $a < c < b$ for all $a \in A$ and $b \in B$.
+      (c) If there exists a $c \in \mathbb{R}$ satisfying $a < c < b$ for all $a \in A$ and $b \in B$, then $\sup A < \inf B$.
+
+  # ---------------- 1.4 ----------------
+  - cid: abbott-1.4.2
+    chapter: "1 The Real Numbers"
+    section: "1.4 Consequences of Completeness"
+    number: "Exercise 1.4.2"
+    page: "24"
+    pdfPage: 37
+    verdict: strong
+    machinery: "Characterizing sup via 1/n-approximation; uses the Archimedean property."
+    standardResult: "s = sup A iff s + 1/n is an upper bound and s - 1/n is not, for all n"
+    topic: real-numbers
+    subtopics: [supremum-infimum, archimedean-property]
+    skills: [sup-definition-two-parts, contradiction, archimedean-argument]
+    difficulty: easy
+    difficultyRationale: "Both halves of the sup definition plus an Archimedean step."
+    category: canonical
+    type: proof
+    tags: [supremum, Archimedean-property, epsilon]
+    references: []
+    problemLatex: |
+      Let $A \subseteq \mathbb{R}$ be nonempty and bounded above, and let $s \in \mathbb{R}$ have the property that for all $n \in \mathbb{N}$, $s + \frac{1}{n}$ is an upper bound for $A$ and $s - \frac{1}{n}$ is not an upper bound for $A$. Show $s = \sup A$.
+
+  - cid: abbott-1.4.3
+    chapter: "1 The Real Numbers"
+    section: "1.4 Consequences of Completeness"
+    number: "Exercise 1.4.3"
+    page: "24"
+    pdfPage: 37
+    verdict: strong
+    machinery: "Archimedean property; why closedness is needed in the Nested Interval Property."
+    standardResult: "intersection of (0,1/n) is empty — nested open intervals can have empty intersection"
+    topic: real-numbers
+    subtopics: [archimedean-property, completeness]
+    skills: [archimedean-argument, contradiction]
+    difficulty: introductory
+    difficultyRationale: "Direct application of the Archimedean property."
+    category: canonical
+    type: counterexample
+    tags: [nested-intervals, Archimedean-property, open-interval, counterexample]
+    references: ["Theorem 1.4.1 Nested Interval Property (quoted)"]
+    problemLatex: |
+      Prove that $\bigcap_{n=1}^{\infty} (0, 1/n) = \emptyset$. Notice that this demonstrates that the intervals in the Nested Interval Property must be closed for the conclusion of the theorem to hold.
+
+      *(Theorem 1.4.1 (Nested Interval Property): For each $n \in \mathbb{N}$, assume we are given a closed interval $I_n = [a_n, b_n] = \{x \in \mathbb{R} : a_n \le x \le b_n\}$. Assume also that each $I_n$ contains $I_{n+1}$. Then, the resulting nested sequence of closed intervals $I_1 \supseteq I_2 \supseteq I_3 \supseteq I_4 \supseteq \cdots$ has a nonempty intersection; that is, $\bigcap_{n=1}^{\infty} I_n \neq \emptyset$.)*
+    transcriptionNotes: "Theorem 1.4.1 quoted verbatim from p. 20."
+
+  - cid: abbott-1.4.4
+    chapter: "1 The Real Numbers"
+    section: "1.4 Consequences of Completeness"
+    number: "Exercise 1.4.4"
+    page: "24"
+    pdfPage: 37
+    verdict: strong
+    machinery: "Density of Q combined with the sup definition."
+    standardResult: "sup(Q ∩ [a,b]) = b (density of rationals)"
+    topic: real-numbers
+    subtopics: [density-of-Q, supremum-infimum]
+    skills: [density-argument, sup-definition-two-parts]
+    difficulty: easy
+    difficultyRationale: "Upper bound is immediate; least-ness uses density of Q."
+    category: canonical
+    type: proof
+    tags: [density, rationals, supremum]
+    references: []
+    problemLatex: |
+      Let $a < b$ be real numbers and consider the set $T = \mathbb{Q} \cap [a, b]$. Show $\sup T = b$.
+
+  - cid: abbott-1.4.7
+    chapter: "1 The Real Numbers"
+    section: "1.4 Consequences of Completeness"
+    number: "Exercise 1.4.7"
+    page: "24"
+    pdfPage: 37
+    verdict: core
+    machinery: "Using the 'least' half of sup with an explicit Archimedean estimate to get existence of sqrt 2."
+    standardResult: "existence of sqrt(2) via supremum of {t : t^2 < 2}"
+    topic: real-numbers
+    subtopics: [completeness, supremum-infimum, archimedean-property]
+    skills: [sup-definition-two-parts, contradiction, archimedean-argument, estimate]
+    difficulty: medium
+    difficultyRationale: "Must produce an explicit n with (alpha - 1/n)^2 > 2 and turn it into a smaller upper bound."
+    category: canonical
+    type: proof
+    tags: [square-root, supremum, completeness, Archimedean-property, machinery]
+    references: ["Theorem 1.4.5 and the set T from its proof (quoted)"]
+    problemLatex: |
+      Finish the proof of Theorem 1.4.5 by showing that the assumption $\alpha^2 > 2$ leads to a contradiction of the fact that $\alpha = \sup T$.
+
+      *(Theorem 1.4.5: There exists a real number $\alpha \in \mathbb{R}$ satisfying $\alpha^2 = 2$. In the book's proof, $T = \{t \in \mathbb{R} : t^2 < 2\}$ and $\alpha = \sup T$; the case $\alpha^2 < 2$ is ruled out in the text by showing $\alpha + 1/n_0 \in T$ for suitable $n_0$, contradicting that $\alpha$ is an upper bound. For the case $\alpha^2 > 2$ the text begins: "This time, write $\left(\alpha - \frac{1}{n}\right)^2 = \alpha^2 - \frac{2\alpha}{n} + \frac{1}{n^2} > \alpha^2 - \frac{2\alpha}{n}$.")*
+    transcriptionNotes: "Theorem statement, set T, and the displayed starting inequality are quoted from p. 23; the one-sentence summary of the alpha^2 < 2 case is my condensation of the book's proof (marked as such)."
+
+  - cid: abbott-1.4.8
+    chapter: "1 The Real Numbers"
+    section: "1.4 Consequences of Completeness"
+    number: "Exercise 1.4.8"
+    page: "24"
+    pdfPage: 37
+    verdict: strong
+    machinery: "Testing the hypotheses of the Nested Interval Property (closed, bounded, nested) by examples."
+    standardResult: "sharpness of the Nested Interval Property hypotheses"
+    topic: real-numbers
+    subtopics: [completeness, supremum-infimum]
+    skills: [construct-counterexample, nested-intervals]
+    difficulty: easy
+    difficultyRationale: "Each part is a quick example or impossibility argument; (b)/(d) need a little thought."
+    category: canonical
+    type: counterexample
+    tags: [nested-intervals, counterexample, supremum, example-or-impossible]
+    references: []
+    problemLatex: |
+      Give an example of each or state that the request is impossible. When a request is impossible, provide a compelling argument for why this is the case.
+      (a) Two sets $A$ and $B$ with $A \cap B = \emptyset$, $\sup A = \sup B$, $\sup A \notin A$ and $\sup B \notin B$.
+      (b) A sequence of nested open intervals $J_1 \supseteq J_2 \supseteq J_3 \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} J_n$ nonempty but containing only a finite number of elements.
+      (c) A sequence of nested unbounded closed intervals $L_1 \supseteq L_2 \supseteq L_3 \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} L_n = \emptyset$. (An unbounded closed interval has the form $[a, \infty) = \{x \in \mathbb{R} : x \ge a\}$.)
+      (d) A sequence of closed (not necessarily nested) intervals $I_1, I_2, I_3, \ldots$ with the property that $\bigcap_{n=1}^{N} I_n \neq \emptyset$ for all $N \in \mathbb{N}$, but $\bigcap_{n=1}^{\infty} I_n = \emptyset$.
+
+  # ---------------- 1.5 ----------------
+  - cid: abbott-1.5.3
+    chapter: "1 The Real Numbers"
+    section: "1.5 Cardinality"
+    number: "Exercise 1.5.3"
+    page: "30"
+    pdfPage: 43
+    verdict: strong
+    machinery: "Countable unions of countable sets; why induction does not reach the infinite case."
+    standardResult: "countable union of countable sets is countable"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [explicit-bijection, diagonal-enumeration]
+    difficulty: medium
+    difficultyRationale: "Part (c) requires turning the diagonal array into a rigorous bijection/enumeration."
+    category: canonical
+    type: proof
+    tags: [countable, cardinality, countable-union, induction]
+    references: ["Theorem 1.5.8 (quoted)", "Example 1.5.3 (ii) (quoted)"]
+    problemLatex: |
+      Use the following outline to supply proofs for the statements in Theorem 1.5.8.
+      (a) First, prove statement (i) for two countable sets, $A_1$ and $A_2$. Example 1.5.3 (ii) may be a useful reference. Some technicalities can be avoided by first replacing $A_2$ with the set $B_2 = A_2 \setminus A_1 = \{x \in A_2 : x \notin A_1\}$. The point of this is that the union $A_1 \cup B_2$ is equal to $A_1 \cup A_2$ and the sets $A_1$ and $B_2$ are disjoint. (What happens if $B_2$ is finite?)
+
+      Now, explain how the more general statement in (i) follows.
+      (b) Explain why induction *cannot* be used to prove part (ii) of Theorem 1.5.8 from part (i).
+      (c) Show how arranging $\mathbb{N}$ into the two-dimensional array
+      $$\begin{array}{cccccc} 1 & 3 & 6 & 10 & 15 & \cdots \\ 2 & 5 & 9 & 14 & \cdots & \\ 4 & 8 & 13 & \cdots & & \\ 7 & 12 & \cdots & & & \\ 11 & \cdots & & & & \\ \vdots & & & & & \end{array}$$
+      leads to a proof of Theorem 1.5.8 (ii).
+
+      *(Theorem 1.5.8: (i) If $A_1, A_2, \ldots, A_m$ are each countable sets, then the union $A_1 \cup A_2 \cup \cdots \cup A_m$ is countable. (ii) If $A_n$ is a countable set for each $n \in \mathbb{N}$, then $\bigcup_{n=1}^{\infty} A_n$ is countable.)*
+
+      *(Example 1.5.3 (ii): although $\mathbb{N}$ is contained in $\mathbb{Z}$ as a proper subset, $\mathbb{N} \sim \mathbb{Z}$ via $f(n) = (n-1)/2$ if $n$ is odd, $f(n) = -n/2$ if $n$ is even.)*
+    transcriptionNotes: "Theorem 1.5.8 quoted verbatim (p. 29). Example 1.5.3(ii) condensed from p. 26 (the formula is verbatim). Note: in Abbott, 'countable' means N ~ A (countably infinite); finite sets are not called countable."
+
+  - cid: abbott-1.5.6
+    chapter: "1 The Real Numbers"
+    section: "1.5 Cardinality"
+    number: "Exercise 1.5.6"
+    page: "31"
+    pdfPage: 44
+    verdict: strong
+    machinery: "Density of Q used as an injection to bound cardinality; foreshadows structure of open sets."
+    standardResult: "any collection of disjoint open intervals is countable"
+    topic: foundations
+    subtopics: [cardinality, density-of-Q]
+    skills: [density-argument, injection-into-Q]
+    difficulty: easy
+    difficultyRationale: "Key idea is picking a rational in each interval; short once seen."
+    category: canonical
+    type: proof
+    tags: [countable, open-intervals, density, rationals]
+    references: []
+    problemLatex: |
+      (a) Give an example of a countable collection of disjoint open intervals.
+      (b) Give an example of an uncountable collection of disjoint open intervals, or argue that no such collection exists.
+
+  - cid: abbott-1.5.8
+    chapter: "1 The Real Numbers"
+    section: "1.5 Cardinality"
+    number: "Exercise 1.5.8"
+    page: "31"
+    pdfPage: 44
+    verdict: strong
+    machinery: "Decomposing a set by size thresholds (elements > 1/n) to prove countability — a pattern reused for discontinuities of monotone functions and summable families."
+    standardResult: "a set of positive reals with bounded finite sums is countable"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [countable-union-decomposition, pigeonhole]
+    difficulty: medium
+    difficultyRationale: "Need the idea of slicing B into finite sets B_n = B ∩ (1/n, ∞)."
+    category: synthesis
+    type: proof
+    tags: [countable, cardinality, summable, series]
+    references: []
+    problemLatex: |
+      Let $B$ be a set of positive real numbers with the property that adding together any finite subset of elements from $B$ always gives a sum of $2$ or less. Show $B$ must be finite or countable.
+
+  - cid: abbott-1.5.9
+    chapter: "1 The Real Numbers"
+    section: "1.5 Cardinality"
+    number: "Exercise 1.5.9"
+    page: "31"
+    pdfPage: 44
+    verdict: core
+    machinery: "Countable unions and counting polynomials with integer coefficients; existence of transcendental numbers."
+    standardResult: "algebraic numbers are countable; transcendental numbers exist (uncountably many)"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [countable-union-decomposition]
+    difficulty: medium
+    difficultyRationale: "Part (b) requires organizing countably many polynomials each with finitely many roots."
+    category: canonical
+    type: proof
+    tags: [countable, algebraic-numbers, transcendental-numbers, cardinality]
+    references: []
+    problemLatex: |
+      A real number $x \in \mathbb{R}$ is called *algebraic* if there exist integers $a_0, a_1, a_2, \ldots, a_n \in \mathbb{Z}$, not all zero, such that
+      $$a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0.$$
+      Said another way, a real number is algebraic if it is the root of a polynomial with integer coefficients. Real numbers that are not algebraic are called *transcendental* numbers. Reread the last paragraph of Section 1.1. The final question posed here is closely related to the question of whether or not transcendental numbers exist.
+      (a) Show that $\sqrt{2}$, $\sqrt[3]{2}$, and $\sqrt{3} + \sqrt{2}$ are algebraic.
+      (b) Fix $n \in \mathbb{N}$, and let $A_n$ be the algebraic numbers obtained as roots of polynomials with integer coefficients that have degree $n$. Using the fact that every polynomial has a finite number of roots, show that $A_n$ is countable.
+      (c) Now, argue that the set of all algebraic numbers is countable. What may we conclude about the set of transcendental numbers?
+    transcriptionNotes: "The sentence 'Reread the last paragraph of Section 1.1...' is kept verbatim; it is contextual only and could be dropped without affecting the problem."
+
+  - cid: abbott-1.5.10
+    chapter: "1 The Real Numbers"
+    section: "1.5 Cardinality"
+    number: "Exercise 1.5.10"
+    page: "31"
+    pdfPage: 44
+    verdict: consider
+    machinery: "Combining sup with countable-union arguments; distinguishing uncountable vs infinite."
+    standardResult: "uncountable C in [0,1] has a 'condensation' point: C ∩ [α,1] uncountable at α = sup"
+    topic: foundations
+    subtopics: [cardinality, supremum-infimum]
+    skills: [countable-union-decomposition, sup-approximation, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Part (b) needs a careful countable-union argument at the supremum."
+    category: synthesis
+    type: proof
+    tags: [uncountable, supremum, countable-union, cardinality]
+    references: []
+    problemLatex: |
+      (a) Let $C \subseteq [0, 1]$ be uncountable. Show that there exists $a \in (0, 1)$ such that $C \cap [a, 1]$ is uncountable.
+      (b) Now let $A$ be the set of all $a \in (0, 1)$ such that $C \cap [a, 1]$ is uncountable, and set $\alpha = \sup A$. Is $C \cap [\alpha, 1]$ an uncountable set?
+      (c) Does the statement in (a) remain true if "uncountable" is replaced by "infinite"?
+
+  # ---------------- 1.6 ----------------
+  - cid: abbott-1.6.4
+    chapter: "1 The Real Numbers"
+    section: "1.6 Cantor's Theorem"
+    number: "Exercise 1.6.4"
+    page: "34"
+    pdfPage: 47
+    verdict: strong
+    machinery: "Cantor's diagonal argument in its cleanest form."
+    standardResult: "the set of 0-1 sequences is uncountable (diagonalization)"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [diagonal-argument, contradiction]
+    difficulty: easy
+    difficultyRationale: "Standard diagonal construction with no decimal-representation subtleties."
+    category: canonical
+    type: proof
+    tags: [uncountable, diagonal-argument, Cantor, binary-sequences]
+    references: []
+    problemLatex: |
+      Let $S$ be the set consisting of all sequences of 0's and 1's. Observe that $S$ is not a particular sequence, but rather a large set whose elements are sequences; namely,
+      $$S = \{(a_1, a_2, a_3, \ldots) : a_n = 0 \text{ or } 1\}.$$
+      As an example, the sequence $(1, 0, 1, 0, 1, 0, 1, 0, \ldots)$ is an element of $S$, as is the sequence $(1, 1, 1, 1, 1, 1, \ldots)$.
+
+      Give a rigorous argument showing that $S$ is uncountable.
+
+  - cid: abbott-1.6.9
+    chapter: "1 The Real Numbers"
+    section: "1.6 Cantor's Theorem"
+    number: "Exercise 1.6.9"
+    page: "35"
+    pdfPage: 48
+    verdict: consider
+    machinery: "Synthesizing bijections, binary/decimal expansions and Schröder–Bernstein to compare cardinalities."
+    standardResult: "P(N) has the same cardinality as R"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [explicit-injection, schroeder-bernstein]
+    difficulty: medium
+    difficultyRationale: "Requires assembling two injections and handling non-unique expansions."
+    category: synthesis
+    type: proof
+    tags: [cardinality, power-set, continuum, Schroeder-Bernstein]
+    references: []
+    problemLatex: |
+      Using the various tools and techniques developed in the last two sections (including the exercises from Section 1.5), give a compelling argument showing that $P(\mathbb{N}) \sim \mathbb{R}$.
+    transcriptionNotes: "P(A) denotes the power set. The 'tools' include the Schröder–Bernstein Theorem (Exercise 1.5.11: if there are 1–1 maps f: X→Y and g: Y→X then X ~ Y) and (0,1) ~ R."
+
+  # ---------------- 2.2 ----------------
+  - cid: abbott-2.2.1
+    chapter: "2 Sequences and Series"
+    section: "2.2 The Limit of a Sequence"
+    number: "Exercise 2.2.1"
+    page: "47"
+    pdfPage: 59
+    verdict: strong
+    machinery: "Understanding the quantifier order in the definition of convergence by analyzing a scrambled version."
+    standardResult: "quantifier order in definition of limit ('vercongence' = boundedness)"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [quantifier-analysis, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Recognizing that the invented definition just describes bounded sequences."
+    category: canonical
+    type: definition
+    tags: [quantifiers, convergence, definition, bounded-sequence]
+    references: ["Definition 2.2.3 (quoted)"]
+    problemLatex: |
+      What happens if we reverse the order of the quantifiers in Definition 2.2.3?
+
+      **Definition:** A sequence $(x_n)$ *verconges* to $x$ if there exists an $\epsilon > 0$ such that for all $N \in \mathbb{N}$ it is true that $n \ge N$ implies $|x_n - x| < \epsilon$.
+
+      Give an example of a vercongent sequence. Is there an example of a vercongent sequence that is divergent? Can a sequence verconge to two different values? What exactly is being described in this strange definition?
+
+      *(Definition 2.2.3 (Convergence of a Sequence): A sequence $(a_n)$ converges to a real number $a$ if, for every positive number $\epsilon$, there exists an $N \in \mathbb{N}$ such that whenever $n \ge N$ it follows that $|a_n - a| < \epsilon$.)*
+    transcriptionNotes: "Definition 2.2.3 quoted verbatim from p. 43."
+
+  - cid: abbott-2.2.2
+    chapter: "2 Sequences and Series"
+    section: "2.2 The Limit of a Sequence"
+    number: "Exercise 2.2.2"
+    page: "47"
+    pdfPage: 59
+    verdict: core
+    machinery: "Epsilon-N proofs from the definition, including bounding a rational function and using |sin| <= 1."
+    standardResult: "epsilon-N verification of specific limits"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof, comparison-estimate]
+    difficulty: introductory
+    difficultyRationale: "Direct definition-chasing; (b) needs a simple bound for the denominator."
+    category: canonical
+    type: proof
+    tags: [epsilon-N, convergence, limit, machinery]
+    references: []
+    problemLatex: |
+      Verify, using the definition of convergence of a sequence, that the following sequences converge to the proposed limit.
+      (a) $\lim \frac{2n+1}{5n+4} = \frac{2}{5}$.
+      (b) $\lim \frac{2n^2}{n^3+3} = 0$.
+      (c) $\lim \frac{\sin(n^2)}{\sqrt[3]{n}} = 0$.
+
+  - cid: abbott-2.2.4
+    chapter: "2 Sequences and Series"
+    section: "2.2 The Limit of a Sequence"
+    number: "Exercise 2.2.4"
+    page: "47"
+    pdfPage: 59
+    verdict: consider
+    machinery: "What convergence does and does not force about terms; example-or-impossible reasoning."
+    standardResult: "examples probing the definition of convergence (infinitely many ones, long runs)"
+    topic: sequences
+    subtopics: [convergence, divergence]
+    skills: [construct-counterexample, epsilon-N-proof]
+    difficulty: introductory
+    difficultyRationale: "Each part is a quick example or a short epsilon argument for impossibility."
+    category: canonical
+    type: counterexample
+    tags: [convergence, divergence, example-or-impossible, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of each or state that the request is impossible. For any that are impossible, give a compelling argument for why that is the case.
+      (a) A sequence with an infinite number of ones that does not converge to one.
+      (b) A sequence with an infinite number of ones that converges to a limit not equal to one.
+      (c) A divergent sequence such that for every $n \in \mathbb{N}$ it is possible to find $n$ consecutive ones somewhere in the sequence.
+
+  - cid: abbott-2.2.6
+    chapter: "2 Sequences and Series"
+    section: "2.2 The Limit of a Sequence"
+    number: "Exercise 2.2.6"
+    page: "48"
+    pdfPage: 60
+    verdict: strong
+    machinery: "Epsilon/2 argument with the triangle inequality."
+    standardResult: "uniqueness of limits of sequences"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof, triangle-inequality, epsilon-over-2]
+    difficulty: introductory
+    difficultyRationale: "Standard short epsilon/2 argument."
+    category: canonical
+    type: proof
+    tags: [uniqueness-of-limits, epsilon-N, triangle-inequality]
+    references: ["Theorem 2.2.7 (quoted)"]
+    problemLatex: |
+      Prove Theorem 2.2.7. To get started, assume $(a_n) \to a$ and also that $(a_n) \to b$. Now argue $a = b$.
+
+      *(Theorem 2.2.7 (Uniqueness of Limits): The limit of a sequence, when it exists, must be unique.)*
+    transcriptionNotes: "Theorem 2.2.7 quoted verbatim from p. 46."
+
+  - cid: abbott-2.2.7
+    chapter: "2 Sequences and Series"
+    section: "2.2 The Limit of a Sequence"
+    number: "Exercise 2.2.7"
+    page: "48"
+    pdfPage: 60
+    verdict: strong
+    machinery: "'Eventually' vs 'frequently' — the two quantifier patterns underlying limits and cluster points."
+    standardResult: "eventually vs frequently; convergence = eventually in every neighborhood"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [quantifier-analysis, negate-definition]
+    difficulty: introductory
+    difficultyRationale: "Conceptual unpacking of two quantifier patterns."
+    category: canonical
+    type: conceptual
+    tags: [quantifiers, eventually, frequently, convergence, neighborhood]
+    references: ["Definition 2.2.3B (quoted)"]
+    problemLatex: |
+      Here are two useful definitions:
+      (i) A sequence $(a_n)$ is *eventually* in a set $A \subseteq \mathbb{R}$ if there exists an $N \in \mathbb{N}$ such that $a_n \in A$ for all $n \ge N$.
+      (ii) A sequence $(a_n)$ is *frequently* in a set $A \subseteq \mathbb{R}$ if, for every $N \in \mathbb{N}$, there exists an $n \ge N$ such that $a_n \in A$.
+
+      (a) Is the sequence $(-1)^n$ eventually or frequently in the set $\{1\}$?
+      (b) Which definition is stronger? Does frequently imply eventually or does eventually imply frequently?
+      (c) Give an alternate rephrasing of Definition 2.2.3B using either frequently or eventually. Which is the term we want?
+      (d) Suppose an infinite number of terms of a sequence $(x_n)$ are equal to $2$. Is $(x_n)$ necessarily eventually in the interval $(1.9, 2.1)$? Is it frequently in $(1.9, 2.1)$?
+
+      *(Definition 2.2.3B (Convergence of a Sequence: Topological Version): A sequence $(a_n)$ converges to $a$ if, given any $\epsilon$-neighborhood $V_\epsilon(a)$ of $a$, there exists a point in the sequence after which all of the terms are in $V_\epsilon(a)$. In other words, every $\epsilon$-neighborhood contains all but a finite number of the terms of $(a_n)$. Here $V_\epsilon(a) = \{x \in \mathbb{R} : |x - a| < \epsilon\}$.)*
+    transcriptionNotes: "Definition 2.2.3B and the definition of V_eps(a) (Definition 2.2.4) quoted from p. 43."
+
+  # ---------------- 2.3 ----------------
+  - cid: abbott-2.3.1
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.1"
+    page: "54"
+    pdfPage: 66
+    verdict: strong
+    machinery: "Epsilon-N with algebraic trick (rationalizing) and case split x = 0 vs x > 0."
+    standardResult: "x_n -> x, x_n >= 0 implies sqrt(x_n) -> sqrt(x)"
+    topic: sequences
+    subtopics: [convergence, limit-laws]
+    skills: [epsilon-N-proof, rationalize, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Needs the conjugate identity and a separate x = 0 case."
+    category: canonical
+    type: proof
+    tags: [square-root, epsilon-N, limit-laws]
+    references: []
+    problemLatex: |
+      Let $x_n \ge 0$ for all $n \in \mathbb{N}$.
+      (a) If $(x_n) \to 0$, show that $(\sqrt{x_n}) \to 0$.
+      (b) If $(x_n) \to x$, show that $(\sqrt{x_n}) \to \sqrt{x}$.
+
+  - cid: abbott-2.3.2
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.2"
+    page: "54"
+    pdfPage: 66
+    verdict: strong
+    machinery: "Direct epsilon-N proofs of limit laws, including bounding the denominator away from zero."
+    standardResult: "x_n -> 2 implies 1/x_n -> 1/2 from the definition (bounding away from 0)"
+    topic: sequences
+    subtopics: [convergence, limit-laws]
+    skills: [epsilon-N-proof, bound-away-from-zero]
+    difficulty: easy
+    difficultyRationale: "(b) requires first bounding |x_n| below, the standard reciprocal trick."
+    category: canonical
+    type: proof
+    tags: [epsilon-N, reciprocal, limit-laws, machinery]
+    references: ["Definition 2.2.3 (quoted)"]
+    problemLatex: |
+      Using only Definition 2.2.3, prove that if $(x_n) \to 2$, then
+      (a) $\left(\frac{2x_n - 1}{3}\right) \to 1$;
+      (b) $(1/x_n) \to 1/2$.
+      (For this exercise the Algebraic Limit Theorem is off-limits, so to speak.)
+
+      *(Definition 2.2.3: A sequence $(a_n)$ converges to a real number $a$ if, for every positive number $\epsilon$, there exists an $N \in \mathbb{N}$ such that whenever $n \ge N$ it follows that $|a_n - a| < \epsilon$.)*
+    transcriptionNotes: "Definition 2.2.3 quoted verbatim from p. 43."
+
+  - cid: abbott-2.3.3
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.3"
+    page: "54"
+    pdfPage: 66
+    verdict: core
+    machinery: "Squeeze theorem via epsilon-N (or Order Limit Theorem)."
+    standardResult: "Squeeze Theorem for sequences"
+    topic: sequences
+    subtopics: [limit-laws, convergence]
+    skills: [epsilon-N-proof, take-max-of-N]
+    difficulty: introductory
+    difficultyRationale: "Short epsilon-N argument with max of two N's."
+    category: canonical
+    type: proof
+    tags: [squeeze-theorem, epsilon-N, machinery]
+    references: []
+    problemLatex: |
+      **(Squeeze Theorem).** Show that if $x_n \le y_n \le z_n$ for all $n \in \mathbb{N}$, and if $\lim x_n = \lim z_n = l$, then $\lim y_n = l$ as well.
+
+  - cid: abbott-2.3.7
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.7"
+    page: "54"
+    pdfPage: 66
+    verdict: strong
+    machinery: "Limits of the Algebraic Limit Theorem: what divergence/convergence of sums, products, reciprocals implies."
+    standardResult: "examples/impossibility for sums and products of divergent and convergent sequences"
+    topic: sequences
+    subtopics: [limit-laws, divergence, bounded-sequences]
+    skills: [construct-counterexample, theorem-citation]
+    difficulty: easy
+    difficultyRationale: "Each part is a quick example or an impossibility via the Algebraic Limit Theorem / boundedness."
+    category: canonical
+    type: counterexample
+    tags: [algebraic-limit-theorem, divergence, example-or-impossible, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of each of the following, or state that such a request is impossible by referencing the proper theorem(s):
+      (a) sequences $(x_n)$ and $(y_n)$, which both diverge, but whose sum $(x_n + y_n)$ converges;
+      (b) sequences $(x_n)$ and $(y_n)$, where $(x_n)$ converges, $(y_n)$ diverges, and $(x_n + y_n)$ converges;
+      (c) a convergent sequence $(b_n)$ with $b_n \neq 0$ for all $n$ such that $(1/b_n)$ diverges;
+      (d) an unbounded sequence $(a_n)$ and a convergent sequence $(b_n)$ with $(a_n - b_n)$ bounded;
+      (e) two sequences $(a_n)$ and $(b_n)$, where $(a_n b_n)$ and $(a_n)$ converge but $(b_n)$ does not.
+
+  - cid: abbott-2.3.9
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.9"
+    page: "55"
+    pdfPage: 67
+    verdict: core
+    machinery: "Bounded times null is null — an essential estimate used constantly."
+    standardResult: "bounded sequence times sequence tending to 0 tends to 0"
+    topic: sequences
+    subtopics: [limit-laws, bounded-sequences]
+    skills: [epsilon-N-proof, bound-then-scale-epsilon]
+    difficulty: easy
+    difficultyRationale: "Standard epsilon/M argument; (b) asks for honest analysis of the nonzero case."
+    category: canonical
+    type: proof
+    tags: [bounded-sequence, null-sequence, product, algebraic-limit-theorem, machinery]
+    references: ["Theorem 2.3.3 (quoted)"]
+    problemLatex: |
+      (a) Let $(a_n)$ be a bounded (not necessarily convergent) sequence, and assume $\lim b_n = 0$. Show that $\lim(a_n b_n) = 0$. Why are we not allowed to use the Algebraic Limit Theorem to prove this?
+      (b) Can we conclude anything about the convergence of $(a_n b_n)$ if we assume that $(b_n)$ converges to some nonzero limit $b$?
+      (c) Use (a) to prove Theorem 2.3.3, part (iii), for the case when $a = 0$.
+
+      *(Theorem 2.3.3 (Algebraic Limit Theorem): Let $\lim a_n = a$, and $\lim b_n = b$. Then, (i) $\lim(ca_n) = ca$, for all $c \in \mathbb{R}$; (ii) $\lim(a_n + b_n) = a + b$; (iii) $\lim(a_n b_n) = ab$; (iv) $\lim(a_n/b_n) = a/b$, provided $b \neq 0$.)*
+    transcriptionNotes: "Theorem 2.3.3 quoted verbatim from p. 50."
+
+  - cid: abbott-2.3.10
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.10"
+    page: "55"
+    pdfPage: 67
+    verdict: strong
+    machinery: "Careful reading of hypotheses in limit statements; reverse triangle inequality."
+    standardResult: "true/false conjectures about limits (|b_n| -> |b|, lim(a_n - b_n)=0, etc.)"
+    topic: sequences
+    subtopics: [limit-laws, convergence]
+    skills: [construct-counterexample, reverse-triangle-inequality, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Each part is short; (a) requires noticing the limits may not exist."
+    category: canonical
+    type: counterexample
+    tags: [true-false, limits, absolute-value, counterexample]
+    references: []
+    problemLatex: |
+      Consider the following list of conjectures. Provide a short proof for those that are true and a counterexample for any that are false.
+      (a) If $\lim(a_n - b_n) = 0$, then $\lim a_n = \lim b_n$.
+      (b) If $(b_n) \to b$, then $|b_n| \to |b|$.
+      (c) If $(a_n) \to 0$ and $(b_n - a_n) \to 0$, then $(b_n) \to a$.
+      (d) If $(a_n) \to 0$ and $|b_n - b| \le a_n$ for all $n \in \mathbb{N}$, then $(b_n) \to b$.
+    transcriptionNotes: "Part (c) is transcribed exactly as printed ('then $(b_n) \\to a$'; verified on the page image). The letter a is undefined there; it is very likely a typo for $(b_n) \\to 0$. Left unchanged; curator may wish to fix."
+
+  - cid: abbott-2.3.11
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.11"
+    page: "55"
+    pdfPage: 67
+    verdict: core
+    machinery: "Splitting a sum into a fixed head and a controlled tail (epsilon/2 with two-stage N)."
+    standardResult: "Cesàro means: x_n -> x implies averages -> x; converse fails"
+    topic: sequences
+    subtopics: [convergence, limit-laws]
+    skills: [split-sum-head-tail, epsilon-over-2, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Requires the head/tail split with an N chosen after a fixed earlier N."
+    category: canonical
+    type: proof
+    tags: [Cesaro-means, averages, epsilon-N, head-tail-split]
+    references: []
+    problemLatex: |
+      **(Cesaro Means).**
+      (a) Show that if $(x_n)$ is a convergent sequence, then the sequence given by the averages
+      $$y_n = \frac{x_1 + x_2 + \cdots + x_n}{n}$$
+      also converges to the same limit.
+      (b) Give an example to show that it is possible for the sequence $(y_n)$ of averages to converge even if $(x_n)$ does not.
+
+  - cid: abbott-2.3.12
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.12"
+    page: "55"
+    pdfPage: 67
+    verdict: strong
+    machinery: "Which properties pass to limits (closed conditions) and which do not; precursor to closed sets."
+    standardResult: "limits preserve non-strict inequalities / closed sets but not rationality"
+    topic: sequences
+    subtopics: [limit-laws, convergence]
+    skills: [order-limit-theorem, construct-counterexample, contradiction]
+    difficulty: easy
+    difficultyRationale: "Order Limit Theorem applications and a density counterexample."
+    category: canonical
+    type: counterexample
+    tags: [order-limit-theorem, closed-set, rationals, true-false]
+    references: []
+    problemLatex: |
+      A typical task in analysis is to decipher whether a property possessed by every term in a convergent sequence is necessarily inherited by the limit. Assume $(a_n) \to a$, and determine the validity of each claim. Try to produce a counterexample for any that are false.
+      (a) If every $a_n$ is an upper bound for a set $B$, then $a$ is also an upper bound for $B$.
+      (b) If every $a_n$ is in the complement of the interval $(0, 1)$, then $a$ is also in the complement of $(0, 1)$.
+      (c) If every $a_n$ is rational, then $a$ is rational.
+
+  - cid: abbott-2.3.13
+    chapter: "2 Sequences and Series"
+    section: "2.3 The Algebraic and Order Limit Theorems"
+    number: "Exercise 2.3.13"
+    page: "56"
+    pdfPage: 68
+    verdict: strong
+    machinery: "Double limits vs iterated limits; first encounter with interchange of limits."
+    standardResult: "iterated limits vs double limit (m/(m+n), mn/(m^2+n^2))"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [construct-counterexample, epsilon-N-proof, interchange-of-limits]
+    difficulty: medium
+    difficultyRationale: "Parts (c)-(e) require constructing an example and a careful epsilon argument."
+    category: synthesis
+    type: proof
+    tags: [iterated-limits, double-limit, interchange-of-limits, counterexample]
+    references: []
+    problemLatex: |
+      **(Iterated Limits).** Given a doubly indexed array $a_{mn}$ where $m, n \in \mathbb{N}$, what should $\lim_{m,n\to\infty} a_{mn}$ represent?
+      (a) Let $a_{mn} = m/(m+n)$ and compute the iterated limits
+      $$\lim_{n\to\infty}\left(\lim_{m\to\infty} a_{mn}\right) \quad\text{and}\quad \lim_{m\to\infty}\left(\lim_{n\to\infty} a_{mn}\right).$$
+      Define $\lim_{m,n\to\infty} a_{mn} = a$ to mean that for all $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that if both $m, n \ge N$, then $|a_{mn} - a| < \epsilon$.
+      (b) Let $a_{mn} = 1/(m+n)$. Does $\lim_{m,n\to\infty} a_{mn}$ exist in this case? Do the two iterated limits exist? How do these three values compare? Answer these same questions for $a_{mn} = mn/(m^2+n^2)$.
+      (c) Produce an example where $\lim_{m,n\to\infty} a_{mn}$ exists but where neither iterated limit can be computed.
+      (d) Assume $\lim_{m,n\to\infty} a_{mn} = a$, and assume that for each fixed $m \in \mathbb{N}$, $\lim_{n\to\infty}(a_{mn}) \to b_m$. Show $\lim_{m\to\infty} b_m = a$.
+      (e) Prove that if $\lim_{m,n\to\infty} a_{mn}$ exists and the iterated limits both exist, then all three limits must be equal.
+    transcriptionNotes: "Part (d) notation '$\\lim_{n\\to\\infty}(a_{mn}) \\to b_m$' is as printed."
+
+  # ---------------- 2.4 ----------------
+  - cid: abbott-2.4.1
+    chapter: "2 Sequences and Series"
+    section: "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series"
+    number: "Exercise 2.4.1"
+    page: "59"
+    pdfPage: 71
+    verdict: strong
+    machinery: "Monotone Convergence Theorem for a recursive sequence: induction for bounds and monotonicity, then pass to the limit in the recursion."
+    standardResult: "recursive sequence x_{n+1} = 1/(4 - x_n) converges (MCT + fixed point)"
+    topic: sequences
+    subtopics: [monotone-sequences, recursive-sequences]
+    skills: [induction, monotone-convergence, limit-of-recursion]
+    difficulty: easy
+    difficultyRationale: "Standard MCT template: induction for monotone and bounded, then solve fixed-point equation."
+    category: canonical
+    type: proof
+    tags: [monotone-convergence-theorem, recursive-sequence, induction, fixed-point]
+    references: []
+    problemLatex: |
+      (a) Prove that the sequence defined by $x_1 = 3$ and
+      $$x_{n+1} = \frac{1}{4 - x_n}$$
+      converges.
+      (b) Now that we know $\lim x_n$ exists, explain why $\lim x_{n+1}$ must also exist and equal the same value.
+      (c) Take the limit of each side of the recursive equation in part (a) to explicitly compute $\lim x_n$.
+
+  - cid: abbott-2.4.2
+    chapter: "2 Sequences and Series"
+    section: "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series"
+    number: "Exercise 2.4.2"
+    page: "60"
+    pdfPage: 72
+    verdict: consider
+    machinery: "Why existence of the limit must be established before solving a fixed-point equation."
+    standardResult: "pitfall: taking limits in a recursion without knowing convergence"
+    topic: sequences
+    subtopics: [recursive-sequences, monotone-sequences]
+    skills: [critique-argument, monotone-convergence]
+    difficulty: easy
+    difficultyRationale: "(a) is a conceptual catch; (b) requires showing convergence first."
+    category: canonical
+    type: conceptual
+    tags: [recursive-sequence, fixed-point, pitfall, monotone-convergence-theorem]
+    references: []
+    problemLatex: |
+      (a) Consider the recursively defined sequence $y_1 = 1$,
+      $$y_{n+1} = 3 - y_n,$$
+      and set $y = \lim y_n$. Because $(y_n)$ and $(y_{n+1})$ have the same limit, taking the limit across the recursive equation gives $y = 3 - y$. Solving for $y$, we conclude $\lim y_n = 3/2$.
+
+      What is wrong with this argument?
+      (b) This time set $y_1 = 1$ and $y_{n+1} = 3 - \frac{1}{y_n}$. Can the strategy in (a) be applied to compute the limit of this sequence?
+
+  - cid: abbott-2.4.4
+    chapter: "2 Sequences and Series"
+    section: "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series"
+    number: "Exercise 2.4.4"
+    page: "60"
+    pdfPage: 72
+    verdict: consider
+    machinery: "Equivalent forms of completeness: MCT implies the Archimedean Property and NIP."
+    standardResult: "Monotone Convergence Theorem implies Archimedean Property and Nested Interval Property"
+    topic: real-numbers
+    subtopics: [completeness, archimedean-property]
+    skills: [monotone-convergence, contradiction]
+    difficulty: medium
+    difficultyRationale: "Requires care not to use AoC implicitly; (a) needs a contradiction with a bounded increasing sequence."
+    category: synthesis
+    type: proof
+    tags: [completeness, monotone-convergence-theorem, Archimedean-property, nested-intervals, axioms]
+    references: ["Theorem 1.4.2 (quoted)", "Theorem 1.4.1 (quoted)", "Theorem 2.4.2 (quoted)"]
+    problemLatex: |
+      (a) In Section 1.4 we used the Axiom of Completeness (AoC) to prove the Archimedean Property of $\mathbb{R}$ (Theorem 1.4.2). Show that the Monotone Convergence Theorem can also be used to prove the Archimedean Property without making any use of AoC.
+      (b) Use the Monotone Convergence Theorem to supply a proof for the Nested Interval Property (Theorem 1.4.1) that doesn't make use of AoC.
+
+      These two results suggest that we could have used the Monotone Convergence Theorem in place of AoC as our starting axiom for building a proper theory of the real numbers.
+
+      *(Axiom of Completeness: Every nonempty set of real numbers that is bounded above has a least upper bound. Theorem 1.4.2 (Archimedean Property): (i) Given any number $x \in \mathbb{R}$, there exists an $n \in \mathbb{N}$ satisfying $n > x$. (ii) Given any real number $y > 0$, there exists an $n \in \mathbb{N}$ satisfying $1/n < y$. Theorem 1.4.1 (Nested Interval Property): For each $n \in \mathbb{N}$, assume we are given a closed interval $I_n = [a_n, b_n] = \{x \in \mathbb{R} : a_n \le x \le b_n\}$. Assume also that each $I_n$ contains $I_{n+1}$. Then, the resulting nested sequence of closed intervals $I_1 \supseteq I_2 \supseteq I_3 \supseteq \cdots$ has a nonempty intersection. Theorem 2.4.2 (Monotone Convergence Theorem): If a sequence is monotone and bounded, then it converges.)*
+    transcriptionNotes: "AoC, Theorems 1.4.1, 1.4.2, 2.4.2 quoted verbatim (pp. 15, 20, 21, 56)."
+
+  - cid: abbott-2.4.5
+    chapter: "2 Sequences and Series"
+    section: "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series"
+    number: "Exercise 2.4.5"
+    page: "60"
+    pdfPage: 72
+    verdict: strong
+    machinery: "MCT on Newton/Babylonian iteration: AM-GM type bound, monotonicity, fixed point."
+    standardResult: "x_{n+1} = (x_n + 2/x_n)/2 converges to sqrt 2"
+    topic: sequences
+    subtopics: [monotone-sequences, recursive-sequences]
+    skills: [monotone-convergence, induction, limit-of-recursion]
+    difficulty: easy
+    difficultyRationale: "Algebraic inequality x_n^2 >= 2 plus standard MCT template."
+    category: canonical
+    type: proof
+    tags: [square-root, Newton-method, monotone-convergence-theorem, recursive-sequence]
+    references: []
+    problemLatex: |
+      **(Calculating Square Roots).** Let $x_1 = 2$, and define
+      $$x_{n+1} = \frac{1}{2}\left(x_n + \frac{2}{x_n}\right).$$
+      (a) Show that $x_n^2$ is always greater than or equal to $2$, and then use this to prove that $x_n - x_{n+1} \ge 0$. Conclude that $\lim x_n = \sqrt{2}$.
+      (b) Modify the sequence $(x_n)$ so that it converges to $\sqrt{c}$.
+
+  - cid: abbott-2.4.6
+    chapter: "2 Sequences and Series"
+    section: "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series"
+    number: "Exercise 2.4.6"
+    page: "61"
+    pdfPage: 73
+    verdict: strong
+    machinery: "Two coupled monotone sequences squeezed together; MCT plus passing to the limit."
+    standardResult: "arithmetic–geometric mean: coupled sequences converge to a common limit"
+    topic: sequences
+    subtopics: [monotone-sequences, recursive-sequences]
+    skills: [monotone-convergence, induction, AM-GM]
+    difficulty: medium
+    difficultyRationale: "Must organize the order x_n <= x_{n+1} <= y_{n+1} <= y_n and then equate limits."
+    category: canonical
+    type: proof
+    tags: [AGM, arithmetic-geometric-mean, monotone-convergence-theorem, coupled-recursion]
+    references: []
+    problemLatex: |
+      **(Arithmetic–Geometric Mean).**
+      (a) Explain why $\sqrt{xy} \le (x+y)/2$ for any two positive real numbers $x$ and $y$. (The geometric mean is always less than the arithmetic mean.)
+      (b) Now let $0 \le x_1 \le y_1$ and define
+      $$x_{n+1} = \sqrt{x_n y_n} \quad\text{and}\quad y_{n+1} = \frac{x_n + y_n}{2}.$$
+      Show $\lim x_n$ and $\lim y_n$ both exist and are equal.
+
+  - cid: abbott-2.4.7
+    chapter: "2 Sequences and Series"
+    section: "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series"
+    number: "Exercise 2.4.7"
+    page: "61"
+    pdfPage: 73
+    verdict: core
+    machinery: "Definition of limsup/liminf via tail suprema and MCT; characterization of convergence by limsup = liminf."
+    standardResult: "lim sup / lim inf exist for bounded sequences; lim exists iff lim inf = lim sup"
+    topic: sequences
+    subtopics: [limsup-liminf, monotone-sequences]
+    skills: [monotone-convergence, sup-definition-two-parts, squeeze]
+    difficulty: medium
+    difficultyRationale: "Part (d) (⇐ and ⇒ directions) requires a careful squeeze with tail sups/infs."
+    category: canonical
+    type: proof
+    tags: [limsup, liminf, monotone-convergence-theorem, supremum, machinery]
+    references: []
+    problemLatex: |
+      **(Limit Superior).** Let $(a_n)$ be a bounded sequence.
+      (a) Prove that the sequence defined by $y_n = \sup\{a_k : k \ge n\}$ converges.
+      (b) The *limit superior* of $(a_n)$, or $\limsup a_n$, is defined by
+      $$\limsup a_n = \lim y_n,$$
+      where $y_n$ is the sequence from part (a) of this exercise. Provide a reasonable definition for $\liminf a_n$ and briefly explain why it always exists for any bounded sequence.
+      (c) Prove that $\liminf a_n \le \limsup a_n$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+      (d) Show that $\liminf a_n = \limsup a_n$ if and only if $\lim a_n$ exists. In this case, all three share the same value.
+
+  - cid: abbott-2.4.9
+    chapter: "2 Sequences and Series"
+    section: "2.4 The Monotone Convergence Theorem and a First Look at Infinite Series"
+    number: "Exercise 2.4.9"
+    page: "61"
+    pdfPage: 73
+    verdict: strong
+    machinery: "Grouping terms in blocks of length 2^k to compare a series with its condensed series."
+    standardResult: "Cauchy condensation test (divergence direction)"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [grouping-terms, comparison-estimate, monotone-convergence]
+    difficulty: medium
+    difficultyRationale: "Requires setting up the dyadic block estimate in the opposite direction from the text."
+    category: canonical
+    type: proof
+    tags: [Cauchy-condensation, series, harmonic-series, dyadic-blocks]
+    references: ["Theorem 2.4.6 (quoted)", "Example 2.4.5 (described)"]
+    problemLatex: |
+      Complete the proof of Theorem 2.4.6 by showing that if the series $\sum_{n=0}^{\infty} 2^n b_{2^n}$ diverges, then so does $\sum_{n=1}^{\infty} b_n$. Example 2.4.5 may be a useful reference.
+
+      *(Theorem 2.4.6 (Cauchy Condensation Test): Suppose $(b_n)$ is decreasing and satisfies $b_n \ge 0$ for all $n \in \mathbb{N}$. Then, the series $\sum_{n=1}^{\infty} b_n$ converges if and only if the series
+      $$\sum_{n=0}^{\infty} 2^n b_{2^n} = b_1 + 2b_2 + 4b_4 + 8b_8 + 16b_{16} + \cdots$$
+      converges.)*
+
+      *(Example 2.4.5 is the book's proof that the harmonic series $\sum 1/n$ diverges, by grouping terms into blocks to show a subsequence of partial sums is unbounded.)*
+    transcriptionNotes: "Theorem 2.4.6 quoted verbatim (p. 59). Example 2.4.5 is summarized in my words (marked), since quoting would take most of a page."
+
+  # ---------------- 2.5 ----------------
+  - cid: abbott-2.5.1
+    chapter: "2 Sequences and Series"
+    section: "2.5 Subsequences and the Bolzano–Weierstrass Theorem"
+    number: "Exercise 2.5.1"
+    page: "65"
+    pdfPage: 77
+    verdict: strong
+    machinery: "Subsequential limits and Bolzano–Weierstrass; closedness of the set of subsequential limits."
+    standardResult: "set of subsequential limits: examples, and it must contain its limit points (e.g. 0)"
+    topic: sequences
+    subtopics: [subsequences, bolzano-weierstrass]
+    skills: [construct-counterexample, enumerate-rationals-style-construction]
+    difficulty: medium
+    difficultyRationale: "(c) requires a construction hitting infinitely many targets; (d) requires seeing why it is impossible (0 is forced)."
+    category: canonical
+    type: construction
+    tags: [subsequences, subsequential-limits, Bolzano-Weierstrass, example-or-impossible]
+    references: []
+    problemLatex: |
+      Give an example of each of the following, or argue that such a request is impossible.
+      (a) A sequence that has a subsequence that is bounded but contains no subsequence that converges.
+      (b) A sequence that does not contain $0$ or $1$ as a term but contains subsequences converging to each of these values.
+      (c) A sequence that contains subsequences converging to every point in the infinite set $\{1, 1/2, 1/3, 1/4, 1/5, \ldots\}$.
+      (d) A sequence that contains subsequences converging to every point in the infinite set $\{1, 1/2, 1/3, 1/4, 1/5, \ldots\}$, and no subsequences converging to points outside of this set.
+
+  - cid: abbott-2.5.2
+    chapter: "2 Sequences and Series"
+    section: "2.5 Subsequences and the Bolzano–Weierstrass Theorem"
+    number: "Exercise 2.5.2"
+    page: "65"
+    pdfPage: 77
+    verdict: strong
+    machinery: "Subsequence facts, BW, and monotone subsequences."
+    standardResult: "true/false about subsequences (bounded divergent has two subsequential limits; monotone + convergent subsequence)"
+    topic: sequences
+    subtopics: [subsequences, bolzano-weierstrass, monotone-sequences]
+    skills: [construct-counterexample, subsequence-extraction]
+    difficulty: easy
+    difficultyRationale: "Short justifications; (c) uses BW twice."
+    category: canonical
+    type: counterexample
+    tags: [subsequences, Bolzano-Weierstrass, true-false, monotone]
+    references: []
+    problemLatex: |
+      Decide whether the following propositions are true or false, providing a short justification for each conclusion.
+      (a) If every proper subsequence of $(x_n)$ converges, then $(x_n)$ converges as well.
+      (b) If $(x_n)$ contains a divergent subsequence, then $(x_n)$ diverges.
+      (c) If $(x_n)$ is bounded and diverges, then there exist two subsequences of $(x_n)$ that converge to different limits.
+      (d) If $(x_n)$ is monotone and contains a convergent subsequence, then $(x_n)$ converges.
+
+  - cid: abbott-2.5.4
+    chapter: "2 Sequences and Series"
+    section: "2.5 Subsequences and the Bolzano–Weierstrass Theorem"
+    number: "Exercise 2.5.4"
+    page: "65"
+    pdfPage: 77
+    verdict: consider
+    machinery: "Bisection argument; NIP + Archimedean property implies least upper bounds exist."
+    standardResult: "Nested Interval Property (with Archimedean property) implies Axiom of Completeness"
+    topic: real-numbers
+    subtopics: [completeness, supremum-infimum]
+    skills: [bisection, nested-intervals]
+    difficulty: medium
+    difficultyRationale: "Constructing nested intervals with right endpoints upper bounds and left endpoints not, then identifying the sup."
+    category: synthesis
+    type: proof
+    tags: [completeness, nested-intervals, bisection, Axiom-of-Completeness]
+    references: ["Nested Interval Property and Axiom of Completeness (quoted)"]
+    problemLatex: |
+      The Bolzano–Weierstrass Theorem is extremely important, and so is the strategy employed in the proof. To gain some more experience with this technique, assume the Nested Interval Property is true and use it to provide a proof of the Axiom of Completeness. To prevent the argument from being circular, assume also that $(1/2^n) \to 0$. (Why precisely is this last assumption needed to avoid circularity?)
+
+      *(Axiom of Completeness: Every nonempty set of real numbers that is bounded above has a least upper bound. Nested Interval Property (Theorem 1.4.1): if $I_n = [a_n, b_n]$ are closed intervals with $I_1 \supseteq I_2 \supseteq I_3 \supseteq \cdots$, then $\bigcap_{n=1}^{\infty} I_n \neq \emptyset$.)*
+    transcriptionNotes: "Statement verified on page image: the assumption is $(1/2^n) \\to 0$. AoC quoted verbatim; NIP condensed from Theorem 1.4.1. The 'strategy employed in the proof' refers to the book's bisection proof of BW."
+
+  - cid: abbott-2.5.5
+    chapter: "2 Sequences and Series"
+    section: "2.5 Subsequences and the Bolzano–Weierstrass Theorem"
+    number: "Exercise 2.5.5"
+    page: "66"
+    pdfPage: 78
+    verdict: core
+    machinery: "Contradiction + Bolzano–Weierstrass on a 'bad' subsequence."
+    standardResult: "bounded sequence whose convergent subsequences all share limit a converges to a"
+    topic: sequences
+    subtopics: [subsequences, bolzano-weierstrass]
+    skills: [contradiction, subsequence-extraction, negate-definition]
+    difficulty: medium
+    difficultyRationale: "Negate convergence to extract a subsequence staying eps away, then apply BW."
+    category: canonical
+    type: proof
+    tags: [Bolzano-Weierstrass, subsequences, contradiction, machinery]
+    references: []
+    problemLatex: |
+      Assume $(a_n)$ is a bounded sequence with the property that every convergent subsequence of $(a_n)$ converges to the same limit $a \in \mathbb{R}$. Show that $(a_n)$ must converge to $a$.
+
+  - cid: abbott-2.5.8
+    chapter: "2 Sequences and Series"
+    section: "2.5 Subsequences and the Bolzano–Weierstrass Theorem"
+    number: "Exercise 2.5.8"
+    page: "66"
+    pdfPage: 78
+    verdict: core
+    machinery: "Monotone subsequence theorem via peak terms; BW from MCT."
+    standardResult: "every sequence has a monotone subsequence (peak terms)"
+    topic: sequences
+    subtopics: [subsequences, monotone-sequences, bolzano-weierstrass]
+    skills: [case-analysis, subsequence-extraction, induction]
+    difficulty: medium
+    difficultyRationale: "Two-case construction (infinitely vs finitely many peaks) built inductively."
+    category: canonical
+    type: proof
+    tags: [peak-terms, monotone-subsequence, Bolzano-Weierstrass, monotone-convergence-theorem]
+    references: []
+    problemLatex: |
+      Another way to prove the Bolzano–Weierstrass Theorem is to show that every sequence contains a monotone subsequence. A useful device in this endeavor is the notion of a *peak term*. Given a sequence $(x_n)$, a particular term $x_m$ is a peak term if no later term in the sequence exceeds it; i.e., if $x_m \ge x_n$ for all $n \ge m$.
+      (a) Find examples of sequences with zero, one, and two peak terms. Find an example of a sequence with infinitely many peak terms that is not monotone.
+      (b) Show that every sequence contains a monotone subsequence and explain how this furnishes a new proof of the Bolzano–Weierstrass Theorem.
+
+  - cid: abbott-2.5.9
+    chapter: "2 Sequences and Series"
+    section: "2.5 Subsequences and the Bolzano–Weierstrass Theorem"
+    number: "Exercise 2.5.9"
+    page: "66"
+    pdfPage: 78
+    verdict: strong
+    machinery: "Direct proof of BW from AoC; the sup of S is essentially lim sup."
+    standardResult: "BW via s = sup{x : x < a_n for infinitely many n} (this s is lim sup)"
+    topic: sequences
+    subtopics: [bolzano-weierstrass, limsup-liminf]
+    skills: [sup-approximation, subsequence-extraction, induction]
+    difficulty: medium
+    difficultyRationale: "Must use both sup properties to show each (s - 1/k, s + 1/k) holds infinitely many terms, then extract."
+    category: canonical
+    type: proof
+    tags: [Bolzano-Weierstrass, supremum, limsup, subsequences]
+    references: []
+    problemLatex: |
+      Let $(a_n)$ be a bounded sequence, and define the set
+      $$S = \{x \in \mathbb{R} : x < a_n \text{ for infinitely many terms } a_n\}.$$
+      Show that there exists a subsequence $(a_{n_k})$ converging to $s = \sup S$. (This is a direct proof of the Bolzano–Weierstrass Theorem using the Axiom of Completeness.)
+
+  # ---------------- 2.6 ----------------
+  - cid: abbott-2.6.1
+    chapter: "2 Sequences and Series"
+    section: "2.6 The Cauchy Criterion"
+    number: "Exercise 2.6.1"
+    page: "70"
+    pdfPage: 82
+    verdict: strong
+    machinery: "Triangle inequality / epsilon/2 to pass from convergence to Cauchy."
+    standardResult: "every convergent sequence is Cauchy"
+    topic: sequences
+    subtopics: [cauchy-sequences]
+    skills: [epsilon-over-2, triangle-inequality]
+    difficulty: introductory
+    difficultyRationale: "Standard short epsilon/2 argument."
+    category: canonical
+    type: proof
+    tags: [Cauchy-sequence, convergence, triangle-inequality]
+    references: ["Theorem 2.6.2 and Definition 2.6.1 (quoted)"]
+    problemLatex: |
+      Supply a proof for Theorem 2.6.2.
+
+      *(Theorem 2.6.2: Every convergent sequence is a Cauchy sequence.)*
+
+      *(Definition 2.6.1: A sequence $(a_n)$ is called a Cauchy sequence if, for every $\epsilon > 0$, there exists an $N \in \mathbb{N}$ such that whenever $m, n \ge N$ it follows that $|a_n - a_m| < \epsilon$.)*
+    transcriptionNotes: "Theorem 2.6.2 and Definition 2.6.1 quoted verbatim (pp. 66-67)."
+
+  - cid: abbott-2.6.2
+    chapter: "2 Sequences and Series"
+    section: "2.6 The Cauchy Criterion"
+    number: "Exercise 2.6.2"
+    page: "70"
+    pdfPage: 82
+    verdict: strong
+    machinery: "Interplay of Cauchy, bounded, monotone, and subsequences."
+    standardResult: "examples/impossibility for Cauchy sequences (Cauchy ⇒ bounded; monotone + Cauchy subsequence ⇒ convergent)"
+    topic: sequences
+    subtopics: [cauchy-sequences, subsequences, monotone-sequences]
+    skills: [construct-counterexample, theorem-citation]
+    difficulty: easy
+    difficultyRationale: "Quick examples or impossibility via boundedness of Cauchy sequences / MCT."
+    category: canonical
+    type: counterexample
+    tags: [Cauchy-sequence, example-or-impossible, subsequences, monotone]
+    references: []
+    problemLatex: |
+      Give an example of each of the following, or argue that such a request is impossible.
+      (a) A Cauchy sequence that is not monotone.
+      (b) A Cauchy sequence with an unbounded subsequence.
+      (c) A divergent monotone sequence with a Cauchy subsequence.
+      (d) An unbounded sequence containing a subsequence that is Cauchy.
+
+  - cid: abbott-2.6.4
+    chapter: "2 Sequences and Series"
+    section: "2.6 The Cauchy Criterion"
+    number: "Exercise 2.6.4"
+    page: "70"
+    pdfPage: 82
+    verdict: consider
+    machinery: "Working with the Cauchy definition (or Cauchy Criterion) under operations; floor function as a counterexample."
+    standardResult: "which operations preserve Cauchy sequences (|a_n - b_n|, (-1)^n a_n, floor)"
+    topic: sequences
+    subtopics: [cauchy-sequences]
+    skills: [reverse-triangle-inequality, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Each part is a short proof or a simple counterexample."
+    category: canonical
+    type: counterexample
+    tags: [Cauchy-sequence, floor-function, true-false]
+    references: []
+    problemLatex: |
+      Let $(a_n)$ and $(b_n)$ be Cauchy sequences. Decide whether each of the following sequences is a Cauchy sequence, justifying each conclusion.
+      (a) $c_n = |a_n - b_n|$
+      (b) $c_n = (-1)^n a_n$
+      (c) $c_n = [[a_n]]$, where $[[x]]$ refers to the greatest integer less than or equal to $x$.
+
+  - cid: abbott-2.6.5
+    chapter: "2 Sequences and Series"
+    section: "2.6 The Cauchy Criterion"
+    number: "Exercise 2.6.5"
+    page: "70"
+    pdfPage: 82
+    verdict: strong
+    machinery: "Why consecutive-term closeness is not the Cauchy condition."
+    standardResult: "|s_{n+1} - s_n| -> 0 does not imply Cauchy/bounded (e.g. sqrt n, partial sums of harmonic series)"
+    topic: sequences
+    subtopics: [cauchy-sequences]
+    skills: [construct-counterexample, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Recognize a slowly diverging sequence as the counterexample; the true part is direct."
+    category: canonical
+    type: counterexample
+    tags: [Cauchy-sequence, pseudo-Cauchy, counterexample, definition]
+    references: []
+    problemLatex: |
+      Consider the following (invented) definition: A sequence $(s_n)$ is *pseudo-Cauchy* if, for all $\epsilon > 0$, there exists an $N$ such that if $n \ge N$, then $|s_{n+1} - s_n| < \epsilon$.
+
+      Decide which one of the following two propositions is actually true. Supply a proof for the valid statement and a counterexample for the other.
+      (i) Pseudo-Cauchy sequences are bounded.
+      (ii) If $(x_n)$ and $(y_n)$ are pseudo-Cauchy, then $(x_n + y_n)$ is pseudo-Cauchy as well.
+
+  - cid: abbott-2.6.7
+    chapter: "2 Sequences and Series"
+    section: "2.6 The Cauchy Criterion"
+    number: "Exercise 2.6.7"
+    page: "71"
+    pdfPage: 83
+    verdict: consider
+    machinery: "Equivalences among completeness axioms (AoC, NIP, MCT, BW, Cauchy Criterion) and the role of the Archimedean Property."
+    standardResult: "BW ⇒ MCT; Cauchy Criterion ⇒ BW (needs Archimedean property)"
+    topic: real-numbers
+    subtopics: [completeness, archimedean-property]
+    skills: [subsequence-extraction, bisection]
+    difficulty: hard
+    difficultyRationale: "Part (b) requires locating the hidden Archimedean step; (c) requires knowing a non-Archimedean ordered field idea."
+    category: challenge
+    type: proof
+    tags: [completeness, Bolzano-Weierstrass, Cauchy-criterion, monotone-convergence-theorem, Archimedean-property, axioms]
+    references: ["Exercises 2.4.4 and 2.5.4; 'the five characterizations of completeness' (AoC, NIP, MCT, BW, CC) at end of Section 2.6 (described)"]
+    problemLatex: |
+      Exercises 2.4.4 and 2.5.4 establish the equivalence of the Axiom of Completeness and the Monotone Convergence Theorem. They also show the Nested Interval Property is equivalent to these other two in the presence of the Archimedean Property.
+      (a) Assume the Bolzano–Weierstrass Theorem is true and use it to construct a proof of the Monotone Convergence Theorem without making any appeal to the Archimedean Property. This shows that BW, AoC, and MCT are all equivalent.
+      (b) Use the Cauchy Criterion to prove the Bolzano–Weierstrass Theorem, and find the point in the argument where the Archimedean Property is implicitly required. This establishes the final link in the equivalence of the five characterizations of completeness discussed at the end of Section 2.6.
+      (c) How do we know it is impossible to prove the Axiom of Completeness starting from the Archimedean Property?
+    transcriptionNotes: "The five characterizations (end of Section 2.6) are: Axiom of Completeness (AoC), Nested Interval Property (NIP), Monotone Convergence Theorem (MCT), Bolzano–Weierstrass (BW), Cauchy Criterion (CC). Exercise 2.4.4: MCT ⇒ Archimedean Property and NIP; Exercise 2.5.4: NIP + (1/2^n → 0) ⇒ AoC. Heavily dependent on book context; recorded as consider."
+
+  # ---------------- 2.7 ----------------
+  - cid: abbott-2.7.1
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.1"
+    page: "76"
+    pdfPage: 88
+    verdict: core
+    machinery: "Alternating series test proved three ways (Cauchy, NIP, MCT on even/odd partial sums)."
+    standardResult: "Alternating Series Test"
+    topic: series
+    subtopics: [alternating-series, convergence-tests]
+    skills: [cauchy-criterion, nested-intervals, monotone-convergence, even-odd-subsequences]
+    difficulty: medium
+    difficultyRationale: "Requires bounding |s_n - s_m| by a_{m+1} and organizing three distinct proofs."
+    category: canonical
+    type: proof
+    tags: [alternating-series, Cauchy-criterion, nested-intervals, monotone-convergence-theorem, machinery]
+    references: ["Theorem 2.7.7 (quoted)", "Theorem 1.4.1 (named)"]
+    problemLatex: |
+      Proving the Alternating Series Test (Theorem 2.7.7) amounts to showing that the sequence of partial sums
+      $$s_n = a_1 - a_2 + a_3 - \cdots \pm a_n$$
+      converges. (The opening example in Section 2.1 includes a typical illustration of $(s_n)$.) Different characterizations of completeness lead to different proofs.
+      (a) Prove the Alternating Series Test by showing that $(s_n)$ is a Cauchy sequence.
+      (b) Supply another proof for this result using the Nested Interval Property (Theorem 1.4.1).
+      (c) Consider the subsequences $(s_{2n})$ and $(s_{2n+1})$, and show how the Monotone Convergence Theorem leads to a third proof for the Alternating Series Test.
+
+      *(Theorem 2.7.7 (Alternating Series Test): Let $(a_n)$ be a sequence satisfying, (i) $a_1 \ge a_2 \ge a_3 \ge \cdots \ge a_n \ge a_{n+1} \ge \cdots$ and (ii) $(a_n) \to 0$. Then, the alternating series $\sum_{n=1}^{\infty} (-1)^{n+1} a_n$ converges.)*
+    transcriptionNotes: "Theorem 2.7.7 quoted verbatim (p. 74). The parenthetical about Section 2.1's opening example (the alternating harmonic series) is kept verbatim but is not needed."
+
+  - cid: abbott-2.7.4
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.4"
+    page: "77"
+    pdfPage: 89
+    verdict: strong
+    machinery: "Examples probing products and sums of series; bounded multipliers do not preserve conditional convergence."
+    standardResult: "examples/impossibility for products and sums of series"
+    topic: series
+    subtopics: [convergence-tests, conditional-convergence]
+    skills: [construct-counterexample, theorem-citation]
+    difficulty: easy
+    difficultyRationale: "Each part is a quick standard example or an Algebraic Limit Theorem citation."
+    category: canonical
+    type: counterexample
+    tags: [series, example-or-impossible, conditional-convergence, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of each or explain why the request is impossible referencing the proper theorem(s).
+      (a) Two series $\sum x_n$ and $\sum y_n$ that both diverge but where $\sum x_n y_n$ converges.
+      (b) A convergent series $\sum x_n$ and a bounded sequence $(y_n)$ such that $\sum x_n y_n$ diverges.
+      (c) Two sequences $(x_n)$ and $(y_n)$ where $\sum x_n$ and $\sum (x_n + y_n)$ both converge but $\sum y_n$ diverges.
+      (d) A sequence $(x_n)$ satisfying $0 \le x_n \le 1/n$ where $\sum (-1)^n x_n$ diverges.
+
+  - cid: abbott-2.7.6
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.6"
+    page: "77"
+    pdfPage: 89
+    verdict: consider
+    machinery: "Distinguishing terms vs partial sums; BW and monotone partial sums applied to an invented definition."
+    standardResult: "invented 'subvergence' (convergent subsequence of partial sums) — true/false"
+    topic: series
+    subtopics: [convergence-tests, absolute-convergence]
+    skills: [construct-counterexample, bolzano-weierstrass, monotone-convergence]
+    difficulty: medium
+    difficultyRationale: "(c) requires using that partial sums of sum |a_n| are monotone, so subvergence means convergence."
+    category: synthesis
+    type: counterexample
+    tags: [series, partial-sums, subsequences, invented-definition, true-false]
+    references: []
+    problemLatex: |
+      Let's say that a series *subverges* if the sequence of partial sums contains a subsequence that converges. Consider this (invented) definition for a moment, and then decide which of the following statements are valid propositions about subvergent series:
+      (a) If $(a_n)$ is bounded, then $\sum a_n$ subverges.
+      (b) All convergent series are subvergent.
+      (c) If $\sum |a_n|$ subverges, then $\sum a_n$ subverges as well.
+      (d) If $\sum a_n$ subverges, then $(a_n)$ has a convergent subsequence.
+
+  - cid: abbott-2.7.7
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.7"
+    page: "77"
+    pdfPage: 89
+    verdict: strong
+    machinery: "Limit comparison with 1/n and 1/n^2."
+    standardResult: "limit comparison: n a_n -> l ≠ 0 ⇒ divergence; n^2 a_n bounded ⇒ convergence"
+    topic: series
+    subtopics: [comparison, convergence-tests]
+    skills: [comparison-estimate, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Eventually bound a_n above/below by multiples of 1/n or 1/n^2 and compare."
+    category: canonical
+    type: proof
+    tags: [limit-comparison, p-series, comparison-test, series]
+    references: []
+    problemLatex: |
+      (a) Show that if $a_n > 0$ and $\lim(na_n) = l$ with $l \neq 0$, then the series $\sum a_n$ diverges.
+      (b) Assume $a_n > 0$ and $\lim(n^2 a_n)$ exists. Show that $\sum a_n$ converges.
+
+  - cid: abbott-2.7.8
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.8"
+    page: "77"
+    pdfPage: 89
+    verdict: strong
+    machinery: "Absolute vs conditional convergence; products with convergent sequences."
+    standardResult: "true/false: sum a_n abs. conv ⇒ sum a_n^2 conv; sum a_n conv and b_n conv ⇏ sum a_n b_n conv"
+    topic: series
+    subtopics: [absolute-convergence, conditional-convergence, comparison]
+    skills: [construct-counterexample, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "(b) needs the (-1)^n/sqrt(n) squared counterexample; (c) needs a contrapositive argument."
+    category: canonical
+    type: counterexample
+    tags: [absolute-convergence, conditional-convergence, true-false, counterexample]
+    references: []
+    problemLatex: |
+      Consider each of the following propositions. Provide short proofs for those that are true and counterexamples for any that are not.
+      (a) If $\sum a_n$ converges absolutely, then $\sum a_n^2$ also converges absolutely.
+      (b) If $\sum a_n$ converges and $(b_n)$ converges, then $\sum a_n b_n$ converges.
+      (c) If $\sum a_n$ converges conditionally, then $\sum n^2 a_n$ diverges.
+
+  - cid: abbott-2.7.9
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.9"
+    page: "78"
+    pdfPage: 90
+    verdict: core
+    machinery: "Comparison with a geometric series after an eventual ratio bound."
+    standardResult: "Ratio Test proof"
+    topic: series
+    subtopics: [convergence-tests, absolute-convergence, comparison]
+    skills: [comparison-estimate, geometric-series, induction]
+    difficulty: easy
+    difficultyRationale: "Guided steps; standard comparison with a geometric tail."
+    category: canonical
+    type: proof
+    tags: [ratio-test, geometric-series, comparison-test, absolute-convergence, machinery]
+    references: []
+    problemLatex: |
+      **(Ratio Test).** Given a series $\sum_{n=1}^{\infty} a_n$ with $a_n \neq 0$, the Ratio Test states that if $(a_n)$ satisfies
+      $$\lim \left|\frac{a_{n+1}}{a_n}\right| = r < 1,$$
+      then the series converges absolutely.
+      (a) Let $r'$ satisfy $r < r' < 1$. Explain why there exists an $N$ such that $n \ge N$ implies $|a_{n+1}| \le |a_n| r'$.
+      (b) Why does $|a_N| \sum (r')^n$ converge?
+      (c) Now, show that $\sum |a_n|$ converges, and conclude that $\sum a_n$ converges.
+
+  - cid: abbott-2.7.11
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.11"
+    page: "78"
+    pdfPage: 90
+    verdict: consider
+    machinery: "Constructing series with prescribed behavior; the harder version needs interleaved blocks with monotonicity."
+    standardResult: "two divergent decreasing positive series whose termwise minimum converges"
+    topic: series
+    subtopics: [comparison, convergence-tests]
+    skills: [construct-counterexample, block-construction]
+    difficulty: hard
+    difficultyRationale: "The easy version is simple; the strictly positive decreasing version needs a careful alternating-block construction."
+    category: challenge
+    type: construction
+    tags: [series, construction, minimum, divergence, counterexample]
+    references: []
+    problemLatex: |
+      Find examples of two series $\sum a_n$ and $\sum b_n$ both of which diverge but for which $\sum \min\{a_n, b_n\}$ converges. To make it more challenging, produce examples where $(a_n)$ and $(b_n)$ are strictly positive and decreasing.
+
+  - cid: abbott-2.7.13
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.13"
+    page: "79"
+    pdfPage: 91
+    verdict: strong
+    machinery: "Summation by parts (Abel summation) to prove convergence tests."
+    standardResult: "Abel's Test via summation by parts"
+    topic: series
+    subtopics: [convergence-tests, conditional-convergence]
+    skills: [summation-by-parts, comparison-estimate, telescoping]
+    difficulty: medium
+    difficultyRationale: "Requires recognizing the telescoping bound on sum |s_k|(y_k - y_{k+1}) and handling s_n y_{n+1}."
+    category: canonical
+    type: proof
+    tags: [Abel-test, summation-by-parts, series, telescoping]
+    references: ["Exercise 2.7.12 (summation-by-parts formula, quoted)"]
+    problemLatex: |
+      **(Abel's Test).** Abel's Test for convergence states that if the series $\sum_{k=1}^{\infty} x_k$ converges, and if $(y_k)$ is a sequence satisfying
+      $$y_1 \ge y_2 \ge y_3 \ge \cdots \ge 0,$$
+      then the series $\sum_{k=1}^{\infty} x_k y_k$ converges.
+      (a) Use Exercise 2.7.12 to show that
+      $$\sum_{k=1}^{n} x_k y_k = s_n y_{n+1} + \sum_{k=1}^{n} s_k (y_k - y_{k+1}),$$
+      where $s_n = x_1 + x_2 + \cdots + x_n$.
+      (b) Use the Comparison Test to argue that $\sum_{k=1}^{\infty} s_k (y_k - y_{k+1})$ converges absolutely, and show how this leads directly to a proof of Abel's Test.
+
+      *(Exercise 2.7.12 (Summation-by-parts): Let $(x_n)$ and $(y_n)$ be sequences, let $s_n = x_1 + x_2 + \cdots + x_n$ and set $s_0 = 0$. Use the observation that $x_j = s_j - s_{j-1}$ to verify the formula
+      $$\sum_{j=m}^{n} x_j y_j = s_n y_{n+1} - s_{m-1} y_m + \sum_{j=m}^{n} s_j (y_j - y_{j+1}).)$$*
+    transcriptionNotes: "Exercise 2.7.12 quoted verbatim (p. 78); verified against page image."
+
+  - cid: abbott-2.7.14
+    chapter: "2 Sequences and Series"
+    section: "2.7 Properties of Infinite Series"
+    number: "Exercise 2.7.14"
+    page: "79"
+    pdfPage: 91
+    verdict: strong
+    machinery: "Summation by parts with bounded partial sums; AST as a corollary."
+    standardResult: "Dirichlet's Test (and AST as a special case)"
+    topic: series
+    subtopics: [convergence-tests, alternating-series, conditional-convergence]
+    skills: [summation-by-parts, telescoping, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "Same strategy as Abel but must use y_k -> 0 to kill the boundary term."
+    category: canonical
+    type: proof
+    tags: [Dirichlet-test, summation-by-parts, alternating-series, series]
+    references: ["Exercise 2.7.13 (Abel's Test, quoted)", "Theorem 2.7.7 (quoted)"]
+    problemLatex: |
+      **(Dirichlet's Test).** Dirichlet's Test for convergence states that if the partial sums of $\sum_{k=1}^{\infty} x_k$ are bounded (but not necessarily convergent), and if $(y_k)$ is a sequence satisfying $y_1 \ge y_2 \ge y_3 \ge \cdots \ge 0$ with $\lim y_k = 0$, then the series $\sum_{k=1}^{\infty} x_k y_k$ converges.
+      (a) Point out how the hypothesis of Dirichlet's Test differs from that of Abel's Test in Exercise 2.7.13, but show that essentially the same strategy can be used to provide a proof.
+      (b) Show how the Alternating Series Test (Theorem 2.7.7) can be derived as a special case of Dirichlet's Test.
+
+      *(Exercise 2.7.13 (Abel's Test): if the series $\sum_{k=1}^{\infty} x_k$ converges, and if $(y_k)$ satisfies $y_1 \ge y_2 \ge y_3 \ge \cdots \ge 0$, then $\sum_{k=1}^{\infty} x_k y_k$ converges; the strategy there uses the summation-by-parts identity $\sum_{k=1}^{n} x_k y_k = s_n y_{n+1} + \sum_{k=1}^{n} s_k (y_k - y_{k+1})$ with $s_n = x_1 + \cdots + x_n$.)*
+
+      *(Theorem 2.7.7 (Alternating Series Test): Let $(a_n)$ be a sequence satisfying (i) $a_1 \ge a_2 \ge a_3 \ge \cdots$ and (ii) $(a_n) \to 0$. Then, the alternating series $\sum_{n=1}^{\infty} (-1)^{n+1} a_n$ converges.)*
+    transcriptionNotes: "Abel's Test statement and identity quoted from Exercise 2.7.13; 'the strategy there uses' is my framing (marked). Theorem 2.7.7 quoted (p. 74)."
+
+  # ---------------- 2.8 ----------------
+  - cid: abbott-2.8.7
+    chapter: "2 Sequences and Series"
+    section: "2.8 Double Summations and Products of Infinite Series"
+    number: "Exercise 2.8.7"
+    page: "82"
+    pdfPage: 94
+    verdict: consider
+    machinery: "Absolute convergence licenses rearranging double sums; Cauchy product of absolutely convergent series."
+    standardResult: "Cauchy product of absolutely convergent series converges to AB"
+    topic: series
+    subtopics: [double-series-products, absolute-convergence]
+    skills: [theorem-application, algebraic-limit-theorem]
+    difficulty: medium
+    difficultyRationale: "Applying Theorem 2.8.1 and the diagonal-sum result correctly; depends heavily on the section's theorem."
+    category: synthesis
+    type: theorem-application
+    tags: [Cauchy-product, double-series, absolute-convergence, series]
+    references: ["Theorem 2.8.1 (quoted)", "Exercise 2.8.6 (described)"]
+    problemLatex: |
+      Assume that $\sum_{i=1}^{\infty} a_i$ converges absolutely to $A$, and $\sum_{j=1}^{\infty} b_j$ converges absolutely to $B$.
+      (a) Show that the iterated sum $\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_i b_j|$ converges so that we may apply Theorem 2.8.1.
+      (b) Let $s_{nn} = \sum_{i=1}^{n} \sum_{j=1}^{n} a_i b_j$, and prove that $\lim_{n\to\infty} s_{nn} = AB$. Conclude that
+      $$\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_i b_j = \sum_{j=1}^{\infty} \sum_{i=1}^{\infty} a_i b_j = \sum_{k=2}^{\infty} d_k = AB,$$
+      where, as before, $d_k = a_1 b_{k-1} + a_2 b_{k-2} + \cdots + a_{k-1} b_1$.
+
+      *(Theorem 2.8.1: Let $\{a_{ij} : i, j \in \mathbb{N}\}$ be a doubly indexed array of real numbers. If $\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|$ converges, then both $\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij}$ and $\sum_{j=1}^{\infty} \sum_{i=1}^{\infty} a_{ij}$ converge to the same value. Moreover, $\lim_{n\to\infty} s_{nn} = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij} = \sum_{j=1}^{\infty} \sum_{i=1}^{\infty} a_{ij}$, where $s_{nn} = \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}$.)*
+
+      *(Exercise 2.8.6 showed, under the hypothesis of Theorem 2.8.1, that the diagonal sum $\sum_{k=2}^{\infty} d_k$ with $d_k = a_{1,k-1} + a_{2,k-2} + \cdots + a_{k-1,1}$ converges absolutely to $S = \lim_{n\to\infty} s_{nn}$.)*
+    transcriptionNotes: "Theorem 2.8.1 quoted verbatim (p. 80). Exercise 2.8.6's conclusion paraphrased (marked) — needed for the d_k equality."
+skipped:
+  - "1.2.1 sqrt3/sqrt6 irrational — routine number theory, not analysis machinery"
+  - "1.2.2 no rational with 2^r = 3 — routine number theory"
+  - "1.2.3 nested/infinite set identities T/F — set algebra; the nested-set idea is covered better by 1.4.8"
+  - "1.2.4 partition N into infinitely many infinite sets — set-theory exercise"
+  - "1.2.5 De Morgan's laws — routine set theory"
+  - "1.2.7 images f(A∩B) ⊆ f(A)∩f(B) — routine set/function facts"
+  - "1.2.8 1–1/onto examples — routine"
+  - "1.2.9 preimages preserve ∩, ∪ — routine set/function facts"
+  - "1.2.12 induction for a recursive sequence — routine induction; superseded by 2.4.1/2.4.5"
+  - "1.2.13 infinite De Morgan / limits of induction — set theory"
+  - "1.3.1 define inf and restate Lemma 1.3.8 for inf — restating; weaker than 1.3.3/1.3.6"
+  - "1.3.2 sup/inf examples or impossible — quick, weaker than 1.3.11 and 1.4.8"
+  - "1.3.4 sup of finite/infinite unions — minor; weaker than 1.3.6"
+  - "1.3.7 upper bound in A equals sup — trivial"
+  - "1.3.8 compute sups/infs without proof — routine computation"
+  - "1.4.1 closure of Q, I under + and × — routine"
+  - "1.4.5 density of irrationals via a−√2, b−√2 — routine corollary (depends on 1.4.1); 1.4.4 is the better density exercise"
+  - "1.4.6 which sets of rationals are dense — fine but minor; consider-level at best, dropped for space"
+  - "1.5.1 finish proof that infinite subset of countable set is countable — mid-proof of book's development"
+  - "1.5.2 find flaw in 'Q uncountable' proof — depends on book's specific NIP proof of Theorem 1.5.6"
+  - "1.5.4 bijections (a,b)~R, [0,1)~(0,1) — routine constructions"
+  - "1.5.5 ~ is an equivalence relation — set theory"
+  - "1.5.7 (0,1) into unit square via decimals — set-theoretic cardinality, exotic for this bank"
+  - "1.5.11 Schröder–Bernstein — set theory far from analysis"
+  - "1.6.1 (0,1) uncountable iff R uncountable — routine"
+  - "1.6.2 steps of the diagonal proof of Theorem 1.6.1 — mid-proof; 1.6.4 is the clean version"
+  - "1.6.3 rebuttals to complaints about diagonal proof — mid-proof context"
+  - "1.6.5 power set of finite set has 2^n elements — routine combinatorics"
+  - "1.6.6 1–1 maps A → P(A) for finite A — routine, mid-development"
+  - "1.6.7 compute Cantor's set B for 1.6.6 maps — mid-development"
+  - "1.6.8 finish Cantor's theorem (a' ∈ B / a' ∉ B) — mid-proof; set theory"
+  - "1.6.10 cardinality of function sets, antichains in P(N) — set theory, far from analysis"
+  - "2.2.3 disprove statements about colleges — non-mathematical quantifier practice; 1.2.11 and 2.2.1 do this better"
+  - "2.2.5 floor-function limits verified by definition — routine computation"
+  - "2.2.8 invented 'zero-heavy' definition — quantifier practice; near-duplicate in spirit of 2.2.7 (better)"
+  - "2.3.4 compute limits with ALT — routine computation"
+  - "2.3.5 shuffled sequence converges iff both converge to same limit — minor; consider-level, dropped for space"
+  - "2.3.6 n − sqrt(n^2+2n) — routine computation"
+  - "2.3.8 polynomials preserve limits; discontinuous counterexample — routine corollary of ALT"
+  - "2.4.3 nested radicals converge — routine MCT computation duplicating 2.4.1/2.4.5"
+  - "2.4.8 telescoping/geometric partial sums — routine computation"
+  - "2.4.10 infinite products ∏(1+a_n) converge iff ∑a_n converges — exotic-ish topic; dropped for space (also 2.7.10)"
+  - "2.5.3 associativity of convergent series (regrouping) — refers to Section 2.1 example; minor"
+  - "2.5.6 lim b^{1/n} via Example 2.5.3 trick — routine; depends on book example"
+  - "2.5.7 b^n → 0 iff |b|<1 — routine extension of book example"
+  - "2.6.3 direct proof that sums/products of Cauchy sequences are Cauchy — routine"
+  - "2.6.6 quasi-increasing sequences — invented definition; 2.6.5 is the better invented-definition exercise"
+  - "2.7.2 decide convergence of five series — routine test-application computation"
+  - "2.7.3 prove Comparison Test via Cauchy criterion / MCT — routine (book gives the idea in text)"
+  - "2.7.5 prove p-series test (Corollary 2.4.7) — routine once condensation test is known; 2.4.9 covers condensation"
+  - "2.7.10 specific infinite products (Wallis) — exotic; depends on 2.4.10"
+  - "2.7.12 summation-by-parts identity — algebraic verification; quoted inside 2.7.13"
+  - "2.8.1 compute s_nn for the specific Section 2.1 array — needs book's array from Section 2.1"
+  - "2.8.2 absolute iterated convergence implies iterated convergence — routine, mid-development of Theorem 2.8.1"
+  - "2.8.3 (t_nn) converges, (s_nn) converges — mid-proof of Theorem 2.8.1"
+  - "2.8.4 epsilon steps in proof of Theorem 2.8.1 — mid-proof"
+  - "2.8.5 iterated sums equal S — mid-proof of Theorem 2.8.1"
+  - "2.8.6 diagonal sums converge to S — mid-proof continuation; its conclusion quoted inside 2.8.7"

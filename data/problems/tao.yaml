@@ -1,0 +1,434 @@
+# Curated selection from tao. Generated from the curation pipeline, then hand-maintained.
+- id: tao-3.4.5
+  source:
+    key: tao
+    chapter: 3 Set theory
+    section: 3.4 Images and inverse images
+    problemNumber: Exercise 3.4.5
+    page: '61'
+  topic: foundations
+  subtopics:
+  - functions
+  skills:
+  - element-chasing
+  - contrapositive
+  concept: f(f^{-1}(S))=S ∀S iff f surjective; f^{-1}(f(S))=S ∀S iff f injective
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - functions
+  - image
+  - inverse-image
+  - injective
+  - surjective
+  problemLatex: |
+    Let $f\colon X \to Y$ be a function from one set $X$ to another set $Y$. Show that $f(f^{-1}(S)) = S$ for every $S \subseteq Y$ if and only if $f$ is surjective. Show that $f^{-1}(f(S)) = S$ for every $S \subseteq X$ if and only if $f$ is injective.
+  curation:
+    why: f(f⁻¹(S)) = S and f⁻¹(f(S)) = S characterize surjectivity and injectivity; good element-chasing.
+- id: tao-a.5.1
+  source:
+    key: tao
+    chapter: 'A Appendix: the basics of mathematical logic'
+    section: A.5 Nested quantifiers
+    problemNumber: Exercise A.5.1
+    page: '327'
+  topic: foundations
+  subtopics:
+  - logic-quantifiers
+  skills:
+  - quantifier-order
+  concept: order of quantifiers matters (∀∃ vs ∃∀)
+  difficulty: introductory
+  category: canonical
+  type: conceptual
+  tags:
+  - quantifiers
+  - logic
+  problemLatex: |
+    What does each of the following statements mean, and which of them are true? Can you find gaming metaphors for each of these statements?
+    (a) For every positive number $x$, and every positive number $y$, we have $y^2 = x$.
+    (b) There exists a positive number $x$ such that for every positive number $y$, we have $y^2 = x$.
+    (c) There exists a positive number $x$, and there exists a positive number $y$, such that $y^2 = x$.
+    (d) For every positive number $y$, there exists a positive number $x$ such that $y^2 = x$.
+    (e) There exists a positive number $y$ such that for every positive number $x$, we have $y^2 = x$.
+  notes: Trains quantifier order rather than negation; included for that reason. 'Gaming metaphors' refers to Tao's adversarial-game reading of quantifiers in Section A.5.
+  curation:
+    why: Reorder ∀ and ∃ and watch the meaning change; the root of the pointwise vs. uniform distinction.
+- id: tao-6.3.4
+  source:
+    key: tao
+    chapter: 6 Limits of sequences
+    section: 6.3 Suprema and infima of sequences
+    problemNumber: Exercise 6.3.4
+    page: '139'
+  topic: sequences
+  subtopics:
+  - divergence
+  - limit-laws
+  skills:
+  - contradiction
+  - limit-laws
+  concept: x^n diverges for x>1; fallacy of assuming the limit exists
+  difficulty: easy
+  category: canonical
+  type: conceptual
+  tags:
+  - divergence
+  - geometric-sequence
+  - limit-laws
+  - fallacy
+  problemLatex: |
+    Explain why Proposition 6.3.10 fails when $x > 1$. In fact, show that the sequence $(x^n)_{n=1}^\infty$ diverges when $x > 1$. (Hint: prove by contradiction and use the identity $(1/x)^n x^n = 1$ and the limit laws in Theorem 6.1.19.) Compare this with the argument in Example 1.2.3; can you now explain the flaws in the reasoning in that example?
+
+    *(Proposition 6.3.10: Let $0 < x < 1$. Then we have $\lim_{n\to\infty} x^n = 0$.)*
+
+    *(Example 1.2.3 (Divergent sequences): Here is a slight variation of the previous example. Let $x$ be a real number, and let $L$ be the limit* $$L = \lim_{n\to\infty} x^n.$$ *Changing variables $n = m + 1$, we have* $$L = \lim_{m+1\to\infty} x^{m+1} = \lim_{m+1\to\infty} x \times x^m = x \lim_{m+1\to\infty} x^m.$$ *But if $m + 1 \to \infty$, then $m \to \infty$, thus* $$\lim_{m+1\to\infty} x^m = \lim_{m\to\infty} x^m = \lim_{n\to\infty} x^n = L,$$ *and thus* $$xL = L.$$ *At this point we could cancel the $L$'s and conclude that $x = 1$ for an arbitrary real number $x$, which is absurd. But since we are already aware of the division by zero problem, we could be a little smarter and conclude instead that either $x = 1$, or $L = 0$. In particular we seem to have shown that* $$\lim_{n\to\infty} x^n = 0 \text{ for all } x \ne 1.$$ *But this conclusion is absurd if we apply it to certain values of $x$, for instance by specializing to the case $x = 2$ we could conclude that the sequence $1, 2, 4, 8, \ldots$ converges to zero, and by specializing to the case $x = -1$ we conclude that the sequence $1, -1, 1, -1, \ldots$ also converges to zero. These conclusions appear to be absurd; what is the problem with the above argument? (See Exercise 6.3.4 for an answer.))*
+  notes: Proposition 6.3.10 (p.138) and Example 1.2.3 (pp.4-5) quoted verbatim. The book's proof of Prop 6.3.10 (monotone convergence gives existence of L, then xL = L) is what 'fails' for x>1; not quoted.
+  curation:
+    why: Why you must prove a limit exists before manipulating it — the classic xL = L fallacy.
+- id: tao-6.4.3
+  source:
+    key: tao
+    chapter: 6 Limits of sequences
+    section: 6.4 Limsup, liminf, and limit points
+    problemNumber: Exercise 6.4.3
+    page: '147'
+  topic: sequences
+  subtopics:
+  - limsup-liminf
+  skills:
+  - sup-approximation
+  - epsilon-N-proof
+  - unwrap-definition
+  concept: limsup/liminf are the largest/smallest limit points; a_n → c iff limsup = liminf = c
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - limsup
+  - liminf
+  - limit-point
+  - convergence
+  - machinery
+  problemLatex: |
+    Prove parts (c),(d),(e),(f) of Proposition 6.4.12. (Hint: you can use earlier parts of the proposition to prove later ones.)
+
+    *(Definition 6.4.6 (Limit superior and limit inferior): Suppose that $(a_n)_{n=m}^\infty$ is a sequence. We define a new sequence $(a_N^+)_{N=m}^\infty$ by the formula $a_N^+ := \sup(a_n)_{n=N}^\infty$. ... We then define the limit superior of the sequence $(a_n)_{n=m}^\infty$, denoted $\limsup_{n\to\infty} a_n$, by the formula $\limsup_{n\to\infty} a_n := \inf(a_N^+)_{N=m}^\infty$. Similarly, we can define $a_N^- := \inf(a_n)_{n=N}^\infty$ and define the limit inferior of the sequence $(a_n)_{n=m}^\infty$, denoted $\liminf_{n\to\infty} a_n$, by the formula $\liminf_{n\to\infty} a_n := \sup(a_N^-)_{N=m}^\infty$.)*
+
+    *(Limit point, from the text after Definition 6.4.1: $x$ is a limit point of $(a_n)_{n=m}^\infty$ if, for every $\varepsilon > 0$ and every $N \ge m$, there exists an $n \ge N$ such that $|a_n - x| \le \varepsilon$.)*
+
+    *(Proposition 6.4.12: Let $(a_n)_{n=m}^\infty$ be a sequence of real numbers, let $L^+$ be the limit superior of this sequence, and let $L^-$ be the limit inferior of this sequence (thus both $L^+$ and $L^-$ are extended real numbers).*
+
+    *(a) For every $x > L^+$, there exists an $N \ge m$ such that $a_n < x$ for all $n \ge N$. (In other words, for every $x > L^+$, the elements of the sequence $(a_n)_{n=m}^\infty$ are eventually less than $x$.) Similarly, for every $y < L^-$ there exists an $N \ge m$ such that $a_n > y$ for all $n \ge N$.*
+
+    *(b) For every $x < L^+$, and every $N \ge m$, there exists an $n \ge N$ such that $a_n > x$. (In other words, for every $x < L^+$, the elements of the sequence $(a_n)_{n=m}^\infty$ exceed $x$ infinitely often.) Similarly, for every $y > L^-$ and every $N \ge m$, there exists an $n \ge N$ such that $a_n < y$.*
+
+    *(c) We have $\inf(a_n)_{n=m}^\infty \le L^- \le L^+ \le \sup(a_n)_{n=m}^\infty$.*
+
+    *(d) If $c$ is any limit point of $(a_n)_{n=m}^\infty$, then we have $L^- \le c \le L^+$.*
+
+    *(e) If $L^+$ is finite, then it is a limit point of $(a_n)_{n=m}^\infty$. Similarly, if $L^-$ is finite, then it is a limit point of $(a_n)_{n=m}^\infty$.*
+
+    *(f) Let $c$ be a real number. If $(a_n)_{n=m}^\infty$ converges to $c$, then we must have $L^+ = L^- = c$. Conversely, if $L^+ = L^- = c$, then $(a_n)_{n=m}^\infty$ converges to $c$.)*
+  notes: Proposition 6.4.12 (pp.143-144) and Definition 6.4.6 (p.141) quoted verbatim; the '...' in Def 6.4.6 omits one informal sentence ('More informally, a_N^+ is the supremum of all the elements in the sequence from a_N onwards.'). Sups/infs are taken in the extended reals, so a_N^+ may be +∞. Parts (a),(b) are proved in the book and may be used.
+  curation:
+    why: 'The core facts: liminf ≤ limsup, they are the extreme limit points, and convergence ⇔ they agree.'
+- id: tao-7.2.2
+  source:
+    key: tao
+    chapter: 7 Series
+    section: 7.2 Infinite series
+    problemNumber: Exercise 7.2.2
+    page: '169'
+  topic: series
+  subtopics:
+  - convergence-tests
+  skills:
+  - cauchy-criterion
+  - partial-sums
+  concept: Cauchy criterion for series
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy-criterion
+  - series
+  - completeness
+  - machinery
+  problemLatex: |
+    Prove Proposition 7.2.5. (Hint: use Proposition 6.1.12 and Theorem 6.4.18.)
+
+    *(Proposition 7.2.5: Let $\sum_{n=m}^\infty a_n$ be a formal series of real numbers. Then $\sum_{n=m}^\infty a_n$ converges if and only if, for every real number $\varepsilon > 0$, there exists an integer $N \ge m$ such that* $$\left|\sum_{n=p}^{q} a_n\right| \le \varepsilon \text{ for all } p, q \ge N.\ )$$
+  notes: 'Proposition 7.2.5 (p.166) quoted verbatim. Hint references: Proposition 6.1.12 = convergent sequences are Cauchy; Theorem 6.4.18 = a real sequence is Cauchy iff convergent. Note: for p > q the sum is empty (= 0) in Tao''s convention.'
+  curation:
+    why: 'The Cauchy criterion for series: the tool that proves convergence without knowing the sum.'
+- id: tao-7.3.2
+  source:
+    key: tao
+    chapter: 7 Series
+    section: 7.3 Sums of non-negative numbers
+    problemNumber: Exercise 7.3.2
+    page: '174'
+  topic: series
+  subtopics:
+  - convergence-tests
+  skills:
+  - induction
+  - partial-sums
+  - term-test
+  concept: geometric series Σx^n = 1/(1−x) iff |x|<1
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - geometric-series
+  - series
+  problemLatex: |
+    Prove Lemma 7.3.3. (Hint: for the first part, use the zero test. For the second part, first use induction to establish the geometric series formula
+    $$\sum_{n=0}^N x^n = (1 - x^{N+1})/(1 - x)$$
+    and then apply Lemma 6.5.2.)
+
+    *(Lemma 7.3.3 (Geometric series): Let $x$ be a real number. If $|x| \ge 1$, then the series $\sum_{n=0}^\infty x^n$ is divergent. If however $|x| < 1$, then the series is absolutely convergent and* $$\sum_{n=0}^\infty x^n = 1/(1 - x).\ )$$
+
+    *(Lemma 6.5.2: Let $x$ be a real number. Then the limit $\lim_{n\to\infty} x^n$ exists and is equal to zero when $|x| < 1$, exists and is equal to 1 when $x = 1$, and diverges when $x = -1$ or when $|x| > 1$.)*
+  notes: Lemma 7.3.3 (p.171) and Lemma 6.5.2 (p.148) quoted verbatim. 'Zero test' = Corollary 7.2.6 (terms of a convergent series tend to 0).
+  curation:
+    why: The geometric series, with exactly when it converges — the comparison series behind most tests.
+- id: tao-7.5.1
+  source:
+    key: tao
+    chapter: 7 Series
+    section: 7.5 The root and ratio tests
+    problemNumber: Exercise 7.5.1
+    page: '180'
+  topic: series
+  subtopics:
+  - convergence-tests
+  skills:
+  - limsup-liminf-manipulation
+  - epsilon-argument
+  - induction
+  concept: liminf c_{n+1}/c_n ≤ liminf c_n^{1/n} (ratio test implies root test)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - ratio-test
+  - root-test
+  - limsup
+  - liminf
+  - machinery
+  problemLatex: |
+    Prove the first inequality in Lemma 7.5.2.
+
+    *(Lemma 7.5.2: Let $(c_n)_{n=m}^\infty$ be a sequence of positive numbers. Then we have* $$\liminf_{n\to\infty} \frac{c_{n+1}}{c_n} \le \liminf_{n\to\infty} c_n^{1/n} \le \limsup_{n\to\infty} c_n^{1/n} \le \limsup_{n\to\infty} \frac{c_{n+1}}{c_n}.\ )$$
+  notes: Lemma 7.5.2 (p.179) quoted verbatim. The book proves the third inequality in the text (pp.179-180) as a model.
+  curation:
+    why: 'liminf of ratios ≤ liminf of roots ≤ limsup of roots ≤ limsup of ratios: the root test is stronger.'
+- id: tao-8.3.2
+  source:
+    key: tao
+    chapter: 8 Infinite sets
+    section: 8.3 Uncountable sets
+    problemNumber: Exercise 8.3.2
+    page: '198'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - construct-bijection
+  - induction
+  concept: 'Schröder–Bernstein lemma: A ⊆ B ⊆ C with injection C → A gives A ~ B'
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - Schroeder-Bernstein
+  - cardinality
+  - bijection
+  problemLatex: |
+    Let $A, B, C$ be sets such that $A \subseteq B \subseteq C$, and suppose that there is a injection $f\colon C \to A$. Define the sets $D_0, D_1, D_2, \ldots$ recursively by setting $D_0 := B \setminus A$, and then $D_{n+1} := f(D_n)$ for all natural numbers $n$. Prove that the sets $D_0, D_1, \ldots$ are all disjoint from each other (i.e., $D_n \cap D_m = \emptyset$ whenever $n \ne m$). Also show that if $g\colon A \to B$ is the function defined by setting $g(x) := f^{-1}(x)$ when $x \in \bigcup_{n=1}^\infty D_n$, and $g(x) := x$ when $x \notin \bigcup_{n=1}^\infty D_n$, then $g$ does indeed map $A$ to $B$ and is a bijection between the two. In particular, $A$ and $B$ have the same cardinality.
+  notes: Verified against page image. 'a injection' as printed.
+  curation:
+    why: 'The construction at the heart of Schröder–Bernstein: chase the ‘defect’ B∖A forward under f.'
+- id: tao-10.1.2
+  source:
+    key: tao
+    chapter: 10 Differentiation of functions
+    section: 10.1 Basic definitions
+    problemNumber: Exercise 10.1.2
+    page: '257'
+  topic: differentiation
+  subtopics:
+  - derivative-definition
+  - differentiability
+  skills:
+  - epsilon-delta-proof
+  concept: differentiability iff f(x) = f(x0) + L(x-x0) + o(|x-x0|)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - derivative
+  - linear-approximation
+  - epsilon-delta
+  problemLatex: |
+    Prove Proposition 10.1.7. (Hint: the cases $x = x_0$ and $x \neq x_0$ have to be treated separately.)
+
+    *(Proposition 10.1.7 (Newton's approximation), quoted: Let $X$ be a subset of $\mathbf{R}$, let $x_0 \in X$ be a limit point of $X$, let $f : X \to \mathbf{R}$ be a function, and let $L$ be a real number. Then the following statements are logically equivalent:*
+    *(a) $f$ is differentiable at $x_0$ on $X$ with derivative $L$.*
+    *(b) For every $\varepsilon > 0$, there exists a $\delta > 0$ such that $f(x)$ is $\varepsilon|x - x_0|$-close to $f(x_0) + L(x - x_0)$ whenever $x \in X$ is $\delta$-close to $x_0$, i.e., we have*
+    $$|f(x) - (f(x_0) + L(x - x_0))| \le \varepsilon |x - x_0|$$
+    *whenever $x \in X$ and $|x - x_0| \le \delta$.)*
+
+    *(Definition 10.1.1, quoted in part: Let $X$ be a subset of $\mathbf{R}$, and let $x_0 \in X$ be an element of $X$ which is also a limit point of $X$. Let $f : X \to \mathbf{R}$ be a function. If the limit $\lim_{x\to x_0; x\in X-\{x_0\}} \frac{f(x) - f(x_0)}{x - x_0}$ converges to some real number $L$, then we say that $f$ is differentiable at $x_0$ on $X$ with derivative $L$, and write $f'(x_0) := L$.)*
+  curation:
+    why: Differentiability as linear approximation with o(|x − x₀|) error — the definition that generalizes to several variables.
+- id: tao-10.2.1
+  source:
+    key: tao
+    chapter: 10 Differentiation of functions
+    section: 10.2 Local maxima, local minima, and derivatives
+    problemNumber: Exercise 10.2.1
+    page: '259'
+  topic: differentiation
+  subtopics:
+  - local-extrema
+  skills:
+  - one-sided-limits
+  - sign-argument
+  concept: 'Fermat: local extremum at interior differentiable point implies f''=0'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Fermat
+  - local-extremum
+  - derivative
+  problemLatex: |
+    Prove Proposition 10.2.6.
+
+    *(Proposition 10.2.6 (Local extrema are stationary), quoted: Let $a < b$ be real numbers, and let $f : (a, b) \to \mathbf{R}$ be a function. If $x_0 \in (a, b)$, $f$ is differentiable at $x_0$, and $f$ attains either a local maximum or local minimum at $x_0$, then $f'(x_0) = 0$.)*
+
+    *(Definition 10.2.1, quoted: Let $f : X \to \mathbf{R}$ be a function, and let $x_0 \in X$. We say that $f$ attains a local maximum at $x_0$ iff there exists a $\delta > 0$ such that the restriction $f|_{X\cap(x_0-\delta,x_0+\delta)}$ of $f$ to $X \cap (x_0 - \delta, x_0 + \delta)$ attains a maximum at $x_0$. We say that $f$ attains a local minimum at $x_0$ iff there exists a $\delta > 0$ such that the restriction $f|_{X\cap(x_0-\delta,x_0+\delta)}$ of $f$ to $X \cap (x_0 - \delta, x_0 + \delta)$ attains a minimum at $x_0$.)*
+  curation:
+    why: 'Fermat''s theorem: interior extrema of differentiable functions have f′ = 0. Behind Rolle''s theorem.'
+- id: tao-10.2.5
+  source:
+    key: tao
+    chapter: 10 Differentiation of functions
+    section: 10.2 Local maxima, local minima, and derivatives
+    problemNumber: Exercise 10.2.5
+    page: '260'
+  topic: differentiation
+  subtopics:
+  - rolle-mvt
+  skills:
+  - auxiliary-function
+  - theorem-application
+  concept: mean value theorem from Rolle's theorem
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - mean-value-theorem
+  - Rolle
+  - auxiliary-function
+  problemLatex: |
+    Use Theorem 10.2.7 to prove Corollary 10.2.9. (Hint: consider a function of the form $f(x) - cx$ for some carefully chosen real number $c$.)
+
+    *(Theorem 10.2.7 (Rolle's theorem), quoted: Let $a < b$ be real numbers, and let $g : [a, b] \to \mathbf{R}$ be a continuous function which is differentiable on $(a, b)$. Suppose also that $g(a) = g(b)$. Then there exists an $x \in (a, b)$ such that $g'(x) = 0$.)*
+
+    *(Corollary 10.2.9 (Mean value theorem), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function which is continuous on $[a, b]$ and differentiable on $(a, b)$. Then there exists an $x \in (a, b)$ such that $f'(x) = \frac{f(b) - f(a)}{b - a}$.)*
+  curation:
+    why: Derive the Mean Value Theorem from Rolle's theorem with the right auxiliary function.
+- id: tao-10.3.5
+  source:
+    key: tao
+    chapter: 10 Differentiation of functions
+    section: 10.3 Monotone functions and derivatives
+    problemNumber: Exercise 10.3.5
+    page: '261'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  skills:
+  - construct-counterexample
+  concept: f'>0 on a non-interval domain need not give monotone (e.g. -1/x on R\{0})
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - mean-value-theorem
+  - monotone-function
+  - counterexample
+  - domain
+  - hypotheses
+  problemLatex: |
+    Give an example of a subset $X \subset \mathbf{R}$ and a function $f : X \to \mathbf{R}$ which is differentiable on $X$, is such that $f'(x) > 0$ for all $x \in X$, but $f$ is not strictly monotone increasing. (Hint: the conditions here are subtly different from those in Proposition 10.3.3. What is the difference, and how can one exploit that difference to obtain the example?)
+
+    *(Proposition 10.3.3, quoted: Let $a < b$, and let $f : [a, b] \to \mathbf{R}$ be a differentiable function. If $f'(x) > 0$ for all $x \in [a, b]$, then $f$ is strictly monotone increasing. If $f'(x) < 0$ for all $x \in [a, b]$, then $f$ is strictly monotone decreasing. If $f'(x) = 0$ for all $x \in [a, b]$, then $f$ is a constant function.)*
+  notes: 'Tao: ''differentiable on X'' means differentiable at every limit point of X in X (Definition 10.1.11) — so isolated points impose no condition; f''(x)>0 is then read at points where defined.'
+  curation:
+    why: f′ > 0 on a set that is not an interval does not make f increasing — the MVT needs an interval.
+- id: tao-11.6.3
+  source:
+    key: tao
+    chapter: 11 The Riemann integral
+    section: 11.6 Riemann integrability of monotone functions
+    problemNumber: Exercise 11.6.3
+    page: '290'
+  topic: series
+  subtopics:
+  - convergence-tests
+  - comparison
+  skills:
+  - comparison-estimate
+  - monotone-bounds
+  concept: integral test for series
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - integral-test
+  - series
+  - Riemann-integration
+  - monotone-function
+  problemLatex: |
+    Prove Proposition 11.6.4. (Hint: what is the relationship between the sum $\sum_{n=1}^N f(n)$, the sum $\sum_{n=0}^{N-1} f(n)$, and the integral $\int_{[0,N]} f$?)
+
+    *(Proposition 11.6.4 (Integral test), quoted: Let $f : [0, \infty) \to \mathbf{R}$ be a monotone decreasing function which is non-negative (i.e., $f(x) \ge 0$ for all $x \ge 0$). Then the sum $\sum_{n=0}^\infty f(n)$ is convergent if and only if $\sup_{N>0} \int_{[0,N]} f$ is finite.)*
+  notes: Prop 11.6.4 quoted; sum/integral limits verified on page image (PDF 307).
+  curation:
+    why: The integral test, proved from Riemann sums of a monotone function.
+- id: tao-11.9.3
+  source:
+    key: tao
+    chapter: 11 The Riemann integral
+    section: 11.9 The two fundamental theorems of calculus
+    problemNumber: Exercise 11.9.3
+    page: '300'
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  skills:
+  - one-sided-limits
+  - contradiction
+  - comparison-estimate
+  concept: for monotone f, F(x)=int_a^x f is differentiable at x0 iff f continuous at x0
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - fundamental-theorem-of-calculus
+  - monotone-function
+  - one-sided-limits
+  - jump-discontinuity
+  problemLatex: |
+    Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a monotone increasing function. Let $F : [a, b] \to \mathbf{R}$ be the function $F(x) := \int_{[a,x]} f$. Let $x_0$ be an element of $[a, b]$. Show that $F$ is differentiable at $x_0$ if and only if $f$ is continuous at $x_0$. (Hint: one direction is taken care of by one of the fundamental theorems of calculus. For the other, consider left and right limits of $f$ and argue by contradiction.)
+
+    *(Theorem 11.9.1 (First Fundamental Theorem of Calculus), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a Riemann integrable function. Let $F : [a, b] \to \mathbf{R}$ be the function $F(x) := \int_{[a,x]} f$. Then $F$ is continuous. Furthermore, if $x_0 \in [a, b]$ and $f$ is continuous at $x_0$, then $F$ is differentiable at $x_0$, and $F'(x_0) = f(x_0)$.)*
+  notes: FTC I quoted for convenience (hint refers to 'one of the fundamental theorems'). Monotone f on [a,b] is Riemann integrable (Prop 11.6.1).
+  curation:
+    why: For monotone f, F(x) = ∫ₐˣ f is differentiable at x₀ exactly when f is continuous there.

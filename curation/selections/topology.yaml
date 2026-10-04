@@ -1,0 +1,70 @@
+- cid: cummings-5.3
+  why: "Infinite intersections of open sets (and infinite unions of closed sets) can fail — find the examples."
+- cid: abbott-3.2.6
+  why: "True/false statements about open and closed sets; the standard pitfalls."
+- cid: abbott-3.2.5
+  why: "Closed iff every Cauchy sequence in F converges in F — topology meets completeness."
+- cid: abbott-3.2.7
+  why: "The set of limit points is closed, and the closure is the smallest closed set containing A."
+- cid: lebl-7.2.7
+  why: "Boundary characterizations: E is closed iff ∂E ⊂ E, U is open iff ∂U ∩ U = ∅."
+- cid: lebl-7.2.13
+  why: "In a general metric space the closure of an open ball can be strictly smaller than the closed ball."
+- cid: abbott-3.2.10
+  why: "Isolated points and cardinality: a countable set with no isolated points, and why no set has uncountably many isolated points."
+- cid: abbott-3.2.13
+  why: "ℝ is connected: the only clopen subsets are ∅ and ℝ (a sup argument)."
+- cid: ross-13.7
+  set: {category: challenge}
+  why: "Every open subset of ℝ is a countable disjoint union of open intervals — the structure theorem used in measure theory."
+- cid: lebl-7.4.2
+  why: "Use the open-cover definition directly: {1/n} is not compact, {1/n} ∪ {0} is."
+- cid: abbott-3.3.9
+  why: "Heine–Borel: closed and bounded ⇒ every open cover has a finite subcover, by bisection."
+- cid: cummings-5.7
+  why: "In ℝ, closed and bounded ⇔ sequentially compact, both directions."
+- cid: cummings-5.8
+  why: "A closed subset of a compact set is compact."
+- cid: abbott-3.3.5
+  why: "True/false about unions and intersections of compact sets; nested closed (non-compact) sets can have empty intersection."
+- cid: lebl-7.4.10
+  why: "Cantor's intersection theorem: nested nonempty compact sets have nonempty intersection."
+- cid: abbott-3.3.8
+  why: "Disjoint compact sets are a positive distance apart, and the distance is attained — false for closed sets."
+- cid: ross-21.5
+  why: "Characterize compactness by continuous functions: E is compact iff every continuous function on E is bounded."
+- cid: lebl-7.4.6
+  why: "Compact metric spaces are complete."
+- cid: lebl-7.4.12
+  set: {category: challenge}
+  why: "Compact ⇔ complete and totally bounded — the characterization used throughout graduate analysis."
+- cid: lebl-7.4.8
+  why: "In C[0,1] the closed unit ball is closed and bounded but not compact: Heine–Borel is special to ℝⁿ."
+- cid: abbott-3.3.7
+  set: {category: challenge, difficulty: hard}
+  why: "The Cantor set has length zero, yet C + C = [0,2]. A nested-interval argument on a famous set."
+- cid: abbott-8.2.5
+  why: "C[0,1] with the sup metric is complete, but C¹[0,1] with the sup metric is not."
+- cid: lebl-7.4.16
+  why: "Closed subsets of complete metric spaces are complete."
+- cid: lebl-7.4.19
+  why: "Completeness is not a topological property: a metric on ℝ with the same open sets but non-convergent Cauchy sequences."
+- cid: lebl-7.2.10
+  why: "Connected sets sharing a point have connected union."
+- cid: lebl-7.2.11
+  why: "The closure of a connected set is connected; the interior need not be."
+- cid: ross-22.4
+  set: {category: challenge}
+  why: "The topologist's sine curve: connected but not path-connected."
+- cid: lebl-7.1.5
+  why: "Building new metrics: φ∘d for increasing subadditive φ (e.g. d/(1+d))."
+- cid: abbott-8.2.2
+  set: {type: definition}
+  why: "Check the metric axioms on C[0,1] for the sup and L¹ distances, and see one candidate fail."
+- cid: lebl-7.3.2
+  why: "The bounded metric min(1,|x−y|) has the same convergent sequences as |x−y|, yet bounded sequences need not have convergent subsequences."
+- cid: abbott-3.5.4
+  set: {category: challenge, difficulty: hard}
+  why: "Baire's theorem on ℝ via nested closed intervals."
+- cid: abbott-3.5.6
+  why: "Apply Baire: ℚ is not a countable intersection of open sets."

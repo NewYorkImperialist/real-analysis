@@ -1,0 +1,2233 @@
+chunk: "lebl-ch5-7"
+book: lebl
+pageOffsetNote: "printed page = pdfPage - 0 (verified on pp. 189, 205, 232, 285, 300)"
+sectionsCovered:
+  - "5.1 The Riemann integral — 15 exercises"
+  - "5.2 Properties of the integral — 18 exercises"
+  - "5.3 Fundamental theorem of calculus — 13 exercises"
+  - "5.4 The logarithm and the exponential — 11 exercises (selective)"
+  - "5.5 Improper integrals — 14 exercises (selective)"
+  - "6.1 Pointwise and uniform convergence — 14 exercises"
+  - "6.2 Interchange of limits — 22 exercises"
+  - "6.3 Picard's theorem — 9 exercises (selective)"
+  - "7.1 Metric spaces — 13 exercises"
+  - "7.2 Open and closed sets — 18 exercises"
+  - "7.3 Sequences and convergence — 14 exercises"
+  - "7.4 Completeness and compactness — 20 exercises"
+  - "7.5 Continuous functions — 18 exercises"
+  - "7.6 Fixed point theorem and Picard's theorem again — 11 exercises (selective)"
+candidates:
+  # ---------------- 5.1 ----------------
+  - cid: lebl-5.1.2
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.2"
+    page: "188"
+    pdfPage: 188
+    verdict: strong
+    machinery: "Computing a Darboux integral directly from upper/lower sums for the simplest nonconstant function."
+    standardResult: "integral of x on [0,1] from the definition (Darboux sums)"
+    topic: integration
+    subtopics: [partitions-darboux-sums]
+    skills: [uniform-partition, telescoping, sup-approximation]
+    difficulty: introductory
+    difficultyRationale: "Direct computation of U(P_n,f) and L(P_n,f) for a uniform partition."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, definition, machinery]
+    references: []
+    problemLatex: |
+      Let $f\colon [0,1] \to \mathbb{R}$ be defined by $f(x) := x$. Show that $f \in \mathscr{R}\bigl([0,1]\bigr)$ and compute $\int_0^1 f$ using the definition of the integral (but feel free to use the propositions of this section).
+    transcriptionNotes: "Text extraction dropped 'and compute'; verified against page image. $\\mathscr{R}([a,b])$ is the book's notation for the set of Riemann integrable functions on $[a,b]$."
+
+  - cid: lebl-5.1.3
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.3"
+    page: "189"
+    pdfPage: 189
+    verdict: strong
+    machinery: "Sequential form of the Riemann (Darboux) integrability criterion; squeezing lower/upper integrals."
+    standardResult: "sequence of partitions with U(P_k,f)-L(P_k,f)->0 implies integrable, integral = lim U = lim L"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [squeeze, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "Combine L(P_k) <= lower integral <= upper integral <= U(P_k) with a limit argument."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, integrability-criterion, machinery]
+    references: []
+    problemLatex: |
+      Let $f\colon [a,b] \to \mathbb{R}$ be a bounded function. Suppose there exists a sequence of partitions $\{P_k\}_{k=1}^\infty$ of $[a,b]$ such that
+      $$\lim_{k\to\infty} \bigl( U(P_k,f) - L(P_k,f) \bigr) = 0.$$
+      Show that $f$ is Riemann integrable and that
+      $$\int_a^b f = \lim_{k\to\infty} U(P_k,f) = \lim_{k\to\infty} L(P_k,f).$$
+
+  - cid: lebl-5.1.6
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.6"
+    page: "189"
+    pdfPage: 189
+    verdict: strong
+    machinery: "Integrability of a function with a single jump/removable point straight from Darboux sums; isolating a bad point in a small subinterval."
+    standardResult: "changing a function at one point does not affect integrability or the integral"
+    topic: integration
+    subtopics: [partitions-darboux-sums, integrability-criteria]
+    skills: [choose-partition, epsilon-argument]
+    difficulty: easy
+    difficultyRationale: "Choose a partition with the point c in a subinterval of length < epsilon/|d|; compute sums."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, definition, machinery]
+    references: []
+    problemLatex: |
+      Let $c \in (a,b)$ and let $d \in \mathbb{R}$. Define $f\colon [a,b] \to \mathbb{R}$ as
+      $$f(x) := \begin{cases} d & \text{if } x = c, \\ 0 & \text{if } x \neq c. \end{cases}$$
+      Prove that $f \in \mathscr{R}\bigl([a,b]\bigr)$ and compute $\int_a^b f$ using the definition of the integral (but feel free to use the propositions of this section).
+    transcriptionNotes: "Text extraction dropped 'and compute'; verified against page image."
+
+  - cid: lebl-5.1.10
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.10"
+    page: "189"
+    pdfPage: 189
+    verdict: consider
+    machinery: "Understanding that refinement (not mesh) drives monotonicity of Darboux sums: uniform partitions P_n are not refinements of each other."
+    standardResult: "lower sums over uniform partitions need not be monotone"
+    topic: integration
+    subtopics: [partitions-darboux-sums]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Requires noticing P_{n+1} does not refine P_n and building a simple step/indicator counterexample."
+    category: canonical
+    type: counterexample
+    tags: [Riemann-integration, Darboux-sums, refinement, counterexample]
+    references: []
+    problemLatex: |
+      Let $f\colon [0,1] \to \mathbb{R}$ be a bounded function. Let $P_n = \{x_0, x_1, \ldots, x_n\}$ be a uniform partition of $[0,1]$, that is, $x_i = i/n$. Is $\bigl\{ L(P_n,f) \bigr\}_{n=1}^\infty$ always monotone? Yes/No: Prove or find a counterexample.
+
+  - cid: lebl-5.1.11
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.11"
+    page: "189"
+    pdfPage: 189
+    verdict: strong
+    machinery: "Riemann sums trapped between Darboux sums; existence of the limit of Riemann sums does not imply integrability (Dirichlet-type function)."
+    standardResult: "right-endpoint Riemann sums converge to the integral; converse fails"
+    topic: integration
+    subtopics: [partitions-darboux-sums, integrability-criteria]
+    skills: [squeeze, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Part a) needs a careful squeeze L(P_n,f) <= R_n <= U(P_n,f) plus showing U(P_n)-L(P_n)->0 for uniform partitions of an integrable f (not automatic); part b) is a standard counterexample."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Riemann-sums, Dirichlet-function, counterexample]
+    references: []
+    problemLatex: |
+      (Challenging) For a bounded function $f\colon [0,1] \to \mathbb{R}$, let $R_n := (1/n)\sum_{i=1}^n f(i/n)$ (the uniform right-hand rule).
+      a) If $f$ is Riemann integrable show $\int_0^1 f = \lim_{n\to\infty} R_n$.
+      b) Find an $f$ that is not Riemann integrable, but $\lim_{n\to\infty} R_n$ exists.
+    transcriptionNotes: "Book labels it (Challenging)."
+
+  - cid: lebl-5.1.13
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.13"
+    page: "190"
+    pdfPage: 190
+    verdict: strong
+    machinery: "Equivalence of the Darboux integral and the mesh/Riemann-sum (calculus) definition of the integral."
+    standardResult: "Darboux integrable iff Riemann integrable (mesh definition), same value"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [partition-refinement, epsilon-argument, sup-approximation]
+    difficulty: hard
+    difficultyRationale: "The Darboux => mesh direction requires controlling how many subintervals of a fine partition can straddle points of a fixed good partition."
+    category: synthesis
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, Riemann-sums, mesh, equivalence-of-definitions]
+    references: ["Exercise 5.1.12 (quoted)", "Exercise 5.1.7 (quoted)"]
+    problemLatex: |
+      Using Exercise 5.1.12 and the idea of the proof in Exercise 5.1.7, show that Darboux integral is the same as the standard definition of Riemann integral, which you have most likely seen in calculus. That is, show that $f \in \mathscr{R}\bigl([a,b]\bigr)$ if and only if there exists an $I \in \mathbb{R}$, such that for every $\epsilon > 0$ there exists a $\delta > 0$ such that if $P = \{x_0, x_1, \ldots, x_n\}$ is a partition with $\Delta x_i < \delta$ for all $i$, then $\left| \sum_{i=1}^n f(c_i)\Delta x_i - I \right| < \epsilon$ for every set $\{c_1, c_2, \ldots, c_n\}$ with $c_i \in [x_{i-1}, x_i]$. If $f \in \mathscr{R}\bigl([a,b]\bigr)$, then $I = \int_a^b f$.
+
+      *(Exercise 5.1.12: Show that $f \in \mathscr{R}\bigl([a,b]\bigr)$ if and only if there exists an $I \in \mathbb{R}$, such that for every $\epsilon > 0$ there exists a $\delta > 0$ such that if $P$ is a partition with $\Delta x_i < \delta$ for all $i$, then $\left|L(P,f) - I\right| < \epsilon$ and $\left|U(P,f) - I\right| < \epsilon$. If $f \in \mathscr{R}\bigl([a,b]\bigr)$, then $I = \int_a^b f$.)*
+
+      *(Exercise 5.1.7: Suppose $f\colon [a,b] \to \mathbb{R}$ is Riemann integrable. Let $\epsilon > 0$ be given. Then show that there exists a partition $P = \{x_0, x_1, \ldots, x_n\}$ such that for every set of numbers $\{c_1, c_2, \ldots, c_n\}$ with $c_k \in [x_{k-1}, x_k]$ for all $k$, we have $\left| \int_a^b f - \sum_{k=1}^n f(c_k)\Delta x_k \right| < \epsilon$.)*
+    transcriptionNotes: "Referenced Exercises 5.1.12 (Challenging) and 5.1.7 quoted verbatim from p. 190 and p. 189 (5.1.12's opening 'Generalize the previous exercise.' omitted). The essential hard step is the content of 5.1.12; the curator may prefer to present 5.1.12+5.1.13 as one item."
+
+  - cid: lebl-5.1.14
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.14"
+    page: "190"
+    pdfPage: 190
+    verdict: consider
+    machinery: "Composition of an integrable function with a bijection can destroy integrability; integrability is not preserved by rearranging points."
+    standardResult: "f∘g not Riemann integrable with f integrable, g a bijection of [0,1]"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "Needs an inventive bijection (e.g. moving countably many points onto a dense set) together with a non-integrability verification."
+    category: challenge
+    type: counterexample
+    tags: [Riemann-integration, composition, bijection, counterexample]
+    references: []
+    problemLatex: |
+      (Challenging) Construct functions $f$ and $g$, where $f\colon [0,1] \to \mathbb{R}$ is Riemann integrable, $g\colon [0,1] \to [0,1]$ is one-to-one and onto, and such that the composition $f \circ g$ is not Riemann integrable.
+
+  - cid: lebl-5.1.15
+    chapter: "5 The Riemann Integral"
+    section: "5.1 The Riemann integral"
+    number: "Exercise 5.1.15"
+    page: "190"
+    pdfPage: 190
+    verdict: strong
+    machinery: "Unpacking upper and lower Darboux sums: L(P,f)=U(P,f) forces sup = inf on each subinterval and gluing at shared endpoints."
+    standardResult: "L(P,f)=U(P,f) for a single partition implies f constant"
+    topic: integration
+    subtopics: [partitions-darboux-sums]
+    skills: [definition-unpacking]
+    difficulty: easy
+    difficultyRationale: "Short argument from the definitions, with a small subtlety at partition points."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, definition]
+    references: []
+    problemLatex: |
+      Suppose that $f\colon [a,b] \to \mathbb{R}$ is a bounded function, and $P$ is a partition of $[a,b]$ such that $L(P,f) = U(P,f)$. Prove that $f$ is a constant function.
+
+  # ---------------- 5.2 ----------------
+  - cid: lebl-5.2.2
+    chapter: "5 The Riemann Integral"
+    section: "5.2 Properties of the integral"
+    number: "Exercise 5.2.2"
+    page: "197"
+    pdfPage: 197
+    verdict: strong
+    machinery: "Additivity of the integral via a common refinement and inf/sup of sums."
+    standardResult: "linearity of the Riemann integral: f+g integrable and ∫(f+g)=∫f+∫g"
+    topic: integration
+    subtopics: [integral-properties, partitions-darboux-sums]
+    skills: [partition-refinement, sup-inf-inequalities]
+    difficulty: easy
+    difficultyRationale: "Standard common-refinement argument with sup(f+g) <= sup f + sup g."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, linearity, refinement, machinery]
+    references: ["Proposition 5.2.4 (part restated)", "Proposition 5.2.5 (quoted)", "Proposition 5.1.7 (quoted)"]
+    problemLatex: |
+      Prove the second part of Proposition 5.2.4. Let $f$ and $g$ be in $\mathscr{R}\bigl([a,b]\bigr)$. Prove, without using Proposition 5.2.5, that $f+g$ is in $\mathscr{R}\bigl([a,b]\bigr)$ and
+      $$\int_a^b \bigl(f(x)+g(x)\bigr)\,dx = \int_a^b f(x)\,dx + \int_a^b g(x)\,dx.$$
+      Hint: One way to do it is to use Proposition 5.1.7 to find a single partition $P$ such that $U(P,f) - L(P,f) < \epsilon/2$ and $U(P,g) - L(P,g) < \epsilon/2$.
+
+      *(Proposition 5.2.4 (ii), the part to prove: if $f, g \in \mathscr{R}\bigl([a,b]\bigr)$, then $f+g \in \mathscr{R}\bigl([a,b]\bigr)$ and $\int_a^b (f+g) = \int_a^b f + \int_a^b g$.)*
+
+      *(Proposition 5.2.5: Let $f\colon [a,b] \to \mathbb{R}$ and $g\colon [a,b] \to \mathbb{R}$ be bounded functions. Then $\overline{\int_a^b}(f+g) \le \overline{\int_a^b} f + \overline{\int_a^b} g$ and $\underline{\int_a^b}(f+g) \ge \underline{\int_a^b} f + \underline{\int_a^b} g$.)*
+
+      *(Proposition 5.1.7: Let $f\colon [a,b] \to \mathbb{R}$ be a bounded function, and let $P$ be a partition of $[a,b]$. Let $\widetilde{P}$ be a refinement of $P$. Then $L(P,f) \le L(\widetilde{P},f)$ and $U(\widetilde{P},f) \le U(P,f)$.)*
+    transcriptionNotes: "Verbatim. Proposition 5.2.5 and Proposition 5.1.7 quoted verbatim; Proposition 5.2.4 (ii) summarized from the exercise's own displayed statement. Text extraction lost the word 'without'; verified on page image."
+
+  - cid: lebl-5.2.4
+    chapter: "5 The Riemann Integral"
+    section: "5.2 Properties of the integral"
+    number: "Exercise 5.2.4"
+    page: "197"
+    pdfPage: 197
+    verdict: strong
+    machinery: "Combining extreme value theorem, monotonicity of the integral, and IVT."
+    standardResult: "mean value theorem for integrals"
+    topic: integration
+    subtopics: [integral-properties, integral-inequalities]
+    skills: [EVT-application, IVT-application]
+    difficulty: easy
+    difficultyRationale: "m(b-a) <= ∫f <= M(b-a), then IVT."
+    category: canonical
+    type: theorem-application
+    tags: [Riemann-integration, mean-value-theorem-for-integrals, IVT, EVT]
+    references: []
+    problemLatex: |
+      Prove the *mean value theorem for integrals*: If $f\colon [a,b] \to \mathbb{R}$ is continuous, then there exists a $c \in [a,b]$ such that $\int_a^b f = f(c)(b-a)$.
+
+  - cid: lebl-5.2.5
+    chapter: "5 The Riemann Integral"
+    section: "5.2 Properties of the integral"
+    number: "Exercise 5.2.5"
+    page: "197"
+    pdfPage: 197
+    verdict: core
+    machinery: "Continuity gives a neighborhood where f is bounded below by a positive constant; monotonicity of the integral."
+    standardResult: "continuous nonnegative function with zero integral is identically zero"
+    topic: integration
+    subtopics: [integral-properties, integral-inequalities]
+    skills: [contradiction, epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "Standard local positivity argument."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, continuity, positivity, machinery]
+    references: []
+    problemLatex: |
+      Let $f\colon [a,b] \to \mathbb{R}$ be a continuous function such that $f(x) \ge 0$ for all $x \in [a,b]$ and $\int_a^b f = 0$. Prove that $f(x) = 0$ for all $x$.
+
+  - cid: lebl-5.2.11
+    chapter: "5 The Riemann Integral"
+    section: "5.2 Properties of the integral"
+    number: "Exercise 5.2.11"
+    page: "198"
+    pdfPage: 198
+    verdict: core
+    machinery: "Integrability via Darboux sums when discontinuities are dense but 'small': only finitely many points have f >= epsilon."
+    standardResult: "Thomae's (popcorn) function is Riemann integrable with integral 0"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [finiteness-argument, choose-partition, epsilon-argument]
+    difficulty: medium
+    difficultyRationale: "Count the finitely many rationals with denominator <= N and cover them by short subintervals; lower sums are 0."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Thomae-function, popcorn-function, dense-discontinuities]
+    references: ["Example 3.2.12 (definition reproduced in exercise)"]
+    problemLatex: |
+      (Hard) Show that the Thomae or popcorn function (see Example 3.2.12) is Riemann integrable. Therefore, there exists a function discontinuous at all rational numbers (a dense set) that is Riemann integrable.
+
+      That is, define $f\colon [0,1] \to \mathbb{R}$ by $f(0) = 1$ and for $x > 0$ by
+      $$f(x) := \begin{cases} 1/k & \text{if } x = m/k \text{ where } m, k \in \mathbb{N} \text{ and } m \text{ and } k \text{ have no common divisors}, \\ 0 & \text{if } x \text{ is irrational}. \end{cases}$$
+      Show $\int_0^1 f = 0$.
+    transcriptionNotes: "Book labels it (Hard). The exercise itself defines the function, so it is self-contained."
+
+  - cid: lebl-5.2.14
+    chapter: "5 The Riemann Integral"
+    section: "5.2 Properties of the integral"
+    number: "Exercise 5.2.14"
+    page: "199"
+    pdfPage: 199
+    verdict: core
+    machinery: "Telescoping U-L for monotone functions on a uniform partition; closure of integrable functions under differences (bounded variation)."
+    standardResult: "monotone functions are Riemann integrable"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [uniform-partition, telescoping]
+    difficulty: medium
+    difficultyRationale: "Part a) needs the telescoping estimate U-L = (f(b)-f(a))(b-a)/n; b), c) are short reductions."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, monotone-function, bounded-variation, telescoping]
+    references: []
+    problemLatex: |
+      Let $f\colon [a,b] \to \mathbb{R}$ be a function.
+      a) Show that if $f$ is increasing, then it is Riemann integrable. Hint: Use a uniform partition; each subinterval of same length.
+      b) Use part a) to show that if $f$ is decreasing, then it is Riemann integrable.
+      c) Suppose $h = f - g$ where $f$ and $g$ are increasing functions on $[a,b]$. Show that $h$ is Riemann integrable.
+    transcriptionNotes: "Footnote on c) in the book: 'Such an h is said to be of bounded variation.'"
+
+  - cid: lebl-5.2.15
+    chapter: "5 The Riemann Integral"
+    section: "5.2 Properties of the integral"
+    number: "Exercise 5.2.15"
+    page: "199"
+    pdfPage: 199
+    verdict: core
+    machinery: "Oscillation of |f| on a subinterval is at most that of f (reverse triangle inequality), then the U-L criterion."
+    standardResult: "f integrable implies |f| integrable and |∫f| <= ∫|f|"
+    topic: integration
+    subtopics: [integrability-criteria, integral-inequalities]
+    skills: [triangle-inequality, sup-inf-inequalities]
+    difficulty: medium
+    difficultyRationale: "Key step: sup|f| - inf|f| <= sup f - inf f on each subinterval."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, absolute-value, integral-inequality, machinery]
+    references: ["Exercise 5.2.10 (inequality quoted)"]
+    problemLatex: |
+      (Challenging) Suppose $f \in \mathscr{R}\bigl([a,b]\bigr)$. Prove that the function that takes $x$ to $\left|f(x)\right|$ is also Riemann integrable on $[a,b]$. Then show the same inequality as Exercise 5.2.10, namely
+      $$\left| \int_a^b f(x)\,dx \right| \le \int_a^b \left|f(x)\right|\,dx.$$
+    transcriptionNotes: "The inequality from Exercise 5.2.10 is inserted after 'namely' for self-containedness (verbatim from p. 198)."
+
+  - cid: lebl-5.2.18
+    chapter: "5 The Riemann Integral"
+    section: "5.2 Properties of the integral"
+    number: "Exercise 5.2.18"
+    page: "199"
+    pdfPage: 199
+    verdict: strong
+    machinery: "Approximation of a continuous function by step functions (uniform continuity) and explicit integrals of sin(nt) over intervals."
+    standardResult: "Riemann–Lebesgue lemma for continuous functions"
+    topic: integration
+    subtopics: [integral-properties, integral-inequalities]
+    skills: [uniform-continuity, step-function-approximation, epsilon-over-2]
+    difficulty: medium
+    difficultyRationale: "Requires choosing a partition from uniform continuity and estimating each piece; or integration-by-parts-free argument."
+    category: synthesis
+    type: proof
+    tags: [Riemann-integration, Riemann-Lebesgue-lemma, uniform-continuity, oscillatory-integral]
+    references: []
+    problemLatex: |
+      Prove a version of the *Riemann–Lebesgue Lemma* (one of several so named): Suppose $f\colon [a,b] \to \mathbb{R}$ is continuous and define the sequence $\{x_n\}_{n=1}^\infty$ by
+      $$x_n := \int_a^b f(t)\sin(nt)\,dt.$$
+      Prove that $\lim_{n\to\infty} x_n = 0$.
+
+  # ---------------- 5.3 ----------------
+  - cid: lebl-5.3.1
+    chapter: "5 The Riemann Integral"
+    section: "5.3 Fundamental theorem of calculus"
+    number: "Exercise 5.3.1"
+    page: "205"
+    pdfPage: 205
+    verdict: core
+    machinery: "Second form of the FTC combined with additivity and the chain rule for variable limits of integration."
+    standardResult: "derivative of an integral with variable limits (FTC + chain rule)"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [FTC-application, chain-rule]
+    difficulty: introductory
+    difficultyRationale: "Split at 0 and apply FTC and chain rule; answer is 2e^{x^2}."
+    category: canonical
+    type: computation
+    tags: [fundamental-theorem-of-calculus, chain-rule, Riemann-integration]
+    references: []
+    problemLatex: |
+      Compute $\displaystyle \frac{d}{dx}\left( \int_{-x}^{x} e^{s^2}\,ds \right)$.
+    transcriptionNotes: "MIT 18.100A Fall 2020 used an older Lebl version; v6.3 Exercise 5.3.1 (FTC with variable limits) is topically consistent with the assignment's Riemann-integral reading."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 12, Problem 2"
+
+  - cid: lebl-5.3.5
+    chapter: "5 The Riemann Integral"
+    section: "5.3 Fundamental theorem of calculus"
+    number: "Exercise 5.3.5"
+    page: "205"
+    pdfPage: 205
+    verdict: strong
+    machinery: "Product rule + FTC (first form) for continuously differentiable functions."
+    standardResult: "integration by parts"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [FTC-application, product-rule]
+    difficulty: easy
+    difficultyRationale: "Apply FTC to (FG)' = F'G + FG', checking integrability of each term."
+    category: canonical
+    type: proof
+    tags: [fundamental-theorem-of-calculus, integration-by-parts]
+    references: []
+    problemLatex: |
+      Prove *integration by parts*. That is, suppose $F$ and $G$ are continuously differentiable functions on $[a,b]$. Then prove
+      $$\int_a^b F(x)G'(x)\,dx = F(b)G(b) - F(a)G(a) - \int_a^b F'(x)G(x)\,dx.$$
+
+  - cid: lebl-5.3.8
+    chapter: "5 The Riemann Integral"
+    section: "5.3 Fundamental theorem of calculus"
+    number: "Exercise 5.3.8"
+    page: "205"
+    pdfPage: 205
+    verdict: strong
+    machinery: "Turning an integral identity into a pointwise identity by differentiating with the FTC."
+    standardResult: "∫_a^x f = ∫_x^b f for all x forces f = 0 (FTC)"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [FTC-application]
+    difficulty: easy
+    difficultyRationale: "Differentiate both sides using FTC: f(x) = -f(x)."
+    category: canonical
+    type: proof
+    tags: [fundamental-theorem-of-calculus, continuity]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [a,b] \to \mathbb{R}$ is continuous and $\int_a^x f = \int_x^b f$ for all $x \in [a,b]$. Show that $f(x) = 0$ for all $x \in [a,b]$.
+
+  - cid: lebl-5.3.9
+    chapter: "5 The Riemann Integral"
+    section: "5.3 Fundamental theorem of calculus"
+    number: "Exercise 5.3.9"
+    page: "205"
+    pdfPage: 205
+    verdict: core
+    machinery: "Continuity of F(x)=∫_a^x f plus density of Q extends a vanishing condition to all x; then FTC."
+    standardResult: "∫_a^x f = 0 for rational x implies f ≡ 0 (density + FTC)"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [density-argument, FTC-application, sequential-continuity]
+    difficulty: easy
+    difficultyRationale: "F is continuous and zero on a dense set, so F ≡ 0; then f = F' = 0."
+    category: canonical
+    type: proof
+    tags: [fundamental-theorem-of-calculus, density-of-Q, continuity]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [a,b] \to \mathbb{R}$ is continuous and $\int_a^x f = 0$ for all rational $x$ in $[a,b]$. Show that $f(x) = 0$ for all $x \in [a,b]$.
+    transcriptionNotes: "Topically consistent with the MIT assignment's Riemann-integral reading."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 12, Problem 3"
+
+  - cid: lebl-5.3.12
+    chapter: "5 The Riemann Integral"
+    section: "5.3 Fundamental theorem of calculus"
+    number: "Exercise 5.3.12"
+    page: "206"
+    pdfPage: 206
+    verdict: consider
+    machinery: "One-sided difference quotients of F(x)=∫_a^x f detect jumps of f; constructing a continuous function non-differentiable on a dense set."
+    standardResult: "integral of an increasing function with a jump is not differentiable there; continuous F non-differentiable at every rational"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [one-sided-limits, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Part a) compares left and right difference quotients with one-sided limits of f; part b) applies a) at each rational."
+    category: synthesis
+    type: construction
+    tags: [fundamental-theorem-of-calculus, monotone-function, jump-discontinuity, nondifferentiable]
+    references: ["Proposition 5.2.11 (quoted)", "Exercise 3.6.11 (quoted)"]
+    problemLatex: |
+      (uses §3.6)
+      a) Suppose $f\colon [a,b] \to \mathbb{R}$ is increasing. By Proposition 5.2.11, $f$ is Riemann integrable. Show that if $f$ has a discontinuity at $c \in (a,b)$, then $F(x) := \int_a^x f$ is not differentiable at $c$.
+      b) In Exercise 3.6.11, you constructed an increasing function $f\colon [0,1] \to \mathbb{R}$ that is discontinuous at every $x \in [0,1] \cap \mathbb{Q}$. Use this $f$ to construct a function $F(x)$ that is continuous on $[0,1]$, but not differentiable at all $x \in [0,1] \cap \mathbb{Q}$.
+
+      *(Proposition 5.2.11: Let $f\colon [a,b] \to \mathbb{R}$ be a monotone function. Then $f \in \mathscr{R}\bigl([a,b]\bigr)$.)*
+
+      *(Exercise 3.6.11: Find an example of an increasing function $f\colon [0,1] \to \mathbb{R}$ that has a discontinuity at each rational number. Then show that the image $f\bigl([0,1]\bigr)$ contains no interval. Hint: Enumerate the rational numbers and define the function with a series.)*
+    transcriptionNotes: "Proposition 5.2.11 and Exercise 3.6.11 quoted verbatim. Part b) presupposes the construction of Exercise 3.6.11."
+
+  # ---------------- 5.4 (selective) ----------------
+  - cid: lebl-5.4.4
+    chapter: "5 The Riemann Integral"
+    section: "5.4 The logarithm and the exponential"
+    number: "Exercise 5.4.4"
+    page: "212"
+    pdfPage: 212
+    verdict: consider
+    machinery: "Integrating a finite geometric sum with explicit remainder; bounding the remainder integral to get convergence including the endpoint x=1."
+    standardResult: "ln(1+x) power series on (-1,1]; alternating harmonic series = ln 2"
+    topic: integration
+    subtopics: [log-exp, integral-inequalities]
+    skills: [remainder-estimate, integral-estimate]
+    difficulty: medium
+    difficultyRationale: "Endpoint x = 1 and negative x require a careful bound on ∫ t^{n+1}/(1+t)."
+    category: synthesis
+    type: proof
+    tags: [logarithm, power-series, alternating-harmonic-series, remainder-estimate]
+    references: []
+    problemLatex: |
+      Use the geometric sum formula to show (for $t \neq -1$)
+      $$1 - t + t^2 - \cdots + (-1)^n t^n = \frac{1}{1+t} - \frac{(-1)^{n+1}t^{n+1}}{1+t}.$$
+      Using this fact, show
+      $$\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n}$$
+      for all $x \in (-1,1]$ (note that $x = 1$ is included). Finally, find the limit of the alternating harmonic series
+      $$\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots$$
+    transcriptionNotes: "In Lebl, ln x is defined as ∫_1^x (1/t) dt."
+
+  - cid: lebl-5.4.5
+    chapter: "5 The Riemann Integral"
+    section: "5.4 The logarithm and the exponential"
+    number: "Exercise 5.4.5"
+    page: "212"
+    pdfPage: 212
+    verdict: consider
+    machinery: "Limit via logarithm and derivative of ln at 1 (or squeeze with integral bounds), plus continuity of exp."
+    standardResult: "e^x = lim (1 + x/n)^n"
+    topic: integration
+    subtopics: [log-exp]
+    skills: [take-logarithm, sequential-continuity]
+    difficulty: easy
+    difficultyRationale: "n ln(1+x/n) -> x by the derivative of ln at 1; exp continuous."
+    category: canonical
+    type: proof
+    tags: [exponential, logarithm, compound-interest, limit]
+    references: []
+    problemLatex: |
+      Show
+      $$e^x = \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n.$$
+      Hint: Take the logarithm.
+    transcriptionNotes: "The book's following Note about compound interest is omitted (motivational, not part of the task)."
+
+  - cid: lebl-5.4.6
+    chapter: "5 The Riemann Integral"
+    section: "5.4 The logarithm and the exponential"
+    number: "Exercise 5.4.6"
+    page: "212"
+    pdfPage: 212
+    verdict: strong
+    machinery: "Comparing sums with integrals of a monotone function (upper/lower sums of 1/x); monotone convergence."
+    standardResult: "harmonic sums vs ln n; existence of the Euler–Mascheroni constant"
+    topic: integration
+    subtopics: [log-exp, integral-inequalities]
+    skills: [integral-comparison, monotone-bounded]
+    difficulty: medium
+    difficultyRationale: "a) is Darboux sums for 1/x; b) needs to show the difference is monotone and bounded."
+    category: synthesis
+    type: proof
+    tags: [logarithm, harmonic-series, Euler-Mascheroni, integral-test, monotone-convergence]
+    references: []
+    problemLatex: |
+      a) Prove that for all integers $n \ge 2$,
+      $$\sum_{k=2}^n \frac{1}{k} \le \ln(n) \le \sum_{k=1}^{n-1} \frac{1}{k}.$$
+      b) Prove that the limit
+      $$\gamma := \lim_{n\to\infty} \left( \left( \sum_{k=1}^n \frac{1}{k} \right) - \ln(n) \right)$$
+      exists. This constant $\gamma$ is known as the *Euler–Mascheroni constant*. It is not known if $\gamma$ is rational or not. Approximately, $\gamma \approx 0.5772$.
+
+  - cid: lebl-5.4.11
+    chapter: "5 The Riemann Integral"
+    section: "5.4 The logarithm and the exponential"
+    number: "Exercise 5.4.11"
+    page: "213"
+    pdfPage: 213
+    verdict: strong
+    machinery: "Exponential beats polynomial; induction on derivatives of e^{-1/x}; Taylor series that converges but not to the function."
+    standardResult: "e^{-1/x}: smooth (C^∞) but not analytic at 0"
+    topic: differentiation
+    subtopics: [taylor, differentiability]
+    skills: [induction, limit-of-difference-quotient, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Inductive description of derivatives as P(1/x)e^{-1/x} and difference quotients at 0."
+    category: canonical
+    type: counterexample
+    tags: [Taylor, smooth-nonanalytic, exponential, counterexample]
+    references: []
+    problemLatex: |
+      (requires §4.3) Since $(e^x)' = e^x$, it is easy to see that $e^x$ is infinitely differentiable (has derivatives of all orders). Define the function $f\colon \mathbb{R} \to \mathbb{R}$.
+      $$f(x) := \begin{cases} e^{-1/x} & \text{if } x > 0, \\ 0 & \text{if } x \le 0. \end{cases}$$
+      a) Prove that for every $m \in \mathbb{N}$,
+      $$\lim_{x\to 0^+} \frac{e^{-1/x}}{x^m} = 0.$$
+      b) Prove that $f$ is infinitely differentiable.
+      c) Compute the Taylor series for $f$ at the origin, that is,
+      $$\sum_{k=0}^\infty \frac{f^{(k)}(0)}{k!}x^k.$$
+      Show that it converges, but show that it does not converge to $f(x)$ for any given $x > 0$.
+    transcriptionNotes: "§4.3 is Taylor's theorem."
+
+  # ---------------- 5.5 (selective) ----------------
+  - cid: lebl-5.5.8
+    chapter: "5 The Riemann Integral"
+    section: "5.5 Improper integrals"
+    number: "Exercise 5.5.8"
+    page: "225"
+    pdfPage: 225
+    verdict: strong
+    machinery: "Cauchy criterion for limits of functions at infinity applied to F(b)=∫_0^b f."
+    standardResult: "Cauchy criterion for convergence of improper integrals"
+    topic: integration
+    subtopics: [improper-integrals]
+    skills: [cauchy-criterion, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Converse direction needs completeness (Cauchy sequences F(b_n)) and passing from sequences to the continuous limit."
+    category: canonical
+    type: proof
+    tags: [improper-integral, Cauchy-criterion, completeness]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [0,\infty) \to \mathbb{R}$ is Riemann integrable on every interval $[0,b]$. Show that $\int_0^\infty f$ converges if and only if for every $\epsilon > 0$ there exists an $M$ such that if $M \le a < b$, then $\left|\int_a^b f\right| < \epsilon$.
+
+  - cid: lebl-5.5.9
+    chapter: "5 The Riemann Integral"
+    section: "5.5 Improper integrals"
+    number: "Exercise 5.5.9"
+    page: "225"
+    pdfPage: 225
+    verdict: consider
+    machinery: "Monotonicity gives a lower bound on integrals over tails; counterexample 1/(x+1)."
+    standardResult: "decreasing nonnegative f with finite improper integral tends to 0; converse fails"
+    topic: integration
+    subtopics: [improper-integrals]
+    skills: [contradiction, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "If f >= c > 0 everywhere, the integral diverges."
+    category: canonical
+    type: proof
+    tags: [improper-integral, monotone-function, counterexample]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [0,\infty) \to \mathbb{R}$ is nonnegative and *decreasing*. Prove:
+      a) If $\int_0^\infty f < \infty$, then $\lim_{x\to\infty} f(x) = 0$.
+      b) The converse does not hold.
+
+  - cid: lebl-5.5.10
+    chapter: "5 The Riemann Integral"
+    section: "5.5 Improper integrals"
+    number: "Exercise 5.5.10"
+    page: "225"
+    pdfPage: 225
+    verdict: strong
+    machinery: "Constructing tall thin continuous spikes with summable areas."
+    standardResult: "unbounded continuous nonnegative function with finite improper integral"
+    topic: integration
+    subtopics: [improper-integrals]
+    skills: [construct-counterexample, geometric-series]
+    difficulty: easy
+    difficultyRationale: "Triangular spikes of height k and area 2^{-k}; book supplies the hint."
+    category: canonical
+    type: counterexample
+    tags: [improper-integral, counterexample, spikes]
+    references: []
+    problemLatex: |
+      Find an example of an *unbounded continuous* function $f\colon [0,\infty) \to \mathbb{R}$ that is nonnegative and such that $\int_0^\infty f < \infty$. Note that $\lim_{x\to\infty} f(x)$ will not exist; compare previous exercise. Hint: On each interval $[k,k+1]$, $k \in \mathbb{N}$, define a function whose integral over this interval is less than say $2^{-k}$.
+    transcriptionNotes: "'previous exercise' is Exercise 5.5.9 (decreasing nonnegative f with finite integral tends to 0)."
+
+  # ---------------- 6.1 ----------------
+  - cid: lebl-6.1.2
+    chapter: "6 Sequences of Functions"
+    section: "6.1 Pointwise and uniform convergence"
+    number: "Exercise 6.1.2"
+    page: "232"
+    pdfPage: 232
+    verdict: core
+    machinery: "Computing pointwise limits and testing uniform convergence via sup norms on different domains."
+    standardResult: "e^{x/n}/n: pointwise to 0, not uniform on R, uniform on [0,1]"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [sup-norm-estimate, negate-definition]
+    difficulty: introductory
+    difficultyRationale: "Direct estimates; non-uniformity on R since sup over R is infinite."
+    category: canonical
+    type: computation
+    tags: [uniform-convergence, pointwise-convergence, domain-dependence]
+    references: []
+    problemLatex: |
+      a) Find the pointwise limit of $\displaystyle \left\{ \frac{e^{x/n}}{n} \right\}_{n=1}^\infty$ for $x \in \mathbb{R}$.
+      b) Is the limit uniform on $\mathbb{R}$?
+      c) Is the limit uniform on $[0,1]$?
+    transcriptionNotes: "Topically consistent with the MIT assignment's reading (Section 6.1)."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 12, Problem 4"
+
+  - cid: lebl-6.1.5
+    chapter: "6 Sequences of Functions"
+    section: "6.1 Pointwise and uniform convergence"
+    number: "Exercise 6.1.5"
+    page: "232"
+    pdfPage: 232
+    verdict: core
+    machinery: "Working with the definition of uniform convergence; triangle inequality with a single N for all x."
+    standardResult: "uniform limit of a sum is the sum of uniform limits"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [epsilon-N-proof, triangle-inequality, epsilon-over-2]
+    difficulty: introductory
+    difficultyRationale: "Direct epsilon/2 argument."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, definition, triangle-inequality]
+    references: []
+    problemLatex: |
+      Suppose $\{f_n\}_{n=1}^\infty$ and $\{g_n\}_{n=1}^\infty$ defined on some set $A$ converge to $f$ and $g$ respectively uniformly on $A$. Show that $\{f_n + g_n\}_{n=1}^\infty$ converges uniformly to $f+g$ on $A$.
+    transcriptionNotes: "Topically consistent with the MIT assignment's reading (Section 6.1). Pairs naturally with 6.1.6 (products need not converge uniformly)."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 12, Problem 5"
+
+  - cid: lebl-6.1.6
+    chapter: "6 Sequences of Functions"
+    section: "6.1 Pointwise and uniform convergence"
+    number: "Exercise 6.1.6"
+    page: "232"
+    pdfPage: 232
+    verdict: strong
+    machinery: "Uniform convergence is not preserved by products on unbounded domains."
+    standardResult: "product of uniformly convergent sequences need not converge uniformly"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [construct-counterexample, negate-definition]
+    difficulty: easy
+    difficultyRationale: "E.g. f_n = x + 1/n on R; (x+1/n)^2 - x^2 = 2x/n + 1/n^2 is unbounded."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, product, counterexample]
+    references: []
+    problemLatex: |
+      Find an example of a pair of sequences of functions $\{f_n\}_{n=1}^\infty$ and $\{g_n\}_{n=1}^\infty$ that converge uniformly to some $f$ and $g$ on some set $A$, but such that $\{f_n g_n\}_{n=1}^\infty$ (the multiple) does not converge uniformly to $fg$ on $A$. Hint: Let $A := \mathbb{R}$, let $f(x) := g(x) := x$. You can even pick $f_n = g_n$.
+
+  - cid: lebl-6.1.9
+    chapter: "6 Sequences of Functions"
+    section: "6.1 Pointwise and uniform convergence"
+    number: "Exercise 6.1.9"
+    page: "233"
+    pdfPage: 233
+    verdict: strong
+    machinery: "Monotonicity in x lets the endpoint value control the sup norm."
+    standardResult: "increasing f_n with f_n(0)=0, f_n(1)->0 converge uniformly to 0"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [sup-norm-estimate, monotonicity]
+    difficulty: easy
+    difficultyRationale: "0 <= f_n(x) <= f_n(1) gives ||f_n|| <= f_n(1)."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, monotone-function]
+    references: []
+    problemLatex: |
+      Let $f_n\colon [0,1] \to \mathbb{R}$ be a sequence of increasing functions (that is, $f_n(x) \ge f_n(y)$ whenever $x \ge y$). Suppose $f_n(0) = 0$ and $\lim_{n\to\infty} f_n(1) = 0$. Show that $\{f_n\}_{n=1}^\infty$ converges uniformly to 0.
+
+  - cid: lebl-6.1.10
+    chapter: "6 Sequences of Functions"
+    section: "6.1 Pointwise and uniform convergence"
+    number: "Exercise 6.1.10"
+    page: "233"
+    pdfPage: 233
+    verdict: strong
+    machinery: "Distinguishing pointwise from uniform convergence: a moving bump of height 1 versus the sup norm."
+    standardResult: "moving bump: pointwise to 0 possible, uniform to 0 impossible when f_n(x_n)=1"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [construct-counterexample, negate-definition]
+    difficulty: easy
+    difficultyRationale: "a) indicator/bump at x_n; b) sup|f_n| >= 1."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, pointwise-convergence, moving-bump, true-false]
+    references: []
+    problemLatex: |
+      Consider a sequence of functions $f_n\colon [0,1] \to \mathbb{R}$ so that there is a sequence of distinct numbers $x_n \in [0,1]$ such that for all $n$,
+      $$f_n(x_n) = 1.$$
+      Prove or disprove the following statements:
+      a) True or false: There exists $\{f_n\}_{n=1}^\infty$ as above that converges pointwise to 0.
+      b) True or false: There exists $\{f_n\}_{n=1}^\infty$ as above that converges uniformly to 0.
+
+  - cid: lebl-6.1.14
+    chapter: "6 Sequences of Functions"
+    section: "6.1 Pointwise and uniform convergence"
+    number: "Exercise 6.1.14"
+    page: "233"
+    pdfPage: 233
+    verdict: strong
+    machinery: "Uniform convergence of a series via explicit tail bounds; failure near the boundary of the interval of convergence."
+    standardResult: "geometric series converges uniformly on [-c,c], c<1, but not on (-1,1)"
+    topic: function-sequences
+    subtopics: [series-of-functions, uniform-convergence, power-series]
+    skills: [tail-estimate, negate-definition]
+    difficulty: easy
+    difficultyRationale: "Tail = x^{n+1}/(1-x); bounded by c^{n+1}/(1-c) on [-c,c], unbounded on (-1,1)."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, geometric-series, power-series]
+    references: []
+    problemLatex: |
+      (requires §2.6) In Example 6.1.3 we saw $\sum_{k=0}^\infty x^k$ converges pointwise to $\frac{1}{1-x}$ on $(-1,1)$.
+      a) Show that whenever $0 \le c < 1$, the series $\sum_{k=0}^\infty x^k$ converges uniformly on $[-c,c]$.
+      b) Show that the series $\sum_{k=0}^\infty x^k$ does not converge uniformly on $(-1,1)$.
+    transcriptionNotes: "Reference to Example 6.1.3 only recalls the pointwise limit, which the sentence states; self-contained."
+
+  # ---------------- 6.2 ----------------
+  - cid: lebl-6.2.1
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.1"
+    page: "243"
+    pdfPage: 243
+    verdict: strong
+    machinery: "Uniform limits do not preserve differentiability; smoothing |x|."
+    standardResult: "differentiable functions converging uniformly to |x| (non-differentiable limit)"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-convergence]
+    skills: [construct-counterexample, sup-norm-estimate]
+    difficulty: easy
+    difficultyRationale: "E.g. sqrt(x^2+1/n^2) - |x| <= 1/n; book gives the hint."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, differentiability, counterexample, absolute-value]
+    references: []
+    problemLatex: |
+      Find an explicit example of a sequence of differentiable functions on $[-1,1]$ that converge uniformly to a function $f$ such that $f$ is not differentiable. Hint: There are many possibilities. The simplest is perhaps to combine $|x|$ and $\frac{n}{2}x^2 + \frac{1}{2n}$. Another is to consider $\sqrt{x^2 + (1/n)^2}$. Show that these functions are differentiable, converge uniformly, and then show that the limit is not differentiable.
+
+  - cid: lebl-6.2.2
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.2"
+    page: "243"
+    pdfPage: 243
+    verdict: strong
+    machinery: "Uniform convergence of f_n does not give convergence of derivatives to the derivative of the limit."
+    standardResult: "x^n/n: uniform limit 0 but f_n'(1)=1 does not converge to f'(1)=0"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-convergence]
+    skills: [construct-counterexample, sup-norm-estimate]
+    difficulty: introductory
+    difficultyRationale: "Direct computation."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, derivative, interchange-of-limits, counterexample]
+    references: []
+    problemLatex: |
+      Let $f_n(x) := \frac{x^n}{n}$. Show that $\{f_n\}_{n=1}^\infty$ converges uniformly to a differentiable function $f$ on $[0,1]$ (find $f$). However, show that $f'(1) \neq \lim_{n\to\infty} f_n'(1)$.
+
+  - cid: lebl-6.2.5
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.5"
+    page: "243"
+    pdfPage: 243
+    verdict: strong
+    machinery: "Continuity of the limit does not imply uniform convergence (converse of the uniform-limit theorem fails)."
+    standardResult: "continuous functions converging pointwise to a continuous limit non-uniformly (moving bump)"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "A bump of height 1 moving toward 0, e.g. nx e^{-nx}-type or tent functions."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, pointwise-convergence, continuity, counterexample, moving-bump]
+    references: []
+    problemLatex: |
+      Find an example of a sequence of continuous functions on $(0,1)$ that converges pointwise to a continuous function on $(0,1)$, but the convergence is not uniform.
+
+      Note: In the previous exercise, $(0,1)$ was picked for simplicity. For a more challenging exercise, replace $(0,1)$ with $[0,1]$.
+    transcriptionNotes: "The 'Note' printed directly after the exercise (referring to it as 'the previous exercise') is included."
+
+  - cid: lebl-6.2.7
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.7"
+    page: "243"
+    pdfPage: 243
+    verdict: strong
+    machinery: "Uniform Cauchy for f_n and f_n' plus the derivative-interchange theorem: completeness of C^1 under the C^1 norm."
+    standardResult: "C^1([a,b]) is complete in the C^1 norm"
+    topic: function-sequences
+    subtopics: [uniform-cauchy, interchange-derivative]
+    skills: [uniform-cauchy-criterion, FTC-application]
+    difficulty: medium
+    difficultyRationale: "Apply uniform Cauchy criterion to f_n and f_n', then a derivative-interchange theorem or FTC."
+    category: synthesis
+    type: proof
+    tags: [uniform-convergence, Cauchy, C1-norm, completeness, derivative]
+    references: []
+    problemLatex: |
+      For a continuously differentiable function $f\colon [a,b] \to \mathbb{R}$, define
+      $$\|f\|_{C^1} := \|f\|_{[a,b]} + \|f'\|_{[a,b]}.$$
+      Suppose $\{f_n\}_{n=1}^\infty$ is a sequence of continuously differentiable functions such that for every $\epsilon > 0$, there exists an $M$ such that for all $n, k \ge M$, we have
+      $$\|f_n - f_k\|_{C^1} < \epsilon.$$
+      Show that $\{f_n\}_{n=1}^\infty$ converges uniformly to some continuously differentiable function $f\colon [a,b] \to \mathbb{R}$.
+    transcriptionNotes: "$\\|\\cdot\\|_{[a,b]}$ is the uniform (sup) norm on $[a,b]$."
+
+  - cid: lebl-6.2.10
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.10"
+    page: "244"
+    pdfPage: 244
+    verdict: core
+    machinery: "Compactness (open covers or Bolzano–Weierstrass) + monotonicity + continuity upgrade pointwise to uniform convergence."
+    standardResult: "Dini's theorem"
+    topic: function-sequences
+    subtopics: [uniform-convergence, pointwise-convergence]
+    skills: [open-cover-argument, subsequence-extraction, contradiction]
+    difficulty: hard
+    difficultyRationale: "Requires a compactness argument combining all hypotheses."
+    category: canonical
+    type: proof
+    tags: [Dini-theorem, uniform-convergence, compactness, monotone-sequence]
+    references: []
+    problemLatex: |
+      (Hard) Prove *Dini's theorem*: Let $f_n\colon [a,b] \to \mathbb{R}$ be a sequence of continuous functions such that
+      $$0 \le f_{n+1}(x) \le f_n(x) \le \cdots \le f_1(x) \qquad \text{for all } n \in \mathbb{N}.$$
+      Suppose $\{f_n\}_{n=1}^\infty$ converges pointwise to 0. Show that $\{f_n\}_{n=1}^\infty$ converges to zero uniformly.
+
+  - cid: lebl-6.2.12
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.12"
+    page: "244"
+    pdfPage: 244
+    verdict: strong
+    machinery: "Pointwise convergence does not allow passing limits through integrals (escaping/growing mass)."
+    standardResult: "pointwise convergence to 0 with integrals unbounded or oscillating"
+    topic: function-sequences
+    subtopics: [interchange-integral, pointwise-convergence]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Tall thin spikes near 0 with chosen areas."
+    category: canonical
+    type: counterexample
+    tags: [pointwise-convergence, integral, interchange-of-limits, counterexample, spikes]
+    references: []
+    problemLatex: |
+      Find sequences of Riemann integrable functions $f_n\colon [0,1] \to \mathbb{R}$ such that $\{f_n\}_{n=1}^\infty$ converges to zero pointwise, and such that
+      a) $\left\{ \int_0^1 f_n \right\}_{n=1}^\infty$ increases without bound,
+      b) $\left\{ \int_0^1 f_n \right\}_{n=1}^\infty$ is the sequence $-1, 1, -1, 1, -1, 1, \ldots$.
+
+  - cid: lebl-6.2.16
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.16"
+    page: "244"
+    pdfPage: 244
+    verdict: consider
+    machinery: "Explicit construction of continuous approximants (finite sums of tents at rationals with small denominators) converging pointwise to Thomae's function."
+    standardResult: "Thomae's function is a pointwise limit of continuous functions"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, approximation]
+    skills: [construct-counterexample, finiteness-argument]
+    difficulty: hard
+    difficultyRationale: "Requires controlling tent widths so irrational points eventually escape all tents."
+    category: challenge
+    type: construction
+    tags: [pointwise-convergence, Thomae-function, popcorn-function, Baire-class-1]
+    references: ["Example 3.2.12 (definition reproduced in exercise)"]
+    problemLatex: |
+      (Challenging) Find a sequence of continuous functions $f_n\colon [0,1] \to \mathbb{R}$ that converge to the popcorn function $f\colon [0,1] \to \mathbb{R}$, that is, the function such that $f(p/q) := 1/q$ (if $p/q$ is in lowest terms) and $f(x) := 0$ if $x$ is not rational (note that $f(0) = f(1) = 1$), see Example 3.2.12. So a pointwise limit of continuous functions can have a dense set of discontinuities. See also the next exercise.
+
+  - cid: lebl-6.2.17
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.17"
+    page: "245"
+    pdfPage: 245
+    verdict: consider
+    machinery: "Iterated pointwise limits: the Dirichlet function as a double limit (e.g. lim_m lim_n cos(m! π x)^{2n})."
+    standardResult: "Dirichlet function is a pointwise limit of pointwise limits of continuous functions"
+    topic: function-sequences
+    subtopics: [pointwise-convergence]
+    skills: [construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "Requires an ingenious construction (factorial trick) or careful enumeration argument."
+    category: challenge
+    type: construction
+    tags: [pointwise-convergence, Dirichlet-function, Baire-class-2]
+    references: []
+    problemLatex: |
+      (Challenging) The Dirichlet function $f\colon [0,1] \to \mathbb{R}$, that is, the function such that $f(x) := 1$ if $x \in \mathbb{Q}$ and $f(x) := 0$ if $x \notin \mathbb{Q}$, is not the pointwise limit of continuous functions, although this is difficult to show. Prove, however, that $f$ is a pointwise limit of functions that are themselves pointwise limits of continuous functions.
+
+  - cid: lebl-6.2.18
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.18"
+    page: "245"
+    pdfPage: 245
+    verdict: strong
+    machinery: "Lipschitz property is not preserved by uniform limits, but a uniform Lipschitz constant passes to pointwise limits."
+    standardResult: "uniform limits of Lipschitz functions need not be Lipschitz; uniformly K-Lipschitz limits are K-Lipschitz"
+    topic: function-sequences
+    subtopics: [uniform-convergence, pointwise-convergence]
+    skills: [construct-counterexample, pass-to-limit-in-inequality]
+    difficulty: easy
+    difficultyRationale: "a) e.g. sqrt(x + 1/n) or truncation; b) take limits in |f_n(x)-f_n(y)| <= K|x-y|."
+    category: canonical
+    type: counterexample
+    tags: [Lipschitz, uniform-convergence, counterexample, square-root]
+    references: []
+    problemLatex: |
+      a) Find a sequence of Lipschitz continuous functions on $[0,1]$ whose uniform limit is $\sqrt{x}$, which is a non-Lipschitz function.
+      b) On the other hand, show that if $f_n\colon S \to \mathbb{R}$ are Lipschitz with a uniform constant $K$ (meaning all of them satisfy the definition with the same constant) and $\{f_n\}_{n=1}^\infty$ converges pointwise to $f\colon S \to \mathbb{R}$, then the limit $f$ is a Lipschitz continuous function with Lipschitz constant $K$.
+
+  - cid: lebl-6.2.21
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.21"
+    page: "245"
+    pdfPage: 245
+    verdict: consider
+    machinery: "Derivatives of a uniformly convergent sequence (with bounded derivatives) can converge to a function discontinuous on a dense set; M-test style tail control."
+    standardResult: "uniformly convergent differentiable functions whose derivatives converge to a function discontinuous at every rational"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-convergence, series-of-functions]
+    skills: [sup-norm-estimate, M-test, epsilon-over-3]
+    difficulty: hard
+    difficultyRationale: "Part e) requires careful handling of the enumeration and continuity at irrationals."
+    category: synthesis
+    type: construction
+    tags: [uniform-convergence, derivative, interchange-of-limits, dense-discontinuities, enumeration-of-rationals]
+    references: []
+    problemLatex: |
+      Let $f_n(x) := \frac{x}{1+(nx)^2}$. Notice that $f_n$ are differentiable functions.
+      a) Show that $\{f_n\}_{n=1}^\infty$ converges uniformly to 0.
+      b) Show that $|f_n'(x)| \le 1$ for all $x$ and all $n$.
+      c) Show that $\{f_n'\}_{n=1}^\infty$ converges pointwise to a function discontinuous at the origin.
+      d) Let $\{a_n\}_{n=1}^\infty$ be an enumeration of the rational numbers. Define
+      $$g_n(x) := \sum_{k=1}^n 2^{-k} f_n(x - a_k).$$
+      Show that $\{g_n\}_{n=1}^\infty$ converges uniformly to 0.
+      e) Show that $\{g_n'\}_{n=1}^\infty$ converges pointwise to a function $\psi$ that is discontinuous at every rational number and continuous at every irrational number. In particular, $\lim_{n\to\infty} g_n'(x) \neq 0$ for every rational number $x$.
+
+  - cid: lebl-6.2.22
+    chapter: "6 Sequences of Functions"
+    section: "6.2 Interchange of limits"
+    number: "Exercise 6.2.22"
+    page: "245"
+    pdfPage: 245
+    verdict: strong
+    machinery: "Uniform convergence suffices for interchange with integrals only on bounded intervals; mass escaping to infinity."
+    standardResult: "uniform convergence to 0 with improper integrals all equal to 1"
+    topic: function-sequences
+    subtopics: [interchange-integral, uniform-convergence]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Flatten: f_n = (1/2n) on [-n,n], 0 elsewhere (or a continuous variant)."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, improper-integral, interchange-of-limits, counterexample]
+    references: []
+    problemLatex: |
+      (requires §5.5) Show that uniform convergence is not enough to pass the limit through improper integrals over infinite intervals. That is, find a sequence of functions $f_n\colon \mathbb{R} \to \mathbb{R}$ Riemann integrable on every bounded interval, converging uniformly to zero, and such that $\int_{-\infty}^\infty f_n = 1$ for every $n$.
+
+  # ---------------- 6.3 (selective) ----------------
+  - cid: lebl-6.3.5
+    chapter: "6 Sequences of Functions"
+    section: "6.3 Picard's theorem"
+    number: "Exercise 6.3.5"
+    page: "252"
+    pdfPage: 252
+    verdict: consider
+    machinery: "Separate continuity plus a uniform Lipschitz condition in one variable gives joint continuity (triangle inequality split)."
+    standardResult: "continuous in x and uniformly Lipschitz in y implies jointly continuous"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, lipschitz-holder]
+    skills: [triangle-inequality, epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "|F(x,y)-F(x0,y0)| <= |F(x,y)-F(x,y0)| + |F(x,y0)-F(x0,y0)|."
+    category: canonical
+    type: proof
+    tags: [joint-continuity, Lipschitz, two-variables]
+    references: ["Picard's theorem (context only)"]
+    problemLatex: |
+      Suppose $F\colon I \times J \to \mathbb{R}$ is a function that is continuous in the first variable, that is, for every fixed $y$ the function that takes $x$ to $F(x,y)$ is continuous. Further, suppose $F$ is Lipschitz in the second variable, that is, there exists a number $L$ such that
+      $$\bigl|F(x,y) - F(x,z)\bigr| \le L|y-z| \qquad \text{for all } y, z \in J,\ x \in I.$$
+      Show that $F$ is continuous as a function of two variables. Therefore, the hypotheses in the theorem could be made even weaker.
+    transcriptionNotes: "$I, J \\subset \\mathbb{R}$ are intervals (section context). 'the theorem' is Picard's theorem; the final sentence is commentary and may be dropped on the website. Contrast with 7.5.2 (separate continuity alone is not enough)."
+
+  # ---------------- 7.1 ----------------
+  - cid: lebl-7.1.1
+    chapter: "7 Metric Spaces"
+    section: "7.1 Metric spaces"
+    number: "Exercise 7.1.1"
+    page: "261"
+    pdfPage: 261
+    verdict: strong
+    machinery: "Checking metric axioms; the discrete metric as the universal source of counterexamples."
+    standardResult: "the discrete metric is a metric"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [verify-axioms, case-analysis]
+    difficulty: introductory
+    difficultyRationale: "Case check of the four axioms."
+    category: canonical
+    type: definition
+    tags: [metric-space, discrete-metric, definition]
+    references: []
+    problemLatex: |
+      Show that for every set $X$, the discrete metric ($d(x,y) = 1$ if $x \neq y$ and $d(x,x) = 0$) does give a metric space $(X,d)$.
+
+  - cid: lebl-7.1.5
+    chapter: "7 Metric Spaces"
+    section: "7.1 Metric spaces"
+    number: "Exercise 7.1.5"
+    page: "262"
+    pdfPage: 262
+    verdict: strong
+    machinery: "Building new metrics by composing with increasing subadditive functions (e.g. t/(1+t), min(1,t))."
+    standardResult: "φ∘d is a metric for increasing subadditive φ with φ(0)=0"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [verify-axioms, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Triangle inequality: φ(d(x,z)) <= φ(d(x,y)+d(y,z)) <= φ(d(x,y)) + φ(d(y,z))."
+    category: canonical
+    type: proof
+    tags: [metric-space, subadditive, bounded-metric]
+    references: []
+    problemLatex: |
+      Suppose $(X,d)$ is a metric space and $\varphi\colon [0,\infty) \to \mathbb{R}$ is an increasing function such that $\varphi(t) \ge 0$ for all $t$ and $\varphi(t) = 0$ if and only if $t = 0$. Also suppose $\varphi$ is *subadditive*, that is, $\varphi(s+t) \le \varphi(s) + \varphi(t)$. Show that with $d'(x,y) := \varphi\bigl(d(x,y)\bigr)$, we obtain a new metric space $(X,d')$.
+
+  - cid: lebl-7.1.6
+    chapter: "7 Metric Spaces"
+    section: "7.1 Metric spaces"
+    number: "Exercise 7.1.6"
+    page: "262"
+    pdfPage: 262
+    verdict: consider
+    machinery: "Product metrics (sum and max) and verifying the triangle inequality."
+    standardResult: "sum and max metrics on a product of metric spaces"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [verify-axioms, triangle-inequality]
+    difficulty: introductory
+    difficultyRationale: "Routine axiom check; max case needs a small argument."
+    category: canonical
+    type: proof
+    tags: [metric-space, product-metric]
+    references: []
+    problemLatex: |
+      Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+      a) Show that $(X \times Y, d)$ with $d\bigl((x_1,y_1),(x_2,y_2)\bigr) := d_X(x_1,x_2) + d_Y(y_1,y_2)$ is a metric space.
+      b) Show that $(X \times Y, d)$ with $d\bigl((x_1,y_1),(x_2,y_2)\bigr) := \max\bigl\{d_X(x_1,x_2), d_Y(y_1,y_2)\bigr\}$ is a metric space.
+    transcriptionNotes: "Used by 7.3.14 and 7.5.10."
+
+  - cid: lebl-7.1.8
+    chapter: "7 Metric Spaces"
+    section: "7.1 Metric spaces"
+    number: "Exercise 7.1.8"
+    page: "262"
+    pdfPage: 262
+    verdict: consider
+    machinery: "Inf/sup manipulations with distances to sets; the Hausdorff distance and why it is only a pseudometric on bounded sets."
+    standardResult: "Hausdorff distance is a pseudometric on nonempty bounded sets"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [sup-inf-inequalities, triangle-inequality, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Triangle inequality for d_H requires careful inf/sup estimates."
+    category: synthesis
+    type: proof
+    tags: [Hausdorff-metric, pseudometric, distance-to-set]
+    references: ["Definition 7.1.1 metric properties (quoted)"]
+    problemLatex: |
+      Let $(X,d)$ be a metric space. For nonempty bounded subsets $A$ and $B$ let
+      $$d(x,B) := \inf\bigl\{d(x,b) : b \in B\bigr\} \qquad \text{and} \qquad d(A,B) := \sup\bigl\{d(a,B) : a \in A\bigr\}.$$
+      Now define the *Hausdorff metric* as
+      $$d_H(A,B) := \max\bigl\{d(A,B), d(B,A)\bigr\}.$$
+      Note: $d_H$ can be defined for arbitrary nonempty subsets if we allow the extended reals.
+      a) Let $Y \subset \mathcal{P}(X)$ be the set of bounded nonempty subsets. Prove that $(Y, d_H)$ is what we call a *pseudometric space*: $d_H$ satisfies the metric properties (i), (iii), (iv), and further $d_H(A,A) = 0$ for all $A \in Y$.
+      b) Show by example that $d$ itself is not symmetric, that is, $d(A,B) \neq d(B,A)$.
+      c) Find a metric space $X$ and two different nonempty bounded subsets $A$ and $B$ such that $d_H(A,B) = 0$.
+
+      *(Metric properties from Definition 7.1.1: (i) $d(x,y) \ge 0$; (ii) $d(x,y) = 0$ if and only if $x = y$; (iii) $d(x,y) = d(y,x)$; (iv) $d(x,z) \le d(x,y) + d(y,z)$.)*
+    transcriptionNotes: "Metric properties (i)–(iv) of Definition 7.1.1 quoted. Book writes the power set with a script P; rendered as \\mathcal{P}."
+
+  - cid: lebl-7.1.13
+    chapter: "7 Metric Spaces"
+    section: "7.1 Metric spaces"
+    number: "Exercise 7.1.13"
+    page: "263"
+    pdfPage: 263
+    verdict: strong
+    machinery: "Cauchy–Schwarz for finite sums passed to the limit; absolute convergence; verifying the triangle inequality in an infinite-dimensional space."
+    standardResult: "ℓ^2 Cauchy–Schwarz and ℓ^2 is a metric space"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [pass-to-limit-in-inequality, comparison-estimate, triangle-inequality]
+    difficulty: medium
+    difficultyRationale: "Needs finite Cauchy–Schwarz then limit, and Minkowski for the triangle inequality."
+    category: canonical
+    type: proof
+    tags: [metric-space, l2, Cauchy-Schwarz, series]
+    references: []
+    problemLatex: |
+      Consider $\ell^2$ the set of sequences $\{x_n\}_{n=1}^\infty$ of real numbers such that $\sum_{n=1}^\infty x_n^2 < \infty$.
+      a) Prove the Cauchy–Schwarz inequality for two sequences $\{x_n\}_{n=1}^\infty$ and $\{y_n\}_{n=1}^\infty$ in $\ell^2$: Prove that $\sum_{n=1}^\infty x_n y_n$ converges (absolutely) and
+      $$\left( \sum_{n=1}^\infty x_n y_n \right)^2 \le \left( \sum_{n=1}^\infty x_n^2 \right)\left( \sum_{n=1}^\infty y_n^2 \right).$$
+      b) Prove that $\ell^2$ is a metric space with the metric $d(x,y) := \sqrt{\sum_{n=1}^\infty (x_n - y_n)^2}$. Hint: Don't forget to show that the series for $d(x,y)$ always converges to some finite number.
+
+  # ---------------- 7.2 ----------------
+  - cid: lebl-7.2.2
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.2"
+    page: "272"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Triangle inequality to show the complement of a closed ball is open."
+    standardResult: "closed balls are closed"
+    topic: topology
+    subtopics: [closed-sets, metric-spaces]
+    skills: [triangle-inequality, complement-argument]
+    difficulty: introductory
+    difficultyRationale: "Direct triangle inequality argument."
+    category: canonical
+    type: proof
+    tags: [closed-ball, closed-set, metric-space, triangle-inequality]
+    references: ["Proposition 7.2.9 (quoted)", "Definition 7.2.1 (quoted)"]
+    problemLatex: |
+      Finish the proof of Proposition 7.2.9 by proving that $C(x,\delta)$ is closed.
+
+      *(Proposition 7.2.9: Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$. Then $B(x,\delta)$ is open and $C(x,\delta)$ is closed. Here $B(x,\delta) := \{y \in X : d(x,y) < \delta\}$ and $C(x,\delta) := \{y \in X : d(x,y) \le \delta\}$ (Definition 7.2.1).)*
+    transcriptionNotes: "Proposition 7.2.9 and the ball definitions (Definition 7.2.1) quoted verbatim."
+
+  - cid: lebl-7.2.4
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.4"
+    page: "272"
+    pdfPage: 272
+    verdict: consider
+    machinery: "In the discrete metric every set is open (and closed), so connectedness forces a single point."
+    standardResult: "discrete metric space is connected iff it has one point"
+    topic: topology
+    subtopics: [connectedness, metric-spaces]
+    skills: [definition-unpacking]
+    difficulty: introductory
+    difficultyRationale: "Every subset is clopen."
+    category: canonical
+    type: proof
+    tags: [connectedness, discrete-metric]
+    references: []
+    problemLatex: |
+      Suppose $(X,d)$ is a nonempty metric space with the discrete topology. Show that $X$ is connected if and only if it contains exactly one element.
+    transcriptionNotes: "'discrete topology' as printed; it means the topology of the discrete metric. Lebl: a nonempty metric space is connected if the only clopen subsets are ∅ and X."
+
+  - cid: lebl-7.2.5
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.5"
+    page: "272"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Separating rationals by an irrational cut; subspace-open sets."
+    standardResult: "Q is totally disconnected (totally separated)"
+    topic: topology
+    subtopics: [connectedness, open-sets]
+    skills: [irrational-between-rationals, subspace-topology]
+    difficulty: easy
+    difficultyRationale: "Choose an irrational r between x and y; U = Q ∩ (-∞,r), V = Q ∩ (r,∞)."
+    category: canonical
+    type: proof
+    tags: [connectedness, rationals, totally-disconnected, subspace]
+    references: []
+    problemLatex: |
+      Take $\mathbb{Q}$ with the standard metric, $d(x,y) = |x-y|$, as our metric space. Prove that $\mathbb{Q}$ is *totally separated*, that is, show that for every $x, y \in \mathbb{Q}$ with $x \neq y$, there exist two open sets $U$ and $V$ such that $x \in U$, $y \in V$, $U \cap V = \emptyset$, and $U \cup V = \mathbb{Q}$.
+
+  - cid: lebl-7.2.7
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.7"
+    page: "272"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Boundary = closure minus interior; characterizing open/closed via the boundary."
+    standardResult: "E closed iff ∂E ⊂ E; U open iff ∂U ∩ U = ∅"
+    topic: topology
+    subtopics: [interior-closure-boundary, open-sets, closed-sets]
+    skills: [definition-unpacking, set-identities]
+    difficulty: easy
+    difficultyRationale: "Unpack closure/interior definitions."
+    category: canonical
+    type: proof
+    tags: [boundary, closure, interior, open-set, closed-set]
+    references: []
+    problemLatex: |
+      Prove that in a metric space,
+      a) $E$ is closed if and only if $\partial E \subset E$.
+      b) $U$ is open if and only if $\partial U \cap U = \emptyset$.
+    transcriptionNotes: "In Lebl, $\\partial A := \\overline{A} \\setminus A^\\circ$."
+
+  - cid: lebl-7.2.9
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.9"
+    page: "272"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Comparable (strongly equivalent) metrics have nested balls, hence the same open sets."
+    standardResult: "bi-Lipschitz equivalent metrics induce the same topology"
+    topic: topology
+    subtopics: [open-sets, metric-spaces]
+    skills: [ball-containment]
+    difficulty: easy
+    difficultyRationale: "B_{d'}(x, αr) ⊂ B_d(x, r) and B_d(x, r/β) ⊂ B_{d'}(x, r)."
+    category: canonical
+    type: proof
+    tags: [equivalent-metrics, topology, open-set]
+    references: []
+    problemLatex: |
+      Let $X$ be a set and $d$, $d'$ be two metrics on $X$. Suppose there exists an $\alpha > 0$ and $\beta > 0$ such that $\alpha d(x,y) \le d'(x,y) \le \beta d(x,y)$ for all $x, y \in X$. Show that $U$ is open in $(X,d)$ if and only if $U$ is open in $(X,d')$. That is, the topologies of $(X,d)$ and $(X,d')$ are the same.
+
+  - cid: lebl-7.2.10
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.10"
+    page: "272"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Connectedness via clopen sets in the subspace topology; a common point glues connected sets."
+    standardResult: "union of connected sets with a common point is connected"
+    topic: topology
+    subtopics: [connectedness]
+    skills: [contradiction, subspace-topology]
+    difficulty: easy
+    difficultyRationale: "A separation of the union restricts to a separation of some S_i."
+    category: canonical
+    type: proof
+    tags: [connectedness, union, common-point]
+    references: []
+    problemLatex: |
+      Suppose $\{S_i\}$, $i \in \mathbb{N}$, is a collection of connected subsets of a metric space $(X,d)$, and there exists an $x \in X$ such that $x \in S_i$ for all $i \in \mathbb{N}$. Show that $\bigcup_{i=1}^\infty S_i$ is connected.
+
+  - cid: lebl-7.2.11
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.11"
+    page: "272"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Closure preserves connectedness; interior does not (two closed disks touching at a point)."
+    standardResult: "closure of a connected set is connected; interior need not be"
+    topic: topology
+    subtopics: [connectedness, interior-closure-boundary]
+    skills: [construct-counterexample, contradiction]
+    difficulty: medium
+    difficultyRationale: "Part a) needs a separation argument with closures; b) needs the right planar example."
+    category: canonical
+    type: counterexample
+    tags: [connectedness, closure, interior, counterexample]
+    references: []
+    problemLatex: |
+      Let $A$ be a connected set in a metric space.
+      a) Is $\overline{A}$ connected? Prove or find a counterexample.
+      b) Is $A^\circ$ connected? Prove or find a counterexample.
+      Hint: Think of sets in $\mathbb{R}^2$.
+
+  - cid: lebl-7.2.13
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.13"
+    page: "272"
+    pdfPage: 272
+    verdict: core
+    machinery: "Closure of the open ball vs the closed ball; the discrete metric (or a subspace) breaks Euclidean intuition."
+    standardResult: "closure of open ball ⊂ closed ball, with strict inclusion possible"
+    topic: topology
+    subtopics: [interior-closure-boundary, closed-sets, metric-spaces]
+    skills: [closure-minimality, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "a) C(x,δ) is a closed set containing B(x,δ); b) discrete metric with δ = 1."
+    category: canonical
+    type: counterexample
+    tags: [closed-ball, open-ball, closure, discrete-metric, counterexample]
+    references: ["Definition 7.2.1 (quoted)"]
+    problemLatex: |
+      Let $(X,d)$ be a metric space.
+      a) For every $x \in X$ and $\delta > 0$, show $\overline{B(x,\delta)} \subset C(x,\delta)$.
+      b) Is it always true that $\overline{B(x,\delta)} = C(x,\delta)$? Prove or find a counterexample.
+
+      *(Here $B(x,\delta) := \{y \in X : d(x,y) < \delta\}$ and $C(x,\delta) := \{y \in X : d(x,y) \le \delta\}$.)*
+    transcriptionNotes: "Ball definitions (Definition 7.2.1) inserted for self-containedness."
+
+  - cid: lebl-7.2.14
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.14"
+    page: "272"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Interior as the largest open subset."
+    standardResult: "interior = union of all open subsets"
+    topic: topology
+    subtopics: [interior-closure-boundary, open-sets]
+    skills: [double-inclusion]
+    difficulty: introductory
+    difficultyRationale: "Double inclusion from the definition of interior."
+    category: canonical
+    type: proof
+    tags: [interior, open-set]
+    references: []
+    problemLatex: |
+      Let $(X,d)$ be a metric space and $A \subset X$. Show that $A^\circ = \bigcup\{V : V \text{ is open and } V \subset A\}$.
+    transcriptionNotes: "Lebl defines $A^\\circ$ as the set of $x \\in A$ such that some open $V$ with $x \\in V \\subset A$ exists. Exercise 7.2.8 is the closely related 'A open iff A° = A; U ⊂ A° for open U ⊂ A'."
+
+  - cid: lebl-7.2.16
+    chapter: "7 Metric Spaces"
+    section: "7.2 Open and closed sets"
+    number: "Exercise 7.2.16"
+    page: "273"
+    pdfPage: 273
+    verdict: consider
+    machinery: "Boundedness is not a topological property: d/(1+d) or min(1,d) gives the same open sets."
+    standardResult: "every metric is topologically equivalent to a bounded metric"
+    topic: topology
+    subtopics: [metric-spaces, open-sets]
+    skills: [ball-containment]
+    difficulty: easy
+    difficultyRationale: "Use min{1,d}; small balls coincide."
+    category: canonical
+    type: construction
+    tags: [bounded-metric, equivalent-metrics, topology]
+    references: []
+    problemLatex: |
+      Let $(X,d)$ be a metric space. Show that there exists a bounded metric $d'$ such that $(X,d')$ has the same open sets, that is, the topology is the same.
+
+  # ---------------- 7.3 ----------------
+  - cid: lebl-7.3.1
+    chapter: "7 Metric Spaces"
+    section: "7.3 Sequences and convergence"
+    number: "Exercise 7.3.1"
+    page: "277"
+    pdfPage: 277
+    verdict: strong
+    machinery: "Sequential characterization of closure (limit points of sequences lie in the closure)."
+    standardResult: "limits of sequences in A lie in the closure of A"
+    topic: topology
+    subtopics: [interior-closure-boundary, closed-sets]
+    skills: [sequential-characterization, contradiction]
+    difficulty: easy
+    difficultyRationale: "Closure is closed; a closed set contains limits of its sequences (or ball argument)."
+    category: canonical
+    type: proof
+    tags: [closure, sequences, metric-space]
+    references: ["Proposition 7.3.13 (statement included in exercise)"]
+    problemLatex: |
+      Finish the proof of Proposition 7.3.13: Let $(X,d)$ be a metric space and $A \subset X$. Let $p \in X$ be such that there exists a sequence $\{x_n\}_{n=1}^\infty$ in $A$ that converges to $p$. Prove that $p \in \overline{A}$.
+
+  - cid: lebl-7.3.2
+    chapter: "7 Metric Spaces"
+    section: "7.3 Sequences and convergence"
+    number: "Exercise 7.3.2"
+    page: "277"
+    pdfPage: 277
+    verdict: strong
+    machinery: "A bounded metric with the same convergent sequences shows Bolzano–Weierstrass is a statement about the metric, not just boundedness."
+    standardResult: "min(1,|x-y|): same convergence as usual metric, but bounded sequences need not have convergent subsequences"
+    topic: topology
+    subtopics: [metric-spaces, sequential-compactness]
+    skills: [verify-axioms, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "c) x_n = n is bounded in d but has no convergent subsequence."
+    category: canonical
+    type: counterexample
+    tags: [bounded-metric, Bolzano-Weierstrass, counterexample, convergence]
+    references: []
+    problemLatex: |
+      a) Show that $d(x,y) := \min\bigl\{1, |x-y|\bigr\}$ defines a metric on $\mathbb{R}$.
+      b) Show that a sequence converges in $(\mathbb{R},d)$ if and only if it converges in the standard metric.
+      c) Find a bounded sequence in $(\mathbb{R},d)$ that contains no convergent subsequence.
+
+  - cid: lebl-7.3.7
+    chapter: "7 Metric Spaces"
+    section: "7.3 Sequences and convergence"
+    number: "Exercise 7.3.7"
+    page: "277"
+    pdfPage: 277
+    verdict: strong
+    machinery: "Density of Q^n in R^n; countability of finite products of countable sets."
+    standardResult: "R^n is separable (Q^n is a countable dense subset)"
+    topic: topology
+    subtopics: [dense-sets, metric-spaces]
+    skills: [density-argument, coordinatewise-convergence]
+    difficulty: easy
+    difficultyRationale: "Approximate each coordinate by rationals; Q^n countable."
+    category: canonical
+    type: proof
+    tags: [dense-set, separable, rationals, countable]
+    references: []
+    problemLatex: |
+      A set $S \subset X$ is said to be *dense* in $X$ if $X \subset \overline{S}$ or in other words if for every $p \in X$, there exists a sequence $\{x_n\}_{n=1}^\infty$ in $S$ that converges to $p$. Prove that $\mathbb{R}^n$ contains a countable dense subset.
+
+  - cid: lebl-7.3.8
+    chapter: "7 Metric Spaces"
+    section: "7.3 Sequences and convergence"
+    number: "Exercise 7.3.8"
+    page: "277"
+    pdfPage: 277
+    verdict: strong
+    machinery: "Shrinking open sets with intersection {p} need not shrink in diameter; testing intuition about neighborhoods vs. convergence."
+    standardResult: "nested open sets with ∩U_n={p} and x_n∈U_n need not converge to p"
+    topic: topology
+    subtopics: [open-sets, metric-spaces]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Requires recognizing the answer is no and building e.g. U_n = (-1/n,1/n) ∪ (n,∞) in R."
+    category: challenge
+    type: counterexample
+    tags: [open-set, nested-sets, convergence, counterexample]
+    references: []
+    problemLatex: |
+      (Tricky) Suppose $\{U_n\}_{n=1}^\infty$ is a decreasing ($U_{n+1} \subset U_n$ for all $n$) sequence of open sets in a metric space $(X,d)$ such that $\bigcap_{n=1}^\infty U_n = \{p\}$ for some $p \in X$. Suppose $\{x_n\}_{n=1}^\infty$ is a sequence of points in $X$ such that $x_n \in U_n$. Does $\{x_n\}_{n=1}^\infty$ necessarily converge to $p$? Prove or construct a counterexample.
+
+  - cid: lebl-7.3.13
+    chapter: "7 Metric Spaces"
+    section: "7.3 Sequences and convergence"
+    number: "Exercise 7.3.13"
+    page: "278"
+    pdfPage: 278
+    verdict: strong
+    machinery: "Subsequence principle: convergence iff every subsequence has a further subsequence converging to p."
+    standardResult: "x_n -> p iff every subsequence has a sub-subsequence converging to p"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [contrapositive, subsequence-extraction, negate-definition]
+    difficulty: easy
+    difficultyRationale: "Negate convergence to build a subsequence staying ε away from p."
+    category: canonical
+    type: proof
+    tags: [subsequences, convergence, metric-space, sub-subsequence]
+    references: []
+    problemLatex: |
+      Let $(X,d)$ be a metric space and $\{x_n\}_{n=1}^\infty$ a sequence in $X$. Prove that $\{x_n\}_{n=1}^\infty$ converges to $p \in X$ if and only if every subsequence of $\{x_n\}_{n=1}^\infty$ has a subsequence that converges to $p$.
+
+  - cid: lebl-7.3.14
+    chapter: "7 Metric Spaces"
+    section: "7.3 Sequences and convergence"
+    number: "Exercise 7.3.14"
+    page: "278"
+    pdfPage: 278
+    verdict: strong
+    machinery: "ℓ^1, ℓ^2, ℓ^∞ metrics on R^n are comparable, so convergence is the same (coordinatewise)."
+    standardResult: "Euclidean, taxicab, and max metrics on R^n give the same convergent sequences"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [comparison-estimate, verify-axioms]
+    difficulty: easy
+    difficultyRationale: "d'' <= d <= d' <= n d''."
+    category: canonical
+    type: proof
+    tags: [equivalent-metrics, Rn, convergence, taxicab-metric, max-metric]
+    references: ["Exercise 7.1.6 (quoted)"]
+    problemLatex: |
+      Consider $\mathbb{R}^n$, and let $d$ be the standard euclidean metric. Let $d'(x,y) := \sum_{\ell=1}^n |x_\ell - y_\ell|$ and $d''(x,y) := \max\bigl\{|x_1-y_1|, |x_2-y_2|, \cdots, |x_n-y_n|\bigr\}$.
+      a) Use Exercise 7.1.6, to show that $(\mathbb{R}^n,d')$ and $(\mathbb{R}^n,d'')$ are metric spaces.
+      b) Let $\{x_k\}_{k=1}^\infty$ be a sequence in $\mathbb{R}^n$ and $p \in \mathbb{R}^n$. Prove that the following statements are equivalent:
+      (1) $\{x_k\}_{k=1}^\infty$ converges to $p$ in $(\mathbb{R}^n,d)$.
+      (2) $\{x_k\}_{k=1}^\infty$ converges to $p$ in $(\mathbb{R}^n,d')$.
+      (3) $\{x_k\}_{k=1}^\infty$ converges to $p$ in $(\mathbb{R}^n,d'')$.
+
+      *(Exercise 7.1.6: Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. a) Show that $(X \times Y, d)$ with $d\bigl((x_1,y_1),(x_2,y_2)\bigr) := d_X(x_1,x_2) + d_Y(y_1,y_2)$ is a metric space. b) Show that $(X \times Y, d)$ with $d\bigl((x_1,y_1),(x_2,y_2)\bigr) := \max\bigl\{d_X(x_1,x_2), d_Y(y_1,y_2)\bigr\}$ is a metric space.)*
+    transcriptionNotes: "Exercise 7.1.6 quoted verbatim."
+
+  # ---------------- 7.4 ----------------
+  - cid: lebl-7.4.2
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.2"
+    page: "285"
+    pdfPage: 285
+    verdict: core
+    machinery: "Open-cover definition of compactness used directly: an explicit cover with no finite subcover, and extracting a finite subcover using the limit point 0."
+    standardResult: "{1/n} is not compact but {1/n} ∪ {0} is compact (open cover definition)"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Canonical first open-cover arguments."
+    category: canonical
+    type: proof
+    tags: [compactness, open-cover, definition, counterexample]
+    references: []
+    problemLatex: |
+      Let $A := \{1/n : n \in \mathbb{N}\} \subset \mathbb{R}$.
+      a) Show that $A$ is not compact directly using the definition.
+      b) Show that $A \cup \{0\}$ is compact directly using the definition.
+    transcriptionNotes: "The definition is the open-cover definition (Definition 7.4.7)."
+
+  - cid: lebl-7.4.3
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.3"
+    page: "285"
+    pdfPage: 285
+    verdict: strong
+    machinery: "Discrete metric: Cauchy sequences are eventually constant; singletons form an open cover."
+    standardResult: "discrete metric space: complete; compact iff finite"
+    topic: topology
+    subtopics: [compactness, complete-metric-spaces]
+    skills: [open-cover-argument, definition-unpacking]
+    difficulty: easy
+    difficultyRationale: "Take ε = 1/2 for Cauchy; singleton balls for compactness."
+    category: canonical
+    type: proof
+    tags: [discrete-metric, completeness, compactness, closed-and-bounded]
+    references: []
+    problemLatex: |
+      Let $(X,d)$ be a metric space with the discrete metric.
+      a) Prove that $X$ is complete.
+      b) Prove that $X$ is compact if and only if $X$ is a finite set.
+
+  - cid: lebl-7.4.4
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.4"
+    page: "285"
+    pdfPage: 285
+    verdict: strong
+    machinery: "Combining finite subcovers; infinite unions of compact sets fail."
+    standardResult: "finite unions of compact sets are compact; infinite unions need not be"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Direct from definition; e.g. ∪[n,n+1] = [1,∞)."
+    category: canonical
+    type: proof
+    tags: [compactness, union, counterexample]
+    references: []
+    problemLatex: |
+      a) Show that the union of finitely many compact sets is a compact set.
+      b) Find an example where the union of infinitely many compact sets is not compact.
+
+  - cid: lebl-7.4.6
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.6"
+    page: "286"
+    pdfPage: 286
+    verdict: strong
+    machinery: "Sequential compactness + Cauchy: a Cauchy sequence with a convergent subsequence converges."
+    standardResult: "compact metric spaces are complete"
+    topic: topology
+    subtopics: [compactness, complete-metric-spaces]
+    skills: [subsequence-extraction, epsilon-over-2]
+    difficulty: easy
+    difficultyRationale: "Standard 'Cauchy + convergent subsequence ⇒ convergent' argument."
+    category: canonical
+    type: proof
+    tags: [compactness, completeness, Cauchy, subsequence]
+    references: []
+    problemLatex: |
+      Show that a compact set $K$ (in any metric space) is itself a complete metric space (using the subspace metric).
+
+  - cid: lebl-7.4.7
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.7"
+    page: "286"
+    pdfPage: 286
+    verdict: core
+    machinery: "Uniform Cauchy ⇒ uniform convergence ⇒ continuous limit: completeness of C([a,b]) in the sup metric."
+    standardResult: "C([a,b],R) with the uniform metric is complete"
+    topic: topology
+    subtopics: [complete-metric-spaces]
+    skills: [uniform-cauchy-criterion, pass-to-limit-in-inequality, epsilon-over-3]
+    difficulty: medium
+    difficultyRationale: "Pointwise limit, then uniform estimate, then continuity of the uniform limit."
+    category: canonical
+    type: proof
+    tags: [completeness, uniform-convergence, function-space, sup-metric]
+    references: ["Example 7.1.8 (quoted)"]
+    problemLatex: |
+      Let $C\bigl([a,b],\mathbb{R}\bigr)$ be the metric space as in Example 7.1.8. Show that $C\bigl([a,b],\mathbb{R}\bigr)$ is a complete metric space.
+
+      *(Example 7.1.8: $C\bigl([a,b],\mathbb{R}\bigr)$ is the set of continuous real-valued functions on the interval $[a,b]$, with the metric $d(f,g) := \sup_{x\in[a,b]} \bigl|f(x) - g(x)\bigr|$.)*
+    transcriptionNotes: "Example 7.1.8's definition quoted (first sentences)."
+
+  - cid: lebl-7.4.8
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.8"
+    page: "286"
+    pdfPage: 286
+    verdict: core
+    machinery: "Heine–Borel fails in infinite dimensions: an infinite 1-separated set in the closed unit ball of C[0,1]."
+    standardResult: "closed unit ball in C[0,1] is closed and bounded but not compact"
+    topic: topology
+    subtopics: [compactness, metric-spaces]
+    skills: [construct-counterexample, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Construct disjointly supported tent functions of height 1; book gives hints."
+    category: canonical
+    type: counterexample
+    tags: [compactness, Heine-Borel-failure, function-space, infinite-dimensional, counterexample]
+    references: ["Example 7.1.8 (quoted)"]
+    problemLatex: |
+      (Challenging) Let $C\bigl([0,1],\mathbb{R}\bigr)$ be the metric space of Example 7.1.8. Let $0$ denote the zero function. Then show that the closed ball $C(0,1)$ is not compact (even though it is closed and bounded). Hints: Construct a sequence of distinct continuous functions $\{f_n\}_{n=1}^\infty$ such that $d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \neq k$. Show that the set $\{f_n : n \in \mathbb{N}\} \subset C(0,1)$ is closed but not compact. See chapter 6 for inspiration.
+
+      *(Example 7.1.8: $C\bigl([a,b],\mathbb{R}\bigr)$ is the set of continuous real-valued functions on $[a,b]$ with metric $d(f,g) := \sup_{x\in[a,b]}|f(x)-g(x)|$. $C(x,\delta) := \{y : d(x,y) \le \delta\}$ is the closed ball.)*
+    transcriptionNotes: "Example 7.1.8 and closed-ball notation quoted. 'See chapter 6' refers to sequences of functions."
+
+  - cid: lebl-7.4.9
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.9"
+    page: "286"
+    pdfPage: 286
+    verdict: consider
+    machinery: "Compactness depends on the metric: transporting a compact metric (e.g. from a circle or [0,1] minus/plus points) via a bijection."
+    standardResult: "there is a metric making R compact"
+    topic: topology
+    subtopics: [compactness, metric-spaces]
+    skills: [pullback-metric, bijection]
+    difficulty: medium
+    difficultyRationale: "Requires the idea of pulling back a metric via a bijection with a compact set."
+    category: challenge
+    type: construction
+    tags: [compactness, metric, bijection, construction]
+    references: []
+    problemLatex: |
+      (Challenging) Show that there exists a metric on $\mathbb{R}$ that makes $\mathbb{R}$ into a compact set.
+
+  - cid: lebl-7.4.10
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.10"
+    page: "286"
+    pdfPage: 286
+    verdict: strong
+    machinery: "Finite intersection property / sequential compactness for nested compact sets."
+    standardResult: "Cantor intersection theorem for nested nonempty compact sets"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "Complements form an open cover of E_1 if the intersection is empty; or a subsequence argument."
+    category: canonical
+    type: proof
+    tags: [compactness, nested-sets, Cantor-intersection, finite-intersection-property]
+    references: []
+    problemLatex: |
+      Suppose $(X,d)$ is complete and suppose we have a countably infinite collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset \cdots$. Prove $\bigcap_{j=1}^\infty E_j \neq \emptyset$.
+    transcriptionNotes: "As printed; the completeness hypothesis is not actually needed (compactness suffices)."
+
+  - cid: lebl-7.4.11
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.11"
+    page: "286"
+    pdfPage: 286
+    verdict: consider
+    machinery: "A finite-dimensional bounded closed subset of C[0,1] is compact: coefficient bounds + Bolzano–Weierstrass in R^3."
+    standardResult: "bounded set of quadratic polynomials in C[0,1] is compact"
+    topic: topology
+    subtopics: [compactness, sequential-compactness]
+    skills: [subsequence-extraction, coefficient-bounds]
+    difficulty: hard
+    difficultyRationale: "Requires bounding coefficients by sup norm (via interpolation at three points) and showing the limit stays in K."
+    category: synthesis
+    type: proof
+    tags: [compactness, function-space, polynomials, finite-dimensional]
+    references: ["Example 7.1.8 (quoted)"]
+    problemLatex: |
+      (Challenging) Let $C\bigl([0,1],\mathbb{R}\bigr)$ be the metric space of Example 7.1.8. Let $K$ be the set of $f \in C\bigl([0,1],\mathbb{R}\bigr)$ such that $f$ is equal to a quadratic polynomial, i.e. $f(x) = a + bx + cx^2$, and such that $\left|f(x)\right| \le 1$ for all $x \in [0,1]$, that is $f \in C(0,1)$. Show that $K$ is compact.
+
+      *(Example 7.1.8: $C\bigl([a,b],\mathbb{R}\bigr)$ is the set of continuous real-valued functions on $[a,b]$ with metric $d(f,g) := \sup_{x\in[a,b]}|f(x)-g(x)|$.)*
+    transcriptionNotes: "Text extraction garbled this exercise; transcribed from the page image."
+
+  - cid: lebl-7.4.12
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.12"
+    page: "286"
+    pdfPage: 286
+    verdict: core
+    machinery: "Totally bounded + complete ⇔ compact; diagonal/nested-ball extraction of Cauchy subsequences."
+    standardResult: "in a complete metric space, compact iff closed and totally bounded"
+    topic: topology
+    subtopics: [compactness, complete-metric-spaces, sequential-compactness]
+    skills: [diagonal-argument, subsequence-extraction, open-cover-argument]
+    difficulty: hard
+    difficultyRationale: "The converse requires extracting a Cauchy subsequence by repeated finite covers (diagonal argument)."
+    category: canonical
+    type: proof
+    tags: [compactness, totally-bounded, completeness, diagonal-argument]
+    references: []
+    problemLatex: |
+      (Challenging) Let $(X,d)$ be a complete metric space. Show that $K \subset X$ is compact if and only if $K$ is closed and such that for every $\epsilon > 0$ there exists a finite set of points $x_1, x_2, \ldots, x_n$ with $K \subset \bigcup_{j=1}^n B(x_j,\epsilon)$. Note: Such a set $K$ is said to be *totally bounded*, so in a complete metric space a set is compact if and only if it is closed and totally bounded.
+
+  - cid: lebl-7.4.14
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.14"
+    page: "286"
+    pdfPage: 286
+    verdict: strong
+    machinery: "Iterated subsequence extraction coordinate by coordinate."
+    standardResult: "Bolzano–Weierstrass in R^n"
+    topic: topology
+    subtopics: [sequential-compactness, compactness]
+    skills: [subsequence-extraction, induction, coordinatewise-convergence]
+    difficulty: easy
+    difficultyRationale: "Apply 1-D Bolzano–Weierstrass n times (or use Heine–Borel)."
+    category: canonical
+    type: proof
+    tags: [Bolzano-Weierstrass, Rn, subsequence]
+    references: []
+    problemLatex: |
+      Prove the general Bolzano–Weierstrass theorem: Any bounded sequence $\{x_k\}_{k=1}^\infty$ in $\mathbb{R}^n$ has a convergent subsequence.
+
+  - cid: lebl-7.4.16
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.16"
+    page: "286"
+    pdfPage: 286
+    verdict: strong
+    machinery: "Closed sets contain their limits; Cauchy in E is Cauchy in X."
+    standardResult: "closed subset of a complete metric space is complete"
+    topic: topology
+    subtopics: [complete-metric-spaces, closed-sets]
+    skills: [sequential-characterization]
+    difficulty: introductory
+    difficultyRationale: "Two-line argument."
+    category: canonical
+    type: proof
+    tags: [completeness, closed-set, subspace]
+    references: ["Proposition 7.4.6 (statement included in exercise)"]
+    problemLatex: |
+      Prove Proposition 7.4.6. That is, let $(X,d)$ be a complete metric space and $E \subset X$ a closed set. Show that $E$ with the subspace metric is a complete metric space.
+
+  - cid: lebl-7.4.17
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.17"
+    page: "286"
+    pdfPage: 286
+    verdict: strong
+    machinery: "A non-convergent Cauchy sequence's range is closed and bounded but not compact (no convergent subsequence)."
+    standardResult: "incomplete metric space has a closed bounded non-compact set"
+    topic: topology
+    subtopics: [compactness, complete-metric-spaces]
+    skills: [construct-counterexample, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Must verify the set of terms of a non-convergent Cauchy sequence is closed and has no convergent subsequence."
+    category: synthesis
+    type: proof
+    tags: [completeness, compactness, closed-and-bounded, Cauchy]
+    references: []
+    problemLatex: |
+      Let $(X,d)$ be an incomplete metric space. Show that there exists a closed and bounded set $E \subset X$ that is not compact.
+
+  - cid: lebl-7.4.19
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.19"
+    page: "286"
+    pdfPage: 286
+    verdict: strong
+    machinery: "Topological properties (open sets, compactness, convergence) vs metric properties (Cauchy, completeness) under a homeomorphic change of metric."
+    standardResult: "completeness is not a topological property: d'(x,y)=|x/(1+|x|) - y/(1+|y|)| on R"
+    topic: topology
+    subtopics: [complete-metric-spaces, metric-spaces, compactness]
+    skills: [verify-axioms, construct-counterexample, ball-containment]
+    difficulty: medium
+    difficultyRationale: "Several parts; b) requires showing balls nest using continuity of x ↦ x/(1+|x|) and its inverse."
+    category: synthesis
+    type: counterexample
+    tags: [completeness, topology, equivalent-metrics, Cauchy, counterexample]
+    references: []
+    problemLatex: |
+      Consider two metrics on $\mathbb{R}$. Let $d(x,y) := |x-y|$ be the standard metric, and let $d'(x,y) := \left| \frac{x}{1+|x|} - \frac{y}{1+|y|} \right|$.
+      a) Show that $(\mathbb{R},d')$ is a metric space (if you have done Exercise 7.3.10, the computation is the same).
+      b) Show that the topology is the same, that is, a set is open in $(\mathbb{R},d)$ if and only if it is open in $(\mathbb{R},d')$.
+      c) Show that a set is compact in $(\mathbb{R},d)$ if and only if it is compact in $(\mathbb{R},d')$.
+      d) Show that a sequence converges in $(\mathbb{R},d)$ if and only if it converges in $(\mathbb{R},d')$.
+      e) Find a sequence of real numbers that is Cauchy in $(\mathbb{R},d')$ but not Cauchy in $(\mathbb{R},d)$.
+      f) While $(\mathbb{R},d)$ is complete, show that $(\mathbb{R},d')$ is not complete.
+    transcriptionNotes: "The parenthetical reference to Exercise 7.3.10 (extended-reals metric) is only a remark; can be dropped."
+
+  - cid: lebl-7.4.20
+    chapter: "7 Metric Spaces"
+    section: "7.4 Completeness and compactness"
+    number: "Exercise 7.4.20"
+    page: "287"
+    pdfPage: 287
+    verdict: consider
+    machinery: "Sequential characterization of compactness of the closure; approximating closure points by points of S."
+    standardResult: "relatively compact iff every sequence in S has a subsequence converging in X"
+    topic: topology
+    subtopics: [compactness, sequential-compactness]
+    skills: [sequential-characterization, diagonal-argument]
+    difficulty: medium
+    difficultyRationale: "Reverse direction: approximate a sequence in the closure by one in S and pass limits."
+    category: synthesis
+    type: proof
+    tags: [relatively-compact, closure, sequential-compactness]
+    references: []
+    problemLatex: |
+      Let $(X,d)$ be a complete metric space. We say a set $S \subset X$ is *relatively compact* if the closure $\overline{S}$ is compact. Prove that $S \subset X$ is relatively compact if and only if given any sequence $\{x_n\}_{n=1}^\infty$ in $S$, there exists a subsequence $\{x_{n_k}\}_{k=1}^\infty$ that converges (in $X$).
+
+  # ---------------- 7.5 ----------------
+  - cid: lebl-7.5.1
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.1"
+    page: "293"
+    pdfPage: 293
+    verdict: consider
+    machinery: "Continuous image of a connected space is connected; connected subsets of N are singletons."
+    standardResult: "continuous integer-valued function on a connected space is constant"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, continuity-and-topology]
+    skills: [preimage-of-open-sets, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "f^{-1}({n}) is clopen."
+    category: canonical
+    type: proof
+    tags: [connectedness, continuity, integer-valued]
+    references: []
+    problemLatex: |
+      Consider $\mathbb{N} \subset \mathbb{R}$ with the standard metric. Let $(X,d)$ be a metric space and $f\colon X \to \mathbb{N}$ a continuous function.
+      a) Prove that if $X$ is connected, then $f$ is constant (the range of $f$ is a single value).
+      b) Find an example where $X$ is disconnected and $f$ is not constant.
+
+  - cid: lebl-7.5.2
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.2"
+    page: "293"
+    pdfPage: 293
+    verdict: strong
+    machinery: "Separate continuity vs joint continuity; approaching along lines y = x."
+    standardResult: "xy/(x^2+y^2): separately continuous but not continuous at the origin"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, sequential-continuity]
+    skills: [sequential-characterization, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Restrict to the diagonal: f(t,t) = 1/2."
+    category: canonical
+    type: counterexample
+    tags: [two-variables, separate-continuity, joint-continuity, counterexample]
+    references: []
+    problemLatex: |
+      Define $f\colon \mathbb{R}^2 \to \mathbb{R}$ by $f(0,0) := 0$, and $f(x,y) := \frac{xy}{x^2+y^2}$ if $(x,y) \neq (0,0)$.
+      a) Show that for every fixed $x$, the function that takes $y$ to $f(x,y)$ is continuous. Similarly, for every fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
+      b) Show that $f$ is not continuous.
+    transcriptionNotes: "Reference to Figure 7.14 (graph) omitted."
+
+  - cid: lebl-7.5.3
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.3"
+    page: "294"
+    pdfPage: 294
+    verdict: strong
+    machinery: "Sequential characterization of closure and continuity; continuous maps need not map closed sets to closed sets."
+    standardResult: "f(closure A) ⊂ closure f(A), possibly strict"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, continuity-and-topology]
+    skills: [sequential-characterization, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "a) via sequences; b) e.g. arctan or e^x on a closed unbounded set."
+    category: canonical
+    type: proof
+    tags: [continuity, closure, image, counterexample]
+    references: []
+    problemLatex: |
+      Suppose $(X,d_X)$, $(Y,d_Y)$ are metric spaces and $f\colon X \to Y$ is continuous. Let $A \subset X$.
+      a) Show that $f(\overline{A}) \subset \overline{f(A)}$.
+      b) Show by example that $f(\overline{A})$ can be a proper subset of $\overline{f(A)}$.
+
+  - cid: lebl-7.5.4
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.4"
+    page: "294"
+    pdfPage: 294
+    verdict: core
+    machinery: "Topological characterization of continuity via preimages of open sets."
+    standardResult: "f continuous iff preimages of open sets are open"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, continuity-and-topology]
+    skills: [preimage-of-open-sets, epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "Apply the pointwise lemma at every point."
+    category: canonical
+    type: proof
+    tags: [continuity, open-set, preimage, topology]
+    references: ["Theorem 7.5.8 (quoted)", "Lemma 7.5.7 (quoted)"]
+    problemLatex: |
+      Prove Theorem 7.5.8. Hint: Use Lemma 7.5.7.
+
+      *(Theorem 7.5.8: Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f\colon X \to Y$ is continuous if and only if for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.)*
+
+      *(Lemma 7.5.7: Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f\colon X \to Y$ is continuous at $c \in X$ if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set $f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.)*
+    transcriptionNotes: "Theorem 7.5.8 and Lemma 7.5.7 quoted verbatim. Could also be posed without the hint (proving Lemma 7.5.7 first)."
+
+  - cid: lebl-7.5.5
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.5"
+    page: "294"
+    pdfPage: 294
+    verdict: core
+    machinery: "Pulling back a separation of f(X) via preimages of open sets."
+    standardResult: "continuous image of a connected space is connected"
+    topic: continuity
+    subtopics: [continuity-and-topology, continuity-metric-spaces]
+    skills: [preimage-of-open-sets, contradiction, subspace-topology]
+    difficulty: easy
+    difficultyRationale: "Standard pullback argument, with care about subspace-open sets."
+    category: canonical
+    type: proof
+    tags: [connectedness, continuity, image]
+    references: []
+    problemLatex: |
+      Suppose $f\colon X \to Y$ is continuous for metric spaces $(X,d_X)$ and $(Y,d_Y)$. Show that if $X$ is connected, then $f(X)$ is connected.
+    transcriptionNotes: "Exercise 7.5.6 (IVT for connected X) is its immediate corollary."
+
+  - cid: lebl-7.5.7
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.7"
+    page: "294"
+    pdfPage: 294
+    verdict: consider
+    machinery: "Proper maps send sequences escaping every compact set to sequences escaping every compact set."
+    standardResult: "proper continuous maps (0,1)->(0,1) send boundary-escaping sequences to boundary-escaping sequences"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, compactness]
+    skills: [contradiction, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "If f(x_{n_k}) -> y in (0,1), the preimage of a compact set {f(x_{n_k})} ∪ {y} is compact but contains x_{n_k} -> 0."
+    category: synthesis
+    type: proof
+    tags: [proper-map, compactness, continuity, sequences]
+    references: []
+    problemLatex: |
+      A continuous $f\colon X \to Y$ between metric spaces $(X,d_X)$ and $(Y,d_Y)$ is said to be *proper* if for every compact set $K \subset Y$, the set $f^{-1}(K)$ is compact. Suppose a continuous $f\colon (0,1) \to (0,1)$ is proper and $\{x_n\}_{n=1}^\infty$ is a sequence in $(0,1)$ converging to 0. Show that $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ has no subsequence that converges in $(0,1)$.
+
+  - cid: lebl-7.5.8
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.8"
+    page: "294"
+    pdfPage: 294
+    verdict: core
+    machinery: "Closed subsets of compact sets are compact; continuous images of compact sets are compact; closed-map criterion for continuity of the inverse."
+    standardResult: "continuous bijection from a compact space has continuous inverse"
+    topic: continuity
+    subtopics: [continuity-and-topology, compactness]
+    skills: [preimage-of-open-sets, compactness-argument]
+    difficulty: medium
+    difficultyRationale: "Requires assembling three facts: closed ⊂ compact ⇒ compact, compact image, compact ⇒ closed."
+    category: canonical
+    type: proof
+    tags: [compactness, inverse-function, homeomorphism, continuity]
+    references: []
+    problemLatex: |
+      Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $f\colon X \to Y$ be a one-to-one and onto continuous function. Suppose $X$ is compact. Prove that the inverse $f^{-1}\colon Y \to X$ is continuous.
+
+  - cid: lebl-7.5.10
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.10"
+    page: "294"
+    pdfPage: 294
+    verdict: strong
+    machinery: "Reverse triangle inequality gives Lipschitz continuity of the distance; extreme value theorem on a product of compact sets."
+    standardResult: "distance function is continuous; distance between compact sets is attained"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, EVT, lipschitz-holder]
+    skills: [triangle-inequality, EVT-application]
+    difficulty: medium
+    difficultyRationale: "c) needs compactness of K_1 × K_2 (or a sequential argument)."
+    category: canonical
+    type: proof
+    tags: [distance-function, continuity, compactness, extreme-value-theorem]
+    references: ["Exercise 7.1.6 part b (quoted)"]
+    problemLatex: |
+      Let $(X,d)$ be a metric space.
+      a) If $p \in X$, show that $f\colon X \to \mathbb{R}$ defined by $f(x) := d(x,p)$ is continuous.
+      b) Define a metric on $X \times X$ as in Exercise 7.1.6 part b, and show that $g\colon X \times X \to \mathbb{R}$ defined by $g(x,y) := d(x,y)$ is continuous.
+      c) Show that if $K_1$ and $K_2$ are compact subsets of $X$, then there exists a $p \in K_1$ and $q \in K_2$ such that $d(p,q)$ is minimal, that is, $d(p,q) = \inf\{d(x,y) : x \in K_1, y \in K_2\}$.
+
+      *(Exercise 7.1.6 part b: the metric on $X \times X$ is $d\bigl((x_1,y_1),(x_2,y_2)\bigr) := \max\bigl\{d(x_1,x_2), d(y_1,y_2)\bigr\}$.)*
+    transcriptionNotes: "Metric from Exercise 7.1.6 b) inserted (specialized to X × X)."
+
+  - cid: lebl-7.5.12
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.12"
+    page: "295"
+    pdfPage: 295
+    verdict: strong
+    machinery: "Continuity of a linear operator depends on the choice of metrics: differentiation is continuous C^1→C but not C→C."
+    standardResult: "derivative operator continuous in the C^1 metric, discontinuous in the sup metric (sin(nx)/n)"
+    topic: continuity
+    subtopics: [continuity-metric-spaces]
+    skills: [construct-counterexample, sup-norm-estimate]
+    difficulty: medium
+    difficultyRationale: "a) is a one-line estimate; b) requires choosing sin(nx)/n-type functions and reading continuity correctly."
+    category: synthesis
+    type: counterexample
+    tags: [function-space, derivative-operator, continuity, sup-metric, C1-metric]
+    references: []
+    problemLatex: |
+      Let $C\bigl([a,b],\mathbb{R}\bigr)$ be the set of continuous functions and $C^1\bigl([a,b],\mathbb{R}\bigr)$ the set of once continuously differentiable functions on $[a,b]$. Define
+      $$d_C(f,g) := \|f-g\|_{[a,b]} \qquad \text{and} \qquad d_{C^1}(f,g) := \|f-g\|_{[a,b]} + \|f'-g'\|_{[a,b]},$$
+      where $\|\cdot\|_{[a,b]}$ is the uniform norm. By Example 7.1.8 and Exercise 7.1.12, we know that $C\bigl([a,b],\mathbb{R}\bigr)$ with $d_C$ is a metric space and so is $C^1\bigl([a,b],\mathbb{R}\bigr)$ with $d_{C^1}$.
+      a) Prove that the derivative operator $D\colon C^1\bigl([a,b],\mathbb{R}\bigr) \to C\bigl([a,b],\mathbb{R}\bigr)$ defined by $D(f) := f'$ is continuous.
+      b) On the other hand if we consider the metric $d_C$ on $C^1\bigl([a,b],\mathbb{R}\bigr)$, then prove the derivative operator is no longer continuous. Hint: Consider $\sin(nx)$.
+    transcriptionNotes: "References to Example 7.1.8 and Exercise 7.1.12 only assert that these are metrics; self-contained."
+
+  - cid: lebl-7.5.17
+    chapter: "7 Metric Spaces"
+    section: "7.5 Continuous functions"
+    number: "Exercise 7.5.17"
+    page: "295"
+    pdfPage: 295
+    verdict: consider
+    machinery: "Separate continuity is not enough to make parameter integrals continuous; limit along parabolas."
+    standardResult: "2xy/(x^4+y^2): separately continuous, discontinuous at 0, and ∫_0^1 f(x,y)dx discontinuous in y"
+    topic: continuity
+    subtopics: [continuity-metric-spaces]
+    skills: [construct-counterexample, computation]
+    difficulty: medium
+    difficultyRationale: "c) along y = x^2; d) explicit arctan computation of g(y)."
+    category: synthesis
+    type: counterexample
+    tags: [two-variables, separate-continuity, parameter-integral, counterexample]
+    references: []
+    problemLatex: |
+      Define
+      $$f(x,y) := \begin{cases} \frac{2xy}{x^4+y^2} & \text{if } (x,y) \neq (0,0), \\ 0 & \text{if } (x,y) = (0,0). \end{cases}$$
+      a) Show that for every fixed $y$ the function that takes $x$ to $f(x,y)$ is continuous and hence Riemann integrable.
+      b) For every fixed $x$, the function that takes $y$ to $f(x,y)$ is continuous.
+      c) Show that $f$ is not continuous at $(0,0)$.
+      d) Now show that $g(y) := \int_0^1 f(x,y)\,dx$ is not continuous at $y = 0$.
+      Note: Feel free to use what you know about arctan from calculus, in particular that $\frac{d}{ds}\bigl[\arctan(s)\bigr] = \frac{1}{1+s^2}$.
+
+  # ---------------- 7.6 (selective) ----------------
+  - cid: lebl-7.6.6
+    chapter: "7 Metric Spaces"
+    section: "7.6 Fixed point theorem and Picard's theorem again"
+    number: "Exercise 7.6.6"
+    page: "300"
+    pdfPage: 300
+    verdict: strong
+    machinery: "Sharpness of the contraction mapping principle: both completeness and strict contraction are needed."
+    standardResult: "contraction on incomplete space without fixed point; 1-Lipschitz map on complete space without fixed point"
+    topic: function-sequences
+    subtopics: [fixed-point]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "a) x/2 on (0,1); b) x+1 on R."
+    category: canonical
+    type: counterexample
+    tags: [contraction-mapping, Banach-fixed-point, completeness, counterexample]
+    references: ["Definition 7.6.1 (contraction, quoted)"]
+    problemLatex: |
+      a) Find an example of a contraction $f\colon X \to X$ of a non-complete metric space $X$ with no fixed point.
+      b) Find a 1-Lipschitz map $f\colon X \to X$ of a complete metric space $X$ with no fixed point.
+
+      *(Definition 7.6.1: A map $\varphi\colon X \to Y$ between metric spaces is a contraction if it is a $k$-Lipschitz map for some $k < 1$, i.e. if there exists a $k < 1$ such that $d_Y\bigl(\varphi(p),\varphi(q)\bigr) \le k\,d_X(p,q)$ for all $p, q \in X$.)*
+    transcriptionNotes: "Definition of contraction quoted. Topic placed under function-sequences/fixed-point per subtopic vocabulary; curator may move to topology (metric spaces)."
+
+  - cid: lebl-7.6.9
+    chapter: "7 Metric Spaces"
+    section: "7.6 Fixed point theorem and Picard's theorem again"
+    number: "Exercise 7.6.9"
+    page: "300"
+    pdfPage: 300
+    verdict: consider
+    machinery: "Applying the contraction mapping principle concretely: invariance of a complete set and a Lipschitz bound via the MVT."
+    standardResult: "Newton's method for sqrt(2) as a contraction on [1,∞)"
+    topic: function-sequences
+    subtopics: [fixed-point]
+    skills: [MVT-application, verify-hypotheses]
+    difficulty: easy
+    difficultyRationale: "Compute f'(x) = 1/2 - 1/x^2 and bound it on [1,∞)."
+    category: canonical
+    type: theorem-application
+    tags: [contraction-mapping, Newton-method, square-root-2, fixed-point]
+    references: []
+    problemLatex: |
+      Let $f(x) := x - \frac{x^2-2}{2x}$ (you may recognize Newton's method for $\sqrt{2}$).
+      a) Prove $f\bigl([1,\infty)\bigr) \subset [1,\infty)$.
+      b) Prove that $f\colon [1,\infty) \to [1,\infty)$ is a contraction.
+      c) Show that the fixed point theorem applies, find the unique $x \ge 1$ such that $f(x) = x$, and show that $x = \sqrt{2}$. Note: In particular, the technique from the proof of the theorem can be used to approximate $\sqrt{2}$.
+
+  - cid: lebl-7.6.11
+    chapter: "7 Metric Spaces"
+    section: "7.6 Fixed point theorem and Picard's theorem again"
+    number: "Exercise 7.6.11"
+    page: "300"
+    pdfPage: 300
+    verdict: consider
+    machinery: "Generalized contraction: summable Lipschitz constants of iterates make the orbit Cauchy."
+    standardResult: "fixed point theorem when Σ Lip(f^n) < ∞"
+    topic: function-sequences
+    subtopics: [fixed-point]
+    skills: [telescoping, cauchy-criterion, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "Adapt the Banach proof: d(f^n x, f^{n+1} x) <= k_n d(x, f x), summable."
+    category: synthesis
+    type: proof
+    tags: [contraction-mapping, fixed-point, Cauchy, completeness]
+    references: []
+    problemLatex: |
+      Suppose $(X,d)$ is a nonempty complete metric space, $f\colon X \to X$ is a mapping, and denote by $f^n$ the $n$th iterate of $f$. Suppose for every $n$ there exists a $k_n > 0$ such that $d\bigl(f^n(x), f^n(y)\bigr) \le k_n\,d(x,y)$ for all $x, y \in X$, where $\sum_{n=1}^\infty k_n < \infty$. Prove that $f$ has a unique fixed point in $X$.
+
+skipped:
+  - "5.1.1 routine computation of L(P,f), U(P,f); 5.1.4 finish proof of Prop 5.1.7 (refinement monotonicity; book-internal, notation-heavy); 5.1.5 near-duplicate of 5.1.6 (step at 0); 5.1.7 subsumed by 5.1.13 (quoted there); 5.1.8 routine change of variables in integrability; 5.1.9 near-duplicate of 5.1.6/Prop 5.2.10; 5.1.12 subsumed by 5.1.13 (quoted there; curator may promote it as the real hard step)"
+  - "5.2.1 routine (-f integrable); 5.2.3 near-duplicate of 5.1.6/5.1.9; 5.2.6 and 5.2.7 immediate corollaries of 5.2.4 (MVT for integrals); 5.2.8 routine additivity bookkeeping; 5.2.9 prove Corollary 5.2.3 (restriction integrable) — routine; 5.2.10 weaker version of 5.2.15; 5.2.12, 5.2.13 routine step-function computations; 5.2.16 upper/lower integral subadditivity — minor; 5.2.17 convolution Lipschitz — niche"
+  - "5.3.2 duplicate computation of 5.3.1; 5.3.3 FTC with finitely many bad points — minor variant; 5.3.4 restates FTC; 5.3.6 F'=G' ⇒ constant difference, better via MVT (ch.4); 5.3.7 averaging/smoothing — minor (used by 6.1.11); 5.3.10 odd/even routine; 5.3.11 sin(1/x) integrable — minor; 5.3.13 Riemann-sum limit computation — routine"
+  - "5.4 (selective): 5.4.1, 5.4.2 routine properties of x^y, b^x, log_b; 5.4.3 e^x Taylor series — duplicate of Taylor-chapter exercises; 5.4.7 ln x / x -> 0 routine; 5.4.8 convexity of e^x routine; 5.4.9 n^{1/n} routine (sequences chapter does it better); 5.4.10 functional equation characterization — optional"
+  - "5.5 (selective): 5.5.1 finish p-test proof; 5.5.2, 5.5.3 routine series/integral-test computations; 5.5.4 ∫|sinc| = ∞ — optional; 5.5.5 routine; 5.5.6 Laplace transform, 5.5.7 Fourier transforms — exotic/comparison duplicates; 5.5.11 lim ∫_0^n exists but improper integral doesn't — optional; 5.5.12 routine comparison; 5.5.13 Cauchy principal value — exotic; 5.5.14 convolution — exotic"
+  - "6.1.1 sup-norm triangle inequality routine; 6.1.3 restriction trivial; 6.1.4 pointwise sum trivial (6.1.5 is the uniform version); 6.1.7 domination g_n -> 0 uniformly — trivial; 6.1.8 squeeze — trivial; 6.1.11 mollifier converges uniformly — optional (relies on 5.3.7); 6.1.12 eventually bounded — minor; 6.1.13 uniformly bounded pointwise limit bounded — trivial"
+  - "6.2.3, 6.2.4 routine limits of integrals; 6.2.6 uniform limit of everywhere-discontinuous functions — cute but minor; 6.2.8 uniform ⇒ L1 routine; 6.2.9 near-duplicate of 6.2.12 a); 6.2.11 near-duplicate of Dini 6.2.10; 6.2.13 joint vs iterated limits — optional; 6.2.14 companion example to 6.2.13; 6.2.15 uniform convergence on compacts — routine extension; 6.2.19 radius of convergence of term-by-term integral — power-series detail; 6.2.20 identity theorem for power series — optional (requires 2.6, 4.3)"
+  - "6.3 (selective, Picard): 6.3.1 continuity of composition F(x,f(x)) — minor; 6.3.2 continuous on rectangle bounded — done via compactness in ch.7; 6.3.3 translate Picard to arbitrary x0; 6.3.4 compute Picard iterates; 6.3.6 linear ODE via integrating factor — ODE-specific; 6.3.7, 6.3.8, 6.3.9 ODE-specific applications"
+  - "7.1.2, 7.1.3 trivial; 7.1.4 asymmetric walking times — trivial non-example; 7.1.7 weighted L1 metric on C[0,1] — optional (positivity uses 5.2.5); 7.1.9 bounded-set characterizations routine; 7.1.10 diameter computations routine; 7.1.11 metrics on N — optional; 7.1.12 C^1 metric routine"
+  - "7.2.1 prove Prop 7.2.8 (closed-set axioms via complements) — routine De Morgan; 7.2.3 prove intervals open/closed — routine; 7.2.6 open set as union of closed sets — minor; 7.2.8 near-duplicate of 7.2.14; 7.2.12 finish Prop 7.2.11 (subspace open sets) — book-internal; 7.2.15 finish Prop 7.2.12 (closed in closed subspace) — book-internal; 7.2.17 finite/countable balls — optional; 7.2.18 rectangles generate the standard topology — near-duplicate of 7.2.9/7.3.14"
+  - "7.3.3 prove Prop 7.3.4 (convergent ⇒ bounded), 7.3.4 prove Prop 7.3.5 (comparison with real sequence), 7.3.12 prove Prop 7.3.6 (subsequences/tails) — routine translations from chapter 2; 7.3.5 reindexing by an injection — minor; 7.3.6 discrete metric convergent ⇒ eventually constant — trivial; 7.3.9 near-duplicate of 7.3.1; 7.3.10 extended-reals metric — overlaps 7.4.19; 7.3.11 boundary of increasing union — minor"
+  - "7.4.1 finite sets compact — trivial; 7.4.5 Heine–Borel for arbitrary n — notation exercise, 7.4.14 preferred; 7.4.13 Lebesgue covering lemma fails for N — optional; 7.4.15 Hausdorff metric on compact sets — optional (depends on 7.1.8); 7.4.18 compactness is intrinsic — minor"
+  - "7.5.6 IVT for connected spaces — immediate corollary of 7.5.5; 7.5.9 integral operator continuous — optional; 7.5.11 C(X,R) metric and evaluation continuity — routine; 7.5.13 cluster point iff p in closure of S\\{p} — minor; 7.5.14 prove Prop 7.5.16 (uniqueness of limits), 7.5.15 prove Lemma 7.5.17 (sequential limits), 7.5.16 continuity iff limit equals value — routine translations from chapter 3; 7.5.18 parameter integral on open rectangle — technical variant of Prop 7.5.12"
+  - "7.6 (selective): 7.6.1, 7.6.2, 7.6.3 Picard-proof bookkeeping; 7.6.4, 7.6.5 routine contraction checks; 7.6.7 Picard iterates for y'=y^2 — ODE-specific; 7.6.8 a priori error estimate — routine from the proof; 7.6.10 contraction in discrete metric is constant — trivial"

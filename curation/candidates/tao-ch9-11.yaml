@@ -1,0 +1,1262 @@
+chunk: "tao-ch9-11"
+book: tao
+pageOffsetNote: "printed page = pdfPage - 17 (e.g. PDF page 234 carries printed page 217; PDF 266 = printed 249; PDF 317 = printed 300)"
+sectionsCovered:
+  - "9.1 Subsets of the real line — 15 exercises"
+  - "9.2 The algebra of real-valued functions — 1 exercise"
+  - "9.3 Limiting values of functions — 5 exercises"
+  - "9.4 Continuous functions — 7 exercises"
+  - "9.5 Left and right limits — 1 exercise"
+  - "9.6 The maximum principle — 1 exercise"
+  - "9.7 The intermediate value theorem — 2 exercises"
+  - "9.8 Monotonic functions — 5 exercises"
+  - "9.9 Uniform continuity — 6 exercises"
+  - "9.10 Limits at infinity — 1 exercise"
+  - "10.1 Basic definitions — 7 exercises"
+  - "10.2 Local maxima, local minima, and derivatives — 7 exercises"
+  - "10.3 Monotone functions and derivatives — 5 exercises"
+  - "10.4 Inverse functions and derivatives — 3 exercises"
+  - "10.5 L'Hôpital's rule — 2 exercises"
+  - "11.1 Partitions — 4 exercises"
+  - "11.2 Piecewise constant functions — 4 exercises"
+  - "11.3 Upper and lower Riemann integrals — 5 exercises"
+  - "11.4 Basic properties of the Riemann integral — 4 exercises"
+  - "11.5 Riemann integrability of continuous functions — 1 exercise"
+  - "11.6 Riemann integrability of monotone functions — 5 exercises"
+  - "11.7 A non-Riemann integrable function — 0 exercises"
+  - "11.9 The two fundamental theorems of calculus — 3 exercises"
+  - "11.10 Consequences of the fundamental theorems — 4 exercises"
+  - "(11.8 Riemann–Stieltjes skipped per task instructions)"
+candidates:
+
+  # ---------------- Chapter 9 ----------------
+
+  - cid: tao-9.1.4
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.4"
+    page: "217"
+    pdfPage: 234
+    verdict: consider
+    machinery: "Closure does not commute with intersection; tests understanding of adherent points."
+    standardResult: "closure of intersection can be strictly smaller than intersection of closures"
+    topic: topology
+    subtopics: [interior-closure-boundary]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "One standard example (e.g. disjoint dense sets) suffices."
+    category: canonical
+    type: counterexample
+    tags: [closure, intersection, counterexample]
+    references: ["Definitions 9.1.5, 9.1.8, 9.1.10 (quoted)"]
+    problemLatex: |
+      *(Definitions from the book, quoted: **Definition 9.1.5.** Let $X$ be a subset of $\mathbf{R}$, let $\varepsilon > 0$, and let $x \in \mathbf{R}$. We say that $x$ is $\varepsilon$-adherent to $X$ iff there exists a $y \in X$ which is $\varepsilon$-close to $x$ (i.e., $|x-y| \le \varepsilon$). **Definition 9.1.8.** Let $X$ be a subset of $\mathbf{R}$, and let $x \in \mathbf{R}$. We say that $x$ is an adherent point of $X$ iff it is $\varepsilon$-adherent to $X$ for every $\varepsilon > 0$. **Definition 9.1.10.** Let $X$ be a subset of $\mathbf{R}$. The closure of $X$, sometimes denoted $\overline{X}$ is defined to be the set of all the adherent points of $X$.)*
+
+      Give an example of two subsets $X, Y$ of the real line such that $\overline{X \cap Y} \neq \overline{X} \cap \overline{Y}$.
+    transcriptionNotes: "Closure bars verified on page image. Tao's definitions of adherent point/closure quoted verbatim for self-containedness."
+
+  - cid: tao-9.1.5
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.5"
+    page: "217"
+    pdfPage: 234
+    verdict: strong
+    machinery: "Sequential characterization of closure points: choose a_n within 1/n of x."
+    standardResult: "x in closure of X iff x is a limit of a sequence in X"
+    topic: topology
+    subtopics: [interior-closure-boundary, limit-points]
+    skills: [sequential-characterization, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Pick a_n 1/n-close to x; converse is a direct epsilon-N argument."
+    category: canonical
+    type: proof
+    tags: [closure, adherent-point, sequences, machinery]
+    references: ["Lemma 9.1.14 (quoted)", "Definitions 9.1.5, 9.1.8 (quoted)"]
+    problemLatex: |
+      Prove Lemma 9.1.14. (Hint: in order to prove one of the two implications here you will need axiom of choice, as in Lemma 8.4.5.)
+
+      *(Lemma 9.1.14, quoted: Let $X$ be a subset of $\mathbf{R}$, and let $x \in \mathbf{R}$. Then $x$ is an adherent point of $X$ if and only if there exists a sequence $(a_n)_{n=0}^\infty$, consisting entirely of elements in $X$, which converges to $x$.)*
+
+      *(Definitions quoted from the book: $x$ is $\varepsilon$-adherent to $X$ iff there exists a $y \in X$ which is $\varepsilon$-close to $x$ (i.e., $|x-y| \le \varepsilon$). $x$ is an adherent point of $X$ iff it is $\varepsilon$-adherent to $X$ for every $\varepsilon > 0$.)*
+    transcriptionNotes: "Lemma 9.1.14 and Definitions 9.1.5/9.1.8 quoted verbatim. Hint mentions Lemma 8.4.5 (axiom of choice) — book-internal reference left as printed."
+
+  - cid: tao-9.1.6
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.6"
+    page: "217"
+    pdfPage: 234
+    verdict: strong
+    machinery: "Closure is closed and is the smallest closed superset; an epsilon/2 adherence argument."
+    standardResult: "closure is the smallest closed set containing X"
+    topic: topology
+    subtopics: [interior-closure-boundary, closed-sets]
+    skills: [epsilon-over-2, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Adherent point of closure is adherent to X via an epsilon/2 triangle-inequality argument."
+    category: canonical
+    type: proof
+    tags: [closure, closed-set, adherent-point, machinery]
+    references: ["Definitions 9.1.5, 9.1.8, 9.1.10, 9.1.15 (quoted)"]
+    problemLatex: |
+      *(Definitions from the book, quoted: $x$ is $\varepsilon$-adherent to $X$ iff there exists a $y \in X$ which is $\varepsilon$-close to $x$ (i.e., $|x-y| \le \varepsilon$). $x$ is an adherent point of $X$ iff it is $\varepsilon$-adherent to $X$ for every $\varepsilon > 0$. The closure of $X$, sometimes denoted $\overline{X}$, is defined to be the set of all the adherent points of $X$. **Definition 9.1.15.** A subset $E \subseteq \mathbf{R}$ is said to be closed if $\overline{E} = E$, or in other words that $E$ contains all of its adherent points.)*
+
+      Let $X$ be a subset of $\mathbf{R}$. Show that $\overline{X}$ is closed (i.e., $\overline{\overline{X}} = \overline{X}$). Furthermore, show that if $Y$ is any closed set that contains $X$, then $Y$ also contains $\overline{X}$. Thus the closure $\overline{X}$ of $X$ is the smallest closed set which contains $X$.
+    transcriptionNotes: "Double-bar notation verified on page image. Definitions quoted verbatim."
+
+  - cid: tao-9.1.7
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.7"
+    page: "217"
+    pdfPage: 234
+    verdict: consider
+    machinery: "Finite unions of closed sets are closed (via closure/sequence characterization)."
+    standardResult: "finite union of closed sets is closed"
+    topic: topology
+    subtopics: [closed-sets]
+    skills: [sequential-characterization, contradiction]
+    difficulty: easy
+    difficultyRationale: "Standard; e.g. a sequence in a finite union has a subsequence in one piece, or use closure of union = union of closures."
+    category: canonical
+    type: proof
+    tags: [closed-set, union]
+    references: ["Definition 9.1.15 (quoted)"]
+    problemLatex: |
+      *(Definition 9.1.15, quoted: A subset $E \subseteq \mathbf{R}$ is said to be closed if $\overline{E} = E$, or in other words that $E$ contains all of its adherent points.)*
+
+      Let $n \ge 1$ be a positive integer, and let $X_1, \ldots, X_n$ be closed subsets of $\mathbf{R}$. Show that $X_1 \cup X_2 \cup \ldots \cup X_n$ is also closed.
+    transcriptionNotes: "Pairs with 9.1.8 (arbitrary intersections); curator may prefer one source covering both."
+
+  - cid: tao-9.1.8
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.8"
+    page: "217"
+    pdfPage: 234
+    verdict: strong
+    machinery: "Arbitrary intersections of closed sets are closed."
+    standardResult: "arbitrary intersection of closed sets is closed"
+    topic: topology
+    subtopics: [closed-sets]
+    skills: [sequential-characterization]
+    difficulty: introductory
+    difficultyRationale: "An adherent point of the intersection is adherent to each X_alpha."
+    category: canonical
+    type: proof
+    tags: [closed-set, intersection]
+    references: ["Definition 9.1.15 (quoted)"]
+    problemLatex: |
+      *(Definition 9.1.15, quoted: A subset $E \subseteq \mathbf{R}$ is said to be closed if $\overline{E} = E$, or in other words that $E$ contains all of its adherent points.)*
+
+      Let $I$ be a set (possibly infinite), and for each $\alpha \in I$ let $X_\alpha$ be a closed subset of $\mathbf{R}$. Show that the intersection $\bigcap_{\alpha \in I} X_\alpha$ (defined in (3.3)) is also closed.
+    transcriptionNotes: "'(defined in (3.3))' refers to the book's definition of arbitrary intersection; kept as printed."
+
+  - cid: tao-9.1.9
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.9"
+    page: "217"
+    pdfPage: 234
+    verdict: consider
+    machinery: "Adherent points split into limit points and isolated points; definition-checking with quantifier negation."
+    standardResult: "closure = limit points disjoint-union isolated points"
+    topic: topology
+    subtopics: [limit-points, interior-closure-boundary]
+    skills: [negate-definition]
+    difficulty: easy
+    difficultyRationale: "Careful definition chasing with negations."
+    category: canonical
+    type: definition
+    tags: [limit-point, isolated-point, adherent-point, quantifiers]
+    references: ["Definitions 9.1.8, 9.1.18 (quoted)"]
+    problemLatex: |
+      *(Definitions from the book, quoted: $x$ is an adherent point of $X$ iff it is $\varepsilon$-adherent to $X$ for every $\varepsilon > 0$ [where $x$ is $\varepsilon$-adherent to $X$ iff there exists a $y \in X$ with $|x-y| \le \varepsilon$]. **Definition 9.1.18 (Limit points).** Let $X$ be a subset of the real line. We say that $x$ is a limit point (or a cluster point) of $X$ iff it is an adherent point of $X \backslash \{x\}$. We say that $x$ is an isolated point of $X$ if $x \in X$ and there exists some $\varepsilon > 0$ such that $|x-y| > \varepsilon$ for all $y \in X \backslash \{x\}$.)*
+
+      Let $X$ be a subset of the real line, and $x$ be a real number. Show that every adherent point of $X$ is either a limit point or an isolated point of $X$, but cannot be both. Conversely, show that every limit point and every isolated point of $X$ is an adherent point of $X$.
+    transcriptionNotes: "Definitions 9.1.5/9.1.8/9.1.18 quoted verbatim (9.1.5 condensed in brackets)."
+
+  - cid: tao-9.1.13
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.13"
+    page: "217"
+    pdfPage: 234
+    verdict: core
+    machinery: "Heine–Borel on R in sequential form: closed and bounded iff sequentially compact."
+    standardResult: "subset of R is closed and bounded iff every sequence has a subsequence converging in the set"
+    topic: topology
+    subtopics: [sequential-compactness, compactness, closed-sets, bolzano-weierstrass]
+    skills: [subsequence-extraction, contradiction, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Both directions need Bolzano–Weierstrass / constructing an unbounded sequence; standard multi-step theorem."
+    category: canonical
+    type: proof
+    tags: [Heine-Borel, compactness, Bolzano-Weierstrass, closed-set, bounded-set]
+    references: ["Theorem 9.1.24 (quoted)", "Definition 9.1.22 (quoted)"]
+    problemLatex: |
+      Prove Theorem 9.1.24. (Hint: to show (a) implies (b), use the Bolzano-Weierstrass theorem (Theorem 6.6.8) and Corollary 9.1.17. To show (b) implies (a), argue by contradiction, using Corollary 9.1.17 to establish that $X$ is closed. You will need the axiom of choice to show that $X$ is bounded, as in Lemma 8.4.5.)
+
+      *(Theorem 9.1.24 (Heine-Borel theorem for the line), quoted: Let $X$ be a subset of $\mathbf{R}$. Then the following two statements are equivalent:*
+      *(a) $X$ is closed and bounded.*
+      *(b) Given any sequence $(a_n)_{n=0}^\infty$ of real numbers which takes values in $X$ (i.e., $a_n \in X$ for all $n$), there exists a subsequence $(a_{n_j})_{j=0}^\infty$ of the original sequence, which converges to some number $L$ in $X$.)*
+
+      *(Definition 9.1.22, quoted: A subset $X$ of the real line is said to be bounded if we have $X \subset [-M, M]$ for some real number $M > 0$. Corollary 9.1.17, quoted: Let $X$ be a subset of $\mathbf{R}$. If $X$ is closed, and $(a_n)_{n=0}^\infty$ is a convergent sequence consisting of elements in $X$, then $\lim_{n\to\infty} a_n$ also lies in $X$. Conversely, if it is true that every convergent sequence $(a_n)_{n=0}^\infty$ of elements in $X$ has its limit in $X$ as well, then $X$ is necessarily closed.)*
+    transcriptionNotes: "Theorem 9.1.24, Definition 9.1.22 and Corollary 9.1.17 (used in hint) quoted verbatim. Hint's references to Theorem 6.6.8 (Bolzano–Weierstrass) and Lemma 8.4.5 left as printed."
+
+  - cid: tao-9.1.15
+    chapter: "9 Continuous functions on R"
+    section: "9.1 Subsets of the real line"
+    number: "Exercise 9.1.15"
+    page: "217"
+    pdfPage: 234
+    verdict: strong
+    machinery: "Approximation property of the supremum phrased topologically: sup is a boundary point."
+    standardResult: "sup E lies in closure of E and of its complement"
+    topic: real-numbers
+    subtopics: [supremum-infimum, interior-closure-boundary]
+    skills: [sup-approximation]
+    difficulty: easy
+    difficultyRationale: "Direct use of the sup approximation property and of S + epsilon being outside E."
+    category: canonical
+    type: proof
+    tags: [supremum, adherent-point, boundary, machinery]
+    references: ["Definitions 9.1.5, 9.1.8 (quoted)"]
+    problemLatex: |
+      *(Definitions from the book, quoted: $x$ is $\varepsilon$-adherent to $X$ iff there exists a $y \in X$ which is $\varepsilon$-close to $x$ (i.e., $|x-y| \le \varepsilon$). $x$ is an adherent point of $X$ iff it is $\varepsilon$-adherent to $X$ for every $\varepsilon > 0$.)*
+
+      Let $E$ be a bounded subset of $\mathbf{R}$, and let $S := \sup(E)$ be the least upper bound of $E$. (Note from the least upper bound principle, Theorem 5.5.9, that $S$ is a real number.) Show that $S$ is an adherent point of $E$, and is also an adherent point of $\mathbf{R} \backslash E$.
+    transcriptionNotes: "Book implicitly assumes E nonempty (it says S is a real number). Transcribed as printed."
+
+  - cid: tao-9.3.1
+    chapter: "9 Continuous functions on R"
+    section: "9.3 Limiting values of functions"
+    number: "Exercise 9.3.1"
+    page: "227"
+    pdfPage: 244
+    verdict: core
+    machinery: "Sequential characterization of functional limits (both directions; contrapositive construction of a bad sequence)."
+    standardResult: "sequential characterization of functional limits"
+    topic: continuity
+    subtopics: [functional-limits, sequential-continuity]
+    skills: [sequential-characterization, contrapositive, negate-definition, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Reverse direction requires negating epsilon-delta and building a sequence with delta = 1/n."
+    category: canonical
+    type: proof
+    tags: [functional-limit, sequential-criterion, epsilon-delta, machinery]
+    references: ["Proposition 9.3.9 (quoted)", "Definition 9.3.6 (quoted)"]
+    problemLatex: |
+      Prove Proposition 9.3.9.
+
+      *(Proposition 9.3.9, quoted: Let $X$ be a subset of $\mathbf{R}$, let $f : X \to \mathbf{R}$ be a function, let $E$ be a subset of $X$, let $x_0$ be an adherent point of $E$, and let $L$ be a real number. Then the following two statements are logically equivalent:*
+      *(a) $f$ converges to $L$ at $x_0$ in $E$.*
+      *(b) For every sequence $(a_n)_{n=0}^\infty$ which consists entirely of elements of $E$ and converges to $x_0$, the sequence $(f(a_n))_{n=0}^\infty$ converges to $L$.)*
+
+      *(Definition 9.3.6, as restated in the book: we have $\lim_{x\to x_0; x\in E} f(x) = L$ iff for every $\varepsilon > 0$, there exists a $\delta > 0$ such that $|f(x) - L| \le \varepsilon$ for all $x \in E$ such that $|x - x_0| < \delta$.)*
+    transcriptionNotes: "Proposition 9.3.9 quoted verbatim; Definition 9.3.6 quoted via the book's own epsilon-delta restatement (the formal definition uses Tao's 'epsilon-close near x0'). Note Tao allows x0 in E (limit over E, not E minus x0)."
+
+  - cid: tao-9.3.4
+    chapter: "9 Continuous functions on R"
+    section: "9.3 Limiting values of functions"
+    number: "Exercise 9.3.4"
+    page: "227"
+    pdfPage: 244
+    verdict: consider
+    machinery: "Transfers limsup/liminf of sequences to functional limits; open-ended definition design."
+    standardResult: "limsup/liminf of a function at a point and sequential characterization"
+    topic: continuity
+    subtopics: [functional-limits, limsup-liminf]
+    skills: [sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Requires formulating a correct definition and an analogue of the sequential criterion; proving it (the 'challenge') is the substantive part."
+    category: synthesis
+    type: definition
+    tags: [limsup, liminf, functional-limit, open-ended]
+    references: ["Proposition 9.3.9 (quoted)"]
+    problemLatex: |
+      Propose a definition for limit superior $\limsup_{x\to x_0; x\in E} f(x)$ and limit inferior $\liminf_{x\to x_0; x\in E} f(x)$, and then propose an analogue of Proposition 9.3.9 for your definition. (For an additional challenge: prove that analogue.)
+
+      *(Proposition 9.3.9, quoted: Let $X$ be a subset of $\mathbf{R}$, let $f : X \to \mathbf{R}$ be a function, let $E$ be a subset of $X$, let $x_0$ be an adherent point of $E$, and let $L$ be a real number. Then the following two statements are logically equivalent: (a) $f$ converges to $L$ at $x_0$ in $E$. (b) For every sequence $(a_n)_{n=0}^\infty$ which consists entirely of elements of $E$ and converges to $x_0$, the sequence $(f(a_n))_{n=0}^\infty$ converges to $L$.)*
+    transcriptionNotes: "Open-ended; Proposition 9.3.9 quoted verbatim."
+
+  - cid: tao-9.3.5
+    chapter: "9 Continuous functions on R"
+    section: "9.3 Limiting values of functions"
+    number: "Exercise 9.3.5"
+    page: "227"
+    pdfPage: 244
+    verdict: consider
+    machinery: "Squeeze theorem for functional limits."
+    standardResult: "squeeze theorem for function limits"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Direct from sequential squeeze or a min-of-two-deltas argument."
+    category: canonical
+    type: proof
+    tags: [squeeze, functional-limit]
+    references: []
+    problemLatex: |
+      (Continuous version of squeeze test) Let $X$ be a subset of $\mathbf{R}$, let $E$ be a subset of $X$, let $x_0$ be an adherent point of $E$, and let $f : X \to \mathbf{R}$, $g : X \to \mathbf{R}$, $h : X \to \mathbf{R}$ be functions such that $f(x) \le g(x) \le h(x)$ for all $x \in E$. If we have $\lim_{x\to x_0; x\in E} f(x) = \lim_{x\to x_0; x\in E} h(x) = L$ for some real number $L$, show that $\lim_{x\to x_0; x\in E} g(x) = L$.
+    transcriptionNotes: "'Adherent point' = point of the closure (any distance-epsilon approximable point)."
+
+  - cid: tao-9.4.1
+    chapter: "9 Continuous functions on R"
+    section: "9.4 Continuous functions"
+    number: "Exercise 9.4.1"
+    page: "231"
+    pdfPage: 248
+    verdict: strong
+    machinery: "Equivalence of limit, sequential, and epsilon-delta (strict/non-strict) formulations of continuity."
+    standardResult: "equivalent formulations of continuity (sequential vs epsilon-delta)"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity, sequential-continuity]
+    skills: [sequential-characterization, negate-definition, epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "Mostly assembling the sequential characterization of limits; <-vs-<= equivalences are short epsilon/2 adjustments."
+    category: canonical
+    type: proof
+    tags: [continuity, epsilon-delta, sequential-criterion, machinery]
+    references: ["Proposition 9.4.7 (quoted)", "Definition 9.4.1 (quoted)"]
+    problemLatex: |
+      Prove Proposition 9.4.7. (Hint: this can largely be done by applying the previous propositions and lemmas. Note that to prove (a),(b), and (c) are equivalent, you do not have to prove all six equivalences, but you do have to prove at least three; for instance, showing that (a) implies (b), (b) implies (c), and (c) implies (a) will suffice, although this is not necessarily the shortest or simplest way to do this question.)
+
+      *(Proposition 9.4.7 (Equivalent formulations of continuity), quoted: Let $X$ be a subset of $\mathbf{R}$, let $f : X \to \mathbf{R}$ be a function, and let $x_0$ be an element of $X$. Then the following four statements are logically equivalent:*
+      *(a) $f$ is continuous at $x_0$.*
+      *(b) For every sequence $(a_n)_{n=0}^\infty$ consisting of elements of $X$ with $\lim_{n\to\infty} a_n = x_0$, we have $\lim_{n\to\infty} f(a_n) = f(x_0)$.*
+      *(c) For every $\varepsilon > 0$, there exists a $\delta > 0$ such that $|f(x) - f(x_0)| < \varepsilon$ for all $x \in X$ with $|x - x_0| < \delta$.*
+      *(d) For every $\varepsilon > 0$, there exists a $\delta > 0$ such that $|f(x) - f(x_0)| \le \varepsilon$ for all $x \in X$ with $|x - x_0| \le \delta$.)*
+
+      *(Definition 9.4.1, quoted: $f$ is continuous at $x_0$ iff we have $\lim_{x\to x_0; x\in X} f(x) = f(x_0)$.)*
+    transcriptionNotes: "Proposition 9.4.7 and the key clause of Definition 9.4.1 quoted verbatim. Hint mentions only (a),(b),(c) though the proposition has four statements; transcribed as printed."
+
+  - cid: tao-9.5.1
+    chapter: "9 Continuous functions on R"
+    section: "9.5 Left and right limits"
+    number: "Exercise 9.5.1"
+    page: "234"
+    pdfPage: 251
+    verdict: consider
+    machinery: "Formulate infinite limits precisely; sequential criterion for infinite limits."
+    standardResult: "definition of infinite limits and one-sided limits of 1/x at 0"
+    topic: continuity
+    subtopics: [functional-limits, limits-at-infinity]
+    skills: [negate-definition, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Writing the M-delta definition and checking 1/x is routine; the sequential analogue is a mild adaptation."
+    category: canonical
+    type: definition
+    tags: [infinite-limit, one-sided-limit, definition]
+    references: ["Proposition 9.3.9 (quoted)", "Definition 9.5.1 (right/left limits, quoted)"]
+    problemLatex: |
+      Let $E$ be a subset of $\mathbf{R}$, let $f : E \to \mathbf{R}$ be a function, and let $x_0$ be an adherent point of $E$. Write down a definition of what it would mean for the limit $\lim_{x\to x_0; x\in E} f(x)$ to exist and equal $+\infty$ or $-\infty$. If $f : \mathbf{R}\backslash\{0\} \to \mathbf{R}$ is the function $f(x) := 1/x$, use your definition to conclude $f(0+) = +\infty$ and $f(0-) = -\infty$. Also, state and prove some analogue of Proposition 9.3.9 when $L = +\infty$ or $L = -\infty$.
+
+      *(Definition 9.5.1, quoted in part: if $x_0$ is an adherent point of $X \cap (x_0, \infty)$, then we define the right limit $f(x_0+)$ of $f$ at $x_0$ by the formula $f(x_0+) := \lim_{x\to x_0; x\in X\cap(x_0,\infty)} f(x)$, provided of course that this limit exists. [Left limit $f(x_0-)$ similarly, with $X \cap (-\infty, x_0)$.])*
+
+      *(Proposition 9.3.9, quoted: Let $X$ be a subset of $\mathbf{R}$, let $f : X \to \mathbf{R}$ be a function, let $E$ be a subset of $X$, let $x_0$ be an adherent point of $E$, and let $L$ be a real number. Then the following two statements are logically equivalent: (a) $f$ converges to $L$ at $x_0$ in $E$. (b) For every sequence $(a_n)_{n=0}^\infty$ which consists entirely of elements of $E$ and converges to $x_0$, the sequence $(f(a_n))_{n=0}^\infty$ converges to $L$.)*
+    transcriptionNotes: "Definition 9.5.1 quoted in part (left-limit clause bracketed summary, marked); Proposition 9.3.9 quoted verbatim."
+
+  - cid: tao-9.6.1
+    chapter: "9 Continuous functions on R"
+    section: "9.6 The maximum principle"
+    number: "Exercise 9.6.1"
+    page: "238"
+    pdfPage: 255
+    verdict: strong
+    machinery: "Shows each hypothesis of the extreme value theorem (closed, bounded domain; continuity) is needed."
+    standardResult: "extreme value theorem hypotheses are sharp (counterexamples)"
+    topic: continuity
+    subtopics: [EVT]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Four standard examples plus explanation of which hypothesis fails."
+    category: canonical
+    type: counterexample
+    tags: [extreme-value-theorem, counterexample, hypotheses]
+    references: ["Proposition 9.6.7 (quoted)"]
+    problemLatex: |
+      Give examples of
+      (a) a function $f : (1, 2) \to \mathbf{R}$ which is continuous and bounded, attains its minimum somewhere, but does not attain its maximum anywhere;
+      (b) a function $f : [0, \infty) \to \mathbf{R}$ which is continuous, bounded, attains its maximum somewhere, but does not attain its minimum anywhere;
+      (c) a function $f : [-1, 1] \to \mathbf{R}$ which is bounded but does not attain its minimum anywhere or its maximum anywhere.
+      (d) a function $f : [-1, 1] \to \mathbf{R}$ which has no upper bound and no lower bound.
+      Explain why none of the examples you construct violate the maximum principle. (Note: read the assumptions carefully!)
+
+      *(Proposition 9.6.7 (Maximum principle), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function continuous on $[a, b]$. Then $f$ attains its maximum at some point $x_{\max} \in [a, b]$, and also attains its minimum at some point $x_{\min} \in [a, b]$.)*
+    transcriptionNotes: "Maximum principle (Prop 9.6.7) quoted verbatim."
+
+  - cid: tao-9.7.1
+    chapter: "9 Continuous functions on R"
+    section: "9.7 The intermediate value theorem"
+    number: "Exercise 9.7.1"
+    page: "240"
+    pdfPage: 257
+    verdict: consider
+    machinery: "Combine EVT and IVT: continuous image of [a,b] is [m,M]."
+    standardResult: "continuous image of a closed bounded interval is a closed bounded interval"
+    topic: continuity
+    subtopics: [IVT, EVT]
+    skills: [theorem-application]
+    difficulty: easy
+    difficultyRationale: "Apply IVT on the subinterval between x_min and x_max."
+    category: synthesis
+    type: theorem-application
+    tags: [IVT, extreme-value-theorem, image]
+    references: ["Corollary 9.7.4 (quoted)"]
+    problemLatex: |
+      Prove Corollary 9.7.4. (Hint: you may need Exercise 9.4.6 in addition to the intermediate value theorem.)
+
+      *(Corollary 9.7.4 (Images of continuous functions), quoted: Let $a < b$, and let $f : [a, b] \to \mathbf{R}$ be a continuous function on $[a, b]$. Let $M := \sup_{x\in[a,b]} f(x)$ be the maximum value of $f$, and let $m := \inf_{x\in[a,b]} f(x)$ be the minimum value. Let $y$ be a real number between $m$ and $M$ (i.e., $m \le y \le M$). Then there exists a $c \in [a, b]$ such that $f(c) = y$. Furthermore, we have $f([a, b]) = [m, M]$.)*
+    transcriptionNotes: "Corollary 9.7.4 quoted. Hint's Exercise 9.4.6 = restriction of a continuous function is continuous."
+
+  - cid: tao-9.7.2
+    chapter: "9 Continuous functions on R"
+    section: "9.7 The intermediate value theorem"
+    number: "Exercise 9.7.2"
+    page: "240"
+    pdfPage: 257
+    verdict: core
+    machinery: "IVT applied to f(x) - x: one-dimensional Brouwer fixed point theorem."
+    standardResult: "continuous f:[0,1]->[0,1] has a fixed point"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [IVT-application, auxiliary-function]
+    difficulty: easy
+    difficultyRationale: "Hint gives the auxiliary function; remaining work is checking signs at endpoints."
+    category: canonical
+    type: theorem-application
+    tags: [IVT, fixed-point, auxiliary-function]
+    references: []
+    problemLatex: |
+      Let $f : [0, 1] \to [0, 1]$ be a continuous function. Show that there exists a real number $x$ in $[0, 1]$ such that $f(x) = x$. (Hint: apply the intermediate value theorem to the function $f(x) - x$.) This point $x$ is known as a fixed point of $f$, and this result is a basic example of a fixed point theorem, which play an important rôle in certain types of analysis.
+
+  - cid: tao-9.8.1
+    chapter: "9 Continuous functions on R"
+    section: "9.8 Monotonic functions"
+    number: "Exercise 9.8.1"
+    page: "242"
+    pdfPage: 259
+    verdict: consider
+    machinery: "Monotone functions on [a,b] attain extrema at endpoints; contrasts with continuity hypothesis."
+    standardResult: "monotone functions on [a,b] attain max/min"
+    topic: continuity
+    subtopics: [monotone-functions, EVT]
+    skills: [direct-verification]
+    difficulty: introductory
+    difficultyRationale: "Max/min occur at endpoints."
+    category: canonical
+    type: conceptual
+    tags: [monotone-function, extreme-value-theorem]
+    references: ["Proposition 9.6.7 (quoted)"]
+    problemLatex: |
+      Explain why the maximum principle remains true if the hypothesis that $f$ is continuous is replaced with $f$ being monotone, or with $f$ being strictly monotone. (You can use the same explanation for both cases.)
+
+      *(Proposition 9.6.7 (Maximum principle), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function continuous on $[a, b]$. Then $f$ attains its maximum at some point $x_{\max} \in [a, b]$, and also attains its minimum at some point $x_{\min} \in [a, b]$.)*
+
+  - cid: tao-9.8.2
+    chapter: "9 Continuous functions on R"
+    section: "9.8 Monotonic functions"
+    number: "Exercise 9.8.2"
+    page: "242"
+    pdfPage: 259
+    verdict: consider
+    machinery: "IVT needs continuity; monotone functions can jump."
+    standardResult: "monotone function without intermediate value property"
+    topic: continuity
+    subtopics: [IVT, monotone-functions]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "A strictly increasing function with a jump."
+    category: canonical
+    type: counterexample
+    tags: [IVT, monotone-function, counterexample]
+    references: []
+    problemLatex: |
+      Give an example to show that the intermediate value theorem becomes false if the hypothesis that $f$ is continuous is replaced with $f$ being monotone, or with $f$ being strictly monotone. (You can use the same counterexample for both cases.)
+
+  - cid: tao-9.8.3
+    chapter: "9 Continuous functions on R"
+    section: "9.8 Monotonic functions"
+    number: "Exercise 9.8.3"
+    page: "242"
+    pdfPage: 259
+    verdict: core
+    machinery: "IVT-based argument by contradiction: continuous injective functions on intervals are strictly monotone."
+    standardResult: "continuous injective function on an interval is strictly monotone"
+    topic: continuity
+    subtopics: [IVT, monotone-functions]
+    skills: [contradiction, IVT-application, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Requires organizing a case analysis and producing a repeated value via IVT."
+    category: canonical
+    type: proof
+    tags: [IVT, injective, strictly-monotone, contradiction]
+    references: []
+    problemLatex: |
+      Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function which is both continuous and one-to-one. Show that $f$ is strictly monotone. (Hint: divide into the three cases $f(a) < f(b)$, $f(a) = f(b)$, $f(a) > f(b)$. The second case leads directly to a contradiction. In the first case, use contradiction and the intermediate value theorem to show that $f$ is strictly monotone increasing; in the third case, argue similarly to show $f$ is strictly monotone decreasing.)
+
+  - cid: tao-9.8.4
+    chapter: "9 Continuous functions on R"
+    section: "9.8 Monotonic functions"
+    number: "Exercise 9.8.4"
+    page: "242"
+    pdfPage: 259
+    verdict: strong
+    machinery: "Continuous strictly monotone function has continuous inverse; probes which hypotheses are needed."
+    standardResult: "inverse of continuous strictly increasing function on [a,b] is continuous"
+    topic: continuity
+    subtopics: [monotone-functions, IVT, epsilon-delta-continuity]
+    skills: [epsilon-delta-proof, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Bijectivity via IVT plus epsilon-delta continuity of inverse; then hypothesis-dropping counterexamples."
+    category: canonical
+    type: proof
+    tags: [inverse-function, monotone-function, continuity, counterexample]
+    references: ["Proposition 9.8.3 (quoted)"]
+    problemLatex: |
+      Prove Proposition 9.8.3. (Hint: to show that $f^{-1}$ is continuous, it is easiest to use the "epsilon-delta" definition of continuity, Proposition 9.4.7(c).) Is the proposition still true if the continuity assumption is dropped, or if strict monotonicity is replaced just by monotonicity? How should one modify the proposition to deal with strictly monotone decreasing functions instead of strictly monotone increasing functions?
+
+      *(Proposition 9.8.3, quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function which is both continuous and strictly monotone increasing. Then $f$ is a bijection from $[a, b]$ to $[f(a), f(b)]$, and the inverse $f^{-1} : [f(a), f(b)] \to [a, b]$ is also continuous and strictly monotone increasing.)*
+    transcriptionNotes: "Proposition 9.8.3 quoted. Prop 9.4.7(c) = 'for every eps>0 there is delta>0 with |f(x)-f(x0)|<eps whenever x in X, |x-x0|<delta' (see tao-9.4.1)."
+
+  - cid: tao-9.8.5
+    chapter: "9 Continuous functions on R"
+    section: "9.8 Monotonic functions"
+    number: "Exercise 9.8.5"
+    page: "242"
+    pdfPage: 259
+    verdict: core
+    machinery: "Construct a strictly increasing function with jumps exactly at the rationals via weighted sums over an enumeration of Q; uniform approximation by finite sums."
+    standardResult: "monotone function discontinuous exactly at the rationals (sum of 2^{-n} jumps)"
+    topic: continuity
+    subtopics: [discontinuities, monotone-functions]
+    skills: [enumeration-of-Q, uniform-approximation, epsilon-delta-proof]
+    difficulty: hard
+    difficultyRationale: "Part (c) needs approximating f by finite partial sums f_n, continuity of each at irrationals, and an epsilon/3 argument."
+    category: challenge
+    type: construction
+    tags: [monotone-function, discontinuities, rationals, countable, construction]
+    references: []
+    problemLatex: |
+      In this exercise we give an example of a function which has a discontinuity at every rational point, but is continuous at every irrational. Since the rationals are countable, we can write them as $\mathbf{Q} = \{q(0), q(1), q(2), \ldots\}$, where $q : \mathbf{N} \to \mathbf{Q}$ is a bijection from $\mathbf{N}$ to $\mathbf{Q}$. Now define a function $g : \mathbf{Q} \to \mathbf{R}$ by setting $g(q(n)) := 2^{-n}$ for each natural number $n$; thus $g$ maps $q(0)$ to $1$, $q(1)$ to $2^{-1}$, etc. Since $\sum_{n=0}^\infty 2^{-n}$ is absolutely convergent, we see that $\sum_{r\in\mathbf{Q}} g(r)$ is also absolutely convergent. Now define the function $f : \mathbf{R} \to \mathbf{R}$ by
+      $$f(x) := \sum_{r\in\mathbf{Q}: r<x} g(r).$$
+      Since $\sum_{r\in\mathbf{Q}} g(r)$ is absolutely convergent, we know that $f(x)$ is well-defined for every real number $x$.
+      (a) Show that $f$ is strictly monotone increasing. (Hint: you will need Proposition 5.4.14.)
+      (b) Show that for every rational number $r$, $f$ is discontinuous at $r$. (Hint: since $r$ is rational, $r = q(n)$ for some natural number $n$. Show that $f(x) \ge f(r) + 2^{-n}$ for all $x > r$.)
+      (c) Show that for every irrational number $x$, $f$ is continuous at $x$. (Hint: first demonstrate that the functions
+      $$f_n(x) := \sum_{r\in\mathbf{Q}: r<x,\, g(r)\ge 2^{-n}} g(r)$$
+      are continuous at $x$, and that $|f(x) - f_n(x)| \le 2^{-n}$.)
+    transcriptionNotes: "Verified on page images (PDF 259–260). Tao's N includes 0. Proposition 5.4.14 (in hint) is the density of Q: between any two reals there is a rational."
+
+  - cid: tao-9.9.2
+    chapter: "9 Continuous functions on R"
+    section: "9.9 Uniform continuity"
+    number: "Exercise 9.9.2"
+    page: "249"
+    pdfPage: 266
+    verdict: consider
+    machinery: "Sequential characterization of uniform continuity via pairs of asymptotically equal sequences."
+    standardResult: "f uniformly continuous iff |x_n - y_n| -> 0 implies |f(x_n) - f(y_n)| -> 0"
+    topic: continuity
+    subtopics: [uniform-continuity, sequential-continuity]
+    skills: [negate-definition, sequential-characterization, contrapositive]
+    difficulty: medium
+    difficultyRationale: "Converse requires negating uniform continuity and building sequences with delta = 1/n."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, sequential-criterion, negation]
+    references: ["Proposition 9.9.8 (quoted)", "Definitions 9.9.2, 9.9.5 (quoted)"]
+    problemLatex: |
+      Prove Proposition 9.9.8. (Hint: you should avoid Lemma 9.9.7, and instead go back to the definition of equivalent sequences in Definition 9.9.5.)
+
+      *(Proposition 9.9.8, quoted: Let $X$ be a subset of $\mathbf{R}$, and let $f : X \to \mathbf{R}$ be a function. Then the following two statements are logically equivalent:*
+      *(a) $f$ is uniformly continuous on $X$.*
+      *(b) Whenever $(x_n)_{n=0}^\infty$ and $(y_n)_{n=0}^\infty$ are two equivalent sequences consisting of elements of $X$, the sequences $(f(x_n))_{n=0}^\infty$ and $(f(y_n))_{n=0}^\infty$ are also equivalent.)*
+
+      *(Definition 9.9.2 (Uniform continuity), quoted: Let $X$ be a subset of $\mathbf{R}$, and let $f : X \to \mathbf{R}$ be a function. We say that $f$ is uniformly continuous if, for every $\varepsilon > 0$, there exists a $\delta > 0$ such that $f(x)$ and $f(x_0)$ are $\varepsilon$-close whenever $x, x_0 \in X$ are two points in $X$ which are $\delta$-close.)*
+
+      *(Definition 9.9.5 (Equivalent sequences), quoted: Let $m$ be an integer, let $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ be two sequences of real numbers, and let $\varepsilon > 0$ be given. We say that $(a_n)_{n=m}^\infty$ is $\varepsilon$-close to $(b_n)_{n=m}^\infty$ iff $a_n$ is $\varepsilon$-close to $b_n$ for each $n \ge m$. We say that $(a_n)_{n=m}^\infty$ is eventually $\varepsilon$-close to $(b_n)_{n=m}^\infty$ iff there exists an $N \ge m$ such that the sequences $(a_n)_{n=N}^\infty$ and $(b_n)_{n=N}^\infty$ are $\varepsilon$-close. Two sequences $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ are equivalent iff for each $\varepsilon > 0$, the sequences $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ are eventually $\varepsilon$-close.)*
+    transcriptionNotes: "Prop 9.9.8, Def 9.9.2, Def 9.9.5 quoted verbatim. 'epsilon-close' means |a-b| <= epsilon (Tao). Lemma 9.9.7 (mentioned in hint): equivalent iff lim (a_n - b_n) = 0."
+
+  - cid: tao-9.9.3
+    chapter: "9 Continuous functions on R"
+    section: "9.9 Uniform continuity"
+    number: "Exercise 9.9.3"
+    page: "249"
+    pdfPage: 266
+    verdict: strong
+    machinery: "Uniformly continuous maps send Cauchy sequences to Cauchy sequences (epsilon-delta-N chain)."
+    standardResult: "uniformly continuous functions preserve Cauchy sequences"
+    topic: continuity
+    subtopics: [uniform-continuity, cauchy-sequences]
+    skills: [epsilon-delta-proof, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Direct chaining of definitions."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, Cauchy, machinery]
+    references: ["Proposition 9.9.12 (quoted)", "Definition 9.9.2 (quoted)"]
+    problemLatex: |
+      Prove Proposition 9.9.12. (Hint: use Definition 9.9.2 directly.)
+
+      *(Proposition 9.9.12, quoted: Let $X$ be a subset of $\mathbf{R}$, and let $f : X \to \mathbf{R}$ be a uniformly continuous function. Let $(x_n)_{n=0}^\infty$ be a Cauchy sequence consisting entirely of elements in $X$. Then $(f(x_n))_{n=0}^\infty$ is also a Cauchy sequence.)*
+
+      *(Definition 9.9.2 (Uniform continuity), quoted: Let $X$ be a subset of $\mathbf{R}$, and let $f : X \to \mathbf{R}$ be a function. We say that $f$ is uniformly continuous if, for every $\varepsilon > 0$, there exists a $\delta > 0$ such that $f(x)$ and $f(x_0)$ are $\varepsilon$-close whenever $x, x_0 \in X$ are two points in $X$ which are $\delta$-close.)*
+
+  - cid: tao-9.9.4
+    chapter: "9 Continuous functions on R"
+    section: "9.9 Uniform continuity"
+    number: "Exercise 9.9.4"
+    page: "249"
+    pdfPage: 266
+    verdict: strong
+    machinery: "Uniformly continuous functions have limits at every adherent point (continuous extension to the closure), via Cauchy sequences and completeness."
+    standardResult: "uniformly continuous function has a limit at each boundary point / extends to closure"
+    topic: continuity
+    subtopics: [uniform-continuity, functional-limits, cauchy-sequences]
+    skills: [sequential-characterization, interleaving-sequences]
+    difficulty: medium
+    difficultyRationale: "Need existence of limit via Cauchy, then independence of the sequence (interleave two sequences)."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, extension, Cauchy, completeness]
+    references: ["Corollary 9.9.14 (quoted)", "Proposition 9.9.12 (quoted)", "Example 9.9.10 (summarized, marked)"]
+    problemLatex: |
+      Use Proposition 9.9.12 to prove Corollary 9.9.14. Use this corollary to give an alternate demonstration of the results in Example 9.9.10.
+
+      *(Proposition 9.9.12, quoted: Let $X$ be a subset of $\mathbf{R}$, and let $f : X \to \mathbf{R}$ be a uniformly continuous function. Let $(x_n)_{n=0}^\infty$ be a Cauchy sequence consisting entirely of elements in $X$. Then $(f(x_n))_{n=0}^\infty$ is also a Cauchy sequence.)*
+
+      *(Corollary 9.9.14, quoted: Let $X$ be a subset of $\mathbf{R}$, let $f : X \to \mathbf{R}$ be a uniformly continuous function, and let $x_0$ be an adherent point of $X$. Then the limit $\lim_{x\to x_0; x\in X} f(x)$ exists (in particular, it is a real number).)*
+
+      *[Example 9.9.10, summarized (not verbatim): it concerns the function $f : (0, 2) \to \mathbf{R}$ defined by $f(x) := 1/x$, and concludes that $f$ is not uniformly continuous.]*
+    transcriptionNotes: "Prop 9.9.12 and Cor 9.9.14 quoted verbatim. Example 9.9.10 is SUMMARIZED (marked) since its verbatim text leans on Lemma 9.9.7/Prop 9.9.8; its content is: f(x)=1/x on (0,2) is not uniformly continuous."
+
+  - cid: tao-9.9.5
+    chapter: "9 Continuous functions on R"
+    section: "9.9 Uniform continuity"
+    number: "Exercise 9.9.5"
+    page: "249"
+    pdfPage: 266
+    verdict: strong
+    machinery: "Uniformly continuous functions map bounded sets to bounded sets (contradiction + Bolzano–Weierstrass + Cauchy preservation)."
+    standardResult: "uniformly continuous function on a bounded set is bounded"
+    topic: continuity
+    subtopics: [uniform-continuity, bolzano-weierstrass]
+    skills: [contradiction, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "Contradiction: unbounded image gives a sequence with a convergent (Cauchy) subsequence whose image is unbounded."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, boundedness, Bolzano-Weierstrass]
+    references: ["Proposition 9.9.15 (quoted)", "Proposition 9.9.12, Corollary 9.9.14 (see tao-9.9.4)"]
+    problemLatex: |
+      Prove Proposition 9.9.15. (Hint: mimic the proof of Lemma 9.6.3. At some point you will need either Proposition 9.9.12 or Corollary 9.9.14.)
+
+      *(Proposition 9.9.15, quoted: Let $X$ be a subset of $\mathbf{R}$, and let $f : X \to \mathbf{R}$ be a uniformly continuous function. Suppose that $E$ is a bounded subset of $X$. Then $f(E)$ is also bounded.)*
+    transcriptionNotes: "Prop 9.9.15 quoted. Hint's Lemma 9.6.3 is 'continuous functions on [a,b] are bounded' (proved by contradiction + Heine–Borel). Prop 9.9.12/Cor 9.9.14 are quoted in tao-9.9.4."
+
+  - cid: tao-9.9.6
+    chapter: "9 Continuous functions on R"
+    section: "9.9 Uniform continuity"
+    number: "Exercise 9.9.6"
+    page: "249"
+    pdfPage: 266
+    verdict: consider
+    machinery: "Composition of uniformly continuous functions is uniformly continuous."
+    standardResult: "composition of uniformly continuous functions"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, choose-delta]
+    difficulty: introductory
+    difficultyRationale: "Chain two deltas."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, composition]
+    references: []
+    problemLatex: |
+      Let $X, Y, Z$ be subsets of $\mathbf{R}$. Let $f : X \to Y$ be a function which is uniformly continuous on $X$, and let $g : Y \to Z$ be a function which is uniformly continuous on $Y$. Show that the function $g \circ f : X \to Z$ is uniformly continuous on $X$.
+
+  # ---------------- Chapter 10 ----------------
+
+  - cid: tao-10.1.2
+    chapter: "10 Differentiation of functions"
+    section: "10.1 Basic definitions"
+    number: "Exercise 10.1.2"
+    page: "257"
+    pdfPage: 274
+    verdict: strong
+    machinery: "Derivative as best linear approximation (Newton's approximation / Carathéodory-style reformulation)."
+    standardResult: "differentiability iff f(x) = f(x0) + L(x-x0) + o(|x-x0|)"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "Rewriting the difference-quotient limit; care with x = x0 case."
+    category: canonical
+    type: proof
+    tags: [derivative, linear-approximation, epsilon-delta]
+    references: ["Proposition 10.1.7 (quoted)", "Definition 10.1.1 (quoted)"]
+    problemLatex: |
+      Prove Proposition 10.1.7. (Hint: the cases $x = x_0$ and $x \neq x_0$ have to be treated separately.)
+
+      *(Proposition 10.1.7 (Newton's approximation), quoted: Let $X$ be a subset of $\mathbf{R}$, let $x_0 \in X$ be a limit point of $X$, let $f : X \to \mathbf{R}$ be a function, and let $L$ be a real number. Then the following statements are logically equivalent:*
+      *(a) $f$ is differentiable at $x_0$ on $X$ with derivative $L$.*
+      *(b) For every $\varepsilon > 0$, there exists a $\delta > 0$ such that $f(x)$ is $\varepsilon|x - x_0|$-close to $f(x_0) + L(x - x_0)$ whenever $x \in X$ is $\delta$-close to $x_0$, i.e., we have*
+      $$|f(x) - (f(x_0) + L(x - x_0))| \le \varepsilon |x - x_0|$$
+      *whenever $x \in X$ and $|x - x_0| \le \delta$.)*
+
+      *(Definition 10.1.1, quoted in part: Let $X$ be a subset of $\mathbf{R}$, and let $x_0 \in X$ be an element of $X$ which is also a limit point of $X$. Let $f : X \to \mathbf{R}$ be a function. If the limit $\lim_{x\to x_0; x\in X-\{x_0\}} \frac{f(x) - f(x_0)}{x - x_0}$ converges to some real number $L$, then we say that $f$ is differentiable at $x_0$ on $X$ with derivative $L$, and write $f'(x_0) := L$.)*
+
+  - cid: tao-10.1.3
+    chapter: "10 Differentiation of functions"
+    section: "10.1 Basic definitions"
+    number: "Exercise 10.1.3"
+    page: "257"
+    pdfPage: 274
+    verdict: strong
+    machinery: "Differentiability implies continuity."
+    standardResult: "differentiable implies continuous"
+    topic: differentiation
+    subtopics: [differentiability]
+    skills: [limit-laws]
+    difficulty: introductory
+    difficultyRationale: "Write f(x) - f(x0) = quotient times (x - x0) and use limit laws."
+    category: canonical
+    type: proof
+    tags: [derivative, continuity, machinery]
+    references: ["Proposition 10.1.10 (quoted)"]
+    problemLatex: |
+      Prove Proposition 10.1.10. (Hint: either use the limit laws (Proposition 9.3.14), or use Proposition 10.1.7.)
+
+      *(Proposition 10.1.10 (Differentiability implies continuity), quoted: Let $X$ be a subset of $\mathbf{R}$, let $x_0 \in X$ be a limit point of $X$, and let $f : X \to \mathbf{R}$ be a function. If $f$ is differentiable at $x_0$, then $f$ is also continuous at $x_0$.)*
+    transcriptionNotes: "Prop 10.1.10 quoted; Prop 10.1.7 (Newton's approximation) quoted in tao-10.1.2."
+
+  - cid: tao-10.1.7
+    chapter: "10 Differentiation of functions"
+    section: "10.1 Basic definitions"
+    number: "Exercise 10.1.7"
+    page: "257"
+    pdfPage: 274
+    verdict: strong
+    machinery: "Rigorous chain rule, handling the division-by-zero subtlety (f(x) = f(x0) for x near x0)."
+    standardResult: "chain rule"
+    topic: differentiation
+    subtopics: [derivative-rules]
+    skills: [linear-approximation, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Naive difference-quotient proof fails; need Newton's approximation or careful case split."
+    category: canonical
+    type: proof
+    tags: [chain-rule, derivative, machinery]
+    references: ["Theorem 10.1.15 (quoted)", "Proposition 10.1.7 (see tao-10.1.2)"]
+    problemLatex: |
+      Prove Theorem 10.1.15. (Hint: one way to do this is via Newton's approximation, Proposition 10.1.7. Another way is to use Proposition 9.3.9 and Proposition 10.1.10 to convert this problem into one involving limits of sequences, however with the latter strategy one has to treat the case $f'(x_0) = 0$ separately, as some division-by-zero subtleties can occur in that case.)
+
+      *(Theorem 10.1.15 (Chain rule), quoted: Let $X, Y$ be subsets of $\mathbf{R}$, let $x_0 \in X$ be a limit point of $X$, and let $y_0 \in Y$ be a limit point of $Y$. Let $f : X \to Y$ be a function such that $f(x_0) = y_0$, and such that $f$ is differentiable at $x_0$. Suppose that $g : Y \to \mathbf{R}$ is a function which is differentiable at $y_0$. Then the function $g \circ f : X \to \mathbf{R}$ is differentiable at $x_0$, and*
+      $$(g \circ f)'(x_0) = g'(y_0) f'(x_0).)$$
+    transcriptionNotes: "Theorem 10.1.15 quoted. Hint refs: Prop 10.1.7 (quoted in tao-10.1.2), Prop 9.3.9 (quoted in tao-9.3.1), Prop 10.1.10 (quoted in tao-10.1.3)."
+
+  - cid: tao-10.2.1
+    chapter: "10 Differentiation of functions"
+    section: "10.2 Local maxima, local minima, and derivatives"
+    number: "Exercise 10.2.1"
+    page: "259"
+    pdfPage: 276
+    verdict: strong
+    machinery: "Fermat's theorem: interior local extrema at differentiable points are stationary (sign of one-sided difference quotients)."
+    standardResult: "Fermat: local extremum at interior differentiable point implies f'=0"
+    topic: differentiation
+    subtopics: [local-extrema]
+    skills: [one-sided-limits, sign-argument]
+    difficulty: easy
+    difficultyRationale: "Compare signs of difference quotients from left and right."
+    category: canonical
+    type: proof
+    tags: [Fermat, local-extremum, derivative]
+    references: ["Proposition 10.2.6 (quoted)", "Definition 10.2.1 (quoted)"]
+    problemLatex: |
+      Prove Proposition 10.2.6.
+
+      *(Proposition 10.2.6 (Local extrema are stationary), quoted: Let $a < b$ be real numbers, and let $f : (a, b) \to \mathbf{R}$ be a function. If $x_0 \in (a, b)$, $f$ is differentiable at $x_0$, and $f$ attains either a local maximum or local minimum at $x_0$, then $f'(x_0) = 0$.)*
+
+      *(Definition 10.2.1, quoted: Let $f : X \to \mathbf{R}$ be a function, and let $x_0 \in X$. We say that $f$ attains a local maximum at $x_0$ iff there exists a $\delta > 0$ such that the restriction $f|_{X\cap(x_0-\delta,x_0+\delta)}$ of $f$ to $X \cap (x_0 - \delta, x_0 + \delta)$ attains a maximum at $x_0$. We say that $f$ attains a local minimum at $x_0$ iff there exists a $\delta > 0$ such that the restriction $f|_{X\cap(x_0-\delta,x_0+\delta)}$ of $f$ to $X \cap (x_0 - \delta, x_0 + \delta)$ attains a minimum at $x_0$.)*
+
+  - cid: tao-10.2.2
+    chapter: "10 Differentiation of functions"
+    section: "10.2 Local maxima, local minima, and derivatives"
+    number: "Exercise 10.2.2"
+    page: "259"
+    pdfPage: 276
+    verdict: consider
+    machinery: "Differentiability hypothesis in Fermat's theorem is needed."
+    standardResult: "|x|: extremum without derivative"
+    topic: differentiation
+    subtopics: [local-extrema, differentiability]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Standard example such as -|x|."
+    category: canonical
+    type: counterexample
+    tags: [local-extremum, counterexample, absolute-value]
+    references: ["Proposition 10.2.6 (quoted)"]
+    problemLatex: |
+      Give an example of a function $f : (-1, 1) \to \mathbf{R}$ which is continuous and attains a global maximum at $0$, but which is not differentiable at $0$. Explain why this does not contradict Proposition 10.2.6.
+
+      *(Proposition 10.2.6 (Local extrema are stationary), quoted: Let $a < b$ be real numbers, and let $f : (a, b) \to \mathbf{R}$ be a function. If $x_0 \in (a, b)$, $f$ is differentiable at $x_0$, and $f$ attains either a local maximum or local minimum at $x_0$, then $f'(x_0) = 0$.)*
+
+  - cid: tao-10.2.3
+    chapter: "10 Differentiation of functions"
+    section: "10.2 Local maxima, local minima, and derivatives"
+    number: "Exercise 10.2.3"
+    page: "260"
+    pdfPage: 277
+    verdict: consider
+    machinery: "Converse of Fermat's theorem fails."
+    standardResult: "x^3: stationary point that is not an extremum"
+    topic: differentiation
+    subtopics: [local-extrema]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Standard example x^3."
+    category: canonical
+    type: counterexample
+    tags: [local-extremum, critical-point, counterexample]
+    references: ["Proposition 10.2.6 (quoted)"]
+    problemLatex: |
+      Give an example of a function $f : (-1, 1) \to \mathbf{R}$ which is differentiable, and whose derivative equals $0$ at $0$, but such that $0$ is neither a local minimum nor a local maximum. Explain why this does not contradict Proposition 10.2.6.
+
+      *(Proposition 10.2.6 (Local extrema are stationary), quoted: Let $a < b$ be real numbers, and let $f : (a, b) \to \mathbf{R}$ be a function. If $x_0 \in (a, b)$, $f$ is differentiable at $x_0$, and $f$ attains either a local maximum or local minimum at $x_0$, then $f'(x_0) = 0$.)*
+
+  - cid: tao-10.2.4
+    chapter: "10 Differentiation of functions"
+    section: "10.2 Local maxima, local minima, and derivatives"
+    number: "Exercise 10.2.4"
+    page: "260"
+    pdfPage: 277
+    verdict: strong
+    machinery: "Rolle's theorem from EVT + Fermat, with the endpoint case analysis."
+    standardResult: "Rolle's theorem"
+    topic: differentiation
+    subtopics: [rolle-mvt, local-extrema]
+    skills: [case-analysis, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Standard: extremum in interior or function constant."
+    category: canonical
+    type: proof
+    tags: [Rolle, extreme-value-theorem, Fermat]
+    references: ["Theorem 10.2.7 (quoted)"]
+    problemLatex: |
+      Prove Theorem 10.2.7. (Hint: use Corollary 10.1.12 and the maximum principle, Proposition 9.6.7, followed by Proposition 10.2.6. Note that the maximum principle does not tell you whether the maximum or minimum is in the open interval $(a, b)$ or is one of the boundary points $a, b$, so you have to divide into cases and use the hypothesis $g(a) = g(b)$ somehow.)
+
+      *(Theorem 10.2.7 (Rolle's theorem), quoted: Let $a < b$ be real numbers, and let $g : [a, b] \to \mathbf{R}$ be a continuous function which is differentiable on $(a, b)$. Suppose also that $g(a) = g(b)$. Then there exists an $x \in (a, b)$ such that $g'(x) = 0$.)*
+    transcriptionNotes: "Theorem 10.2.7 quoted. Hint refs: Cor 10.1.12 (differentiable implies continuous), Prop 9.6.7 (maximum principle, quoted in tao-9.6.1), Prop 10.2.6 (quoted in tao-10.2.1)."
+
+  - cid: tao-10.2.5
+    chapter: "10 Differentiation of functions"
+    section: "10.2 Local maxima, local minima, and derivatives"
+    number: "Exercise 10.2.5"
+    page: "260"
+    pdfPage: 277
+    verdict: core
+    machinery: "Mean value theorem from Rolle via subtracting a linear function."
+    standardResult: "mean value theorem from Rolle's theorem"
+    topic: differentiation
+    subtopics: [rolle-mvt]
+    skills: [auxiliary-function, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Choose c = slope of secant; apply Rolle."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem, Rolle, auxiliary-function]
+    references: ["Corollary 10.2.9 (quoted)", "Theorem 10.2.7 (quoted)"]
+    problemLatex: |
+      Use Theorem 10.2.7 to prove Corollary 10.2.9. (Hint: consider a function of the form $f(x) - cx$ for some carefully chosen real number $c$.)
+
+      *(Theorem 10.2.7 (Rolle's theorem), quoted: Let $a < b$ be real numbers, and let $g : [a, b] \to \mathbf{R}$ be a continuous function which is differentiable on $(a, b)$. Suppose also that $g(a) = g(b)$. Then there exists an $x \in (a, b)$ such that $g'(x) = 0$.)*
+
+      *(Corollary 10.2.9 (Mean value theorem), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function which is continuous on $[a, b]$ and differentiable on $(a, b)$. Then there exists an $x \in (a, b)$ such that $f'(x) = \frac{f(b) - f(a)}{b - a}$.)*
+
+  - cid: tao-10.2.6
+    chapter: "10 Differentiation of functions"
+    section: "10.2 Local maxima, local minima, and derivatives"
+    number: "Exercise 10.2.6"
+    page: "260"
+    pdfPage: 277
+    verdict: strong
+    machinery: "MVT application: bounded derivative implies Lipschitz."
+    standardResult: "|f'| <= M implies f is M-Lipschitz"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application]
+    difficulty: easy
+    difficultyRationale: "One application of MVT on [x,y]."
+    category: canonical
+    type: theorem-application
+    tags: [mean-value-theorem, Lipschitz, bounded-derivative]
+    references: ["Corollary 10.2.9 (quoted in tao-10.2.5)"]
+    problemLatex: |
+      Let $M > 0$, and let $f : [a, b] \to \mathbf{R}$ be a function which is continuous on $[a, b]$ and differentiable on $(a, b)$, and such that $|f'(x)| \le M$ for all $x \in (a, b)$ (i.e., the derivative of $f$ is bounded). Show that for any $x, y \in [a, b]$ we have the inequality $|f(x) - f(y)| \le M|x - y|$. (Hint: apply the mean value theorem (Corollary 10.2.9) to a suitable restriction of $f$.) Functions which obey the bound $|f(x) - f(y)| \le M|x - y|$ are known as Lipschitz continuous functions with Lipschitz constant $M$; thus this exercise shows that functions with bounded derivative are Lipschitz continuous.
+
+  - cid: tao-10.2.7
+    chapter: "10 Differentiation of functions"
+    section: "10.2 Local maxima, local minima, and derivatives"
+    number: "Exercise 10.2.7"
+    page: "260"
+    pdfPage: 277
+    verdict: consider
+    machinery: "Bounded derivative on R implies uniform continuity (via Lipschitz)."
+    standardResult: "bounded derivative implies uniformly continuous"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application]
+    difficulty: introductory
+    difficultyRationale: "Immediate from 10.2.6 with delta = epsilon/M."
+    category: canonical
+    type: theorem-application
+    tags: [uniform-continuity, Lipschitz, mean-value-theorem]
+    references: []
+    problemLatex: |
+      Let $f : \mathbf{R} \to \mathbf{R}$ be a differentiable function such that $f'$ is bounded. Show that $f$ is uniformly continuous. (Hint: use the preceding exercise.)
+    transcriptionNotes: "Near-duplicate follow-up to 10.2.6 (the 'preceding exercise')."
+
+  - cid: tao-10.3.3
+    chapter: "10 Differentiation of functions"
+    section: "10.3 Monotone functions and derivatives"
+    number: "Exercise 10.3.3"
+    page: "261"
+    pdfPage: 278
+    verdict: consider
+    machinery: "Strictly increasing does not imply f' > 0; careful reading of hypotheses."
+    standardResult: "x^3 strictly increasing with f'(0)=0"
+    topic: differentiation
+    subtopics: [mvt-applications, differentiability]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "x^3 works."
+    category: canonical
+    type: counterexample
+    tags: [monotone-function, derivative, counterexample]
+    references: ["Propositions 10.3.1, 10.3.3 (quoted)"]
+    problemLatex: |
+      Give an example of a function $f : \mathbf{R} \to \mathbf{R}$ which is strictly monotone increasing and differentiable, but whose derivative at $0$ is zero. Explain why this does not contradict Proposition 10.3.1 or Proposition 10.3.3. (Hint: look at Exercise 10.2.3.)
+
+      *(Proposition 10.3.1, quoted: Let $X$ be a subset of $\mathbf{R}$, let $x_0 \in X$ be a limit point of $X$, and let $f : X \to \mathbf{R}$ be a function. If $f$ is monotone increasing and $f$ is differentiable at $x_0$, then $f'(x_0) \ge 0$. If $f$ is monotone decreasing and $f$ is differentiable at $x_0$, then $f'(x_0) \le 0$.)*
+
+      *(Proposition 10.3.3, quoted: Let $a < b$, and let $f : [a, b] \to \mathbf{R}$ be a differentiable function. If $f'(x) > 0$ for all $x \in [a, b]$, then $f$ is strictly monotone increasing. If $f'(x) < 0$ for all $x \in [a, b]$, then $f$ is strictly monotone decreasing. If $f'(x) = 0$ for all $x \in [a, b]$, then $f$ is a constant function.)*
+    transcriptionNotes: "Hint's Exercise 10.2.3 asks for a differentiable f on (-1,1) with f'(0)=0 but 0 not a local extremum (see tao-10.2.3)."
+
+  - cid: tao-10.3.4
+    chapter: "10 Differentiation of functions"
+    section: "10.3 Monotone functions and derivatives"
+    number: "Exercise 10.3.4"
+    page: "261"
+    pdfPage: 278
+    verdict: strong
+    machinery: "MVT consequences: sign of derivative controls monotonicity; zero derivative implies constant."
+    standardResult: "f'>0 implies strictly increasing; f'=0 implies constant"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application]
+    difficulty: easy
+    difficultyRationale: "Apply MVT on [x,y] for each pair."
+    category: canonical
+    type: theorem-application
+    tags: [mean-value-theorem, monotone-function, constant-function]
+    references: ["Proposition 10.3.3 (quoted)"]
+    problemLatex: |
+      Prove Proposition 10.3.3. (Hint: you do not have integrals or the fundamental theorem of calculus yet, so these tools cannot be used. However, one can proceed via the mean-value theorem, Corollary 10.2.9.)
+
+      *(Proposition 10.3.3, quoted: Let $a < b$, and let $f : [a, b] \to \mathbf{R}$ be a differentiable function. If $f'(x) > 0$ for all $x \in [a, b]$, then $f$ is strictly monotone increasing. If $f'(x) < 0$ for all $x \in [a, b]$, then $f$ is strictly monotone decreasing. If $f'(x) = 0$ for all $x \in [a, b]$, then $f$ is a constant function.)*
+
+  - cid: tao-10.3.5
+    chapter: "10 Differentiation of functions"
+    section: "10.3 Monotone functions and derivatives"
+    number: "Exercise 10.3.5"
+    page: "261"
+    pdfPage: 278
+    verdict: strong
+    machinery: "Positive derivative only gives monotonicity on intervals; a disconnected domain breaks it."
+    standardResult: "f'>0 on a non-interval domain need not give monotone (e.g. -1/x on R\\{0})"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Requires spotting that the domain must fail to be an interval; then a simple example."
+    category: canonical
+    type: counterexample
+    tags: [mean-value-theorem, monotone-function, counterexample, domain, hypotheses]
+    references: ["Proposition 10.3.3 (quoted)"]
+    problemLatex: |
+      Give an example of a subset $X \subset \mathbf{R}$ and a function $f : X \to \mathbf{R}$ which is differentiable on $X$, is such that $f'(x) > 0$ for all $x \in X$, but $f$ is not strictly monotone increasing. (Hint: the conditions here are subtly different from those in Proposition 10.3.3. What is the difference, and how can one exploit that difference to obtain the example?)
+
+      *(Proposition 10.3.3, quoted: Let $a < b$, and let $f : [a, b] \to \mathbf{R}$ be a differentiable function. If $f'(x) > 0$ for all $x \in [a, b]$, then $f$ is strictly monotone increasing. If $f'(x) < 0$ for all $x \in [a, b]$, then $f$ is strictly monotone decreasing. If $f'(x) = 0$ for all $x \in [a, b]$, then $f$ is a constant function.)*
+    transcriptionNotes: "Tao: 'differentiable on X' means differentiable at every limit point of X in X (Definition 10.1.11) — so isolated points impose no condition; f'(x)>0 is then read at points where defined."
+
+  - cid: tao-10.4.1
+    chapter: "10 Differentiation of functions"
+    section: "10.4 Inverse functions and derivatives"
+    number: "Exercise 10.4.1"
+    page: "264"
+    pdfPage: 281
+    verdict: consider
+    machinery: "Continuity and differentiability of nth roots via inverse function results."
+    standardResult: "x^{1/n} is continuous and differentiable with derivative (1/n)x^{1/n-1}"
+    topic: differentiation
+    subtopics: [inverse-functions]
+    skills: [theorem-application]
+    difficulty: easy
+    difficultyRationale: "Direct application of the continuous-inverse and inverse-function theorems."
+    category: canonical
+    type: theorem-application
+    tags: [inverse-function, nth-root, derivative]
+    references: ["Proposition 9.8.3 (quoted in tao-9.8.4)"]
+    problemLatex: |
+      Let $n \ge 1$ be a natural number, and let $g : (0, \infty) \to (0, \infty)$ be the function $g(x) := x^{1/n}$.
+      (a) Show that $g$ is continuous on $(0, \infty)$. (Hint: use Proposition 9.8.3.)
+      (b) Show that $g$ is differentiable on $(0, \infty)$, and that $g'(x) = \frac{1}{n} x^{\frac{1}{n} - 1}$ for all $x \in (0, \infty)$. (Hint: use the inverse function theorem and (a).)
+    transcriptionNotes: "Hints reference Prop 9.8.3 (continuous strictly increasing f on [a,b] has continuous inverse; quoted in tao-9.8.4) and the book's inverse function theorem (Theorem 10.4.2): if f is invertible, differentiable at x0 with f'(x0) != 0, and f^{-1} continuous at y0 = f(x0), then (f^{-1})'(y0) = 1/f'(x0) — that summary is the curator's aid, not verbatim."
+
+  - cid: tao-10.5.1
+    chapter: "10 Differentiation of functions"
+    section: "10.5 L'Hôpital's rule"
+    number: "Exercise 10.5.1"
+    page: "266"
+    pdfPage: 283
+    verdict: consider
+    machinery: "Simple L'Hôpital rule at a point where both derivatives exist, via Newton's approximation and limit laws."
+    standardResult: "L'Hôpital's rule (0/0, g'(x0) != 0 version)"
+    topic: differentiation
+    subtopics: [lhopital]
+    skills: [limit-laws, linear-approximation]
+    difficulty: easy
+    difficultyRationale: "Show g nonvanishing near x0 from g'(x0) != 0, then ratio of difference quotients."
+    category: canonical
+    type: proof
+    tags: [LHopital, derivative, limit-laws]
+    references: ["Proposition 10.5.1 (quoted)"]
+    problemLatex: |
+      Prove Proposition 10.5.1. (Hint: to show that $g(x) \neq 0$ near $x_0$, you may wish to use Newton's approximation (Proposition 10.1.7). For the rest of the proposition, use limit laws, Proposition 9.3.14.)
+
+      *(Proposition 10.5.1 (L'Hôpital's rule I), quoted: Let $X$ be a subset of $\mathbf{R}$, let $f : X \to \mathbf{R}$ and $g : X \to \mathbf{R}$ be functions, and let $x_0 \in X$ be a limit point of $X$. Suppose that $f(x_0) = g(x_0) = 0$, that $f$ and $g$ are both differentiable at $x_0$, but $g'(x_0) \neq 0$. Then there exists a $\delta > 0$ such that $g(x) \neq 0$ for all $x \in (X \cap (x_0 - \delta, x_0 + \delta)) - \{x_0\}$, and*
+      $$\lim_{x\to x_0;\, x\in (X\cap(x_0-\delta,x_0+\delta))-\{x_0\}} \frac{f(x)}{g(x)} = \frac{f'(x_0)}{g'(x_0)}.)$$
+    transcriptionNotes: "Prop 10.5.1 quoted; Newton's approximation quoted in tao-10.1.2."
+
+  # ---------------- Chapter 11 ----------------
+
+  - cid: tao-11.4.2
+    chapter: "11 The Riemann integral"
+    section: "11.4 Basic properties of the Riemann integral"
+    number: "Exercise 11.4.2"
+    page: "285"
+    pdfPage: 302
+    verdict: core
+    machinery: "Continuity + positivity at a point gives positive integral (lower bound on a small interval)."
+    standardResult: "continuous nonnegative f with zero integral is identically zero"
+    topic: integration
+    subtopics: [integral-properties]
+    skills: [contradiction, epsilon-delta-proof, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Positivity at a point persists on an interval; integral there is bounded below."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, continuity, positivity]
+    references: []
+    problemLatex: |
+      Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a continuous, non-negative function (so $f(x) \ge 0$ for all $x \in [a, b]$). Suppose that $\int_{[a,b]} f = 0$. Show that $f(x) = 0$ for all $x \in [a, b]$. (Hint: argue by contradiction.)
+    transcriptionNotes: "Tao writes integrals over intervals as \\int_{[a,b]} f."
+
+  - cid: tao-11.6.3
+    chapter: "11 The Riemann integral"
+    section: "11.6 Riemann integrability of monotone functions"
+    number: "Exercise 11.6.3"
+    page: "290"
+    pdfPage: 307
+    verdict: strong
+    machinery: "Integral test: compare sums and integrals of a monotone decreasing function via upper/lower step bounds."
+    standardResult: "integral test for series"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [comparison-estimate, monotone-bounds]
+    difficulty: medium
+    difficultyRationale: "Requires sandwiching integral between shifted partial sums and using monotone convergence of partial sums."
+    category: synthesis
+    type: proof
+    tags: [integral-test, series, Riemann-integration, monotone-function]
+    references: ["Proposition 11.6.4 (quoted)"]
+    problemLatex: |
+      Prove Proposition 11.6.4. (Hint: what is the relationship between the sum $\sum_{n=1}^N f(n)$, the sum $\sum_{n=0}^{N-1} f(n)$, and the integral $\int_{[0,N]} f$?)
+
+      *(Proposition 11.6.4 (Integral test), quoted: Let $f : [0, \infty) \to \mathbf{R}$ be a monotone decreasing function which is non-negative (i.e., $f(x) \ge 0$ for all $x \ge 0$). Then the sum $\sum_{n=0}^\infty f(n)$ is convergent if and only if $\sup_{N>0} \int_{[0,N]} f$ is finite.)*
+    transcriptionNotes: "Prop 11.6.4 quoted; sum/integral limits verified on page image (PDF 307)."
+
+  - cid: tao-11.6.4
+    chapter: "11 The Riemann integral"
+    section: "11.6 Riemann integrability of monotone functions"
+    number: "Exercise 11.6.4"
+    page: "291"
+    pdfPage: 308
+    verdict: strong
+    machinery: "Monotonicity hypothesis in the integral test is essential in both directions (spiky / oscillating examples)."
+    standardResult: "integral test fails without monotonicity"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Two constructions: e.g. convergent integral with divergent sum (bumps at integers) and vice versa."
+    category: canonical
+    type: counterexample
+    tags: [integral-test, counterexample, hypotheses, series]
+    references: ["Proposition 11.6.4 (quoted)"]
+    problemLatex: |
+      Give examples to show that both directions of the integral test break down if $f$ is not assumed to be monotone decreasing.
+
+      *(Proposition 11.6.4 (Integral test), quoted: Let $f : [0, \infty) \to \mathbf{R}$ be a monotone decreasing function which is non-negative (i.e., $f(x) \ge 0$ for all $x \ge 0$). Then the sum $\sum_{n=0}^\infty f(n)$ is convergent if and only if $\sup_{N>0} \int_{[0,N]} f$ is finite.)*
+
+  - cid: tao-11.6.5
+    chapter: "11 The Riemann integral"
+    section: "11.6 Riemann integrability of monotone functions"
+    number: "Exercise 11.6.5"
+    page: "291"
+    pdfPage: 308
+    verdict: consider
+    machinery: "p-series test via integral test."
+    standardResult: "p-series converges iff p > 1 (via integral test)"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [theorem-application]
+    difficulty: easy
+    difficultyRationale: "Apply integral test with antiderivatives; p <= 0 handled separately."
+    category: canonical
+    type: theorem-application
+    tags: [p-series, integral-test]
+    references: ["Proposition 11.6.4 (quoted)", "Corollary 11.6.5 (quoted)"]
+    problemLatex: |
+      Use Proposition 11.6.4 to prove Corollary 11.6.5.
+
+      *(Proposition 11.6.4 (Integral test), quoted: Let $f : [0, \infty) \to \mathbf{R}$ be a monotone decreasing function which is non-negative (i.e., $f(x) \ge 0$ for all $x \ge 0$). Then the sum $\sum_{n=0}^\infty f(n)$ is convergent if and only if $\sup_{N>0} \int_{[0,N]} f$ is finite.)*
+
+      *(Corollary 11.6.5, quoted: Let $p$ be a real number. Then $\sum_{n=1}^\infty \frac{1}{n^p}$ converges absolutely when $p > 1$ and diverges when $p \le 1$.)*
+    transcriptionNotes: "At this point in the book Tao has not yet developed log/exp (later chapters), so antiderivative of x^{-p} uses Exercise 10.4.3's power rule; curator may prefer another source's p-series problem."
+
+  - cid: tao-11.9.1
+    chapter: "11 The Riemann integral"
+    section: "11.9 The two fundamental theorems of calculus"
+    number: "Exercise 11.9.1"
+    page: "300"
+    pdfPage: 317
+    verdict: consider
+    machinery: "FTC fails at jump discontinuities of a monotone integrand: one-sided difference quotients of F differ."
+    standardResult: "integral of monotone function with dense jumps is non-differentiable at each jump"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [one-sided-limits, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "Needs right/left difference quotient bounds using the jump of f at q."
+    category: synthesis
+    type: proof
+    tags: [fundamental-theorem-of-calculus, monotone-function, jump-discontinuity]
+    references: ["Exercise 9.8.5 function (quoted)"]
+    problemLatex: |
+      Let $f : [0, 1] \to \mathbf{R}$ be the function in Exercise 9.8.5. Show that for every rational number $q \in \mathbf{Q} \cap [0, 1]$, the function $F : [0, 1] \to \mathbf{R}$ defined by the formula $F(x) := \int_0^x f(y)\, dy$ is not differentiable at $q$.
+
+      *(The function in Exercise 9.8.5, quoted: Since the rationals are countable, we can write them as $\mathbf{Q} = \{q(0), q(1), q(2), \ldots\}$, where $q : \mathbf{N} \to \mathbf{Q}$ is a bijection from $\mathbf{N}$ to $\mathbf{Q}$. Now define a function $g : \mathbf{Q} \to \mathbf{R}$ by setting $g(q(n)) := 2^{-n}$ for each natural number $n$ […]. Now define the function $f : \mathbf{R} \to \mathbf{R}$ by $f(x) := \sum_{r\in\mathbf{Q}: r<x} g(r)$. [Exercise 9.8.5 shows $f$ is strictly monotone increasing, discontinuous at every rational and continuous at every irrational.])*
+    transcriptionNotes: "Book's f is defined on R; here restricted to [0,1]. Definition quoted with an ellipsis; the bracketed sentence summarizing 9.8.5's conclusions is mine (marked). Overlaps with tao-11.9.3, which is the general version — curator may prefer 11.9.3."
+
+  - cid: tao-11.9.2
+    chapter: "11 The Riemann integral"
+    section: "11.9 The two fundamental theorems of calculus"
+    number: "Exercise 11.9.2"
+    page: "300"
+    pdfPage: 317
+    verdict: consider
+    machinery: "Antiderivatives differ by a constant (MVT on F - G)."
+    standardResult: "two antiderivatives differ by a constant"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application]
+    difficulty: easy
+    difficultyRationale: "Apply MVT to F - G; note the trap of using FTC without integrability."
+    category: canonical
+    type: theorem-application
+    tags: [antiderivative, mean-value-theorem]
+    references: ["Lemma 11.9.5 (quoted)", "Definition 11.9.3 (quoted)"]
+    problemLatex: |
+      Prove Lemma 11.9.5. (Hint: apply the mean-value theorem, Corollary 10.2.9, to the function $F - G$. One can also prove this lemma using the second Fundamental theorem of calculus (how?), but one has to be careful since we do not assume $f$ to be Riemann integrable.)
+
+      *(Definition 11.9.3 (Antiderivatives), quoted: Let $I$ be a bounded interval, and let $f : I \to \mathbf{R}$ be a function. We say that a function $F : I \to \mathbf{R}$ is an antiderivative of $f$ if $F$ is differentiable on $I$ and $F'(x) = f(x)$ for all $x \in I$.)*
+
+      *(Lemma 11.9.5, quoted: Let $I$ be a bounded interval, and let $f : I \to \mathbf{R}$ be a function. Let $F : I \to \mathbf{R}$ and $G : I \to \mathbf{R}$ be two antiderivatives of $f$. Then there exists a real number $C$ such that $F(x) = G(x) + C$ for all $x \in I$.)*
+    transcriptionNotes: "Near-duplicate of the 'f'=0 implies constant' part of tao-10.3.4."
+
+  - cid: tao-11.9.3
+    chapter: "11 The Riemann integral"
+    section: "11.9 The two fundamental theorems of calculus"
+    number: "Exercise 11.9.3"
+    page: "300"
+    pdfPage: 317
+    verdict: strong
+    machinery: "Sharp converse of FTC I for monotone integrands: F differentiable at x0 iff f continuous at x0 (one-sided limits of monotone functions)."
+    standardResult: "for monotone f, F(x)=int_a^x f is differentiable at x0 iff f continuous at x0"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [one-sided-limits, contradiction, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "Converse uses existence of one-sided limits of monotone f and comparing one-sided difference quotients."
+    category: synthesis
+    type: proof
+    tags: [fundamental-theorem-of-calculus, monotone-function, one-sided-limits, jump-discontinuity]
+    references: ["Theorem 11.9.1 (quoted)"]
+    problemLatex: |
+      Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a monotone increasing function. Let $F : [a, b] \to \mathbf{R}$ be the function $F(x) := \int_{[a,x]} f$. Let $x_0$ be an element of $[a, b]$. Show that $F$ is differentiable at $x_0$ if and only if $f$ is continuous at $x_0$. (Hint: one direction is taken care of by one of the fundamental theorems of calculus. For the other, consider left and right limits of $f$ and argue by contradiction.)
+
+      *(Theorem 11.9.1 (First Fundamental Theorem of Calculus), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a Riemann integrable function. Let $F : [a, b] \to \mathbf{R}$ be the function $F(x) := \int_{[a,x]} f$. Then $F$ is continuous. Furthermore, if $x_0 \in [a, b]$ and $f$ is continuous at $x_0$, then $F$ is differentiable at $x_0$, and $F'(x_0) = f(x_0)$.)*
+    transcriptionNotes: "FTC I quoted for convenience (hint refers to 'one of the fundamental theorems'). Monotone f on [a,b] is Riemann integrable (Prop 11.6.1)."
+
+  - cid: tao-11.10.1
+    chapter: "11 The Riemann integral"
+    section: "11.10 Consequences of the fundamental theorems"
+    number: "Exercise 11.10.1"
+    page: "304"
+    pdfPage: 321
+    verdict: consider
+    machinery: "Integration by parts from the product rule + FTC II, with integrability bookkeeping."
+    standardResult: "integration by parts"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [theorem-application]
+    difficulty: easy
+    difficultyRationale: "Product rule plus FTC II once integrability of FG' and F'G is checked."
+    category: canonical
+    type: theorem-application
+    tags: [integration-by-parts, fundamental-theorem-of-calculus, product-rule]
+    references: ["Proposition 11.10.1 (quoted)"]
+    problemLatex: |
+      Prove Proposition 11.10.1. (Hint: first use Corollary 11.5.2 and Theorem 11.4.5 to show that $FG'$ and $F'G$ are Riemann integrable. Then use the product rule (Theorem 10.1.13(d)).)
+
+      *(Proposition 11.10.1 (Integration by parts formula), quoted: Let $I = [a, b]$, and let $F : [a, b] \to \mathbf{R}$ and $G : [a, b] \to \mathbf{R}$ be differentiable functions on $[a, b]$ such that $F'$ and $G'$ are Riemann integrable on $I$. Then we have*
+      $$\int_{[a,b]} FG' = F(b)G(b) - F(a)G(a) - \int_{[a,b]} F'G.)$$
+    transcriptionNotes: "Prop 11.10.1 quoted. Hint refs: Cor 11.5.2 (continuous on [a,b] implies integrable), Thm 11.4.5 (product of integrable functions is integrable)."
+
+skipped:
+  - "9.1.1 (closure sandwich; minor), 9.1.2 (Lemma 9.1.11 elementary closure properties; routine), 9.1.3 (Lemma 9.1.13 closures of N, Z, Q, R, empty set; mostly trivial, Q part is density), 9.1.10 (bounded iff inf/sup finite; routine), 9.1.11 (closure of bounded set bounded; routine), 9.1.12 (unions of bounded sets; routine), 9.1.14 (finite sets closed and bounded; routine)"
+  - "9.2.1 (algebra of function composition/sum identities; foundations, not analysis machinery)"
+  - "9.3.2 (remaining limit laws; routine), 9.3.3 (Lemma 9.3.18 'limits are local'; Tao bookkeeping)"
+  - "9.4.2 (constant/identity continuous; trivial), 9.4.3 (Prop 9.4.10 continuity of exponentiation a^x; depends on Tao's Ch 5–6 exponent construction), 9.4.4 (Prop 9.4.11 continuity of x^p; same), 9.4.5 (Prop 9.4.13 composition preserves continuity; routine, standard elsewhere), 9.4.6 (restriction continuous; trivial), 9.4.7 (polynomials continuous; routine)"
+  - "9.9.1 (Lemma 9.9.7: equivalent sequences iff difference -> 0; Tao-specific terminology, trivial)"
+  - "9.10.1 (consistency of Tao's limits at infinity with sequence limits; Tao-specific definitional bookkeeping)"
+  - "10.1.1 (restriction of differentiable function; needs Remark 10.1.2 context, minor), 10.1.4 (Theorem 10.1.13 sum/product/quotient rules; long routine list, product rule covered better elsewhere), 10.1.5 (power rule by induction; routine), 10.1.6 (negative powers; routine; book typo 'differentiable on R')"
+  - "10.3.1 (Prop 10.3.1 monotone implies f' sign; easy, near-duplicate of 10.2.1 sign argument), 10.3.2 (continuous monotone not differentiable at 0; near-duplicate of 10.2.2 / 10.3.3)"
+  - "10.4.2 (x^q derivative for rational q; routine follow-on to 10.4.1), 10.4.3 (x^alpha derivative for real alpha; depends on Tao's construction of real exponents)"
+  - "10.5.2 (refers to Exercise 1.2.12 from informal Chapter 1; not self-contained)"
+  - "11.1.1 (Lemma 11.1.4 Tao's connected/interval characterization), 11.1.2 (Corollary 11.1.6), 11.1.3 (partition endpoint lemma), 11.1.4 (Lemma 11.1.18 common refinement) — Tao's partition-of-intervals machinery, mid-development"
+  - "11.2.1–11.2.4 (Lemmas 11.2.7, 11.2.8, Prop 11.2.13, Thm 11.2.16 on Tao's piecewise-constant integral; book-specific development)"
+  - "11.3.1 (majorization transitive; trivial), 11.3.2 (majorization under +, ·, scalar; trivial sign check), 11.3.3–11.3.5 (Lemmas 11.3.7, 11.3.11, Prop 11.3.12 linking Tao's p.c. definition to Riemann/Darboux sums; book-specific)"
+  - "11.4.1 (Theorem 11.4.1 laws of the integral; long multi-part, routine via p.c. machinery), 11.4.3 (additivity over a Tao partition; book-specific), 11.4.4 (explain remaining cases by symmetry; mid-proof)"
+  - "11.5.1 (Prop 11.5.6 bounded piecewise continuous integrable; relies on Tao partition definitions, standard result covered elsewhere)"
+  - "11.6.1 (Cor 11.6.3 monotone bounded on bounded interval; adapt book's proof, near-duplicate), 11.6.2 (formulate piecewise monotone and show integrable; open-ended near-duplicate)"
+  - "11.7: no exercises"
+  - "11.8 (Riemann–Stieltjes, 11.8.1–11.8.5): skipped per task instructions"
+  - "11.10.2 (fill gaps in proof of Lemma 11.10.5; mid-proof), 11.10.3 (reflection g(x)=f(-x) integrable; routine), 11.10.4 (change of variables for decreasing phi; minor open-ended variant of Prop 11.10.7)"

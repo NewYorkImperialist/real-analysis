@@ -1,0 +1,1179 @@
+chunk: "cummings-ch6-9"
+book: cummings
+edition: "Jay Cummings, Real Analysis: A Long-Form Mathematics Textbook. Title page (PDF p.3): '1st Edition published August 2018; (1+epsilon)th Edition published January 2019' -- i.e. the 2019 printing."
+pageOffsetNote: "printed page = pdfPage - 16 (verified on page images: PDF 204 = p.188, PDF 236 = p.220, PDF 286 = p.270, PDF 327 = p.311). All exercises transcribed from 150-dpi page images; OCR text used only for locating."
+sectionsCovered:
+  - "Chapter 6 Continuity, end-of-chapter Exercises 6.1-6.36 (pp. 188-192, PDF 204-208) -- 36 exercises"
+  - "Chapter 7 Differentiation, end-of-chapter Exercises 7.1-7.16 (pp. 220-221, PDF 236-237) -- 16 exercises (+ 1 'Open Question', p.222, not an exercise)"
+  - "Chapter 8 Integration, end-of-chapter Exercises 8.1-8.29 (pp. 270-275, PDF 286-291) -- 29 exercises (+ 2 'Open Questions', p.275, not exercises)"
+  - "Chapter 9 Sequences and Series of Functions, end-of-chapter Exercises 9.1-9.18 (pp. 311-313, PDF 327-329) -- 18 exercises (+ 1 'Open Question', p.313, not an exercise)"
+candidates:
+
+  # ---------------- Chapter 6 ----------------
+  - cid: cummings-6.2
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.2"
+    page: "188"
+    pdfPage: 204
+    verdict: consider
+    machinery: "Understanding how epsilon and delta interact in the limit definition (shrinking delta does not shrink epsilon proportionally)."
+    standardResult: "epsilon-delta: halving delta need not halve epsilon"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "A nonlinear function such as x^2 near a point, or a constant-free example, suffices once the quantifiers are understood."
+    category: canonical
+    type: counterexample
+    tags: [functional-limit, epsilon-delta, quantifiers, counterexample]
+    references: []
+    problemLatex: |
+      This is a *false* statement:
+
+      > If $|f(x) - L| < \varepsilon$ for all $x$ for which $0 < |x-a| < \delta$, then $|f(x)-L| < \varepsilon/2$ for all $x$ for which $0 < |x-a| < \delta/2$.
+
+      Prove that this is false by finding a function $f$ and numbers $a$ and $L$ which are a counterexample. (Make sure you also state $f$'s domain and codomain.)
+    transcriptionNotes: "Book ends the parenthetical with ',)'; normalized to '.)'."
+    audit: ok
+    auditNotes: 'Typo fix (",)" -> ".)") confirmed: punctuation only.'
+
+  - cid: cummings-6.3
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.3"
+    page: "188"
+    pdfPage: 204
+    verdict: strong
+    machinery: "Limit laws and their converses: which conclusions about sums/products of limits survive when limits fail to exist."
+    standardResult: "limit laws: sums/products of non-existent limits (examples or proofs)"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [construct-counterexample, limit-laws]
+    difficulty: easy
+    difficultyRationale: "Five short decide-and-justify parts; (c) and (d) require a proof via limit laws, the rest need standard examples (e.g. g = -f, f = 0)."
+    category: canonical
+    type: counterexample
+    tags: [functional-limit, limit-laws, counterexample]
+    references: []
+    problemLatex: |
+      For each of the following, give an example or prove that no such example exists.
+
+      (a) If $\lim_{x\to a} f(x)$ and $\lim_{x\to a} g(x)$ do not exist, can $\lim_{x\to a}[f(x)+g(x)]$ exist?
+
+      (b) If $\lim_{x\to a} f(x)$ and $\lim_{x\to a} g(x)$ do not exist, can $\lim_{x\to a} f(x)g(x)$ exist?
+
+      (c) If $\lim_{x\to a} f(x)$ and $\lim_{x\to a}[f(x)+g(x)]$ exist, must $\lim_{x\to a} g(x)$ exist?
+
+      (d) If $\lim_{x\to a} f(x)$ exists and $\lim_{x\to a}[f(x)+g(x)]$ does not exist, can $\lim_{x\to a} g(x)$ exist?
+
+      (e) If $\lim_{x\to a} f(x)$ and $\lim_{x\to a} f(x)g(x)$ exist, must $\lim_{x\to a} g(x)$ exist?
+    audit: ok
+
+  - cid: cummings-6.9
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.9"
+    page: "189"
+    pdfPage: 205
+    verdict: strong
+    machinery: "Density of Q and of irrationals used to show a limit fails (sequences along Q vs. irrationals) and exists at one point by squeeze."
+    standardResult: "x on Q, -x off Q: limit exists only at 0"
+    topic: continuity
+    subtopics: [functional-limits, discontinuities]
+    skills: [epsilon-delta-proof, sequential-characterization, density-argument]
+    difficulty: easy
+    difficultyRationale: "Limit at 0 is immediate from |k(x)| = |x|; nonexistence elsewhere needs rational and irrational sequences/points near a."
+    category: canonical
+    type: proof
+    tags: [functional-limit, density-of-Q, Dirichlet-type-function, counterexample]
+    references: []
+    problemLatex: |
+      Let
+      $$k(x) = \begin{cases} x & \text{if } x \in \mathbb{Q} \\ -x & \text{if } x \notin \mathbb{Q}. \end{cases}$$
+      Prove that $\lim_{x\to 0} k(x)$ exists, but for any $a \neq 0$, $\lim_{x\to a} k(x)$ does not exist.
+    audit: ok
+
+  - cid: cummings-6.10
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.10"
+    page: "189"
+    pdfPage: 205
+    verdict: core
+    machinery: "Epsilon-delta continuity at irrationals via finitely many rationals with small denominator; discontinuity at rationals via density of irrationals."
+    standardResult: "Thomae's function: continuous at irrationals, discontinuous at rationals"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity, discontinuities]
+    skills: [epsilon-delta-proof, finiteness-argument, density-argument]
+    difficulty: medium
+    difficultyRationale: "Continuity at irrationals requires the key observation that only finitely many m/n with n <= N lie in a bounded interval."
+    category: canonical
+    type: proof
+    tags: [Thomae-function, continuity, epsilon-delta, density-of-Q, counterexample]
+    references: []
+    problemLatex: |
+      Let $h$ be *Thomae's function*:
+      $$h(x) = \begin{cases} 1 & \text{if } x = 0 \\ 1/n & \text{if } x \in \mathbb{Q} \text{ and } x = m/n \text{ in lowest terms with } n > 0 \\ 0 & \text{if } x \notin \mathbb{Q}. \end{cases}$$
+      Prove that $h$ is continuous at every irrational number and discontinuous at every rational number.
+    audit: ok
+
+  - cid: cummings-6.11
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.11"
+    page: "189"
+    pdfPage: 205
+    verdict: strong
+    machinery: "Abstracts the Thomae argument: a function whose large values occur at only finitely many points has limit 0 everywhere."
+    standardResult: "Thomae-type function from disjoint finite sets A_n: limit 0 everywhere"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, finiteness-argument]
+    difficulty: medium
+    difficultyRationale: "Requires seeing that {x : f(x) >= 1/N} is finite and choosing delta to avoid those points (other than a)."
+    category: synthesis
+    type: proof
+    tags: [functional-limit, Thomae-function, epsilon-delta, finite-sets]
+    references: []
+    problemLatex: |
+      Suppose that, for each $n \in \mathbb{N}$, $A_n$ is a finite set of numbers from $[0,1]$. Further, assume that $A_n \cap A_m = \emptyset$ whenever $n \neq m$. Define $f\colon [0,1] \to \mathbb{R}$ to be
+      $$f(x) = \begin{cases} 1/n & \text{if } x \in A_n \\ 0 & \text{if } x \notin A_n \text{ for any } n. \end{cases}$$
+      Prove that $\lim_{x\to a} f(x) = 0$ for all $a \in [0,1]$.
+    audit: ok
+
+  - cid: cummings-6.15
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.15"
+    page: "190"
+    pdfPage: 206
+    verdict: strong
+    machinery: "Constructing functions with a prescribed set of discontinuities, including an accumulation point of the set."
+    standardResult: "function discontinuous exactly at {1/n} (and at 0)"
+    topic: continuity
+    subtopics: [discontinuities]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a) is easy (indicator of {1/n}); (b) requires care so that the behavior at 0 is also discontinuous and verified, the hardest part."
+    category: canonical
+    type: construction
+    tags: [discontinuities, construction, counterexample, accumulation-point]
+    references: []
+    problemLatex: |
+      (a) Give an example of a function $f\colon \mathbb{R} \to \mathbb{R}$ which is discontinuous at $1, \frac12, \frac13, \frac14, \dots$, but is continuous at every other point.
+
+      (b) Give an example of a function $f\colon \mathbb{R} \to \mathbb{R}$ which is discontinuous at $1, \frac12, \frac13, \frac14, \dots$, and at $0$, but is continuous at every other point.
+    audit: ok
+
+  - cid: cummings-6.20
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.20"
+    page: "190"
+    pdfPage: 206
+    verdict: consider
+    machinery: "IVT used to show a continuous function with |f(x)| = |x| cannot switch sign choice on (0,inf) or (-inf,0)."
+    standardResult: "exactly four continuous f with f(x)^2 = x^2"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [IVT-application, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Answer 4; the justification needs IVT on each half-line since f never vanishes there."
+    category: synthesis
+    type: conceptual
+    tags: [IVT, continuity, counting]
+    references: []
+    problemLatex: |
+      How many continuous functions $f$ are there which satisfy $(f(x))^2 = x^2$ for all $x$?
+    audit: ok
+
+  - cid: cummings-6.21
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.21"
+    page: "190"
+    pdfPage: 206
+    verdict: strong
+    machinery: "Continuous images of intervals: compactness (EVT) forbids closed -> open; open -> closed is possible."
+    standardResult: "continuous image of [a,b] is a closed bounded interval; (a,b) can map onto [c,d]"
+    topic: continuity
+    subtopics: [EVT, IVT, continuity-and-topology]
+    skills: [construct-counterexample, EVT-application]
+    difficulty: easy
+    difficultyRationale: "(a) needs an example like sin on (0, 2pi); (b) needs EVT to show the image attains max and min."
+    category: canonical
+    type: counterexample
+    tags: [compactness, extreme-value-theorem, continuous-image, counterexample]
+    references: []
+    problemLatex: |
+      In the below, by "finite open interval" we mean an interval $(a,b)$ where $a, b \in \mathbb{R}$ and $a < b$. And by "finite closed interval" we mean an interval $[a,b]$ where $a, b \in \mathbb{R}$ and $a < b$.
+
+      (a) Let $f\colon A \to B$ be a continuous function where $f(A) = B$. Is it possible for $A$ to be a finite open interval while $B$ is a finite closed interval? Either provide an example showing it is possible, or prove that it is not possible.
+
+      (b) Let $f\colon A \to B$ be a continuous function where $f(A) = B$. Is it possible for $A$ to be a finite closed interval while $B$ is a finite open interval? Either provide an example showing it is possible, or prove that it is not possible.
+    audit: ok
+
+  - cid: cummings-6.22
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.22"
+    page: "191"
+    pdfPage: 207
+    verdict: strong
+    machinery: "IVT applied to an auxiliary function g(x) = f(x+1/2) - f(x)."
+    standardResult: "universal chord theorem (horizontal chord of length 1/2)"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [auxiliary-function, IVT-application]
+    difficulty: medium
+    difficultyRationale: "The proof is short but requires inventing the auxiliary function and noticing g(0) = -g(1/2)."
+    category: canonical
+    type: proof
+    tags: [IVT, auxiliary-function, horizontal-chord]
+    references: []
+    problemLatex: |
+      Let $f\colon [0,1] \to \mathbb{R}$ be continuous with $f(0) = f(1)$. Show that there must exist $x, y \in [0,1]$ which are of distance $1/2$ apart (i.e. $|x - y| = 1/2$) for which $f(x) = f(y)$.
+    audit: ok
+
+  - cid: cummings-6.23
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.23"
+    page: "191"
+    pdfPage: 207
+    verdict: core
+    machinery: "Sequential characterization of continuity combined with density."
+    standardResult: "continuous functions agreeing on a dense set agree everywhere"
+    topic: continuity
+    subtopics: [sequential-continuity]
+    skills: [sequential-characterization, density-argument]
+    difficulty: easy
+    difficultyRationale: "Approximate x by points of S and pass to the limit; standard route."
+    category: canonical
+    type: proof
+    tags: [continuity, dense-set, sequential-characterization, machinery]
+    references: []
+    problemLatex: |
+      Let $S$ be a dense subset of $\mathbb{R}$, and assume that $f$ and $g$ are continuous functions on $\mathbb{R}$. Prove that if $f(x) = g(x)$ for every $x \in S$, then $f(x) = g(x)$ for all $x \in \mathbb{R}$. Hint: First prove it in the case that $g(x) = 0$ for all $x$.
+    audit: ok
+
+  - cid: cummings-6.24
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.24"
+    page: "191"
+    pdfPage: 207
+    verdict: strong
+    machinery: "Uniform continuity on bounded sets forces boundedness; contrast with mere continuity on (0,1)."
+    standardResult: "uniformly continuous on bounded set implies bounded; sin(1/x) bounded but not UC"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, finite-covering, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a) needs covering a bounded set by finitely many delta-intervals (or a Cauchy-sequence argument); (b),(c) are standard examples 1/x and sin(1/x)."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, boundedness, counterexample]
+    references: []
+    problemLatex: |
+      (a) Prove that if $f\colon A \to \mathbb{R}$ is uniformly continuous and $A$ is bounded, then $f(A)$ is bounded.
+
+      (b) Give an example of an unbounded continuous function on $(0,1)$.
+
+      (c) Give an example of a bounded continuous function on $(0,1)$ that is not uniformly continuous. You do not need to prove your answer.
+    audit: ok
+
+  - cid: cummings-6.28
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.28"
+    page: "191"
+    pdfPage: 207
+    verdict: core
+    machinery: "Uniform continuity preserves Cauchy sequences; mere continuity does not."
+    standardResult: "uniformly continuous functions map Cauchy sequences to Cauchy sequences"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "(a) uses f(x)=1/x with a_n=1/n; (b) is a direct chaining of the two definitions."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, Cauchy, counterexample, machinery]
+    references: []
+    problemLatex: |
+      (a) Give an example of a continuous function $f\colon (0,1) \to \mathbb{R}$ and a Cauchy sequence $(a_n)$ where $(f(a_n))$ is *not* a Cauchy sequence.
+
+      (b) Prove that if $f$ is uniformly continuous and $(a_n)$ is a Cauchy sequence, then $(f(a_n))$ is a Cauchy sequence.
+    audit: ok
+
+  - cid: cummings-6.30
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.30"
+    page: "191"
+    pdfPage: 207
+    verdict: strong
+    machinery: "IVT applied to g(x) = f(x) - x."
+    standardResult: "one-dimensional Brouwer fixed point theorem"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [auxiliary-function, IVT-application]
+    difficulty: easy
+    difficultyRationale: "Standard auxiliary-function IVT argument with endpoint cases."
+    category: canonical
+    type: theorem-application
+    tags: [IVT, fixed-point, auxiliary-function]
+    references: []
+    problemLatex: |
+      Let $f\colon [0,1] \to [0,1]$ be continuous. Prove that $f(x) = x$ for some $x$.
+    audit: ok
+
+  - cid: cummings-6.32
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.32"
+    page: "192"
+    pdfPage: 208
+    verdict: strong
+    machinery: "IVT and EVT used in a delicate case analysis to rule out a continuous exactly-2-to-1 function."
+    standardResult: "no continuous function on R takes every value exactly twice"
+    topic: continuity
+    subtopics: [IVT, EVT]
+    skills: [IVT-application, contradiction, case-analysis, construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "(b) is the hard part: needs a careful argument with extrema between the two preimages; (a),(c) are constructions."
+    category: challenge
+    type: proof
+    tags: [IVT, extreme-value-theorem, two-to-one, counterexample, construction]
+    references: []
+    problemLatex: |
+      (a) Give an example of a continuous function defined on $\mathbb{R}$ which obtains every value exactly once. (That is, for each $b \in \mathbb{R}$ there is exactly one $a \in \mathbb{R}$ for which $f(a) = b$.)
+
+      (b) Prove that there does not exist a continuous function defined on $\mathbb{R}$ which obtains every value exactly *twice*.
+
+      (c) Give an example of a continuous function which obtains every value exactly three times. (If your function's graph is simple and clear, just sketching its graph is sufficient.)
+    audit: ok
+
+  - cid: cummings-6.33
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.33"
+    page: "192"
+    pdfPage: 208
+    verdict: consider
+    machinery: "Continuous image of an interval is an interval (IVT); Q is not an interval."
+    standardResult: "no continuous f: R -> R with f(R) = Q"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [IVT-application, contradiction]
+    difficulty: easy
+    difficultyRationale: "Pick two rationals in the image and an irrational between them."
+    category: canonical
+    type: conceptual
+    tags: [IVT, rationals, continuous-image]
+    references: []
+    problemLatex: |
+      Is it possible for a continuous function $f\colon \mathbb{R} \to \mathbb{R}$ to have the property that $f(\mathbb{R}) = \mathbb{Q}$?
+    audit: ok
+
+  - cid: cummings-6.34
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.34"
+    page: "192"
+    pdfPage: 208
+    verdict: strong
+    machinery: "Algebra of uniform continuity: sums, bounded products, compositions; failure for unbounded products."
+    standardResult: "uniform continuity of f+g, fg (bounded), g∘f; x·x not UC"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, triangle-inequality, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Rated on (b)/(d): (b) splits f(x)g(x)-f(y)g(y) and uses the bounds; (c) a standard example is f(x)=g(x)=x; (a),(d) are direct."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, product, composition, counterexample]
+    references: []
+    problemLatex: |
+      Assume that $f\colon \mathbb{R} \to \mathbb{R}$ and $g\colon \mathbb{R} \to \mathbb{R}$ are both uniformly continuous functions.
+
+      (a) Prove that $f + g$ is uniformly continuous.
+
+      (b) If $f$ and $g$ are both bounded, prove that $fg$ is uniformly continuous.
+
+      (c) Give an example showing that if $g$ is not bounded then it is possible for $fg$ to not be uniformly continuous.
+
+      (d) Prove that $g \circ f$ is uniformly continuous.
+    audit: ok
+
+  - cid: cummings-6.35
+    chapter: "6 Continuity"
+    section: "Chapter 6 Exercises"
+    number: "Exercise 6.35"
+    page: "192"
+    pdfPage: 208
+    verdict: strong
+    machinery: "One-sided limits of monotone functions; injecting the jump set into Q (or summing jump sizes) to show countability."
+    standardResult: "monotone function has at most countably many discontinuities"
+    topic: continuity
+    subtopics: [monotone-functions, discontinuities]
+    skills: [countability-argument, density-argument, sup-approximation]
+    difficulty: medium
+    difficultyRationale: "Requires establishing one-sided limits exist and assigning a distinct rational to each jump interval."
+    category: canonical
+    type: proof
+    tags: [monotone-function, discontinuities, countable, jump]
+    references: []
+    problemLatex: |
+      Define a function $f\colon A \to B$ to be *monotone increasing* if for all $a, b \in A$ for which $a < b$, we have $f(a) \le f(b)$. Is it possible for a monotone increasing function to have uncountably many discontinuities?
+    transcriptionNotes: "Domain A is not restricted in the statement; the intended setting is A ⊆ R, B ⊆ R."
+
+  # ---------------- Chapter 7 ----------------
+    audit: ok
+
+  - cid: cummings-7.4
+    chapter: "7 Differentiation"
+    section: "Chapter 7 Exercises"
+    number: "Exercise 7.4"
+    page: "220"
+    pdfPage: 236
+    verdict: strong
+    machinery: "Difference quotient along rationals vs. irrationals; derivative definition as a functional limit."
+    standardResult: "x/2 on Q, x off Q: continuous but not differentiable at 0"
+    topic: differentiation
+    subtopics: [derivative-definition]
+    skills: [sequential-characterization, density-argument]
+    difficulty: easy
+    difficultyRationale: "Difference quotient is 1/2 on rationals and 1 on irrationals, so no limit."
+    category: canonical
+    type: counterexample
+    tags: [derivative, difference-quotient, density-of-Q, counterexample]
+    references: []
+    problemLatex: |
+      Is
+      $$f(x) = \begin{cases} \frac12 x & \text{if } x \in \mathbb{Q}, \\ x & \text{if } x \notin \mathbb{Q} \end{cases}$$
+      differentiable at $0$?
+    audit: ok
+
+  - cid: cummings-7.7
+    chapter: "7 Differentiation"
+    section: "Chapter 7 Exercises"
+    number: "Exercise 7.7"
+    page: "220"
+    pdfPage: 236
+    verdict: strong
+    machinery: "Continuity vs. differentiability at a point determined by the exponent of a one-sided power."
+    standardResult: "x^a for x>=0, 0 for x<0: continuity/differentiability at 0 by a"
+    topic: differentiation
+    subtopics: [differentiability, derivative-definition]
+    skills: [one-sided-limits, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Case analysis on a (a>0, a=0, a<0 for continuity; a>1 for differentiability) using one-sided limits."
+    category: canonical
+    type: conceptual
+    tags: [differentiability, continuity, power-function, one-sided-limit]
+    references: []
+    problemLatex: |
+      Let
+      $$f_a(x) = \begin{cases} x^a & \text{if } x \ge 0 \\ 0 & \text{if } x < 0. \end{cases}$$
+
+      (a) For which values of $a \in \mathbb{R}$ is $f$ continuous at $0$?
+
+      (b) For which values of $a \in \mathbb{R}$ is $f$ differentiable at $0$?
+    transcriptionNotes: "Book defines f_a but asks about 'f' in (a),(b); kept as printed. For a <= 0, x^a at x = 0 is problematic (0^0, 0^{negative}); the book does not address this."
+    audit: ok
+
+  - cid: cummings-7.9
+    chapter: "7 Differentiation"
+    section: "Chapter 7 Exercises"
+    number: "Exercise 7.9"
+    page: "220"
+    pdfPage: 236
+    verdict: core
+    machinery: "MVT gives Lipschitz from bounded derivative; difference quotients give the converse."
+    standardResult: "differentiable f on an interval is Lipschitz iff f' is bounded"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application]
+    difficulty: easy
+    difficultyRationale: "Both directions are short: MVT one way, bounding the difference quotient the other."
+    category: canonical
+    type: proof
+    tags: [Lipschitz, mean-value-theorem, bounded-derivative, machinery]
+    references: ["Definition 7.27 (Lipschitz) (quoted)"]
+    problemLatex: |
+      *(Definition 7.27: A function $f$ is called Lipschitz if there exists some $C \in \mathbb{R}$ where $|f(x) - f(y)| \le C \cdot |x - y|$ for all $x$ and $y$.)*
+
+      Let $A$ be an interval and $f\colon A \to \mathbb{R}$ be differentiable. Show that $f$ is Lipschitz on $A$ if and only if $f'$ is bounded on $A$.
+    transcriptionNotes: "Definition 7.27 is printed in a box immediately before Exercise 7.8 on the same page; quoted verbatim."
+    audit: ok
+
+  - cid: cummings-7.10
+    chapter: "7 Differentiation"
+    section: "Chapter 7 Exercises"
+    number: "Exercise 7.10"
+    page: "221"
+    pdfPage: 237
+    verdict: strong
+    machinery: "Each hypothesis of Rolle's theorem is necessary."
+    standardResult: "Rolle's theorem hypotheses are sharp (counterexamples)"
+    topic: differentiation
+    subtopics: [rolle-mvt]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Standard examples: x, |x|, and x on [0,1) with f(1)=0."
+    category: canonical
+    type: counterexample
+    tags: [Rolle, hypotheses, counterexample]
+    references: []
+    problemLatex: |
+      In this exercise you will explore why each of the three main assumptions in Rolle's theorem is necessary. To that end, give an example of a function $f$ which satisfies each of the following conditions, and yet $f'(c) \neq 0$ for all $c \in (a,b)$.
+
+      (a) A function $f$ which is continuous on $[a,b]$ and differentiable on $(a,b)$ (but we don't assume $f(a) = f(b)$).
+
+      (b) A function $f$ which is continuous on $[a,b]$ and $f(a) = f(b)$ (but we don't assume $f$ is differentiable on $(a,b)$).
+
+      (c) A function $f$ which is differentiable on $(a,b)$ and $f(a) = f(b)$ (but we don't assume $f$ is continuous on $[a,b]$).
+    transcriptionNotes: "Book reads 'which satisfies of each of the following'; normalized to 'which satisfies each of the following'. In (b), f'(c) ≠ 0 should be read as 'f'(c) is never 0 where it exists'."
+    audit: ok
+    auditNotes: 'Typo fix "satisfies of each" -> "satisfies each" confirmed: grammatical slip, no change in meaning.'
+
+  - cid: cummings-7.14
+    chapter: "7 Differentiation"
+    section: "Chapter 7 Exercises"
+    number: "Exercise 7.14"
+    page: "221"
+    pdfPage: 237
+    verdict: core
+    machinery: "Rolle's theorem applied to a cleverly chosen linear combination h = [f(b)-f(a)]g - [g(b)-g(a)]f."
+    standardResult: "Cauchy mean value theorem"
+    topic: differentiation
+    subtopics: [rolle-mvt]
+    skills: [auxiliary-function, rolle-application]
+    difficulty: medium
+    difficultyRationale: "Requires constructing the auxiliary function; then Rolle finishes it."
+    category: canonical
+    type: proof
+    tags: [Cauchy-mean-value-theorem, Rolle, auxiliary-function, machinery]
+    references: ["Theorem 7.22 (mean value theorem) mentioned only in a parenthetical remark"]
+    problemLatex: |
+      Prove the *Cauchy mean value theorem*, which says this:
+
+      > If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that
+      > $$[f(b) - f(a)] \cdot g'(x) = [g(b) - g(a)] \cdot f'(x).$$
+
+      (Note that the mean value theorem (Theorem 7.22) is a special case of this, in which $g(x) = x$.)
+    audit: ok
+
+  - cid: cummings-7.15
+    chapter: "7 Differentiation"
+    section: "Chapter 7 Exercises"
+    number: "Exercise 7.15"
+    page: "221"
+    pdfPage: 237
+    verdict: strong
+    machinery: "Cauchy MVT applied on [a,x] to transfer the limit of f'/g' to f/g."
+    standardResult: "L'Hopital's rule, 0/0 case"
+    topic: differentiation
+    subtopics: [lhopital]
+    skills: [MVT-application, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Needs Cauchy MVT plus a careful epsilon-delta (or sequential) passage to the limit, and noting g(x) ≠ 0 near a."
+    category: canonical
+    type: proof
+    tags: [LHopital, Cauchy-mean-value-theorem, limits]
+    references: ["Exercise 7.14 (Cauchy mean value theorem) (quoted)"]
+    problemLatex: |
+      Prove the following "0/0" case of l'Hôpital's rule. Suppose $I$ is an interval containing a point $a$, and $f\colon I \to \mathbb{R}$ and $g\colon I \to \mathbb{R}$ are differentiable on $I$ (except possibly at $a$). Use Exercise 7.14 to prove that if $f(a) = 0$ and $g(a) = 0$, then
+      $$\lim_{x\to a} \frac{f'(x)}{g'(x)} = L \quad\text{implies}\quad \lim_{x\to a} \frac{f(x)}{g(x)} = L.$$
+
+      *(Exercise 7.14, the Cauchy mean value theorem: If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that $[f(b) - f(a)] \cdot g'(x) = [g(b) - g(a)] \cdot f'(x)$.)*
+    transcriptionNotes: "Exercise 7.14's statement quoted verbatim. The book implicitly assumes f, g continuous at a (they are given values f(a)=g(a)=0) and g' ≠ 0 near a."
+    audit: ok
+
+  - cid: cummings-7.16
+    chapter: "7 Differentiation"
+    section: "Chapter 7 Exercises"
+    number: "Exercise 7.16"
+    page: "221"
+    pdfPage: 237
+    verdict: consider
+    machinery: "Cauchy MVT on [x,y] with y fixed near a and x -> a, plus a careful two-stage estimate."
+    standardResult: "L'Hopital's rule, infinity/infinity case"
+    topic: differentiation
+    subtopics: [lhopital]
+    skills: [MVT-application, epsilon-delta-proof, comparison-estimate]
+    difficulty: hard
+    difficultyRationale: "Unlike 0/0, one cannot evaluate at a; requires the algebraic trick f(x)/g(x) = [f(x)-f(y)]/[g(x)-g(y)] · [1-g(y)/g(x)]/[1-f(y)/f(x)] and a two-epsilon argument."
+    category: challenge
+    type: proof
+    tags: [LHopital, Cauchy-mean-value-theorem, limits, infinity]
+    references: []
+    problemLatex: |
+      Prove the following "$\infty/\infty$" case of l'Hôpital's rule. Prove that if $f\colon (a,b) \to \mathbb{R}$ and $g\colon (a,b) \to \mathbb{R}$ are differentiable functions and $\lim_{x\to a} f(x) = \lim_{x\to a} g(x) = \infty$, then
+      $$\lim_{x\to a} \frac{f'(x)}{g'(x)} = L \quad\text{implies}\quad \lim_{x\to a} \frac{f(x)}{g(x)} = L.$$
+    transcriptionNotes: "Since the domain is (a,b), the limits x -> a are one-sided (from the right). Hypothesis g' ≠ 0 near a is implicit."
+
+  # ---------------- Chapter 8 ----------------
+    audit: ok
+
+  - cid: cummings-8.5
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.5"
+    page: "270"
+    pdfPage: 286
+    verdict: strong
+    machinery: "Epsilon criterion for integrability; refining a partition to include b and c and restricting it."
+    standardResult: "integrable on [a,d] implies integrable on subinterval [b,c]"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [partition-refinement]
+    difficulty: easy
+    difficultyRationale: "Add b, c to a good partition; the restricted U - L is no larger."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, subinterval, machinery]
+    references: []
+    problemLatex: |
+      Suppose $a \le b < c \le d$ and that $f$ is integrable on $[a,d]$. Prove that $f$ is also integrable on $[b,c]$.
+    audit: ok
+
+  - cid: cummings-8.12
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.12"
+    page: "271"
+    pdfPage: 287
+    verdict: strong
+    machinery: "Telescoping of U - L for monotone functions over a uniform partition."
+    standardResult: "monotone functions are Riemann integrable"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [telescoping, partition-refinement]
+    difficulty: easy
+    difficultyRationale: "U - L = (f(b)-f(a))(b-a)/n for the uniform partition; standard route."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, monotone-function, telescoping, machinery]
+    references: []
+    problemLatex: |
+      A function $f$ is *strictly increasing* on $[a,b]$ if for any $x_1$ and $x_2$ from $[a,b]$ where $x_1 < x_2$, we have that $f(x_1) < f(x_2)$. Prove that if $f$ is strictly increasing on $[a,b]$, then $f$ is integrable.
+    audit: ok
+
+  - cid: cummings-8.13
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.13"
+    page: "271"
+    pdfPage: 287
+    verdict: core
+    machinery: "Darboux-sum integrability proof isolating finitely many large values in tiny subintervals."
+    standardResult: "Thomae's function is Riemann integrable (integral 0)"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [partition-refinement, finiteness-argument]
+    difficulty: medium
+    difficultyRationale: "Guided, but step (d) requires actually building the partition and bounding U(h,P_ε)."
+    category: canonical
+    type: proof
+    tags: [Thomae-function, Riemann-integration, Darboux-sums, machinery]
+    references: ["Theorem 8.13 (epsilon criterion) is 'the theorem' in part (e); not quoted since naming it is the task"]
+    problemLatex: |
+      Consider Thomae's function $h$ restricted to $[0,2]$. That is, $h\colon [0,2] \to \mathbb{R}$ is given by
+      $$h(x) = \begin{cases} 1/n & \text{if } x \neq 0 \text{ and } x = m/n \in \mathbb{Q} \text{ in lowest terms with } n > 0 \\ 0 & \text{if } x \notin \mathbb{Q} \\ 1 & \text{if } x = 0 \end{cases}$$
+      We proved in class that $h$ is continuous at every irrational number and discontinuous at every rational number. In this question you will prove that Thomae's function is integrable. To do this, complete the following steps:
+
+      (a) Prove that $L(h,P) = 0$ for any partition $P$ of $[0,2]$.
+
+      (b) Let $\varepsilon > 0$. And note why $h$ is bounded.
+
+      (c) Determine whether there are finitely many points $x$ such that $h(x) > \varepsilon/4$, or infinitely many such points. Explain your answer.
+
+      (d) Explain how to construct a partition $P_\varepsilon$ of $[0,2]$ where $U(h,P_\varepsilon) < \varepsilon$. And prove that partition works.
+
+      (e) State which theorem completes this proof.
+    transcriptionNotes: "Exercise starts at the bottom of p.271 and continues on p.272. 'We proved in class' kept verbatim (refers to Exercise 6.10). Part (e) expects the ε-criterion (Theorem 8.13: f integrable iff for every ε>0 there is a partition P_ε with U(f,P_ε) - L(f,P_ε) < ε)."
+    audit: ok
+
+  - cid: cummings-8.14
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.14"
+    page: "272"
+    pdfPage: 288
+    verdict: strong
+    machinery: "Non-integrability of a Dirichlet-type function, while its square is constant."
+    standardResult: "f not integrable but f^2 integrable (±1 Dirichlet)"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "f = 1 on Q, -1 off Q; verifying non-integrability is a one-line Darboux sum computation."
+    category: canonical
+    type: counterexample
+    tags: [Riemann-integration, Dirichlet-function, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of a function $f\colon [0,1] \to \mathbb{R}$ for which $f$ is *not* integrable, but $(f(x))^2$ *is* integrable.
+    audit: ok
+
+  - cid: cummings-8.15
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.15"
+    page: "272"
+    pdfPage: 288
+    verdict: consider
+    machinery: "Computing lower sums and the upper integral of a non-integrable function."
+    standardResult: "modified Dirichlet function x·1_Q: lower integral 0, upper integral 8 on [0,4]"
+    topic: integration
+    subtopics: [partitions-darboux-sums]
+    skills: [density-argument, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "L = 0 by density of irrationals; U(g,P) equals the upper sum of x, whose inf is the integral of x."
+    category: canonical
+    type: computation
+    tags: [Darboux-sums, Dirichlet-function, upper-integral, non-integrable]
+    references: []
+    problemLatex: |
+      Recall that the *modified Dirichlet function* is defined to be
+      $$g(x) = \begin{cases} x & \text{if } x \in \mathbb{Q} \\ 0 & \text{if } x \notin \mathbb{Q}. \end{cases}$$
+
+      (a) Let $P$ be a partition of $[0,4]$. Compute $L(g,P)$.
+
+      (b) Find $\inf\{U(g,P) : P \text{ a partition of } [0,4]\}$.
+    audit: ok
+
+  - cid: cummings-8.16
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.16"
+    page: "272"
+    pdfPage: 288
+    verdict: strong
+    machinery: "Fundamental theorem of calculus (derivative of the integral) applied to deduce f = 0."
+    standardResult: "∫_a^x f = 0 for all x with f continuous implies f ≡ 0"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [FTC-application]
+    difficulty: easy
+    difficultyRationale: "Differentiate G(x) = ∫_a^x f; (b) reduces to (a) via additivity."
+    category: canonical
+    type: theorem-application
+    tags: [fundamental-theorem-of-calculus, continuity, integral]
+    references: []
+    problemLatex: |
+      (a) Suppose $f$ is continuous on $[a,b]$ and $\int_a^x f(t)\,dt = 0$ for all $x \in [a,b]$. Prove that $f(x) = 0$ for all $x \in [a,b]$.
+
+      (b) Suppose $f$ is continuous on $[a,b]$ and $\int_a^x f(t)\,dt = \int_x^b f(t)\,dt$ for all $x \in [a,b]$. Prove that $f(x) = 0$ for all $x \in [a,b]$. Hint: One slick proof uses part (a) and properties of integrals.
+    audit: ok
+
+  - cid: cummings-8.20
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.20"
+    page: "273"
+    pdfPage: 289
+    verdict: strong
+    machinery: "Positive integral forces infinitely many positive values (finite exceptions don't affect the integral); Thomae gives the converse counterexample."
+    standardResult: "nonnegative f with positive integral is positive at infinitely many points; converse fails (Thomae)"
+    topic: integration
+    subtopics: [integral-properties]
+    skills: [contrapositive, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a) needs that a function nonzero at finitely many points has integral 0; (b) needs a Thomae-type example with integral 0."
+    category: synthesis
+    type: proof
+    tags: [Riemann-integration, Thomae-function, positivity, counterexample]
+    references: []
+    problemLatex: |
+      (a) Assume $f$ is integrable on $[a,b]$, and $f(x) \ge 0$ for all $x$. Moreover, assume that $\int_a^b f(x)\,dx > 0$. Prove that there are infinitely many points $x$ for which $f(x) > 0$.
+
+      (b) Assume $g$ is integrable on $[a,b]$ and $g(x) \ge 0$ for all $x$. If $g(x) > 0$ for an infinite number of values of $x$ from $[a,b]$, must it be the case that $\int_a^b g(x)\,dx > 0$?
+    transcriptionNotes: "Typos fixed in (b): book prints 'g(a) ≥ 0 for all x' (corrected to g(x) ≥ 0) and 'vales' (corrected to 'values')."
+    audit: ok
+    auditNotes: 'Typo fixes confirmed: book prints "g(a) >= 0 for all x" (only coherent reading is g(x)) and "vales" (values).'
+
+  - cid: cummings-8.21
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.21"
+    page: "273"
+    pdfPage: 289
+    verdict: consider
+    machinery: "Connecting FTC with Darboux's theorem: a continuous f is a derivative, so it has the intermediate value property."
+    standardResult: "IVT via FTC + Darboux's theorem"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [theorem-chaining]
+    difficulty: easy
+    difficultyRationale: "Set F(x) = ∫_a^x f; F' = f by FTC(ii), then apply Darboux to F."
+    category: synthesis
+    type: theorem-application
+    tags: [fundamental-theorem-of-calculus, Darboux-theorem, IVT, synthesis]
+    references: ["Theorem 8.31 (FTC) (quoted)", "Theorem 7.20 (Darboux's theorem) (quoted)", "Theorem 6.37 (IVT) (quoted)"]
+    problemLatex: |
+      Use the fundamental theorem of calculus (Theorem 8.31) and Darboux's theorem (Theorem 7.20) to give a second proof of the intermediate value theorem (Theorem 6.37).
+
+      *(Theorem 8.31 (The fundamental theorem of calculus): (i) If $f\colon [a,b] \to \mathbb{R}$ is integrable, and $F\colon [a,b] \to \mathbb{R}$ satisfies $F'(x) = f(x)$ for all $x$, then $\int_a^b f(x)\,dx = F(b) - F(a)$. (ii) Let $g\colon [a,b] \to \mathbb{R}$ be integrable and define $G\colon [a,b] \to \mathbb{R}$ by $G(x) = \int_a^x g(t)\,dt$. Then $G$ is continuous. Moreover, if $g$ is continuous then $G$ is differentiable and $G'(x) = g(x)$.)*
+
+      *(Theorem 7.20 (Darboux's theorem): Suppose $f\colon [a,b] \to \mathbb{R}$ is differentiable. If $\alpha$ is between $f'(a)$ and $f'(b)$, then there exists $c \in (a,b)$ where $f'(c) = \alpha$.)*
+
+      *(Theorem 6.37 (The intermediate value theorem): If $f$ is continuous on $[a,b]$ and $\alpha$ is any number between $f(a)$ and $f(b)$, then there is some $c \in (a,b)$ for which $f(c) = \alpha$.)*
+    transcriptionNotes: "Theorems 8.31 (p.262), 7.20 (p.212), 6.37 (p.181) quoted verbatim from page images; the trailing 'That is, d/dx ∫_a^x g(t) dt = g(x)' of 8.31 omitted."
+    audit: ok
+
+  - cid: cummings-8.22
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.22"
+    page: "273"
+    pdfPage: 289
+    verdict: strong
+    machinery: "Continuity gives a neighborhood where f > f(x0)/2, so a lower sum is positive."
+    standardResult: "continuous nonnegative f, positive at a point, has positive integral"
+    topic: integration
+    subtopics: [integral-properties]
+    skills: [epsilon-delta-proof, lower-sum-estimate]
+    difficulty: easy
+    difficultyRationale: "Standard: local positivity plus monotonicity of the integral."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, continuity, positivity]
+    references: []
+    problemLatex: |
+      Suppose $f$ is continuous, $f(x) \ge 0$ for all $x$, and for some $x_0 \in [a,b]$ we have $f(x_0) > 0$. Prove that $\displaystyle\int_a^b f(x)\,dx > 0$.
+    audit: ok
+
+  - cid: cummings-8.25
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.25"
+    page: "274"
+    pdfPage: 290
+    verdict: core
+    machinery: "Epsilon criterion: isolate the bad point in a tiny interval (cost ≤ 2M·width) and use integrability of continuous functions on the remaining closed intervals."
+    standardResult: "bounded function with one discontinuity is integrable"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [partition-refinement, epsilon-over-3]
+    difficulty: medium
+    difficultyRationale: "Requires combining three partitions and bounding each piece; canonical multi-step Darboux argument."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, discontinuity, Darboux-sums, machinery]
+    references: []
+    problemLatex: |
+      Suppose that $f\colon [a,b] \to \mathbb{R}$ is bounded. Suppose further that $f$ is continuous at every point in $[a,b]$ with the exception of a single point $x_0 \in (a,b)$. Prove that $f$ is integrable on $[a,b]$.
+    audit: ok
+
+  - cid: cummings-8.27
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.27"
+    page: "274"
+    pdfPage: 290
+    verdict: strong
+    machinery: "Mean value theorem for integrals (plain and weighted) via bounds on the integral plus IVT."
+    standardResult: "mean value theorem for integrals (including weighted version)"
+    topic: integration
+    subtopics: [integral-properties, integral-inequalities]
+    skills: [IVT-application, EVT-application, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "(d) needs m∫g <= ∫fg <= M∫g, the case ∫g = 0, and IVT; the rest is easier."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem-for-integrals, IVT, integral-inequalities]
+    references: []
+    problemLatex: |
+      (a) Prove that if $f$ is integrable on $[a,b]$ and $m \le f(x) \le M$ for all $x$ in $[a,b]$, then
+      $$\int_a^b f(x)\,dx = (b-a)\cdot\gamma$$
+      for some $\gamma$ with $m \le \gamma \le M$.
+
+      (b) Prove that if $f$ is continuous on $[a,b]$, then
+      $$\int_a^b f(x)\,dx = (b-a)\cdot f(x_0)$$
+      for some $x_0 \in [a,b]$.
+
+      (c) Show by example that (b) need not hold if $f$ is not continuous.
+
+      (d) Prove the following more general result (Part (b) is the special case $g(x) = 1$ for all $x$.), known as the *general mean value theorem for integrals*: Suppose that $f$ is continuous on $[a,b]$ and $g$ is integrable and nonnegative on $[a,b]$. Prove that
+      $$\int_a^b f(x) g(x)\,dx = f(x_0)\cdot\int_a^b g(x)\,dx$$
+      for some $x_0 \in [a,b]$.
+    transcriptionNotes: "Typo fixed in (d): book says 'Part (c) is the special case g(x) = 1'; it is Part (b)."
+    audit: ok
+    auditNotes: 'Typo fix confirmed: book says "Part (c) is the special case g(x)=1"; (c) asks for a counterexample, the g=1 specialization is exactly (b).'
+
+  - cid: cummings-8.28
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.28"
+    page: "274"
+    pdfPage: 290
+    verdict: strong
+    machinery: "Characterization of Riemann integrability by approximating step functions from above and below (equivalent to Darboux sums)."
+    standardResult: "f integrable iff squeezed between step functions with integrals within ε"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [partition-refinement]
+    difficulty: medium
+    difficultyRationale: "Translate between Darboux sums and step-function integrals in both directions, handling the partition points."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, step-function, Darboux-sums, characterization]
+    references: []
+    problemLatex: |
+      A function $s\colon [a,b] \to \mathbb{R}$ is called a *step function* if there is a partition $P = \{x_0, x_1, \dots, x_n\}$ of $[a,b]$ such that $s$ is constant on each interval $(x_{i-1}, x_i)$.
+
+      (a) Prove that if $f$ is integrable on $[a,b]$, then for any $\varepsilon > 0$ there is a pair of step functions $s_1$ and $s_2$ where $s_1(x) \le f(x) \le s_2(x)$ for all $x$, and
+      $$\int_a^b [f(x) - s_1(x)]\,dx < \varepsilon \quad\text{and}\quad \int_a^b [s_2(x) - f(x)]\,dx < \varepsilon.$$
+
+      (b) Suppose that for any $\varepsilon > 0$ there is a pair of step functions $s_1$ and $s_2$ where $s_1(x) \le f(x) \le s_2(x)$ for all $x$, and
+      $$\int_a^b [f(x) - s_1(x)]\,dx < \varepsilon \quad\text{and}\quad \int_a^b [s_2(x) - f(x)]\,dx < \varepsilon.$$
+      Prove that $f$ is integrable.
+    transcriptionNotes: "Book omits '< ε' after the second integral in both (a) and (b) (prints '∫[s_2(x) - f(x)] dx.'); restored as the evident intent. Note (b) as printed presupposes the integrals of f - s_1 and s_2 - f make sense; a cleaner reading is ∫(s_2 - s_1) < 2ε or using upper/lower integrals."
+    audit: ok
+    auditNotes: 'Restored "< ε" after second integral in (a) and (b) confirmed: book prints a bare integral with no relation, the only coherent completion is the symmetric "< ε" (also implied by 8.29 hint).'
+
+  - cid: cummings-8.29
+    chapter: "8 Integration"
+    section: "Chapter 8 Exercises"
+    number: "Exercise 8.29"
+    page: "275"
+    pdfPage: 291
+    verdict: consider
+    machinery: "Approximating an integrable function from below by a continuous function via step functions and linear smoothing near jumps."
+    standardResult: "integrable f can be approximated from below in L^1 by continuous functions"
+    topic: integration
+    subtopics: [integral-properties]
+    skills: [construction, epsilon-management]
+    difficulty: medium
+    difficultyRationale: "Requires modifying a lower step function near its jumps (staying below f) with controlled integral loss."
+    category: synthesis
+    type: construction
+    tags: [Riemann-integration, step-function, approximation, continuous-approximation]
+    references: ["Exercise 8.28 (step function definition and part (a) quoted)"]
+    problemLatex: |
+      Define a *step function* as in Exercise 8.28. Prove that if $f\colon [a,b] \to \mathbb{R}$ is integrable, then for any $\varepsilon > 0$ there is a continuous function $g$ where $g(x) \le f(x)$ for all $x$, and
+      $$\int_a^b f(x)\,dx - \int_a^b g(x)\,dx < \varepsilon.$$
+      Hint: Use Exercise 8.28 to obtain a step function with this property, and then draw a picture and experiment how to turn this into a continuous function.
+
+      *(Exercise 8.28: A function $s\colon [a,b] \to \mathbb{R}$ is called a step function if there is a partition $P = \{x_0, x_1, \dots, x_n\}$ of $[a,b]$ such that $s$ is constant on each interval $(x_{i-1}, x_i)$. (a) Prove that if $f$ is integrable on $[a,b]$, then for any $\varepsilon > 0$ there is a pair of step functions $s_1$ and $s_2$ where $s_1(x) \le f(x) \le s_2(x)$ for all $x$, and $\int_a^b [f(x) - s_1(x)]\,dx < \varepsilon$ and $\int_a^b [s_2(x) - f(x)]\,dx < \varepsilon$.)*
+    transcriptionNotes: "Exercise 8.28 definition and part (a) quoted (with the missing '< ε' restored, see 8.28)."
+
+  # ---------------- Chapter 9 ----------------
+    audit: fixed
+    auditNotes: 'Quoted Exercise 8.28(a) made verbatim: "(a) If f is integrable" -> "(a) Prove that if f is integrable". The restored "< ε" in the quote (book omits it) is retained, per transcriptionNotes.'
+
+  - cid: cummings-9.2
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.2"
+    page: "311"
+    pdfPage: 327
+    verdict: consider
+    machinery: "Distinguishing pointwise and uniform convergence via the sup norm on an unbounded domain."
+    standardResult: "x/n -> 0 pointwise but not uniformly on R"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [negate-definition]
+    difficulty: introductory
+    difficultyRationale: "sup_R |x/n| = ∞ for each n."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, pointwise-convergence, counterexample]
+    references: []
+    problemLatex: |
+      Let $f_n(x) = x/n$ on $\mathbb{R}$, and let $f(x) = 0$ on $\mathbb{R}$. Prove that $f_n(x)$ converges pointwise to $f$, but does not uniformly to $f$.
+    audit: ok
+
+  - cid: cummings-9.3
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.3"
+    page: "311"
+    pdfPage: 327
+    verdict: strong
+    machinery: "Uniform convergence preserves (un)boundedness; pointwise convergence does not."
+    standardResult: "uniform limit of unbounded functions is unbounded; pointwise limit need not be"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [construct-counterexample, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "(a) needs an example such as f_n = 1/x on (0,1/n), 0 elsewhere on (0,1); (b) uses |f| >= |f_N| - 1 for N with sup|f_N - f| < 1."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, boundedness, counterexample]
+    references: []
+    problemLatex: |
+      Assume that, for each $n \in \mathbb{N}$, the function $f_n\colon A \to \mathbb{R}$ is unbounded.
+
+      (a) If $f_n \to f$ pointwise, must $f$ be unbounded? Either prove that $f$ must be unbounded or give a counterexample.
+
+      (b) If $f_n \to f$ uniformly, must $f$ be unbounded? Either prove that $f$ must be unbounded or give a counterexample.
+    audit: ok
+
+  - cid: cummings-9.4
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.4"
+    page: "311"
+    pdfPage: 327
+    verdict: strong
+    machinery: "Epsilon/3 argument for uniform limits, applied to uniform continuity."
+    standardResult: "uniform limit of uniformly continuous functions is uniformly continuous"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [epsilon-over-3, triangle-inequality]
+    difficulty: medium
+    difficultyRationale: "The canonical epsilon/3 argument; a short but essential pattern."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, uniform-continuity, epsilon-over-3, machinery]
+    references: []
+    problemLatex: |
+      Assume that, for each $n \in \mathbb{N}$, the function $f_n\colon A \to \mathbb{R}$ is uniformly continuous. Also assume that $f_n \to f$ uniformly. Prove that $f$ is uniformly continuous.
+    audit: ok
+
+  - cid: cummings-9.6
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.6"
+    page: "311"
+    pdfPage: 327
+    verdict: strong
+    machinery: "Pointwise limits can destroy Riemann integrability (enumerate the rationals)."
+    standardResult: "pointwise limit of integrable functions need not be integrable (Dirichlet as limit)"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, interchange-integral]
+    skills: [construct-counterexample, enumeration]
+    difficulty: easy
+    difficultyRationale: "f_n = indicator of the first n rationals in an enumeration; each has finitely many discontinuities."
+    category: canonical
+    type: counterexample
+    tags: [pointwise-convergence, Riemann-integration, Dirichlet-function, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of a sequence $(f_n)$ of integrable functions for which $f_n \to f$ pointwise, but yet $f$ is not integrable.
+    audit: ok
+
+  - cid: cummings-9.7
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.7"
+    page: "311"
+    pdfPage: 327
+    verdict: core
+    machinery: "Limit and integral do not commute under pointwise convergence (moving/growing spike)."
+    standardResult: "pointwise convergence does not allow interchanging limit and integral (spike functions)"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, interchange-integral]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Standard tent functions of height n and base 2/n (or n·1_{(0,1/n)})."
+    category: canonical
+    type: counterexample
+    tags: [interchange-of-limits, Riemann-integration, pointwise-convergence, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of a sequence $(f_n)$ of integrable functions for which $f_n \to f$ pointwise, and $f$ is integrable, but yet
+      $$\lim_{n\to\infty} \int_a^b f_n(x)\,dx \neq \int_a^b f(x)\,dx.$$
+    audit: ok
+
+  - cid: cummings-9.8
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.8"
+    page: "311"
+    pdfPage: 327
+    verdict: core
+    machinery: "Completeness of R pointwise plus a limit passage in the uniform Cauchy inequality."
+    standardResult: "Cauchy criterion for uniform convergence"
+    topic: function-sequences
+    subtopics: [uniform-cauchy, uniform-convergence]
+    skills: [cauchy-completeness, limit-passage-in-inequality]
+    difficulty: medium
+    difficultyRationale: "Reverse direction requires defining f pointwise, then letting m -> ∞ in |f_m - f_n| < ε uniformly in x."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, Cauchy, completeness, machinery]
+    references: []
+    problemLatex: |
+      Prove the *Cauchy Criterion for Uniform Convergence*: Let $f_n\colon A \to \mathbb{R}$. The sequence $(f_n)$ converges uniformly if and only if for every $\varepsilon > 0$ there exists some $N \in \mathbb{N}$ such that $|f_m(x) - f_n(x)| < \varepsilon$ for all $m, n \ge N$ and all $x \in A$.
+    audit: ok
+
+  - cid: cummings-9.12
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.12"
+    page: "312"
+    pdfPage: 328
+    verdict: strong
+    machinery: "Pointwise limits of continuous functions need not be continuous, phrased via the sequential characterization."
+    standardResult: "pointwise limit of continuous functions need not be continuous (x^n on [0,1])"
+    topic: function-sequences
+    subtopics: [pointwise-convergence]
+    skills: [construct-counterexample, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "f_n(x) = x^n with a_n = 1 - 1/n -> 1 works."
+    category: canonical
+    type: counterexample
+    tags: [pointwise-convergence, continuity, counterexample, interchange-of-limits]
+    references: []
+    problemLatex: |
+      Give an example of (1) a sequence of functions $f_n$ on $[0,1]$, (2) a function $f$ on $[0,1]$, and (3) a sequence $(a_n)$ where each $a_n \in [0,1]$ and $a_n \to a$ for some $a$, such that the following conditions hold.
+
+      (i) Each $f_n$ is continuous;
+
+      (ii) $f_n \to f$ pointwise; and
+
+      (iii) $f(a_n) \not\to f(a)$.
+    transcriptionNotes: "Book typo 'Given an example' corrected to 'Give an example'."
+    audit: ok
+    auditNotes: 'Typo fix "Given an example" -> "Give an example" confirmed.'
+
+  - cid: cummings-9.16
+    chapter: "9 Sequences and Series of Functions"
+    section: "Chapter 9 Exercises"
+    number: "Exercise 9.16"
+    page: "312"
+    pdfPage: 328
+    verdict: strong
+    machinery: "Weierstrass M-test with M_k = |a_k||x_0|^k."
+    standardResult: "power series absolutely convergent at x0 converges uniformly on [-|x0|,|x0|]"
+    topic: function-sequences
+    subtopics: [power-series, weierstrass-m-test]
+    skills: [M-test]
+    difficulty: easy
+    difficultyRationale: "Direct M-test (or Cauchy criterion 9.14) once |a_k x^k| <= |a_k x_0^k| is noted."
+    category: canonical
+    type: proof
+    tags: [power-series, Weierstrass-M-test, uniform-convergence]
+    references: []
+    problemLatex: |
+      Prove that if a power series $\sum_{k=0}^\infty a_k x^k$ converges absolutely at some $x_0 \in \mathbb{R}$, then it converges uniformly on the closed interval $\big[-|x_0|, |x_0|\big]$.
+    audit: ok
+
+skipped:
+  - "6.5 routine linear epsilon-delta (subsumed by 6.1(a)); 6.6 set-theoretic preimage identity, not analysis; 6.7 sign function discontinuous at 0 -- routine, weaker than 6.9; 6.8 trivial pointwise computations with the Dirichlet function (no analysis)"
+  - "6.12 (continuous f vanishing on Q is 0) is the special case g = 0 of 6.23 (kept); 6.13 special case g(x)=|x| of 6.14 (itself demoted, see below)"
+  - "6.18 even/odd decomposition -- continuity hypothesis irrelevant, pure algebra"
+  - "6.27 (no continuous map [0,1] onto (0,1)) duplicates 6.21(b) (kept)"
+  - "6.29 (f(a)<g(a), f(b)>g(b) => f=g somewhere) routine IVT on f-g, weaker than 6.30/6.22; 6.31 routine IVT applications to specific equations"
+  - "6.36 clock-hands puzzle -- recreational counting, little analysis machinery"
+  - "7.1 routine derivative-from-definition computations; 7.3 quotient rule (Theorem 7.12), routine standard rule; 7.5 power rule by induction, routine"
+  - "7.6 (f' bounded => uniformly continuous) and 7.8 (C^1 on [a,b] => Lipschitz) are immediate consequences of 7.9 (kept, Lipschitz iff f' bounded) plus Lipschitz => UC / EVT"
+  - "7.11 calculus computation; 7.12 rectangle optimization and 7.13 x + 1/x >= 2 -- calculus/precalculus exercises, no analysis machinery"
+  - "Chapter 7 'Open Question' (p.222, area/perimeter derivative shapes) and Chapter 8 'Open Questions' 1-2 (p.275, integral inequalities) and Chapter 9 'Open Question' (p.313, Taylor coefficient decidability) -- research questions, not exercises"
+  - "8.1 Uber fare word problem (motivational, not analysis); 8.2 A ⊆ B => sup A <= sup B, elementary sup fact (belongs to real-numbers chapter, weaker than 8.3); 8.4 routine U(f,P), L(f,P) computation"
+  - "8.7, 8.8 same as 8.6 with x^2, x^3 (duplicates of 8.6)"
+  - "8.19 second proof of Thomae integrability via Theorem 8.23 (Lebesgue criterion, stated without proof in the book) -- relies on measure zero; 8.13 is the substantive version"
+  - "8.23 log additivity via integrals and 8.24 scaling ∫_{ca}^{cb} f = c∫_a^b f(cx) -- change-of-variable computations, low machinery value (log-exp topic)"
+  - "9.1 routine uniform convergence of x sin(x)/n on [0,10]; 9.9 sum of pointwise limits, trivial; 9.11 (uniform on [-10,10], pointwise not uniform on R) near-duplicate of 9.2 (x/n works for both)"
+  - "9.17, 9.18 routine Taylor/Maclaurin series computations"
+  - "Demoted for bank size (valid but low marginal value): 6.1 routine epsilon-delta limits; 6.4 epsilon-delta continuity of sqrt/exp/log/sin/cos (relies on unproven properties of exp/log/trig); 6.14 squeeze continuity at 0; 6.16 function on [0,1] not attaining sup (trivial EVT-sharpness example); 6.17 |f| continuous, converse false; 6.19 max of continuous functions / positive-negative parts; 6.25 every f on Z is uniformly continuous; 6.26 positive continuous on [a,b] bounded below (direct EVT)"
+  - "Demoted for bank size: 7.2 no differentiable f,g with f(0)=g(0)=0 and x=f(x)g(x) (product rule trick)"
+  - "Demoted for bank size: 8.3 x<=y for A,B => sup A <= inf B (real-numbers basics); 8.6 integral of x via Darboux sums (computation); 8.9 integrability of a specific step function; 8.10 example with L<U for every P on [0,1] but L=U on [1,2]; 8.11 Corollary 8.14 (sequence of partitions with U-L->0), trivial from epsilon criterion; 8.17 U(f+g,P)<U(f,P)+U(g,P) example; 8.18 compute F_k = integral of |x|, jump, removable-point functions (no proofs required); 8.26 IVT gives a point bisecting the integral"
+  - "Demoted for bank size: 9.5 discontinuous f_n converging uniformly to continuous f (trivial example); 9.10 uniform limit of sums; 9.13 pointwise limit of monotone functions is monotone; 9.14 Cauchy criterion for series of functions (immediate from 9.8, kept); 9.15 each f_n bounded vs uniformly bounded (definition)"

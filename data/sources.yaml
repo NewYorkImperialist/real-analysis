@@ -1,0 +1,69 @@
+# The complete universe of approved sources. The data validator rejects any
+# problem whose source.key is not listed here. Order = display order.
+- key: mit
+  tier: primary
+  name: "MIT 18.100A Real Analysis — 2020"
+  shortName: "MIT 18.100A (2020)"
+  author: "MIT OpenCourseWare"
+  title: "18.100A / 18.1001 Real Analysis, Fall 2020 — Assignments 1–12, Midterm, Final Assignment"
+  year: "2020"
+  description: >-
+    Problem sets, the October 16, 2020 midterm and the December 6, 2020 final assignment
+    from the Fall 2020 offering. The assignments draw many exercises from Lebl's
+    Basic Analysis; those are stored under Lebl and marked as assigned in 18.100A (2020).
+  citation: "MIT OpenCourseWare, 18.100A / 18.1001 Real Analysis, Fall 2020. https://ocw.mit.edu"
+
+- key: abbott
+  tier: primary
+  name: "Abbott — Understanding Analysis"
+  shortName: "Abbott"
+  author: "Stephen Abbott"
+  title: "Understanding Analysis"
+  edition: "2nd edition"
+  year: "2015"
+  publisher: "Springer (Undergraduate Texts in Mathematics)"
+  citation: "S. Abbott, Understanding Analysis, 2nd ed., Springer, 2015."
+
+- key: lebl
+  tier: primary
+  name: "Lebl — Basic Analysis I"
+  shortName: "Lebl"
+  author: "Jiří Lebl"
+  title: "Basic Analysis I: Introduction to Real Analysis, Volume I"
+  edition: "version 6.3"
+  year: "2026"
+  description: >-
+    Exercise numbers follow version 6.3 (May 15, 2026). MIT 18.100A (2020) cites
+    Lebl exercises by number from an earlier version; see the notes on those problems.
+  citation: "J. Lebl, Basic Analysis I: Introduction to Real Analysis, Vol. I, version 6.3, 2026. https://www.jirka.org/ra/"
+
+- key: ross
+  tier: supplementary
+  name: "Ross — Elementary Analysis"
+  shortName: "Ross"
+  author: "Kenneth A. Ross"
+  title: "Elementary Analysis: The Theory of Calculus"
+  edition: "2nd edition"
+  year: "2013"
+  publisher: "Springer (Undergraduate Texts in Mathematics)"
+  citation: "K. A. Ross, Elementary Analysis: The Theory of Calculus, 2nd ed., Springer, 2013."
+
+- key: cummings
+  tier: supplementary
+  name: "Cummings — Real Analysis"
+  shortName: "Cummings"
+  author: "Jay Cummings"
+  title: "Real Analysis: A Long-Form Mathematics Textbook"
+  year: "2019"
+  citation: "J. Cummings, Real Analysis: A Long-Form Mathematics Textbook, 2019."
+
+- key: tao
+  tier: supplementary
+  name: "Tao — Analysis I"
+  shortName: "Tao"
+  author: "Terence Tao"
+  title: "Analysis I"
+  edition: "3rd edition"
+  year: "2016"
+  publisher: "Hindustan Book Agency / Springer (Texts and Readings in Mathematics 37)"
+  citation: "T. Tao, Analysis I, 3rd ed., Hindustan Book Agency / Springer, 2016."

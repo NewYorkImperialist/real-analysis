@@ -1,0 +1,7 @@
+node_modules
+dist
+src/generated
+.DS_Store
+curation/img
+curation/text
+pdfs/

@@ -1,0 +1,2011 @@
+chunk: "ross-ch4-6"
+book: ross
+pageOffsetNote: "printed page = pdfPage - 10 for PDF pages 197-231 (Chapter 4); printed page = pdfPage - 9 for PDF pages 233 onward (Chapters 5-6 and the back-of-book Selected Hints and Answers, e.g. PDF 395 = printed 386). The jump comes at the Chapter 5 opener (PDF 232). The Selected Hints and Answers entries for §§23-36 are on PDF pages 395-402."
+sectionsCovered:
+  - "§23 Power Series — 9 exercises (23.1–23.9)"
+  - "§24 Uniform Convergence — 17 exercises (24.1–24.17)"
+  - "§25 More on Uniform Convergence — 15 exercises (25.1–25.15)"
+  - "§26 Differentiation and Integration of Power Series — 8 exercises (26.1–26.8)"
+  - "§27 Weierstrass's Approximation Theorem — 7 exercises (27.1–27.7)"
+  - "§28 Basic Properties of the Derivative — 16 exercises (28.1–28.16)"
+  - "§29 The Mean Value Theorem — 18 exercises (29.1–29.18)"
+  - "§30 L'Hospital's Rule — 7 exercises (30.1–30.7)"
+  - "§31 Taylor's Theorem — 12 exercises (31.1–31.12)"
+  - "§32 The Riemann Integral — 8 exercises (32.1–32.8)"
+  - "§33 Properties of the Riemann Integral — 15 exercises (33.1–33.15)"
+  - "§34 Fundamental Theorem of Calculus — 12 exercises (34.1–34.12)"
+  - "§35 Riemann-Stieltjes Integrals — SKIPPED entirely per instructions"
+  - "§36 Improper Integrals — 15 exercises (36.1–36.15)"
+candidates:
+
+  # ---------------- §23 Power Series ----------------
+  - cid: ross-23.1
+    chapter: "4 Sequences and Series of Functions"
+    section: "§23 Power Series"
+    number: "Exercise 23.1"
+    page: "192"
+    pdfPage: 202
+    verdict: consider
+    machinery: "Computing radius of convergence via root/ratio test and checking endpoints by hand."
+    standardResult: "radius and exact interval of convergence of power series (computation drill)"
+    topic: series
+    subtopics: [power-series, convergence-tests]
+    skills: [ratio-test, root-test, endpoint-analysis]
+    difficulty: easy
+    difficultyRationale: "Routine applications of ratio/root tests plus endpoint checks with p-series/alternating series."
+    category: canonical
+    type: computation
+    tags: [power-series, radius-of-convergence, interval-of-convergence, computation]
+    references: []
+    problemLatex: |
+      For each of the following power series, find the radius of convergence and determine the exact interval of convergence.
+
+      (a) $\sum n^2 x^n$ $\qquad$ (b) $\sum \left(\frac{x}{n}\right)^n$
+
+      (c) $\sum \left(\frac{2^n}{n^2}\right) x^n$ $\qquad$ (d) $\sum \left(\frac{n^3}{3^n}\right) x^n$
+
+      (e) $\sum \left(\frac{2^n}{n!}\right) x^n$ $\qquad$ (f) $\sum \left(\frac{1}{(n+1)^2 2^n}\right) x^n$
+
+      (g) $\sum \left(\frac{3^n}{n \cdot 4^n}\right) x^n$ $\qquad$ (h) $\sum \left(\frac{(-1)^n}{n^2 \cdot 4^n}\right) x^n$
+    bookHint: |
+      Intervals of convergence: (a) $(-1, 1)$; (c) $[-\frac12, \frac12]$; (e) $\mathbb{R}$; (g) $[-\frac43, \frac43)$.
+    transcriptionNotes: "Verified against page image. bookHint from Selected Hints and Answers, PDF p. 395 (printed 386). Included as the single representative power-series computation drill; 23.2 is a near-duplicate."
+
+  - cid: ross-23.4
+    chapter: "4 Sequences and Series of Functions"
+    section: "§23 Power Series"
+    number: "Exercise 23.4"
+    page: "192"
+    pdfPage: 202
+    verdict: consider
+    machinery: "Contrasts root-test (limsup |a_n|^{1/n}) with ratio-test quantities on an oscillating sequence."
+    standardResult: "root test is stronger than ratio test; radius via limsup |a_n|^{1/n} when ratios oscillate"
+    topic: series
+    subtopics: [power-series, convergence-tests, limsup-liminf]
+    skills: [limsup-computation, root-test, ratio-test]
+    difficulty: easy
+    difficultyRationale: "Direct computation of four limsup/liminf values and application of the root test; insight is in noticing ratio test fails."
+    category: synthesis
+    type: computation
+    tags: [power-series, root-test, ratio-test, limsup, radius-of-convergence]
+    references: []
+    problemLatex: |
+      For $n = 0, 1, 2, 3, \ldots$, let $a_n = \left[\frac{4 + 2(-1)^n}{5}\right]^n$.
+
+      (a) Find $\limsup (a_n)^{1/n}$, $\liminf (a_n)^{1/n}$, $\limsup \left|\frac{a_{n+1}}{a_n}\right|$ and $\liminf \left|\frac{a_{n+1}}{a_n}\right|$.
+
+      (b) Do the series $\sum a_n$ and $\sum (-1)^n a_n$ converge? Explain briefly.
+
+      (c) Now consider the power series $\sum a_n x^n$ with the coefficients $a_n$ as above. Find the radius of convergence and determine the exact interval of convergence for the series.
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  - cid: ross-23.5
+    chapter: "4 Sequences and Series of Functions"
+    section: "§23 Power Series"
+    number: "Exercise 23.5"
+    page: "192"
+    pdfPage: 202
+    verdict: strong
+    machinery: "Uses the Cauchy–Hadamard formula R = 1/limsup|a_n|^{1/n} with limsup arguments on subsequences."
+    standardResult: "integer coefficients (infinitely many nonzero) or limsup|a_n|>0 forces R <= 1"
+    topic: series
+    subtopics: [power-series, limsup-liminf]
+    skills: [limsup-estimate, subsequence-extraction]
+    difficulty: easy
+    difficultyRationale: "Short limsup argument once the Cauchy–Hadamard formula is in hand; (b) needs a subsequence bound and c^{1/n} -> 1."
+    category: canonical
+    type: proof
+    tags: [power-series, radius-of-convergence, limsup, Cauchy-Hadamard]
+    references: []
+    problemLatex: |
+      Consider a power series $\sum a_n x^n$ with radius of convergence $R$.
+
+      (a) Prove that if all the coefficients $a_n$ are integers and if infinitely many of them are nonzero, then $R \le 1$.
+
+      (b) Prove that if $\limsup |a_n| > 0$, then $R \le 1$.
+    bookHint: |
+      (a) Since $|a_n| \ge 1$ for infinitely many $n$, we have $\sup\{|a_n|^{1/n} : n > N\} \ge 1$ for all $N$. Thus $\beta = \limsup |a_n|^{1/n} \ge 1$; hence $R = \frac{1}{\beta} \le 1$.
+
+      (b) Select $c$ so that $0 < c < \limsup |a_n|$. Then $\sup\{|a_n| : n > N\} > c$ for all $N$. A subsequence $(a_{n_k})$ of $(a_n)$ has the property that $|a_{n_k}| > c$ for all $k$. Since $|a_{n_k}|^{1/n_k} > (c)^{1/n_k}$ and $\lim_{k\to\infty} c^{1/n_k} = 1$ [by Theorem 9.7(d)], Theorem 12.1 shows $\limsup |a_{n_k}|^{1/n_k} \ge 1$. It follows that $\beta = \limsup |a_n|^{1/n} \ge 1$ [use Theorem 11.8]. Hence $R = \frac{1}{\beta} \le 1$.
+    transcriptionNotes: "Verified against page image. bookHint verbatim from Selected Hints and Answers, PDF p. 395 (printed 386); it cites book theorems (9.7(d), 12.1, 11.8) by number. In Ross, R = 1/beta with beta = limsup |a_n|^{1/n} (Theorem 23.1)."
+
+  - cid: ross-23.6
+    chapter: "4 Sequences and Series of Functions"
+    section: "§23 Power Series"
+    number: "Exercise 23.6"
+    page: "193"
+    pdfPage: 203
+    verdict: consider
+    machinery: "Endpoint behavior of power series: absolute convergence at R transfers to -R; constructing a prescribed interval of convergence."
+    standardResult: "nonnegative coefficients: convergence at R implies convergence at -R; power series with interval (-1,1]"
+    topic: series
+    subtopics: [power-series, absolute-convergence]
+    skills: [absolute-convergence, construct-example]
+    difficulty: easy
+    difficultyRationale: "(a) is one line via absolute convergence; (b) needs a standard example like an alternating log series."
+    category: canonical
+    type: construction
+    tags: [power-series, interval-of-convergence, endpoints, example]
+    references: []
+    problemLatex: |
+      (a) Suppose $\sum a_n x^n$ has finite radius of convergence $R$ and $a_n \ge 0$ for all $n$. Show that if the series converges at $R$, then it also converges at $-R$.
+
+      (b) Give an example of a power series whose interval of convergence is exactly $(-1, 1]$.
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  - cid: ross-23.8
+    chapter: "4 Sequences and Series of Functions"
+    section: "§23 Power Series"
+    number: "Exercise 23.8"
+    page: "193"
+    pdfPage: 203
+    verdict: consider
+    machinery: "Pointwise (even uniform) convergence of functions does not let you interchange limit and derivative."
+    standardResult: "(1/n) sin nx -> 0 but derivatives cos nx do not converge"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, interchange-derivative]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Direct computation; the value is the cautionary example."
+    category: canonical
+    type: counterexample
+    tags: [pointwise-convergence, derivative, interchange-of-limits, counterexample]
+    references: []
+    problemLatex: |
+      For each $n \in \mathbb{N}$, let $f_n(x) = \frac{1}{n}\sin nx$. Each $f_n$ is a differentiable function. Show
+
+      (a) $\lim f_n(x) = 0$ for all $x \in \mathbb{R}$,
+
+      (b) But $\lim f_n'(x)$ need not exist [at $x = \pi$ for instance].
+    transcriptionNotes: "Verified against page image. In the book this exercise is preceded by the remark: 'The next three exercises are designed to show that the notion of convergence of functions discussed prior to Example 8 has many defects.' (i.e. pointwise convergence). No book hint."
+
+  - cid: ross-23.9
+    chapter: "4 Sequences and Series of Functions"
+    section: "§23 Power Series"
+    number: "Exercise 23.9"
+    page: "193"
+    pdfPage: 203
+    verdict: core
+    machinery: "Pointwise convergence does not allow interchange of limit and integral; uses ratio-type limit lemma."
+    standardResult: "n x^n -> 0 pointwise on [0,1) but integrals -> 1 (limit/integral interchange fails)"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, interchange-integral]
+    skills: [ratio-limit-lemma, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Ratio argument for n x^n -> 0 plus an elementary integral computation."
+    category: canonical
+    type: counterexample
+    tags: [pointwise-convergence, integral, interchange-of-limits, counterexample]
+    references: ["Exercise 9.12 (quoted)"]
+    problemLatex: |
+      Let $f_n(x) = nx^n$ for $x \in [0, 1]$ and $n \in \mathbb{N}$. Show
+
+      (a) $\lim f_n(x) = 0$ for $x \in [0, 1)$. *Hint*: Use Exercise 9.12.
+
+      (b) However, $\lim_{n\to\infty} \int_0^1 f_n(x)\,dx = 1$.
+
+      *(Exercise 9.12: Assume all $s_n \neq 0$ and that the limit $L = \lim \left|\frac{s_{n+1}}{s_n}\right|$ exists. (a) Show that if $L < 1$, then $\lim s_n = 0$. ... (b) Show that if $L > 1$, then $\lim |s_n| = +\infty$. ...)*
+    bookHint: |
+      (a) Obviously $\lim f_n(0) = 0$. Consider $0 < x < 1$ and let $s_n = nx^n$. Then $s_{n+1}/s_n = (\frac{n+1}{n})x$, so $\lim |s_{n+1}/s_n| = x < 1$. Exercise 9.12(a) shows $0 = \lim s_n = \lim nx^n = \lim f_n(x)$.
+    transcriptionNotes: "Verified against page image. Exercise 9.12 quoted verbatim (its internal hints elided with '...'). Note: 'f_n(x) dx' printed as an integral from 0 to 1. bookHint from PDF p. 395 (printed 386)."
+
+  # ---------------- §24 Uniform Convergence ----------------
+  - cid: ross-24.2
+    chapter: "4 Sequences and Series of Functions"
+    section: "§24 Uniform Convergence"
+    number: "Exercise 24.2"
+    page: "199"
+    pdfPage: 209
+    verdict: consider
+    machinery: "Uniform convergence depends on the domain: same sequence uniform on a bounded set but not on an unbounded one."
+    standardResult: "x/n -> 0 uniformly on [0,1] but not on [0,infinity)"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [sup-norm-estimate, negate-definition]
+    difficulty: introductory
+    difficultyRationale: "Direct check of the definition on two domains."
+    category: canonical
+    type: definition
+    tags: [uniform-convergence, pointwise-convergence, domain-dependence]
+    references: []
+    problemLatex: |
+      For $x \in [0, \infty)$, let $f_n(x) = \frac{x}{n}$.
+
+      (a) Find $f(x) = \lim f_n(x)$.
+
+      (b) Determine whether $f_n \to f$ uniformly on $[0, 1]$.
+
+      (c) Determine whether $f_n \to f$ uniformly on $[0, \infty)$.
+    transcriptionNotes: "Verified against page image. Exercises 24.3–24.5 are 'Repeat Exercise 24.2' variants (skipped as near-duplicates)."
+
+  - cid: ross-24.9
+    chapter: "4 Sequences and Series of Functions"
+    section: "§24 Uniform Convergence"
+    number: "Exercise 24.9"
+    page: "199"
+    pdfPage: 209
+    verdict: strong
+    machinery: "Computing sup|f_n - f| with calculus to disprove uniform convergence; shows integral interchange can hold without uniformity."
+    standardResult: "n x^n (1-x): not uniformly convergent, yet integrals converge (uniform convergence sufficient, not necessary)"
+    topic: function-sequences
+    subtopics: [uniform-convergence, interchange-integral]
+    skills: [sup-norm-estimate, calculus-maximization]
+    difficulty: medium
+    difficultyRationale: "Requires locating the max of f_n and the limit (n/(n+1))^{n+1} -> 1/e, then comparing with the integral computation."
+    category: synthesis
+    type: counterexample
+    tags: [uniform-convergence, integral, sup-norm, counterexample, interchange-of-limits]
+    references: []
+    problemLatex: |
+      Consider $f_n(x) = nx^n(1 - x)$ for $x \in [0, 1]$.
+
+      (a) Find $f(x) = \lim f_n(x)$.
+
+      (b) Does $f_n \to f$ uniformly on $[0, 1]$? Justify.
+
+      (c) Does $\int_0^1 f_n(x)\,dx$ converge to $\int_0^1 f(x)\,dx$? Justify.
+    bookHint: |
+      (a) $f(x) = 0$ for $x \in [0, 1]$. For $x < 1$, $\lim_{n\to\infty} nx^n = 0$ as in Exercise 23.9(a).
+
+      (b) Use calculus to show $f_n$ takes its maximum at $\frac{n}{n+1}$. Thus $\sup\{|f_n(x)| : x \in [0, 1]\} = f_n(\frac{n}{n+1}) = (\frac{n}{n+1})^{n+1}$. As in Example 8, it turns out $\lim f_n(\frac{n}{n+1}) = 1/e$. So Remark 24.4 shows $(f_n)$ does not converge uniformly to 0.
+
+      (c) $\int_0^1 f_n(x)\,dx = \frac{n}{(n+1)(n+2)} \to 0 = \int_0^1 f(x)\,dx$.
+    transcriptionNotes: "Verified against page image. bookHint verbatim from PDF pp. 395–396 (printed 386–387); it references Remark 24.4 (uniform convergence iff sup|f - f_n| -> 0; see ross-24.12)."
+
+  - cid: ross-24.11
+    chapter: "4 Sequences and Series of Functions"
+    section: "§24 Uniform Convergence"
+    number: "Exercise 24.11"
+    page: "200"
+    pdfPage: 210
+    verdict: consider
+    machinery: "Uniform convergence is not preserved under products when the functions are unbounded."
+    standardResult: "f_n -> f, g_n -> g uniformly does not imply f_n g_n -> fg uniformly"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [construct-counterexample, negate-definition]
+    difficulty: introductory
+    difficultyRationale: "The example is given; one only verifies it."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, products, counterexample]
+    references: ["Exercise 24.2 (see ross-24.2)"]
+    problemLatex: |
+      Let $f_n(x) = x$ and $g_n(x) = \frac{1}{n}$ for all $x \in \mathbb{R}$. Let $f(x) = x$ and $g(x) = 0$ for $x \in \mathbb{R}$.
+
+      (a) Observe $f_n \to f$ uniformly on $\mathbb{R}$ [obvious!] and $g_n \to g$ uniformly on $\mathbb{R}$ [almost obvious].
+
+      (b) Observe the sequence $(f_n g_n)$ does not converge uniformly to $fg$ on $\mathbb{R}$. Compare Exercise 24.2.
+    transcriptionNotes: "Verified against page image. Follows Exercise 24.10 ((a) sums preserve uniform convergence; (b) 'Do you believe the analogue of (a) holds for products? If so, see the next exercise.'). 'Exercise 24.2' is x/n on [0, infinity) (ross-24.2)."
+
+  - cid: ross-24.12
+    chapter: "4 Sequences and Series of Functions"
+    section: "§24 Uniform Convergence"
+    number: "Exercise 24.12"
+    page: "200"
+    pdfPage: 210
+    verdict: strong
+    machinery: "Reformulates uniform convergence as sup-norm convergence."
+    standardResult: "f_n -> f uniformly on S iff sup_S |f - f_n| -> 0"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [sup-approximation, definition-unpacking]
+    difficulty: easy
+    difficultyRationale: "Straightforward translation between the epsilon-N definition and a supremum statement, with care about < vs <=."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, supremum, sup-norm, machinery]
+    references: ["Remark 24.4 (quoted)"]
+    problemLatex: |
+      Prove the assertion in Remark 24.4.
+
+      *(Remark 24.4: Uniform convergence can be reformulated as follows. A sequence $(f_n)$ of functions on a set $S \subseteq \mathbb{R}$ converges uniformly to a function $f$ on $S$ if and only if*
+      $$\lim_{n\to\infty} \sup\{|f(x) - f_n(x)| : x \in S\} = 0.)$$
+    transcriptionNotes: "Verified against page image. Remark 24.4 quoted verbatim (PDF pp. 207–208). Ross's Definition 24.2: f_n -> f uniformly on S if for each epsilon > 0 there exists N such that |f_n(x) - f(x)| < epsilon for all x in S and all n > N."
+
+  - cid: ross-24.13
+    chapter: "4 Sequences and Series of Functions"
+    section: "§24 Uniform Convergence"
+    number: "Exercise 24.13"
+    page: "200"
+    pdfPage: 210
+    verdict: core
+    machinery: "epsilon/3 argument transferring uniform continuity through a uniform limit."
+    standardResult: "uniform limit of uniformly continuous functions is uniformly continuous"
+    topic: function-sequences
+    subtopics: [uniform-convergence, interchange-limits]
+    skills: [epsilon-over-3, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Standard epsilon/3 pattern mirroring the continuity proof; the only care is that delta is independent of the point."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, uniform-continuity, epsilon-over-3, machinery]
+    references: ["Theorem 24.3 (quoted)"]
+    problemLatex: |
+      Prove that if $(f_n)$ is a sequence of uniformly continuous functions on an interval $(a, b)$, and if $f_n \to f$ uniformly on $(a, b)$, then $f$ is also uniformly continuous on $(a, b)$. *Hint*: Try an $\frac{\epsilon}{3}$ argument as in the proof of Theorem 24.3.
+
+      *(Theorem 24.3: The uniform limit of continuous functions is continuous. More precisely, let $(f_n)$ be a sequence of functions on a set $S \subseteq \mathbb{R}$, suppose $f_n \to f$ uniformly on $S$, and suppose $S = \operatorname{dom}(f)$. If each $f_n$ is continuous at $x_0$ in $S$, then $f$ is continuous at $x_0$.)*
+    transcriptionNotes: "Verified against page image. Theorem 24.3 statement quoted verbatim (bracketed final sentence omitted). No book hint."
+
+  - cid: ross-24.14
+    chapter: "4 Sequences and Series of Functions"
+    section: "§24 Uniform Convergence"
+    number: "Exercise 24.14"
+    page: "200"
+    pdfPage: 210
+    verdict: strong
+    machinery: "Moving-bump sequence: pointwise but not uniform near 0, uniform away from 0; uses sup computation."
+    standardResult: "nx/(1+n^2x^2): not uniform on [0,1] (value 1/2 at x=1/n), uniform on [1,infinity)"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [sup-norm-estimate, choose-witness-point]
+    difficulty: easy
+    difficultyRationale: "Pick x = 1/n to defeat uniformity; bound by 1/(nx) on [1,infinity)."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, pointwise-convergence, moving-bump, counterexample]
+    references: []
+    problemLatex: |
+      Let $f_n(x) = \frac{nx}{1 + n^2x^2}$ and $f(x) = 0$ for $x \in \mathbb{R}$.
+
+      (a) Show $f_n \to f$ pointwise on $\mathbb{R}$.
+
+      (b) Does $f_n \to f$ uniformly on $[0, 1]$? Justify.
+
+      (c) Does $f_n \to f$ uniformly on $[1, \infty)$? Justify.
+    transcriptionNotes: "Verified against page image. Chosen over 24.15/24.16 (same pattern). No book hint."
+
+  - cid: ross-24.17
+    chapter: "4 Sequences and Series of Functions"
+    section: "§24 Uniform Convergence"
+    number: "Exercise 24.17"
+    page: "200"
+    pdfPage: 210
+    verdict: strong
+    machinery: "Combining uniform convergence with continuity of the limit to evaluate along a moving point."
+    standardResult: "f_n -> f uniformly with f_n continuous and x_n -> x implies f_n(x_n) -> f(x)"
+    topic: function-sequences
+    subtopics: [uniform-convergence, interchange-limits]
+    skills: [triangle-inequality, sequential-continuity]
+    difficulty: easy
+    difficultyRationale: "One triangle-inequality split plus continuity of f (from Theorem 24.3)."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, continuity, sequences, interchange-of-limits]
+    references: []
+    problemLatex: |
+      Let $(f_n)$ be a sequence of continuous functions on $[a, b]$ that converges uniformly to $f$ on $[a, b]$. Show that if $(x_n)$ is a sequence in $[a, b]$ and if $x_n \to x$, then $\lim_{n\to\infty} f_n(x_n) = f(x)$.
+    bookHint: |
+      *Hint*: Use $|f_n(x_n) - f(x)| \le |f_n(x_n) - f(x_n)| + |f(x_n) - f(x)|$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 396 (printed 387)."
+
+  # ---------------- §25 More on Uniform Convergence ----------------
+  - cid: ross-25.3
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.3"
+    page: "207"
+    pdfPage: 217
+    verdict: consider
+    machinery: "Proving uniform convergence via an explicit x-independent bound, then using it to pass a limit through an integral."
+    standardResult: "uniform convergence lets limit pass through integral (application)"
+    topic: function-sequences
+    subtopics: [uniform-convergence, interchange-integral]
+    skills: [uniform-bound-estimate, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Guess the limit 1/2, bound the error uniformly, then apply the interchange theorem."
+    category: canonical
+    type: theorem-application
+    tags: [uniform-convergence, integral, interchange-of-limits]
+    references: []
+    problemLatex: |
+      Let $f_n(x) = \frac{n + \cos x}{2n + \sin^2 x}$ for all real numbers $x$.
+
+      (a) Show $(f_n)$ converges uniformly on $\mathbb{R}$. *Hint*: First decide what the limit function is; then show $(f_n)$ converges uniformly to it.
+
+      (b) Calculate $\lim_{n\to\infty} \int_2^7 f_n(x)\,dx$. *Hint*: Don't integrate $f_n$.
+    bookHint: |
+      (a) Since $f_n(x) = (1 + (\cos x)/n)/(2 + (\sin^2 x)/n)$, we have $f_n \to \frac12$ pointwise. To obtain uniform convergence, show
+      $$\left|f_n(x) - \frac12\right| = \left|\frac{2\cos x - \sin^2 x}{2(2n + \sin^2 x)}\right| \le \frac{3}{2(2n)} < \epsilon$$
+      for all real numbers $x$ and all $n > \frac{3}{4\epsilon}$.
+
+      (b) $\int_2^7 \frac12\,dx = \frac52$, by Theorem 25.2.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 396 (printed 387). Theorem 25.2: if continuous f_n -> f uniformly on [a,b] then the integrals converge."
+
+  - cid: ross-25.4
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.4"
+    page: "207"
+    pdfPage: 217
+    verdict: strong
+    machinery: "Uniform version of 'convergent implies Cauchy'; tracks that N is independent of x."
+    standardResult: "uniformly convergent implies uniformly Cauchy"
+    topic: function-sequences
+    subtopics: [uniform-cauchy, uniform-convergence]
+    skills: [epsilon-over-2, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Direct adaptation of the sequence proof with uniform N."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, uniformly-Cauchy, Cauchy, machinery]
+    references: ["Lemma 10.9 (quoted)"]
+    problemLatex: |
+      Let $(f_n)$ be a sequence of functions on a set $S \subseteq \mathbb{R}$, and suppose $f_n \to f$ uniformly on $S$. Prove $(f_n)$ is uniformly Cauchy on $S$. *Hint*: Use the proof of Lemma 10.9 on page 63 as a model, but be careful.
+
+      *(Lemma 10.9: Convergent sequences are Cauchy sequences.)*
+    transcriptionNotes: "Verified against page image. Lemma 10.9 statement quoted verbatim; its proof is the epsilon/2 triangle-inequality argument. Ross's definition (25.3): (f_n) is uniformly Cauchy on S if for each epsilon > 0 there exists N such that |f_n(x) - f_m(x)| < epsilon for all x in S and all m, n > N. No book hint."
+
+  - cid: ross-25.5
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.5"
+    page: "207"
+    pdfPage: 217
+    verdict: strong
+    machinery: "Uniform closeness transfers boundedness from one f_N to the limit."
+    standardResult: "uniform limit of bounded functions is bounded"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [epsilon-equals-one, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Take epsilon = 1 and a single index; one-line bound."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, bounded-functions, machinery]
+    references: []
+    problemLatex: |
+      Let $(f_n)$ be a sequence of bounded functions on a set $S$, and suppose $f_n \to f$ uniformly on $S$. Prove $f$ is a bounded function on $S$.
+    bookHint: |
+      Since $f_n \to f$ uniformly on $S$, there exists $N \in \mathbb{N}$ such that $n > N$ implies $|f_n(x) - f(x)| < 1$ for all $x \in S$. In particular, we have $|f_{N+1}(x) - f(x)| < 1$ for $x \in S$. If $M$ bounds $|f_{N+1}|$ on $S$ [i.e., if $|f_{N+1}(x)| \le M$ for $x \in S$], then $M + 1$ bounds $|f|$ on $S$ [why?].
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 396 (printed 387) — essentially a full solution."
+
+  - cid: ross-25.6
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.6"
+    page: "207"
+    pdfPage: 217
+    verdict: consider
+    machinery: "Weierstrass M-test on a closed interval up to the radius of convergence, plus continuity of uniformly convergent series."
+    standardResult: "sum |a_k| < infinity implies sum a_k x^k converges uniformly on [-1,1] (M-test)"
+    topic: function-sequences
+    subtopics: [weierstrass-m-test, power-series, series-of-functions]
+    skills: [M-test]
+    difficulty: easy
+    difficultyRationale: "Direct M-test application with M_k = |a_k|."
+    category: canonical
+    type: theorem-application
+    tags: [Weierstrass-M-test, power-series, uniform-convergence, continuity]
+    references: []
+    problemLatex: |
+      (a) Show that if $\sum |a_k| < \infty$, then $\sum a_k x^k$ converges uniformly on $[-1, 1]$ to a continuous function.
+
+      (b) Does $\sum_{n=1}^\infty \frac{1}{n^2} x^n$ represent a continuous function on $[-1, 1]$?
+    transcriptionNotes: "Verified against page image. Representative M-test exercise; 25.7 and 25.8 are near-duplicates. No book hint for 25.6 (25.7 has one)."
+
+  - cid: ross-25.9
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.9"
+    page: "207"
+    pdfPage: 217
+    verdict: strong
+    machinery: "Geometric series: uniform on compact subintervals via M-test, not uniform on the full open interval (unbounded limit / sup criterion)."
+    standardResult: "sum x^n converges uniformly on [-a,a] (a<1) but not on (-1,1)"
+    topic: function-sequences
+    subtopics: [series-of-functions, uniform-convergence, weierstrass-m-test, power-series]
+    skills: [M-test, bounded-limit-argument]
+    difficulty: easy
+    difficultyRationale: "M-test for (a); (b) needs one clean obstruction (bounded partial sums vs unbounded limit, or sup of terms)."
+    category: canonical
+    type: counterexample
+    tags: [geometric-series, uniform-convergence, Weierstrass-M-test, counterexample]
+    references: []
+    problemLatex: |
+      (a) Let $0 < a < 1$. Show the series $\sum_{n=0}^\infty x^n$ converges uniformly on $[-a, a]$ to $\frac{1}{1-x}$.
+
+      (b) Does the series $\sum_{n=0}^\infty x^n$ converge uniformly on $(-1, 1)$ to $\frac{1}{1-x}$? Explain.
+    bookHint: |
+      (a) The series converges pointwise to $\frac{1}{1-x}$ on $(-1, 1)$ by (2) of Example 1 in §14. The series converges uniformly on $[-a, a]$ by the Weierstrass $M$-Test since $|x^n| \le a^n$ for $x \in [-a, a]$ and since $\sum a^n < \infty$.
+
+      (b) One can show directly that the sequence of partial sums $s_n(x) = \sum_{k=0}^n x^k = (1 - x^{n+1})/(1 - x)$ does not converge uniformly on $(-1, 1)$. It is easier to observe the partial sums $s_n$ are each bounded on $(-1, 1)$, and hence if $(s_n)$ converges uniformly, then the limit function is bounded by Exercise 25.5. But $\frac{1}{1-x}$ is not bounded on $(-1, 1)$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 396 (printed 387). Exercise 25.10 is a similar 'uniform on [0,a] but not on [0,1)' exercise (skipped as near-duplicate)."
+
+  - cid: ross-25.11
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.11"
+    page: "207"
+    pdfPage: 217
+    verdict: consider
+    machinery: "M-test shows the classic sawtooth series defines a continuous function (the continuous nowhere-differentiable example)."
+    standardResult: "sum (3/4)^n g(4^n x) is continuous (M-test); the Weierstrass-type nowhere-differentiable function"
+    topic: function-sequences
+    subtopics: [weierstrass-m-test, series-of-functions]
+    skills: [M-test, sketching]
+    difficulty: easy
+    difficultyRationale: "Continuity is a one-step M-test; nondifferentiability is NOT asked."
+    category: canonical
+    type: theorem-application
+    tags: [Weierstrass-M-test, continuity, nowhere-differentiable, sawtooth]
+    references: ["Example 3 of §25 and Figure 25.1 (quoted / described)"]
+    problemLatex: |
+      (a) Sketch the functions $g_0$, $g_1$, $g_2$ and $g_3$ in Example 3.
+
+      (b) Prove the function $f$ in Example 3 is continuous.
+
+      *(Example 3: Let $g$ be the function drawn in Fig. 25.1, and let $g_n(x) = g(4^n x)$ for all $x \in \mathbb{R}$. Then $\sum_{n=0}^\infty (\frac34)^n g_n(x)$ is a series of functions. The limit function $f$ is continuous on $\mathbb{R}$, but has the amazing property that it is not differentiable at any point!)*
+
+      *[Description of Fig. 25.1: the graph of $g$ is the periodic zigzag with $g(x) = |x|$ for $-1 \le x \le 1$ and period 2, i.e. $g$ is $0$ at even integers, $1$ at odd integers, and linear in between.]*
+    bookHint: |
+      (b) *Hint*: Apply the Weierstrass $M$-Test to $\sum h_n$, where $h_n(x) = (\frac34)^n g_n(x)$.
+    transcriptionNotes: "Verified against page images (PDF 214 for Example 3/Fig. 25.1, PDF 217 for exercise). Example 3 quoted verbatim (citation sentence to [62, 7.18] omitted). Fig. 25.1 cannot be quoted; the bracketed description is MY reading of the figure (zigzag through (0,0), (1,1), (2,0), (3,1), ... and symmetric for x<0) — curator should keep it marked as a description. bookHint from PDF p. 396 (printed 387)."
+
+  - cid: ross-25.12
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.12"
+    page: "208"
+    pdfPage: 218
+    verdict: consider
+    machinery: "Series version of integral/uniform-limit interchange via partial sums."
+    standardResult: "term-by-term integration of a uniformly convergent series of continuous functions"
+    topic: function-sequences
+    subtopics: [series-of-functions, interchange-integral]
+    skills: [partial-sums, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Apply the sequence theorem to partial sums and linearity of the integral."
+    category: canonical
+    type: proof
+    tags: [series-of-functions, integral, uniform-convergence, term-by-term]
+    references: []
+    problemLatex: |
+      Suppose $\sum_{k=1}^\infty g_k$ is a series of continuous functions $g_k$ on $[a, b]$ that converges uniformly to $g$ on $[a, b]$. Prove
+      $$\int_a^b g(x)\,dx = \sum_{k=1}^\infty \int_a^b g_k(x)\,dx.$$
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  - cid: ross-25.15
+    chapter: "4 Sequences and Series of Functions"
+    section: "§25 More on Uniform Convergence"
+    number: "Exercise 25.15"
+    page: "208"
+    pdfPage: 218
+    verdict: core
+    machinery: "Compactness (Bolzano–Weierstrass) plus monotonicity upgrades pointwise to uniform convergence."
+    standardResult: "Dini's theorem"
+    topic: function-sequences
+    subtopics: [uniform-convergence, pointwise-convergence]
+    skills: [contradiction, subsequence-extraction, bolzano-weierstrass]
+    difficulty: hard
+    difficultyRationale: "Rated on (a): contradiction with a subsequence argument that combines monotonicity and continuity at the limit point; (b) is a reduction to (a)."
+    category: canonical
+    type: proof
+    tags: [Dini, uniform-convergence, compactness, monotone, Bolzano-Weierstrass]
+    references: []
+    problemLatex: |
+      Let $(f_n)$ be a sequence of continuous functions on $[a, b]$.
+
+      (a) Suppose that, for each $x$ in $[a, b]$, $(f_n(x))$ is a decreasing sequence of real numbers. Prove that if $f_n \to 0$ pointwise on $[a, b]$, then $f_n \to 0$ uniformly on $[a, b]$. *Hint*: If not, there exists $\epsilon > 0$ and a sequence $(x_n)$ in $[a, b]$ such that $f_n(x_n) \ge \epsilon$ for all $n$. Obtain a contradiction.
+
+      (b) Suppose that, for each $x$ in $[a, b]$, $(f_n(x))$ is an increasing sequence of real numbers. Prove that if $f_n \to f$ pointwise on $[a, b]$ and if $f$ is continuous on $[a, b]$, then $f_n \to f$ uniformly on $[a, b]$. This is *Dini's theorem*.
+    bookHint: |
+      (a) Note $f_n(x) \ge 0$ for all $x$ and $n$. Assume $(f_n)$ does not converge to 0 uniformly on $[a, b]$. Then there exists $\epsilon > 0$ such that
+
+      for each $N$ there exists $n > N$ and $x \in [a, b]$ such that $f_n(x) \ge \epsilon$. $\quad (1)$
+
+      We claim
+
+      for each $n \in \mathbb{N}$ there is $x_n \in [a, b]$ where $f_n(x_n) \ge \epsilon$. $\quad (2)$
+
+      If not, there is $n_0 \in \mathbb{N}$ such that $f_{n_0}(x) < \epsilon$ for all $x \in [a, b]$. Since $(f_n(x))$ is decreasing for each $x$, we conclude $f_n(x) < \epsilon$ for all $x \in [a, b]$ and $n \ge n_0$. This clearly contradicts (1). We have now established the hint.
+
+      Now by the Bolzano-Weierstrass theorem, the sequence $(x_n)$ given by (2) has a convergent subsequence $(x_{n_k})$: $x_{n_k} \to x_0$. Since $\lim f_n(x_0) = 0$, there exists $m$ such that $f_m(x_0) < \epsilon$. Since $x_{n_k} \to x_0$ and $f_m$ is continuous at $x_0$, we have $\lim_{k\to\infty} f_m(x_{n_k}) = f_m(x_0) < \epsilon$. So there exists $K$ such that
+
+      $k > K$ implies $f_m(x_{n_k}) < \epsilon$.
+
+      If $k > \max\{K, m\}$, then $n_k \ge k > m$, so
+
+      $f_{n_k}(x_{n_k}) \le f_m(x_{n_k}) < \epsilon$.
+
+      But $f_n(x_n) \ge \epsilon$ for *all* $n$, so we have a contradiction.
+
+      (b) *Hint*: Show part (a) applies to the sequence $g_n$ where $g_n = f - f_n$.
+    transcriptionNotes: "Verified against page image. bookHint verbatim from PDF p. 397 (printed 388) — a full solution of (a). In the printed hint, claim (2) reads 'for each n in N' with a plain italic N; rendered as \\mathbb{N} (obvious typo)."
+
+  # ---------------- §26 Differentiation and Integration of Power Series ----------------
+  - cid: ross-26.2
+    chapter: "4 Sequences and Series of Functions"
+    section: "§26 Differentiation and Integration of Power Series"
+    number: "Exercise 26.2"
+    page: "215"
+    pdfPage: 225
+    verdict: consider
+    machinery: "Evaluating numerical series by term-by-term differentiation of the geometric series."
+    standardResult: "sum n x^n = x/(1-x)^2 and evaluation of sum n/2^n"
+    topic: function-sequences
+    subtopics: [power-series, interchange-derivative]
+    skills: [term-by-term-differentiation]
+    difficulty: introductory
+    difficultyRationale: "Plug-in computations once the closed form is known."
+    category: canonical
+    type: computation
+    tags: [power-series, term-by-term-differentiation, series-evaluation]
+    references: ["Example 1 of §26", "Exercise 14.13(d)"]
+    problemLatex: |
+      (a) Observe $\sum_{n=1}^\infty nx^n = \frac{x}{(1-x)^2}$ for $|x| < 1$; see Example 1.
+
+      (b) Evaluate $\sum_{n=1}^\infty \frac{n}{2^n}$. Compare with Exercise 14.13(d).
+
+      (c) Evaluate $\sum_{n=1}^\infty \frac{n}{3^n}$ and $\sum_{n=1}^\infty \frac{(-1)^n n}{3^n}$.
+    transcriptionNotes: "Verified against page image. 'Example 1' (§26) derives (a) by differentiating the geometric series term by term (Theorem 26.5); 'Exercise 14.13(d)' is an earlier exercise evaluating the same sum by other means. Both are cross-references, not needed to solve. 26.3 (sum n^2 x^n) is a follow-up, skipped."
+
+  - cid: ross-26.5
+    chapter: "4 Sequences and Series of Functions"
+    section: "§26 Differentiation and Integration of Power Series"
+    number: "Exercise 26.5"
+    page: "216"
+    pdfPage: 226
+    verdict: consider
+    machinery: "Term-by-term differentiation of a power series inside its radius of convergence."
+    standardResult: "exponential series satisfies f' = f"
+    topic: function-sequences
+    subtopics: [power-series, interchange-derivative]
+    skills: [term-by-term-differentiation, reindexing]
+    difficulty: introductory
+    difficultyRationale: "Infinite radius plus one reindexing."
+    category: canonical
+    type: theorem-application
+    tags: [power-series, exponential, term-by-term-differentiation]
+    references: ["Theorem 26.5 (quoted)"]
+    problemLatex: |
+      Let $f(x) = \sum_{n=0}^\infty \frac{1}{n!} x^n$ for $x \in \mathbb{R}$. Show $f' = f$. Do *not* use the fact that $f(x) = e^x$; this is true but has not been established at this point in the text.
+    bookHint: |
+      *Hint*: Apply Theorem 26.5.
+
+      *(Theorem 26.5: Let $f(x) = \sum_{n=0}^\infty a_n x^n$ have radius of convergence $R > 0$. Then $f$ is differentiable on $(-R, R)$ and $f'(x) = \sum_{n=1}^\infty n a_n x^{n-1}$ for $|x| < R$.)*
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 397 (printed 388); Theorem 26.5 statement quoted verbatim by me inside the hint for self-containedness."
+
+  - cid: ross-26.6
+    chapter: "4 Sequences and Series of Functions"
+    section: "§26 Differentiation and Integration of Power Series"
+    number: "Exercise 26.6"
+    page: "216"
+    pdfPage: 226
+    verdict: strong
+    machinery: "Defining sin/cos by power series and deriving the Pythagorean identity from derivatives + 'f'=0 implies constant'."
+    standardResult: "s(x)^2 + c(x)^2 = 1 from power-series definitions of sine and cosine"
+    topic: function-sequences
+    subtopics: [power-series, interchange-derivative]
+    skills: [term-by-term-differentiation, derivative-zero-constant]
+    difficulty: easy
+    difficultyRationale: "Term-by-term differentiation, then MVT corollary and evaluation at 0."
+    category: synthesis
+    type: proof
+    tags: [power-series, sine, cosine, term-by-term-differentiation, mean-value-theorem]
+    references: []
+    problemLatex: |
+      Let $s(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots$ and $c(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots$ for $x \in \mathbb{R}$.
+
+      (a) Prove $s' = c$ and $c' = -s$.
+
+      (b) Prove $(s^2 + c^2)' = 0$.
+
+      (c) Prove $s^2 + c^2 = 1$.
+
+      Actually $s(x) = \sin x$ and $c(x) = \cos x$, but you do *not* need these facts.
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  - cid: ross-26.7
+    chapter: "4 Sequences and Series of Functions"
+    section: "§26 Differentiation and Integration of Power Series"
+    number: "Exercise 26.7"
+    page: "216"
+    pdfPage: 226
+    verdict: strong
+    machinery: "Power series are differentiable inside their radius, so non-smooth functions are not globally given by power series."
+    standardResult: "|x| is not represented by a power series on R"
+    topic: function-sequences
+    subtopics: [power-series]
+    skills: [contradiction, structural-property]
+    difficulty: easy
+    difficultyRationale: "One observation (power series are differentiable) once the theorem is known."
+    category: canonical
+    type: conceptual
+    tags: [power-series, differentiability, absolute-value, counterexample]
+    references: []
+    problemLatex: |
+      Let $f(x) = |x|$ for $x \in \mathbb{R}$. Is there a power series $\sum a_n x^n$ such that $f(x) = \sum_{n=0}^\infty a_n x^n$ for all $x$? Discuss.
+    bookHint: |
+      No! The power series would be differentiable at each $x \in \mathbb{R}$, but $f(x) = |x|$ is not differentiable at $x = 0$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 397 (printed 388) — gives the answer."
+
+  - cid: ross-26.8
+    chapter: "4 Sequences and Series of Functions"
+    section: "§26 Differentiation and Integration of Power Series"
+    number: "Exercise 26.8"
+    page: "216"
+    pdfPage: 226
+    verdict: strong
+    machinery: "Term-by-term integration of a geometric series plus Abel's theorem at the endpoint."
+    standardResult: "arctan series and Leibniz formula pi/4 = 1 - 1/3 + 1/5 - ... via Abel's theorem"
+    topic: function-sequences
+    subtopics: [power-series, interchange-integral]
+    skills: [term-by-term-integration, abel-theorem, alternating-series-test]
+    difficulty: medium
+    difficultyRationale: "Rated on (c): endpoint requires Abel's theorem (continuity at x=1) plus continuity of arctan, not just interval-interior results."
+    category: synthesis
+    type: theorem-application
+    tags: [power-series, arctan, Abel-theorem, Leibniz-formula, term-by-term-integration]
+    references: ["Abel's Theorem 26.6 (implicitly)"]
+    problemLatex: |
+      (a) Show $\sum_{n=0}^\infty (-1)^n x^{2n} = \frac{1}{1 + x^2}$ for $x \in (-1, 1)$. *Hint*: $\sum_{n=0}^\infty y^n = \frac{1}{1-y}$. Let $y = -x^2$.
+
+      (b) Show $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n}{2n+1} x^{2n+1}$ for $x \in (-1, 1)$.
+
+      (c) Show the equality in (b) also holds for $x = 1$. Use this to find a nice formula for $\pi$.
+
+      (d) What happens at $x = -1$?
+    transcriptionNotes: "Verified against page image. TYPO FIX: the book prints the series in (a) as $\\sum (1)^n x^{2n}$; corrected to $(-1)^n$ (forced by the hint y = -x^2 and the sum 1/(1+x^2)). The book's Abel's Theorem 26.6 (a power series converging at x = R is continuous at R) is the intended tool for (c). No book hint."
+
+  # ---------------- §27 Weierstrass's Approximation Theorem ----------------
+  - cid: ross-27.2
+    chapter: "4 Sequences and Series of Functions"
+    section: "§27 Weierstrass's Approximation Theorem"
+    number: "Exercise 27.2"
+    page: "220"
+    pdfPage: 230
+    verdict: strong
+    machinery: "Diagonal-style use of Weierstrass approximation on an exhausting sequence of compact intervals."
+    standardResult: "continuous f on R is a limit of polynomials uniformly on bounded sets"
+    topic: function-sequences
+    subtopics: [approximation, uniform-convergence]
+    skills: [exhaustion-by-compacts, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Apply Weierstrass on [-n, n] with tolerance 1/n; check uniformity on any bounded set."
+    category: canonical
+    type: proof
+    tags: [Weierstrass-approximation, polynomials, uniform-convergence-on-compacts]
+    references: []
+    problemLatex: |
+      Show that if $f$ is continuous on $\mathbb{R}$, then there exists a sequence $(p_n)$ of polynomials such that $p_n \to f$ uniformly on each bounded subset of $\mathbb{R}$. *Hint*: Arrange for $|f(x) - p_n(x)| < \frac1n$ for $|x| \le n$.
+    transcriptionNotes: "Verified against page image. Uses Weierstrass's Approximation Theorem 27.5 (every continuous function on [a,b] is a uniform limit of polynomials). No book hint."
+
+  - cid: ross-27.3
+    chapter: "4 Sequences and Series of Functions"
+    section: "§27 Weierstrass's Approximation Theorem"
+    number: "Exercise 27.3"
+    page: "220"
+    pdfPage: 230
+    verdict: strong
+    machinery: "Weierstrass approximation fails on unbounded domains: polynomials are unbounded / grow polynomially."
+    standardResult: "sin x and e^x are not uniform limits of polynomials on R"
+    topic: function-sequences
+    subtopics: [approximation, uniform-convergence]
+    skills: [growth-comparison, contradiction]
+    difficulty: medium
+    difficultyRationale: "Requires recognizing that a uniform limit forces a single polynomial within distance 1 of f on all of R and then a growth argument (especially for e^x)."
+    category: canonical
+    type: counterexample
+    tags: [Weierstrass-approximation, polynomials, unbounded-domain, counterexample]
+    references: []
+    problemLatex: |
+      Show there does not exist a sequence of polynomials converging uniformly on $\mathbb{R}$ to $f$ if
+
+      (a) $f(x) = \sin x$, $\qquad$ (b) $f(x) = e^x$.
+    bookHint: |
+      (a) Assume a polynomial $p$ satisfies $|p(x) - \sin x| < 1$ for all $x \in \mathbb{R}$. Clearly $p$ cannot be a constant function. But if $p$ is nonconstant, then $p$ is unbounded on $\mathbb{R}$ and the same is true for $p(x) - \sin x$, a contradiction.
+
+      (b) Assume $|e^x - \sum_{k=0}^{n-1} a_k x^k| < 1$ for all $x \in \mathbb{R}$. For $x > 0$ we have
+      $$e^x - \sum_{k=0}^{n-1} a_k x^k \ge \frac{1}{n!}x^n - \sum_{k=0}^{n-1} |a_k| x^k$$
+      and for large $x$ the right side will exceed 1.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 398 (printed 389)."
+
+  - cid: ross-27.4
+    chapter: "4 Sequences and Series of Functions"
+    section: "§27 Weierstrass's Approximation Theorem"
+    number: "Exercise 27.4"
+    page: "220"
+    pdfPage: 230
+    verdict: consider
+    machinery: "Correcting an approximating sequence by a linear term to match endpoint values while keeping uniform convergence."
+    standardResult: "Weierstrass approximation with interpolation at the endpoints"
+    topic: function-sequences
+    subtopics: [approximation]
+    skills: [linear-correction, uniform-estimate]
+    difficulty: easy
+    difficultyRationale: "Hint gives the construction; check the correction term tends to 0 uniformly."
+    category: canonical
+    type: construction
+    tags: [Weierstrass-approximation, polynomials, interpolation]
+    references: ["Corollary 27.6 (quoted)"]
+    problemLatex: |
+      Prove Corollary 27.6. *Hint*: Select a sequence $(q_n)$ of polynomials such that $q_n \to f$ uniformly on $[a, b]$. For each $n$, let $s_n$ be the function on $\mathbb{R}$ whose graph is the straight line passing through the points $(a, f(a) - q_n(a))$ and $(b, f(b) - q_n(b))$. Set $p_n = q_n + s_n$.
+
+      *(Corollary 27.6: Given a continuous function $f$ on $[a, b]$, there exists a sequence $(p_n)$ of polynomials such that $p_n \to f$ uniformly on $[a, b]$, and for each $n$, $p_n(a) = f(a)$ and $p_n(b) = f(b)$.)*
+    transcriptionNotes: "Verified against page image. Corollary 27.6 quoted verbatim. No book hint."
+
+  # ---------------- §28 Basic Properties of the Derivative ----------------
+  - cid: ross-28.3
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.3"
+    page: "230"
+    pdfPage: 239
+    verdict: consider
+    machinery: "Computing derivatives from the definition via algebraic rationalization; vertical tangent means no derivative."
+    standardResult: "derivatives of sqrt(x) and x^{1/3} from the definition; x^{1/3} not differentiable at 0"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [difference-quotient, rationalization]
+    difficulty: easy
+    difficultyRationale: "Algebraic factorization of a difference quotient; (c) is a short limit observation."
+    category: canonical
+    type: computation
+    tags: [derivative, definition, cube-root, vertical-tangent]
+    references: []
+    problemLatex: |
+      (a) Let $h(x) = \sqrt{x} = x^{1/2}$ for $x \ge 0$. Use the *definition* of derivative to prove $h'(x) = \frac12 x^{-1/2}$ for $x > 0$.
+
+      (b) Let $f(x) = x^{1/3}$ for $x \in \mathbb{R}$ and use the definition of derivative to prove $f'(x) = \frac13 x^{-2/3}$ for $x \neq 0$.
+
+      (c) Is the function $f$ in part (b) differentiable at $x = 0$? Explain.
+    bookHint: |
+      (b) Since $x - a = (x^{1/3} - a^{1/3})(x^{2/3} + a^{1/3}x^{1/3} + a^{2/3})$,
+      $$f'(a) = \lim_{x\to a}(x^{2/3} + a^{1/3}x^{1/3} + a^{2/3})^{-1} = (3a^{2/3})^{-1} = \frac13 a^{-2/3}$$
+      for $a \neq 0$.
+
+      (c) $f$ is not differentiable at $x = 0$ since the limit $\lim_{x\to0} x^{1/3}/x$ does not exist *as a real number*. The limit does exist and equals $+\infty$, which reflects the geometric fact that the graph of $f$ has a vertical tangent at $(0, 0)$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 398 (printed 389). Chosen over 28.2 (plain definition computations)."
+
+  - cid: ross-28.4
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.4"
+    page: "230"
+    pdfPage: 239
+    verdict: core
+    machinery: "Derivative at a point via the definition and squeeze; derivative exists everywhere but is discontinuous."
+    standardResult: "x^2 sin(1/x): differentiable everywhere, f' discontinuous at 0"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability, derivative-rules]
+    skills: [difference-quotient, squeeze, sequential-criterion]
+    difficulty: easy
+    difficultyRationale: "Rated on (b)/(c): squeeze for f'(0) and choosing sequences to show f' has no limit at 0."
+    category: canonical
+    type: counterexample
+    tags: [derivative, x-squared-sin-one-over-x, discontinuous-derivative, counterexample]
+    references: ["Theorems 28.3 and 28.4 (quoted)"]
+    problemLatex: |
+      Let $f(x) = x^2 \sin\frac1x$ for $x \neq 0$ and $f(0) = 0$.
+
+      (a) Use Theorems 28.3 and 28.4 to show $f$ is differentiable at each $a \neq 0$ and calculate $f'(a)$. Use, without proof, the fact that $\sin x$ is differentiable and that $\cos x$ is its derivative.
+
+      (b) Use the definition to show $f$ is differentiable at $x = 0$ and $f'(0) = 0$.
+
+      (c) Show $f'$ is not continuous at $x = 0$.
+
+      *(Theorem 28.3: the sum, constant multiple, product and quotient rules — if $f$ and $g$ are differentiable at $a$, so are $cf$, $f+g$, $fg$ and $f/g$ (when $g(a) \neq 0$), with the usual formulas. Theorem 28.4 [Chain Rule]: If $f$ is differentiable at $a$ and $g$ is differentiable at $f(a)$, then the composite function $g \circ f$ is differentiable at $a$ and we have $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$.)*
+    transcriptionNotes: "Verified against page image. Theorem 28.4 quoted verbatim; Theorem 28.3 SUMMARIZED (its full text lists (i)-(iv) formulas: (cf)'=cf', (f+g)'=f'+g', product rule, quotient rule) — marked here as a summary. No book hint."
+
+  - cid: ross-28.5
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.5"
+    page: "230"
+    pdfPage: 239
+    verdict: consider
+    machinery: "Shows why the naive 'multiply and divide by f(x)-f(a)' chain-rule proof fails: f(x)=f(a) infinitely often near a."
+    standardResult: "the faulty proof of the chain rule (f(x)-f(a) can vanish arbitrarily close to a)"
+    topic: differentiation
+    subtopics: [derivative-rules]
+    skills: [domain-of-limit, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Compute f(1/(pi n)) = 0 and note the quotient is undefined at points accumulating at 0."
+    category: canonical
+    type: conceptual
+    tags: [chain-rule, faulty-proof, x-squared-sin-one-over-x, limits]
+    references: []
+    problemLatex: |
+      Let $f(x) = x^2 \sin\frac1x$ for $x \neq 0$, $f(0) = 0$, and $g(x) = x$ for $x \in \mathbb{R}$.
+
+      (a) Observe $f$ and $g$ are differentiable on $\mathbb{R}$.
+
+      (b) Calculate $f(x)$ for $x = \frac{1}{\pi n}$, $n = \pm1, \pm2, \ldots$.
+
+      (c) Explain why $\lim_{x\to0} \frac{g(f(x)) - g(f(0))}{f(x) - f(0)}$ is meaningless.
+    bookHint: |
+      (c) Let
+      $$h(x) = \frac{g(f(x)) - g(f(0))}{f(x) - f(0)}.$$
+      According to Definition 20.3(a), for $\lim_{x\to0} h(x)$ to be meaningful, $h$ needs to be defined on $J \setminus \{0\}$ for some open interval $J$ containing 0. But the calculation in (b) shows $h$ is undefined at $(\pi n)^{-1}$ for $n = \pm1, \pm2, \ldots$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 398 (printed 389). Context: Ross's discussion after Theorem 28.4 presents a faulty chain-rule 'proof' that divides by f(x) - f(a)."
+
+  - cid: ross-28.6
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.6"
+    page: "231"
+    pdfPage: 240
+    verdict: strong
+    machinery: "Continuous but not differentiable: difference quotient sin(1/x) has no limit."
+    standardResult: "x sin(1/x): continuous at 0 but not differentiable at 0"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [difference-quotient, sequential-criterion]
+    difficulty: introductory
+    difficultyRationale: "Difference quotient reduces to sin(1/h); show its limit fails along two sequences."
+    category: canonical
+    type: counterexample
+    tags: [derivative, x-sin-one-over-x, continuity-vs-differentiability, counterexample]
+    references: ["Exercise 17.9(c) (quoted)", "Fig. 19.3"]
+    problemLatex: |
+      Let $f(x) = x \sin\frac1x$ for $x \neq 0$ and $f(0) = 0$. See Fig. 19.3.
+
+      (a) Observe $f$ is continuous at $x = 0$ by Exercise 17.9(c).
+
+      (b) Is $f$ differentiable at $x = 0$? Justify your answer.
+
+      *(Exercise 17.9(c): Prove [the function] $f(x) = x\sin(\frac1x)$ for $x \neq 0$ and $f(0) = 0$ [is continuous] at $x_0 = 0$ by verifying the $\epsilon$–$\delta$ property of Theorem 17.2.)*
+    transcriptionNotes: "Verified against page image. Exercise 17.9(c) quoted, assembled from the 17.9 stem and part (c); bracketed words added for grammar. 'Fig. 19.3' is the book's graph of x sin(1/x); the reference can be dropped on a website. No book hint."
+
+  - cid: ross-28.7
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.7"
+    page: "231"
+    pdfPage: 240
+    verdict: consider
+    machinery: "Piecewise function differentiable via one-sided difference quotients; derivative continuous but not differentiable."
+    standardResult: "x^2 for x>=0, 0 for x<0: C^1 but not twice differentiable"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [one-sided-limits, difference-quotient]
+    difficulty: introductory
+    difficultyRationale: "Direct one-sided difference quotients."
+    category: canonical
+    type: counterexample
+    tags: [derivative, piecewise, C1-not-C2]
+    references: []
+    problemLatex: |
+      Let $f(x) = x^2$ for $x \ge 0$ and $f(x) = 0$ for $x < 0$.
+
+      (a) Sketch the graph of $f$.
+
+      (b) Show $f$ is differentiable at $x = 0$. *Hint*: You will have to use the definition of derivative.
+
+      (c) Calculate $f'$ on $\mathbb{R}$ and sketch its graph.
+
+      (d) Is $f'$ continuous on $\mathbb{R}$? differentiable on $\mathbb{R}$?
+    bookHint: |
+      (d) $f'$ is continuous on $\mathbb{R}$, but $f'$ is not differentiable at $x = 0$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 398 (printed 389)."
+
+  - cid: ross-28.8
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.8"
+    page: "231"
+    pdfPage: 240
+    verdict: core
+    machinery: "Differentiability at a single point of an everywhere-else-discontinuous function, via squeeze on the difference quotient."
+    standardResult: "x^2 on Q, 0 on irrationals: differentiable only at 0"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [squeeze, density-argument, sequential-criterion]
+    difficulty: easy
+    difficultyRationale: "Density of Q and irrationals for (b); |f(h)/h| <= |h| for (c)."
+    category: canonical
+    type: counterexample
+    tags: [derivative, Dirichlet-type-function, pointwise-differentiability, density, counterexample]
+    references: []
+    problemLatex: |
+      Let $f(x) = x^2$ for $x$ rational and $f(x) = 0$ for $x$ irrational.
+
+      (a) Prove $f$ is continuous at $x = 0$.
+
+      (b) Prove $f$ is discontinuous at all $x \neq 0$.
+
+      (c) Prove $f$ is differentiable at $x = 0$. *Warning*: You cannot simply claim $f'(x) = 2x$.
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  - cid: ross-28.14
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.14"
+    page: "231"
+    pdfPage: 240
+    verdict: strong
+    machinery: "Reformulating the derivative limit; symmetric difference quotient as an average of one-sided ones."
+    standardResult: "differentiable implies symmetric derivative exists and equals f'(a)"
+    topic: differentiation
+    subtopics: [derivative-definition]
+    skills: [change-of-variable-in-limit, algebraic-splitting]
+    difficulty: easy
+    difficultyRationale: "(b) needs the split [f(a+h)-f(a)]/2h + [f(a)-f(a-h)]/2h."
+    category: canonical
+    type: proof
+    tags: [derivative, symmetric-derivative, limits]
+    references: []
+    problemLatex: |
+      Suppose $f$ is differentiable at $a$. Prove
+
+      (a) $\lim_{h\to0} \frac{f(a+h) - f(a)}{h} = f'(a)$, $\qquad$ (b) $\lim_{h\to0} \frac{f(a+h) - f(a-h)}{2h} = f'(a)$.
+    transcriptionNotes: "Verified against page image. Natural follow-up (not in the book): the converse of (b) fails, e.g. |x| at 0. No book hint."
+
+  - cid: ross-28.16
+    chapter: "5 Differentiation"
+    section: "§28 Basic Properties of the Derivative"
+    number: "Exercise 28.16"
+    page: "232"
+    pdfPage: 241
+    verdict: strong
+    machinery: "Linear-approximation (Carathéodory-type) characterization of differentiability."
+    standardResult: "f'(a) exists iff f(x)-f(a) = (x-a)[f'(a) - eps(x)] with eps(x) -> 0"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [define-auxiliary-function, limits]
+    difficulty: easy
+    difficultyRationale: "Define eps(x) from the difference quotient (choose eps(a)=0); converse is immediate."
+    category: canonical
+    type: proof
+    tags: [derivative, linear-approximation, characterization]
+    references: []
+    problemLatex: |
+      Let $f$ be a function defined on an open interval $I$ containing $a$. Show $f'(a)$ exists if and only if there is a function $\epsilon(x)$ defined on $I$ such that
+      $$f(x) - f(a) = (x - a)[f'(a) - \epsilon(x)] \quad \text{and} \quad \lim_{x\to a} \epsilon(x) = 0.$$
+    transcriptionNotes: "Verified against page image. As printed, 'f'(a)' appears inside the condition on the right-hand side; read the condition as 'there is a number L (which then equals f'(a)) such that f(x) - f(a) = (x-a)[L - eps(x)] with eps(x) -> 0'. Transcribed exactly as printed. No book hint."
+
+  # ---------------- §29 The Mean Value Theorem ----------------
+  - cid: ross-29.2
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.2"
+    page: "239"
+    pdfPage: 248
+    verdict: consider
+    machinery: "MVT turns a derivative bound into a Lipschitz estimate."
+    standardResult: "|cos x - cos y| <= |x - y| via MVT"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application]
+    difficulty: introductory
+    difficultyRationale: "One application of MVT with |sin| <= 1."
+    category: canonical
+    type: theorem-application
+    tags: [mean-value-theorem, Lipschitz, inequality]
+    references: []
+    problemLatex: |
+      Prove $|\cos x - \cos y| \le |x - y|$ for all $x, y \in \mathbb{R}$.
+    transcriptionNotes: "Verified against page image. Uses sin' = cos, cos' = -sin (assumed known in Ross). No book hint."
+
+  - cid: ross-29.3
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.3"
+    page: "239"
+    pdfPage: 248
+    verdict: strong
+    machinery: "Combines MVT on two intervals with the intermediate value property of derivatives (Darboux)."
+    standardResult: "MVT + Darboux's theorem: derivative attains intermediate values"
+    topic: differentiation
+    subtopics: [rolle-mvt, darboux-property]
+    skills: [MVT-application, intermediate-value-for-derivatives]
+    difficulty: medium
+    difficultyRationale: "(b) requires seeing that f' takes values 1/2 and 0 and then invoking Darboux; no continuity of f' is given."
+    category: synthesis
+    type: theorem-application
+    tags: [mean-value-theorem, Darboux, intermediate-value-property, derivatives]
+    references: []
+    problemLatex: |
+      Suppose $f$ is differentiable on $\mathbb{R}$ and $f(0) = 0$, $f(1) = 1$ and $f(2) = 1$.
+
+      (a) Show $f'(x) = \frac12$ for some $x \in (0, 2)$.
+
+      (b) Show $f'(x) = \frac17$ for some $x \in (0, 2)$.
+    bookHint: |
+      (a) Apply Mean Value Theorem to $[0, 2]$.
+
+      (b) By the Mean Value Theorem, $f'(y) = 0$ for some $y \in (1, 2)$. In view of this and part (a), Theorem 29.8 shows $f'$ takes all values between 0 and $\frac12$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 399 (printed 390). Theorem 29.8 is Ross's 'Intermediate Value Theorem for Derivatives' (Darboux): if f is differentiable on (a,b), a < x1 < x2 < b, and c lies between f'(x1) and f'(x2), then f'(x) = c for some x in (x1, x2)."
+
+  - cid: ross-29.4
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.4"
+    page: "239"
+    pdfPage: 248
+    verdict: strong
+    machinery: "Rolle's theorem applied to a cleverly chosen auxiliary function (integrating factor)."
+    standardResult: "Rolle with auxiliary function h = f e^g gives f' + f g' = 0 somewhere"
+    topic: differentiation
+    subtopics: [rolle-mvt, mvt-applications]
+    skills: [auxiliary-function, MVT-application]
+    difficulty: easy
+    difficultyRationale: "With the hint, it is one Rolle application and the product/chain rule; the idea is the auxiliary function."
+    category: canonical
+    type: theorem-application
+    tags: [Rolle, auxiliary-function, mean-value-theorem]
+    references: []
+    problemLatex: |
+      Let $f$ and $g$ be differentiable functions on an open interval $I$. Suppose $a, b$ in $I$ satisfy $a < b$ and $f(a) = f(b) = 0$. Show $f'(x) + f(x)g'(x) = 0$ for some $x \in (a, b)$. *Hint*: Consider $h(x) = f(x)e^{g(x)}$.
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  - cid: ross-29.5
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.5"
+    page: "239"
+    pdfPage: 248
+    verdict: core
+    machinery: "A Hölder condition of order 2 forces derivative zero everywhere, hence constant."
+    standardResult: "|f(x)-f(y)| <= (x-y)^2 implies f constant"
+    topic: differentiation
+    subtopics: [mvt-applications, derivative-definition]
+    skills: [difference-quotient, squeeze, derivative-zero-constant]
+    difficulty: easy
+    difficultyRationale: "Squeeze the difference quotient to 0, then apply 'f' = 0 implies constant'."
+    category: canonical
+    type: proof
+    tags: [derivative, mean-value-theorem, Holder-condition, constant-function]
+    references: []
+    problemLatex: |
+      Let $f$ be defined on $\mathbb{R}$, and suppose $|f(x) - f(y)| \le (x - y)^2$ for all $x, y \in \mathbb{R}$. Prove $f$ is a constant function.
+    bookHint: |
+      For any $a \in \mathbb{R}$ we have $\left|\frac{f(x) - f(a)}{x - a}\right| \le |x - a|$. It follows easily that $f'(a)$ exists and equals 0 for all $a \in \mathbb{R}$. So $f$ is constant by Corollary 29.4.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 399 (printed 390). Corollary 29.4: a differentiable function on (a,b) with f' = 0 is constant."
+
+  - cid: ross-29.10
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.10"
+    page: "240"
+    pdfPage: 249
+    verdict: core
+    machinery: "Positive derivative at a single point does not imply local monotonicity; oscillating x^2 sin(1/x) term."
+    standardResult: "f'(0) > 0 but f not increasing on any neighborhood of 0 (x^2 sin(1/x) + x/2)"
+    topic: differentiation
+    subtopics: [derivative-definition, mvt-applications]
+    skills: [construct-counterexample, sequential-criterion]
+    difficulty: medium
+    difficultyRationale: "(b) requires finding points arbitrarily near 0 where f' < 0 (f' = 2x sin(1/x) - cos(1/x) + 1/2) and arguing non-monotonicity."
+    category: canonical
+    type: counterexample
+    tags: [derivative, monotonicity, x-squared-sin-one-over-x, counterexample]
+    references: ["Exercise 28.4 (see ross-28.4)", "Corollary 29.7(i) (quoted)"]
+    problemLatex: |
+      Let $f(x) = x^2 \sin(\frac1x) + \frac{x}{2}$ for $x \neq 0$ and $f(0) = 0$.
+
+      (a) Show $f'(0) > 0$; see Exercise 28.4.
+
+      (b) Show $f$ is not increasing on any open interval containing 0.
+
+      (c) Compare this example with Corollary 29.7(i).
+
+      *(Corollary 29.7(i): Let $f$ be a differentiable function on an interval $(a, b)$. Then $f$ is strictly increasing if $f'(x) > 0$ for all $x \in (a, b)$.)*
+    transcriptionNotes: "Verified against page image. Corollary 29.7 stem and part (i) quoted verbatim (assembled). Exercise 28.4 is x^2 sin(1/x) (ross-28.4). Ross's 'increasing' means non-decreasing (Definition 29.6). No book hint."
+
+  - cid: ross-29.13
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.13"
+    page: "240"
+    pdfPage: 249
+    verdict: consider
+    machinery: "Comparison of functions from comparison of derivatives via monotonicity (MVT)."
+    standardResult: "f(0)=g(0) and f' <= g' imply f <= g on [0, infinity)"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, auxiliary-function]
+    difficulty: introductory
+    difficultyRationale: "Apply the monotonicity corollary to g - f."
+    category: canonical
+    type: theorem-application
+    tags: [mean-value-theorem, monotonicity, inequalities]
+    references: []
+    problemLatex: |
+      Prove that if $f$ and $g$ are differentiable on $\mathbb{R}$, if $f(0) = g(0)$ and if $f'(x) \le g'(x)$ for all $x \in \mathbb{R}$, then $f(x) \le g(x)$ for $x \ge 0$.
+    bookHint: |
+      Let $h(x) = g(x) - f(x)$ and show $h(x) \ge 0$ for $x \ge 0$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 399 (printed 390). 29.14 is a near-duplicate application."
+
+  - cid: ross-29.17
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.17"
+    page: "240"
+    pdfPage: 249
+    verdict: strong
+    machinery: "One-sided derivatives and continuity at a gluing point."
+    standardResult: "piecewise-glued function differentiable at a iff values and derivatives match"
+    topic: differentiation
+    subtopics: [differentiability, derivative-definition]
+    skills: [one-sided-limits, differentiable-implies-continuous]
+    difficulty: easy
+    difficultyRationale: "Compare one-sided difference quotients; necessity uses differentiable implies continuous."
+    category: canonical
+    type: proof
+    tags: [derivative, one-sided-derivatives, piecewise, gluing]
+    references: []
+    problemLatex: |
+      Let $f$ and $g$ be differentiable on an open interval $I$ and consider $a \in I$. Define $h$ on $I$ by the rules: $h(x) = f(x)$ for $x < a$, and $h(x) = g(x)$ for $x \ge a$. Prove $h$ is differentiable at $a$ if and only if both $f(a) = g(a)$ and $f'(a) = g'(a)$ hold. *Suggestion*: Draw a picture to see what is going on.
+    bookHint: |
+      Suppose $f(a) = g(a)$. Then
+      $$\lim_{x\to a^+} \frac{h(x) - h(a)}{x - a} = g'(a) \quad \text{and} \quad \lim_{x\to a^-} \frac{h(x) - h(a)}{x - a} = f'(a). \quad (1)$$
+      If also $f'(a) = g'(a)$, then Theorem 20.10 shows $h'(a)$ exists and, in fact, $h'(a) = f'(a) = g'(a)$.
+
+      Now suppose $h$ is differentiable at $a$. Then $h$ is continuous at $a$ and so $f(a) = \lim_{x\to a^-} f(x) = \lim_{x\to a^-} h(x) = h(a) = g(a)$. Hence (1) holds. But the limits in (1) both equal $h'(a)$, so $f'(a) = g'(a)$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF pp. 399–400 (printed 390–391) — a full solution. Theorem 20.10: a two-sided limit exists iff both one-sided limits exist and are equal."
+
+  - cid: ross-29.18
+    chapter: "5 Differentiation"
+    section: "§29 The Mean Value Theorem"
+    number: "Exercise 29.18"
+    page: "240"
+    pdfPage: 249
+    verdict: core
+    machinery: "MVT gives a contraction; geometric decay of successive differences gives a Cauchy sequence and a fixed point."
+    standardResult: "contraction mapping / fixed point via sup|f'| < 1 (Banach fixed point on R)"
+    topic: function-sequences
+    subtopics: [fixed-point, cauchy-sequences, mvt-applications]
+    skills: [MVT-application, geometric-series-estimate, cauchy-criterion]
+    difficulty: medium
+    difficultyRationale: "Requires converting |s_{n+1}-s_n| <= a^n|s_1-s_0| into a Cauchy estimate via a geometric tail, then continuity for the fixed point."
+    category: synthesis
+    type: proof
+    tags: [fixed-point, contraction, Cauchy, mean-value-theorem, iteration]
+    references: []
+    problemLatex: |
+      Let $f$ be differentiable on $\mathbb{R}$ with $a = \sup\{|f'(x)| : x \in \mathbb{R}\} < 1$.
+
+      (a) Select $s_0 \in \mathbb{R}$ and define $s_n = f(s_{n-1})$ for $n \ge 1$. Thus $s_1 = f(s_0)$, $s_2 = f(s_1)$, etc. Prove $(s_n)$ is a convergent sequence. *Hint*: To show that $(s_n)$ is Cauchy, first show $|s_{n+1} - s_n| \le a|s_n - s_{n-1}|$ for $n \ge 1$.
+
+      (b) Show $f$ has a *fixed point*, i.e., $f(s) = s$ for some $s$ in $\mathbb{R}$.
+    transcriptionNotes: "Verified against page image. Topic assigned to function-sequences/fixed-point per vocabulary; could equally be differentiation/mvt-applications. No book hint."
+
+  # ---------------- §30 L'Hospital's Rule ----------------
+  - cid: ross-30.6
+    chapter: "5 Differentiation"
+    section: "§30 L'Hospital's Rule"
+    number: "Exercise 30.6"
+    page: "248"
+    pdfPage: 257
+    verdict: strong
+    machinery: "L'Hospital's rule in the infinity/infinity form applied to f e^x / e^x."
+    standardResult: "f + f' -> L implies f -> L and f' -> 0"
+    topic: differentiation
+    subtopics: [lhopital]
+    skills: [auxiliary-function, lhopital-infinity-over-infinity]
+    difficulty: medium
+    difficultyRationale: "The trick (writing f as f e^x / e^x and using the |g| -> infinity version) is the whole problem."
+    category: challenge
+    type: theorem-application
+    tags: [LHospital, limits-at-infinity, auxiliary-function]
+    references: []
+    problemLatex: |
+      Let $f$ be differentiable on some interval $(c, \infty)$ and suppose $\lim_{x\to\infty}[f(x) + f'(x)] = L$, where $L$ is finite. Prove $\lim_{x\to\infty} f(x) = L$ and $\lim_{x\to\infty} f'(x) = 0$. *Hint*: $f(x) = \frac{f(x)e^x}{e^x}$.
+    transcriptionNotes: "Verified against page image. Ross's L'Hospital's Rule 30.2 includes the case lim |g(x)| = +infinity (no hypothesis on f). No book hint."
+
+  - cid: ross-30.7
+    chapter: "5 Differentiation"
+    section: "§30 L'Hospital's Rule"
+    number: "Exercise 30.7"
+    page: "248"
+    pdfPage: 257
+    verdict: consider
+    machinery: "Shows the hypothesis g' != 0 near s in L'Hospital's rule is essential (Stolz's example)."
+    standardResult: "Stolz counterexample: f'/g' -> 0 but f/g has no limit when g' vanishes"
+    topic: differentiation
+    subtopics: [lhopital]
+    skills: [verify-counterexample, derivative-computation]
+    difficulty: medium
+    difficultyRationale: "Computations are guided, but (d) requires seeing why f/g = e^{-sin x} oscillates and why cancellation of cos x is illegitimate."
+    category: canonical
+    type: counterexample
+    tags: [LHospital, hypotheses, Stolz, counterexample]
+    references: ["Theorem 30.2 (quoted)"]
+    problemLatex: |
+      This example is taken from [65, p. 188] and is due to Otto Stolz [64]. The requirement in Theorem 30.2 that $g'(x) \neq 0$ for $x$ "near" $s$ is important. In a careless application of L'Hospital's rule in which the zeros of $g'$ "cancel" the zeros of $f'$, erroneous results can be obtained. For $x \in \mathbb{R}$, let
+      $$f(x) = x + \cos x \sin x \quad \text{and} \quad g(x) = e^{\sin x}(x + \cos x \sin x).$$
+
+      (a) Show $\lim_{x\to\infty} f(x) = \lim_{x\to\infty} g(x) = +\infty$.
+
+      (b) Show $f'(x) = 2(\cos x)^2$ and $g'(x) = e^{\sin x}\cos x[2\cos x + f(x)]$.
+
+      (c) Show $\frac{f'(x)}{g'(x)} = \frac{2e^{-\sin x}\cos x}{2\cos x + f(x)}$ if $\cos x \neq 0$ and $x > 3$.
+
+      (d) Show $\lim_{x\to\infty} \frac{2e^{-\sin x}\cos x}{2\cos x + f(x)} = 0$ and yet the limit $\lim_{x\to\infty} \frac{f(x)}{g(x)}$ does *not* exist.
+
+      *(Theorem 30.2 [L'Hospital's Rule]: Let $s$ signify $a$, $a^+$, $a^-$, $\infty$ or $-\infty$ where $a \in \mathbb{R}$, and suppose $f$ and $g$ are differentiable functions for which the following limit exists: $\lim_{x\to s} \frac{f'(x)}{g'(x)} = L$. If $\lim_{x\to s} f(x) = \lim_{x\to s} g(x) = 0$ or if $\lim_{x\to s} |g(x)| = +\infty$, then $\lim_{x\to s} \frac{f(x)}{g(x)} = L$. [The book notes that the hypothesis includes the implicit assumption that $g'(x)$ is nonzero "near" $s$.])*
+    transcriptionNotes: "Verified against page images (PDF 257–258; parts (c)–(d) are on PDF 258). Theorem 30.2 quoted verbatim with display equation numbers removed; the bracketed final sentence paraphrases the book's remark following the theorem. Bibliographic references [64], [65] kept as printed; curator may drop them. No book hint."
+
+  # ---------------- §31 Taylor's Theorem ----------------
+  - cid: ross-31.4
+    chapter: "5 Differentiation"
+    section: "§31 Taylor's Theorem"
+    number: "Exercise 31.4"
+    page: "267"
+    pdfPage: 276
+    verdict: strong
+    machinery: "Building C-infinity bump and step (cutoff) functions from e^{-1/x}."
+    standardResult: "smooth bump functions and smooth step functions from e^{-1/x}"
+    topic: differentiation
+    subtopics: [taylor]
+    skills: [construction-from-building-blocks, composition]
+    difficulty: easy
+    difficultyRationale: "Given Example 3 and the closure assumptions, each part is a short construction (products, translates, quotients)."
+    category: canonical
+    type: construction
+    tags: [smooth-functions, bump-function, cutoff-function, e-to-minus-one-over-x]
+    references: ["Example 3 of §31 (quoted)"]
+    problemLatex: |
+      Consider $a, b$ in $\mathbb{R}$ where $a < b$. Show there exist infinitely differentiable functions $f_a$, $g_b$, $h_{a,b}$ and $h^*_{a,b}$ on $\mathbb{R}$ with the following properties. You may assume, without proof, that the sum, product, etc. of infinitely differentiable functions is again infinitely differentiable. The same applies to the quotient provided the denominator never vanishes.
+
+      (a) $f_a(x) = 0$ for $x \le a$ and $f_a(x) > 0$ for $x > a$. *Hint*: Let $f_a(x) = f(x - a)$ where $f$ is the function in Example 3.
+
+      (b) $g_b(x) = 0$ for $x \ge b$ and $g_b(x) > 0$ for $x < b$.
+
+      (c) $h_{a,b}(x) > 0$ for $x \in (a, b)$ and $h_{a,b}(x) = 0$ for $x \notin (a, b)$.
+
+      (d) $h^*_{a,b}(x) = 0$ for $x \le a$ and $h^*_{a,b}(x) = 1$ for $x \ge b$. *Hint*: Use the function $\frac{f_a}{f_a + g_b}$.
+
+      *(Example 3: Let $f(x) = e^{-1/x}$ for $x > 0$ and $f(x) = 0$ for $x \le 0$. Clearly $f$ has derivatives of all orders at all $x \neq 0$. We will prove $f^{(n)}(0) = 0$ for $n = 0, 1, 2, 3, \ldots$. Hence the Taylor series for $f$ is identically zero, so $f$ does not agree with its Taylor series in any open interval containing 0.)*
+    transcriptionNotes: "Verified against page image. Example 3 of §31 (PDF 266, printed 257) quoted verbatim from its opening (the proof that follows is omitted); in particular f is C-infinity on R. No book hint."
+
+  - cid: ross-31.5
+    chapter: "5 Differentiation"
+    section: "§31 Taylor's Theorem"
+    number: "Exercise 31.5"
+    page: "267"
+    pdfPage: 276
+    verdict: core
+    machinery: "Smooth non-analytic function: all derivatives vanish at 0 so the Taylor series is identically 0."
+    standardResult: "e^{-1/x^2}: C-infinity, all derivatives 0 at 0, Taylor series agrees only at 0"
+    topic: differentiation
+    subtopics: [taylor]
+    skills: [induction, composition-with-known-example]
+    difficulty: medium
+    difficultyRationale: "Reduce to Example 3 via g(x) = f(x^2) and an inductive derivative formula; (b) is then immediate."
+    category: canonical
+    type: counterexample
+    tags: [Taylor-series, smooth-non-analytic, e-to-minus-one-over-x-squared, counterexample]
+    references: ["Example 3 of §31 (quoted)"]
+    problemLatex: |
+      Let $g(x) = e^{-1/x^2}$ for $x \neq 0$ and $g(0) = 0$.
+
+      (a) Show $g^{(n)}(0) = 0$ for all $n = 0, 1, 2, 3, \ldots$. *Hint*: Use Example 3.
+
+      (b) Show the Taylor series for $g$ about 0 agrees with $g$ only at $x = 0$.
+
+      *(Example 3: Let $f(x) = e^{-1/x}$ for $x > 0$ and $f(x) = 0$ for $x \le 0$. Clearly $f$ has derivatives of all orders at all $x \neq 0$. We will prove $f^{(n)}(0) = 0$ for $n = 0, 1, 2, 3, \ldots$. Hence the Taylor series for $f$ is identically zero, so $f$ does not agree with its Taylor series in any open interval containing 0.)*
+    bookHint: |
+      (a) $g(x) = f(x^2)$ for $x \in \mathbb{R}$ where $f$ is as in Example 3. Use induction to prove there exist polynomials $p_{kn}$, $1 \le k \le n$, so that
+      $$g^{(n)}(x) = \sum_{k=1}^n f^{(k)}(x^2)\, p_{kn}(x) \quad \text{for} \quad x \in \mathbb{R},\ n \ge 1.$$
+    transcriptionNotes: "Verified against page image. Example 3 quoted verbatim (opening only). bookHint from PDF p. 400 (printed 391). If the curator wants this self-contained without Example 3, the result that e^{-1/x} (extended by 0) has all derivatives 0 at 0 is what is being used."
+
+  - cid: ross-31.11
+    chapter: "5 Differentiation"
+    section: "§31 Taylor's Theorem"
+    number: "Exercise 31.11"
+    page: "268"
+    pdfPage: 277
+    verdict: consider
+    machinery: "If Newton iterates converge, the limit is a root: uses boundedness of f' and continuity of f."
+    standardResult: "limit of convergent Newton iterates is a zero of f"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [pass-to-limit, bounded-derivative]
+    difficulty: easy
+    difficultyRationale: "Rearrange to f(x_{n-1}) = (x_{n-1}-x_n) f'(x_{n-1}), bound, and pass to the limit."
+    category: canonical
+    type: proof
+    tags: [Newton-method, limits, continuity, derivative-bound]
+    references: []
+    problemLatex: |
+      Suppose $f$ is differentiable on $(a, b)$, $f'$ is bounded on $(a, b)$, $f'$ never vanishes on $(a, b)$, and the sequence $(x_n)$ in $(a, b)$ converges to $\overline{x}$ in $(a, b)$. Show that if
+      $$x_n = x_{n-1} - \frac{f(x_{n-1})}{f'(x_{n-1})} \quad \text{for all} \quad n \ge 1,$$
+      then $f(\overline{x}) = 0$.
+    bookHint: |
+      For some $C > 0$, we have $|f'(x)| \le C$ for $x$ in $(a, b)$. Then $|f(x_{n-1})| \le |x_n - x_{n-1}| \cdot C$ for all $n$. Let $n \to \infty$.
+    transcriptionNotes: "Verified against page image (limit point printed as x-bar). bookHint from PDF p. 400 (printed 391); the hint writes the limit simply; continuity of f (from differentiability) finishes."
+
+  # ---------------- §32 The Riemann Integral ----------------
+  - cid: ross-32.2
+    chapter: "6 Integration"
+    section: "§32 The Riemann Integral"
+    number: "Exercise 32.2"
+    page: "279"
+    pdfPage: 288
+    verdict: strong
+    machinery: "Computing upper and lower Darboux integrals of a Dirichlet-type function using density of Q and irrationals."
+    standardResult: "f(x)=x on Q, 0 off Q is not Riemann integrable on [0,b] (U = b^2/2, L = 0)"
+    topic: integration
+    subtopics: [partitions-darboux-sums, integrability-criteria]
+    skills: [density-argument, darboux-sum-computation]
+    difficulty: easy
+    difficultyRationale: "Sup on each subinterval is t_k, inf is 0; upper sums reduce to the x integral."
+    category: canonical
+    type: counterexample
+    tags: [Riemann-integration, Darboux-sums, Dirichlet-type-function, non-integrable]
+    references: []
+    problemLatex: |
+      Let $f(x) = x$ for rational $x$ and $f(x) = 0$ for irrational $x$.
+
+      (a) Calculate the upper and lower Darboux integrals for $f$ on the interval $[0, b]$.
+
+      (b) Is $f$ integrable on $[0, b]$?
+    transcriptionNotes: "Verified against page image. Ross's Riemann integral is defined via Darboux sums U(f,P), L(f,P) and U(f) = inf U(f,P), L(f) = sup L(f,P). 32.3 (x^2 on Q) is a near-duplicate; skipped. No book hint for 32.2."
+
+  - cid: ross-32.6
+    chapter: "6 Integration"
+    section: "§32 The Riemann Integral"
+    number: "Exercise 32.6"
+    page: "280"
+    pdfPage: 289
+    verdict: strong
+    machinery: "Sequential version of the Riemann/Darboux integrability criterion."
+    standardResult: "sequences of upper/lower Darboux sums with U_n - L_n -> 0 give integrability and the integral"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [sup-inf-squeeze, epsilon-criterion]
+    difficulty: easy
+    difficultyRationale: "L_n <= L(f) <= U(f) <= U_n squeeze; then identify the limits."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, integrability-criterion, squeeze]
+    references: []
+    problemLatex: |
+      Let $f$ be a bounded function on $[a, b]$. Suppose there exist sequences $(U_n)$ and $(L_n)$ of upper and lower Darboux sums for $f$ such that $\lim(U_n - L_n) = 0$. Show $f$ is integrable and $\int_a^b f = \lim U_n = \lim L_n$.
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  - cid: ross-32.7
+    chapter: "6 Integration"
+    section: "§32 The Riemann Integral"
+    number: "Exercise 32.7"
+    page: "280"
+    pdfPage: 289
+    verdict: strong
+    machinery: "Changing finitely many values does not affect integrability or the integral; mesh-controlled upper sums."
+    standardResult: "altering an integrable function at finitely many points preserves integrability and integral"
+    topic: integration
+    subtopics: [integral-properties, partitions-darboux-sums]
+    skills: [reduction, induction, mesh-estimate]
+    difficulty: easy
+    difficultyRationale: "Reduce to a single nonzero point and bound its contribution by mesh."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, finitely-many-points, Darboux-sums]
+    references: []
+    problemLatex: |
+      Let $f$ be integrable on $[a, b]$, and suppose $g$ is a function on $[a, b]$ such that $g(x) = f(x)$ except for finitely many $x$ in $[a, b]$. Show $g$ is integrable and $\int_a^b f = \int_a^b g$. *Hint*: First reduce to the case where $f$ is the function identically equal to 0.
+    bookHint: |
+      Assume $f(x) = 0$ for all $x \in [a, b]$. A simple induction shows we may assume $g(x) = 0$ except at one point $u \in [a, b]$. Clearly all lower sums $L(g, P) = 0$, so $L(g) = 0$. Since $u$ belongs to at most two intervals of any partition $P$, we have
+      $$U(g, P) \le 2|g(u)| \max_k [t_k - t_{k-1}].$$
+      Infer $U(g) = 0$; hence $\int_a^b g = 0 = \int_a^b f$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 400 (printed 391). (The hint's 'all lower sums L(g,P) = 0' tacitly assumes g(u) > 0; for g(u) < 0 the roles flip.)"
+
+  - cid: ross-32.8
+    chapter: "6 Integration"
+    section: "§32 The Riemann Integral"
+    number: "Exercise 32.8"
+    page: "280"
+    pdfPage: 289
+    verdict: strong
+    machinery: "Restricting a partition (refinement) to a subinterval preserves the Cauchy criterion."
+    standardResult: "integrable on [a,b] implies integrable on every subinterval [c,d]"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [partition-refinement, epsilon-criterion]
+    difficulty: easy
+    difficultyRationale: "Refine P to include c, d; the U - L on the subinterval is bounded by the total."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, subintervals, partition-refinement, Cauchy-criterion]
+    references: []
+    problemLatex: |
+      Show that if $f$ is integrable on $[a, b]$, then $f$ is integrable on every interval $[c, d] \subseteq [a, b]$.
+    transcriptionNotes: "Verified against page image. Ross's Theorem 32.5: a bounded f on [a,b] is integrable iff for each epsilon > 0 there is a partition P with U(f,P) - L(f,P) < epsilon. No book hint."
+
+  # ---------------- §33 Properties of the Riemann Integral ----------------
+  - cid: ross-33.4
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.4"
+    page: "289"
+    pdfPage: 298
+    verdict: core
+    machinery: "Shows the converse of '|f| integrable if f is' fails, by modifying the Dirichlet function."
+    standardResult: "f not Riemann integrable but |f| integrable (e.g. 1 on Q, -1 off Q)"
+    topic: integration
+    subtopics: [integrability-criteria, integral-properties]
+    skills: [construct-counterexample, darboux-sum-computation]
+    difficulty: easy
+    difficultyRationale: "Once the +-1 Dirichlet function is seen, verification is immediate."
+    category: canonical
+    type: counterexample
+    tags: [Riemann-integration, absolute-value, Dirichlet-function, counterexample]
+    references: ["Example 2 of §32 (quoted)"]
+    problemLatex: |
+      Give an example of a function $f$ on $[0, 1]$ that is *not* integrable for which $|f|$ is integrable. *Hint*: Modify Example 2 in §32.
+
+      *(Example 2 in §32: Consider the interval $[a, b]$, where $a < b$, and let $f(x) = 1$ for rational $x$ in $[a, b]$, and let $f(x) = 0$ for irrational $x$ in $[a, b]$. [The book shows $U(f, P) = b - a$ and $L(f, P) = 0$ for every partition $P$, so $f$ is not integrable.])*
+    transcriptionNotes: "Verified against page image. Example 2 statement quoted verbatim; bracketed conclusion summarizes the example's computation. No book hint."
+
+  - cid: ross-33.7
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.7"
+    page: "289"
+    pdfPage: 298
+    verdict: strong
+    machinery: "Oscillation of f^2 on a subinterval is controlled by 2B times oscillation of f; Cauchy criterion."
+    standardResult: "f integrable implies f^2 integrable"
+    topic: integration
+    subtopics: [integrability-criteria, integral-properties]
+    skills: [oscillation-estimate, partition-estimate]
+    difficulty: medium
+    difficultyRationale: "Rated on (a): must pass from pointwise difference bound to sup-inf (oscillation) bound on each subinterval."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, squares, oscillation, Darboux-sums]
+    references: []
+    problemLatex: |
+      Let $f$ be a bounded function on $[a, b]$, so that there exists $B > 0$ such that $|f(x)| \le B$ for all $x \in [a, b]$.
+
+      (a) Show
+      $$U(f^2, P) - L(f^2, P) \le 2B[U(f, P) - L(f, P)]$$
+      for all partitions $P$ of $[a, b]$. *Hint*: $f(x)^2 - f(y)^2 = [f(x) + f(y)] \cdot [f(x) - f(y)]$.
+
+      (b) Show that if $f$ is integrable on $[a, b]$, then $f^2$ also is integrable on $[a, b]$.
+    bookHint: |
+      (a) For any set $S \subseteq [a, b]$ and $x_0, y_0 \in S$, we have
+      $$f(x_0)^2 - f(y_0)^2 \le |f(x_0) + f(y_0)| \cdot |f(x_0) - f(y_0)| \le 2B|f(x_0) - f(y_0)| \le 2B[M(f, S) - m(f, S)].$$
+      It follows that $M(f^2, S) - m(f^2, S) \le 2B[M(f, S) - m(f, S)]$. Use this to show $U(f^2, P) - L(f^2, P) \le 2B[U(f, P) - L(f, P)]$.
+
+      (b) Use Theorem 32.5 and part (a).
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 401 (printed 392). M(f,S), m(f,S) denote sup and inf of f on S. Theorem 32.5 is the epsilon-partition criterion for integrability."
+
+  - cid: ross-33.8
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.8"
+    page: "290"
+    pdfPage: 299
+    verdict: core
+    machinery: "Algebraic identities reduce products and max/min to squares, sums and absolute values."
+    standardResult: "product, max and min of integrable functions are integrable"
+    topic: integration
+    subtopics: [integral-properties, integrability-criteria]
+    skills: [polarization-identity, reduction]
+    difficulty: easy
+    difficultyRationale: "With 33.7 and the identities, short reductions; uses |f| integrable (Theorem 33.5)."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, products, max-min, polarization]
+    references: ["Exercise 33.7 (see ross-33.7)", "Exercise 17.8 (quoted)"]
+    problemLatex: |
+      Let $f$ and $g$ be integrable functions on $[a, b]$.
+
+      (a) Show $fg$ is integrable on $[a, b]$. *Hint*: Use Exercise 33.7 and $4fg = (f + g)^2 - (f - g)^2$.
+
+      (b) Show $\max(f, g)$ and $\min(f, g)$ are integrable on $[a, b]$. *Hint*: Exercise 17.8.
+
+      *(Exercise 17.8: Let $f$ and $g$ be real-valued functions. (a) Show $\min(f, g) = \frac12(f + g) - \frac12|f - g|$. (b) Show $\min(f, g) = -\max(-f, -g)$. ...)*
+    transcriptionNotes: "Verified against page image. Exercise 17.8 parts (a),(b) quoted verbatim (part (c) on continuity elided). Exercise 33.7 = f integrable implies f^2 integrable (ross-33.7). Ross's Theorem 33.5: f integrable implies |f| integrable. No book hint."
+
+  - cid: ross-33.9
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.9"
+    page: "290"
+    pdfPage: 299
+    verdict: core
+    machinery: "Uniform limits preserve Riemann integrability (Cauchy criterion with an epsilon/2 split), and integrals pass to the limit."
+    standardResult: "uniform limit of Riemann integrable functions is integrable and integral of limit = limit of integrals"
+    topic: function-sequences
+    subtopics: [uniform-convergence, interchange-integral]
+    skills: [epsilon-over-2, darboux-sum-estimate, partition-estimate]
+    difficulty: medium
+    difficultyRationale: "Integrability of the limit (not assumed continuous) needs a Darboux-sum estimate combining uniform closeness and the criterion for f_m."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, Riemann-integration, interchange-of-limits, machinery]
+    references: ["Theorems 25.2 and 33.11 (quoted)"]
+    problemLatex: |
+      Let $(f_n)$ be a sequence of integrable functions on $[a, b]$, and suppose $f_n \to f$ uniformly on $[a, b]$. Prove $f$ is integrable and
+      $$\int_a^b f = \lim_{n\to\infty} \int_a^b f_n.$$
+      Compare this result with Theorems 25.2 and 33.11.
+
+      *(Theorem 25.2: Let $(f_n)$ be a sequence of continuous functions on $[a, b]$, and suppose $f_n \to f$ uniformly on $[a, b]$. Then $\lim_{n\to\infty} \int_a^b f_n(x)\,dx = \int_a^b f(x)\,dx$. Theorem 33.11 [Dominated Convergence Theorem]: Suppose $(f_n)$ is a sequence of integrable functions on $[a, b]$ and $f_n \to f$ pointwise where $f$ is an integrable function on $[a, b]$. If there exists an $M > 0$ such that $|f_n(x)| \le M$ for all $n$ and all $x$ in $[a, b]$, then $\lim_{n\to\infty} \int_a^b f_n(x)\,dx = \int_a^b \lim_{n\to\infty} f_n(x)\,dx$.)*
+    bookHint: |
+      Select $m \in \mathbb{N}$ so that $|f(x) - f_m(x)| < \frac{\epsilon}{2(b-a)}$ for all $x \in [a, b]$. Then for any partition $P$
+      $$-\frac{\epsilon}{2} \le L(f - f_m, P) \le U(f - f_m, P) \le \frac{\epsilon}{2}.$$
+      Select a partition $P_0$ so that $U(f_m, P_0) - L(f_m, P_0) < \frac{\epsilon}{2}$. Since $f = (f - f_m) + f_m$, we can use inequalities from the proof of Theorem 33.3 to conclude $U(f, P_0) - L(f, P_0) < \epsilon$. Now Theorem 32.5 shows $f$ is integrable. To complete the exercise, proceed as in the proof of Theorem 25.2.
+    transcriptionNotes: "Verified against page image. Theorems 25.2 and 33.11 quoted verbatim (equation labels dropped). bookHint from PDF p. 401 (printed 392). Theorem 33.3 gives U(f+g,P) <= U(f,P)+U(g,P), L(f+g,P) >= L(f,P)+L(g,P)."
+
+  - cid: ross-33.10
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.10"
+    page: "290"
+    pdfPage: 299
+    verdict: strong
+    machinery: "Bounded function with one bad discontinuity is integrable: isolate a small interval around 0."
+    standardResult: "sin(1/x) (with f(0)=0) is Riemann integrable on [-1,1]"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [isolate-bad-point, epsilon-criterion, partition-refinement]
+    difficulty: medium
+    difficultyRationale: "Requires splitting [-1,1] into a tiny interval around 0 (controlled by boundedness) and pieces where f is continuous."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, sin-one-over-x, discontinuity, integrability]
+    references: ["Exercise 33.11(c) answer (in bookHint)"]
+    problemLatex: |
+      Let $f(x) = \sin\frac1x$ for $x \neq 0$ and $f(0) = 0$. Show $f$ is integrable on $[-1, 1]$. *Hint*: See the answer to Exercise 33.11(c).
+    bookHint: |
+      [Answer to Exercise 33.11(c), which the exercise's own hint points to; there $f(x) = x\,\operatorname{sgn}(\sin\frac1x)$:]
+      (c) Let $\epsilon > 0$. Since $f$ is piecewise continuous on $[\frac{\epsilon}{8}, 1]$, there is a partition $P_1$ of $[\frac{\epsilon}{8}, 1]$ such that $U(f, P_1) - L(f, P_1) < \frac{\epsilon}{4}$. Likewise there is a partition $P_2$ of $[-1, -\frac{\epsilon}{8}]$ such that $U(f, P_2) - L(f, P_2) < \frac{\epsilon}{4}$. Let $P = P_1 \cup P_2$, a partition of $[-1, 1]$. Since
+      $$\left\{M\left(f, \left[-\frac{\epsilon}{8}, \frac{\epsilon}{8}\right]\right) - m\left(f, \left[-\frac{\epsilon}{8}, \frac{\epsilon}{8}\right]\right)\right\} \cdot \left\{\frac{\epsilon}{8} - \left(-\frac{\epsilon}{8}\right)\right\} \le \frac{\epsilon}{2},$$
+      we conclude $U(f, P) - L(f, P) < \epsilon$. Now Theorem 32.5 shows $f$ is integrable.
+    transcriptionNotes: "Verified against page image. The bookHint is the book's printed answer to Exercise 33.11(c) (PDF p. 401, printed 392), which 33.10's in-exercise hint explicitly references; for sin(1/x) the oscillation bound on the middle interval changes (oscillation 2 instead of epsilon/4), so the epsilon/8 bookkeeping must be adapted. 33.11 itself (x sgn(sin 1/x)) skipped as the near-duplicate."
+
+  - cid: ross-33.12
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.12"
+    page: "290"
+    pdfPage: 299
+    verdict: strong
+    machinery: "Thomae's function: discontinuous on a dense set yet Riemann integrable with integral 0."
+    standardResult: "Thomae's (ruler) function is Riemann integrable with integral 0"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [finitely-many-large-values, partition-estimate]
+    difficulty: medium
+    difficultyRationale: "Rated on (b): only finitely many points have f >= epsilon; cover them by short intervals to make upper sums small."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Thomae-function, dense-discontinuities, integrability]
+    references: ["Exercise 17.14 (quoted)"]
+    problemLatex: |
+      Let $f$ be the function described in Exercise 17.14.
+
+      (a) Show $f$ is not piecewise continuous or piecewise monotonic on any interval $[a, b]$.
+
+      (b) Show $f$ is integrable on every interval $[a, b]$ and $\int_a^b f = 0$.
+
+      *(Exercise 17.14: For each nonzero rational number $x$, write $x$ as $\frac{p}{q}$ where $p, q$ are integers with no common factors and $q > 0$, and then define $f(x) = \frac1q$. Also define $f(0) = 1$ and $f(x) = 0$ for all $x \in \mathbb{R} \setminus \mathbb{Q}$. Thus $f(x) = 1$ for each integer, $f(\frac12) = f(-\frac12) = f(\frac32) = \cdots = \frac12$, etc. Show $f$ is continuous at each point of $\mathbb{R} \setminus \mathbb{Q}$ and discontinuous at each point of $\mathbb{Q}$.)*
+    transcriptionNotes: "Verified against page image. Exercise 17.14 quoted verbatim (PDF 143). Ross's 'piecewise continuous/monotonic' (Definition 33.7) means: there is a partition such that f is uniformly continuous (resp. monotonic) on each open subinterval. No book hint."
+
+  - cid: ross-33.13
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.13"
+    page: "290"
+    pdfPage: 299
+    verdict: consider
+    machinery: "Mean value theorem for integrals (or IVT) applied to a difference."
+    standardResult: "equal integrals of continuous f, g force f(x) = g(x) somewhere"
+    topic: integration
+    subtopics: [integral-properties]
+    skills: [theorem-application, IVT]
+    difficulty: introductory
+    difficultyRationale: "Apply the integral MVT to f - g."
+    category: canonical
+    type: theorem-application
+    tags: [Riemann-integration, mean-value-theorem-for-integrals, IVT]
+    references: []
+    problemLatex: |
+      Suppose $f$ and $g$ are continuous functions on $[a, b]$ such that $\int_a^b f = \int_a^b g$. Prove there exists $x$ in $(a, b)$ such that $f(x) = g(x)$.
+    bookHint: |
+      Apply Theorem 33.9 to $f - g$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 401 (printed 392). Theorem 33.9 (IVT for Integrals): if f is continuous on [a,b], then f(x) = (1/(b-a)) * integral of f over [a,b] for at least one x in (a,b)."
+
+  - cid: ross-33.14
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.14"
+    page: "290"
+    pdfPage: 299
+    verdict: strong
+    machinery: "Weighted mean value theorem for integrals via EVT bounds and IVT; sign hypothesis is necessary."
+    standardResult: "weighted (second) mean value theorem for integrals"
+    topic: integration
+    subtopics: [integral-properties, integral-inequalities]
+    skills: [EVT-bounds, IVT, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Rated on (a): bound by min/max of f times the weight integral, handle the zero-weight case, then IVT (the open-interval conclusion needs care)."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem-for-integrals, weighted, IVT, EVT, counterexample]
+    references: ["Theorem 33.9 (quoted)"]
+    problemLatex: |
+      (a) Prove the following generalization of the Intermediate Value Theorem for Integrals. If $f$ and $g$ are continuous functions on $[a, b]$ and $g(t) \ge 0$ for all $t \in [a, b]$, then there exists $x$ in $(a, b)$ such that
+      $$\int_a^b f(t)g(t)\,dt = f(x)\int_a^b g(t)\,dt.$$
+
+      (b) Show Theorem 33.9 is a special case of part (a).
+
+      (c) Does the conclusion in part (a) hold if $[a, b] = [-1, 1]$ and $f(t) = g(t) = t$ for all $t$?
+
+      *(Theorem 33.9 [Intermediate Value Theorem for Integrals]: If $f$ is a continuous function on $[a, b]$, then for at least one $x$ in $(a, b)$ we have $f(x) = \frac{1}{b-a}\int_a^b f$.)*
+    transcriptionNotes: "Verified against page image. Theorem 33.9 quoted verbatim. No book hint for 33.14 itself (35.9(b)'s answer gives a Stieltjes-based proof; not included)."
+
+  - cid: ross-33.15
+    chapter: "6 Integration"
+    section: "§33 Properties of the Riemann Integral"
+    number: "Exercise 33.15"
+    page: "291"
+    pdfPage: 300
+    verdict: strong
+    machinery: "Spike functions: pointwise convergence without domination does not allow interchanging limit and integral."
+    standardResult: "tent functions of height n and width 2/n: f_n -> 0 pointwise but integrals = 1"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, interchange-integral]
+    skills: [construct-counterexample, hypothesis-check]
+    difficulty: easy
+    difficultyRationale: "Direct computation plus identifying the missing uniform bound in the DCT."
+    category: canonical
+    type: counterexample
+    tags: [pointwise-convergence, integral, spike-functions, dominated-convergence, counterexample]
+    references: ["Theorem 33.11 Dominated Convergence Theorem (quoted)"]
+    problemLatex: |
+      For integers $n \ge 3$, define the function $f_n$ on $[0, 1]$ by the rules:
+      $$f_n(0) = f_n\left(\frac{2}{n}\right) = f_n(1) = 0 \quad \text{and} \quad f_n\left(\frac1n\right) = n,$$
+      and so that its graph is a straight line from $(0, 0)$ to $(\frac1n, n)$, from $(\frac1n, n)$ to $(\frac2n, 0)$, and from $(\frac2n, 0)$ to $(1, 0)$.
+
+      (a) Graph $f_3$, $f_4$ and $f_5$.
+
+      (b) Show $f_n \to 0$ pointwise on $[0, 1]$.
+
+      (c) Show $\lim_n \int_0^1 f_n(x)\,dx \neq \int_0^1 0\,dx$. Why doesn't this contradict the Dominated Convergence Theorem?
+
+      *(Theorem 33.11 [Dominated Convergence Theorem]: Suppose $(f_n)$ is a sequence of integrable functions on $[a, b]$ and $f_n \to f$ pointwise where $f$ is an integrable function on $[a, b]$. If there exists an $M > 0$ such that $|f_n(x)| \le M$ for all $n$ and all $x$ in $[a, b]$, then $\lim_{n\to\infty} \int_a^b f_n(x)\,dx = \int_a^b \lim_{n\to\infty} f_n(x)\,dx$.)*
+    transcriptionNotes: "Verified against page image. Theorem 33.11 (Ross's bounded-convergence form of DCT, stated without proof in the book) quoted verbatim. Similar in spirit to ross-23.9 (n x^n); both kept since this one ties to the DCT hypothesis. No book hint."
+
+  # ---------------- §34 Fundamental Theorem of Calculus ----------------
+  - cid: ross-34.1
+    chapter: "6 Integration"
+    section: "§34 Fundamental Theorem of Calculus"
+    number: "Exercise 34.1"
+    page: "296"
+    pdfPage: 305
+    verdict: consider
+    machinery: "Relationship between the two FTCs: FTC II + 'equal derivatives differ by a constant' gives FTC I when g' is continuous."
+    standardResult: "FTC II implies FTC I for continuously differentiable g"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [theorem-application, antiderivative-uniqueness]
+    difficulty: easy
+    difficultyRationale: "Two-line argument with the hint; the value is understanding why the continuity hypothesis is needed."
+    category: canonical
+    type: proof
+    tags: [fundamental-theorem-of-calculus, antiderivative, mean-value-theorem]
+    references: ["Theorem 34.1, Theorem 34.3, Corollary 29.5 (quoted)"]
+    problemLatex: |
+      Use Theorem 34.3 to prove Theorem 34.1 for the case $g'$ is continuous. *Hint*: Let $F(x) = \int_a^x g'$; then $F' = g'$. Apply Corollary 29.5.
+
+      *(Theorem 34.1 [Fundamental Theorem of Calculus I]: If $g$ is a continuous function on $[a, b]$ that is differentiable on $(a, b)$, and if $g'$ is integrable on $[a, b]$, then $\int_a^b g' = g(b) - g(a)$.*
+
+      *Theorem 34.3 [Fundamental Theorem of Calculus II]: Let $f$ be an integrable function on $[a, b]$. For $x$ in $[a, b]$, let $F(x) = \int_a^x f(t)\,dt$. Then $F$ is continuous on $[a, b]$. If $f$ is continuous at $x_0$ in $(a, b)$, then $F$ is differentiable at $x_0$ and $F'(x_0) = f(x_0)$.*
+
+      *Corollary 29.5: Let $f$ and $g$ be differentiable functions on $(a, b)$ such that $f' = g'$ on $(a, b)$. Then there exists a constant $c$ such that $f(x) = g(x) + c$ for all $x \in (a, b)$.)*
+    transcriptionNotes: "Verified against page image. Theorems 34.1, 34.3 and Corollary 29.5 quoted verbatim. No book hint."
+
+  - cid: ross-34.3
+    chapter: "6 Integration"
+    section: "§34 Fundamental Theorem of Calculus"
+    number: "Exercise 34.3"
+    page: "296"
+    pdfPage: 305
+    verdict: consider
+    machinery: "FTC II at points of continuity; F fails to be differentiable at a jump of f (one-sided derivatives differ)."
+    standardResult: "integral of a function with a jump: F continuous everywhere, not differentiable at the jump"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [piecewise-integration, one-sided-derivatives]
+    difficulty: easy
+    difficultyRationale: "Piecewise computation; non-differentiability via one-sided derivatives."
+    category: canonical
+    type: computation
+    tags: [fundamental-theorem-of-calculus, jump-discontinuity, differentiability]
+    references: []
+    problemLatex: |
+      Let $f$ be defined as follows: $f(t) = 0$ for $t < 0$; $f(t) = t$ for $0 \le t \le 1$; $f(t) = 4$ for $t > 1$.
+
+      (a) Determine the function $F(x) = \int_0^x f(t)\,dt$.
+
+      (b) Sketch $F$. Where is $F$ continuous?
+
+      (c) Where is $F$ differentiable? Calculate $F'$ at the points of differentiability.
+    bookHint: |
+      (a) $F(x) = 0$ for $x < 0$; $F(x) = x^2/2$ for $0 \le x \le 1$; $F(x) = 4x - \frac72$ for $x > 1$.
+
+      (c) $F$ is differentiable except possibly at $x = 1$ by Theorem 34.3. To show $F$ is not differentiable at $x = 1$, use Exercise 29.17.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 401 (printed 392). Exercise 29.17 = gluing criterion (ross-29.17). 34.4 is a near-duplicate."
+
+  - cid: ross-34.5
+    chapter: "6 Integration"
+    section: "§34 Fundamental Theorem of Calculus"
+    number: "Exercise 34.5"
+    page: "297"
+    pdfPage: 306
+    verdict: consider
+    machinery: "FTC II with variable limits of integration."
+    standardResult: "d/dx of integral from x-1 to x+1 of f is f(x+1) - f(x-1)"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [split-integral, theorem-application]
+    difficulty: introductory
+    difficultyRationale: "Split at a fixed point and apply FTC II plus chain rule."
+    category: canonical
+    type: theorem-application
+    tags: [fundamental-theorem-of-calculus, variable-limits]
+    references: []
+    problemLatex: |
+      Let $f$ be a continuous function on $\mathbb{R}$ and define
+      $$F(x) = \int_{x-1}^{x+1} f(t)\,dt \quad \text{for} \quad x \in \mathbb{R}.$$
+      Show $F$ is differentiable on $\mathbb{R}$ and compute $F'$.
+    bookHint: |
+      $F'(x) = f(x + 1) - f(x - 1)$.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 401 (printed 392). 34.6 (G(x) = integral from 0 to sin x) is a near-duplicate."
+
+  - cid: ross-34.11
+    chapter: "6 Integration"
+    section: "§34 Fundamental Theorem of Calculus"
+    number: "Exercise 34.11"
+    page: "297"
+    pdfPage: 306
+    verdict: core
+    machinery: "A continuous nonnegative function with zero integral vanishes identically (positivity at a point persists on an interval)."
+    standardResult: "continuous f with integral of f^2 equal to 0 is identically 0"
+    topic: integration
+    subtopics: [integral-properties, integral-inequalities]
+    skills: [continuity-neighborhood-argument, contradiction]
+    difficulty: easy
+    difficultyRationale: "Positive at a point implies positive on a neighborhood, giving a positive lower bound for the integral."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, positivity, continuity, machinery]
+    references: ["Theorem 33.4 (quoted)"]
+    problemLatex: |
+      Suppose $f$ is a continuous function on $[a, b]$. Show that if $\int_a^b f(x)^2\,dx = 0$, then $f(x) = 0$ for all $x$ in $[a, b]$. *Hint*: See Theorem 33.4.
+
+      *(Theorem 33.4: (i) If $f$ and $g$ are integrable on $[a, b]$ and if $f(x) \le g(x)$ for $x$ in $[a, b]$, then $\int_a^b f \le \int_a^b g$. (ii) If $g$ is a continuous nonnegative function on $[a, b]$ and if $\int_a^b g = 0$, then $g$ is identically 0 on $[a, b]$.)*
+    transcriptionNotes: "Verified against page image. Theorem 33.4 quoted verbatim. NOTE: with Theorem 33.4(ii) quoted, the exercise becomes a one-liner; the curator may prefer to drop the quoted theorem (keeping only the hint text) or to treat Theorem 33.4(ii) itself as the real content. No book hint."
+
+  - cid: ross-34.12
+    chapter: "6 Integration"
+    section: "§34 Fundamental Theorem of Calculus"
+    number: "Exercise 34.12"
+    page: "297"
+    pdfPage: 306
+    verdict: strong
+    machinery: "Testing against g = f; the fundamental-lemma (du Bois-Reymond) pattern."
+    standardResult: "if integral of f g = 0 for all continuous g then f = 0"
+    topic: integration
+    subtopics: [integral-properties]
+    skills: [test-function-choice]
+    difficulty: easy
+    difficultyRationale: "Choose g = f and use the previous exercise."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, test-functions, fundamental-lemma]
+    references: []
+    problemLatex: |
+      Show that if $f$ is a continuous real-valued function on $[a, b]$ satisfying $\int_a^b f(x)g(x)\,dx = 0$ for every continuous function $g$ on $[a, b]$, then $f(x) = 0$ for all $x$ in $[a, b]$.
+    transcriptionNotes: "Verified against page image. No book hint."
+
+  # ---------------- §36 Improper Integrals ----------------
+  - cid: ross-36.3
+    chapter: "6 Integration"
+    section: "§36 Improper Integrals"
+    number: "Exercise 36.3"
+    page: "336"
+    pdfPage: 345
+    verdict: strong
+    machinery: "Evaluating improper integrals as limits of proper integrals; the p-test for integrals."
+    standardResult: "p-integrals: integral of x^{-p} on (0,1] finite iff p<1; on (0,infinity) always infinite"
+    topic: integration
+    subtopics: [improper-integrals]
+    skills: [limit-of-integrals, antiderivative]
+    difficulty: easy
+    difficultyRationale: "Antiderivative and limits; (b) splits at 1 using (a) and the [1,infinity) case."
+    category: canonical
+    type: computation
+    tags: [improper-integrals, p-test, power-functions]
+    references: ["Definition 36.1"]
+    problemLatex: |
+      (a) Show
+      $$\int_0^1 x^{-p}\,dx = \frac{1}{1-p} \quad \text{if} \quad 0 < p < 1 \quad \text{and} \quad \int_0^1 x^{-p}\,dx = +\infty \quad \text{if} \quad p > 1.$$
+
+      (b) Show $\int_0^\infty x^{-p}\,dx = +\infty$ for all $p > 0$.
+    bookHint: |
+      (b) Use part (a) and Examples 1 and 2.
+    transcriptionNotes: "Verified against page image. bookHint from PDF p. 402 (printed 393); Examples 1 and 2 of §36: Example 1 shows the integral of 1/x over [1,infinity), over (0,1] and over (0,infinity) is +infinity; Example 2 shows the integral of x^{-p} over [1,infinity) is 1/(p-1) if p>1 and +infinity if 0<p<1. Note the book's (a) omits p = 1 (handled by Example 2). Ross's Definition 36.1: improper integrals are limits of integrals over [a,d] (d -> b-) or [c,b] (c -> a+), and on (a,b) the sum of the two halves split at some alpha."
+
+  - cid: ross-36.5
+    chapter: "6 Integration"
+    section: "§36 Improper Integrals"
+    number: "Exercise 36.5"
+    page: "336"
+    pdfPage: 345
+    verdict: consider
+    machinery: "Monotone limits: for nonnegative integrands the improper integral exists and equals a supremum."
+    standardResult: "improper integral of a nonnegative continuous function = sup of integrals over compact subintervals"
+    topic: integration
+    subtopics: [improper-integrals]
+    skills: [monotone-limit, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "Monotonicity of d -> integral gives existence of the limit; compare with the sup."
+    category: canonical
+    type: proof
+    tags: [improper-integrals, supremum, monotone-limits, nonnegative-functions]
+    references: ["Definition 36.1 (convention)"]
+    problemLatex: |
+      Let $f$ be a continuous function on $(a, b)$ such that $f(x) \ge 0$ for all $x \in (a, b)$; $a$ can be $-\infty$, $b$ can be $+\infty$. Show the improper integral $\int_a^b f(x)\,dx$ exists and equals
+      $$\sup\left\{\int_c^d f(x)\,dx : [c, d] \subseteq (a, b)\right\}.$$
+    transcriptionNotes: "Verified against page image. 'Exists' allows the value +infinity (Ross's Definition 36.1 permits limits +-infinity). No book hint."
+
+  - cid: ross-36.6
+    chapter: "6 Integration"
+    section: "§36 Improper Integrals"
+    number: "Exercise 36.6"
+    page: "336"
+    pdfPage: 345
+    verdict: strong
+    machinery: "Comparison test for improper integrals via monotone limits."
+    standardResult: "comparison test for improper integrals"
+    topic: integration
+    subtopics: [improper-integrals, integral-inequalities]
+    skills: [comparison-estimate, monotone-limit]
+    difficulty: easy
+    difficultyRationale: "Monotonicity of partial integrals plus order preservation of the integral."
+    category: canonical
+    type: proof
+    tags: [improper-integrals, comparison-test]
+    references: []
+    problemLatex: |
+      Prove the following *comparison tests*. Let $f$ and $g$ be continuous functions on $(a, b)$ such that $0 \le f(x) \le g(x)$ for all $x$ in $(a, b)$; $a$ can be $-\infty$, $b$ can be $+\infty$.
+
+      (a) If $\int_a^b g(x)\,dx < \infty$, then $\int_a^b f(x)\,dx < \infty$.
+
+      (b) If $\int_a^b f(x)\,dx = +\infty$, then $\int_a^b g(x)\,dx = +\infty$.
+    transcriptionNotes: "Verified against page images (statement spans PDF 345–346). No book hint."
+
+  - cid: ross-36.8
+    chapter: "6 Integration"
+    section: "§36 Improper Integrals"
+    number: "Exercise 36.8"
+    page: "337"
+    pdfPage: 346
+    verdict: strong
+    machinery: "Absolute convergence implies convergence for improper integrals (via Cauchy criterion or f = f^+ - f^-)."
+    standardResult: "absolutely convergent improper integral converges"
+    topic: integration
+    subtopics: [improper-integrals]
+    skills: [positive-negative-parts, comparison-estimate, cauchy-criterion]
+    difficulty: medium
+    difficultyRationale: "Requires a decomposition (f + |f| and |f|) or a Cauchy-criterion argument for limits of integrals; mirrors the series result."
+    category: canonical
+    type: proof
+    tags: [improper-integrals, absolute-convergence, comparison-test]
+    references: []
+    problemLatex: |
+      Suppose $f$ is continuous on $(a, b)$ and $\int_a^b |f(x)|\,dx < \infty$; again $a$ can be $-\infty$, $b$ can be $+\infty$. Show the integral $\int_a^b f(x)\,dx$ exists and is finite.
+    transcriptionNotes: "Verified against page image. No book hint for 36.8 (the hint for 36.13, the Stieltjes generalization, uses the f + |f| trick)."
+
+skipped:
+  - "23.2 near-duplicate computation drill of 23.1; 23.3 needs Example 6 context (routine endpoint computation); 23.7 (cos x)^n pointwise limit — weaker cautionary example than 23.8/23.9"
+  - "24.1 introductory uniform-convergence check (similar to 24.2); 24.3, 24.4, 24.5 'Repeat Exercise 24.2' variants (near-duplicates of 24.2/24.14); 24.6, 24.7, 24.8 routine pointwise/uniform checks (24.7 needs Thm 24.3, same idea as 24.3); 24.10 trivial (sum of uniformly convergent sequences); 24.15, 24.16 near-duplicates of 24.14"
+  - "25.1 book-internal (derive Discussion 25.1(b) from (a)); 25.2 introductory (x^n/n uniform), covered by 24.2/25.6; 25.7, 25.8 near-duplicate M-test applications of 25.6; 25.10 near-duplicate of 25.9 (uniform on [0,a], not on [0,1)); 25.13 routine (sum of uniformly convergent series); 25.14 routine uniform-Cauchy variant"
+  - "26.1 book-internal (complete proof of Thm 26.4 for x>0); 26.3 follow-up computation of 26.2 (sum n^2 x^n); 26.4 routine series computation for integral of e^{-t^2} (also contains a typo: e^x sum printed from n=1)"
+  - "27.1 routine rescaling of Bernstein's theorem to [a,b] (book gives full answer); 27.5 Bernstein-polynomial computations (needs Lemma 27.2 context); 27.6 trivial consequence of Thm 24.3; 27.7 minor Bernstein-polynomial bound"
+  - "28.1 routine listing of nondifferentiability points; 28.2 routine derivative-from-definition computations (28.3 kept); 28.9, 28.10, 28.12 routine chain-rule computations; 28.11 routine triple chain rule; 28.13 technical domain lemma for compositions; 28.15 Leibniz rule (routine induction, not core analysis)"
+  - "29.1 routine MVT-hypothesis checks; 29.6 book-internal (line used in MVT proof); 29.7 routine (f''=0 implies linear); 29.8 book-internal (Corollary 29.7(ii)-(iv), same as (i)); 29.9, 29.11, 29.12 routine calculus inequalities via monotonicity (29.13 kept as the general pattern); 29.14 near-duplicate of 29.13; 29.15 rational-power derivative technicality; 29.16 routine inverse-function derivative computation"
+  - "30.1, 30.2, 30.3, 30.5 routine L'Hospital limit computations; 30.4 routine change of variable x = 1/y in limits"
+  - "31.1, 31.2 routine Taylor series of cos/sinh/cosh; 31.3 depends on Example 2 context; 31.6 alternate proof of Taylor's theorem requiring the book's specific M from the proof of Thm 31.3; 31.7, 31.8, 31.9, 31.10 numerical Newton's-method computations; 31.12 book-internal elementary inequality for proof of Thm 31.13"
+  - "32.1 routine Darboux computation for x^3 (needs §1 sum formulas); 32.3 near-duplicate of 32.2 (x^2 on Q); 32.4 book-internal induction for Lemma 32.2; 32.5 book-internal (prove Thm 32.4 via Exercise 4.8)"
+  - "33.1 book-internal (decreasing case of Thm 33.1); 33.2 sup of scaled set (belongs to §4, real-numbers basics); 33.3 step functions (part (b) needs postage-stamp function context; routine); 33.5 routine integral estimate; 33.6 book-internal step in proof of Thm 33.5; 33.11 x sgn(sin 1/x) — near-duplicate of 33.10 (its answer is recorded as 33.10's bookHint)"
+  - "34.2 routine FTC limit computations; 34.4 near-duplicate of 34.3; 34.6 near-duplicate of 34.5 (variable upper limit sin x); 34.7, 34.8, 34.9 routine integration computations (substitution, parts, arcsin via Example 3); 34.10 geometric argument for integral of inverse function (informal)"
+  - "36.1 routine consistency check (improper = proper when integrable); 36.2 book-internal well-definedness of Definition 36.1(3); 36.4 routine improper-integral computations; 36.7 Gaussian integral — (b) needs double integrals/polar coordinates not developed in the book; 36.9, 36.10, 36.11, 36.12, 36.13, 36.14 Riemann–Stieltjes F-integrals (exotic, §35 material); 36.15 part (b) is a Stieltjes F-integral statement (part (a), a uniform-convergence/improper-integral counterexample, cannot be separated without altering the exercise)"
+  - "§35 Riemann–Stieltjes Integrals: all exercises skipped per chunk instructions"

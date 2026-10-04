@@ -1,0 +1,3032 @@
+# Curated selection from abbott. Generated from the curation pipeline, then hand-maintained.
+- id: abbott-1.2.6
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.2 Some Preliminaries
+    problemNumber: Exercise 1.2.6
+    page: '12'
+  topic: real-numbers
+  subtopics:
+  - absolute-value
+  - inequalities
+  skills:
+  - case-analysis
+  - triangle-inequality
+  - add-and-subtract
+  concept: triangle inequality and reverse triangle inequality ||a|-|b|| <= |a-b|
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - triangle-inequality
+  - absolute-value
+  - reverse-triangle-inequality
+  - machinery
+  problemLatex: |
+    (a) Verify the triangle inequality in the special case where $a$ and $b$ have the same sign.
+    (b) Find an efficient proof for all the cases at once by first demonstrating $(a+b)^2 \le (|a|+|b|)^2$.
+    (c) Prove $|a-b| \le |a-c| + |c-d| + |d-b|$ for all $a$, $b$, $c$, and $d$.
+    (d) Prove $||a|-|b|| \le |a-b|$. (The unremarkable identity $a = a - b + b$ may be useful.)
+  notes: 'Triangle inequality in the book: $|a+b| \le |a|+|b|$.'
+  curation:
+    why: Triangle and reverse triangle inequalities — used in nearly every ε argument.
+- id: abbott-1.2.11
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.2 Some Preliminaries
+    problemNumber: Exercise 1.2.11
+    page: '13'
+  topic: foundations
+  subtopics:
+  - logic-quantifiers
+  skills:
+  - negate-definition
+  concept: negating quantified statements (Archimedean / density)
+  difficulty: easy
+  category: canonical
+  type: definition
+  tags:
+  - quantifiers
+  - negation
+  - logic
+  - Archimedean-property
+  - density
+  problemLatex: |
+    Form the logical negation of each claim. One trivial way to do this is to simply add "It is not the case that..." in front of each assertion. To make this interesting, fashion the negation into a positive statement that avoids using the word "not" altogether. In each case, make an intuitive guess as to whether the claim or its negation is the true statement.
+    (a) For all real numbers satisfying $a < b$, there exists an $n \in \mathbb{N}$ such that $a + 1/n < b$.
+    (b) There exists a real number $x > 0$ such that $x < 1/n$ for all $n \in \mathbb{N}$.
+    (c) Between every two distinct real numbers there is a rational number.
+  curation:
+    why: Negate nested-quantifier statements into positive form — the skill behind every proof by contradiction and every counterexample.
+- id: abbott-1.3.3
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.3 The Axiom of Completeness
+    problemNumber: Exercise 1.3.3
+    page: '18'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  - completeness
+  skills:
+  - sup-definition-two-parts
+  - upper-bound-argument
+  concept: inf A = sup of the set of lower bounds of A (infima exist from AoC)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - infimum
+  - Axiom-of-Completeness
+  - lower-bound
+  problemLatex: |
+    (a) Let $A$ be nonempty and bounded below, and define $B = \{b \in \mathbb{R} : b \text{ is a lower bound for } A\}$. Show that $\sup B = \inf A$.
+    (b) Use (a) to explain why there is no need to assert that greatest lower bounds exist as part of the Axiom of Completeness.
+  notes: 'Axiom of Completeness (book): Every nonempty set of real numbers that is bounded above has a least upper bound.'
+  curation:
+    why: 'Infima exist once suprema do: inf A is the sup of the lower bounds.'
+- id: abbott-1.3.5
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.3 The Axiom of Completeness
+    problemNumber: Exercise 1.3.5
+    page: '19'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - sup-definition-two-parts
+  concept: sup(cA) = c sup A for c >= 0; sup(cA) = c inf A for c < 0
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - infimum
+  - scaling
+  problemLatex: |
+    As in Example 1.3.7, let $A \subseteq \mathbb{R}$ be nonempty and bounded above, and let $c \in \mathbb{R}$. This time define the set $cA = \{ca : a \in A\}$.
+    (a) If $c \ge 0$, show that $\sup(cA) = c \sup A$.
+    (b) Postulate a similar type of statement for $\sup(cA)$ for the case $c < 0$.
+  notes: '''As in Example 1.3.7'' only refers to the same setup (A nonempty and bounded above, c real), which is restated in the exercise itself; Example 1.3.7 treats c + A.'
+  curation:
+    why: 'Scaling a set: sup(cA) = c·sup A for c ≥ 0 and c·inf A for c < 0. Clean practice with both directions of a sup proof.'
+- id: abbott-1.3.9
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.3 The Axiom of Completeness
+    problemNumber: Exercise 1.3.9
+    page: '19'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - sup-approximation
+  - construct-counterexample
+  concept: sup A < sup B implies some b in B is an upper bound for A
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - upper-bound
+  - counterexample
+  problemLatex: |
+    (a) If $\sup A < \sup B$, show that there exists an element $b \in B$ that is an upper bound for $A$.
+    (b) Give an example to show that this is not always the case if we only assume $\sup A \le \sup B$.
+  curation:
+    why: If sup A < sup B then some element of B bounds A — the approximation property in action.
+- id: abbott-1.3.11
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.3 The Axiom of Completeness
+    problemNumber: Exercise 1.3.11
+    page: '20'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - construct-counterexample
+  - sup-definition-two-parts
+  concept: A subset B implies sup A <= sup B; sup A < inf B vs. separating constant
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - supremum
+  - infimum
+  - true-false
+  - counterexample
+  problemLatex: |
+    Decide if the following statements about suprema and infima are true or false. Give a short proof for those that are true. For any that are false, supply an example where the claim in question does not appear to hold.
+    (a) If $A$ and $B$ are nonempty, bounded, and satisfy $A \subseteq B$, then $\sup A \le \sup B$.
+    (b) If $\sup A < \inf B$ for sets $A$ and $B$, then there exists a $c \in \mathbb{R}$ satisfying $a < c < b$ for all $a \in A$ and $b \in B$.
+    (c) If there exists a $c \in \mathbb{R}$ satisfying $a < c < b$ for all $a \in A$ and $b \in B$, then $\sup A < \inf B$.
+  curation:
+    why: True/false statements about sups and infs; locate exactly where strict inequalities fail.
+- id: abbott-1.4.4
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.4 Consequences of Completeness
+    problemNumber: Exercise 1.4.4
+    page: '24'
+  topic: real-numbers
+  subtopics:
+  - density-of-Q
+  - supremum-infimum
+  skills:
+  - density-argument
+  - sup-definition-two-parts
+  concept: sup(Q ∩ [a,b]) = b (density of rationals)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - density
+  - rationals
+  - supremum
+  problemLatex: |
+    Let $a < b$ be real numbers and consider the set $T = \mathbb{Q} \cap [a, b]$. Show $\sup T = b$.
+  curation:
+    why: 'Density of ℚ via a sup computation: sup(ℚ ∩ [a,b]) = b.'
+- id: abbott-1.4.8
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.4 Consequences of Completeness
+    problemNumber: Exercise 1.4.8
+    page: '24'
+  topic: real-numbers
+  subtopics:
+  - completeness
+  - supremum-infimum
+  skills:
+  - construct-counterexample
+  - nested-intervals
+  concept: sharpness of the Nested Interval Property hypotheses
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - nested-intervals
+  - counterexample
+  - supremum
+  - example-or-impossible
+  problemLatex: |
+    Give an example of each or state that the request is impossible. When a request is impossible, provide a compelling argument for why this is the case.
+    (a) Two sets $A$ and $B$ with $A \cap B = \emptyset$, $\sup A = \sup B$, $\sup A \notin A$ and $\sup B \notin B$.
+    (b) A sequence of nested open intervals $J_1 \supseteq J_2 \supseteq J_3 \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} J_n$ nonempty but containing only a finite number of elements.
+    (c) A sequence of nested unbounded closed intervals $L_1 \supseteq L_2 \supseteq L_3 \supseteq \cdots$ with $\bigcap_{n=1}^{\infty} L_n = \emptyset$. (An unbounded closed interval has the form $[a, \infty) = \{x \in \mathbb{R} : x \ge a\}$.)
+    (d) A sequence of closed (not necessarily nested) intervals $I_1, I_2, I_3, \ldots$ with the property that $\bigcap_{n=1}^{N} I_n \neq \emptyset$ for all $N \in \mathbb{N}$, but $\bigcap_{n=1}^{\infty} I_n = \emptyset$.
+  curation:
+    why: Why every hypothesis of the Nested Interval Property (closed, bounded, nested) is needed.
+- id: abbott-1.5.3
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.5 Cardinality
+    problemNumber: Exercise 1.5.3
+    page: '30'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - explicit-bijection
+  - diagonal-enumeration
+  concept: countable union of countable sets is countable
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - countable
+  - cardinality
+  - countable-union
+  - induction
+  problemLatex: |
+    Use the following outline to supply proofs for the statements in Theorem 1.5.8.
+    (a) First, prove statement (i) for two countable sets, $A_1$ and $A_2$. Example 1.5.3 (ii) may be a useful reference. Some technicalities can be avoided by first replacing $A_2$ with the set $B_2 = A_2 \setminus A_1 = \{x \in A_2 : x \notin A_1\}$. The point of this is that the union $A_1 \cup B_2$ is equal to $A_1 \cup A_2$ and the sets $A_1$ and $B_2$ are disjoint. (What happens if $B_2$ is finite?)
+
+    Now, explain how the more general statement in (i) follows.
+    (b) Explain why induction *cannot* be used to prove part (ii) of Theorem 1.5.8 from part (i).
+    (c) Show how arranging $\mathbb{N}$ into the two-dimensional array
+    $$\begin{array}{cccccc} 1 & 3 & 6 & 10 & 15 & \cdots \\ 2 & 5 & 9 & 14 & \cdots & \\ 4 & 8 & 13 & \cdots & & \\ 7 & 12 & \cdots & & & \\ 11 & \cdots & & & & \\ \vdots & & & & & \end{array}$$
+    leads to a proof of Theorem 1.5.8 (ii).
+
+    *(Theorem 1.5.8: (i) If $A_1, A_2, \ldots, A_m$ are each countable sets, then the union $A_1 \cup A_2 \cup \cdots \cup A_m$ is countable. (ii) If $A_n$ is a countable set for each $n \in \mathbb{N}$, then $\bigcup_{n=1}^{\infty} A_n$ is countable.)*
+
+    *(Summary, not verbatim — Example 1.5.3 (ii): although $\mathbb{N}$ is contained in $\mathbb{Z}$ as a proper subset, $\mathbb{N} \sim \mathbb{Z}$ via $f(n) = (n-1)/2$ if $n$ is odd, $f(n) = -n/2$ if $n$ is even.)*
+  notes: 'Theorem 1.5.8 quoted verbatim (p. 29). Example 1.5.3(ii) condensed from p. 26 (the formula is verbatim). Note: in Abbott, ''countable'' means N ~ A (countably infinite); finite sets are not called countable.'
+  curation:
+    why: 'Countable unions of countable sets: the array enumeration, and why induction cannot reach the infinite union.'
+- id: abbott-1.5.6
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.5 Cardinality
+    problemNumber: Exercise 1.5.6
+    page: '31'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - density-argument
+  - injection-into-Q
+  concept: any collection of disjoint open intervals is countable
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - countable
+  - open-intervals
+  - density
+  - rationals
+  problemLatex: |
+    (a) Give an example of a countable collection of disjoint open intervals.
+    (b) Give an example of an uncountable collection of disjoint open intervals, or argue that no such collection exists.
+  curation:
+    why: Each disjoint open interval contains its own rational, so there are only countably many — a trick reused for monotone discontinuities and open sets.
+- id: abbott-1.5.8
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.5 Cardinality
+    problemNumber: Exercise 1.5.8
+    page: '31'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - countable-union-decomposition
+  - pigeonhole
+  concept: a set of positive reals with bounded finite sums is countable
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - countable
+  - cardinality
+  - summable
+  - series
+  problemLatex: |
+    Let $B$ be a set of positive real numbers with the property that adding together any finite subset of elements from $B$ always gives a sum of $2$ or less. Show $B$ must be finite or countable.
+  curation:
+    why: Sorting elements by size (> 1/n) to prove countability — the same pattern behind summable families and jump discontinuities.
+- id: abbott-1.5.9
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.5 Cardinality
+    problemNumber: Exercise 1.5.9
+    page: '31'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - countable-union-decomposition
+  concept: algebraic numbers are countable; transcendental numbers exist (uncountably many)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - countable
+  - algebraic-numbers
+  - transcendental-numbers
+  - cardinality
+  problemLatex: |
+    A real number $x \in \mathbb{R}$ is called *algebraic* if there exist integers $a_0, a_1, a_2, \ldots, a_n \in \mathbb{Z}$, not all zero, such that
+    $$a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 = 0.$$
+    Said another way, a real number is algebraic if it is the root of a polynomial with integer coefficients. Real numbers that are not algebraic are called *transcendental* numbers. Reread the last paragraph of Section 1.1. The final question posed here is closely related to the question of whether or not transcendental numbers exist.
+    (a) Show that $\sqrt{2}$, $\sqrt[3]{2}$, and $\sqrt{3} + \sqrt{2}$ are algebraic.
+    (b) Fix $n \in \mathbb{N}$, and let $A_n$ be the algebraic numbers obtained as roots of polynomials with integer coefficients that have degree $n$. Using the fact that every polynomial has a finite number of roots, show that $A_n$ is countable.
+    (c) Now, argue that the set of all algebraic numbers is countable. What may we conclude about the set of transcendental numbers?
+  notes: The sentence 'Reread the last paragraph of Section 1.1...' is kept verbatim; it is contextual only and could be dropped without affecting the problem.
+  curation:
+    why: Algebraic numbers are countable, so transcendental numbers exist — counting as an existence proof.
+- id: abbott-2.2.1
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.2 The Limit of a Sequence
+    problemNumber: Exercise 2.2.1
+    page: '47'
+  topic: sequences
+  subtopics:
+  - convergence
+  skills:
+  - quantifier-analysis
+  - construct-counterexample
+  concept: quantifier order in definition of limit ('vercongence' = boundedness)
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags:
+  - quantifiers
+  - convergence
+  - definition
+  - bounded-sequence
+  problemLatex: |
+    What happens if we reverse the order of the quantifiers in Definition 2.2.3?
+
+    **Definition:** A sequence $(x_n)$ *verconges* to $x$ if there exists an $\epsilon > 0$ such that for all $N \in \mathbb{N}$ it is true that $n \ge N$ implies $|x_n - x| < \epsilon$.
+
+    Give an example of a vercongent sequence. Is there an example of a vercongent sequence that is divergent? Can a sequence verconge to two different values? What exactly is being described in this strange definition?
+
+    *(Definition 2.2.3 (Convergence of a Sequence): A sequence $(a_n)$ converges to a real number $a$ if, for every positive number $\epsilon$, there exists an $N \in \mathbb{N}$ such that whenever $n \ge N$ it follows that $|a_n - a| < \epsilon$.)*
+  notes: Definition 2.2.3 quoted verbatim from p. 43.
+  curation:
+    why: Swap the quantifiers in the definition of convergence and identify what you get (boundedness). Quantifier order is the whole definition.
+- id: abbott-2.2.2
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.2 The Limit of a Sequence
+    problemNumber: Exercise 2.2.2
+    page: '47'
+  topic: sequences
+  subtopics:
+  - convergence
+  skills:
+  - epsilon-N-proof
+  - comparison-estimate
+  concept: epsilon-N verification of specific limits
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - epsilon-N
+  - convergence
+  - limit
+  - machinery
+  problemLatex: |
+    Verify, using the definition of convergence of a sequence, that the following sequences converge to the proposed limit.
+    (a) $\lim \frac{2n+1}{5n+4} = \frac{2}{5}$.
+    (b) $\lim \frac{2n^2}{n^3+3} = 0$.
+    (c) $\lim \frac{\sin(n^2)}{\sqrt[3]{n}} = 0$.
+  curation:
+    why: ε–N proofs for several explicit limits; the basic drill.
+- id: abbott-2.2.6
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.2 The Limit of a Sequence
+    problemNumber: Exercise 2.2.6
+    page: '48'
+  topic: sequences
+  subtopics:
+  - convergence
+  skills:
+  - epsilon-N-proof
+  - triangle-inequality
+  - epsilon-over-2
+  concept: uniqueness of limits of sequences
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - uniqueness-of-limits
+  - epsilon-N
+  - triangle-inequality
+  problemLatex: |
+    Prove Theorem 2.2.7. To get started, assume $(a_n) \to a$ and also that $(a_n) \to b$. Now argue $a = b$.
+
+    *(Theorem 2.2.7 (Uniqueness of Limits): The limit of a sequence, when it exists, must be unique.)*
+  notes: Theorem 2.2.7 quoted verbatim from p. 46.
+  curation:
+    why: Uniqueness of limits — the first ε/2 argument.
+- id: abbott-2.3.2
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.3 The Algebraic and Order Limit Theorems
+    problemNumber: Exercise 2.3.2
+    page: '54'
+  topic: sequences
+  subtopics:
+  - convergence
+  - limit-laws
+  skills:
+  - epsilon-N-proof
+  - bound-away-from-zero
+  concept: x_n -> 2 implies 1/x_n -> 1/2 from the definition (bounding away from 0)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - epsilon-N
+  - reciprocal
+  - limit-laws
+  - machinery
+  problemLatex: |
+    Using only Definition 2.2.3, prove that if $(x_n) \to 2$, then
+    (a) $\left(\frac{2x_n - 1}{3}\right) \to 1$;
+    (b) $(1/x_n) \to 1/2$.
+    (For this exercise the Algebraic Limit Theorem is off-limits, so to speak.)
+
+    *(Definition 2.2.3: A sequence $(a_n)$ converges to a real number $a$ if, for every positive number $\epsilon$, there exists an $N \in \mathbb{N}$ such that whenever $n \ge N$ it follows that $|a_n - a| < \epsilon$.)*
+  notes: Definition 2.2.3 quoted verbatim from p. 43.
+  curation:
+    why: To handle 1/xₙ, first bound xₙ away from 0 — a technique reused in every quotient argument.
+- id: abbott-2.3.7
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.3 The Algebraic and Order Limit Theorems
+    problemNumber: Exercise 2.3.7
+    page: '54'
+  topic: sequences
+  subtopics:
+  - limit-laws
+  - divergence
+  - bounded-sequences
+  skills:
+  - construct-counterexample
+  - theorem-citation
+  concept: examples/impossibility for sums and products of divergent and convergent sequences
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - algebraic-limit-theorem
+  - divergence
+  - example-or-impossible
+  - counterexample
+  problemLatex: |
+    Give an example of each of the following, or state that such a request is impossible by referencing the proper theorem(s):
+    (a) sequences $(x_n)$ and $(y_n)$, which both diverge, but whose sum $(x_n + y_n)$ converges;
+    (b) sequences $(x_n)$ and $(y_n)$, where $(x_n)$ converges, $(y_n)$ diverges, and $(x_n + y_n)$ converges;
+    (c) a convergent sequence $(b_n)$ with $b_n \neq 0$ for all $n$ such that $(1/b_n)$ diverges;
+    (d) an unbounded sequence $(a_n)$ and a convergent sequence $(b_n)$ with $(a_n - b_n)$ bounded;
+    (e) two sequences $(a_n)$ and $(b_n)$, where $(a_n b_n)$ and $(a_n)$ converge but $(b_n)$ does not.
+  curation:
+    why: Examples or impossibility proofs for sums and products of divergent sequences — sharpens the limit laws.
+- id: abbott-2.3.9
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.3 The Algebraic and Order Limit Theorems
+    problemNumber: Exercise 2.3.9
+    page: '55'
+  topic: sequences
+  subtopics:
+  - limit-laws
+  - bounded-sequences
+  skills:
+  - epsilon-N-proof
+  - bound-then-scale-epsilon
+  concept: bounded sequence times sequence tending to 0 tends to 0
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - bounded-sequence
+  - null-sequence
+  - product
+  - algebraic-limit-theorem
+  - machinery
+  problemLatex: |
+    (a) Let $(a_n)$ be a bounded (not necessarily convergent) sequence, and assume $\lim b_n = 0$. Show that $\lim(a_n b_n) = 0$. Why are we not allowed to use the Algebraic Limit Theorem to prove this?
+    (b) Can we conclude anything about the convergence of $(a_n b_n)$ if we assume that $(b_n)$ converges to some nonzero limit $b$?
+    (c) Use (a) to prove Theorem 2.3.3, part (iii), for the case when $a = 0$.
+
+    *(Theorem 2.3.3 (Algebraic Limit Theorem): Let $\lim a_n = a$, and $\lim b_n = b$. Then, (i) $\lim(ca_n) = ca$, for all $c \in \mathbb{R}$; (ii) $\lim(a_n + b_n) = a + b$; (iii) $\lim(a_n b_n) = ab$; (iv) $\lim(a_n/b_n) = a/b$, provided $b \neq 0$.)*
+  notes: Theorem 2.3.3 quoted verbatim from p. 50.
+  curation:
+    why: Bounded × null → 0, with a counterexample when boundedness fails.
+- id: abbott-2.3.10
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.3 The Algebraic and Order Limit Theorems
+    problemNumber: Exercise 2.3.10
+    page: '55'
+  topic: sequences
+  subtopics:
+  - limit-laws
+  - convergence
+  skills:
+  - construct-counterexample
+  - reverse-triangle-inequality
+  - epsilon-N-proof
+  concept: true/false conjectures about limits (|b_n| -> |b|, lim(a_n - b_n)=0, etc.)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - true-false
+  - limits
+  - absolute-value
+  - counterexample
+  problemLatex: |
+    Consider the following list of conjectures. Provide a short proof for those that are true and a counterexample for any that are false.
+    (a) If $\lim(a_n - b_n) = 0$, then $\lim a_n = \lim b_n$.
+    (b) If $(b_n) \to b$, then $|b_n| \to |b|$.
+    (c) If $(a_n) \to 0$ and $(b_n - a_n) \to 0$, then $(b_n) \to a$.
+    (d) If $(a_n) \to 0$ and $|b_n - b| \le a_n$ for all $n \in \mathbb{N}$, then $(b_n) \to b$.
+  notes: 'Source typo: part (c) is printed as "then $(b_n) \to a$" (kept exactly as printed); the letter $a$ is undefined there, and it presumably means $(b_n) \to 0$.'
+  curation:
+    why: True/false conjectures about limits (|bₙ| → |b|, etc.); practise finding counterexamples quickly.
+- id: abbott-2.3.11
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.3 The Algebraic and Order Limit Theorems
+    problemNumber: Exercise 2.3.11
+    page: '55'
+  topic: sequences
+  subtopics:
+  - convergence
+  - limit-laws
+  skills:
+  - split-sum-head-tail
+  - epsilon-over-2
+  - construct-counterexample
+  concept: 'Cesàro means: x_n -> x implies averages -> x; converse fails'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Cesaro-means
+  - averages
+  - epsilon-N
+  - head-tail-split
+  problemLatex: |
+    **(Cesaro Means).**
+    (a) Show that if $(x_n)$ is a convergent sequence, then the sequence given by the averages
+    $$y_n = \frac{x_1 + x_2 + \cdots + x_n}{n}$$
+    also converges to the same limit.
+    (b) Give an example to show that it is possible for the sequence $(y_n)$ of averages to converge even if $(x_n)$ does not.
+  curation:
+    why: 'Cesàro means: averages of a convergent sequence converge, but not conversely. A standard split-the-sum estimate.'
+- id: abbott-2.3.12
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.3 The Algebraic and Order Limit Theorems
+    problemNumber: Exercise 2.3.12
+    page: '55'
+  topic: sequences
+  subtopics:
+  - limit-laws
+  - convergence
+  skills:
+  - order-limit-theorem
+  - construct-counterexample
+  - contradiction
+  concept: limits preserve non-strict inequalities / closed sets but not rationality
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - order-limit-theorem
+  - closed-set
+  - rationals
+  - true-false
+  problemLatex: |
+    A typical task in analysis is to decipher whether a property possessed by every term in a convergent sequence is necessarily inherited by the limit. Assume $(a_n) \to a$, and determine the validity of each claim. Try to produce a counterexample for any that are false.
+    (a) If every $a_n$ is an upper bound for a set $B$, then $a$ is also an upper bound for $B$.
+    (b) If every $a_n$ is in the complement of the interval $(0, 1)$, then $a$ is also in the complement of $(0, 1)$.
+    (c) If every $a_n$ is rational, then $a$ is rational.
+  curation:
+    why: Limits preserve ≤ and closed intervals but not strict inequalities or rationality.
+- id: abbott-2.3.13
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.3 The Algebraic and Order Limit Theorems
+    problemNumber: Exercise 2.3.13
+    page: '56'
+  topic: sequences
+  subtopics:
+  - convergence
+  skills:
+  - construct-counterexample
+  - epsilon-N-proof
+  - interchange-of-limits
+  concept: iterated limits vs double limit (m/(m+n), mn/(m^2+n^2))
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - iterated-limits
+  - double-limit
+  - interchange-of-limits
+  - counterexample
+  problemLatex: |
+    **(Iterated Limits).** Given a doubly indexed array $a_{mn}$ where $m, n \in \mathbb{N}$, what should $\lim_{m,n\to\infty} a_{mn}$ represent?
+    (a) Let $a_{mn} = m/(m+n)$ and compute the iterated limits
+    $$\lim_{n\to\infty}\left(\lim_{m\to\infty} a_{mn}\right) \quad\text{and}\quad \lim_{m\to\infty}\left(\lim_{n\to\infty} a_{mn}\right).$$
+    Define $\lim_{m,n\to\infty} a_{mn} = a$ to mean that for all $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that if both $m, n \ge N$, then $|a_{mn} - a| < \epsilon$.
+    (b) Let $a_{mn} = 1/(m+n)$. Does $\lim_{m,n\to\infty} a_{mn}$ exist in this case? Do the two iterated limits exist? How do these three values compare? Answer these same questions for $a_{mn} = mn/(m^2+n^2)$.
+    (c) Produce an example where $\lim_{m,n\to\infty} a_{mn}$ exists but where neither iterated limit can be computed.
+    (d) Assume $\lim_{m,n\to\infty} a_{mn} = a$, and assume that for each fixed $m \in \mathbb{N}$, $\lim_{n\to\infty}(a_{mn}) \to b_m$. Show $\lim_{m\to\infty} b_m = a$.
+    (e) Prove that if $\lim_{m,n\to\infty} a_{mn}$ exists and the iterated limits both exist, then all three limits must be equal.
+  notes: Part (d) notation '$\lim_{n\to\infty}(a_{mn}) \to b_m$' is as printed.
+  curation:
+    why: 'Iterated limits vs. a double limit: the first warning that limits cannot always be interchanged.'
+- id: abbott-2.4.5
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.4 The Monotone Convergence Theorem and a First Look at Infinite Series
+    problemNumber: Exercise 2.4.5
+    page: '60'
+  topic: sequences
+  subtopics:
+  - monotone-sequences
+  - recursive-sequences
+  skills:
+  - monotone-convergence
+  - induction
+  - limit-of-recursion
+  concept: x_{n+1} = (x_n + 2/x_n)/2 converges to sqrt 2
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - square-root
+  - Newton-method
+  - monotone-convergence-theorem
+  - recursive-sequence
+  problemLatex: |
+    **(Calculating Square Roots).** Let $x_1 = 2$, and define
+    $$x_{n+1} = \frac{1}{2}\left(x_n + \frac{2}{x_n}\right).$$
+    (a) Show that $x_n^2$ is always greater than or equal to $2$, and then use this to prove that $x_n - x_{n+1} \ge 0$. Conclude that $\lim x_n = \sqrt{2}$.
+    (b) Modify the sequence $(x_n)$ so that it converges to $\sqrt{c}$.
+  curation:
+    why: 'The Babylonian iteration for √2: monotone convergence plus the AM–GM estimate.'
+- id: abbott-2.4.6
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.4 The Monotone Convergence Theorem and a First Look at Infinite Series
+    problemNumber: Exercise 2.4.6
+    page: '61'
+  topic: sequences
+  subtopics:
+  - monotone-sequences
+  - recursive-sequences
+  skills:
+  - monotone-convergence
+  - induction
+  - AM-GM
+  concept: 'arithmetic–geometric mean: coupled sequences converge to a common limit'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - AGM
+  - arithmetic-geometric-mean
+  - monotone-convergence-theorem
+  - coupled-recursion
+  problemLatex: |
+    **(Arithmetic–Geometric Mean).**
+    (a) Explain why $\sqrt{xy} \le (x+y)/2$ for any two positive real numbers $x$ and $y$. (The geometric mean is always less than the arithmetic mean.)
+    (b) Now let $0 \le x_1 \le y_1$ and define
+    $$x_{n+1} = \sqrt{x_n y_n} \quad\text{and}\quad y_{n+1} = \frac{x_n + y_n}{2}.$$
+    Show $\lim x_n$ and $\lim y_n$ both exist and are equal.
+  curation:
+    why: 'The arithmetic–geometric mean: two coupled monotone sequences with a common limit.'
+- id: abbott-2.4.7
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.4 The Monotone Convergence Theorem and a First Look at Infinite Series
+    problemNumber: Exercise 2.4.7
+    page: '61'
+  topic: sequences
+  subtopics:
+  - limsup-liminf
+  - monotone-sequences
+  skills:
+  - monotone-convergence
+  - sup-definition-two-parts
+  - squeeze
+  concept: lim sup / lim inf exist for bounded sequences; lim exists iff lim inf = lim sup
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - limsup
+  - liminf
+  - monotone-convergence-theorem
+  - supremum
+  - machinery
+  problemLatex: |
+    **(Limit Superior).** Let $(a_n)$ be a bounded sequence.
+    (a) Prove that the sequence defined by $y_n = \sup\{a_k : k \ge n\}$ converges.
+    (b) The *limit superior* of $(a_n)$, or $\limsup a_n$, is defined by
+    $$\limsup a_n = \lim y_n,$$
+    where $y_n$ is the sequence from part (a) of this exercise. Provide a reasonable definition for $\liminf a_n$ and briefly explain why it always exists for any bounded sequence.
+    (c) Prove that $\liminf a_n \le \limsup a_n$ for every bounded sequence, and give an example of a sequence for which the inequality is strict.
+    (d) Show that $\liminf a_n = \limsup a_n$ if and only if $\lim a_n$ exists. In this case, all three share the same value.
+  curation:
+    why: limsup and liminf exist for bounded sequences, and lim exists iff they agree.
+- id: abbott-2.5.2
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.5 Subsequences and the Bolzano–Weierstrass Theorem
+    problemNumber: Exercise 2.5.2
+    page: '65'
+  topic: sequences
+  subtopics:
+  - subsequences
+  - bolzano-weierstrass
+  - monotone-sequences
+  skills:
+  - construct-counterexample
+  - subsequence-extraction
+  concept: true/false about subsequences (bounded divergent has two subsequential limits; monotone + convergent subsequence)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - subsequences
+  - Bolzano-Weierstrass
+  - true-false
+  - monotone
+  problemLatex: |
+    Decide whether the following propositions are true or false, providing a short justification for each conclusion.
+    (a) If every proper subsequence of $(x_n)$ converges, then $(x_n)$ converges as well.
+    (b) If $(x_n)$ contains a divergent subsequence, then $(x_n)$ diverges.
+    (c) If $(x_n)$ is bounded and diverges, then there exist two subsequences of $(x_n)$ that converge to different limits.
+    (d) If $(x_n)$ is monotone and contains a convergent subsequence, then $(x_n)$ converges.
+  curation:
+    why: True/false about subsequences; quick checks of BW and its limits.
+- id: abbott-2.5.4
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.5 Subsequences and the Bolzano–Weierstrass Theorem
+    problemNumber: Exercise 2.5.4
+    page: '65'
+  topic: real-numbers
+  subtopics:
+  - completeness
+  - supremum-infimum
+  skills:
+  - bisection
+  - nested-intervals
+  concept: Nested Interval Property (with Archimedean property) implies Axiom of Completeness
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - completeness
+  - nested-intervals
+  - bisection
+  - Axiom-of-Completeness
+  problemLatex: |
+    The Bolzano–Weierstrass Theorem is extremely important, and so is the strategy employed in the proof. To gain some more experience with this technique, assume the Nested Interval Property is true and use it to provide a proof of the Axiom of Completeness. To prevent the argument from being circular, assume also that $(1/2^n) \to 0$. (Why precisely is this last assumption needed to avoid circularity?)
+
+    *(Axiom of Completeness: Every nonempty set of real numbers that is bounded above has a least upper bound. Nested Interval Property (Theorem 1.4.1), summary, not verbatim: if $I_n = [a_n, b_n]$ are closed intervals with $I_1 \supseteq I_2 \supseteq I_3 \supseteq \cdots$, then $\bigcap_{n=1}^{\infty} I_n \neq \emptyset$.)*
+  notes: 'Statement verified on page image: the assumption is $(1/2^n) \to 0$. AoC quoted verbatim; NIP condensed from Theorem 1.4.1. The ''strategy employed in the proof'' refers to the book''s bisection proof of BW.'
+  curation:
+    why: 'Run the bisection argument backwards: the Nested Interval Property implies the Axiom of Completeness.'
+- id: abbott-2.5.5
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.5 Subsequences and the Bolzano–Weierstrass Theorem
+    problemNumber: Exercise 2.5.5
+    page: '66'
+  topic: sequences
+  subtopics:
+  - subsequences
+  - bolzano-weierstrass
+  skills:
+  - contradiction
+  - subsequence-extraction
+  - negate-definition
+  concept: bounded sequence whose convergent subsequences all share limit a converges to a
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Bolzano-Weierstrass
+  - subsequences
+  - contradiction
+  - machinery
+  problemLatex: |
+    Assume $(a_n)$ is a bounded sequence with the property that every convergent subsequence of $(a_n)$ converges to the same limit $a \in \mathbb{R}$. Show that $(a_n)$ must converge to $a$.
+  curation:
+    why: A bounded sequence whose convergent subsequences all have limit a converges to a. Used constantly with compactness.
+- id: abbott-2.6.2
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.6 The Cauchy Criterion
+    problemNumber: Exercise 2.6.2
+    page: '70'
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  - subsequences
+  - monotone-sequences
+  skills:
+  - construct-counterexample
+  - theorem-citation
+  concept: examples/impossibility for Cauchy sequences (Cauchy ⇒ bounded; monotone + Cauchy subsequence ⇒ convergent)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - Cauchy-sequence
+  - example-or-impossible
+  - subsequences
+  - monotone
+  problemLatex: |
+    Give an example of each of the following, or argue that such a request is impossible.
+    (a) A Cauchy sequence that is not monotone.
+    (b) A Cauchy sequence with an unbounded subsequence.
+    (c) A divergent monotone sequence with a Cauchy subsequence.
+    (d) An unbounded sequence containing a subsequence that is Cauchy.
+  curation:
+    why: Examples or impossibility for Cauchy sequences; tests what the Cauchy condition really controls.
+- id: abbott-2.7.1
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.7 Properties of Infinite Series
+    problemNumber: Exercise 2.7.1
+    page: '76'
+  topic: series
+  subtopics:
+  - alternating-series
+  - convergence-tests
+  skills:
+  - cauchy-criterion
+  - nested-intervals
+  - monotone-convergence
+  - even-odd-subsequences
+  concept: Alternating Series Test
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - alternating-series
+  - Cauchy-criterion
+  - nested-intervals
+  - monotone-convergence-theorem
+  - machinery
+  problemLatex: |
+    Proving the Alternating Series Test (Theorem 2.7.7) amounts to showing that the sequence of partial sums
+    $$s_n = a_1 - a_2 + a_3 - \cdots \pm a_n$$
+    converges. (The opening example in Section 2.1 includes a typical illustration of $(s_n)$.) Different characterizations of completeness lead to different proofs.
+    (a) Prove the Alternating Series Test by showing that $(s_n)$ is a Cauchy sequence.
+    (b) Supply another proof for this result using the Nested Interval Property (Theorem 1.4.1).
+    (c) Consider the subsequences $(s_{2n})$ and $(s_{2n+1})$, and show how the Monotone Convergence Theorem leads to a third proof for the Alternating Series Test.
+
+    *(Theorem 2.7.7 (Alternating Series Test): Let $(a_n)$ be a sequence satisfying, (i) $a_1 \ge a_2 \ge a_3 \ge \cdots \ge a_n \ge a_{n+1} \ge \cdots$ and (ii) $(a_n) \to 0$. Then, the alternating series $\sum_{n=1}^{\infty} (-1)^{n+1} a_n$ converges.)*
+  notes: Theorem 2.7.7 quoted verbatim (p. 74). The parenthetical about Section 2.1's opening example (the alternating harmonic series) is kept verbatim but is not needed.
+  curation:
+    why: Proving the Alternating Series Test (nested intervals / Cauchy / monotone subsequences).
+- id: abbott-2.7.4
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.7 Properties of Infinite Series
+    problemNumber: Exercise 2.7.4
+    page: '77'
+  topic: series
+  subtopics:
+  - convergence-tests
+  - conditional-convergence
+  skills:
+  - construct-counterexample
+  - theorem-citation
+  concept: examples/impossibility for products and sums of series
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - series
+  - example-or-impossible
+  - conditional-convergence
+  - counterexample
+  problemLatex: |
+    Give an example of each or explain why the request is impossible referencing the proper theorem(s).
+    (a) Two series $\sum x_n$ and $\sum y_n$ that both diverge but where $\sum x_n y_n$ converges.
+    (b) A convergent series $\sum x_n$ and a bounded sequence $(y_n)$ such that $\sum x_n y_n$ diverges.
+    (c) Two sequences $(x_n)$ and $(y_n)$ where $\sum x_n$ and $\sum (x_n + y_n)$ both converge but $\sum y_n$ diverges.
+    (d) A sequence $(x_n)$ satisfying $0 \le x_n \le 1/n$ where $\sum (-1)^n x_n$ diverges.
+  curation:
+    why: Examples or impossibility for sums and products of convergent and divergent series.
+- id: abbott-2.7.8
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.7 Properties of Infinite Series
+    problemNumber: Exercise 2.7.8
+    page: '77'
+  topic: series
+  subtopics:
+  - absolute-convergence
+  - conditional-convergence
+  - comparison
+  skills:
+  - construct-counterexample
+  - comparison-estimate
+  concept: 'true/false: sum a_n abs. conv ⇒ sum a_n^2 conv; sum a_n conv and b_n conv ⇏ sum a_n b_n conv'
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - absolute-convergence
+  - conditional-convergence
+  - true-false
+  - counterexample
+  problemLatex: |
+    Consider each of the following propositions. Provide short proofs for those that are true and counterexamples for any that are not.
+    (a) If $\sum a_n$ converges absolutely, then $\sum a_n^2$ also converges absolutely.
+    (b) If $\sum a_n$ converges and $(b_n)$ converges, then $\sum a_n b_n$ converges.
+    (c) If $\sum a_n$ converges conditionally, then $\sum n^2 a_n$ diverges.
+  curation:
+    why: True/false statements about absolute and conditional convergence; locate the counterexamples.
+- id: abbott-2.7.9
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.7 Properties of Infinite Series
+    problemNumber: Exercise 2.7.9
+    page: '78'
+  topic: series
+  subtopics:
+  - convergence-tests
+  - absolute-convergence
+  - comparison
+  skills:
+  - comparison-estimate
+  - geometric-series
+  - induction
+  concept: Ratio Test proof
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - ratio-test
+  - geometric-series
+  - comparison-test
+  - absolute-convergence
+  - machinery
+  problemLatex: |
+    **(Ratio Test).** Given a series $\sum_{n=1}^{\infty} a_n$ with $a_n \neq 0$, the Ratio Test states that if $(a_n)$ satisfies
+    $$\lim \left|\frac{a_{n+1}}{a_n}\right| = r < 1,$$
+    then the series converges absolutely.
+    (a) Let $r'$ satisfy $r < r' < 1$. Explain why there exists an $N$ such that $n \ge N$ implies $|a_{n+1}| \le |a_n| r'$.
+    (b) Why does $|a_N| \sum (r')^n$ converge?
+    (c) Now, show that $\sum |a_n|$ converges, and conclude that $\sum a_n$ converges.
+  curation:
+    why: Proving the Ratio Test by comparison with a geometric series.
+- id: abbott-2.7.14
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.7 Properties of Infinite Series
+    problemNumber: Exercise 2.7.14
+    page: '79'
+  topic: series
+  subtopics:
+  - convergence-tests
+  - alternating-series
+  - conditional-convergence
+  skills:
+  - summation-by-parts
+  - telescoping
+  - comparison-estimate
+  concept: Dirichlet's Test (and AST as a special case)
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - Dirichlet-test
+  - summation-by-parts
+  - alternating-series
+  - series
+  problemLatex: |
+    **(Dirichlet's Test).** Dirichlet's Test for convergence states that if the partial sums of $\sum_{k=1}^{\infty} x_k$ are bounded (but not necessarily convergent), and if $(y_k)$ is a sequence satisfying $y_1 \ge y_2 \ge y_3 \ge \cdots \ge 0$ with $\lim y_k = 0$, then the series $\sum_{k=1}^{\infty} x_k y_k$ converges.
+    (a) Point out how the hypothesis of Dirichlet's Test differs from that of Abel's Test in Exercise 2.7.13, but show that essentially the same strategy can be used to provide a proof.
+    (b) Show how the Alternating Series Test (Theorem 2.7.7) can be derived as a special case of Dirichlet's Test.
+
+    *(Summary, not verbatim — Exercise 2.7.13 (Abel's Test): if the series $\sum_{k=1}^{\infty} x_k$ converges, and if $(y_k)$ satisfies $y_1 \ge y_2 \ge y_3 \ge \cdots \ge 0$, then $\sum_{k=1}^{\infty} x_k y_k$ converges; the strategy there uses the summation-by-parts identity $\sum_{k=1}^{n} x_k y_k = s_n y_{n+1} + \sum_{k=1}^{n} s_k (y_k - y_{k+1})$ with $s_n = x_1 + \cdots + x_n$.)*
+
+    *(Theorem 2.7.7 (Alternating Series Test): Let $(a_n)$ be a sequence satisfying, (i) $a_1 \ge a_2 \ge a_3 \ge \cdots \ge a_n \ge a_{n+1} \ge \cdots$ and (ii) $(a_n) \to 0$. Then, the alternating series $\sum_{n=1}^{\infty} (-1)^{n+1} a_n$ converges.)*
+  notes: Abel's Test statement and identity quoted from Exercise 2.7.13; 'the strategy there uses' is my framing (marked). Theorem 2.7.7 quoted (p. 74).
+  curation:
+    why: Dirichlet's test via summation by parts; the alternating series test is a special case.
+- id: abbott-3.2.5
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.2 Open and Closed Sets
+    problemNumber: Exercise 3.2.5
+    page: '94'
+  topic: topology
+  subtopics:
+  - closed-sets
+  - limit-points
+  skills:
+  - sequential-characterization
+  - contrapositive
+  concept: F closed iff every Cauchy sequence in F converges to a point of F
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - closed-set
+  - Cauchy
+  - completeness
+  - limit-point
+  problemLatex: |
+    Prove Theorem 3.2.8.
+
+    *(Theorem 3.2.8: A set $F \subseteq \mathbb{R}$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.)*
+  notes: Statement of Theorem 3.2.8 quoted verbatim from p. 91 (PDF 103). In Abbott, a set is closed if it contains its limit points (Definition 3.2.7).
+  curation:
+    why: Closed iff every Cauchy sequence in F converges in F — topology meets completeness.
+- id: abbott-3.2.6
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.2 Open and Closed Sets
+    problemNumber: Exercise 3.2.6
+    page: '94'
+  topic: topology
+  subtopics:
+  - open-sets
+  - closed-sets
+  - dense-sets
+  - cantor-set
+  skills:
+  - construct-counterexample
+  - density-argument
+  concept: 'open/closed set true-false: open dense set need not be R; nested closed sets can have empty intersection'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - open-set
+  - closed-set
+  - density
+  - nested-intervals
+  - Cantor-set
+  - counterexample
+  problemLatex: |
+    Decide whether the following statements are true or false. Provide counterexamples for those that are false, and supply proofs for those that are true.
+
+    (a) An open set that contains every rational number must necessarily be all of $\mathbb{R}$.
+
+    (b) The Nested Interval Property remains true if the term "closed interval" is replaced by "closed set."
+
+    (c) Every nonempty open set contains a rational number.
+
+    (d) Every bounded infinite closed set contains a rational number.
+
+    (e) The Cantor set is closed.
+  curation:
+    why: True/false statements about open and closed sets; the standard pitfalls.
+- id: abbott-3.2.7
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.2 Open and Closed Sets
+    problemNumber: Exercise 3.2.7
+    page: '94'
+  topic: topology
+  subtopics:
+  - limit-points
+  - interior-closure-boundary
+  - closed-sets
+  skills:
+  - epsilon-neighborhood-argument
+  concept: set of limit points is closed; closure is the smallest closed set containing A
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - limit-point
+  - closure
+  - closed-set
+  problemLatex: |
+    Given $A \subseteq \mathbb{R}$, let $L$ be the set of all limit points of $A$.
+
+    (a) Show that the set $L$ is closed.
+
+    (b) Argue that if $x$ is a limit point of $A \cup L$, then $x$ is a limit point of $A$. Use this observation to furnish a proof for Theorem 3.2.12.
+
+    *(Theorem 3.2.12: For any $A \subseteq \mathbb{R}$, the closure $\overline{A}$ is a closed set and is the smallest closed set containing $A$.)*
+  notes: 'Theorem 3.2.12 quoted verbatim from p. 92 (PDF 104). Closure: $\overline{A} = A \cup L$.'
+  curation:
+    why: The set of limit points is closed, and the closure is the smallest closed set containing A.
+- id: abbott-3.2.10
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.2 Open and Closed Sets
+    problemNumber: Exercise 3.2.10
+    page: '95'
+  topic: topology
+  subtopics:
+  - limit-points
+  skills:
+  - bolzano-weierstrass
+  - rational-interval-injection
+  concept: countable set with no isolated points (Q∩[0,1]); no set has uncountably many isolated points
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - isolated-point
+  - limit-point
+  - countable
+  - Bolzano-Weierstrass
+  problemLatex: |
+    Only one of the following three descriptions can be realized. Provide an example that illustrates the viable description, and explain why the other two cannot exist.
+
+    (i) A countable set contained in $[0, 1]$ with no limit points.
+
+    (ii) A countable set contained in $[0, 1]$ with no isolated points.
+
+    (iii) A set with an uncountable number of isolated points.
+  curation:
+    why: 'Isolated points and cardinality: a countable set with no isolated points, and why no set has uncountably many isolated points.'
+- id: abbott-3.2.13
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.2 Open and Closed Sets
+    problemNumber: Exercise 3.2.13
+    page: '95'
+  topic: topology
+  subtopics:
+  - open-sets
+  - closed-sets
+  - connectedness
+  skills:
+  - sup-approximation
+  - contradiction
+  concept: only clopen subsets of R are R and the empty set
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - clopen
+  - connectedness
+  - completeness
+  - supremum
+  problemLatex: |
+    Prove that the only sets that are both open and closed are $\mathbb{R}$ and the empty set $\emptyset$.
+  curation:
+    why: 'ℝ is connected: the only clopen subsets are ∅ and ℝ (a sup argument).'
+- id: abbott-3.3.5
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.3 Compact Sets
+    problemNumber: Exercise 3.3.5
+    page: '100'
+  topic: topology
+  subtopics:
+  - compactness
+  - closed-sets
+  skills:
+  - construct-counterexample
+  concept: intersections/unions of compact sets; nested closed sets [n,∞) with empty intersection
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - compactness
+  - nested-sets
+  - counterexample
+  - true-false
+  problemLatex: |
+    Decide whether the following propositions are true or false. If the claim is valid, supply a short proof, and if the claim is false, provide a counterexample.
+
+    (a) The arbitrary intersection of compact sets is compact.
+
+    (b) The arbitrary union of compact sets is compact.
+
+    (c) Let $A$ be arbitrary, and let $K$ be compact. Then, the intersection $A \cap K$ is compact.
+
+    (d) If $F_1 \supseteq F_2 \supseteq F_3 \supseteq F_4 \supseteq \cdots$ is a nested sequence of nonempty closed sets, then the intersection $\bigcap_{n=1}^\infty F_n \neq \emptyset$.
+  curation:
+    why: True/false about unions and intersections of compact sets; nested closed (non-compact) sets can have empty intersection.
+- id: abbott-3.3.7
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.3 Compact Sets
+    problemNumber: Exercise 3.3.7
+    page: '100'
+  topic: topology
+  subtopics:
+  - cantor-set
+  - compactness
+  skills:
+  - subsequence-extraction
+  - induction
+  concept: C + C = [0,2] for the Cantor set
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - Cantor-set
+  - compactness
+  - sumset
+  - subsequence
+  problemLatex: |
+    As some more evidence of the surprising nature of the Cantor set, follow these steps to show that the sum $C + C = \{x + y : x, y \in C\}$ is equal to the closed interval $[0, 2]$. (Keep in mind that $C$ has zero length and contains no intervals.)
+
+    Because $C \subseteq [0, 1]$, $C + C \subseteq [0, 2]$, so we only need to prove the reverse inclusion $[0, 2] \subseteq \{x + y : x, y \in C\}$. Thus, given $s \in [0, 2]$, we must find two elements $x, y \in C$ satisfying $x + y = s$.
+
+    (a) Show that there exist $x_1, y_1 \in C_1$ for which $x_1 + y_1 = s$. Show in general that, for an arbitrary $n \in \mathbb{N}$, we can always find $x_n, y_n \in C_n$ for which $x_n + y_n = s$.
+
+    (b) Keeping in mind that the sequences $(x_n)$ and $(y_n)$ do not necessarily converge, show how they can nevertheless be used to produce the desired $x$ and $y$ in $C$ satisfying $x + y = s$.
+
+    *(Abridged quote, not fully verbatim — Section 3.1: Let $C_0$ be the closed interval $[0,1]$, and define $C_1$ to be the set that results when the open middle third is removed; that is, $C_1 = C_0 \setminus \left(\frac{1}{3}, \frac{2}{3}\right) = \left[0, \frac{1}{3}\right] \cup \left[\frac{2}{3}, 1\right]$. ... If we continue this process inductively, then for each $n = 0, 1, 2, \ldots$ we get a set $C_n$ consisting of $2^n$ closed intervals each having length $1/3^n$. Finally, we define the Cantor set $C$ to be the intersection $C = \bigcap_{n=0}^\infty C_n$.)*
+  notes: Cantor set definition quoted (abridged with ellipsis) from Section 3.1, p. 85 (PDF 97).
+  curation:
+    why: The Cantor set has length zero, yet C + C = [0,2]. A nested-interval argument on a famous set.
+- id: abbott-3.3.8
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.3 Compact Sets
+    problemNumber: Exercise 3.3.8
+    page: '101'
+  topic: topology
+  subtopics:
+  - compactness
+  - closed-sets
+  skills:
+  - subsequence-extraction
+  - sup-approximation
+  - construct-counterexample
+  concept: distance between disjoint compact sets is positive and attained
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - distance
+  - infimum
+  - counterexample
+  problemLatex: |
+    Let $K$ and $L$ be nonempty compact sets, and define
+    $$d = \inf\{|x - y| : x \in K \text{ and } y \in L\}.$$
+    This turns out to be a reasonable definition for the distance between $K$ and $L$.
+
+    (a) If $K$ and $L$ are disjoint, show $d > 0$ and that $d = |x_0 - y_0|$ for some $x_0 \in K$ and $y_0 \in L$.
+
+    (b) Show that it's possible to have $d = 0$ if we assume only that the disjoint sets $K$ and $L$ are closed.
+  curation:
+    why: Disjoint compact sets are a positive distance apart, and the distance is attained — false for closed sets.
+- id: abbott-3.3.9
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.3 Compact Sets
+    problemNumber: Exercise 3.3.9
+    page: '101'
+  topic: topology
+  subtopics:
+  - compactness
+  - sequential-compactness
+  skills:
+  - nested-intervals
+  - bisection
+  - open-cover-argument
+  - contradiction
+  concept: Heine–Borel theorem (closed bounded ⇒ open-cover compact) by bisection
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Heine-Borel
+  - open-cover
+  - nested-intervals
+  - compactness
+  problemLatex: |
+    Follow these steps to prove the final implication in Theorem 3.3.8.
+
+    *(Theorem 3.3.8 (Heine–Borel Theorem): Let $K$ be a subset of $\mathbb{R}$. All of the following statements are equivalent in the sense that any one of them implies the two others: (i) $K$ is compact. (ii) $K$ is closed and bounded. (iii) Every open cover for $K$ has a finite subcover.)*
+
+    Assume $K$ satisfies (i) and (ii), and let $\{O_\lambda : \lambda \in \Lambda\}$ be an open cover for $K$. For contradiction, let's assume that no finite subcover exists. Let $I_0$ be a closed interval containing $K$.
+
+    (a) Show that there exists a nested sequence of closed intervals $I_0 \supseteq I_1 \supseteq I_2 \supseteq \cdots$ with the property that, for each $n$, $I_n \cap K$ cannot be finitely covered and $\lim |I_n| = 0$.
+
+    (b) Argue that there exists an $x \in K$ such that $x \in I_n$ for all $n$.
+
+    (c) Because $x \in K$, there must exist an open set $O_{\lambda_0}$ from the original collection that contains $x$ as an element. Explain how this leads to the desired contradiction.
+  notes: Theorem 3.3.8 quoted verbatim from p. 98 (PDF 110). 'Compact' in (i) means sequentially compact (Definition 3.3.1).
+  curation:
+    why: 'Heine–Borel: closed and bounded ⇒ every open cover has a finite subcover, by bisection.'
+- id: abbott-3.5.4
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.5 Baire's Theorem
+    problemNumber: Exercise 3.5.4
+    page: '107'
+  topic: topology
+  subtopics:
+  - baire-category
+  - dense-sets
+  - open-sets
+  skills:
+  - nested-intervals
+  - induction
+  concept: 'Baire category theorem: countable intersection of dense open sets is nonempty'
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - Baire-category
+  - nested-intervals
+  - dense-set
+  - open-set
+  problemLatex: |
+    *(Theorem 3.5.2: If $\{G_1, G_2, G_3, \ldots\}$ is a countable collection of dense, open sets, then the intersection $\bigcap_{n=1}^\infty G_n$ is not empty.)*
+
+    Starting with $n = 1$, inductively construct a nested sequence of closed intervals $I_1 \supseteq I_2 \supseteq I_3 \supseteq \cdots$ satisfying $I_n \subseteq G_n$. Give special attention to the issue of the endpoints of each $I_n$. Show how this leads to a proof of the theorem.
+  notes: 'Exercise sits inside the proof of Theorem 3.5.2; statement quoted verbatim from p. 107. Abbott: G is dense in R if, given any two real numbers a < b, there is x ∈ G with a < x < b.'
+  curation:
+    why: Baire's theorem on ℝ via nested closed intervals.
+- id: abbott-3.5.6
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.5 Baire's Theorem
+    problemNumber: Exercise 3.5.6
+    page: '108'
+  topic: topology
+  subtopics:
+  - baire-category
+  skills:
+  - contradiction
+  - theorem-application
+  concept: Q is not a G_delta set; irrationals are not F_sigma
+  difficulty: medium
+  category: canonical
+  type: theorem-application
+  tags:
+  - Baire-category
+  - F-sigma
+  - G-delta
+  - rationals
+  - irrationals
+  problemLatex: |
+    Show how the previous exercise implies that the set $\mathbf{I}$ of irrationals cannot be an $F_\sigma$ set, and $\mathbb{Q}$ cannot be a $G_\delta$ set.
+
+    *(Previous exercise, Exercise 3.5.5: Show that it is impossible to write $\mathbb{R} = \bigcup_{n=1}^\infty F_n$, where for each $n \in \mathbb{N}$, $F_n$ is a closed set containing no nonempty open intervals.)*
+
+    *(Definition 3.5.1: A set $A \subseteq \mathbb{R}$ is called an $F_\sigma$ set if it can be written as the countable union of closed sets. A set $B \subseteq \mathbb{R}$ is called a $G_\delta$ set if it can be written as the countable intersection of open sets.)*
+  notes: Exercise 3.5.5 and Definition 3.5.1 quoted verbatim. Abbott writes the irrationals as bold I.
+  curation:
+    why: 'Apply Baire: ℚ is not a countable intersection of open sets.'
+- id: abbott-4.3.2
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.3 Continuous Functions
+    problemNumber: Exercise 4.3.2
+    page: '126'
+  topic: continuity
+  subtopics:
+  - epsilon-delta-continuity
+  skills:
+  - negate-definition
+  - construct-counterexample
+  concept: variations of the epsilon-delta definition (onetinuous/equaltinuous/lesstinuous)
+  difficulty: medium
+  category: canonical
+  type: definition
+  tags:
+  - continuity
+  - quantifiers
+  - definition-variation
+  - Lipschitz
+  problemLatex: |
+    To gain a deeper understanding of the relationship between $\epsilon$ and $\delta$ in the definition of continuity, let's explore some modest variations of Definition 4.3.1. In all of these, let $f$ be a function defined on all of $\mathbb{R}$.
+
+    (a) Let's say $f$ is *onetinuous* at $c$ if for all $\epsilon > 0$ we can choose $\delta = 1$ and it follows that $|f(x) - f(c)| < \epsilon$ whenever $|x - c| < \delta$. Find an example of a function that is onetinuous on all of $\mathbb{R}$.
+
+    (b) Let's say $f$ is *equaltinuous* at $c$ if for all $\epsilon > 0$ we can choose $\delta = \epsilon$ and it follows that $|f(x) - f(c)| < \epsilon$ whenever $|x - c| < \delta$. Find an example of a function that is equaltinuous on $\mathbb{R}$ that is nowhere onetinuous, or explain why there is no such function.
+
+    (c) Let's say $f$ is *lesstinuous* at $c$ if for all $\epsilon > 0$ we can choose $0 < \delta < \epsilon$ and it follows that $|f(x) - f(c)| < \epsilon$ whenever $|x - c| < \delta$. Find an example of a function that is lesstinuous on $\mathbb{R}$ that is nowhere equaltinuous, or explain why there is no such function.
+
+    (d) Is every lesstinuous function continuous? Is every continuous function lesstinuous? Explain.
+
+    *(Definition 4.3.1: A function $f\colon A \to \mathbb{R}$ is continuous at a point $c \in A$ if, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $|x - c| < \delta$ (and $x \in A$) it follows that $|f(x) - f(c)| < \epsilon$.)*
+  notes: Definition 4.3.1 quoted verbatim from p. 122.
+  curation:
+    why: Mutating the ε–δ definition (‘onetinuous’, ‘lesstinuous’) shows exactly what each quantifier is doing.
+- id: abbott-4.3.4
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.3 Continuous Functions
+    problemNumber: Exercise 4.3.4
+    page: '127'
+  topic: continuity
+  subtopics:
+  - functional-limits
+  - epsilon-delta-continuity
+  skills:
+  - construct-counterexample
+  - epsilon-delta-proof
+  concept: limit of composition can fail unless outer function is continuous
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - composition
+  - functional-limit
+  - continuity
+  - counterexample
+  problemLatex: |
+    Assume $f$ and $g$ are defined on all of $\mathbb{R}$ and that $\lim_{x\to p} f(x) = q$ and $\lim_{x\to q} g(x) = r$.
+
+    (a) Give an example to show that it may not be true that
+    $$\lim_{x\to p} g(f(x)) = r.$$
+
+    (b) Show that the result in (a) does follow if we assume $f$ and $g$ are continuous.
+
+    (c) Does the result in (a) hold if we only assume $f$ is continuous? How about if we only assume that $g$ is continuous?
+  curation:
+    why: 'Why lim g(f(x)) ≠ r in general: the inner function can hit the point q where g misbehaves. Pinpoints which continuity hypothesis is needed.'
+- id: abbott-4.3.6
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.3 Continuous Functions
+    problemNumber: Exercise 4.3.6
+    page: '127'
+  topic: continuity
+  subtopics:
+  - epsilon-delta-continuity
+  - discontinuities
+  skills:
+  - construct-counterexample
+  concept: 'examples: sums/products of discontinuous functions that are continuous'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - continuity
+  - algebraic-limit-theorem
+  - counterexample
+  problemLatex: |
+    Provide an example of each or explain why the request is impossible.
+
+    (a) Two functions $f$ and $g$, neither of which is continuous at 0 but such that $f(x)g(x)$ and $f(x) + g(x)$ are continuous at 0.
+
+    (b) A function $f(x)$ continuous at 0 and $g(x)$ not continuous at 0 such that $f(x) + g(x)$ is continuous at 0.
+
+    (c) A function $f(x)$ continuous at 0 and $g(x)$ not continuous at 0 such that $f(x)g(x)$ is continuous at 0.
+
+    (d) A function $f(x)$ not continuous at 0 such that $f(x) + \dfrac{1}{f(x)}$ is continuous at 0.
+
+    (e) A function $f(x)$ not continuous at 0 such that $[f(x)]^3$ is continuous at 0.
+  curation:
+    why: Quick examples/impossibility arguments for the algebra of continuity — trains you to reach for the right algebraic identity.
+- id: abbott-4.3.7
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.3 Continuous Functions
+    problemNumber: Exercise 4.3.7
+    page: '127'
+  topic: continuity
+  subtopics:
+  - discontinuities
+  - sequential-continuity
+  - epsilon-delta-continuity
+  skills:
+  - sequential-characterization
+  - density-argument
+  - finiteness-argument
+  concept: Dirichlet function nowhere continuous; Thomae's function continuous exactly on the irrationals
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Thomae
+  - Dirichlet
+  - continuity
+  - discontinuity
+  - density
+  problemLatex: |
+    (a) Referring to the proper theorems, give a formal argument that Dirichlet's function from Section 4.1 is nowhere-continuous on $\mathbb{R}$.
+
+    (b) Review the definition of Thomae's function in Section 4.1 and demonstrate that it fails to be continuous at every rational point.
+
+    (c) Use the characterization of continuity in Theorem 4.3.2 (iii) to show that Thomae's function is continuous at every irrational point in $\mathbb{R}$. (Given $\epsilon > 0$, consider the set of points $\{x \in \mathbb{R} : t(x) \ge \epsilon\}$.)
+
+    *(Summary, not verbatim — Section 4.1: Dirichlet's function is $g(x) = 1$ if $x \in \mathbb{Q}$ and $g(x) = 0$ if $x \notin \mathbb{Q}$. Thomae's function is
+    $$t(x) = \begin{cases} 1 & \text{if } x = 0 \\ 1/n & \text{if } x = m/n \in \mathbb{Q}\setminus\{0\} \text{ is in lowest terms with } n > 0 \\ 0 & \text{if } x \notin \mathbb{Q}. \end{cases}$$
+    Theorem 4.3.2 (iii): $f$ is continuous at $c$ if and only if: if $(x_n) \to c$ (with $x_n \in A$), then $f(x_n) \to f(c)$.)*
+  notes: Definitions of Dirichlet's and Thomae's functions quoted from Section 4.1 (pp. 112–113); Theorem 4.3.2(iii) quoted from p. 123 (lightly abridged to the one condition). The book's own hint for (c) is printed as given; arguably the epsilon-delta characterization (i) is more natural for (c), but the book says (iii).
+  curation:
+    why: 'Dirichlet and Thomae: the two functions every analyst knows. Thomae''s continuity at irrationals uses the finiteness of {t ≥ ε} in a bounded set.'
+- id: abbott-4.3.11
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.3 Continuous Functions
+    problemNumber: Exercise 4.3.11
+    page: '128'
+  topic: function-sequences
+  subtopics:
+  - fixed-point
+  skills:
+  - geometric-series-estimate
+  - triangle-inequality
+  - cauchy-criterion
+  concept: contraction mapping theorem on R
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - contraction-mapping
+  - fixed-point
+  - Cauchy
+  - Lipschitz
+  problemLatex: |
+    **(Contraction Mapping Theorem).** Let $f$ be a function defined on all of $\mathbb{R}$, and assume there is a constant $c$ such that $0 < c < 1$ and
+    $$|f(x) - f(y)| \le c|x - y|$$
+    for all $x, y \in \mathbb{R}$.
+
+    (a) Show that $f$ is continuous on $\mathbb{R}$.
+
+    (b) Pick some point $y_1 \in \mathbb{R}$ and construct the sequence
+    $$(y_1, f(y_1), f(f(y_1)), \ldots).$$
+    In general, if $y_{n+1} = f(y_n)$, show that the resulting sequence $(y_n)$ is a Cauchy sequence. Hence we may let $y = \lim y_n$.
+
+    (c) Prove that $y$ is a fixed point of $f$ (i.e., $f(y) = y$) and that it is unique in this regard.
+
+    (d) Finally, prove that if $x$ is any arbitrary point in $\mathbb{R}$, then the sequence $(x, f(x), f(f(x)), \ldots)$ converges to $y$ defined in (b).
+  notes: Topic could also be 'continuity'; filed under function-sequences/fixed-point per the subtopic vocabulary.
+  curation:
+    why: 'The contraction mapping theorem on ℝ: iterate, show the sequence is Cauchy, pass to the limit.'
+- id: abbott-4.3.12
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.3 Continuous Functions
+    problemNumber: Exercise 4.3.12
+    page: '128'
+  topic: continuity
+  subtopics:
+  - lipschitz-holder
+  - continuity-and-topology
+  skills:
+  - triangle-inequality
+  - sup-approximation
+  concept: distance function to a closed set is continuous and positive off the set
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - distance-function
+  - Lipschitz
+  - closed-set
+  - infimum
+  problemLatex: |
+    Let $F \subseteq \mathbb{R}$ be a nonempty closed set and define $g(x) = \inf\{|x - a| : a \in F\}$. Show that $g$ is continuous on all of $\mathbb{R}$ and $g(x) \neq 0$ for all $x \notin F$.
+  curation:
+    why: 'The distance-to-a-set function: 1-Lipschitz, and zero exactly on the closed set. Used constantly in topology and measure theory.'
+- id: abbott-4.3.13
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.3 Continuous Functions
+    problemNumber: Exercise 4.3.13
+    page: '128'
+  topic: continuity
+  subtopics:
+  - sequential-continuity
+  - epsilon-delta-continuity
+  skills:
+  - induction
+  - density-argument
+  - sequential-characterization
+  concept: additive function continuous at 0 is linear (Cauchy functional equation)
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - Cauchy-functional-equation
+  - additive-function
+  - density
+  - continuity
+  problemLatex: |
+    Let $f$ be a function defined on all of $\mathbb{R}$ that satisfies the additive condition $f(x + y) = f(x) + f(y)$ for all $x, y \in \mathbb{R}$.
+
+    (a) Show that $f(0) = 0$ and that $f(-x) = -f(x)$ for all $x \in \mathbb{R}$.
+
+    (b) Let $k = f(1)$. Show that $f(n) = kn$ for all $n \in \mathbb{N}$, and then prove that $f(z) = kz$ for all $z \in \mathbb{Z}$. Now, prove that $f(r) = kr$ for any rational number $r$.
+
+    (c) Show that if $f$ is continuous at $x = 0$, then $f$ is continuous at every point in $\mathbb{R}$ and conclude that $f(x) = kx$ for all $x \in \mathbb{R}$. Thus, any additive function that is continuous at $x = 0$ must necessarily be a linear function through the origin.
+  curation:
+    why: 'Cauchy''s functional equation: ℕ → ℤ → ℚ by algebra, then ℝ by continuity and density. A model ‘extend from a dense set’ argument.'
+- id: abbott-4.4.2
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.4 Continuous Functions on Compact Sets
+    problemNumber: Exercise 4.4.2
+    page: '134'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - sequential-characterization
+  - theorem-application
+  concept: 1/x not UC on (0,1); x sin(1/x) UC on (0,1)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-continuity
+  - examples
+  problemLatex: |
+    (a) Is $f(x) = 1/x$ uniformly continuous on $(0, 1)$?
+
+    (b) Is $g(x) = \sqrt{x^2 + 1}$ uniformly continuous on $(0, 1)$?
+
+    (c) Is $h(x) = x\sin(1/x)$ uniformly continuous on $(0, 1)$?
+  curation:
+    why: 'Deciding uniform continuity on a bounded open interval: blow-up vs. continuous extension.'
+- id: abbott-4.4.8
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.4 Continuous Functions on Compact Sets
+    problemNumber: Exercise 4.4.8
+    page: '134'
+  topic: continuity
+  subtopics:
+  - EVT
+  - continuity-and-topology
+  skills:
+  - construct-counterexample
+  - theorem-application
+  concept: continuous image of compact is compact; ranges on (0,1), (0,1]
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - compactness
+  - extreme-value-theorem
+  - range
+  - counterexample
+  problemLatex: |
+    Give an example of each of the following, or provide a short argument for why the request is impossible.
+
+    (a) A continuous function defined on $[0, 1]$ with range $(0, 1)$.
+
+    (b) A continuous function defined on $(0, 1)$ with range $[0, 1]$.
+
+    (c) A continuous function defined on $(0, 1]$ with range $(0, 1)$.
+  curation:
+    why: Which ranges are possible on [0,1], (0,1), (0,1]? Separates what compactness forces from what it does not.
+- id: abbott-4.4.10
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.4 Continuous Functions on Compact Sets
+    problemNumber: Exercise 4.4.10
+    page: '135'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - epsilon-delta-proof
+  - construct-counterexample
+  concept: sum/composition of UC functions are UC; product/quotient need not be
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-continuity
+  - algebra-of-functions
+  - counterexample
+  problemLatex: |
+    Assume that $f$ and $g$ are uniformly continuous functions defined on a common domain $A$. Which of the following combinations are necessarily uniformly continuous on $A$:
+    $$f(x) + g(x), \quad f(x)g(x), \quad \frac{f(x)}{g(x)}, \quad f(g(x))\ ?$$
+    (Assume that the quotient and the composition are properly defined and thus at least continuous.)
+  curation:
+    why: Sums and compositions of uniformly continuous functions are uniformly continuous; products and quotients need not be.
+- id: abbott-4.4.13
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.4 Continuous Functions on Compact Sets
+    problemNumber: Exercise 4.4.13
+    page: '135'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - sequential-characterization
+  - cauchy-criterion
+  concept: 'continuous extension theorem: UC on (a,b) iff extends continuously to [a,b]'
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - uniform-continuity
+  - Cauchy
+  - continuous-extension
+  - compactness
+  problemLatex: |
+    **(Continuous Extension Theorem).**
+
+    (a) Show that a uniformly continuous function preserves Cauchy sequences; that is, if $f\colon A \to \mathbb{R}$ is uniformly continuous and $(x_n) \subseteq A$ is a Cauchy sequence, then show $f(x_n)$ is a Cauchy sequence.
+
+    (b) Let $g$ be a continuous function on the open interval $(a, b)$. Prove that $g$ is uniformly continuous on $(a, b)$ if and only if it is possible to define values $g(a)$ and $g(b)$ at the endpoints so that the extended function $g$ is continuous on $[a, b]$. (In the forward direction, first produce candidates for $g(a)$ and $g(b)$, and then show the extended $g$ is continuous.)
+  curation:
+    why: Uniform continuity preserves Cauchy sequences, and on (a,b) it is equivalent to extending continuously to [a,b].
+- id: abbott-4.4.14
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.4 Continuous Functions on Compact Sets
+    problemNumber: Exercise 4.4.14
+    page: '136'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - open-cover-argument
+  - choose-delta
+  concept: continuous on compact ⇒ uniformly continuous (open-cover proof)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - uniform-continuity
+  - Heine-Borel
+  - open-cover
+  - compactness
+  problemLatex: |
+    Construct an alternate proof of Theorem 4.4.7 using the open cover characterization of compactness from the Heine–Borel Theorem (Theorem 3.3.8 (iii)).
+
+    *(Theorem 4.4.7 (Uniform Continuity on Compact Sets): A function that is continuous on a compact set $K$ is uniformly continuous on $K$. Theorem 3.3.8 (iii): Every open cover for $K$ has a finite subcover.)*
+  notes: Theorem 4.4.7 quoted verbatim (p. 133); Theorem 3.3.8(iii) quoted. The book's own proof of 4.4.7 is sequential, so the core result itself may be better taken from another source; this is the open-cover variant.
+  curation:
+    why: Heine–Cantor (continuous on compact ⇒ uniformly continuous) proved with open covers instead of sequences.
+- id: abbott-4.5.3
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.5 The Intermediate Value Theorem
+    problemNumber: Exercise 4.5.3
+    page: '140'
+  topic: continuity
+  subtopics:
+  - monotone-functions
+  - IVT
+  skills:
+  - epsilon-delta-proof
+  - contradiction
+  concept: monotone function with the intermediate value property is continuous
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - monotone
+  - intermediate-value-property
+  - continuity
+  problemLatex: |
+    A function $f$ is *increasing* on $A$ if $f(x) \le f(y)$ for all $x < y$ in $A$. Show that if $f$ is increasing on $[a, b]$ and satisfies the intermediate value property (Definition 4.5.3), then $f$ is continuous on $[a, b]$.
+
+    *(Definition 4.5.3: A function $f$ has the intermediate value property on an interval $[a, b]$ if for all $x < y$ in $[a, b]$ and all $L$ between $f(x)$ and $f(y)$, it is always possible to find a point $c \in (x, y)$ where $f(c) = L$.)*
+  notes: Definition 4.5.3 quoted verbatim (p. 139).
+  curation:
+    why: 'A partial converse to the IVT: monotone + intermediate value property ⇒ continuous.'
+- id: abbott-4.5.6
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.5 The Intermediate Value Theorem
+    problemNumber: Exercise 4.5.6
+    page: '140'
+  topic: continuity
+  subtopics:
+  - IVT
+  skills:
+  - auxiliary-function
+  - telescoping
+  - construct-counterexample
+  concept: universal chord theorem (horizontal chords of length 1/n)
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - IVT
+  - universal-chord-theorem
+  - auxiliary-function
+  - counterexample
+  problemLatex: |
+    Let $f\colon [0, 1] \to \mathbb{R}$ be continuous with $f(0) = f(1)$.
+
+    (a) Show that there must exist $x, y \in [0, 1]$ satisfying $|x - y| = 1/2$ and $f(x) = f(y)$.
+
+    (b) Show that for each $n \in \mathbb{N}$ there exist $x_n, y_n \in [0, 1]$ with $|x_n - y_n| = 1/n$ and $f(x_n) = f(y_n)$.
+
+    (c) If $h \in (0, 1/2)$ is not of the form $1/n$, there does not necessarily exist $|x - y| = h$ satisfying $f(x) = f(y)$. Provide an example that illustrates this using $h = 2/5$.
+  curation:
+    why: 'Universal chord theorem: IVT on a cleverly chosen auxiliary function, and a counterexample showing only h = 1/n works.'
+- id: abbott-4.5.7
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.5 The Intermediate Value Theorem
+    problemNumber: Exercise 4.5.7
+    page: '140'
+  topic: continuity
+  subtopics:
+  - IVT
+  skills:
+  - auxiliary-function
+  - theorem-application
+  concept: continuous f:[0,1]→[0,1] has a fixed point
+  difficulty: easy
+  category: canonical
+  type: theorem-application
+  tags:
+  - IVT
+  - fixed-point
+  - Brouwer
+  problemLatex: |
+    Let $f$ be a continuous function on the closed interval $[0, 1]$ with range also contained in $[0, 1]$. Prove that $f$ must have a fixed point; that is, show $f(x) = x$ for at least one value of $x \in [0, 1]$.
+  curation:
+    why: 'The 1-D Brouwer fixed point theorem: apply the IVT to f(x) − x.'
+- id: abbott-4.5.8
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.5 The Intermediate Value Theorem
+    problemNumber: Exercise 4.5.8
+    page: '140'
+  topic: continuity
+  subtopics:
+  - monotone-functions
+  - IVT
+  - sequential-continuity
+  skills:
+  - subsequence-extraction
+  - sequential-characterization
+  concept: inverse of a continuous one-to-one function on [a,b] is continuous
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - inverse-function
+  - continuity
+  - compactness
+  - monotone
+  problemLatex: |
+    **(Inverse functions).** If a function $f\colon A \to \mathbb{R}$ is one-to-one, then we can define the inverse function $f^{-1}$ on the range of $f$ in the natural way: $f^{-1}(y) = x$ where $y = f(x)$.
+
+    Show that if $f$ is continuous on an interval $[a, b]$ and one-to-one, then $f^{-1}$ is also continuous.
+  curation:
+    why: Continuity of inverse functions on intervals — needed before differentiating inverses.
+- id: abbott-4.6.5
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.6 Sets of Discontinuity
+    problemNumber: Exercise 4.6.5
+    page: '142'
+  topic: continuity
+  subtopics:
+  - monotone-functions
+  - discontinuities
+  skills:
+  - sup-approximation
+  - epsilon-delta-proof
+  concept: monotone functions have only jump discontinuities
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - monotone
+  - one-sided-limit
+  - jump-discontinuity
+  - supremum
+  problemLatex: |
+    Prove that the only type of discontinuity a monotone function can have is a jump discontinuity.
+
+    *(From the text: Generally speaking, discontinuities can be divided into three categories: (i) If $\lim_{x\to c} f(x)$ exists but has a value different from $f(c)$, the discontinuity at $c$ is called removable. (ii) If $\lim_{x\to c^+} f(x) \neq \lim_{x\to c^-} f(x)$, then $f$ has a jump discontinuity at $c$. (iii) If $\lim_{x\to c} f(x)$ does not exist for some other reason, then the discontinuity at $c$ is called an essential discontinuity.)*
+  notes: Classification of discontinuities quoted verbatim from p. 142. Monotone = increasing or decreasing (Definition 4.6.1).
+  curation:
+    why: One-sided limits of monotone functions exist (they are sups/infs), so the only discontinuities are jumps.
+  related:
+  - abbott-4.6.6
+- id: abbott-4.6.6
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.6 Sets of Discontinuity
+    problemNumber: Exercise 4.6.6
+    page: '142'
+  topic: continuity
+  subtopics:
+  - monotone-functions
+  - discontinuities
+  skills:
+  - rational-interval-injection
+  - density-argument
+  concept: monotone function has at most countably many discontinuities
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - monotone
+  - countable
+  - jump-discontinuity
+  - density
+  problemLatex: |
+    Construct a bijection between the set of jump discontinuities of a monotone function $f$ and a subset of $\mathbb{Q}$. Conclude that $D_f$ for a monotone function $f$ must either be finite or countable, but not uncountable.
+  notes: Relies on Exercise 4.6.5 (only jump discontinuities). $D_f$ = set of discontinuities of $f$.
+  curation:
+    why: Disjoint jump intervals each contain a rational, so a monotone function has countably many discontinuities.
+  related:
+  - abbott-4.6.5
+- id: abbott-5.2.4
+  source:
+    key: abbott
+    chapter: 5 The Derivative
+    section: 5.2 Derivatives and the Intermediate Value Property
+    problemNumber: Exercise 5.2.4
+    page: '153'
+  topic: differentiation
+  subtopics:
+  - derivative-definition
+  - derivative-rules
+  skills:
+  - epsilon-delta-proof
+  - functional-limits
+  concept: Carathéodory criterion for differentiability; proof of the Chain Rule
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - chain-rule
+  - derivative
+  - Caratheodory
+  - machinery
+  problemLatex: |
+    Follow these steps to provide a slightly modified proof of the Chain Rule.
+
+    (a) Show that a function $h\colon A \to \mathbb{R}$ is differentiable at $a \in A$ if and only if there exists a function $l\colon A \to \mathbb{R}$ which is continuous at $a$ and satisfies
+    $$h(x) - h(a) = l(x)(x-a) \quad \text{for all } x \in A.$$
+
+    (b) Use this criterion for differentiability (in both directions) to prove Theorem 5.2.5.
+
+    *(Theorem 5.2.5 (Chain Rule): Let $f\colon A \to \mathbb{R}$ and $g\colon B \to \mathbb{R}$ satisfy $f(A) \subseteq B$ so that the composition $g \circ f$ is defined. If $f$ is differentiable at $c \in A$ and if $g$ is differentiable at $f(c) \in B$, then $g\circ f$ is differentiable at $c$ with $(g\circ f)'(c) = g'(f(c))\cdot f'(c)$.)*
+  notes: Statement of Theorem 5.2.5 quoted verbatim from p. 150.
+  curation:
+    why: Carathéodory's criterion and a correct proof of the chain rule (avoiding the division-by-zero trap).
+- id: abbott-5.2.7
+  source:
+    key: abbott
+    chapter: 5 The Derivative
+    section: 5.2 Derivatives and the Intermediate Value Property
+    problemNumber: Exercise 5.2.7
+    page: '153'
+  topic: differentiation
+  subtopics:
+  - differentiability
+  - derivative-definition
+  skills:
+  - construct-counterexample
+  - difference-quotient-estimate
+  - squeeze
+  concept: 'x^a sin(1/x): differentiable with unbounded / continuous-not-differentiable / discontinuous second derivative'
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - x-sin-1-over-x
+  - derivative
+  - counterexample
+  - continuity-of-derivative
+  problemLatex: |
+    Let
+    $$g_a(x) = \begin{cases} x^a \sin(1/x) & \text{if } x \neq 0 \\ 0 & \text{if } x = 0. \end{cases}$$
+    Find a particular (potentially noninteger) value for $a$ so that
+
+    (a) $g_a$ is differentiable on $\mathbb{R}$ but such that $g_a'$ is unbounded on $[0,1]$.
+
+    (b) $g_a$ is differentiable on $\mathbb{R}$ with $g_a'$ continuous but not differentiable at zero.
+
+    (c) $g_a$ is differentiable on $\mathbb{R}$ and $g_a'$ is differentiable on $\mathbb{R}$, but such that $g_a''$ is not continuous at zero.
+  curation:
+    why: Tune the exponent in xᵃ sin(1/x) to get differentiable with unbounded derivative, or continuous derivative that is not differentiable, etc.
+- id: abbott-5.2.11
+  source:
+    key: abbott
+    chapter: 5 The Derivative
+    section: 5.2 Derivatives and the Intermediate Value Property
+    problemNumber: Exercise 5.2.11
+    page: '154'
+  topic: differentiation
+  subtopics:
+  - darboux-property
+  - local-extrema
+  skills:
+  - EVT-application
+  - interior-extremum
+  - sign-of-difference-quotient
+  concept: Darboux's theorem (derivatives have the intermediate value property)
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - Darboux-theorem
+  - derivative
+  - intermediate-value-property
+  - extreme-value-theorem
+  problemLatex: |
+    *(Context; summary, not verbatim — the theorem statement is quoted, the opening of its proof is condensed: Theorem 5.2.7 (Darboux's Theorem). If $f$ is differentiable on an interval $[a,b]$, and if $\alpha$ satisfies $f'(a) < \alpha < f'(b)$ (or $f'(a) > \alpha > f'(b)$), then there exists a point $c \in (a,b)$ where $f'(c) = \alpha$. Proof begins: define $g(x) = f(x) - \alpha x$ on $[a,b]$. Notice that $g$ is differentiable on $[a,b]$ with $g'(x) = f'(x) - \alpha$. In terms of $g$, our hypothesis states that $g'(a) < 0 < g'(b)$, and we hope to show that $g'(c) = 0$ for some $c \in (a,b)$.)*
+
+    Assume that $g$ is differentiable on $[a,b]$ and satisfies $g'(a) < 0 < g'(b)$.
+
+    (a) Show that there exists a point $x \in (a,b)$ where $g(a) > g(x)$, and a point $y \in (a,b)$ where $g(y) < g(b)$.
+
+    (b) Now complete the proof of Darboux's Theorem started earlier.
+  notes: Theorem 5.2.7 and the opening of its proof quoted (lightly condensed connective words) from p. 152 so part (b) is self-contained.
+  curation:
+    why: 'Darboux''s theorem: derivatives have the intermediate value property even when discontinuous.'
+- id: abbott-5.2.12
+  source:
+    key: abbott
+    chapter: 5 The Derivative
+    section: 5.2 Derivatives and the Intermediate Value Property
+    problemNumber: Exercise 5.2.12
+    page: '155'
+  topic: differentiation
+  subtopics:
+  - inverse-functions
+  - derivative-definition
+  skills:
+  - functional-limits
+  - composition-of-limits
+  concept: 'inverse function theorem in one variable: (f^{-1})''(y) = 1/f''(x)'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - inverse-function
+  - derivative
+  - continuity
+  problemLatex: |
+    **(Inverse functions).** If $f\colon [a,b] \to \mathbb{R}$ is one-to-one, then there exists an inverse function $f^{-1}$ defined on the range of $f$ given by $f^{-1}(y) = x$ where $y = f(x)$. In Exercise 4.5.8 we saw that if $f$ is continuous on $[a,b]$, then $f^{-1}$ is continuous on its domain. Let's add the assumption that $f$ is differentiable on $[a,b]$ with $f'(x) \neq 0$ for all $x \in [a,b]$. Show $f^{-1}$ is differentiable with
+    $$\left(f^{-1}\right)'(y) = \frac{1}{f'(x)} \quad \text{where } y = f(x).$$
+  notes: The fact cited from Exercise 4.5.8 is stated in the exercise itself.
+  curation:
+    why: The derivative of an inverse function, with the hypotheses that make it work.
+- id: abbott-5.3.12
+  source:
+    key: abbott
+    chapter: 5 The Derivative
+    section: 5.3 The Mean Value Theorems
+    problemNumber: Exercise 5.3.12
+    page: '162'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  - lhopital
+  - taylor
+  skills:
+  - MVT-application
+  - LHospital-application
+  concept: second symmetric derivative equals f''(a) when f'' continuous
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - second-derivative
+  - mean-value-theorem
+  - LHospital
+  - symmetric-difference
+  problemLatex: |
+    If $f$ is twice differentiable on an open interval containing $a$ and $f''$ is continuous at $a$, show
+    $$\lim_{h\to 0} \frac{f(a+h) - 2f(a) + f(a-h)}{h^2} = f''(a).$$
+    (Compare this to Exercise 5.2.6(b).)
+
+    *(Exercise 5.2.6(b): Assume $A$ is open. If $g$ is differentiable at $c \in A$, show $g'(c) = \lim_{h\to 0}\frac{g(c+h) - g(c-h)}{2h}$.)*
+  notes: Exercise 5.2.6(b) quoted from p. 153.
+  curation:
+    why: 'The symmetric second difference quotient converges to f″(a): MVT/L''Hôpital applied twice.'
+- id: abbott-5.4.7
+  source:
+    key: abbott
+    chapter: 5 The Derivative
+    section: 5.4 A Continuous Nowhere-Differentiable Function
+    problemNumber: Exercise 5.4.7
+    page: '166'
+  topic: differentiation
+  subtopics:
+  - derivative-definition
+  - differentiability
+  skills:
+  - sequential-characterization
+  - convex-combination-estimate
+  - construct-counterexample
+  concept: 'continuous nowhere-differentiable function (sawtooth/Takagi-type series): non-dyadic points'
+  difficulty: very-hard
+  category: challenge
+  type: proof
+  tags:
+  - nowhere-differentiable
+  - Weierstrass-function
+  - derivative
+  - sawtooth
+  - dyadic
+  problemLatex: |
+    *(Summary, not verbatim — setup assembled from Section 5.4: Define $h(x) = |x|$ on the interval $[-1,1]$ and extend the definition of $h$ to all of $\mathbb{R}$ by requiring that $h(x+2) = h(x)$. Define
+    $$g(x) = \sum_{n=0}^\infty h_n(x) = \sum_{n=0}^\infty \frac{1}{2^n} h(2^n x).$$
+    Assume $x$ is not a dyadic number. For a fixed value of $m \in \mathbb{N}\cup\{0\}$, $x$ falls between two adjacent dyadic points, $\frac{p_m}{2^m} < x < \frac{p_m+1}{2^m}$. Set $x_m = p_m/2^m$ and $y_m = (p_m+1)/2^m$. Repeating this for each $m$ yields two sequences $(x_m)$ and $(y_m)$ satisfying $\lim x_m = \lim y_m = x$ and $x_m < x < y_m$.)*
+
+    (a) First prove the following general lemma: Let $f$ be defined on an open interval $J$ and assume $f$ is differentiable at $a \in J$. If $(a_n)$ and $(b_n)$ are sequences satisfying $a_n < a < b_n$ and $\lim a_n = \lim b_n = a$, show
+    $$f'(a) = \lim_{n\to\infty} \frac{f(b_n) - f(a_n)}{b_n - a_n}.$$
+
+    (b) Now use this lemma to show that $g'(x)$ does not exist.
+  notes: Definitions of h, g and the dyadic sequences quoted from pp. 163–165 (pdf 174–176). Continuity of g is established elsewhere (Exercise 6.4.3/M-test). Part (a) alone is a self-contained lemma of medium difficulty.
+  curation:
+    why: A continuous nowhere-differentiable function, step by step. The capstone counterexample of the derivative chapter.
+- id: abbott-6.2.1
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.2 Uniform Convergence of a Sequence of Functions
+    problemNumber: Exercise 6.2.1
+    page: '180'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - uniform-convergence
+  skills:
+  - sup-norm-estimate
+  - negate-definition
+  concept: 'nx/(1+nx^2): uniform on (1,inf), not on (0,1)'
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags:
+  - uniform-convergence
+  - pointwise-convergence
+  - sup-norm
+  problemLatex: |
+    Let
+    $$f_n(x) = \frac{nx}{1 + nx^2}.$$
+
+    (a) Find the pointwise limit of $(f_n)$ for all $x \in (0, \infty)$.
+
+    (b) Is the convergence uniform on $(0,\infty)$?
+
+    (c) Is the convergence uniform on $(0,1)$?
+
+    (d) Is the convergence uniform on $(1,\infty)$?
+  curation:
+    why: Compute a pointwise limit and decide where the convergence is uniform.
+- id: abbott-6.2.5
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.2 Uniform Convergence of a Sequence of Functions
+    problemNumber: Exercise 6.2.5
+    page: '181'
+  topic: function-sequences
+  subtopics:
+  - uniform-cauchy
+  - uniform-convergence
+  skills:
+  - epsilon-N-proof
+  - limit-in-inequality
+  concept: Cauchy criterion for uniform convergence
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - uniform-convergence
+  - Cauchy
+  - completeness
+  - machinery
+  problemLatex: |
+    Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5. (First, define a candidate for $f(x)$, and then argue that $f_n \to f$ uniformly.)
+
+    *(Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence): A sequence of functions $(f_n)$ defined on a set $A \subseteq \mathbb{R}$ converges uniformly on $A$ if and only if for every $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that $|f_n(x) - f_m(x)| < \epsilon$ whenever $m, n \ge N$ and $x \in A$. Theorem 2.6.4 (Cauchy Criterion): A sequence converges if and only if it is a Cauchy sequence.)*
+  notes: Theorems 6.2.5 and 2.6.4 quoted verbatim.
+  curation:
+    why: The Cauchy criterion for uniform convergence — how you prove uniform convergence without knowing the limit.
+- id: abbott-6.2.6
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.2 Uniform Convergence of a Sequence of Functions
+    problemNumber: Exercise 6.2.6
+    page: '181'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - uniform-convergence
+  - interchange-limits
+  skills:
+  - construct-counterexample
+  - epsilon-over-3
+  concept: 'properties inherited under uniform (not pointwise) limits: uniform continuity, boundedness, discontinuity counts'
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - pointwise-convergence
+  - counterexample
+  - uniform-continuity
+  - discontinuities
+  problemLatex: |
+    Assume $f_n \to f$ on a set $A$. Theorem 6.2.6 is an example of a typical type of question which asks whether a trait possessed by each $f_n$ is inherited by the limit function. Provide an example to show that all of the following propositions are false if the convergence is only assumed to be pointwise on $A$. Then go back and decide which are true under the stronger hypothesis of uniform convergence.
+
+    (a) If each $f_n$ is uniformly continuous, then $f$ is uniformly continuous.
+
+    (b) If each $f_n$ is bounded, then $f$ is bounded.
+
+    (c) If each $f_n$ has a finite number of discontinuities, then $f$ has a finite number of discontinuities.
+
+    (d) If each $f_n$ has fewer than $M$ discontinuities (where $M \in \mathbb{N}$ is fixed), then $f$ has fewer than $M$ discontinuities.
+
+    (e) If each $f_n$ has at most a countable number of discontinuities, then $f$ has at most a countable number of discontinuities.
+
+    *(Theorem 6.2.6 (Continuous Limit Theorem): Let $(f_n)$ be a sequence of functions defined on $A \subseteq \mathbb{R}$ that converges uniformly on $A$ to a function $f$. If each $f_n$ is continuous at $c \in A$, then $f$ is continuous at $c$.)*
+  notes: Theorem 6.2.6 quoted verbatim.
+  curation:
+    why: Which properties pass to uniform limits but not pointwise limits — boundedness, continuity, uniform continuity.
+- id: abbott-6.2.11
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.2 Uniform Convergence of a Sequence of Functions
+    problemNumber: Exercise 6.2.11
+    page: '182'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  - pointwise-convergence
+  skills:
+  - nested-compact-sets
+  - open-cover-argument
+  concept: Dini's theorem
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - Dini
+  - uniform-convergence
+  - compactness
+  - monotone
+  problemLatex: |
+    **(Dini's Theorem).** Assume $f_n \to f$ pointwise on a compact set $K$ and assume that for each $x \in K$ the sequence $f_n(x)$ is increasing. Follow these steps to show that if $f_n$ and $f$ are continuous on $K$, then the convergence is uniform.
+
+    (a) Set $g_n = f - f_n$ and translate the preceding hypothesis into statements about the sequence $(g_n)$.
+
+    (b) Let $\epsilon > 0$ be arbitrary, and define $K_n = \{x \in K : g_n(x) \ge \epsilon\}$. Argue that $K_1 \supseteq K_2 \supseteq K_3 \supseteq \cdots$, and use this observation to finish the argument.
+  curation:
+    why: 'Dini''s theorem: monotone pointwise convergence to a continuous limit on a compact set is uniform.'
+- id: abbott-6.2.12
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.2 Uniform Convergence of a Sequence of Functions
+    problemNumber: Exercise 6.2.12
+    page: '182'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  - uniform-cauchy
+  skills:
+  - geometric-series-estimate
+  - uniform-cauchy
+  - induction
+  concept: Cantor function (devil's staircase) construction
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - Cantor-function
+  - Cantor-set
+  - uniform-convergence
+  - construction
+  problemLatex: |
+    **(Cantor Function).** Review the construction of the Cantor set $C \subseteq [0,1]$ from Section 3.1. This exercise makes use of results and notation from this discussion.
+
+    (a) Define $f_0(x) = x$ for all $x \in [0,1]$. Now, let
+    $$f_1(x) = \begin{cases} (3/2)x & \text{for } 0 \le x \le 1/3 \\ 1/2 & \text{for } 1/3 < x < 2/3 \\ (3/2)x - 1/2 & \text{for } 2/3 \le x \le 1. \end{cases}$$
+    Sketch $f_0$ and $f_1$ over $[0,1]$ and observe that $f_1$ is continuous, increasing, and constant on the middle third $(1/3, 2/3) = [0,1]\setminus C_1$.
+
+    (b) Construct $f_2$ by imitating this process of flattening out the middle third of each nonconstant segment of $f_1$. Specifically, let
+    $$f_2(x) = \begin{cases} (1/2)f_1(3x) & \text{for } 0 \le x \le 1/3 \\ f_1(x) & \text{for } 1/3 < x < 2/3 \\ (1/2)f_1(3x - 2) + 1/2 & \text{for } 2/3 \le x \le 1. \end{cases}$$
+    If we continue this process, show that the resulting sequence $(f_n)$ converges uniformly on $[0,1]$.
+
+    (c) Let $f = \lim f_n$. Prove that $f$ is a continuous, increasing function on $[0,1]$ with $f(0) = 0$ and $f(1) = 1$ that satisfies $f'(x) = 0$ for all $x$ in the open set $[0,1]\setminus C$. Recall that the "length" of the Cantor set $C$ is 0. Somehow, $f$ manages to increase from 0 to 1 while remaining constant on a set of "length 1."
+  notes: 'Uses the standard middle-thirds Cantor set: C_0=[0,1], C_1=[0,1/3]∪[2/3,1], C = ∩ C_n (Section 3.1).'
+  curation:
+    why: 'Construct the Cantor function as a uniform limit: continuous, increasing, constant off the Cantor set.'
+- id: abbott-6.2.15
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.2 Uniform Convergence of a Sequence of Functions
+    problemNumber: Exercise 6.2.15
+    page: '183'
+  topic: function-sequences
+  subtopics:
+  - uniform-cauchy
+  - uniform-convergence
+  skills:
+  - diagonal-argument
+  - epsilon-over-3
+  - finite-net
+  - uniform-cauchy
+  concept: Arzelà–Ascoli theorem on [0,1]
+  difficulty: very-hard
+  category: challenge
+  type: proof
+  tags:
+  - Arzela-Ascoli
+  - equicontinuity
+  - uniform-convergence
+  - compactness
+  - diagonal-argument
+  problemLatex: |
+    **(Arzela–Ascoli Theorem).** For each $n \in \mathbb{N}$, let $f_n$ be a function defined on $[0,1]$. If $(f_n)$ is bounded on $[0,1]$—that is, there exists an $M > 0$ such that $|f_n(x)| \le M$ for all $n \in \mathbb{N}$ and $x \in [0,1]$—and if the collection of functions $(f_n)$ is equicontinuous (Exercise 6.2.14), follow these steps to show that $(f_n)$ contains a uniformly convergent subsequence.
+
+    *(Exercise 6.2.14: A sequence of functions $(f_n)$ defined on a set $E \subseteq \mathbb{R}$ is called equicontinuous if for every $\epsilon > 0$ there exists a $\delta > 0$ such that $|f_n(x) - f_n(y)| < \epsilon$ for all $n \in \mathbb{N}$ and $|x - y| < \delta$ in $E$. Exercise 6.2.13 (summary, not verbatim): if $A$ is countable and $|f_n(x)| \le M$ for all $n$ and $x \in A$, then some subsequence of $(f_n)$ converges pointwise on $A$.)*
+
+    (a) Use Exercise 6.2.13 to produce a subsequence $(f_{n_k})$ that converges at every rational point in $[0,1]$. To simplify the notation, set $g_k = f_{n_k}$. It remains to show that $(g_k)$ converges uniformly on all of $[0,1]$.
+
+    (b) Let $\epsilon > 0$. By equicontinuity, there exists a $\delta > 0$ such that
+    $$|g_k(x) - g_k(y)| < \frac{\epsilon}{3}$$
+    for all $|x - y| < \delta$ and $k \in \mathbb{N}$. Using this $\delta$, let $r_1, r_2, \ldots, r_m$ be a finite collection of rational points with the property that the union of the neighborhoods $V_\delta(r_i)$ contains $[0,1]$.
+
+    Explain why there must exist an $N \in \mathbb{N}$ such that
+    $$|g_s(r_i) - g_t(r_i)| < \frac{\epsilon}{3}$$
+    for all $s, t \ge N$ and $r_i$ in the finite subset of $[0,1]$ just described. Why does having the set $\{r_1, r_2, \ldots, r_m\}$ be finite matter?
+
+    (c) Finish the argument by showing that, for an arbitrary $x \in [0,1]$,
+    $$|g_s(x) - g_t(x)| < \epsilon$$
+    for all $s, t \ge N$.
+  notes: Definition of equicontinuity quoted verbatim from Exercise 6.2.14; result of Exercise 6.2.13 summarized (marked) from its statement.
+  curation:
+    why: 'Arzelà–Ascoli on [0,1]: equicontinuity + boundedness ⇒ a uniformly convergent subsequence (diagonal argument).'
+- id: abbott-6.3.4
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.3 Uniform Convergence and Differentiation
+    problemNumber: Exercise 6.3.4
+    page: '187'
+  topic: function-sequences
+  subtopics:
+  - interchange-derivative
+  - uniform-convergence
+  skills:
+  - construct-counterexample
+  - divergence-proof
+  concept: sin(nx)/sqrt(n) -> 0 uniformly, derivatives diverge everywhere
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - derivative
+  - counterexample
+  - divergence
+  problemLatex: |
+    Let
+    $$h_n(x) = \frac{\sin(nx)}{\sqrt{n}}.$$
+    Show that $h_n \to 0$ uniformly on $\mathbb{R}$ but that the sequence of derivatives $(h_n')$ diverges for every $x \in \mathbb{R}$.
+  curation:
+    why: sin(nx)/√n → 0 uniformly while the derivatives diverge everywhere.
+- id: abbott-6.3.7
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.3 Uniform Convergence and Differentiation
+    problemNumber: Exercise 6.3.7
+    page: '187'
+  topic: function-sequences
+  subtopics:
+  - interchange-derivative
+  - uniform-cauchy
+  skills:
+  - MVT-application
+  - uniform-cauchy
+  - triangle-inequality
+  concept: f_n' uniformly convergent and f_n(x0) convergent => f_n uniformly convergent
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - uniform-convergence
+  - mean-value-theorem
+  - Cauchy
+  - machinery
+  problemLatex: |
+    Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that, for any $x \in [a,b]$ and $m, n \in \mathbb{N}$,
+    $$|f_n(x) - f_m(x)| \le |(f_n(x) - f_m(x)) - (f_n(x_0) - f_m(x_0))| + |f_n(x_0) - f_m(x_0)|.$$
+
+    *(Theorem 6.3.2: Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a,b]$, and assume $(f_n')$ converges uniformly on $[a,b]$. If there exists a point $x_0 \in [a,b]$ where $f_n(x_0)$ is convergent, then $(f_n)$ converges uniformly on $[a,b]$.)*
+  notes: Theorem 6.3.2 quoted verbatim from p. 186.
+  curation:
+    why: If fₙ′ converges uniformly and fₙ(x₀) converges, then fₙ converges uniformly — the Differentiable Limit Theorem.
+- id: abbott-6.4.1
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.4 Series of Functions
+    problemNumber: Exercise 6.4.1
+    page: '189'
+  topic: function-sequences
+  subtopics:
+  - weierstrass-m-test
+  - series-of-functions
+  - uniform-cauchy
+  skills:
+  - M-test
+  - uniform-cauchy
+  - comparison-estimate
+  concept: Weierstrass M-test proof
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Weierstrass-M-test
+  - uniform-convergence
+  - series-of-functions
+  - machinery
+  problemLatex: |
+    Supply the details for the proof of the Weierstrass M-Test (Corollary 6.4.5).
+
+    *(Corollary 6.4.5 (Weierstrass M-Test): For each $n \in \mathbb{N}$, let $f_n$ be a function defined on a set $A \subseteq \mathbb{R}$, and let $M_n > 0$ be a real number satisfying $|f_n(x)| \le M_n$ for all $x \in A$. If $\sum_{n=1}^\infty M_n$ converges, then $\sum_{n=1}^\infty f_n$ converges uniformly on $A$. Summary, not verbatim: the book presents it as a corollary of Theorem 6.4.4 (Cauchy Criterion for Uniform Convergence of Series): A series $\sum_{n=1}^\infty f_n$ converges uniformly on $A \subseteq \mathbb{R}$ if and only if for every $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that $|f_{m+1}(x) + f_{m+2}(x) + f_{m+3}(x) + \cdots + f_n(x)| < \epsilon$ whenever $n > m \ge N$ and $x \in A$.)*
+  notes: Corollary 6.4.5 and Theorem 6.4.4 quoted from p. 189.
+  curation:
+    why: Prove the Weierstrass M-test from the Cauchy criterion.
+- id: abbott-6.4.2
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.4 Series of Functions
+    problemNumber: Exercise 6.4.2
+    page: '189'
+  topic: function-sequences
+  subtopics:
+  - series-of-functions
+  - weierstrass-m-test
+  skills:
+  - construct-counterexample
+  - uniform-cauchy
+  concept: 'uniform convergence of series: term test, comparison, M-test converse fails'
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - Weierstrass-M-test
+  - uniform-convergence
+  - series-of-functions
+  - counterexample
+  problemLatex: |
+    Decide whether each proposition is true or false, providing a short justification or counterexample as appropriate.
+
+    (a) If $\sum_{n=1}^\infty g_n$ converges uniformly, then $(g_n)$ converges uniformly to zero.
+
+    (b) If $0 \le f_n(x) \le g_n(x)$ and $\sum_{n=1}^\infty g_n$ converges uniformly, then $\sum_{n=1}^\infty f_n$ converges uniformly.
+
+    (c) If $\sum_{n=1}^\infty f_n$ converges uniformly on $A$, then there exist constants $M_n$ such that $|f_n(x)| \le M_n$ for all $x \in A$ and $\sum_{n=1}^\infty M_n$ converges.
+  curation:
+    why: True/false about series of functions; the M-test is not necessary.
+- id: abbott-6.4.7
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.4 Series of Functions
+    problemNumber: Exercise 6.4.7
+    page: '190'
+  topic: function-sequences
+  subtopics:
+  - interchange-derivative
+  - weierstrass-m-test
+  - series-of-functions
+  skills:
+  - M-test
+  - term-by-term-differentiation
+  concept: sum sin(kx)/k^3 is C^1 by term-by-term differentiation
+  difficulty: easy
+  category: canonical
+  type: theorem-application
+  tags:
+  - term-by-term-differentiation
+  - Weierstrass-M-test
+  - trigonometric-series
+  problemLatex: |
+    Let
+    $$f(x) = \sum_{k=1}^\infty \frac{\sin(kx)}{k^3}.$$
+
+    (a) Show that $f(x)$ is differentiable and that the derivative $f'(x)$ is continuous.
+
+    (b) Can we determine if $f$ is twice-differentiable?
+  curation:
+    why: 'Σ sin(kx)/k³ is C¹: term-by-term differentiation justified by the M-test.'
+- id: abbott-6.5.10
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.5 Power Series
+    problemNumber: Exercise 6.5.10
+    page: '197'
+  topic: function-sequences
+  subtopics:
+  - power-series
+  skills:
+  - contradiction
+  - induction
+  - continuity-argument
+  concept: identity theorem for power series (zeros accumulating at center)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - power-series
+  - identity-theorem
+  - zeros
+  problemLatex: |
+    Let $g(x) = \sum_{n=0}^\infty b_n x^n$ converge on $(-R,R)$, and assume $(x_n) \to 0$ with $x_n \neq 0$. If $g(x_n) = 0$ for all $n \in \mathbb{N}$, show that $g(x)$ must be identically zero on all of $(-R,R)$.
+  curation:
+    why: 'The identity theorem for power series: zeros accumulating at the center force all coefficients to vanish.'
+- id: abbott-6.7.2
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.7 The Weierstrass Approximation Theorem
+    problemNumber: Exercise 6.7.2
+    page: '207'
+  topic: function-sequences
+  subtopics:
+  - approximation
+  - uniform-convergence
+  skills:
+  - uniform-continuity
+  - partition-argument
+  concept: continuous functions on [a,b] are uniform limits of polygonal (piecewise linear) functions
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - polygonal-approximation
+  - uniform-continuity
+  - approximation
+  problemLatex: |
+    Prove Theorem 6.7.3.
+
+    *(Definition 6.7.2: A continuous function $\varphi\colon [a,b] \to \mathbb{R}$ is polygonal if there is a partition $a = x_0 < x_1 < x_2 < \cdots < x_n = b$ of $[a,b]$ such that $\varphi$ is linear on each subinterval $[x_{i-1}, x_i]$, where $i = 1, \ldots, n$.
+    Theorem 6.7.3: Let $f\colon [a,b] \to \mathbb{R}$ be continuous. Given $\epsilon > 0$, there exists a polygonal function $\varphi$ satisfying $|f(x) - \varphi(x)| < \epsilon$ for all $x \in [a,b]$.)*
+  notes: Definition 6.7.2 and Theorem 6.7.3 quoted verbatim from pp. 206–207.
+  curation:
+    why: Continuous functions on [a,b] are uniform limits of polygonal functions — the first step toward Weierstrass approximation.
+- id: abbott-7.2.3
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.2 The Definition of the Riemann Integral
+    problemNumber: Exercise 7.2.3
+    page: '223'
+  topic: integration
+  subtopics:
+  - partitions-darboux-sums
+  - integrability-criteria
+  skills:
+  - sup-approximation
+  - squeeze
+  - partition-refinement
+  concept: sequential criterion for Riemann integrability; integral of x from the definition
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - Darboux-sums
+  - integrability-criterion
+  problemLatex: |
+    **(Sequential Criterion for Integrability).**
+
+    (a) Prove that a bounded function $f$ is integrable on $[a,b]$ if and only if there exists a sequence of partitions $(P_n)_{n=1}^\infty$ satisfying
+    $$\lim_{n\to\infty} [U(f,P_n) - L(f,P_n)] = 0,$$
+    and in this case $\int_a^b f = \lim_{n\to\infty} U(f,P_n) = \lim_{n\to\infty} L(f,P_n)$.
+
+    (b) For each $n$, let $P_n$ be the partition of $[0,1]$ into $n$ equal subintervals. Find formulas for $U(f,P_n)$ and $L(f,P_n)$ if $f(x) = x$. The formula $1 + 2 + 3 + \cdots + n = n(n+1)/2$ will be useful.
+
+    (c) Use the sequential criterion for integrability from (a) to show directly that $f(x) = x$ is integrable on $[0,1]$ and compute $\int_0^1 f$.
+  notes: U(f,P), L(f,P) are Darboux upper/lower sums (Definition 7.2.1); integrability means U(f)=L(f) (Definition 7.2.7).
+  curation:
+    why: The sequential criterion for integrability (Uₙ − Lₙ → 0), then ∫x computed from the definition.
+- id: abbott-7.2.5
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.2 The Definition of the Riemann Integral
+    problemNumber: Exercise 7.2.5
+    page: '223'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - epsilon-over-3
+  - sup-norm-estimate
+  concept: uniform limit of integrable functions is integrable
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - uniform-convergence
+  - integrability-criterion
+  problemLatex: |
+    Assume that, for each $n$, $f_n$ is an integrable function on $[a,b]$. If $(f_n) \to f$ uniformly on $[a,b]$, prove that $f$ is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
+  curation:
+    why: A uniform limit of integrable functions is integrable.
+- id: abbott-7.3.5
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.3 Integrating Functions with Discontinuities
+    problemNumber: Exercise 7.3.5
+    page: '227'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  skills:
+  - construct-counterexample
+  - theorem-recognition
+  concept: pointwise limit of integrable functions need not be integrable (Dirichlet); uniform limit is
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - Riemann-integration
+  - uniform-convergence
+  - pointwise-convergence
+  - Dirichlet-function
+  problemLatex: |
+    Provide an example or give a reason why the request is impossible.
+
+    (a) A sequence $(f_n) \to f$ pointwise, where each $f_n$ has at most a finite number of discontinuities but $f$ is not integrable.
+
+    (b) A sequence $(g_n) \to g$ uniformly where each $g_n$ has at most a finite number of discontinuities and $g$ is not integrable.
+
+    (c) A sequence $(h_n) \to h$ uniformly where each $h_n$ is not integrable but $h$ is integrable.
+  curation:
+    why: A pointwise limit of integrable functions need not be integrable (enumerate the rationals).
+- id: abbott-7.3.7
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.3 Integrating Functions with Discontinuities
+    problemNumber: Exercise 7.3.7
+    page: '227'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - integral-properties
+  skills:
+  - partition-construction
+  - construct-counterexample
+  concept: integrability is unchanged by altering finitely many values; not countably many
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - Dirichlet-function
+  - counterexample
+  problemLatex: |
+    Assume $f\colon [a,b] \to \mathbb{R}$ is integrable.
+
+    (a) Show that if $g$ satisfies $g(x) = f(x)$ for all but a finite number of points in $[a,b]$, then $g$ is integrable as well.
+
+    (b) Find an example to show that $g$ may fail to be integrable if it differs from $f$ at a countable number of points.
+  curation:
+    why: Changing finitely many values preserves integrability and the integral; changing countably many need not.
+- id: abbott-7.3.9
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.3 Integrating Functions with Discontinuities
+    problemNumber: Exercise 7.3.9
+    page: '228'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - partition-construction
+  - compactness
+  - covering-argument
+  concept: discontinuity set of content zero => integrable; Cantor set indicator integrable
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - content-zero
+  - Cantor-set
+  - Riemann-integration
+  - discontinuities
+  problemLatex: |
+    **(Content Zero).** A set $A \subseteq [a,b]$ has *content zero* if for every $\epsilon > 0$ there exists a finite collection of open intervals $\{O_1, O_2, \ldots, O_N\}$ that contain $A$ in their union and whose lengths sum to $\epsilon$ or less. Using $|O_n|$ to refer to the length of each interval, we have
+    $$A \subseteq \bigcup_{n=1}^N O_n \quad\text{and}\quad \sum_{n=1}^N |O_n| \le \epsilon.$$
+
+    (a) Let $f$ be bounded on $[a,b]$. Show that if the set of discontinuous points of $f$ has content zero, then $f$ is integrable.
+
+    (b) Show that any finite set has content zero.
+
+    (c) Content zero sets do not have to be finite. They do not have to be countable. Show that the Cantor set $C$ defined in Section 3.1 has content zero.
+
+    (d) Prove that
+    $$h(x) = \begin{cases} 1 & \text{if } x \in C \\ 0 & \text{if } x \notin C. \end{cases}$$
+    is integrable, and find the value of the integral.
+  curation:
+    why: Discontinuities on a set of content zero do not obstruct integrability (e.g. the Cantor set's indicator).
+- id: abbott-7.4.4
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.4 Properties of the Integral
+    problemNumber: Exercise 7.4.4
+    page: '233'
+  topic: integration
+  subtopics:
+  - integral-properties
+  - integrability-criteria
+  skills:
+  - nested-intervals
+  - contradiction
+  - partition-construction
+  concept: f>0 everywhere and integrable => ∫f > 0
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - Riemann-integration
+  - positivity
+  - nested-intervals
+  - continuity-points
+  problemLatex: |
+    Show that if $f(x) > 0$ for all $x \in [a,b]$ and $f$ is integrable, then $\int_a^b f > 0$.
+  curation:
+    why: f > 0 everywhere and integrable ⇒ ∫f > 0 — surprisingly hard without measure theory.
+- id: abbott-7.4.6
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.4 Properties of the Integral
+    problemNumber: Exercise 7.4.6
+    page: '233'
+  topic: integration
+  subtopics:
+  - integral-properties
+  - integrability-criteria
+  skills:
+  - oscillation-estimate
+  - polarization-identity
+  concept: product of Riemann integrable functions is integrable
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - product
+  - integrability-criterion
+  problemLatex: |
+    Although not part of Theorem 7.4.2, it is true that the product of integrable functions is integrable. Provide the details for each step in the following proof of this fact:
+
+    (a) If $f$ satisfies $|f(x)| \le M$ on $[a,b]$, show
+    $$|(f(x))^2 - (f(y))^2| \le 2M|f(x) - f(y)|.$$
+
+    (b) Prove that if $f$ is integrable on $[a,b]$, then so is $f^2$.
+
+    (c) Now show that if $f$ and $g$ are integrable, then $fg$ is integrable. (Consider $(f+g)^2$.)
+  curation:
+    why: Products of integrable functions are integrable (via f² and polarization or direct estimates).
+- id: abbott-7.4.10
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.4 Properties of the Integral
+    problemNumber: Exercise 7.4.10
+    page: '234'
+  topic: integration
+  subtopics:
+  - integral-properties
+  - integral-inequalities
+  skills:
+  - split-the-domain
+  - epsilon-delta-proof
+  concept: lim ∫_0^1 g(x^n) dx = g(0) for g integrable and continuous at 0
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - integral
+  - limit
+  - continuity
+  - split-domain
+  problemLatex: |
+    Assume $g$ is integrable on $[0,1]$ and continuous at 0. Show
+    $$\lim_{n\to\infty}\int_0^1 g(x^n)\,dx = g(0).$$
+  curation:
+    why: 'lim ∫₀¹ g(xⁿ) dx = g(0): split the interval where xⁿ is small and use boundedness elsewhere.'
+- id: abbott-7.5.2
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.5 The Fundamental Theorem of Calculus
+    problemNumber: Exercise 7.5.2
+    page: '236'
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  skills:
+  - construct-counterexample
+  - theorem-recognition
+  concept: 'FTC true/false: derivatives need not be continuous; continuous functions are derivatives; H differentiable does not force h continuous'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - fundamental-theorem-of-calculus
+  - counterexample
+  - derivative
+  problemLatex: |
+    Decide whether each statement is true or false, providing a short justification for each conclusion.
+
+    (a) If $h' = g$ on $[a,b]$, then $g$ is continuous on $[a,b]$.
+
+    (b) If $g$ is continuous on $[a,b]$, then $g = h'$ for some $h$ on $[a,b]$.
+
+    (c) If $H(x) = \int_a^x h$ is differentiable at $c \in [a,b]$, then $h$ is continuous at $c$.
+  curation:
+    why: 'True/false about the FTC: which functions are derivatives, which are integrals.'
+- id: abbott-7.5.10
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.5 The Fundamental Theorem of Calculus
+    problemNumber: Exercise 7.5.10
+    page: '238'
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  skills:
+  - theorem-application
+  - chain-rule
+  concept: change-of-variable (substitution) formula
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - change-of-variables
+  - substitution
+  - fundamental-theorem-of-calculus
+  - chain-rule
+  problemLatex: |
+    **(Change-of-variable Formula).** Let $g\colon [a,b] \to \mathbb{R}$ be differentiable and assume $g'$ is continuous. Let $f\colon [c,d] \to \mathbb{R}$ be continuous, and assume that the range of $g$ is contained in $[c,d]$ so that the composition $f \circ g$ is properly defined.
+
+    (a) Why are we sure $f$ is the derivative of some function? How about $(f\circ g)g'$?
+
+    (b) Prove the change-of-variable formula
+    $$\int_a^b f(g(x))g'(x)\,dx = \int_{g(a)}^{g(b)} f(t)\,dt.$$
+  curation:
+    why: Prove the change-of-variables formula from the FTC and the chain rule.
+- id: abbott-8.2.2
+  source:
+    key: abbott
+    chapter: 8 Additional Topics
+    section: 8.2 Metric Spaces and the Baire Category Theorem
+    problemNumber: Exercise 8.2.2
+    page: '258'
+  topic: topology
+  subtopics:
+  - metric-spaces
+  skills:
+  - verify-axioms
+  - construct-counterexample
+  concept: 'metrics on C[0,1]: sup metric and L^1 metric are metrics; evaluation at 1 is not'
+  difficulty: easy
+  category: canonical
+  type: definition
+  tags:
+  - metric-space
+  - sup-norm
+  - function-space
+  - C01
+  problemLatex: |
+    *(Definition 8.2.1: Given a set $X$, a function $d\colon X \times X \to \mathbb{R}$ is a metric on $X$ if for all $x, y \in X$: (i) $d(x,y) \ge 0$ with $d(x,y) = 0$ if and only if $x = y$, (ii) $d(x,y) = d(y,x)$, and (iii) for all $z \in X$, $d(x,y) \le d(x,z) + d(z,y)$.)*
+
+    Let $C[0,1]$ be the collection of continuous functions on the closed interval $[0,1]$. Decide which of the following are metrics on $C[0,1]$.
+
+    (a) $d(f,g) = \sup\{|f(x) - g(x)| : x \in [0,1]\}$.
+
+    (b) $d(f,g) = |f(1) - g(1)|$.
+
+    (c) $d(f,g) = \int_0^1 |f - g|$.
+  notes: Definition 8.2.1 quoted verbatim from p. 258.
+  curation:
+    why: Check the metric axioms on C[0,1] for the sup and L¹ distances, and see one candidate fail.
+- id: abbott-8.2.5
+  source:
+    key: abbott
+    chapter: 8 Additional Topics
+    section: 8.2 Metric Spaces and the Baire Category Theorem
+    problemNumber: Exercise 8.2.5
+    page: '259'
+  topic: topology
+  subtopics:
+  - complete-metric-spaces
+  - metric-spaces
+  skills:
+  - uniform-cauchy
+  - construct-counterexample
+  concept: C[0,1] with sup metric is complete; C^1[0,1] with sup metric is not
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - complete-metric-space
+  - C01
+  - uniform-convergence
+  - discrete-metric
+  problemLatex: |
+    *(Summary, not verbatim — the discrete metric on a set $X$: $\rho(x,y) = 1$ if $x \neq y$ and $\rho(x,y) = 0$ if $x = y$. The metric in Exercise 8.2.2(a) is $d(f,g) = \sup\{|f(x) - g(x)| : x \in [0,1]\}$ on $C[0,1]$, the continuous functions on $[0,1]$. A metric space is complete if every Cauchy sequence in $X$ converges to an element of $X$.)*
+
+    (a) Consider $\mathbb{R}^2$ with the discrete metric $\rho(x,y)$ examined in Exercise 8.2.3. What do Cauchy sequences look like in this space? Is $\mathbb{R}^2$ complete with respect to this metric?
+
+    (b) Show that $C[0,1]$ is complete with respect to the metric in Exercise 8.2.2 (a).
+
+    (c) Define $C^1[0,1]$ to be the collection of differentiable functions on $[0,1]$ whose derivatives are also continuous. Is $C^1[0,1]$ complete with respect to the metric defined in Exercise 8.2.2 (a)?
+  notes: Definitions of the discrete metric, sup metric, and completeness (Definition 8.2.4) quoted from pp. 258–259.
+  curation:
+    why: C[0,1] with the sup metric is complete, but C¹[0,1] with the sup metric is not.

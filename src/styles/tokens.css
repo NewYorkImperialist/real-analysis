@@ -1,0 +1,34 @@
+/* Design tokens. Every stylesheet uses these variables; do not hardcode colors. */
+:root {
+  --bg: #fbfaf6;
+  --surface: #ffffff;
+  --ink: #1f1e1c;
+  --ink-2: #4a4843;
+  --muted: #77736b;
+  --rule: #e4e0d6;
+  --rule-strong: #cfc9bb;
+  --accent: #2c4f7c;        /* ink blue */
+  --accent-soft: #e8eef6;
+  --ok: #2f6b4f;            /* completed */
+  --ok-soft: #e5f0ea;
+  --warn: #8a6a1f;          /* attempted */
+  --warn-soft: #f5eedb;
+  --font-text: "Iowan Old Style", "Palatino Linotype", Palatino, "Charter", "Bitstream Charter", Georgia, serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --measure: 46rem;
+  --radius: 4px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --surface: #1d1d1b; --ink: #e9e6df; --ink-2: #c4c0b7; --muted: #8f8a80;
+    --rule: #2f2e2b; --rule-strong: #45433e; --accent: #8fb0dc; --accent-soft: #233041;
+    --ok: #7fbf9c; --ok-soft: #1f3128; --warn: #d6b265; --warn-soft: #3a311c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161615; --surface: #1d1d1b; --ink: #e9e6df; --ink-2: #c4c0b7; --muted: #8f8a80;
+  --rule: #2f2e2b; --rule-strong: #45433e; --accent: #8fb0dc; --accent-soft: #233041;
+  --ok: #7fbf9c; --ok-soft: #1f3128; --warn: #d6b265; --warn-soft: #3a311c; color-scheme: dark;
+}

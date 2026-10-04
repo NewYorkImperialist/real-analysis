@@ -1,0 +1,1367 @@
+chunk: "cummings-ch1-5"
+book: cummings
+pageOffsetNote: "printed page = pdfPage - 16 (verified on every exercise page: pdf 50 = p.34, pdf 72 = p.56, pdf 119 = p.103, pdf 148 = p.132, pdf 168 = p.152). Edition: title page (pdf 3) reads '1st Edition published August 2018; (1+epsilon)th Edition published January 2019' -> the 2019 edition. All statements transcribed from 150-dpi page images (OCR unusable for math)."
+sectionsCovered:
+  - "Chapter 1 Exercises (The Reals), pdf 50-53 / pp. 34-37 — 26 exercises (1.1-1.26)"
+  - "Chapter 2 Exercises (Cardinality), pdf 72-73 / pp. 56-57 — 13 exercises (2.1-2.13)"
+  - "Chapter 3 Exercises (Sequences), pdf 119-122 / pp. 103-106 — 28 exercises (3.1-3.28)"
+  - "Chapter 4 Exercises (Series), pdf 148-151 / pp. 132-135 — 19 exercises (4.1-4.19)"
+  - "Chapter 5 Exercises (The Topology of R), pdf 168-169 / pp. 152-153 — 12 exercises (5.1-5.12)"
+candidates:
+  # ---------------- Chapter 1 ----------------
+  - cid: cummings-1.7
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.7"
+    page: "35"
+    pdfPage: 51
+    verdict: consider
+    machinery: "Absolute value manipulation by cases; the max/min formulas later used to show max/min of continuous functions are continuous."
+    standardResult: "max{x,y} = (x+y+|x-y|)/2 and min{x,y} = (x+y-|x-y|)/2"
+    topic: real-numbers
+    subtopics: [absolute-value]
+    skills: [case-analysis]
+    difficulty: introductory
+    difficultyRationale: "Two-case check; the three-variable formula is iteration of the hint."
+    category: canonical
+    type: proof
+    tags: [absolute-value, max-min, inequalities]
+    references: []
+    problemLatex: |
+      Let $\max\{x,y\}$ denote the maximum of the numbers $x$ and $y$, and let $\min\{x,y\}$ denote the minimum. For example, $\min\{-1,4\} = \min\{-1,-1\} = -1$. Prove that
+      $$\max\{x,y\} = \frac{x+y+|y-x|}{2} \qquad\text{and}\qquad \min\{x,y\} = \frac{x+y-|y-x|}{2}.$$
+      Then find a formula for $\max\{x,y,z\}$ and $\min\{x,y,z\}$. Hint: note that $\max\{x,y,z\} = \max\{x,\max\{y,z\}\}$.
+    transcriptionNotes: "Verbatim from page image."
+    audit: ok
+
+  - cid: cummings-1.9
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.9"
+    page: "35"
+    pdfPage: 51
+    verdict: core
+    machinery: "The basic 'for every epsilon > 0' analytic argument: a <= b + epsilon for all epsilon forces a <= b; |a-b| < epsilon for all epsilon forces a = b."
+    standardResult: "if a < b + ε for all ε>0 then a ≤ b; if |a−b|<ε for all ε then a=b"
+    topic: real-numbers
+    subtopics: [inequalities, ordered-fields]
+    skills: [contradiction, choose-epsilon]
+    difficulty: introductory
+    difficultyRationale: "Contradiction with epsilon = a - b; part (b) applies (a) twice."
+    category: canonical
+    type: proof
+    tags: [epsilon, inequalities, ordered-field, machinery]
+    references: []
+    problemLatex: |
+      Let $a, b$ and $\varepsilon$ be elements of an ordered field.
+      (a) Show that if $a < b + \varepsilon$ for every $\varepsilon > 0$, then $a \le b$.
+      (b) Use part (a) to show that if $|a-b| < \varepsilon$ for all $\varepsilon > 0$, then $a = b$.
+      Note whenever you use an axiom.
+    transcriptionNotes: "Verbatim from page image."
+    audit: ok
+
+
+  - cid: cummings-1.18
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.18"
+    page: "36"
+    pdfPage: 52
+    verdict: strong
+    machinery: "Epsilon characterization of the infimum (mirror of the sup characterization)."
+    standardResult: "ε-characterization of sup/inf: inf A = β iff β lower bound and ∀ε ∃x∈A, x<β+ε"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-approximation, contradiction]
+    difficulty: easy
+    difficultyRationale: "Two directions, each a short definition-chase."
+    category: canonical
+    type: proof
+    tags: [infimum, epsilon, characterization, machinery]
+    references: ["Theorem 1.24 (quoted)"]
+    problemLatex: |
+      Prove the infimum case of Theorem 1.24.
+
+      *(Theorem 1.24 (Supremums analytically). Let $A \subseteq \mathbb{R}$. Then $\sup(A) = \alpha$ if and only if (i) $\alpha$ is an upper bound of $A$, and (ii) Given any $\varepsilon > 0$, $\alpha - \varepsilon$ is not an upper bound of $A$. That is, there is some $x \in A$ for which $x > \alpha - \varepsilon$. Likewise, $\inf(A) = \beta$ if and only if (i) $\beta$ is a lower bound of $A$, and (ii) Given any $\varepsilon > 0$, $\beta + \varepsilon$ is not a lower bound of $A$. That is, there is some $x \in A$ for which $x < \beta + \varepsilon$.)*
+    transcriptionNotes: "Theorem 1.24 quoted verbatim from pdf p.42 (printed p.26). The book proves only the supremum case in the text."
+    audit: ok
+
+  - cid: cummings-1.19
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.19"
+    page: "36"
+    pdfPage: 52
+    verdict: strong
+    machinery: "Computing a sup and an inf and proving them with the epsilon characterization (Archimedean property needed for the sup)."
+    standardResult: "sup{n/(n+1)} = 1, inf = 1/2 via ε-characterization"
+    topic: real-numbers
+    subtopics: [supremum-infimum, archimedean-property]
+    skills: [sup-approximation, archimedean-argument]
+    difficulty: introductory
+    difficultyRationale: "Direct application of the sup/inf characterization; inf is attained."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, Archimedean-property]
+    references: []
+    problemLatex: |
+      Prove that
+      $$\sup\left(\left\{\frac{n}{n+1} : n \in \mathbb{N}\right\}\right) = 1 \qquad\text{and}\qquad \inf\left(\left\{\frac{n}{n+1} : n \in \mathbb{N}\right\}\right) = \frac{1}{2}.$$
+    transcriptionNotes: "Verbatim; N starts at 1 in this book."
+    audit: ok
+
+  - cid: cummings-1.20
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.20"
+    page: "36"
+    pdfPage: 52
+    verdict: strong
+    machinery: "Using the sup-approximation property to produce an element of B above all of A; sharpness of strict inequality."
+    standardResult: "sup A < sup B ⇒ some b∈B bounds A above"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-approximation, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Apply sup characterization of B with ε = sup B − sup A; then a simple example."
+    category: canonical
+    type: proof
+    tags: [supremum, epsilon, counterexample]
+    references: []
+    problemLatex: |
+      Let $A, B \subseteq \mathbb{R}$, and assume that $\sup(A) < \sup(B)$.
+      (a) Show that there exists an element $b \in B$ that is an upper bound for $A$.
+      (b) Give an example to show that this is not necessarily the case if we instead only assume that $\sup(A) \le \sup(B)$. You do not need to prove your answer.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-1.21
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.21"
+    page: "37"
+    pdfPage: 53
+    verdict: strong
+    machinery: "Duality between sup and inf via negation; also yields existence of inf from the completeness axiom."
+    standardResult: "sup(−A) = −inf(A)"
+    topic: real-numbers
+    subtopics: [supremum-infimum, completeness]
+    skills: [definition-unpacking]
+    difficulty: easy
+    difficultyRationale: "Order reversal under negation plus least/greatest bound check."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, completeness]
+    references: []
+    problemLatex: |
+      For $A \subseteq \mathbb{R}$, we denote $-A$ to be the set obtained by taking the opposite of everything in $A$. That is,
+      $$-A := \{-x : x \in A\}.$$
+      Suppose that $A \ne \emptyset$ and that $A$ is bounded below. Prove that $-A \ne \emptyset$, $-A$ is bounded above, and $\sup(-A) = -\inf(A)$.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-1.22
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.22"
+    page: "37"
+    pdfPage: 53
+    verdict: core
+    machinery: "Nested interval property from the completeness axiom (sup of left endpoints)."
+    standardResult: "Nested interval property"
+    topic: real-numbers
+    subtopics: [completeness, supremum-infimum]
+    skills: [nested-intervals, sup-approximation]
+    difficulty: medium
+    difficultyRationale: "Must see that every b_m bounds all a_n and take x = sup{a_n}; genuine use of completeness."
+    category: canonical
+    type: proof
+    tags: [nested-intervals, completeness, supremum, machinery]
+    references: []
+    problemLatex: |
+      For each $n \in \mathbb{N}$, assume we are given a closed interval $I_n = [a_n, b_n]$. Also, assume that each $I_{n+1}$ is contained inside of $I_n$. This gives a sequence of increasingly smaller intervals,
+      $$I_1 \supseteq I_2 \supseteq I_3 \supseteq I_4 \supseteq \cdots.$$
+      Prove that $\displaystyle\bigcap_{n=1}^{\infty} I_n \ne \emptyset$. That is, prove that there is some real number $x$ such that $x \in I_n$ for every $n \in \mathbb{N}$.
+    transcriptionNotes: "Verbatim; omitted a footnote defining closed/open intervals in the usual way ([a,b] = {x in R : a <= x <= b})."
+    audit: ok
+
+  - cid: cummings-1.23
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.23"
+    page: "37"
+    pdfPage: 53
+    verdict: strong
+    machinery: "Counterexample showing closedness is essential in the nested interval property."
+    standardResult: "Nested open intervals can have empty intersection, e.g. (0,1/n)"
+    topic: real-numbers
+    subtopics: [completeness, archimedean-property]
+    skills: [construct-counterexample, archimedean-argument]
+    difficulty: introductory
+    difficultyRationale: "Standard example (0,1/n); verification is one Archimedean step."
+    category: canonical
+    type: counterexample
+    tags: [nested-intervals, counterexample, open-interval]
+    references: ["Exercise 1.22 (quoted)"]
+    problemLatex: |
+      Give an example showing that the conclusion of Exercise 1.22 need not hold if each $I_n$ is allowed to be an open interval.
+
+      *(Exercise 1.22: For each $n \in \mathbb{N}$, assume we are given a closed interval $I_n = [a_n, b_n]$. Also, assume that each $I_{n+1}$ is contained inside of $I_n$. ... Prove that $\bigcap_{n=1}^{\infty} I_n \ne \emptyset$.)*
+    transcriptionNotes: "Exercise 1.22 quoted (abridged with ellipsis) from the same page."
+    audit: ok
+
+  - cid: cummings-1.24
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.24"
+    page: "37"
+    pdfPage: 53
+    verdict: core
+    machinery: "Two-sided sup argument: upper bound plus epsilon/2 approximation in each set."
+    standardResult: "sup(A+B) = sup A + sup B"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-approximation, epsilon-over-2]
+    difficulty: easy
+    difficultyRationale: "Standard ε/2 split using the sup characterization."
+    category: canonical
+    type: proof
+    tags: [supremum, epsilon, sumset, machinery]
+    references: []
+    problemLatex: |
+      Recall that for sets A and B, we define
+      $$A + B = \{a + b : a \in A \text{ and } b \in B\}.$$
+      Assume that $A, B \subseteq \mathbb{R}$ and $\sup(A)$ and $\sup(B)$ exist. Prove that
+      $$\sup(A+B) = \sup(A) + \sup(B).$$
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-1.25
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.25"
+    page: "37"
+    pdfPage: 53
+    verdict: consider
+    machinery: "Shows the additive sup rule does not extend to products (signs matter)."
+    standardResult: "sup(A·B) ≠ sup A · sup B in general"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Any example with negative numbers works."
+    category: canonical
+    type: counterexample
+    tags: [supremum, counterexample]
+    references: []
+    problemLatex: |
+      Let $A, B \subseteq \mathbb{R}$. We define
+      $$A \cdot B = \{a \cdot b : a \in A \text{ and } b \in B\}.$$
+      Give an example of sets $A$ and $B$ where $\sup(A \cdot B) \ne \sup(A) \cdot \sup(B)$.
+    transcriptionNotes: "Verbatim. Natural companion to 1.24."
+    audit: ok
+
+  - cid: cummings-1.26
+    chapter: "1 The Reals"
+    section: "Chapter 1 Exercises"
+    number: "Exercise 1.26"
+    page: "37"
+    pdfPage: 53
+    verdict: consider
+    machinery: "Testing the definition of density on a set of rationals with bounded denominators."
+    standardResult: "Rationals with bounded denominators are not dense"
+    topic: real-numbers
+    subtopics: [density-of-Q]
+    skills: [negate-definition, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Exhibit an interval of length < 1/10! (e.g. between 0 and a tiny number) containing no element."
+    category: canonical
+    type: counterexample
+    tags: [density, rationals, definition]
+    references: ["Definition 1.29 (quoted)"]
+    problemLatex: |
+      Is the subset of rational numbers
+      $$\left\{\frac{m}{n} : m, n \in \mathbb{Z} \text{ and } 1 \le n \le 10\right\}$$
+      dense in $\mathbb{R}$?
+
+      *(Definition 1.29: Suppose $A$ and $B$ are ordered field (like $\mathbb{R}$). Then $A$ is dense in $B$ if, for any $x, y \in B$, there exists $a \in A$ such that $x < a < y$.)*
+    transcriptionNotes: "Definition 1.29 quoted verbatim from pdf p.46 (printed p.30), including its sloppiness (it means x < y)."
+    audit: ok
+
+  # ---------------- Chapter 2 ----------------
+  - cid: cummings-2.1
+    chapter: "2 Cardinality"
+    section: "Chapter 2 Exercises"
+    number: "Exercise 2.1"
+    page: "56"
+    pdfPage: 72
+    verdict: strong
+    machinery: "Countable unions of countable sets are countable (diagonal enumeration of N x N)."
+    standardResult: "Countable union of countable sets is countable"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [diagonal-enumeration, explicit-bijection]
+    difficulty: easy
+    difficultyRationale: "Part (b) needs an enumeration of a two-index array; standard."
+    category: canonical
+    type: proof
+    tags: [countable, cardinality, union]
+    references: []
+    problemLatex: |
+      (a) Prove that if $A$ and $B$ are countable sets, then $A \cup B$ is also a countable set.
+      (b) Prove that if $A_n$ is a countable set for each $n \in \mathbb{N}$, then $\bigcup_{n=1}^{\infty} A_n$ is also a countable set.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-2.5
+    chapter: "2 Cardinality"
+    section: "Chapter 2 Exercises"
+    number: "Exercise 2.5"
+    page: "56"
+    pdfPage: 72
+    verdict: strong
+    machinery: "Cantor's diagonal argument in its cleanest form (0-1 sequences)."
+    standardResult: "Set of 0-1 sequences is uncountable (Cantor diagonal)"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [diagonal-argument, contradiction]
+    difficulty: easy
+    difficultyRationale: "Diagonal argument once seen; must decide and prove."
+    category: canonical
+    type: proof
+    tags: [uncountable, diagonal-argument, Cantor]
+    references: []
+    problemLatex: |
+      Let $S$ be the set of sequences $(a_n)$ where, for each $n$, $a_n \in \{0,1\}$. Is $S$ countable or uncountable?
+    transcriptionNotes: "Verbatim. The Chapter 2 exercise list has no preamble; the Chapter 1 exercise preamble (p.34) states 'You must prove all of your answers (unless stated otherwise).'"
+    audit: fixed
+    auditNotes: "problemLatex correct; transcriptionNotes corrected: the 'prove all answers' preamble is in the Chapter 1 exercises (p.34), not Chapter 2."
+
+  - cid: cummings-2.6
+    chapter: "2 Cardinality"
+    section: "Chapter 2 Exercises"
+    number: "Exercise 2.6"
+    page: "56"
+    pdfPage: 72
+    verdict: strong
+    machinery: "Each open interval contains a rational; injection into Q bounds the number of disjoint open intervals (key step toward structure of open sets)."
+    standardResult: "Any collection of disjoint open intervals in R is countable"
+    topic: foundations
+    subtopics: [cardinality, density-of-Q]
+    skills: [injection-into-Q, density-argument]
+    difficulty: easy
+    difficultyRationale: "(a) trivial example; (b) needs the rational-picking injection idea."
+    category: synthesis
+    type: proof
+    tags: [countable, open-interval, density, rationals]
+    references: []
+    problemLatex: |
+      (a) Give an example of a collection of countably many disjoint open intervals, or prove that this does not exist.
+      (b) Give an example of a collection of uncountably many disjoint open intervals, or prove that this does not exist.
+    transcriptionNotes: "Verbatim. The book later uses this in the proof that every open set is a countable union of open intervals (Theorem 5.5)."
+    audit: ok
+
+
+  - cid: cummings-2.9
+    chapter: "2 Cardinality"
+    section: "Chapter 2 Exercises"
+    number: "Exercise 2.9"
+    page: "56"
+    pdfPage: 72
+    verdict: consider
+    machinery: "Enumerating an infinite subset of N in increasing order via well-ordering/recursion."
+    standardResult: "Every subset of N is finite or countably infinite"
+    topic: foundations
+    subtopics: [cardinality, induction]
+    skills: [recursive-construction, well-ordering]
+    difficulty: easy
+    difficultyRationale: "Define f(n) = n-th smallest element recursively; verify bijection."
+    category: canonical
+    type: proof
+    tags: [countable, natural-numbers, well-ordering]
+    references: []
+    problemLatex: |
+      Show that the smallest infinity is $|\mathbb{N}|$. That is, show that if $A \subseteq \mathbb{N}$, then either $A$ is finite or $|A| = |\mathbb{N}|$.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-2.13
+    chapter: "2 Cardinality"
+    section: "Chapter 2 Exercises"
+    number: "Exercise 2.13"
+    page: "57"
+    pdfPage: 73
+    verdict: strong
+    machinery: "Countable union of finite sets indexed by countable data; existence of transcendentals by cardinality."
+    standardResult: "Algebraic numbers are countable; transcendentals uncountable"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [countable-union, counting-argument]
+    difficulty: medium
+    difficultyRationale: "Must organize polynomials by degree and coefficients into a countable family of finite root sets."
+    category: synthesis
+    type: proof
+    tags: [countable, algebraic-numbers, transcendental, cardinality]
+    references: []
+    problemLatex: |
+      A real number $x$ is said to be *algebraic* (over the rationals) if it satisfies some polynomial equation (of positive degree)
+      $$a_n x^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots + a_1 x + a_0 = 0$$
+      where each $a_i \in \mathbb{Q}$. If a real number is not algebraic then it is *transcendental*.
+      (a) Prove that there are countably many algebraic numbers. Hint: You may use the fundamental theorem of algebra which says that a polynomial with degree $n$ has at most $n$ real roots.
+      (b) Prove that there are uncountably many transcendental numbers.
+    transcriptionNotes: "Verbatim (hint is the book's own, inside the exercise)."
+    audit: ok
+
+  # ---------------- Chapter 3 ----------------
+  - cid: cummings-3.1
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.1"
+    page: "103"
+    pdfPage: 119
+    verdict: consider
+    machinery: "Using the definition of convergence with a specific epsilon to control the tail."
+    standardResult: "A sequence with positive limit is eventually positive"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [choose-epsilon, epsilon-N-proof]
+    difficulty: introductory
+    difficultyRationale: "Take ε = 0.001 in the definition."
+    category: canonical
+    type: proof
+    tags: [convergence, epsilon-N, definition]
+    references: []
+    problemLatex: |
+      Suppose that a sequence $(a_n)$ converges to $0.001$. Prove that finitely many values of $a_n$ are negative.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.2
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.2"
+    page: "103"
+    pdfPage: 119
+    verdict: strong
+    machinery: "Epsilon-N proofs of specific limits, including a rational function and a nested radical needing an estimate."
+    standardResult: "ε-N proofs of explicit limits"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof, comparison-estimate]
+    difficulty: introductory
+    difficultyRationale: "Direct definitional proofs; (c) needs a simple lower bound on the denominator."
+    category: canonical
+    type: proof
+    tags: [convergence, epsilon-N, machinery]
+    references: []
+    problemLatex: |
+      Prove the following using the definition of sequence convergence.
+      (a) Let $a_n = 7 - \dfrac{1}{\sqrt{n}}$. Show that $a_n \to 7$ as $n \to \infty$.
+      (b) Let $a_n = \dfrac{2n-2}{3n+1}$. Show that $\displaystyle\lim_{n\to\infty} a_n = \frac{2}{3}$.
+      (c) Let $a_n = 7 - \dfrac{1}{\sqrt{n + \sqrt{n} + 13}}$. Show that $a_n \to 7$ as $n \to \infty$.
+    transcriptionNotes: "Verified from page image (zoomed): in (c) the denominator is sqrt(n + sqrt(n) + 13) (outer radical spans the whole expression, inner radical over n only)."
+    audit: fixed
+    auditNotes: "(c) denominator corrected from \\sqrt{n}+\\sqrt{n+13} to \\sqrt{n+\\sqrt{n}+13} per page image; transcriptionNotes updated."
+
+  - cid: cummings-3.4
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.4"
+    page: "103"
+    pdfPage: 119
+    verdict: strong
+    machinery: "Quantifier order in the convergence definition: each altered definition is weaker than convergence; build examples separating them."
+    standardResult: "Quantifier variants of the definition of convergence"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [negate-definition, quantifier-analysis, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Requires careful parsing of four quantifier patterns; examples themselves are simple."
+    category: canonical
+    type: definition
+    tags: [quantifiers, convergence, definition, counterexample]
+    references: ["Definition 3.7 (quoted)"]
+    problemLatex: |
+      This problem is to help you get a feel for the quantifiers in the definition of convergence (Definition 3.7). Your task: For each of the following definitions of *Non*verges, give an example a sequence $(a_n)$ and a value $a$ for which
+      - $(a_n)$ does not converge to $a$ (based on the real definition),
+      - $(a_n)$ does *Non*verge to $a$ based on the definition given below.
+
+      Give a different example for each problem. For each of them, explain why your example works in a few sentences (no need to prove it completely). Your example for *Non*verges-type-4 should not work for *Non*verges-type-3.
+      (a) Definition 1: The sequence $(a_n)$ *Non*verges-type-1 to $a$ if for all $\varepsilon > 0$ there exists some $n \in \mathbb{N}$ such that $|a_n - a| < \varepsilon$.
+      (b) Definition 2: The sequence $(a_n)$ *Non*verges-type-2 to $a$ if for all $\varepsilon > 0$ there exists some $N \in \mathbb{N}$ such that, for some $n > N$, we have $|a_n - a| < \varepsilon$.
+      (c) Definition 3: The sequence $(a_n)$ *Non*verges-type-3 to $a$ if there exists some $\varepsilon > 0$ such that for all $N \in \mathbb{N}$ there exists some $n > N$ such that $|a_n - a| < \varepsilon$.
+      (d) Definition 4: The sequence $(a_n)$ *Non*verges-type-4 to $a$ if there exists some $\varepsilon > 0$ and there exists some $N \in \mathbb{N}$ such that for some $n > N$ we have $|a_n - a| < \varepsilon$.
+
+      *(Definition 3.7: A sequence $(a_n)$ converges to $a \in \mathbb{R}$ if for all $\varepsilon > 0$ there exists some $N$ such that $|a_n - a| < \varepsilon$ for all $n > N$.)*
+    transcriptionNotes: "Verbatim including the book's 'give an example a sequence' (missing 'of'). 'Not' in the last sentence of the preamble is underlined in the book. Definition 3.7 quoted from pdf p.79 (printed p.63)."
+    audit: ok
+
+  - cid: cummings-3.5
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.5"
+    page: "103"
+    pdfPage: 119
+    verdict: strong
+    machinery: "Subsequential limits; a sequence enumerating rationals in (0,1) has every point of [0,1] as a subsequential limit."
+    standardResult: "Sequence whose set of subsequential limits is [0,1]"
+    topic: sequences
+    subtopics: [subsequences]
+    skills: [subsequence-extraction, density-argument]
+    difficulty: medium
+    difficultyRationale: "Must construct subsequences converging to irrational L and rule out L outside [0,1]."
+    category: canonical
+    type: construction
+    tags: [subsequences, subsequential-limits, density]
+    references: []
+    problemLatex: |
+      Consider the sequence
+      $$\frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \frac{1}{4}, \frac{2}{4}, \frac{3}{4}, \frac{1}{5}, \frac{2}{5}, \frac{3}{5}, \frac{4}{5}, \frac{1}{6}, \frac{2}{6}, \frac{3}{6}, \frac{4}{6}, \frac{5}{6}, \frac{1}{7}, \ldots$$
+      For which numbers $L$ does the above have a subsequence converging to $L$?
+    transcriptionNotes: "Sequence terms read from page image."
+    audit: ok
+
+  - cid: cummings-3.6
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.6"
+    page: "104"
+    pdfPage: 120
+    verdict: strong
+    machinery: "Convergent integer sequences are eventually constant (epsilon = 1/2 argument)."
+    standardResult: "Convergent sequence of integers is eventually constant"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [choose-epsilon, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Key idea is ε = 1/2 forcing consecutive terms equal."
+    category: canonical
+    type: proof
+    tags: [convergence, integers, eventually-constant]
+    references: []
+    problemLatex: |
+      Each of the following is an independent question, but for each suppose that the sequence $(a_n)$ has the property that $a_n \in \mathbb{Z}$ for all $n$.
+      (a) Is it possible that $a_n \to 3.5$?
+      (b) If $a_n \ne a_m$ for all $n \ne m$, prove that $(a_n)$ does not converge.
+      (c) If $(a_n)$ converges, what can be said about this sequence?
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.8
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.8"
+    page: "104"
+    pdfPage: 120
+    verdict: strong
+    machinery: "Limit laws; the quotient law needs |b_n| bounded away from 0 eventually."
+    standardResult: "Limit laws: difference and quotient"
+    topic: sequences
+    subtopics: [limit-laws]
+    skills: [epsilon-N-proof, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Quotient part requires the standard |b_n| > |b|/2 eventually step."
+    category: canonical
+    type: proof
+    tags: [limit-laws, quotient, epsilon-N, machinery]
+    references: []
+    problemLatex: |
+      Assume that $(a_n)$ converges to $a$ and $(b_n)$ converges to $b$. Also assume $c \in \mathbb{R}$.
+      (a) Prove that $(a_n - b_n)$ converges to $a - b$.
+      (b) Prove that $\left(\dfrac{a_n}{b_n}\right) \to \dfrac{a}{b}$, provided $b \ne 0$ and each $b_n \ne 0$.
+    transcriptionNotes: "Verbatim (the 'Also assume c in R' sentence is in the book although c is unused)."
+    audit: ok
+
+  - cid: cummings-3.11
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.11"
+    page: "104"
+    pdfPage: 120
+    verdict: strong
+    machinery: "Algebra of limits used in reverse: b_n = (a_n + b_n) - a_n."
+    standardResult: "convergent + divergent is divergent"
+    topic: sequences
+    subtopics: [limit-laws, divergence]
+    skills: [contradiction]
+    difficulty: introductory
+    difficultyRationale: "One-line contradiction using the difference law."
+    category: canonical
+    type: proof
+    tags: [limit-laws, divergence]
+    references: []
+    problemLatex: |
+      Is it possible for a sequence $(a_n)$ to converge, a sequence $(b_n)$ to diverge, and for $(a_n + b_n)$ to converge? Prove that it is impossible or give an example showing that it is possible.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.12
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.12"
+    page: "104"
+    pdfPage: 120
+    verdict: core
+    machinery: "Bounded times null is null — a workhorse estimate."
+    standardResult: "bounded × (→0) → 0"
+    topic: sequences
+    subtopics: [limit-laws, bounded-sequences]
+    skills: [epsilon-N-proof, comparison-estimate]
+    difficulty: introductory
+    difficultyRationale: "|a_n b_n| ≤ M|b_n| and choose ε/M."
+    category: canonical
+    type: proof
+    tags: [bounded-sequence, null-sequence, epsilon-N, machinery]
+    references: []
+    problemLatex: |
+      Assume that $(a_n)$ is bounded and $(b_n)$ converges to $0$. Prove that $(a_n \cdot b_n)$ also converges to $0$.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.14
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.14"
+    page: "104"
+    pdfPage: 120
+    verdict: strong
+    machinery: "Bolzano–Weierstrass applied to a bounded subsequence; subsequence of a subsequence is a subsequence."
+    standardResult: "Bolzano–Weierstrass application: bounded subsequence ⇒ convergent subsequence"
+    topic: sequences
+    subtopics: [bolzano-weierstrass, subsequences]
+    skills: [subsequence-extraction, theorem-recognition]
+    difficulty: introductory
+    difficultyRationale: "Immediate once BW is recognized."
+    category: canonical
+    type: theorem-application
+    tags: [Bolzano-Weierstrass, subsequences]
+    references: []
+    problemLatex: |
+      Assume a sequence $(a_n)$ has a bounded subsequence. Must $(a_n)$ have a convergent subsequence?
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.15
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.15"
+    page: "104"
+    pdfPage: 120
+    verdict: strong
+    machinery: "Cauchy sequences are bounded (ε = 1, finitely many exceptions)."
+    standardResult: "Cauchy sequences are bounded"
+    topic: sequences
+    subtopics: [cauchy-sequences, bounded-sequences]
+    skills: [choose-epsilon, finite-max-argument]
+    difficulty: easy
+    difficultyRationale: "Standard ε = 1 plus max over initial terms."
+    category: canonical
+    type: proof
+    tags: [Cauchy, bounded-sequence]
+    references: []
+    problemLatex: |
+      Suppose a sequence $(a_n)$ has the property that for any $\varepsilon > 0$ there exists some $N$ such that $m, n > N$ implies
+      $$|a_m - a_n| < \varepsilon.$$
+      Prove that $(a_n)$ is bounded.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.16
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.16"
+    page: "105"
+    pdfPage: 121
+    verdict: strong
+    machinery: "Monotone convergence theorem via infimum and epsilon characterization."
+    standardResult: "Monotone convergence theorem"
+    topic: sequences
+    subtopics: [monotone-sequences, completeness]
+    skills: [sup-approximation, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Mirror of the proof in the text; still requires the inf-approximation argument and the unbounded case."
+    category: canonical
+    type: proof
+    tags: [monotone-convergence, infimum, completeness, machinery]
+    references: ["Theorem 3.27 (quoted)"]
+    problemLatex: |
+      Prove the decreasing case of the monotone convergence theorem (Theorem 3.27).
+
+      *(Theorem 3.27 (The monotone convergence theorem). Suppose $(a_n)$ is monotone. Then $(a_n)$ converges if and only if it is bounded. Moreover,*
+      *- If $(a_n)$ is increasing then either $(a_n)$ diverges to $\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \sup(\{a_n : n \in \mathbb{N}\})$.*
+      *- If $(a_n)$ is decreasing then either $(a_n)$ diverges to $-\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \inf(\{a_n : n \in \mathbb{N}\})$.)*
+    transcriptionNotes: "Theorem 3.27 quoted verbatim from pdf p.100 (printed p.84)."
+    audit: ok
+
+  - cid: cummings-3.19
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.19"
+    page: "105"
+    pdfPage: 121
+    verdict: core
+    machinery: "Cesàro means: split the average into a fixed head and a controlled tail."
+    standardResult: "Cesàro mean of a convergent sequence converges to the same limit"
+    topic: sequences
+    subtopics: [convergence, limit-laws]
+    skills: [epsilon-N-proof, split-sum, epsilon-over-2]
+    difficulty: medium
+    difficultyRationale: "Requires the two-stage choice of N (tail small, then head/n small)."
+    category: canonical
+    type: proof
+    tags: [Cesaro-mean, epsilon-N, averaging]
+    references: []
+    problemLatex: |
+      Suppose $(a_n)$ is a sequence for which $a_n \to a$. Define a new sequence by
+      $$b_n := \frac{a_1 + a_2 + \cdots + a_n}{n}.$$
+      Prove that $b_n \to a$.
+    transcriptionNotes: "Verbatim. Note: the page has a stray line 'Moved to be an example:' just before this exercise (editorial artifact); ignored."
+    audit: ok
+
+  - cid: cummings-3.20
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.20"
+    page: "105"
+    pdfPage: 121
+    verdict: core
+    machinery: "Tail suprema form a bounded decreasing sequence — the existence of limsup via monotone convergence."
+    standardResult: "b_n = sup_{k≥n} a_k converges (limsup exists for bounded sequences)"
+    topic: sequences
+    subtopics: [limsup-liminf, monotone-sequences]
+    skills: [monotonicity-of-sup, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Show b_n decreasing and bounded below, then apply MCT."
+    category: canonical
+    type: proof
+    tags: [limsup, monotone-convergence, supremum, machinery]
+    references: []
+    problemLatex: |
+      Let $(a_n)$ be a bounded sequence, and consider a second sequence $(b_n)$ defined by
+      $$b_n := \sup\{a_n, a_{n+1}, a_{n+2}, \ldots\}.$$
+      Prove that $(b_n)$ converges.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+
+  - cid: cummings-3.24
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.24"
+    page: "105"
+    pdfPage: 121
+    verdict: core
+    machinery: "Induction for bound and monotonicity, MCT for existence, limit of the recursion for the value."
+    standardResult: "a_1=√2, a_{n+1}=√(2+a_n) → 2"
+    topic: sequences
+    subtopics: [recursive-sequences, monotone-sequences]
+    skills: [induction, monotone-convergence, pass-to-limit]
+    difficulty: easy
+    difficultyRationale: "Standard guided three-step template."
+    category: canonical
+    type: proof
+    tags: [recursive-sequence, monotone-convergence, induction]
+    references: []
+    problemLatex: |
+      Define a sequence $(a_n)$ recursively by $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2 + a_n}$ for all $n \ge 1$.
+      (a) Show that $a_n \le 2$ for every $n$.
+      (b) Show that $(a_n)$ is an monotone increasing sequence, and use this to conclude that $(a_n)$ converges.
+      (c) Show that $a_n \to 2$.
+    transcriptionNotes: "Verbatim, including the book's 'an monotone'."
+    audit: ok
+
+  - cid: cummings-3.25
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.25"
+    page: "106"
+    pdfPage: 122
+    verdict: strong
+    machinery: "Non-monotone recursive sequence: differences shrink geometrically, so the sequence is Cauchy (or telescope explicitly)."
+    standardResult: "a_n = (a_{n-1}+a_{n-2})/2 converges (to (a_1+2a_2)/3)"
+    topic: sequences
+    subtopics: [recursive-sequences, cauchy-sequences]
+    skills: [telescoping, geometric-estimate, cauchy-criterion]
+    difficulty: medium
+    difficultyRationale: "Not monotone, so MCT fails; must find the contraction of differences and sum it."
+    category: synthesis
+    type: proof
+    tags: [recursive-sequence, Cauchy, telescoping, geometric-series]
+    references: []
+    problemLatex: |
+      Define a sequence $(a_n)$ recursively as follows. Let $a_1$ and $a_2$ be a pair of real numbers, and recursively define
+      $$a_n := \frac{a_{n-1} + a_{n-2}}{2}$$
+      for all $n \ge 3$. Does $(a_n)$ necessarily converge?
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.27
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.27"
+    page: "106"
+    pdfPage: 122
+    verdict: consider
+    machinery: "Reverse triangle inequality applied to the Cauchy condition."
+    standardResult: "|a_n − b_n| is Cauchy if (a_n),(b_n) are Cauchy"
+    topic: sequences
+    subtopics: [cauchy-sequences]
+    skills: [triangle-inequality, epsilon-over-2]
+    difficulty: easy
+    difficultyRationale: "||x|-|y|| ≤ |x-y| plus ε/2 split."
+    category: canonical
+    type: proof
+    tags: [Cauchy, reverse-triangle-inequality]
+    references: []
+    problemLatex: |
+      Assume $(a_n)$ and $(b_n)$ are Cauchy sequences, and let $c_n = |a_n - b_n|$. Use a triangle inequality argument to prove that $(c_n)$ is Cauchy.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-3.28
+    chapter: "3 Sequences"
+    section: "Chapter 3 Exercises"
+    number: "Exercise 3.28"
+    page: "106"
+    pdfPage: 122
+    verdict: consider
+    machinery: "Monotone + bounded via comparison with a known convergent sequence."
+    standardResult: "Comparison of partial sums: Σ1/n³ converges using Σ1/n² bounded"
+    topic: sequences
+    subtopics: [monotone-sequences]
+    skills: [monotone-convergence, comparison-estimate]
+    difficulty: introductory
+    difficultyRationale: "b_n ≤ a_n ≤ π²/6 and b_n increasing."
+    category: canonical
+    type: theorem-application
+    tags: [monotone-convergence, comparison]
+    references: []
+    problemLatex: |
+      Let $(a_n)$ be the sequence where $a_1 = 1$ and, for each $n > 1$, $a_n = a_{n-1} + \frac{1}{n^2}$. In 1734, Leonhard Euler famously proved that $(a_n)$ converges to $\frac{\pi^2}{6}$. Now let $(b_n)$ be the sequence where $b_1 = 1$ and, for each $n > 1$, $b_n = b_{n-1} + \frac{1}{n^3}$. Use Euler's result to prove that $(b_n)$ converges.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  # ---------------- Chapter 4 ----------------
+  - cid: cummings-4.2
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.2"
+    page: "132"
+    pdfPage: 148
+    verdict: core
+    machinery: "Absolute convergence implies convergence (Cauchy criterion for series, or splitting into positive/negative parts)."
+    standardResult: "Absolute convergence implies convergence"
+    topic: series
+    subtopics: [absolute-convergence]
+    skills: [cauchy-criterion, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Standard Cauchy-criterion or 0 ≤ a_k + |a_k| ≤ 2|a_k| comparison."
+    category: canonical
+    type: proof
+    tags: [absolute-convergence, Cauchy, series, machinery]
+    references: ["Proposition 4.18 (statement given in the exercise)"]
+    problemLatex: |
+      Prove Proposition 4.18. That is, prove that if $\displaystyle\sum_{k=1}^{\infty} |a_k|$ converges, then $\displaystyle\sum_{k=1}^{\infty} a_k$ converges too.
+    transcriptionNotes: "Verbatim; the exercise restates Proposition 4.18 itself."
+    audit: ok
+
+  - cid: cummings-4.3
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.3"
+    page: "132"
+    pdfPage: 148
+    verdict: strong
+    machinery: "Behavior of r^n — the basic limit behind the geometric series; Bernoulli/MCT arguments."
+    standardResult: "r^n → 0 for |r|<1, diverges for r ≤ −1 or r > 1"
+    topic: sequences
+    subtopics: [convergence, monotone-sequences]
+    skills: [monotone-convergence, bernoulli-inequality, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Several cases; |r|<1 case needs MCT or Bernoulli."
+    category: canonical
+    type: proof
+    tags: [geometric-sequence, convergence, divergence]
+    references: ["Lemma 4.8 (statement given in the exercise)"]
+    problemLatex: |
+      Prove Lemma 4.8. That is, prove that the sequence $(r^n)$ converges to $0$ if $r \in (-1,1)$, converges to $1$ if $r = 1$, and diverges otherwise.
+    transcriptionNotes: "Verbatim; the exercise restates Lemma 4.8."
+    audit: ok
+
+  - cid: cummings-4.5
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.5"
+    page: "132"
+    pdfPage: 148
+    verdict: strong
+    machinery: "Terms of a convergent series go to 0, so eventually a_k^2 ≤ a_k; comparison test; role of positivity."
+    standardResult: "Σa_k (a_k>0) converges ⇒ Σa_k² converges; false without positivity"
+    topic: series
+    subtopics: [comparison, conditional-convergence]
+    skills: [comparison-estimate, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Term test + comparison; counterexample (−1)^k/√k."
+    category: canonical
+    type: proof
+    tags: [comparison-test, series, counterexample]
+    references: []
+    problemLatex: |
+      (a) Prove that if $\displaystyle\sum_{k=1}^{\infty} a_k$ converges where each $a_k > 0$, then $\displaystyle\sum_{k=1}^{\infty} a_k^2$ converges.
+      (b) Show by example that this is not true if we do not insist that each $a_k > 0$.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-4.6
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.6"
+    page: "132"
+    pdfPage: 148
+    verdict: consider
+    machinery: "Constructing a conditionally convergent example whose powers behave differently (alternating series test + p-series)."
+    standardResult: "Σa_k conv, Σa_k² div, Σa_k³ conv: e.g. (−1)^k/√k"
+    topic: series
+    subtopics: [alternating-series, conditional-convergence]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Same example as 4.5(b) works; needs alternating-series reasoning."
+    category: canonical
+    type: construction
+    tags: [conditional-convergence, alternating-series, p-series, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of a series $\sum_{k=1}^{\infty} a_k$ where
+      - $\displaystyle\sum_{k=1}^{\infty} a_k$ converges,
+      - $\displaystyle\sum_{k=1}^{\infty} a_k^2$ diverges, and
+      - $\displaystyle\sum_{k=1}^{\infty} a_k^3$ converges.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-4.9
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.9"
+    page: "133"
+    pdfPage: 149
+    verdict: strong
+    machinery: "Proof of the ratio test by eventual comparison with a geometric series."
+    standardResult: "Proof of the ratio test"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [comparison-estimate, choose-epsilon, induction]
+    difficulty: easy
+    difficultyRationale: "Guided steps; the key insight (choose q between r and 1) is given."
+    category: canonical
+    type: proof
+    tags: [ratio-test, geometric-series, comparison-test]
+    references: []
+    problemLatex: |
+      Prove the *ratio test* via the following steps. Given a series $\displaystyle\sum_{k=1}^{\infty} a_k$ with $a_k \ne 0$, assume that
+      $$\lim_{k\to\infty} \left|\frac{a_{k+1}}{a_k}\right| =: r < 1.$$
+      We will prove that the series converges absolutely.
+      (a) Let $q$ be such that $r < q < 1$. Explain why there is some $N$ such that $n \ge N$ implies that $|a_{k+1}| \le |a_k| \cdot q$.
+      (b) Explain why $\displaystyle\sum_{k=1}^{\infty} |a_N| \cdot q^k$ necessarily converges.
+      (c) Finally, use part (b) to prove that $\displaystyle\sum_{k=1}^{\infty} |a_k|$ converges.
+    transcriptionNotes: "Verbatim from page image. The book mixes indices in (a) ('n >= N implies |a_{k+1}| <= |a_k| q'); intended k >= N. Left as printed."
+    audit: ok
+
+  - cid: cummings-4.10
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.10"
+    page: "133"
+    pdfPage: 149
+    verdict: strong
+    machinery: "Proof of the root test by comparison with geometric series and the term test."
+    standardResult: "Proof of the root test"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [comparison-estimate, choose-epsilon]
+    difficulty: easy
+    difficultyRationale: "Guided; each step is a direct epsilon or comparison argument."
+    category: canonical
+    type: proof
+    tags: [root-test, geometric-series, comparison-test, term-test]
+    references: ["Proposition 4.5 (kth-term test, named in exercise)"]
+    problemLatex: |
+      Prove the *root test* via the following steps. Given a series $\displaystyle\sum_{k=1}^{\infty} a_k$ where each $a_k \ge 0$, assume that the limit $\displaystyle\lim_{k\to\infty} (a_k)^{1/k}$ exists. Call this limit $\rho$. Then this series converges if $\rho < 1$ and diverges if $\rho > 1$. (The test is inconclusive if $\rho = 1$.)
+      (a) Suppose $\rho < 1$. Let $\varepsilon = \frac{1-\rho}{2}$ and $\rho_1 = \rho + \varepsilon$. Prove that there is some $N$ for which $(a_n)^{1/n} < \rho_1$ for all $n > N$.
+      (b) Prove that $\sum_{k=N}^{\infty} a_k$ converges by comparing it to a geometric series. Then conclude that $\sum_{k=1}^{\infty} a_k$ also converges.
+      (c) Suppose $\rho > 1$. Let $\varepsilon = \frac{\rho-1}{2}$ and $\rho_2 = \rho - \varepsilon$. Prove that there is some $N$ for which $(a_n)^{1/n} > \rho_2$ for all $n > N$.
+      (d) Use this to argue that $\sum_{k=N}^{\infty} a_k$ diverges by using the $k^{\text{th}}$-term test (Proposition 4.5). Then conclude that $\sum_{k=1}^{\infty} a_k$ also diverges.
+    transcriptionNotes: "Verbatim. Proposition 4.5 is the standard kth-term (divergence) test: if a_k does not tend to 0 the series diverges; named only, not quoted."
+    audit: ok
+
+
+  - cid: cummings-4.13
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.13"
+    page: "134"
+    pdfPage: 150
+    verdict: consider
+    machinery: "Shows the nonnegativity hypothesis in the comparison test is essential."
+    standardResult: "Comparison test fails without nonnegativity"
+    topic: series
+    subtopics: [comparison]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Take a_k = −1, b_k = 0."
+    category: canonical
+    type: counterexample
+    tags: [comparison-test, counterexample, hypotheses]
+    references: []
+    problemLatex: |
+      Give an example of a divergent series $\displaystyle\sum_{k=1}^{\infty} a_k$ and a convergent series $\displaystyle\sum_{k=1}^{\infty} b_k$ where $a_k \le b_k$ for all $k$.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-4.14
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.14"
+    page: "134"
+    pdfPage: 150
+    verdict: strong
+    machinery: "Cesàro summability: convergence implies Cesàro convergence of partial sums, but not conversely (Grandi's series)."
+    standardResult: "Convergent ⇒ Cesàro summable; converse false (1−1+1−…)"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [epsilon-N-proof, split-sum, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a) is the Cesàro-mean argument applied to partial sums; (b) needs the standard 1−1+1−… example."
+    category: synthesis
+    type: proof
+    tags: [Cesaro-summability, partial-sums, counterexample]
+    references: []
+    problemLatex: |
+      Consider the sum $\displaystyle\sum_{k=1}^{\infty} a_k$, and define $s_n$ to be this series' $n^{\text{th}}$ partial sum; that is, $s_n = \displaystyle\sum_{k=1}^{n} a_k$. The series $\displaystyle\sum_{k=1}^{\infty} a_k$ is called *Cesaro summable* if
+      $$\lim_{n\to\infty} \frac{s_1 + s_2 + \cdots + s_n}{n}$$
+      converges.
+      (a) Prove that if $\displaystyle\sum_{k=1}^{\infty} a_k$ converges, then this series is Cesaro summable.
+      (b) Prove by example that if $\displaystyle\sum_{k=1}^{\infty} a_k$ is Cesaro summable this does *not* imply that $\displaystyle\sum_{k=1}^{\infty} a_k$ converges.
+    transcriptionNotes: "Verbatim. Part (a) is essentially Exercise 3.19 applied to (s_n); the curator may prefer one or the other."
+    audit: ok
+
+  - cid: cummings-4.15
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.15"
+    page: "134"
+    pdfPage: 150
+    verdict: strong
+    machinery: "Rearrangement construction: positive and negative parts each diverge; greedily overshoot increasing targets."
+    standardResult: "Conditionally convergent series can be rearranged to diverge to ∞ (Riemann rearrangement)"
+    topic: series
+    subtopics: [rearrangements, conditional-convergence]
+    skills: [greedy-construction, positive-negative-parts]
+    difficulty: hard
+    difficultyRationale: "Must prove positive/negative parts both diverge and build an explicit rearrangement with controlled partial sums."
+    category: challenge
+    type: construction
+    tags: [rearrangement, conditional-convergence, Riemann-rearrangement]
+    references: []
+    problemLatex: |
+      Show that if $\displaystyle\sum_{k=1}^{\infty} a_k$ is conditionally convergent, then there exists a rearrangement of this sum which diverges to $\infty$.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-4.17
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.17"
+    page: "134"
+    pdfPage: 150
+    verdict: consider
+    machinery: "Full-strength Riemann rearrangement: prescribe both limsup and liminf of partial sums."
+    standardResult: "Rearrangement with prescribed limsup β and liminf α of partial sums"
+    topic: series
+    subtopics: [rearrangements, conditional-convergence]
+    skills: [greedy-construction, positive-negative-parts]
+    difficulty: hard
+    difficultyRationale: "Oscillating greedy construction plus verification of limsup/liminf, including infinite cases."
+    category: challenge
+    type: construction
+    tags: [rearrangement, limsup, liminf, Riemann-rearrangement]
+    references: []
+    problemLatex: |
+      Assume that $\displaystyle\sum_{k=1}^{\infty} a_k$ is conditionally convergent. Define the *limit superior* of a sequence $(s_n)$ (Notation: "$\limsup_{n\to\infty} s_n$") to be
+      $$\limsup_{n\to\infty} s_n = \lim_{n\to\infty}\left(\sup_{m \ge n} s_m\right).$$
+      And define the *limit inferior* of sequence $(s_n)$ (Notation: "$\liminf_{n\to\infty} s_n$") to be
+      $$\liminf_{n\to\infty} s_n = \lim_{n\to\infty}\left(\inf_{m \ge n} s_m\right).$$
+      Prove that for any $\alpha, \beta \in \mathbb{R} \cup \{\pm\infty\}$ with $\alpha \le \beta$, there is a rearrangement of $\displaystyle\sum_{k=1}^{\infty} a_k$ whose sequence of partial sums, $(s_n)$, have
+      $$\limsup_{n\to\infty} s_n = \beta \qquad\text{and}\qquad \liminf_{n\to\infty} s_n = \alpha.$$
+    transcriptionNotes: "Verbatim; spans pp. 134-135 (pdf 150-151). Generalizes 4.15 and 4.16."
+    audit: ok
+
+  - cid: cummings-4.18
+    chapter: "4 Series"
+    section: "Chapter 4 Exercises"
+    number: "Exercise 4.18"
+    page: "135"
+    pdfPage: 151
+    verdict: core
+    machinery: "Absolutely convergent series are unconditionally convergent: compare partial sums via a tail of Σ|a_k|."
+    standardResult: "Rearrangements of absolutely convergent series have the same sum"
+    topic: series
+    subtopics: [rearrangements, absolute-convergence]
+    skills: [tail-estimate, epsilon-N-proof]
+    difficulty: medium
+    difficultyRationale: "Need to choose N for the tail, then M so the rearranged partial sum contains a_1..a_N."
+    category: canonical
+    type: proof
+    tags: [rearrangement, absolute-convergence, machinery]
+    references: []
+    problemLatex: |
+      Prove that if each $\displaystyle\sum_{k=1}^{\infty} a_k$ converges absolutely to $L$, then any rearrangement of this sum also converges to $L$.
+      Hint: Consider the partial sums $(s_n)$ of the given series, and the partial sums $(s_n')$ of a rearrangement of the given series, and show that $|s_n - s_n'| \to 0$.
+    transcriptionNotes: "Verbatim, including the book's odd 'if each'. 'Converges absolutely to L' means Σ|a_k| converges and Σa_k = L. Hint is the book's own, within the exercise."
+    audit: ok
+
+  # ---------------- Chapter 5 ----------------
+  - cid: cummings-5.2
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.2"
+    page: "152"
+    pdfPage: 168
+    verdict: consider
+    machinery: "Finite unions and intersections of compact sets (open-cover or Heine–Borel argument)."
+    standardResult: "Finite union / intersection of compact sets is compact"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument]
+    difficulty: easy
+    difficultyRationale: "Combine finite subcovers; intersection via closed subset of compact or Heine–Borel."
+    category: canonical
+    type: proof
+    tags: [compactness, union, intersection]
+    references: []
+    problemLatex: |
+      For each of the following, provide a proof or a counterexample.
+      (a) If $A$ and $B$ are compact, must $A \cup B$ be compact?
+      (b) If $A$ and $B$ are compact, must $A \cap B$ be compact?
+    transcriptionNotes: "Verbatim. Part (b) is subsumed by 5.10."
+    audit: ok
+
+  - cid: cummings-5.3
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.3"
+    page: "152"
+    pdfPage: 168
+    verdict: strong
+    machinery: "Standard counterexamples showing why openness/closedness is preserved only under finite intersections/unions."
+    standardResult: "Infinite intersection of open sets need not be open; infinite union of closed sets need not be closed"
+    topic: topology
+    subtopics: [open-sets, closed-sets]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "(−1/n,1/n) and [1/n,1] style examples."
+    category: canonical
+    type: counterexample
+    tags: [open-set, closed-set, counterexample]
+    references: []
+    problemLatex: |
+      For each of the following, you should state which sets you are choosing and what their intersection/union is, but you do not need to prove your examples work.
+      (a) Give an example of an infinite collection of open sets whose intersection is *not* open.
+      (b) Give an example of an infinite collection of closed sets whose union is *not* closed.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-5.4
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.4"
+    page: "152"
+    pdfPage: 168
+    verdict: strong
+    machinery: "Closed sets are closed under finite unions and arbitrary intersections (via De Morgan from the open-set facts, or via limit points)."
+    standardResult: "Finite unions / arbitrary intersections of closed sets are closed"
+    topic: topology
+    subtopics: [closed-sets, open-sets]
+    skills: [de-morgan, complement-argument]
+    difficulty: easy
+    difficultyRationale: "De Morgan plus the corresponding open-set facts."
+    category: canonical
+    type: proof
+    tags: [closed-set, De-Morgan, machinery]
+    references: []
+    problemLatex: |
+      Prove the following
+      (a) If $\{U_1, U_2, \ldots, U_n\}$ is a collection of closed sets, then $\displaystyle\bigcup_{k=1}^{n} U_k$ is also a closed set.
+      (b) If $\{U_\alpha\}$ is a collection of closed sets, then $\displaystyle\bigcap_{\alpha} U_\alpha$ is also a closed set.
+    transcriptionNotes: "Verbatim. In this book a set is closed iff its complement is open (open: every point has a delta-neighborhood inside the set)."
+    audit: ok
+
+  - cid: cummings-5.5
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.5"
+    page: "152"
+    pdfPage: 168
+    verdict: core
+    machinery: "Equivalence of the sequential and neighborhood definitions of limit point."
+    standardResult: "Sequential vs. ε-neighborhood characterization of limit points"
+    topic: topology
+    subtopics: [limit-points]
+    skills: [sequential-characterization, choose-epsilon-1-over-n]
+    difficulty: easy
+    difficultyRationale: "Backward direction builds a sequence using ε = 1/n."
+    category: canonical
+    type: proof
+    tags: [limit-point, sequences, neighborhoods, machinery]
+    references: ["Definition 5.8 (quoted)"]
+    problemLatex: |
+      Prove that a point $x$ is a limit point of a set $A$ if and only if every $\varepsilon$-neighborhood of $x$ intersects $A$ at some point other than $x$.
+
+      *(Definition 5.8: A point $x$ is a limit point of a set $A$ if there is a sequence of points $a_1, a_2, a_3, \ldots$ from $A \setminus \{x\}$ such that $a_n \to x$.)*
+    transcriptionNotes: "Definition 5.8 quoted verbatim from pdf p.158 (printed p.142); it is the sequential definition, which is what makes this exercise nontrivial."
+    audit: ok
+
+  - cid: cummings-5.6
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.6"
+    page: "152"
+    pdfPage: 168
+    verdict: strong
+    machinery: "Working directly with the open-cover definition of compactness to show non-compactness."
+    standardResult: "(0,4) not compact: open cover (1/k, 4−1/k) has no finite subcover"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument, archimedean-argument]
+    difficulty: introductory
+    difficultyRationale: "Covering via Archimedean property; finite subcollection lies in one interval (nested)."
+    category: canonical
+    type: proof
+    tags: [compactness, open-cover, counterexample]
+    references: []
+    problemLatex: |
+      Prove that
+      $$\left\{\left(\frac{1}{k},\, 4 - \frac{1}{k}\right)\right\}_{k=1}^{\infty}$$
+      is an open cover of $(0,4)$, but that this cover has *no* finite subcover. This implies that $(0,4)$ is *not* compact.
+    transcriptionNotes: "Fixed typo 'cover of of' -> 'cover of'. Compactness in this book: every open cover has a finite subcover (Definition 5.16)."
+    audit: ok
+
+  - cid: cummings-5.7
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.7"
+    page: "152"
+    pdfPage: 168
+    verdict: core
+    machinery: "Closed and bounded iff sequentially compact in R (Bolzano–Weierstrass + closedness via limit points; unbounded/non-closed give bad sequences)."
+    standardResult: "Closed and bounded ⇔ sequentially compact (in R)"
+    topic: topology
+    subtopics: [sequential-compactness, closed-sets, compactness]
+    skills: [subsequence-extraction, contrapositive, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Both directions require constructing or extracting sequences and using BW and the limit-point characterization of closedness."
+    category: canonical
+    type: proof
+    tags: [sequential-compactness, Bolzano-Weierstrass, closed-set, Heine-Borel]
+    references: []
+    problemLatex: |
+      Let $A \subseteq \mathbb{R}$. Prove that $A$ is closed and bounded if and only if every sequence of numbers from $A$ has a subsequence that converges to a point in $A$.
+    transcriptionNotes: "Verbatim. In the book this completes Theorem 5.20 (Heine–Borel, expanded)."
+    audit: ok
+
+  - cid: cummings-5.8
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.8"
+    page: "153"
+    pdfPage: 169
+    verdict: core
+    machinery: "Closed subset of a compact set is compact (open-cover argument adding the complement, or Heine–Borel)."
+    standardResult: "Closed subset of a compact set is compact"
+    topic: topology
+    subtopics: [compactness, closed-sets]
+    skills: [open-cover-argument]
+    difficulty: easy
+    difficultyRationale: "Add U^c to a cover of U; standard."
+    category: canonical
+    type: proof
+    tags: [compactness, closed-set, open-cover, machinery]
+    references: []
+    problemLatex: |
+      Let $A$ be compact and $U \subseteq A$ be closed. Prove that $U$ is compact.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-5.9
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.9"
+    page: "153"
+    pdfPage: 169
+    verdict: consider
+    machinery: "Boundedness alone does not interact well with compactness; need closedness."
+    standardResult: "Compact ∩ bounded need not be compact"
+    topic: topology
+    subtopics: [compactness]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "[0,1] ∩ (0,1)."
+    category: canonical
+    type: counterexample
+    tags: [compactness, counterexample]
+    references: []
+    problemLatex: |
+      Assume that $A$ is compact and $B$ is bounded. Must $A \cap B$ be compact? Prove or give a counterexample.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+
+  - cid: cummings-5.10
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.10"
+    page: "153"
+    pdfPage: 169
+    verdict: strong
+    machinery: "Arbitrary intersection of compact sets is compact (closed + bounded, or closed subset of one compact set)."
+    standardResult: "Arbitrary intersection of compact sets is compact"
+    topic: topology
+    subtopics: [compactness, closed-sets]
+    skills: [theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Heine–Borel plus closed sets closed under intersections."
+    category: canonical
+    type: proof
+    tags: [compactness, intersection, Heine-Borel]
+    references: []
+    problemLatex: |
+      Prove that if $\{U_\alpha\}$ is a collection of compact sets, then $\displaystyle\bigcap_{\alpha} U_\alpha$ is also a compact set.
+    transcriptionNotes: "Verbatim (implicitly a nonempty collection)."
+    audit: ok
+
+  - cid: cummings-5.11
+    chapter: "5 The Topology of R"
+    section: "Chapter 5 Exercises"
+    number: "Exercise 5.11"
+    page: "153"
+    pdfPage: 169
+    verdict: core
+    machinery: "Connectedness of R via a sup argument: a nonempty proper clopen set leads to a contradiction at a boundary point."
+    standardResult: "The only clopen subsets of R are ∅ and R (R is connected)"
+    topic: topology
+    subtopics: [connectedness, open-sets, closed-sets]
+    skills: [sup-approximation, contradiction]
+    difficulty: medium
+    difficultyRationale: "Requires a sup construction and showing the sup lies in both the set and its complement."
+    category: canonical
+    type: proof
+    tags: [connectedness, clopen, supremum, completeness]
+    references: []
+    problemLatex: |
+      Call a subset $A$ of real numbers *clopen* if it is both open and closed. Prove that the only clopen sets are $\emptyset$ and $\mathbb{R}$.
+    transcriptionNotes: "Verbatim."
+    audit: ok
+skipped:
+  - "1.1 logic warm-up (error in a fake proof); 1.2, 1.3 set notation described 'in terms of boxes' (non-analysis); 1.4 De Morgan's laws for two sets (pure set theory); 1.5 ordered-field positivity axioms examples (axiomatic); 1.6 routine absolute-value equation/inequality solving; 1.8 ordered-field axiom manipulation (routine); 1.10 induction identity for a telescoping sum (routine computation); 1.11 irrationality of sqrt(n) (number theory); 1.12, 1.13 images of intersections (pure set/function theory); 1.14 A⊆B ⇒ sup A ≤ sup B (introductory; used implicitly in 1.20/3.20); 1.15 max is sup / min is inf (trivial, weaker than 1.19); 1.16 finite set has a max by induction (foundational); 1.17 'N is complete' (foundational, and 'complete' for a non-field is loosely defined in the book)"
+  - "2.2 explicit bijection N->Z (routine, no proof required); 2.3 cardinality of product sets A·B examples (set-theory puzzle); 2.4 Z×N countable (routine, weaker than 2.1; note book typesets '|Z×N| countable'); 2.7 uncountably many irrationals (one-line corollary of R uncountable + 2.1); 2.8 functions R->R uncountable (set theory, beyond need); 2.10 finite subsets of N countable (same countable-union technique as 2.13); 2.11 explicit bijection P(N)->R (set theory, no proof required); 2.12 unit circle uncountable (trivial corollary)"
+  - "3.3 negative sequence tending to 0 (trivial example); 3.7 sum and scalar limit laws (proved/standard, weaker than 3.8); 3.9, 3.10 divergent sequences whose sum/product converges (trivial examples; 3.11 is the more instructive one); 3.13 sequence in (6,7) with subsequences to 6 and 7 (duplicate of 3.5, weaker); 3.17 infimum case of Proposition 3.29 (mirror of a proof given in the text; covered by 1.18/3.16 machinery); 3.18 unbounded positive sequence with no limit, no proof (trivial); 3.21 subsequences converging to 1, 17, -pi (duplicate of 3.5, weaker); 3.22 every subsequence converges ⇒ sequence converges (trivial: a sequence is its own subsequence); 3.23 subsequences of a sequence diverging to infinity (introductory, low value); 3.26 monotone non-Cauchy sequence (trivial example)"
+  - "4.1 classify six series by named tests, no proofs (routine; also mixes index n and k in one item); 4.4 nonnegative series with sum a_k divergent but sum a_k^2 convergent (trivial: 1/k; covered by 4.5/4.6); 4.7 numerical estimate of an alternating series to 0.01 (routine computation); 4.8 which kind of divergence for geometric series with r >= 1 (routine); 4.11 divergent series with a_{k+1}-a_k -> 0 (trivial example); 4.12 converses of comparison test false (trivial, near-duplicate of 4.13); 4.16 rearrangement whose limit does not exist (special case of 4.17, near-duplicate of 4.15); 4.19 rearrangement of a nonnegative divergent series diverges (easy, low value)"
+  - "5.1 classify Z, {1/n}∪{0}, R, (0,1)∪[3,4], Q, {17} as open/closed/compact without proof (routine identification); 5.12 set neither open nor closed (trivial)"

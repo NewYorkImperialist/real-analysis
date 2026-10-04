@@ -1,0 +1,1563 @@
+chunk: "abbott-ch3-4"
+book: abbott
+pageOffsetNote: "Chapter 3 (PDF 97-121): printed page = pdfPage - 12. Chapter 4 (PDF 122-155): printed page = pdfPage - 11 (offset shifts by one at the chapter opener). Verified from running headers, e.g. PDF 106 -> 94, PDF 131 -> 120, PDF 154 -> 143."
+sectionsCovered:
+  - "3.2 Open and Closed Sets — 15 exercises"
+  - "3.3 Compact Sets — 13 exercises"
+  - "3.4 Perfect Sets and Connected Sets — 9 exercises"
+  - "3.5 Baire's Theorem — 10 exercises"
+  - "4.2 Functional Limits — 11 exercises"
+  - "4.3 Continuous Functions — 14 exercises"
+  - "4.4 Continuous Functions on Compact Sets — 14 exercises"
+  - "4.5 The Intermediate Value Theorem — 8 exercises"
+  - "4.6 Sets of Discontinuity — 11 exercises"
+candidates:
+  # ---------------- 3.2 Open and Closed Sets ----------------
+  - cid: abbott-3.2.4
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.4"
+    page: "94"
+    pdfPage: 106
+    verdict: strong
+    machinery: "Connects the supremum with limit points/closure; open sets cannot contain their sup."
+    standardResult: "sup A lies in the closure of A; open set does not contain its supremum"
+    topic: topology
+    subtopics: [interior-closure-boundary, limit-points]
+    skills: [sup-approximation, epsilon-neighborhood-argument]
+    difficulty: easy
+    difficultyRationale: "Uses the sup-approximation property to produce points of A in every neighborhood of s."
+    category: canonical
+    type: proof
+    tags: [supremum, closure, open-set, limit-point]
+    references: []
+    problemLatex: |
+      Let $A$ be nonempty and bounded above so that $s = \sup A$ exists.
+
+      (a) Show that $s \in \overline{A}$.
+
+      (b) Can an open set contain its supremum?
+    transcriptionNotes: "$\\overline{A}$ is the closure $A \\cup L$, $L$ = set of limit points of $A$ (Definition 3.2.11)."
+
+  - cid: abbott-3.2.5
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.5"
+    page: "94"
+    pdfPage: 106
+    verdict: strong
+    machinery: "Sequential characterization of closed sets via Cauchy sequences and completeness."
+    standardResult: "F closed iff every Cauchy sequence in F converges to a point of F"
+    topic: topology
+    subtopics: [closed-sets, cauchy-sequences, limit-points]
+    skills: [sequential-characterization, contrapositive]
+    difficulty: easy
+    difficultyRationale: "Combine Cauchy criterion with the sequential characterization of limit points."
+    category: canonical
+    type: proof
+    tags: [closed-set, Cauchy, completeness, limit-point]
+    references: ["Theorem 3.2.8 (quoted)"]
+    problemLatex: |
+      Prove Theorem 3.2.8.
+
+      *(Theorem 3.2.8: A set $F \subseteq \mathbb{R}$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.)*
+    transcriptionNotes: "Statement of Theorem 3.2.8 quoted verbatim from p. 91 (PDF 103). In Abbott, a set is closed if it contains its limit points (Definition 3.2.7)."
+
+  - cid: abbott-3.2.6
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.6"
+    page: "94"
+    pdfPage: 106
+    verdict: strong
+    machinery: "True/false tour of open/closed sets, density of Q, and NIP for closed sets."
+    standardResult: "open/closed set true-false: open dense set need not be R; nested closed sets can have empty intersection"
+    topic: topology
+    subtopics: [open-sets, closed-sets, dense-sets, cantor-set]
+    skills: [construct-counterexample, density-argument]
+    difficulty: easy
+    difficultyRationale: "Each part is a short proof or a standard counterexample (e.g., complement of an enumerated null cover; [n, infinity))."
+    category: canonical
+    type: counterexample
+    tags: [open-set, closed-set, density, nested-intervals, Cantor-set, counterexample]
+    references: []
+    problemLatex: |
+      Decide whether the following statements are true or false. Provide counterexamples for those that are false, and supply proofs for those that are true.
+
+      (a) An open set that contains every rational number must necessarily be all of $\mathbb{R}$.
+
+      (b) The Nested Interval Property remains true if the term "closed interval" is replaced by "closed set."
+
+      (c) Every nonempty open set contains a rational number.
+
+      (d) Every bounded infinite closed set contains a rational number.
+
+      (e) The Cantor set is closed.
+
+  - cid: abbott-3.2.7
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.7"
+    page: "94"
+    pdfPage: 106
+    verdict: strong
+    machinery: "Derived set is closed; closure is closed and the smallest closed superset."
+    standardResult: "set of limit points is closed; closure is the smallest closed set containing A"
+    topic: topology
+    subtopics: [limit-points, interior-closure-boundary, closed-sets]
+    skills: [epsilon-neighborhood-argument]
+    difficulty: easy
+    difficultyRationale: "Nested-neighborhood argument: a neighborhood of a limit point of L contains a point of L, hence points of A."
+    category: canonical
+    type: proof
+    tags: [limit-point, closure, closed-set]
+    references: ["Theorem 3.2.12 (quoted)"]
+    problemLatex: |
+      Given $A \subseteq \mathbb{R}$, let $L$ be the set of all limit points of $A$.
+
+      (a) Show that the set $L$ is closed.
+
+      (b) Argue that if $x$ is a limit point of $A \cup L$, then $x$ is a limit point of $A$. Use this observation to furnish a proof for Theorem 3.2.12.
+
+      *(Theorem 3.2.12: For any $A \subseteq \mathbb{R}$, the closure $\overline{A}$ is a closed set and is the smallest closed set containing $A$.)*
+    transcriptionNotes: "Theorem 3.2.12 quoted verbatim from p. 92 (PDF 104). Closure: $\\overline{A} = A \\cup L$."
+
+  - cid: abbott-3.2.10
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.10"
+    page: "95"
+    pdfPage: 107
+    verdict: consider
+    machinery: "Limit points vs isolated points; Bolzano–Weierstrass and countability constraints."
+    standardResult: "countable set with no isolated points (Q∩[0,1]); no set has uncountably many isolated points"
+    topic: topology
+    subtopics: [limit-points, cardinality]
+    skills: [bolzano-weierstrass, rational-interval-injection]
+    difficulty: medium
+    difficultyRationale: "Ruling out (iii) needs an injection of isolated points into Q via disjoint rational intervals."
+    category: synthesis
+    type: counterexample
+    tags: [isolated-point, limit-point, countable, Bolzano-Weierstrass]
+    references: []
+    problemLatex: |
+      Only one of the following three descriptions can be realized. Provide an example that illustrates the viable description, and explain why the other two cannot exist.
+
+      (i) A countable set contained in $[0, 1]$ with no limit points.
+
+      (ii) A countable set contained in $[0, 1]$ with no isolated points.
+
+      (iii) A set with an uncountable number of isolated points.
+
+  - cid: abbott-3.2.11
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.11"
+    page: "95"
+    pdfPage: 107
+    verdict: strong
+    machinery: "Closure commutes with finite unions but not infinite ones."
+    standardResult: "closure of a finite union is the union of closures; fails for infinite unions"
+    topic: topology
+    subtopics: [interior-closure-boundary, limit-points]
+    skills: [double-inclusion, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Double inclusion plus a counterexample like the union of singletons {1/n}."
+    category: canonical
+    type: proof
+    tags: [closure, union, counterexample]
+    references: []
+    problemLatex: |
+      (a) Prove that $\overline{A \cup B} = \overline{A} \cup \overline{B}$.
+
+      (b) Does this result about closures extend to infinite unions of sets?
+
+  - cid: abbott-3.2.13
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.13"
+    page: "95"
+    pdfPage: 107
+    verdict: core
+    machinery: "Connectedness of R via completeness: no nontrivial clopen sets."
+    standardResult: "only clopen subsets of R are R and the empty set"
+    topic: topology
+    subtopics: [open-sets, closed-sets, connectedness]
+    skills: [sup-approximation, contradiction]
+    difficulty: medium
+    difficultyRationale: "Requires a sup argument (or nested intervals) to find a boundary point that contradicts openness or closedness."
+    category: canonical
+    type: proof
+    tags: [clopen, connectedness, completeness, supremum]
+    references: []
+    problemLatex: |
+      Prove that the only sets that are both open and closed are $\mathbb{R}$ and the empty set $\emptyset$.
+
+  - cid: abbott-3.2.14
+    chapter: "3 Basic Topology of R"
+    section: "3.2 Open and Closed Sets"
+    number: "Exercise 3.2.14"
+    page: "95"
+    pdfPage: 107
+    verdict: consider
+    machinery: "Interior/closure duality under complements."
+    standardResult: "complement of closure = interior of complement"
+    topic: topology
+    subtopics: [interior-closure-boundary, open-sets, closed-sets]
+    skills: [double-inclusion, negate-definition]
+    difficulty: easy
+    difficultyRationale: "Direct unwinding of definitions of interior, closure and limit point."
+    category: canonical
+    type: proof
+    tags: [interior, closure, complement, duality]
+    references: []
+    problemLatex: |
+      A dual notion to the closure of a set is the interior of a set. The *interior* of $E$ is denoted $E^\circ$ and is defined as
+      $$E^\circ = \{x \in E : \text{there exists } V_\epsilon(x) \subseteq E\}.$$
+      Results about closures and interiors possess a useful symmetry.
+
+      (a) Show that $E$ is closed if and only if $\overline{E} = E$. Show that $E$ is open if and only if $E^\circ = E$.
+
+      (b) Show that $\overline{E}^{\,c} = (E^c)^\circ$, and similarly that $(E^\circ)^c = \overline{E^c}$.
+    transcriptionNotes: "$V_\\epsilon(x) = (x-\\epsilon, x+\\epsilon)$ is Abbott's epsilon-neighborhood. Bars checked against page image."
+
+  # ---------------- 3.3 Compact Sets ----------------
+  - cid: abbott-3.3.3
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.3"
+    page: "100"
+    pdfPage: 112
+    verdict: strong
+    machinery: "Closed and bounded implies sequentially compact via Bolzano–Weierstrass."
+    standardResult: "closed and bounded ⇒ sequentially compact (Heine–Borel, sequential direction)"
+    topic: topology
+    subtopics: [sequential-compactness, compactness, bolzano-weierstrass]
+    skills: [subsequence-extraction, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "BW gives a convergent subsequence; closedness puts its limit in K."
+    category: canonical
+    type: proof
+    tags: [compactness, Bolzano-Weierstrass, closed-set, Heine-Borel]
+    references: ["Theorem 3.3.4 (quoted)", "Definition 3.3.1 (quoted)"]
+    problemLatex: |
+      Prove the converse of Theorem 3.3.4 by showing that if a set $K \subseteq \mathbb{R}$ is closed and bounded, then it is compact.
+
+      *(Theorem 3.3.4 (Characterization of Compactness in $\mathbb{R}$): A set $K \subseteq \mathbb{R}$ is compact if and only if it is closed and bounded. Definition 3.3.1: A set $K \subseteq \mathbb{R}$ is compact if every sequence in $K$ has a subsequence that converges to a limit that is also in $K$.)*
+    transcriptionNotes: "Theorem 3.3.4 and Definition 3.3.1 quoted verbatim (pp. 96–97). Note Abbott defines compact = sequentially compact."
+
+  - cid: abbott-3.3.5
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.5"
+    page: "100"
+    pdfPage: 112
+    verdict: strong
+    machinery: "Closure properties of compact sets; nested closed (non-compact) sets can have empty intersection."
+    standardResult: "intersections/unions of compact sets; nested closed sets [n,∞) with empty intersection"
+    topic: topology
+    subtopics: [compactness, closed-sets]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Short proofs via closed-and-bounded; standard counterexamples."
+    category: canonical
+    type: counterexample
+    tags: [compactness, nested-sets, counterexample, true-false]
+    references: []
+    problemLatex: |
+      Decide whether the following propositions are true or false. If the claim is valid, supply a short proof, and if the claim is false, provide a counterexample.
+
+      (a) The arbitrary intersection of compact sets is compact.
+
+      (b) The arbitrary union of compact sets is compact.
+
+      (c) Let $A$ be arbitrary, and let $K$ be compact. Then, the intersection $A \cap K$ is compact.
+
+      (d) If $F_1 \supseteq F_2 \supseteq F_3 \supseteq F_4 \supseteq \cdots$ is a nested sequence of nonempty closed sets, then the intersection $\bigcap_{n=1}^\infty F_n \neq \emptyset$.
+
+  - cid: abbott-3.3.7
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.7"
+    page: "100"
+    pdfPage: 112
+    verdict: consider
+    machinery: "Compactness used to extract a limit from non-convergent approximants; Cantor set structure."
+    standardResult: "C + C = [0,2] for the Cantor set"
+    topic: topology
+    subtopics: [cantor-set, compactness]
+    skills: [subsequence-extraction, induction]
+    difficulty: medium
+    difficultyRationale: "Inductive construction in C_n, then compactness to pass to a convergent subsequence and limit in C."
+    category: synthesis
+    type: proof
+    tags: [Cantor-set, compactness, sumset, subsequence]
+    references: ["Cantor set construction from Section 3.1 (quoted)"]
+    problemLatex: |
+      As some more evidence of the surprising nature of the Cantor set, follow these steps to show that the sum $C + C = \{x + y : x, y \in C\}$ is equal to the closed interval $[0, 2]$. (Keep in mind that $C$ has zero length and contains no intervals.)
+
+      Because $C \subseteq [0, 1]$, $C + C \subseteq [0, 2]$, so we only need to prove the reverse inclusion $[0, 2] \subseteq \{x + y : x, y \in C\}$. Thus, given $s \in [0, 2]$, we must find two elements $x, y \in C$ satisfying $x + y = s$.
+
+      (a) Show that there exist $x_1, y_1 \in C_1$ for which $x_1 + y_1 = s$. Show in general that, for an arbitrary $n \in \mathbb{N}$, we can always find $x_n, y_n \in C_n$ for which $x_n + y_n = s$.
+
+      (b) Keeping in mind that the sequences $(x_n)$ and $(y_n)$ do not necessarily converge, show how they can nevertheless be used to produce the desired $x$ and $y$ in $C$ satisfying $x + y = s$.
+
+      *(Section 3.1: Let $C_0$ be the closed interval $[0,1]$, and define $C_1$ to be the set that results when the open middle third is removed; that is, $C_1 = C_0 \setminus \left(\frac{1}{3}, \frac{2}{3}\right) = \left[0, \frac{1}{3}\right] \cup \left[\frac{2}{3}, 1\right]$. ... If we continue this process inductively, then for each $n = 0, 1, 2, \ldots$ we get a set $C_n$ consisting of $2^n$ closed intervals each having length $1/3^n$. Finally, we define the Cantor set $C$ to be the intersection $C = \bigcap_{n=0}^\infty C_n$.)*
+    transcriptionNotes: "Cantor set definition quoted (abridged with ellipsis) from Section 3.1, p. 85 (PDF 97)."
+
+  - cid: abbott-3.3.8
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.8"
+    page: "101"
+    pdfPage: 113
+    verdict: strong
+    machinery: "Distance between disjoint compact sets is positive and attained; fails for closed sets."
+    standardResult: "distance between disjoint compact sets is positive and attained"
+    topic: topology
+    subtopics: [compactness, closed-sets]
+    skills: [subsequence-extraction, sup-approximation, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Approximate the inf by pairs, extract convergent subsequences twice, and build a closed-set counterexample (e.g., N and {n+1/n})."
+    category: canonical
+    type: proof
+    tags: [compactness, distance, infimum, counterexample]
+    references: []
+    problemLatex: |
+      Let $K$ and $L$ be nonempty compact sets, and define
+      $$d = \inf\{|x - y| : x \in K \text{ and } y \in L\}.$$
+      This turns out to be a reasonable definition for the distance between $K$ and $L$.
+
+      (a) If $K$ and $L$ are disjoint, show $d > 0$ and that $d = |x_0 - y_0|$ for some $x_0 \in K$ and $y_0 \in L$.
+
+      (b) Show that it's possible to have $d = 0$ if we assume only that the disjoint sets $K$ and $L$ are closed.
+
+  - cid: abbott-3.3.9
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.9"
+    page: "101"
+    pdfPage: 113
+    verdict: core
+    machinery: "Heine–Borel: closed and bounded ⇒ every open cover has a finite subcover, via bisection and nested intervals."
+    standardResult: "Heine–Borel theorem (closed bounded ⇒ open-cover compact) by bisection"
+    topic: topology
+    subtopics: [compactness, sequential-compactness]
+    skills: [nested-intervals, bisection, open-cover-argument, contradiction]
+    difficulty: medium
+    difficultyRationale: "Guided bisection argument; key step is part (c) using openness to cover a small interval."
+    category: canonical
+    type: proof
+    tags: [Heine-Borel, open-cover, nested-intervals, compactness]
+    references: ["Theorem 3.3.8 (quoted)"]
+    problemLatex: |
+      Follow these steps to prove the final implication in Theorem 3.3.8.
+
+      *(Theorem 3.3.8 (Heine–Borel Theorem): Let $K$ be a subset of $\mathbb{R}$. All of the following statements are equivalent in the sense that any one of them implies the two others: (i) $K$ is compact. (ii) $K$ is closed and bounded. (iii) Every open cover for $K$ has a finite subcover.)*
+
+      Assume $K$ satisfies (i) and (ii), and let $\{O_\lambda : \lambda \in \Lambda\}$ be an open cover for $K$. For contradiction, let's assume that no finite subcover exists. Let $I_0$ be a closed interval containing $K$.
+
+      (a) Show that there exists a nested sequence of closed intervals $I_0 \supseteq I_1 \supseteq I_2 \supseteq \cdots$ with the property that, for each $n$, $I_n \cap K$ cannot be finitely covered and $\lim |I_n| = 0$.
+
+      (b) Argue that there exists an $x \in K$ such that $x \in I_n$ for all $n$.
+
+      (c) Because $x \in K$, there must exist an open set $O_{\lambda_0}$ from the original collection that contains $x$ as an element. Explain how this leads to the desired contradiction.
+    transcriptionNotes: "Theorem 3.3.8 quoted verbatim from p. 98 (PDF 110). 'Compact' in (i) means sequentially compact (Definition 3.3.1)."
+
+  - cid: abbott-3.3.10
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.10"
+    page: "101"
+    pdfPage: 113
+    verdict: consider
+    machinery: "Heine–Borel for [a,b] by a supremum ('continuous induction') argument."
+    standardResult: "Heine–Borel for [a,b] via sup of finitely-coverable initial segments"
+    topic: topology
+    subtopics: [compactness, supremum-infimum]
+    skills: [sup-approximation, open-cover-argument]
+    difficulty: medium
+    difficultyRationale: "Sup argument showing s = b; then reduce arbitrary closed bounded K to an interval by adding the open set K^c."
+    category: canonical
+    type: proof
+    tags: [Heine-Borel, supremum, open-cover]
+    references: ["Exercise 3.3.9 / Heine–Borel Theorem 3.3.8"]
+    problemLatex: |
+      Here is an alternate proof to the one given in Exercise 3.3.9 for the final implication in the Heine–Borel Theorem.
+
+      Consider the special case where $K$ is a closed interval. Let $\{O_\lambda : \lambda \in \Lambda\}$ be an open cover for $[a, b]$ and define $S$ to be the set of all $x \in [a, b]$ such that $[a, x]$ has a finite subcover from $\{O_\lambda : \lambda \in \Lambda\}$.
+
+      (a) Argue that $S$ is nonempty and bounded, and thus $s = \sup S$ exists.
+
+      (b) Now show $s = b$, which implies $[a, b]$ has a finite subcover.
+
+      (c) Finally, prove the theorem for an arbitrary closed and bounded set $K$.
+    transcriptionNotes: "'The final implication' = closed and bounded ⇒ every open cover has a finite subcover (see abbott-3.3.9 for the quoted theorem). Alternative to 3.3.9; curator may keep only one."
+
+  - cid: abbott-3.3.11
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.11"
+    page: "101"
+    pdfPage: 113
+    verdict: consider
+    machinery: "Open-cover non-compactness witnesses for standard sets."
+    standardResult: "open covers without finite subcover for N, Q∩[0,1], {1/n}-type sets"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Construct explicit covers that fail to have finite subcovers; Q∩[0,1] needs an irrational-avoiding cover."
+    category: canonical
+    type: counterexample
+    tags: [open-cover, compactness, counterexample]
+    references: ["Exercise 3.3.2 (set list quoted)"]
+    problemLatex: |
+      Consider each of the sets listed in Exercise 3.3.2. For each one that is not compact, find an open cover for which there is no finite subcover.
+
+      *(Exercise 3.3.2 lists: (a) $\mathbb{N}$. (b) $\mathbb{Q} \cap [0, 1]$. (c) The Cantor set. (d) $\{1 + 1/2^2 + 1/3^2 + \cdots + 1/n^2 : n \in \mathbb{N}\}$. (e) $\{1, 1/2, 2/3, 3/4, 4/5, \ldots\}$.)*
+    transcriptionNotes: "Set list quoted verbatim from Exercise 3.3.2 (p. 99, PDF 111)."
+
+  - cid: abbott-3.3.12
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.12"
+    page: "101"
+    pdfPage: 113
+    verdict: consider
+    machinery: "Open-cover compactness used to recover the Bolzano–Weierstrass-type limit point property."
+    standardResult: "bounded infinite set has a limit point, via open covers (no BW)"
+    topic: topology
+    subtopics: [compactness, limit-points]
+    skills: [open-cover-argument, contradiction]
+    difficulty: medium
+    difficultyRationale: "Cover a closed bounded interval by neighborhoods each meeting the set in finitely many points; finite subcover gives contradiction."
+    category: synthesis
+    type: proof
+    tags: [open-cover, limit-point, Bolzano-Weierstrass, compactness]
+    references: []
+    problemLatex: |
+      Using the concept of open covers (and explicitly avoiding the Bolzano–Weierstrass Theorem), prove that every bounded infinite set has a limit point.
+
+  - cid: abbott-3.3.13
+    chapter: "3 Basic Topology of R"
+    section: "3.3 Compact Sets"
+    number: "Exercise 3.3.13"
+    page: "101"
+    pdfPage: 113
+    verdict: consider
+    machinery: "Tests understanding of why compactness is defined with open covers."
+    standardResult: "'clompact' (closed-cover compact) sets are exactly the finite sets"
+    topic: topology
+    subtopics: [compactness]
+    skills: [open-cover-argument]
+    difficulty: easy
+    difficultyRationale: "Cover by singletons (which are closed)."
+    category: challenge
+    type: conceptual
+    tags: [compactness, closed-cover, definition-variation]
+    references: []
+    problemLatex: |
+      Let's call a set *clompact* if it has the property that every closed cover (i.e., a cover consisting of closed sets) admits a finite subcover. Describe all of the clompact subsets of $\mathbb{R}$.
+
+  # ---------------- 3.4 Perfect and Connected Sets ----------------
+  - cid: abbott-3.4.6
+    chapter: "3 Basic Topology of R"
+    section: "3.4 Perfect Sets and Connected Sets"
+    number: "Exercise 3.4.6"
+    page: "106"
+    pdfPage: 118
+    verdict: strong
+    machinery: "Negating the definition of 'separated' into a sequential criterion for connectedness."
+    standardResult: "sequential characterization of connected sets"
+    topic: topology
+    subtopics: [connectedness, limit-points]
+    skills: [negate-definition, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Careful negation of Definition 3.4.4 plus the sequential characterization of limit points."
+    category: canonical
+    type: proof
+    tags: [connectedness, separated-sets, closure, quantifiers]
+    references: ["Theorem 3.4.6 (quoted)", "Definition 3.4.4 (quoted)"]
+    problemLatex: |
+      Prove Theorem 3.4.6.
+
+      *(Theorem 3.4.6: A set $E \subseteq \mathbb{R}$ is connected if and only if, for all nonempty disjoint sets $A$ and $B$ satisfying $E = A \cup B$, there always exists a convergent sequence $(x_n) \to x$ with $(x_n)$ contained in one of $A$ or $B$, and $x$ an element of the other.)*
+
+      *(Definition 3.4.4: Two nonempty sets $A, B \subseteq \mathbb{R}$ are separated if $\overline{A} \cap B$ and $A \cap \overline{B}$ are both empty. A set $E \subseteq \mathbb{R}$ is disconnected if it can be written as $E = A \cup B$, where $A$ and $B$ are nonempty separated sets. A set that is not disconnected is called a connected set.)*
+    transcriptionNotes: "Theorem 3.4.6 and Definition 3.4.4 quoted verbatim from pp. 104–105 (PDF 116–117)."
+
+  - cid: abbott-3.4.7
+    chapter: "3 Basic Topology of R"
+    section: "3.4 Perfect Sets and Connected Sets"
+    number: "Exercise 3.4.7"
+    page: "106"
+    pdfPage: 118
+    verdict: consider
+    machinery: "Total disconnectedness of Q and of the irrationals via density."
+    standardResult: "Q and the irrationals are totally disconnected"
+    topic: topology
+    subtopics: [connectedness, dense-sets]
+    skills: [density-argument]
+    difficulty: easy
+    difficultyRationale: "Split at an irrational (resp. rational) point between x and y."
+    category: canonical
+    type: proof
+    tags: [connectedness, totally-disconnected, rationals, irrationals]
+    references: ["Definition 3.4.4 of separated sets (see abbott-3.4.6)"]
+    problemLatex: |
+      A set $E$ is *totally disconnected* if, given any two distinct points $x, y \in E$, there exist separated sets $A$ and $B$ with $x \in A$, $y \in B$, and $E = A \cup B$.
+
+      (a) Show that $\mathbb{Q}$ is totally disconnected.
+
+      (b) Is the set of irrational numbers totally disconnected?
+    transcriptionNotes: "Separated: nonempty $A, B$ with $\\overline{A} \\cap B = A \\cap \\overline{B} = \\emptyset$ (Definition 3.4.4)."
+
+  # ---------------- 3.5 Baire's Theorem ----------------
+  - cid: abbott-3.5.4
+    chapter: "3 Basic Topology of R"
+    section: "3.5 Baire's Theorem"
+    number: "Exercise 3.5.4"
+    page: "107"
+    pdfPage: 119
+    verdict: core
+    machinery: "Proof of the Baire category theorem on R via nested closed intervals."
+    standardResult: "Baire category theorem: countable intersection of dense open sets is nonempty"
+    topic: topology
+    subtopics: [baire-category, dense-sets, open-sets]
+    skills: [nested-intervals, induction]
+    difficulty: medium
+    difficultyRationale: "Inductive nested-interval construction with care to keep closed intervals inside open sets."
+    category: canonical
+    type: proof
+    tags: [Baire-category, nested-intervals, dense-set, open-set]
+    references: ["Theorem 3.5.2 (quoted)"]
+    problemLatex: |
+      *(Theorem 3.5.2: If $\{G_1, G_2, G_3, \ldots\}$ is a countable collection of dense, open sets, then the intersection $\bigcap_{n=1}^\infty G_n$ is not empty.)*
+
+      Starting with $n = 1$, inductively construct a nested sequence of closed intervals $I_1 \supseteq I_2 \supseteq I_3 \supseteq \cdots$ satisfying $I_n \subseteq G_n$. Give special attention to the issue of the endpoints of each $I_n$. Show how this leads to a proof of the theorem.
+    transcriptionNotes: "Exercise sits inside the proof of Theorem 3.5.2; statement quoted verbatim from p. 107. Abbott: G is dense in R if, given any two real numbers a < b, there is x ∈ G with a < x < b."
+
+  - cid: abbott-3.5.5
+    chapter: "3 Basic Topology of R"
+    section: "3.5 Baire's Theorem"
+    number: "Exercise 3.5.5"
+    page: "108"
+    pdfPage: 120
+    verdict: strong
+    machinery: "Closed-set form of Baire's theorem via complements."
+    standardResult: "R is not a countable union of closed sets with empty interior"
+    topic: topology
+    subtopics: [baire-category, closed-sets]
+    skills: [complement-argument, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Complements F_n^c are dense open; apply Baire (Theorem 3.5.2)."
+    category: canonical
+    type: theorem-application
+    tags: [Baire-category, closed-set, nowhere-dense]
+    references: ["Theorem 3.5.2 (see abbott-3.5.4)"]
+    problemLatex: |
+      Show that it is impossible to write
+      $$\mathbb{R} = \bigcup_{n=1}^\infty F_n,$$
+      where for each $n \in \mathbb{N}$, $F_n$ is a closed set containing no nonempty open intervals.
+
+  - cid: abbott-3.5.6
+    chapter: "3 Basic Topology of R"
+    section: "3.5 Baire's Theorem"
+    number: "Exercise 3.5.6"
+    page: "108"
+    pdfPage: 120
+    verdict: strong
+    machinery: "Baire application: irrationals are not F_sigma, rationals are not G_delta."
+    standardResult: "Q is not a G_delta set; irrationals are not F_sigma"
+    topic: topology
+    subtopics: [baire-category]
+    skills: [contradiction, theorem-application]
+    difficulty: medium
+    difficultyRationale: "Write R as Q (countable union of points) plus the hypothesized F_sigma decomposition of I and apply 3.5.5."
+    category: canonical
+    type: theorem-application
+    tags: [Baire-category, F-sigma, G-delta, rationals, irrationals]
+    references: ["Exercise 3.5.5 (quoted)", "Definition 3.5.1 (quoted)"]
+    problemLatex: |
+      Show how the previous exercise implies that the set $\mathbf{I}$ of irrationals cannot be an $F_\sigma$ set, and $\mathbb{Q}$ cannot be a $G_\delta$ set.
+
+      *(Previous exercise, Exercise 3.5.5: Show that it is impossible to write $\mathbb{R} = \bigcup_{n=1}^\infty F_n$, where for each $n \in \mathbb{N}$, $F_n$ is a closed set containing no nonempty open intervals.)*
+
+      *(Definition 3.5.1: A set $A \subseteq \mathbb{R}$ is called an $F_\sigma$ set if it can be written as the countable union of closed sets. A set $B \subseteq \mathbb{R}$ is called a $G_\delta$ set if it can be written as the countable intersection of open sets.)*
+    transcriptionNotes: "Exercise 3.5.5 and Definition 3.5.1 quoted verbatim. Abbott writes the irrationals as bold I."
+
+  # ---------------- 4.2 Functional Limits ----------------
+  - cid: abbott-4.2.5
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.2 Functional Limits"
+    number: "Exercise 4.2.5"
+    page: "121"
+    pdfPage: 132
+    verdict: consider
+    machinery: "Basic epsilon-delta limit proofs, including bounding a factor near the point."
+    standardResult: "epsilon-delta proofs of polynomial and 1/x limits"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, choose-delta]
+    difficulty: introductory
+    difficultyRationale: "Direct definition; (c),(d) need a preliminary restriction δ ≤ 1."
+    category: canonical
+    type: proof
+    tags: [epsilon-delta, functional-limit, machinery]
+    references: ["Definition 4.2.1 (quoted)"]
+    problemLatex: |
+      Use Definition 4.2.1 to supply a proper proof for the following limit statements.
+
+      (a) $\lim_{x\to 2}(3x + 4) = 10$.
+
+      (b) $\lim_{x\to 0} x^3 = 0$.
+
+      (c) $\lim_{x\to 2}(x^2 + x - 1) = 5$.
+
+      (d) $\lim_{x\to 3} 1/x = 1/3$.
+
+      *(Definition 4.2.1: Let $f\colon A \to \mathbb{R}$, and let $c$ be a limit point of the domain $A$. We say that $\lim_{x\to c} f(x) = L$ provided that, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$ (and $x \in A$) it follows that $|f(x) - L| < \epsilon$.)*
+    transcriptionNotes: "Definition 4.2.1 quoted verbatim from p. 116."
+
+  - cid: abbott-4.2.7
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.2 Functional Limits"
+    number: "Exercise 4.2.7"
+    page: "121"
+    pdfPage: 132
+    verdict: strong
+    machinery: "Bounded times null is null, for functional limits."
+    standardResult: "bounded function times function tending to 0 tends to 0"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof]
+    difficulty: introductory
+    difficultyRationale: "Choose δ for ε/M."
+    category: canonical
+    type: proof
+    tags: [functional-limit, bounded, epsilon-delta]
+    references: []
+    problemLatex: |
+      Let $g\colon A \to \mathbb{R}$ and assume that $f$ is a bounded function on $A$ in the sense that there exists $M > 0$ satisfying $|f(x)| \le M$ for all $x \in A$.
+
+      Show that if $\lim_{x\to c} g(x) = 0$, then $\lim_{x\to c} g(x)f(x) = 0$ as well.
+
+  - cid: abbott-4.2.9
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.2 Functional Limits"
+    number: "Exercise 4.2.9"
+    page: "121"
+    pdfPage: 132
+    verdict: consider
+    machinery: "Formulating rigorous definitions of infinite limits and limits at infinity."
+    standardResult: "definitions of infinite limits and limits at infinity"
+    topic: continuity
+    subtopics: [limits-at-infinity, functional-limits]
+    skills: [epsilon-delta-proof, write-definition]
+    difficulty: introductory
+    difficultyRationale: "Writing definitions and verifying simple examples."
+    category: canonical
+    type: definition
+    tags: [infinite-limit, limit-at-infinity, definition]
+    references: []
+    problemLatex: |
+      **(Infinite Limits).** The statement $\lim_{x\to 0} 1/x^2 = \infty$ certainly makes intuitive sense. To construct a rigorous definition in the challenge–response style of Definition 4.2.1 for an infinite limit statement of this form, we replace the (arbitrarily small) $\epsilon > 0$ challenge with an (arbitrarily large) $M > 0$ challenge:
+
+      *Definition:* $\lim_{x\to c} f(x) = \infty$ means that for all $M > 0$ we can find a $\delta > 0$ such that whenever $0 < |x - c| < \delta$, it follows that $f(x) > M$.
+
+      (a) Show $\lim_{x\to 0} 1/x^2 = \infty$ in the sense described in the previous definition.
+
+      (b) Now, construct a definition for the statement $\lim_{x\to\infty} f(x) = L$. Show $\lim_{x\to\infty} 1/x = 0$.
+
+      (c) What would a rigorous definition for $\lim_{x\to\infty} f(x) = \infty$ look like? Give an example of such a limit.
+    transcriptionNotes: "Definition 4.2.1 is the epsilon-delta functional limit definition (quoted in abbott-4.2.5)."
+
+  - cid: abbott-4.2.10
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.2 Functional Limits"
+    number: "Exercise 4.2.10"
+    page: "122"
+    pdfPage: 133
+    verdict: consider
+    machinery: "One-sided limits and their relation to two-sided limits."
+    standardResult: "limit exists iff both one-sided limits exist and agree"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, write-definition]
+    difficulty: easy
+    difficultyRationale: "Definitions plus taking the minimum of two deltas."
+    category: canonical
+    type: proof
+    tags: [one-sided-limit, functional-limit, epsilon-delta]
+    references: ["Definition 4.2.1 (quoted in abbott-4.2.5)"]
+    problemLatex: |
+      **(Right and Left Limits).** Introductory calculus courses typically refer to the right-hand limit of a function as the limit obtained by "letting $x$ approach $a$ from the right-hand side."
+
+      (a) Give a proper definition in the style of Definition 4.2.1 for the right-hand and left-hand limit statements:
+      $$\lim_{x\to a^+} f(x) = L \quad\text{and}\quad \lim_{x\to a^-} f(x) = M.$$
+
+      (b) Prove that $\lim_{x\to a} f(x) = L$ if and only if both the right and left-hand limits equal $L$.
+    transcriptionNotes: "Same content as Exercises 4.6.3–4.6.4 (Theorem 4.6.3), which were skipped as duplicates."
+
+  - cid: abbott-4.2.11
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.2 Functional Limits"
+    number: "Exercise 4.2.11"
+    page: "122"
+    pdfPage: 133
+    verdict: strong
+    machinery: "Squeeze theorem for functional limits."
+    standardResult: "squeeze theorem for functional limits"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, sequential-characterization]
+    difficulty: introductory
+    difficultyRationale: "Direct from definition or from the sequential squeeze theorem."
+    category: canonical
+    type: proof
+    tags: [squeeze-theorem, functional-limit]
+    references: []
+    problemLatex: |
+      **(Squeeze Theorem).** Let $f$, $g$, and $h$ satisfy $f(x) \le g(x) \le h(x)$ for all $x$ in some common domain $A$. If $\lim_{x\to c} f(x) = L$ and $\lim_{x\to c} h(x) = L$ at some limit point $c$ of $A$, show $\lim_{x\to c} g(x) = L$ as well.
+
+  # ---------------- 4.3 Continuous Functions ----------------
+  - cid: abbott-4.3.1
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.1"
+    page: "126"
+    pdfPage: 137
+    verdict: consider
+    machinery: "Epsilon-delta continuity for a non-polynomial function using an algebraic identity."
+    standardResult: "cube root is continuous (epsilon-delta)"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity]
+    skills: [epsilon-delta-proof, choose-delta]
+    difficulty: easy
+    difficultyRationale: "Part (b) requires bounding a^2+ab+b^2 away from zero near c."
+    category: canonical
+    type: proof
+    tags: [continuity, epsilon-delta, cube-root]
+    references: []
+    problemLatex: |
+      Let $g(x) = \sqrt[3]{x}$.
+
+      (a) Prove that $g$ is continuous at $c = 0$.
+
+      (b) Prove that $g$ is continuous at a point $c \neq 0$. (The identity $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ will be helpful.)
+
+  - cid: abbott-4.3.2
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.2"
+    page: "126"
+    pdfPage: 137
+    verdict: consider
+    machinery: "Probing the role of quantifiers and the epsilon–delta relationship in the continuity definition."
+    standardResult: "variations of the epsilon-delta definition (onetinuous/equaltinuous/lesstinuous)"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity]
+    skills: [negate-definition, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Each part is a short observation once the quantifier structure is understood (onetinuous = constant; lesstinuous = continuous)."
+    category: canonical
+    type: conceptual
+    tags: [continuity, quantifiers, definition-variation, Lipschitz]
+    references: ["Definition 4.3.1 (quoted)"]
+    problemLatex: |
+      To gain a deeper understanding of the relationship between $\epsilon$ and $\delta$ in the definition of continuity, let's explore some modest variations of Definition 4.3.1. In all of these, let $f$ be a function defined on all of $\mathbb{R}$.
+
+      (a) Let's say $f$ is *onetinuous* at $c$ if for all $\epsilon > 0$ we can choose $\delta = 1$ and it follows that $|f(x) - f(c)| < \epsilon$ whenever $|x - c| < \delta$. Find an example of a function that is onetinuous on all of $\mathbb{R}$.
+
+      (b) Let's say $f$ is *equaltinuous* at $c$ if for all $\epsilon > 0$ we can choose $\delta = \epsilon$ and it follows that $|f(x) - f(c)| < \epsilon$ whenever $|x - c| < \delta$. Find an example of a function that is equaltinuous on $\mathbb{R}$ that is nowhere onetinuous, or explain why there is no such function.
+
+      (c) Let's say $f$ is *lesstinuous* at $c$ if for all $\epsilon > 0$ we can choose $0 < \delta < \epsilon$ and it follows that $|f(x) - f(c)| < \epsilon$ whenever $|x - c| < \delta$. Find an example of a function that is lesstinuous on $\mathbb{R}$ that is nowhere equaltinuous, or explain why there is no such function.
+
+      (d) Is every lesstinuous function continuous? Is every continuous function lesstinuous? Explain.
+
+      *(Definition 4.3.1: A function $f\colon A \to \mathbb{R}$ is continuous at a point $c \in A$ if, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $|x - c| < \delta$ (and $x \in A$) it follows that $|f(x) - f(c)| < \epsilon$.)*
+    transcriptionNotes: "Definition 4.3.1 quoted verbatim from p. 122."
+
+  - cid: abbott-4.3.4
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.4"
+    page: "127"
+    pdfPage: 138
+    verdict: strong
+    machinery: "Limits of compositions: why the inner limit point being 'hit' breaks the naive rule."
+    standardResult: "limit of composition can fail unless outer function is continuous"
+    topic: continuity
+    subtopics: [functional-limits, epsilon-delta-continuity]
+    skills: [construct-counterexample, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Requires recognizing the x ≠ c subtlety and building f constant = q with g(q) ≠ r; part (c) needs both directions analyzed."
+    category: canonical
+    type: counterexample
+    tags: [composition, functional-limit, continuity, counterexample]
+    references: []
+    problemLatex: |
+      Assume $f$ and $g$ are defined on all of $\mathbb{R}$ and that $\lim_{x\to p} f(x) = q$ and $\lim_{x\to q} g(x) = r$.
+
+      (a) Give an example to show that it may not be true that
+      $$\lim_{x\to p} g(f(x)) = r.$$
+
+      (b) Show that the result in (a) does follow if we assume $f$ and $g$ are continuous.
+
+      (c) Does the result in (a) hold if we only assume $f$ is continuous? How about if we only assume that $g$ is continuous?
+
+  - cid: abbott-4.3.6
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.6"
+    page: "127"
+    pdfPage: 138
+    verdict: consider
+    machinery: "Algebra of continuity and its failure for discontinuous summands/factors."
+    standardResult: "examples: sums/products of discontinuous functions that are continuous"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity, discontinuities]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Short constructions; (b) and (e) are impossibilities via algebraic limit laws / continuity of cube root."
+    category: canonical
+    type: counterexample
+    tags: [continuity, algebraic-limit-theorem, counterexample]
+    references: []
+    problemLatex: |
+      Provide an example of each or explain why the request is impossible.
+
+      (a) Two functions $f$ and $g$, neither of which is continuous at 0 but such that $f(x)g(x)$ and $f(x) + g(x)$ are continuous at 0.
+
+      (b) A function $f(x)$ continuous at 0 and $g(x)$ not continuous at 0 such that $f(x) + g(x)$ is continuous at 0.
+
+      (c) A function $f(x)$ continuous at 0 and $g(x)$ not continuous at 0 such that $f(x)g(x)$ is continuous at 0.
+
+      (d) A function $f(x)$ not continuous at 0 such that $f(x) + \dfrac{1}{f(x)}$ is continuous at 0.
+
+      (e) A function $f(x)$ not continuous at 0 such that $[f(x)]^3$ is continuous at 0.
+
+  - cid: abbott-4.3.7
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.7"
+    page: "127"
+    pdfPage: 138
+    verdict: core
+    machinery: "Sequential criterion for discontinuity; Dirichlet nowhere continuous; Thomae continuous exactly at irrationals."
+    standardResult: "Dirichlet function nowhere continuous; Thomae's function continuous exactly on the irrationals"
+    topic: continuity
+    subtopics: [discontinuities, sequential-continuity, epsilon-delta-continuity]
+    skills: [sequential-characterization, density-argument, finiteness-argument]
+    difficulty: medium
+    difficultyRationale: "Part (c): the set {t ≥ ε} is locally finite, so a δ-neighborhood of an irrational avoids it."
+    category: canonical
+    type: proof
+    tags: [Thomae, Dirichlet, continuity, discontinuity, density]
+    references: ["Dirichlet's function and Thomae's function from Section 4.1 (quoted)", "Theorem 4.3.2 (iii) (quoted)"]
+    problemLatex: |
+      (a) Referring to the proper theorems, give a formal argument that Dirichlet's function from Section 4.1 is nowhere-continuous on $\mathbb{R}$.
+
+      (b) Review the definition of Thomae's function in Section 4.1 and demonstrate that it fails to be continuous at every rational point.
+
+      (c) Use the characterization of continuity in Theorem 4.3.2 (iii) to show that Thomae's function is continuous at every irrational point in $\mathbb{R}$. (Given $\epsilon > 0$, consider the set of points $\{x \in \mathbb{R} : t(x) \ge \epsilon\}$.)
+
+      *(Section 4.1: Dirichlet's function is $g(x) = 1$ if $x \in \mathbb{Q}$ and $g(x) = 0$ if $x \notin \mathbb{Q}$. Thomae's function is
+      $$t(x) = \begin{cases} 1 & \text{if } x = 0 \\ 1/n & \text{if } x = m/n \in \mathbb{Q}\setminus\{0\} \text{ is in lowest terms with } n > 0 \\ 0 & \text{if } x \notin \mathbb{Q}. \end{cases}$$
+      Theorem 4.3.2 (iii): $f$ is continuous at $c$ if and only if: if $(x_n) \to c$ (with $x_n \in A$), then $f(x_n) \to f(c)$.)*
+    transcriptionNotes: "Definitions of Dirichlet's and Thomae's functions quoted from Section 4.1 (pp. 112–113); Theorem 4.3.2(iii) quoted from p. 123 (lightly abridged to the one condition). The book's own hint for (c) is printed as given; arguably the epsilon-delta characterization (i) is more natural for (c), but the book says (iii)."
+
+  - cid: abbott-4.3.8
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.8"
+    page: "127"
+    pdfPage: 138
+    verdict: strong
+    machinery: "Order limit / density / sign-preservation consequences of continuity."
+    standardResult: "continuous functions agreeing on Q agree everywhere; sign preservation near a point"
+    topic: continuity
+    subtopics: [sequential-continuity, epsilon-delta-continuity]
+    skills: [sequential-characterization, density-argument]
+    difficulty: easy
+    difficultyRationale: "Each part is a one-step application of sequential continuity or epsilon-delta with ε = g(x0)."
+    category: canonical
+    type: proof
+    tags: [continuity, density, sign-preservation, true-false]
+    references: []
+    problemLatex: |
+      Decide if the following claims are true or false, providing either a short proof or counterexample to justify each conclusion. Assume throughout that $g$ is defined and continuous on all of $\mathbb{R}$.
+
+      (a) If $g(x) \ge 0$ for all $x < 1$, then $g(1) \ge 0$ as well.
+
+      (b) If $g(r) = 0$ for all $r \in \mathbb{Q}$, then $g(x) = 0$ for all $x \in \mathbb{R}$.
+
+      (c) If $g(x_0) > 0$ for a single point $x_0 \in \mathbb{R}$, then $g(x)$ is in fact strictly positive for uncountably many points.
+
+  - cid: abbott-4.3.9
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.9"
+    page: "128"
+    pdfPage: 139
+    verdict: consider
+    machinery: "Zero sets of continuous functions are closed (sequential argument)."
+    standardResult: "zero set of a continuous function is closed"
+    topic: continuity
+    subtopics: [continuity-and-topology, closed-sets]
+    skills: [sequential-characterization]
+    difficulty: introductory
+    difficultyRationale: "Take a limit point, a sequence in K converging to it, apply continuity."
+    category: canonical
+    type: proof
+    tags: [continuity, closed-set, zero-set]
+    references: []
+    problemLatex: |
+      Assume $h\colon \mathbb{R} \to \mathbb{R}$ is continuous on $\mathbb{R}$ and let $K = \{x : h(x) = 0\}$. Show that $K$ is a closed set.
+
+  - cid: abbott-4.3.11
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.11"
+    page: "128"
+    pdfPage: 139
+    verdict: core
+    machinery: "Banach fixed point theorem on R: contraction ⇒ Cauchy iterates ⇒ unique fixed point."
+    standardResult: "contraction mapping theorem on R"
+    topic: function-sequences
+    subtopics: [fixed-point, cauchy-sequences, lipschitz-holder]
+    skills: [geometric-series-estimate, triangle-inequality, cauchy-criterion]
+    difficulty: medium
+    difficultyRationale: "Cauchy estimate via geometric series |y_{n+1}-y_n| ≤ c^{n-1}|y_2-y_1|; uniqueness and attraction are short."
+    category: canonical
+    type: proof
+    tags: [contraction-mapping, fixed-point, Cauchy, Lipschitz]
+    references: []
+    problemLatex: |
+      **(Contraction Mapping Theorem).** Let $f$ be a function defined on all of $\mathbb{R}$, and assume there is a constant $c$ such that $0 < c < 1$ and
+      $$|f(x) - f(y)| \le c|x - y|$$
+      for all $x, y \in \mathbb{R}$.
+
+      (a) Show that $f$ is continuous on $\mathbb{R}$.
+
+      (b) Pick some point $y_1 \in \mathbb{R}$ and construct the sequence
+      $$(y_1, f(y_1), f(f(y_1)), \ldots).$$
+      In general, if $y_{n+1} = f(y_n)$, show that the resulting sequence $(y_n)$ is a Cauchy sequence. Hence we may let $y = \lim y_n$.
+
+      (c) Prove that $y$ is a fixed point of $f$ (i.e., $f(y) = y$) and that it is unique in this regard.
+
+      (d) Finally, prove that if $x$ is any arbitrary point in $\mathbb{R}$, then the sequence $(x, f(x), f(f(x)), \ldots)$ converges to $y$ defined in (b).
+    transcriptionNotes: "Topic could also be 'continuity'; filed under function-sequences/fixed-point per the subtopic vocabulary."
+
+  - cid: abbott-4.3.12
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.12"
+    page: "128"
+    pdfPage: 139
+    verdict: strong
+    machinery: "Distance-to-a-set function is (1-Lipschitz) continuous and vanishes exactly on the closed set."
+    standardResult: "distance function to a closed set is continuous and positive off the set"
+    topic: continuity
+    subtopics: [lipschitz-holder, continuity-and-topology, closed-sets]
+    skills: [triangle-inequality, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "Show |g(x) - g(y)| ≤ |x - y| via inf; positivity off F from openness of F^c."
+    category: canonical
+    type: proof
+    tags: [distance-function, Lipschitz, closed-set, infimum]
+    references: []
+    problemLatex: |
+      Let $F \subseteq \mathbb{R}$ be a nonempty closed set and define $g(x) = \inf\{|x - a| : a \in F\}$. Show that $g$ is continuous on all of $\mathbb{R}$ and $g(x) \neq 0$ for all $x \notin F$.
+
+  - cid: abbott-4.3.13
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.13"
+    page: "128"
+    pdfPage: 139
+    verdict: core
+    machinery: "Cauchy functional equation: extend from Q to R by continuity and density."
+    standardResult: "additive function continuous at 0 is linear (Cauchy functional equation)"
+    topic: continuity
+    subtopics: [sequential-continuity, epsilon-delta-continuity]
+    skills: [induction, density-argument, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Multi-step: integers, rationals, transfer of continuity from 0 to everywhere, then density of Q."
+    category: synthesis
+    type: proof
+    tags: [Cauchy-functional-equation, additive-function, density, continuity]
+    references: []
+    problemLatex: |
+      Let $f$ be a function defined on all of $\mathbb{R}$ that satisfies the additive condition $f(x + y) = f(x) + f(y)$ for all $x, y \in \mathbb{R}$.
+
+      (a) Show that $f(0) = 0$ and that $f(-x) = -f(x)$ for all $x \in \mathbb{R}$.
+
+      (b) Let $k = f(1)$. Show that $f(n) = kn$ for all $n \in \mathbb{N}$, and then prove that $f(z) = kz$ for all $z \in \mathbb{Z}$. Now, prove that $f(r) = kr$ for any rational number $r$.
+
+      (c) Show that if $f$ is continuous at $x = 0$, then $f$ is continuous at every point in $\mathbb{R}$ and conclude that $f(x) = kx$ for all $x \in \mathbb{R}$. Thus, any additive function that is continuous at $x = 0$ must necessarily be a linear function through the origin.
+
+  - cid: abbott-4.3.14
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.3 Continuous Functions"
+    number: "Exercise 4.3.14"
+    page: "129"
+    pdfPage: 140
+    verdict: consider
+    machinery: "Constructing functions with a prescribed closed or open discontinuity set."
+    standardResult: "function discontinuous exactly on a given closed set / open set"
+    topic: continuity
+    subtopics: [discontinuities, continuity-and-topology]
+    skills: [construct-counterexample, dirichlet-type-construction]
+    difficulty: hard
+    difficultyRationale: "Requires Dirichlet-type construction on the interior vs boundary of F, and damping by the distance function for O."
+    category: challenge
+    type: construction
+    tags: [discontinuity-set, Dirichlet-function, closed-set, open-set, construction]
+    references: ["Exercise 3.2.14 (interior; see abbott-3.2.14)", "Exercise 4.3.12 (quoted)"]
+    problemLatex: |
+      (a) Let $F$ be a closed set. Construct a function $f\colon \mathbb{R} \to \mathbb{R}$ such that the set of points where $f$ fails to be continuous is precisely $F$. (The concept of the interior of a set, discussed in Exercise 3.2.14, may be useful.)
+
+      (b) Now consider an open set $O$. Construct a function $g\colon \mathbb{R} \to \mathbb{R}$ whose set of discontinuous points is precisely $O$. (For this problem, the function in Exercise 4.3.12 may be useful.)
+
+      *(Exercise 3.2.14: the interior of $E$ is $E^\circ = \{x \in E : \text{there exists } V_\epsilon(x) \subseteq E\}$. Exercise 4.3.12: for a nonempty closed set $F$, $g(x) = \inf\{|x - a| : a \in F\}$.)*
+    transcriptionNotes: "Referenced definitions from Exercises 3.2.14 and 4.3.12 quoted (abridged to the definitions)."
+
+  # ---------------- 4.4 Continuous Functions on Compact Sets ----------------
+  - cid: abbott-4.4.1
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.1"
+    page: "134"
+    pdfPage: 145
+    verdict: strong
+    machinery: "Continuity vs uniform continuity for x^3; sequential criterion for non-uniform continuity."
+    standardResult: "x^3 continuous but not uniformly continuous on R; uniformly continuous on bounded sets"
+    topic: continuity
+    subtopics: [uniform-continuity, epsilon-delta-continuity]
+    skills: [epsilon-delta-proof, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Factor x^3 - c^3; choose x_n = n + 1/n, y_n = n for (b)."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, continuity, sequential-criterion]
+    references: ["Theorem 4.4.5 (quoted)"]
+    problemLatex: |
+      (a) Show that $f(x) = x^3$ is continuous on all of $\mathbb{R}$.
+
+      (b) Argue, using Theorem 4.4.5, that $f$ is not uniformly continuous on $\mathbb{R}$.
+
+      (c) Show that $f$ is uniformly continuous on any bounded subset of $\mathbb{R}$.
+
+      *(Theorem 4.4.5 (Sequential Criterion for Absence of Uniform Continuity): A function $f\colon A \to \mathbb{R}$ fails to be uniformly continuous on $A$ if and only if there exists a particular $\epsilon_0 > 0$ and two sequences $(x_n)$ and $(y_n)$ in $A$ satisfying $|x_n - y_n| \to 0$ but $|f(x_n) - f(y_n)| \ge \epsilon_0$.)*
+    transcriptionNotes: "Theorem 4.4.5 quoted verbatim from p. 132."
+
+  - cid: abbott-4.4.2
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.2"
+    page: "134"
+    pdfPage: 145
+    verdict: strong
+    machinery: "Deciding uniform continuity on a bounded open interval (extendability to [0,1])."
+    standardResult: "1/x not UC on (0,1); x sin(1/x) UC on (0,1)"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [sequential-characterization, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Sequential criterion for (a); (b),(c) via continuous extension to [0,1] or direct estimates."
+    category: canonical
+    type: counterexample
+    tags: [uniform-continuity, examples]
+    references: []
+    problemLatex: |
+      (a) Is $f(x) = 1/x$ uniformly continuous on $(0, 1)$?
+
+      (b) Is $g(x) = \sqrt{x^2 + 1}$ uniformly continuous on $(0, 1)$?
+
+      (c) Is $h(x) = x\sin(1/x)$ uniformly continuous on $(0, 1)$?
+
+  - cid: abbott-4.4.4
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.4"
+    page: "134"
+    pdfPage: 145
+    verdict: strong
+    machinery: "EVT consequences; uniform continuity preserves boundedness; compactness-preserving maps need not be continuous."
+    standardResult: "UC on bounded set ⇒ bounded image; compact-preserving need not imply continuous"
+    topic: continuity
+    subtopics: [uniform-continuity, EVT]
+    skills: [construct-counterexample, theorem-application]
+    difficulty: medium
+    difficultyRationale: "(b) needs a finite-chain/total-boundedness argument; (c) needs a counterexample like a function jumping to a value within a compact range."
+    category: synthesis
+    type: counterexample
+    tags: [uniform-continuity, compactness, extreme-value-theorem, true-false]
+    references: []
+    problemLatex: |
+      Decide whether each of the following statements is true or false, justifying each conclusion.
+
+      (a) If $f$ is continuous on $[a, b]$ with $f(x) > 0$ for all $a \le x \le b$, then $1/f$ is bounded on $[a, b]$ (meaning $1/f$ has bounded range).
+
+      (b) If $f$ is uniformly continuous on a bounded set $A$, then $f(A)$ is bounded.
+
+      (c) If $f$ is defined on $\mathbb{R}$ and $f(K)$ is compact whenever $K$ is compact, then $f$ is continuous on $\mathbb{R}$.
+
+  - cid: abbott-4.4.7
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.7"
+    page: "134"
+    pdfPage: 145
+    verdict: consider
+    machinery: "Uniform continuity on an unbounded domain without a Lipschitz bound."
+    standardResult: "sqrt(x) is uniformly continuous on [0,∞) (but not Lipschitz)"
+    topic: continuity
+    subtopics: [uniform-continuity, lipschitz-holder]
+    skills: [epsilon-delta-proof, choose-delta]
+    difficulty: easy
+    difficultyRationale: "Use |√x - √y| ≤ √|x - y|, or split [0,1] (compact) and [1,∞) (Lipschitz)."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, square-root, Holder]
+    references: []
+    problemLatex: |
+      Prove that $f(x) = \sqrt{x}$ is uniformly continuous on $[0, \infty)$.
+
+  - cid: abbott-4.4.8
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.8"
+    page: "134"
+    pdfPage: 145
+    verdict: strong
+    machinery: "Which ranges are possible for continuous functions on open/closed/half-open intervals (EVT, compactness)."
+    standardResult: "continuous image of compact is compact; ranges on (0,1), (0,1]"
+    topic: continuity
+    subtopics: [EVT, continuity-and-topology]
+    skills: [construct-counterexample, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Impossibility of (a) by compactness; explicit oscillating constructions for (b), (c)."
+    category: canonical
+    type: counterexample
+    tags: [compactness, extreme-value-theorem, range, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of each of the following, or provide a short argument for why the request is impossible.
+
+      (a) A continuous function defined on $[0, 1]$ with range $(0, 1)$.
+
+      (b) A continuous function defined on $(0, 1)$ with range $[0, 1]$.
+
+      (c) A continuous function defined on $(0, 1]$ with range $(0, 1)$.
+
+  - cid: abbott-4.4.9
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.9"
+    page: "135"
+    pdfPage: 146
+    verdict: core
+    machinery: "Lipschitz ⇒ uniformly continuous, and the converse fails."
+    standardResult: "Lipschitz implies uniformly continuous; sqrt(x) is UC but not Lipschitz"
+    topic: continuity
+    subtopics: [lipschitz-holder, uniform-continuity]
+    skills: [choose-delta, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "δ = ε/M; counterexample √x on [0,1]."
+    category: canonical
+    type: proof
+    tags: [Lipschitz, uniform-continuity, counterexample]
+    references: []
+    problemLatex: |
+      **(Lipschitz Functions).** A function $f\colon A \to \mathbb{R}$ is called *Lipschitz* if there exists a bound $M > 0$ such that
+      $$\left|\frac{f(x) - f(y)}{x - y}\right| \le M$$
+      for all $x \neq y \in A$. Geometrically speaking, a function $f$ is Lipschitz if there is a uniform bound on the magnitude of the slopes of lines drawn through any two points on the graph of $f$.
+
+      (a) Show that if $f\colon A \to \mathbb{R}$ is Lipschitz, then it is uniformly continuous on $A$.
+
+      (b) Is the converse statement true? Are all uniformly continuous functions necessarily Lipschitz?
+
+  - cid: abbott-4.4.10
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.10"
+    page: "135"
+    pdfPage: 146
+    verdict: strong
+    machinery: "Algebra of uniform continuity: sums and compositions yes; products and quotients no."
+    standardResult: "sum/composition of UC functions are UC; product/quotient need not be"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Short proofs for sum/composition; counterexamples like f = g = x on R and 1/x."
+    category: canonical
+    type: counterexample
+    tags: [uniform-continuity, algebra-of-functions, counterexample]
+    references: []
+    problemLatex: |
+      Assume that $f$ and $g$ are uniformly continuous functions defined on a common domain $A$. Which of the following combinations are necessarily uniformly continuous on $A$:
+      $$f(x) + g(x), \quad f(x)g(x), \quad \frac{f(x)}{g(x)}, \quad f(g(x))\ ?$$
+      (Assume that the quotient and the composition are properly defined and thus at least continuous.)
+
+  - cid: abbott-4.4.11
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.11"
+    page: "135"
+    pdfPage: 146
+    verdict: core
+    machinery: "Topological characterization of continuity via preimages of open sets."
+    standardResult: "f continuous iff preimage of every open set is open"
+    topic: continuity
+    subtopics: [continuity-and-topology, open-sets]
+    skills: [epsilon-delta-proof, preimage-argument]
+    difficulty: easy
+    difficultyRationale: "Unwind ε-δ with neighborhoods in both directions."
+    category: canonical
+    type: proof
+    tags: [continuity, open-set, preimage, topology]
+    references: []
+    problemLatex: |
+      **(Topological Characterization of Continuity).** Let $g$ be defined on all of $\mathbb{R}$. If $B$ is a subset of $\mathbb{R}$, define the set $g^{-1}(B)$ by
+      $$g^{-1}(B) = \{x \in \mathbb{R} : g(x) \in B\}.$$
+      Show that $g$ is continuous if and only if $g^{-1}(O)$ is open whenever $O \subseteq \mathbb{R}$ is an open set.
+
+  - cid: abbott-4.4.13
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.13"
+    page: "135"
+    pdfPage: 146
+    verdict: core
+    machinery: "Uniform continuity preserves Cauchy sequences; UC on (a,b) iff continuous extension to [a,b]."
+    standardResult: "continuous extension theorem: UC on (a,b) iff extends continuously to [a,b]"
+    topic: continuity
+    subtopics: [uniform-continuity, cauchy-sequences]
+    skills: [sequential-characterization, cauchy-criterion]
+    difficulty: medium
+    difficultyRationale: "Forward direction needs defining g(a) as a limit independent of the sequence chosen, then verifying continuity."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, Cauchy, continuous-extension, compactness]
+    references: []
+    problemLatex: |
+      **(Continuous Extension Theorem).**
+
+      (a) Show that a uniformly continuous function preserves Cauchy sequences; that is, if $f\colon A \to \mathbb{R}$ is uniformly continuous and $(x_n) \subseteq A$ is a Cauchy sequence, then show $f(x_n)$ is a Cauchy sequence.
+
+      (b) Let $g$ be a continuous function on the open interval $(a, b)$. Prove that $g$ is uniformly continuous on $(a, b)$ if and only if it is possible to define values $g(a)$ and $g(b)$ at the endpoints so that the extended function $g$ is continuous on $[a, b]$. (In the forward direction, first produce candidates for $g(a)$ and $g(b)$, and then show the extended $g$ is continuous.)
+
+  - cid: abbott-4.4.14
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.4 Continuous Functions on Compact Sets"
+    number: "Exercise 4.4.14"
+    page: "136"
+    pdfPage: 147
+    verdict: consider
+    machinery: "Continuous on compact ⇒ uniformly continuous via open covers (Lebesgue-number style)."
+    standardResult: "continuous on compact ⇒ uniformly continuous (open-cover proof)"
+    topic: continuity
+    subtopics: [uniform-continuity, compactness]
+    skills: [open-cover-argument, choose-delta]
+    difficulty: medium
+    difficultyRationale: "Cover by neighborhoods of radius δ_x/2 and take the minimum over a finite subcover."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, Heine-Borel, open-cover, compactness]
+    references: ["Theorem 4.4.7 (quoted)", "Theorem 3.3.8 (iii) (quoted)"]
+    problemLatex: |
+      Construct an alternate proof of Theorem 4.4.7 using the open cover characterization of compactness from the Heine–Borel Theorem (Theorem 3.3.8 (iii)).
+
+      *(Theorem 4.4.7 (Uniform Continuity on Compact Sets): A function that is continuous on a compact set $K$ is uniformly continuous on $K$. Theorem 3.3.8 (iii): every open cover for $K$ has a finite subcover.)*
+    transcriptionNotes: "Theorem 4.4.7 quoted verbatim (p. 133); Theorem 3.3.8(iii) quoted. The book's own proof of 4.4.7 is sequential, so the core result itself may be better taken from another source; this is the open-cover variant."
+
+  # ---------------- 4.5 IVT ----------------
+  - cid: abbott-4.5.2
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.5 The Intermediate Value Theorem"
+    number: "Exercise 4.5.2"
+    page: "139"
+    pdfPage: 150
+    verdict: consider
+    machinery: "Continuous images of intervals are intervals; compact images compact."
+    standardResult: "possible ranges of continuous functions on intervals"
+    topic: continuity
+    subtopics: [IVT, EVT, continuity-and-topology]
+    skills: [construct-counterexample, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Combination of preservation of compactness and connectedness; explicit examples for (a),(c)."
+    category: canonical
+    type: counterexample
+    tags: [IVT, connectedness, compactness, range]
+    references: []
+    problemLatex: |
+      Provide an example of each of the following, or explain why the request is impossible
+
+      (a) A continuous function defined on an open interval with range equal to a closed interval.
+
+      (b) A continuous function defined on a closed interval with range equal to an open interval.
+
+      (c) A continuous function defined on an open interval with range equal to an unbounded closed set different from $\mathbb{R}$.
+
+      (d) A continuous function defined on all of $\mathbb{R}$ with range equal to $\mathbb{Q}$.
+    transcriptionNotes: "Overlaps abbott-4.4.8; curator may keep one."
+
+  - cid: abbott-4.5.3
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.5 The Intermediate Value Theorem"
+    number: "Exercise 4.5.3"
+    page: "140"
+    pdfPage: 151
+    verdict: strong
+    machinery: "Partial converse to IVT: monotone + intermediate value property ⇒ continuous."
+    standardResult: "monotone function with the intermediate value property is continuous"
+    topic: continuity
+    subtopics: [monotone-functions, IVT]
+    skills: [epsilon-delta-proof, contradiction]
+    difficulty: medium
+    difficultyRationale: "Requires handling one-sided behavior and showing a jump would skip values."
+    category: canonical
+    type: proof
+    tags: [monotone, intermediate-value-property, continuity]
+    references: ["Definition 4.5.3 (quoted)"]
+    problemLatex: |
+      A function $f$ is *increasing* on $A$ if $f(x) \le f(y)$ for all $x < y$ in $A$. Show that if $f$ is increasing on $[a, b]$ and satisfies the intermediate value property (Definition 4.5.3), then $f$ is continuous on $[a, b]$.
+
+      *(Definition 4.5.3: A function $f$ has the intermediate value property on an interval $[a, b]$ if for all $x < y$ in $[a, b]$ and all $L$ between $f(x)$ and $f(y)$, it is always possible to find a point $c \in (x, y)$ where $f(c) = L$.)*
+    transcriptionNotes: "Definition 4.5.3 quoted verbatim (p. 139)."
+
+  - cid: abbott-4.5.4
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.5 The Intermediate Value Theorem"
+    number: "Exercise 4.5.4"
+    page: "140"
+    pdfPage: 151
+    verdict: consider
+    machinery: "IVT used to produce uncountably many points of non-injectivity."
+    standardResult: "set where a continuous function fails to be one-to-one is empty or uncountable"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [theorem-application, cardinality-argument]
+    difficulty: medium
+    difficultyRationale: "From g(x)=g(y), use IVT on both sides of an interior extremum to pair up an interval's worth of points."
+    category: challenge
+    type: proof
+    tags: [IVT, injectivity, uncountable]
+    references: []
+    problemLatex: |
+      Let $g$ be continuous on an interval $A$ and let $F$ be the set of points where $g$ fails to be one-to-one; that is,
+      $$F = \{x \in A : g(x) = g(y) \text{ for some } y \neq x \text{ and } y \in A\}.$$
+      Show $F$ is either empty or uncountable.
+    transcriptionNotes: "Typo fixed: the book defines F with f(x) = f(y), but the function is named g; changed to g(x) = g(y)."
+
+  - cid: abbott-4.5.6
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.5 The Intermediate Value Theorem"
+    number: "Exercise 4.5.6"
+    page: "140"
+    pdfPage: 151
+    verdict: core
+    machinery: "IVT applied to an auxiliary function; universal chord theorem and its sharpness."
+    standardResult: "universal chord theorem (horizontal chords of length 1/n)"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [auxiliary-function, telescoping, construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "(b) needs the telescoping sum of h(x) = f(x+1/n) - f(x) to force a sign change; (c) needs a clever counterexample."
+    category: synthesis
+    type: proof
+    tags: [IVT, universal-chord-theorem, auxiliary-function, counterexample]
+    references: []
+    problemLatex: |
+      Let $f\colon [0, 1] \to \mathbb{R}$ be continuous with $f(0) = f(1)$.
+
+      (a) Show that there must exist $x, y \in [0, 1]$ satisfying $|x - y| = 1/2$ and $f(x) = f(y)$.
+
+      (b) Show that for each $n \in \mathbb{N}$ there exist $x_n, y_n \in [0, 1]$ with $|x_n - y_n| = 1/n$ and $f(x_n) = f(y_n)$.
+
+      (c) If $h \in (0, 1/2)$ is not of the form $1/n$, there does not necessarily exist $|x - y| = h$ satisfying $f(x) = f(y)$. Provide an example that illustrates this using $h = 2/5$.
+
+  - cid: abbott-4.5.7
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.5 The Intermediate Value Theorem"
+    number: "Exercise 4.5.7"
+    page: "140"
+    pdfPage: 151
+    verdict: core
+    machinery: "IVT applied to f(x) - x: one-dimensional Brouwer fixed point theorem."
+    standardResult: "continuous f:[0,1]→[0,1] has a fixed point"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [auxiliary-function, theorem-application]
+    difficulty: easy
+    difficultyRationale: "Apply IVT to g(x) = f(x) - x."
+    category: canonical
+    type: theorem-application
+    tags: [IVT, fixed-point, Brouwer]
+    references: []
+    problemLatex: |
+      Let $f$ be a continuous function on the closed interval $[0, 1]$ with range also contained in $[0, 1]$. Prove that $f$ must have a fixed point; that is, show $f(x) = x$ for at least one value of $x \in [0, 1]$.
+
+  - cid: abbott-4.5.8
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.5 The Intermediate Value Theorem"
+    number: "Exercise 4.5.8"
+    page: "140"
+    pdfPage: 151
+    verdict: strong
+    machinery: "Continuity of inverse of a continuous injection on a compact interval."
+    standardResult: "inverse of a continuous one-to-one function on [a,b] is continuous"
+    topic: continuity
+    subtopics: [monotone-functions, IVT, sequential-continuity]
+    skills: [subsequence-extraction, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Either show f is strictly monotone via IVT, or use compactness and uniqueness of subsequential limits."
+    category: canonical
+    type: proof
+    tags: [inverse-function, continuity, compactness, monotone]
+    references: []
+    problemLatex: |
+      **(Inverse functions).** If a function $f\colon A \to \mathbb{R}$ is one-to-one, then we can define the inverse function $f^{-1}$ on the range of $f$ in the natural way: $f^{-1}(y) = x$ where $y = f(x)$.
+
+      Show that if $f$ is continuous on an interval $[a, b]$ and one-to-one, then $f^{-1}$ is also continuous.
+
+  # ---------------- 4.6 Sets of Discontinuity ----------------
+  - cid: abbott-4.6.2
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.6 Sets of Discontinuity"
+    number: "Exercise 4.6.2"
+    page: "141"
+    pdfPage: 152
+    verdict: strong
+    machinery: "Thomae-type construction: discontinuity set equals an arbitrary countable set."
+    standardResult: "function discontinuous exactly on a given countable set"
+    topic: continuity
+    subtopics: [discontinuities]
+    skills: [finiteness-argument, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Generalizes the Thomae argument: only finitely many a_n have f(a_n) ≥ ε; must handle points of A that are or are not limit points."
+    category: synthesis
+    type: construction
+    tags: [discontinuity-set, Thomae, countable-set]
+    references: []
+    problemLatex: |
+      Given a countable set $A = \{a_1, a_2, a_3, \ldots\}$, define $f(a_n) = 1/n$ and $f(x) = 0$ for all $x \notin A$. Find $D_f$.
+    transcriptionNotes: "$D_f \\subseteq \\mathbb{R}$ is the set of points where $f$ fails to be continuous (defined at the start of Section 4.6)."
+
+  - cid: abbott-4.6.5
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.6 Sets of Discontinuity"
+    number: "Exercise 4.6.5"
+    page: "142"
+    pdfPage: 153
+    verdict: strong
+    machinery: "One-sided limits of monotone functions exist (sup/inf), so discontinuities are jumps."
+    standardResult: "monotone functions have only jump discontinuities"
+    topic: continuity
+    subtopics: [monotone-functions, discontinuities]
+    skills: [sup-approximation, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Prove one-sided limits exist as sup/inf, then rule out removable discontinuities."
+    category: canonical
+    type: proof
+    tags: [monotone, one-sided-limit, jump-discontinuity, supremum]
+    references: ["Classification of discontinuities, p. 142 (quoted)"]
+    problemLatex: |
+      Prove that the only type of discontinuity a monotone function can have is a jump discontinuity.
+
+      *(From the text: Generally speaking, discontinuities can be divided into three categories: (i) If $\lim_{x\to c} f(x)$ exists but has a value different from $f(c)$, the discontinuity at $c$ is called removable. (ii) If $\lim_{x\to c^+} f(x) \neq \lim_{x\to c^-} f(x)$, then $f$ has a jump discontinuity at $c$. (iii) If $\lim_{x\to c} f(x)$ does not exist for some other reason, then the discontinuity at $c$ is called an essential discontinuity.)*
+    transcriptionNotes: "Classification of discontinuities quoted verbatim from p. 142. Monotone = increasing or decreasing (Definition 4.6.1)."
+
+  - cid: abbott-4.6.6
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.6 Sets of Discontinuity"
+    number: "Exercise 4.6.6"
+    page: "142"
+    pdfPage: 153
+    verdict: core
+    machinery: "Countability of jumps via choosing rationals in disjoint jump intervals."
+    standardResult: "monotone function has at most countably many discontinuities"
+    topic: continuity
+    subtopics: [monotone-functions, discontinuities, cardinality]
+    skills: [rational-interval-injection, density-argument]
+    difficulty: medium
+    difficultyRationale: "Pick a rational in each jump interval (f(c-), f(c+)) and argue these intervals are disjoint."
+    category: canonical
+    type: proof
+    tags: [monotone, countable, jump-discontinuity, density]
+    references: []
+    problemLatex: |
+      Construct a bijection between the set of jump discontinuities of a monotone function $f$ and a subset of $\mathbb{Q}$. Conclude that $D_f$ for a monotone function $f$ must either be finite or countable, but not uncountable.
+    transcriptionNotes: "Relies on Exercise 4.6.5 (only jump discontinuities). $D_f$ = set of discontinuities of $f$."
+
+  - cid: abbott-4.6.8
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.6 Sets of Discontinuity"
+    number: "Exercise 4.6.8"
+    page: "143"
+    pdfPage: 154
+    verdict: consider
+    machinery: "Oscillation-type argument: the set where variation is at least α is closed (key step to D_f being F_sigma)."
+    standardResult: "set of points of oscillation ≥ α is closed; D_f is F_sigma"
+    topic: continuity
+    subtopics: [discontinuities, continuity-and-topology]
+    skills: [epsilon-neighborhood-argument, contrapositive]
+    difficulty: medium
+    difficultyRationale: "Show the complement (α-continuity points) is open by reusing a δ-interval around nearby points."
+    category: synthesis
+    type: proof
+    tags: [oscillation, alpha-continuity, closed-set, F-sigma, discontinuity-set]
+    references: ["Definition 4.6.5 (quoted)"]
+    problemLatex: |
+      *(Definition 4.6.5: Let $f$ be defined on $\mathbb{R}$, and let $\alpha > 0$. The function $f$ is $\alpha$-continuous at $x \in \mathbb{R}$ if there exists a $\delta > 0$ such that for all $y, z \in (x - \delta, x + \delta)$ it follows that $|f(y) - f(z)| < \alpha$.)*
+
+      Given a function $f$ on $\mathbb{R}$, define $D_f^\alpha$ to be the set of points where the function $f$ fails to be $\alpha$-continuous. In other words,
+      $$D_f^\alpha = \{x \in \mathbb{R} : f \text{ is not } \alpha\text{-continuous at } x\}.$$
+
+      Prove that, for a fixed $\alpha > 0$, the set $D_f^\alpha$ is closed.
+    transcriptionNotes: "Definition 4.6.5 and the definition of $D_f^\\alpha$ quoted verbatim from p. 143. Exercises 4.6.9–4.6.11 complete the proof that D_f is F_sigma (Theorem 4.6.6); they were skipped as short steps, so the curator may wish to note this is the substantive step."
+
+skipped:
+  - "3.2.1 minor (where finiteness is used; countable intersection of open sets) — consider-level but weaker than 3.2.13/3.2.6"
+  - "3.2.2, 3.2.3 routine identification of limit points/open/closed for specific sets"
+  - "3.2.8, 3.3.4 routine open/closed/compact bookkeeping of set combinations"
+  - "3.2.9 De Morgan's laws (set theory)"
+  - "3.2.12 uncountable-splitting set B is open — niche"
+  - "3.2.15 F_sigma/G_delta basic examples (same as 3.5.3); superseded by 3.5.6"
+  - "3.3.1 compact set contains sup/inf — easy, effectively covered by 3.2.4 + compact⇒closed"
+  - "3.3.2 compactness check of set list — overlaps 3.3.11 (kept, quotes the list)"
+  - "3.3.6 finite/compact/closed fill-in-the-blank — conceptual but optional; overlaps 3.3.5"
+  - "3.4.1 perfect ∩ compact — minor"
+  - "3.4.2 perfect set of rationals — immediate from Theorem 3.4.3 (nonempty perfect sets are uncountable)"
+  - "3.4.3 mid-proof step of Theorem 3.4.2 (Cantor set perfect)"
+  - "3.4.4 middle-fourths Cantor set with length/dimension computation — computation, dimension exotic"
+  - "3.4.5 disjoint open sets ⇒ separated — trivial"
+  - "3.4.8 Cantor set totally disconnected — guided, near-duplicate of 3.4.7 in spirit"
+  - "3.4.9 closed set of irrationals via enumeration cover — interesting but optional"
+  - "3.5.1, 3.5.2 F_sigma/G_delta bookkeeping (complements, finite/countable unions)"
+  - "3.5.3 duplicate of 3.2.15"
+  - "3.5.7 set neither F_sigma nor G_delta — depends on chain of prior exercises"
+  - "3.5.8, 3.5.9 nowhere-dense definition/examples — routine"
+  - "3.5.10 mid-proof completion of Baire (nowhere-dense form); near-duplicate of 3.5.5"
+  - "4.2.1 algebraic limit theorem details — mid-development; quoted results needed"
+  - "4.2.2, 4.2.4 find largest delta computations — routine"
+  - "4.2.3 Thomae limit at 1 — near-duplicate of 4.3.7(c) (kept)"
+  - "4.2.6 short true/false on limits — minor"
+  - "4.2.8 compute limits with floor function — routine"
+  - "4.3.3 composition of continuous functions (both proofs) — routine"
+  - "4.3.5 continuity at isolated points — trivial"
+  - "4.3.10 max of continuous functions; sup of infinitely many — minor"
+  - "4.4.3 1/x^2 UC on [1,∞) not (0,1] — duplicate of 4.4.2(a)"
+  - "4.4.5 gluing UC on overlapping intervals — minor"
+  - "4.4.6 Cauchy-sequence-preserving examples — overlaps 4.4.13(a)"
+  - "4.4.12 preimages of finite/compact/bounded/closed sets — minor follow-up to 4.4.11"
+  - "4.5.1 IVT as corollary of preservation of connectedness — relies on book's connected-set theorems"
+  - "4.5.5 finishing the book's partial IVT proofs — mid-proof"
+  - "4.6.1 construct D_f = Z^c and (0,1] by modifying Dirichlet/Thomae — weaker than 4.3.14/4.6.2"
+  - "4.6.3, 4.6.4 left-hand limit definition / one-sided limit theorem — duplicate of 4.2.10"
+  - "4.6.7 checking given sets are F_sigma — routine"
+  - "4.6.9, 4.6.10, 4.6.11 short steps finishing Theorem 4.6.6 (D_f is F_sigma); 4.6.8 kept as the substantive step"

@@ -1,0 +1,155 @@
+#!/usr/bin/env node
+// Validate data/*.yaml and emit src/generated/bank.json.
+//   node scripts/build-data.mjs          validate + write
+//   node scripts/build-data.mjs --check  validate only (non-zero exit on error)
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import * as yaml from 'js-yaml';
+import katex from 'katex';
+import { tokenize, delimiterProblems } from '../src/lib/richtext.ts';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const dataDir = path.join(root, 'data');
+const checkOnly = process.argv.includes('--check');
+
+const errors = [];
+const warnings = [];
+const err = (where, msg) => errors.push(`${where}: ${msg}`);
+const warn = (where, msg) => warnings.push(`${where}: ${msg}`);
+
+const load = (f) => yaml.load(fs.readFileSync(f, 'utf8'));
+
+const sources = load(path.join(dataDir, 'sources.yaml'));
+const taxonomy = load(path.join(dataDir, 'taxonomy.yaml'));
+const APPROVED = ['mit', 'abbott', 'lebl', 'ross', 'cummings', 'tao'];
+for (const s of sources) if (!APPROVED.includes(s.key)) err('sources.yaml', `unapproved source key "${s.key}"`);
+const sourceKeys = new Set(sources.map((s) => s.key));
+
+const DIFF = Object.keys(taxonomy.difficulties);
+const CAT = Object.keys(taxonomy.categories);
+const TYPE = Object.keys(taxonomy.types);
+const topicMap = new Map(taxonomy.topics.map((t) => [t.key, t]));
+const SOL_TYPES = ['official', 'textbook', 'instructor', 'personal'];
+
+const files = fs
+  .readdirSync(path.join(dataDir, 'problems'))
+  .filter((f) => f.endsWith('.yaml'))
+  .sort();
+
+const problems = [];
+const ids = new Set();
+
+function checkLatex(where, src) {
+  for (const p of delimiterProblems(src)) err(where, p);
+  for (const t of tokenize(src)) {
+    if (t.kind !== 'math') continue;
+    try {
+      katex.renderToString(t.value, { displayMode: t.display, throwOnError: true, strict: 'ignore' });
+    } catch (e) {
+      err(where, `KaTeX: ${String(e.message).split('\n')[0]} in "${t.value.slice(0, 80)}"`);
+    }
+  }
+}
+
+for (const f of files) {
+  const list = load(path.join(dataDir, 'problems', f)) ?? [];
+  if (!Array.isArray(list)) {
+    err(f, 'top level must be a list of problems');
+    continue;
+  }
+  for (const p of list) {
+    const where = `${f}#${p?.id ?? '?'}`;
+    if (!p || typeof p !== 'object') {
+      err(f, 'non-object entry');
+      continue;
+    }
+    if (!/^[a-z0-9]+(-[a-z0-9.]+)+$/.test(p.id ?? '')) err(where, `bad id "${p.id}"`);
+    if (ids.has(p.id)) err(where, 'duplicate id');
+    ids.add(p.id);
+
+    if (!p.source || !sourceKeys.has(p.source.key)) err(where, `source.key must be one of ${[...sourceKeys]}`);
+    if (!p.source?.problemNumber) err(where, 'source.problemNumber required');
+    const expectedFile = `${p.source?.key}.yaml`;
+    if (f !== expectedFile) warn(where, `stored in ${f} but source is ${p.source?.key}`);
+
+    const topic = topicMap.get(p.topic);
+    if (!topic) err(where, `unknown topic "${p.topic}"`);
+    if (!Array.isArray(p.subtopics) || !p.subtopics.length) err(where, 'subtopics required');
+    else if (topic)
+      for (const s of p.subtopics) if (!(s in topic.subtopics)) err(where, `subtopic "${s}" not in topic ${p.topic}`);
+    if (!DIFF.includes(p.difficulty)) err(where, `bad difficulty "${p.difficulty}"`);
+    if (!CAT.includes(p.category)) err(where, `bad category "${p.category}"`);
+    if (!TYPE.includes(p.type)) err(where, `bad type "${p.type}"`);
+    for (const k of ['skills', 'tags']) if (!Array.isArray(p[k])) err(where, `${k} must be a list`);
+    if (!p.concept) err(where, 'concept required');
+    if (typeof p.problemLatex !== 'string' || !p.problemLatex.trim()) err(where, 'problemLatex required');
+    else checkLatex(where, p.problemLatex);
+
+    if (p.hints) {
+      if (!Array.isArray(p.hints)) err(where, 'hints must be a list');
+      else
+        p.hints.forEach((h, i) => {
+          if (!h.text || !h.source || !SOL_TYPES.includes(h.kind))
+            err(where, `hint ${i + 1} needs text, source and kind (${SOL_TYPES})`);
+          else checkLatex(`${where} hint ${i + 1}`, h.text);
+        });
+    }
+    if (p.solution) {
+      const s = p.solution;
+      if (typeof s.available !== 'boolean') err(where, 'solution.available must be boolean');
+      if (s.available) {
+        if (!SOL_TYPES.includes(s.type)) err(where, `solution.type must be one of ${SOL_TYPES}`);
+        if (!s.source) err(where, 'solution.source (provenance) required');
+        if (!s.latex) err(where, 'solution.latex required when available');
+        else checkLatex(`${where} solution`, s.latex);
+      }
+    }
+    if (p.assignedIn && !Array.isArray(p.assignedIn)) err(where, 'assignedIn must be a list');
+    if (p.notes) checkLatex(`${where} notes`, p.notes);
+    if (p.curation?.why) checkLatex(`${where} curation`, p.curation.why);
+    problems.push(p);
+  }
+}
+
+for (const p of problems)
+  for (const r of p.related ?? []) if (!ids.has(r)) err(p.id, `related id "${r}" does not exist`);
+
+// Order: curriculum topic order, then source tier order, then natural number order.
+const topicOrder = new Map(taxonomy.topics.map((t, i) => [t.key, i]));
+const sourceOrder = new Map(sources.map((s, i) => [s.key, i]));
+const diffOrder = new Map(DIFF.map((d, i) => [d, i]));
+problems.sort(
+  (a, b) =>
+    topicOrder.get(a.topic) - topicOrder.get(b.topic) ||
+    diffOrder.get(a.difficulty) - diffOrder.get(b.difficulty) ||
+    sourceOrder.get(a.source.key) - sourceOrder.get(b.source.key) ||
+    a.id.localeCompare(b.id, 'en', { numeric: true }),
+);
+
+for (const w of warnings) console.warn('warning:', w);
+if (errors.length) {
+  for (const e of errors) console.error('error:', e);
+  console.error(`\n${errors.length} error(s) in problem data.`);
+  process.exit(1);
+}
+
+const counts = {};
+for (const p of problems) counts[p.source.key] = (counts[p.source.key] ?? 0) + 1;
+console.log(`✓ ${problems.length} problems valid`, counts);
+
+if (!checkOnly) {
+  const bank = {
+    generatedAt: new Date().toISOString(),
+    sources,
+    topics: taxonomy.topics,
+    difficulties: taxonomy.difficulties,
+    categories: taxonomy.categories,
+    types: taxonomy.types,
+    problems,
+  };
+  const out = path.join(root, 'src', 'generated', 'bank.json');
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, JSON.stringify(bank));
+  console.log(`→ ${path.relative(root, out)}`);
+}

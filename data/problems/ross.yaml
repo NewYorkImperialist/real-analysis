@@ -1,0 +1,1248 @@
+# Curated selection from ross. Generated from the curation pipeline, then hand-maintained.
+- id: ross-8.7
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §8 A Discussion about Proofs
+    problemNumber: Exercise 8.7
+    page: '44'
+  topic: sequences
+  subtopics:
+  - divergence
+  skills:
+  - negate-definition
+  - triangle-inequality
+  - contradiction
+  concept: proving a sequence does not converge
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - divergence
+  - negation
+  - triangle-inequality
+  problemLatex: |
+    Show the following sequences do not converge.
+    (a) $\cos(\frac{n\pi}{3})$
+    (b) $s_n = (-1)^n n$
+    (c) $\sin(\frac{n\pi}{3})$
+  hints:
+  - text: |
+      (a) Assume $\lim \cos(\frac{n\pi}{3}) = a$. Then there exists $N$ such that $n > N$ implies $|\cos(\frac{n\pi}{3}) - a| < 1$. Consider $n > N$ and $n + 3$ where $n$ is a multiple of 6; substituting these values in the inequality gives $|1 - a| < 1$ and $|-1 - a| < 1$. By the triangle inequality
+      $$2 = |(1 - a) - (-1 - a)| \le |1 - a| + |-1 - a| < 1 + 1 = 2,$$
+      a contradiction.
+      (b) Assume $\lim (-1)^n n = a$. Then there exists $N$ such that $n > N$ implies $|(-1)^n n - a| < 1$. For an even $n > N$ and for $n + 2$ this tells us $|n - a| < 1$ and $|n + 2 - a| < 1$. So $2 = |n + 2 - a - (n - a)| \le |n + 2 - a| + |n - a| < 2$, a contradiction.
+      (c) Note the sequence takes the values $\pm\frac{\sqrt{3}}{2}$ for large $n$. Assume $\lim \sin(\frac{n\pi}{3}) = a$. Then there is $N$ such that
+      $$n > N \quad\text{implies}\quad \left|\sin\left(\frac{n\pi}{3}\right) - a\right| < \frac{\sqrt{3}}{2}.$$
+      Substituting suitable $n > N$, we obtain $\left|\frac{\sqrt{3}}{2} - a\right| < \frac{\sqrt{3}}{2}$ and $\left|-\frac{\sqrt{3}}{2} - a\right| < \frac{\sqrt{3}}{2}$. By the triangle inequality
+      $$\sqrt{3} = \left|\frac{\sqrt{3}}{2} - \left(-\frac{\sqrt{3}}{2}\right)\right| \le \left|\frac{\sqrt{3}}{2} - a\right| + \left|a - \left(-\frac{\sqrt{3}}{2}\right)\right| < \frac{\sqrt{3}}{2} + \frac{\sqrt{3}}{2} = \sqrt{3},$$
+      a contradiction.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: bookHint from PDF pp. 380–381.
+  curation:
+    why: 'Proving divergence means negating the definition: some ε works against every N.'
+- id: ross-10.4
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §10 Monotone Sequences and Cauchy Sequences
+    problemNumber: Exercise 10.4
+    page: '65'
+  topic: sequences
+  subtopics:
+  - monotone-sequences
+  - cauchy-sequences
+  skills:
+  - construct-counterexample
+  concept: monotone convergence theorem and Cauchy criterion fail in Q
+  difficulty: easy
+  category: canonical
+  type: conceptual
+  tags:
+  - completeness
+  - rationals
+  - Cauchy
+  - monotone-convergence
+  problemLatex: |
+    Discuss why Theorems 10.2 and 10.11 would fail if we restricted our world of numbers to the set $\mathbb{Q}$ of rational numbers.
+    *(Theorem 10.2: All bounded monotone sequences converge.)*
+    *(Theorem 10.11: A sequence is a convergent sequence if and only if it is a Cauchy sequence.)*
+  notes: Theorems 10.2 (PDF 69) and 10.11 (PDF 75) quoted verbatim.
+  curation:
+    why: In ℚ, monotone convergence and the Cauchy criterion fail — locates exactly where completeness enters.
+- id: ross-10.6
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §10 Monotone Sequences and Cauchy Sequences
+    problemNumber: Exercise 10.6
+    page: '65'
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  skills:
+  - telescoping
+  - triangle-inequality
+  - construct-counterexample
+  concept: '|s_{n+1}-s_n| < 2^{-n} ⇒ Cauchy; 1/n increments not sufficient'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy
+  - telescoping
+  - counterexample
+  - machinery
+  problemLatex: |
+    (a) Let $(s_n)$ be a sequence such that
+    $$|s_{n+1} - s_n| < 2^{-n} \quad\text{for all}\quad n \in \mathbb{N}.$$
+    Prove $(s_n)$ is a Cauchy sequence and hence a convergent sequence.
+    (b) Is the result in (a) true if we only assume $|s_{n+1} - s_n| < \frac{1}{n}$ for all $n \in \mathbb{N}$?
+  curation:
+    why: Geometric increments give a Cauchy sequence; increments 1/n do not. The prototype of telescoping estimates.
+- id: ross-11.9
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §11 Subsequences
+    problemNumber: Exercise 11.9
+    page: '77'
+  topic: sequences
+  subtopics:
+  - subsequences
+  - limsup-liminf
+  skills:
+  - sequential-characterization
+  concept: set of subsequential limits is closed; (0,1) cannot be such a set
+  difficulty: easy
+  category: synthesis
+  type: conceptual
+  tags:
+  - closed-set
+  - subsequential-limits
+  problemLatex: |
+    (a) Show the closed interval $[a, b]$ is a closed set.
+    (b) Is there a sequence $(s_n)$ such that $(0, 1)$ is its set of subsequential limits?
+
+    *[Paraphrase, not verbatim — Ross's notion of closed set (§11, before Theorem 11.9): a set $S$ is called closed if it contains all limits of sequences from $S$.]*
+
+    *(Theorem 11.9, quoted: Let $S$ denote the set of subsequential limits of a sequence $(s_n)$. Suppose $(t_n)$ is a sequence in $S \cap \mathbb{R}$ and that $t = \lim t_n$. Then $t$ belongs to $S$.)*
+  hints:
+  - text: |
+      (a) To show $[a, b]$ is closed, we need to consider a limit $s$ of a convergent sequence $(s_n)$ from $[a, b]$ and show $s$ is also in $[a, b]$. But this was done in Exercise 8.9.
+      (b) No! $(0, 1)$ is not closed, i.e., $(0, 1)$ does not have the property described in Theorem 11.9. For example, $t_n = \frac{1}{n}$ defines a sequence in $(0, 1)$ such that $t = \lim t_n$ does not belong to $(0, 1)$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: 'Closed-set notion paraphrased from the sentence before Theorem 11.9 (PDF 87: ''the set S of subsequential limits always contains all limits of sequences from S. Such sets are called closed sets.''); Theorem 11.9 quoted verbatim. bookHint from PDF p. 383.'
+  curation:
+    why: The set of subsequential limits is closed, so (0,1) cannot be one.
+- id: ross-12.13
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §12 lim sup's and lim inf's
+    problemNumber: Exercise 12.13
+    page: '83'
+  topic: sequences
+  subtopics:
+  - limsup-liminf
+  skills:
+  - tail-sup
+  - two-inequalities
+  concept: 'liminf s_n = sup{a : s_n ≥ a eventually}, limsup = inf{b : s_n ≤ b eventually}'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - limsup
+  - liminf
+  - characterization
+  problemLatex: |
+    Let $(s_n)$ be a bounded sequence in $\mathbb{R}$. Let $A$ be the set of $a \in \mathbb{R}$ such that $\{n \in \mathbb{N} : s_n < a\}$ is finite, i.e., all but finitely many $s_n$ are $\ge a$. Let $B$ be the set of $b \in \mathbb{R}$ such that $\{n \in \mathbb{N} : s_n > b\}$ is finite. Prove $\sup A = \liminf s_n$ and $\inf B = \limsup s_n$.
+  hints:
+  - text: |
+      Proof of $\sup A = \liminf s_n$. Consider $N$ in $\mathbb{N}$ and observe $u_N = \inf\{s_n : n > N\}$ is a number in $A$, since $\{n \in \mathbb{N} : s_n < u_N\} \subseteq \{1, 2, \ldots, N\}$. So $u_N \le \sup A$ for all $N$ and consequently $\liminf s_n = \lim u_N \le \sup A$.
+      Next consider $a \in A$. Let $N_0 = \max\{n \in \mathbb{N} : s_n < a\} < \infty$. Then $s_n \ge a$ for $n > N_0$. Thus for $N \ge N_0$ we have $u_N = \inf\{s_n : n > N\} \ge a$. It follows that $\liminf s_n = \lim u_N \ge a$. We have just shown that $\liminf s_n$ is an upper bound for the set $A$. Therefore $\liminf s_n \ge \sup A$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: bookHint from PDF p. 384.
+  curation:
+    why: limsup as inf of ‘eventual upper bounds’ — the characterization most used in practice.
+- id: ross-13.7
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §13 Some Topological Concepts in Metric Spaces
+    problemNumber: Exercise 13.7
+    page: '93'
+  topic: topology
+  subtopics:
+  - open-sets
+  skills:
+  - maximal-interval
+  - countability-via-rationals
+  concept: every open set in R is a countable disjoint union of open intervals
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - open-set
+  - structure-theorem
+  - intervals
+  - countable
+  problemLatex: |
+    Show that every open set in $\mathbb{R}$ is the disjoint union of a finite or infinite sequence of open intervals.
+  hints:
+  - text: |
+      Outline of Proof. Consider an open set $U \subseteq \mathbb{R}$. Let $(q_n)$ be an enumeration of the rationals in $U$. For each $n$, let
+      $$a_n = \inf\{a \in \mathbb{R} : (a, q_n] \subseteq U\}, \quad b_n = \sup\{b \in \mathbb{R} : [q_n, b) \subseteq U\}.$$
+      Show $(a_n, b_n) \subseteq U$ for each $n$ and $U = \bigcup_{n=1}^{\infty} (a_n, b_n)$. Show
+      $$(a_n, b_n) \cap (a_m, b_m) \ne \varnothing \quad\text{implies}\quad (a_n, b_n) = (a_m, b_m).$$
+      Now either there will be only finitely many distinct [and disjoint] intervals or else a subsequence $\{(a_{n_k}, b_{n_k})\}_{k=1}^{\infty}$ of $\{(a_n, b_n)\}$ will consist of disjoint intervals for which $\bigcup_{k=1}^{\infty} (a_{n_k}, b_{n_k}) = U$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Open intervals may be unbounded here (a_n, b_n can be ±∞), consistent with Ross's §5 conventions. bookHint from PDF p. 385 (union symbols verified against page image; text extraction showed '+').
+  curation:
+    why: Every open subset of ℝ is a countable disjoint union of open intervals — the structure theorem used in measure theory.
+- id: ross-14.10
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §14 Series
+    problemNumber: Exercise 14.10
+    page: '105'
+  topic: series
+  subtopics:
+  - convergence-tests
+  skills:
+  - construct-counterexample
+  - limsup-computation
+  concept: root test decides where ratio test is inconclusive
+  difficulty: easy
+  category: canonical
+  type: construction
+  tags:
+  - root-test
+  - ratio-test
+  - counterexample
+  problemLatex: |
+    Find a series $\sum a_n$ which diverges by the Root Test but for which the Ratio Test gives no information. Compare Example 8.
+    *[Summary, not verbatim (series quoted): Example 8 of §14 considers $\sum_{n=0}^{\infty} 2^{(-1)^n - n} = 2 + \frac{1}{4} + \frac{1}{2} + \frac{1}{16} + \frac{1}{8} + \frac{1}{64} + \cdots$, where $a_{n+1}/a_n$ alternates between $1/8$ and $2$, so the Ratio Test gives no information while the Root Test shows convergence.]*
+  notes: Example 8 (PDF 114) summarized — the series is quoted verbatim, the explanatory clause is a summary. Root/Ratio tests in Ross are stated via limsup |a_n|^{1/n} and limsup/liminf of |a_{n+1}/a_n|.
+  curation:
+    why: A series where the root test decides but the ratio test is inconclusive.
+- id: ross-14.12
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §14 Series
+    problemNumber: Exercise 14.12
+    page: '105'
+  topic: series
+  subtopics:
+  - convergence-tests
+  - comparison
+  skills:
+  - subsequence-extraction
+  - comparison-estimate
+  - induction
+  concept: liminf |a_n| = 0 ⇒ some subseries converges
+  difficulty: easy
+  category: synthesis
+  type: construction
+  tags:
+  - subsequence
+  - liminf
+  - series
+  - geometric-bound
+  problemLatex: |
+    Let $(a_n)_{n\in\mathbb{N}}$ be a sequence such that $\liminf |a_n| = 0$. Prove there is a subsequence $(a_{n_k})_{k\in\mathbb{N}}$ such that $\sum_{k=1}^{\infty} a_{n_k}$ converges.
+  curation:
+    why: If liminf |aₙ| = 0, some subseries converges — choose a fast subsequence.
+- id: ross-15.3
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §15 Alternating Series and Integral Tests
+    problemNumber: Exercise 15.3
+    page: '109'
+  topic: series
+  subtopics:
+  - convergence-tests
+  skills:
+  - integral-test
+  - substitution
+  concept: sum 1/(n (log n)^p) converges iff p > 1
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - integral-test
+  - log-series
+  problemLatex: |
+    Show $\sum_{n=2}^{\infty} \frac{1}{n(\log n)^p}$ converges if and only if $p > 1$.
+  hints:
+  - text: |
+      Hint: Use integral tests. Note
+      $$\lim_{n\to\infty} \int_3^n \frac{1}{x(\log x)^p}\, dx = \lim_{n\to\infty} \int_{\log 3}^{\log n} \frac{1}{u^p}\, du.$$
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: bookHint from PDF p. 387 (verified against image). Ross's integral test is the informal 15.2 discussion, not a formal theorem. Similar 15.4 skipped.
+  curation:
+    why: Σ 1/(n (log n)^p) converges iff p > 1 — the standard borderline family.
+- id: ross-16.8
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §16 Decimal Expansions of Real Numbers
+    problemNumber: Exercise 16.8
+    page: '121'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - diagonal-argument
+  concept: (0,1) is uncountable (diagonal argument)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - uncountable
+  - diagonal-argument
+  - decimal-expansion
+  problemLatex: |
+    Let $(s_n)$ be a sequence of numbers in $(0, 1)$. Each $s_n$ has a decimal expansion $0.d_1^{(n)} d_2^{(n)} d_3^{(n)} \cdots$. For each $n$, let $e_n = 6$ if $d_n^{(n)} \ne 6$ and $e_n = 7$ if $d_n^{(n)} = 6$. Show $.e_1 e_2 e_3 \cdots$ is the decimal expansion for some number $y$ in $(0, 1)$ and $y \ne s_n$ for all $n$. *Remark*: This shows the elements of $(0, 1)$ cannot be listed as a sequence. In set-theoretic parlance, $(0, 1)$ is "uncountable." Since the set $\mathbb{Q} \cap (0, 1)$ can be listed as a sequence, there are a lot of irrational numbers in $(0, 1)$!
+  notes: Verified against page image PDF 133. Uses §16's facts that a number has at most two decimal expansions (one ending in 0s, one in 9s).
+  curation:
+    why: Cantor's diagonal argument with decimals, including the 6/7 trick that avoids the 0.999… ambiguity.
+- id: ross-17.9
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: §17 Continuous Functions
+    problemNumber: Exercise 17.9
+    page: '132'
+  topic: continuity
+  subtopics:
+  - epsilon-delta-continuity
+  skills:
+  - epsilon-delta-proof
+  - choose-delta
+  - triangle-inequality
+  concept: epsilon-delta continuity proofs (x^2, sqrt x at 0, x sin(1/x) at 0, x^3)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - continuity
+  - epsilon-delta
+  - machinery
+  problemLatex: |
+    Prove each of the following functions in continuous at $x_0$ by verifying the $\epsilon$–$\delta$ property of Theorem 17.2.
+    *(Theorem 17.2: Let $f$ be a real-valued function whose domain is a subset of $\mathbb{R}$. Then $f$ is continuous at $x_0$ in $\operatorname{dom}(f)$ if and only if for each $\epsilon > 0$ there exists $\delta > 0$ such that $x \in \operatorname{dom}(f)$ and $|x - x_0| < \delta$ imply $|f(x) - f(x_0)| < \epsilon$.)*
+    (a) $f(x) = x^2$, $x_0 = 2$;
+    (b) $f(x) = \sqrt{x}$, $x_0 = 0$;
+    (c) $f(x) = x \sin(\frac{1}{x})$ for $x \neq 0$ and $f(0) = 0$, $x_0 = 0$;
+    (d) $g(x) = x^3$, $x_0$ arbitrary.
+    *Hint for* (d): $x^3 - x_0^3 = (x - x_0)(x^2 + x_0 x + x_0^2)$.
+  hints:
+  - text: |
+      (a) Discussion. Let $\epsilon > 0$. We want $|x^2 - 4| < \epsilon$ for $|x - 2|$ small, i.e., we want $|x - 2| \cdot |x + 2| < \epsilon$ for $|x - 2|$ small. If $|x - 2| < 1$, then $|x + 2| < 5$, so it suffices to get $|x - 2| \cdot 5 < \epsilon$. Set $\delta = \min\{1, \frac{\epsilon}{5}\}$.
+      (c) For $\epsilon > 0$, let $\delta = \epsilon$ and observe
+      $$|x - 0| < \delta \quad\text{implies}\quad \left|x \sin\left(\frac{1}{x}\right) - 0\right| < \epsilon.$$
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Book typo 'in continuous' (for 'is continuous') kept verbatim. Theorem 17.2 quoted verbatim (condition (1)). bookHint from PDF p.388 (printed 379). Verified against page image.
+  curation:
+    why: 'Four ε–δ continuity proofs of increasing subtlety: bounding a factor near x₀, δ = ε², δ = ε, and a point-dependent δ.'
+- id: ross-18.4
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: §18 Properties of Continuous Functions
+    problemNumber: Exercise 18.4
+    page: '139'
+  topic: continuity
+  subtopics:
+  - EVT
+  skills:
+  - construct-counterexample
+  concept: non-closed set admits unbounded continuous function (1/|x - x0|)
+  difficulty: easy
+  category: canonical
+  type: construction
+  tags:
+  - continuity
+  - extreme-value-theorem
+  - closed-set
+  - unbounded
+  - counterexample
+  problemLatex: |
+    Let $S \subseteq \mathbb{R}$ and suppose there exists a sequence $(x_n)$ in $S$ converging to a number $x_0 \notin S$. Show there exists an unbounded continuous function on $S$.
+  notes: No entry in Selected Hints. Compare metric-space version ross-21.5.
+  curation:
+    why: 'Closedness is necessary for the EVT: a missing limit point lets 1/|x − x₀| blow up.'
+- id: ross-18.12
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: §18 Properties of Continuous Functions
+    problemNumber: Exercise 18.12
+    page: '139'
+  topic: continuity
+  subtopics:
+  - IVT
+  - discontinuities
+  skills:
+  - construct-counterexample
+  - IVT-application
+  concept: 'sin(1/x): intermediate value property but discontinuous'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - intermediate-value-property
+  - counterexample
+  - sin-1-over-x
+  - discontinuity
+  problemLatex: |
+    Let $f(x) = \sin(\frac{1}{x})$ for $x \neq 0$ and let $f(0) = 0$.
+    (a) Observe that $f$ is discontinuous at 0 by Exercise 17.10(b).
+    (b) Show $f$ has the intermediate value property on $\mathbb{R}$.
+  notes: 'Exercise 17.10(b) asks to prove this function is discontinuous at 0 (see ross-17.10). Intermediate value property (Theorem 18.2): whenever a, b in I, a < b and y lies between f(a) and f(b), there is x in (a, b) with f(x) = y. No entry in Selected Hints.'
+  curation:
+    why: 'The intermediate value property does not imply continuity: sin(1/x) is the standard witness.'
+- id: ross-19.1
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: §19 Uniform Continuity
+    problemNumber: Exercise 19.1
+    page: '151'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - negate-definition
+  - theorem-recognition
+  - sequential-characterization
+  concept: classifying uniform continuity of x^3, 1/x^3, sin(1/x^2), x^2 sin(1/x) on various sets
+  difficulty: medium
+  category: canonical
+  type: conceptual
+  tags:
+  - uniform-continuity
+  - counterexample
+  - extension
+  - Cauchy
+  problemLatex: |
+    Which of the following continuous functions are uniformly continuous on the specified set? Justify your answers. Use any theorems you wish.
+    (a) $f(x) = x^{17}\sin x - e^x \cos 3x$ on $[0, \pi]$,
+    (b) $f(x) = x^3$ on $[0, 1]$,
+    (c) $f(x) = x^3$ on $(0, 1)$,
+    (d) $f(x) = x^3$ on $\mathbb{R}$,
+    (e) $f(x) = \frac{1}{x^3}$ on $(0, 1]$,
+    (f) $f(x) = \sin\frac{1}{x^2}$ on $(0, 1]$,
+    (g) $f(x) = x^2 \sin\frac{1}{x}$ on $(0, 1]$.
+  hints:
+  - text: |
+      Hints: To decide (a) and (b), use Theorem 19.2. Parts (c), (e), (f) and (g) can be settled using Theorem 19.5. Theorem 19.4 can also be used to decide (e) and (f); compare Example 6. One needs to resort to the definition to handle (d).
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: 'bookHint from PDF p.390 (printed 381). For reference: Theorem 19.2 = continuous on [a,b] implies uniformly continuous; Theorem 19.4 = uniformly continuous functions map Cauchy sequences to Cauchy sequences; Theorem 19.5 = f on (a,b) is uniformly continuous iff it extends continuously to [a,b]; Example 6 = 1/x^2 not uniformly continuous on (0,1) via s_n = 1/n. Verified against page image.'
+  curation:
+    why: Classify uniform continuity using the whole toolkit (compact domain, extension criterion, Cauchy preservation, unbounded domain).
+- id: ross-19.2
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: §19 Uniform Continuity
+    problemNumber: Exercise 19.2
+    page: '151'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - epsilon-delta-proof
+  - choose-delta
+  concept: direct epsilon-delta proofs of uniform continuity (linear, x^2 on bounded interval, 1/x away from 0)
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - uniform-continuity
+  - epsilon-delta
+  - machinery
+  problemLatex: |
+    Prove each of the following functions is uniformly continuous on the indicated set by directly verifying the $\epsilon$–$\delta$ property in Definition 19.1.
+    *(Definition 19.1: Let $f$ be a real-valued function defined on a set $S \subseteq \mathbb{R}$. Then $f$ is uniformly continuous on $S$ if for each $\epsilon > 0$ there exists $\delta > 0$ such that $x, y \in S$ and $|x - y| < \delta$ imply $|f(x) - f(y)| < \epsilon$.)*
+    (a) $f(x) = 3x + 11$ on $\mathbb{R}$,
+    (b) $f(x) = x^2$ on $[0, 3]$,
+    (c) $f(x) = \frac{1}{x}$ on $[\frac{1}{2}, \infty)$.
+  notes: Definition 19.1 quoted verbatim. No entry for 19.2 in Selected Hints (the companion Exercise 19.3, skipped, has one). Verified against page image.
+  curation:
+    why: Direct ε–δ proofs of uniform continuity, where δ must not depend on the point.
+- id: ross-19.4
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: §19 Uniform Continuity
+    problemNumber: Exercise 19.4
+    page: '151'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - contradiction
+  - subsequence-extraction
+  concept: uniformly continuous on a bounded set implies bounded
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - uniform-continuity
+  - boundedness
+  - Bolzano-Weierstrass
+  - Cauchy
+  problemLatex: |
+    (a) Prove that if $f$ is uniformly continuous on a bounded set $S$, then $f$ is a bounded function on $S$. *Hint*: Assume not. Use Theorems 11.5 and 19.4.
+    (b) Use (a) to give yet another proof that $\frac{1}{x^2}$ is not uniformly continuous on $(0, 1)$.
+    *(Theorem 11.5 [Bolzano–Weierstrass]: Every bounded sequence has a convergent subsequence. Theorem 19.4: If $f$ is uniformly continuous on a set $S$ and $(s_n)$ is a Cauchy sequence in $S$, then $(f(s_n))$ is a Cauchy sequence.)*
+  notes: Theorems 11.5 and 19.4 quoted verbatim. No entry in Selected Hints. Verified against page image.
+  curation:
+    why: Uniform continuity on a bounded set forces boundedness (Bolzano–Weierstrass + Cauchy preservation).
+- id: ross-21.5
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: '§21 More on Metric Spaces: Continuity'
+    problemNumber: Exercise 21.5
+    page: '177'
+  topic: topology
+  subtopics:
+  - compactness
+  skills:
+  - construct-counterexample
+  - case-analysis
+  concept: E compact iff every continuous function on E is bounded / attains its max
+  difficulty: medium
+  category: canonical
+  type: construction
+  tags:
+  - compactness
+  - Heine-Borel
+  - extreme-value-theorem
+  - counterexample
+  - construction
+  problemLatex: |
+    Let $E$ be a noncompact subset of $\mathbb{R}^k$.
+    (a) Show there is an unbounded continuous real-valued function on $E$. *Hint*: Either $E$ is unbounded or else its closure $E^-$ contains $\mathbf{x}_0 \notin E$. In the latter case, use $\frac{1}{g}$ where $g(\mathbf{x}) = d(\mathbf{x}, \mathbf{x}_0)$.
+    (b) Show there is a bounded continuous real-valued function on $E$ that does not assume its maximum on $E$.
+  hints:
+  - text: |
+      (b) By part (a), there is an unbounded continuous real-valued function $f$ on $E$. Show $h = \frac{|f|}{1 + |f|}$ is continuous, bounded and does not assume its supremum 1 on $E$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Ross writes E^- for closure and boldface x for points of R^k. bookHint from PDF p.393 (printed 384). Verified against page image. Compare 1-D version ross-18.4.
+  curation:
+    why: 'Characterize compactness by continuous functions: E is compact iff every continuous function on E is bounded.'
+- id: ross-22.4
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: '§22 More on Metric Spaces: Connectedness'
+    problemNumber: Exercise 22.4
+    page: '184'
+  topic: topology
+  subtopics:
+  - connectedness
+  - interior-closure-boundary
+  skills:
+  - construct-counterexample
+  - sequential-characterization
+  - contradiction
+  concept: topologist's sine curve is connected but not path-connected
+  difficulty: hard
+  category: challenge
+  type: counterexample
+  tags:
+  - connectedness
+  - path-connected
+  - topologist-sine-curve
+  - counterexample
+  problemLatex: |
+    Consider the following subset of $\mathbb{R}^2$:
+    $$E = \left\{\left(x, \sin\frac{1}{x}\right) : x \in (0, 1]\right\};$$
+    $E$ is simply the graph of $g(x) = \sin\frac{1}{x}$ along the interval $(0, 1]$.
+    (a) Determine its closure $E^-$. See Fig. 19.4.
+    (b) Show $E^-$ is connected.
+    (c) Show $E^-$ is not path-connected.
+  notes: 'Fig. 19.4 is a plot of sin(1/x) on (0, 1/π]; the reference is non-essential. Path-connected (Definition 22.4): for each pair s, t of points in E there is a continuous γ: [a,b] → E with γ(a) = s, γ(b) = t. No entry in Selected Hints. Exercise 22.13 (graph-of-a-function version) skipped as near-duplicate. Verified against page image.'
+  curation:
+    why: 'The topologist''s sine curve: connected but not path-connected.'
+- id: ross-22.14
+  source:
+    key: ross
+    chapter: 3 Continuity
+    section: '§22 More on Metric Spaces: Connectedness'
+    problemNumber: Exercise 22.14
+    page: '185'
+  topic: sequences
+  subtopics:
+  - subsequences
+  - limsup-liminf
+  skills:
+  - subsequence-extraction
+  - epsilon-N-proof
+  concept: s_{n+1} - s_n -> 0 implies set of subsequential limits is an interval [liminf, limsup]
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - subsequential-limits
+  - connectedness
+  - limsup
+  - sequences
+  problemLatex: |
+    Consider a bounded sequence $(s_n)$ in $\mathbb{R}$ and its set $S$ of subsequential limits as in Theorem 11.8. Show that if $\lim_n (s_{n+1} - s_n) = 0$, then $S$ is a connected interval in $\mathbb{R}$. *Hint*: Consider $a < c < b$ where $a$ and $b$ are in $S$, and show $c$ is in $S$. Use Theorem 11.2.
+    *(Theorem 11.8: Let $(s_n)$ be any sequence in $\mathbb{R}$, and let $S$ denote the set of subsequential limits of $(s_n)$. (i) $S$ is nonempty. (ii) $\sup S = \limsup s_n$ and $\inf S = \liminf s_n$. (iii) $\lim s_n$ exists if and only if $S$ has exactly one element, namely $\lim s_n$. Theorem 11.2(i): If $t$ is in $\mathbb{R}$, then there is a subsequence of $(s_n)$ converging to $t$ if and only if the set $\{n \in \mathbb{N} : |s_n - t| < \epsilon\}$ is infinite for all $\epsilon > 0$.)*
+  notes: Theorems 11.8 and 11.2(i) quoted verbatim (only part (i) of 11.2 is relevant; parts (ii)-(iii) concern unbounded sequences). The book cites '[11]' as the source of the exercise; reference dropped. No entry in Selected Hints. Verified against page image.
+  curation:
+    why: If sₙ₊₁ − sₙ → 0, the subsequential limits fill the interval [liminf, limsup].
+- id: ross-23.9
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §23 Power Series
+    problemNumber: Exercise 23.9
+    page: '193'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - interchange-integral
+  skills:
+  - ratio-limit-lemma
+  - construct-counterexample
+  concept: n x^n -> 0 pointwise on [0,1) but integrals -> 1 (limit/integral interchange fails)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - pointwise-convergence
+  - integral
+  - interchange-of-limits
+  - counterexample
+  problemLatex: |
+    Let $f_n(x) = nx^n$ for $x \in [0, 1]$ and $n \in \mathbb{N}$. Show
+
+    (a) $\lim f_n(x) = 0$ for $x \in [0, 1)$. *Hint*: Use Exercise 9.12.
+
+    (b) However, $\lim_{n\to\infty} \int_0^1 f_n(x)\,dx = 1$.
+
+    *(Exercise 9.12: Assume all $s_n \neq 0$ and that the limit $L = \lim \left|\frac{s_{n+1}}{s_n}\right|$ exists. (a) Show that if $L < 1$, then $\lim s_n = 0$. ... (b) Show that if $L > 1$, then $\lim |s_n| = +\infty$. ...)*
+  hints:
+  - text: |
+      (a) Obviously $\lim f_n(0) = 0$. Consider $0 < x < 1$ and let $s_n = nx^n$. Then $s_{n+1}/s_n = (\frac{n+1}{n})x$, so $\lim |s_{n+1}/s_n| = x < 1$. Exercise 9.12(a) shows $0 = \lim s_n = \lim nx^n = \lim f_n(x)$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: 'Verified against page image. Exercise 9.12 quoted verbatim (its internal hints elided with ''...''). Note: ''f_n(x) dx'' printed as an integral from 0 to 1. bookHint from PDF p. 395 (printed 386).'
+  curation:
+    why: 'n xⁿ → 0 pointwise on [0,1) but the integrals do not → 0: limits and integrals do not always commute.'
+- id: ross-24.9
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §24 Uniform Convergence
+    problemNumber: Exercise 24.9
+    page: '199'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  - interchange-integral
+  skills:
+  - sup-norm-estimate
+  - calculus-maximization
+  concept: 'n x^n (1-x): not uniformly convergent, yet integrals converge (uniform convergence sufficient, not necessary)'
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - integral
+  - sup-norm
+  - counterexample
+  - interchange-of-limits
+  problemLatex: |
+    Consider $f_n(x) = nx^n(1 - x)$ for $x \in [0, 1]$.
+
+    (a) Find $f(x) = \lim f_n(x)$.
+
+    (b) Does $f_n \to f$ uniformly on $[0, 1]$? Justify.
+
+    (c) Does $\int_0^1 f_n(x)\,dx$ converge to $\int_0^1 f(x)\,dx$? Justify.
+  hints:
+  - text: |
+      (a) $f(x) = 0$ for $x \in [0, 1]$. For $x < 1$, $\lim_{n\to\infty} nx^n = 0$ as in Exercise 23.9(a).
+
+      (b) Use calculus to show $f_n$ takes its maximum at $\frac{n}{n+1}$. Thus $\sup\{|f_n(x)| : x \in [0, 1]\} = f_n(\frac{n}{n+1}) = (\frac{n}{n+1})^{n+1}$. As in Example 8, it turns out $\lim f_n(\frac{n}{n+1}) = 1/e$. So Remark 24.4 shows $(f_n)$ does not converge uniformly to 0.
+
+      (c) $\int_0^1 f_n(x)\,dx = \frac{n}{(n+1)(n+2)} \to 0 = \int_0^1 f(x)\,dx$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Verified against page image. bookHint verbatim from PDF pp. 395–396 (printed 386–387); it references Remark 24.4 (uniform convergence iff sup|f - f_n| -> 0; see ross-24.12).
+  curation:
+    why: 'n xⁿ(1−x) does not converge uniformly, yet the integrals converge: uniform convergence is sufficient, not necessary.'
+- id: ross-24.12
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §24 Uniform Convergence
+    problemNumber: Exercise 24.12
+    page: '200'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  skills:
+  - sup-approximation
+  - definition-unpacking
+  concept: f_n -> f uniformly on S iff sup_S |f - f_n| -> 0
+  difficulty: easy
+  category: canonical
+  type: definition
+  tags:
+  - uniform-convergence
+  - supremum
+  - sup-norm
+  - machinery
+  problemLatex: |
+    Prove the assertion in Remark 24.4.
+
+    *(Remark 24.4: Uniform convergence can be reformulated as follows. A sequence $(f_n)$ of functions on a set $S \subseteq \mathbb{R}$ converges uniformly to a function $f$ on $S$ if and only if*
+    $$\lim_{n\to\infty} \sup\{|f(x) - f_n(x)| : x \in S\} = 0.)$$
+  notes: 'Verified against page image. Remark 24.4 quoted verbatim (PDF pp. 207–208). Ross''s Definition 24.2: f_n -> f uniformly on S if for each epsilon > 0 there exists N such that |f_n(x) - f(x)| < epsilon for all x in S and all n > N.'
+  curation:
+    why: 'Uniform convergence ⇔ sup |fₙ − f| → 0: the reformulation used in every proof.'
+- id: ross-24.13
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §24 Uniform Convergence
+    problemNumber: Exercise 24.13
+    page: '200'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  - interchange-limits
+  skills:
+  - epsilon-over-3
+  - triangle-inequality
+  concept: uniform limit of uniformly continuous functions is uniformly continuous
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - uniform-convergence
+  - uniform-continuity
+  - epsilon-over-3
+  - machinery
+  problemLatex: |
+    Prove that if $(f_n)$ is a sequence of uniformly continuous functions on an interval $(a, b)$, and if $f_n \to f$ uniformly on $(a, b)$, then $f$ is also uniformly continuous on $(a, b)$. *Hint*: Try an $\frac{\epsilon}{3}$ argument as in the proof of Theorem 24.3.
+
+    *(Theorem 24.3: The uniform limit of continuous functions is continuous. More precisely, let $(f_n)$ be a sequence of functions on a set $S \subseteq \mathbb{R}$, suppose $f_n \to f$ uniformly on $S$, and suppose $S = \operatorname{dom}(f)$. If each $f_n$ is continuous at $x_0$ in $S$, then $f$ is continuous at $x_0$.)*
+  notes: Verified against page image. Theorem 24.3 statement quoted verbatim (bracketed final sentence omitted). No book hint.
+  curation:
+    why: A uniform limit of uniformly continuous functions is uniformly continuous (ε/3).
+- id: ross-24.17
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §24 Uniform Convergence
+    problemNumber: Exercise 24.17
+    page: '200'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  - interchange-limits
+  skills:
+  - triangle-inequality
+  - sequential-continuity
+  concept: f_n -> f uniformly with f_n continuous and x_n -> x implies f_n(x_n) -> f(x)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - uniform-convergence
+  - continuity
+  - sequences
+  - interchange-of-limits
+  problemLatex: |
+    Let $(f_n)$ be a sequence of continuous functions on $[a, b]$ that converges uniformly to $f$ on $[a, b]$. Show that if $(x_n)$ is a sequence in $[a, b]$ and if $x_n \to x$, then $\lim_{n\to\infty} f_n(x_n) = f(x)$.
+  hints:
+  - text: |
+      *Hint*: Use $|f_n(x_n) - f(x)| \le |f_n(x_n) - f(x_n)| + |f(x_n) - f(x)|$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Verified against page image. bookHint from PDF p. 396 (printed 387).
+  curation:
+    why: Uniform convergence plus continuity gives fₙ(xₙ) → f(x) — a diagonal-type estimate used often.
+- id: ross-26.7
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §26 Differentiation and Integration of Power Series
+    problemNumber: Exercise 26.7
+    page: '216'
+  topic: function-sequences
+  subtopics:
+  - power-series
+  skills:
+  - contradiction
+  - structural-property
+  concept: '|x| is not represented by a power series on R'
+  difficulty: easy
+  category: canonical
+  type: conceptual
+  tags:
+  - power-series
+  - differentiability
+  - absolute-value
+  - counterexample
+  problemLatex: |
+    Let $f(x) = |x|$ for $x \in \mathbb{R}$. Is there a power series $\sum a_n x^n$ such that $f(x) = \sum_{n=0}^\infty a_n x^n$ for all $x$? Discuss.
+  hints:
+  - text: |
+      No! The power series would be differentiable at each $x \in \mathbb{R}$, but $f(x) = |x|$ is not differentiable at $x = 0$.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Verified against page image. bookHint from PDF p. 397 (printed 388) — gives the answer.
+  curation:
+    why: '|x| has no power series representation on ℝ.'
+- id: ross-26.8
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §26 Differentiation and Integration of Power Series
+    problemNumber: Exercise 26.8
+    page: '216'
+  topic: function-sequences
+  subtopics:
+  - power-series
+  - interchange-integral
+  skills:
+  - term-by-term-integration
+  - abel-theorem
+  - alternating-series-test
+  concept: arctan series and Leibniz formula pi/4 = 1 - 1/3 + 1/5 - ... via Abel's theorem
+  difficulty: medium
+  category: synthesis
+  type: theorem-application
+  tags:
+  - power-series
+  - arctan
+  - Abel-theorem
+  - Leibniz-formula
+  - term-by-term-integration
+  problemLatex: |
+    (a) Show $\sum_{n=0}^\infty (-1)^n x^{2n} = \frac{1}{1 + x^2}$ for $x \in (-1, 1)$. *Hint*: $\sum_{n=0}^\infty y^n = \frac{1}{1-y}$. Let $y = -x^2$.
+
+    (b) Show $\arctan x = \sum_{n=0}^\infty \frac{(-1)^n}{2n+1} x^{2n+1}$ for $x \in (-1, 1)$.
+
+    (c) Show the equality in (b) also holds for $x = 1$. Use this to find a nice formula for $\pi$.
+
+    (d) What happens at $x = -1$?
+  notes: 'Verified against page image. Source typo (confirmed on page image, PDF p. 226): the book prints the series in (a) as $\sum (1)^n x^{2n}$, presumably meaning $(-1)^n$; corrected to $(-1)^n$ (forced by the hint y = -x^2 and the sum 1/(1+x^2)). The book''s Abel''s Theorem 26.6 (a power series converging at x = R is continuous at R) is the intended tool for (c). No book hint.'
+  curation:
+    why: The arctan series and π/4 = 1 − 1/3 + 1/5 − ⋯ via Abel's theorem at the endpoint.
+- id: ross-27.3
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §27 Weierstrass's Approximation Theorem
+    problemNumber: Exercise 27.3
+    page: '220'
+  topic: function-sequences
+  subtopics:
+  - approximation
+  - uniform-convergence
+  skills:
+  - growth-comparison
+  - contradiction
+  concept: sin x and e^x are not uniform limits of polynomials on R
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - Weierstrass-approximation
+  - polynomials
+  - unbounded-domain
+  - counterexample
+  problemLatex: |
+    Show there does not exist a sequence of polynomials converging uniformly on $\mathbb{R}$ to $f$ if
+
+    (a) $f(x) = \sin x$, $\qquad$ (b) $f(x) = e^x$.
+  hints:
+  - text: |
+      (a) Assume a polynomial $p$ satisfies $|p(x) - \sin x| < 1$ for all $x \in \mathbb{R}$. Clearly $p$ cannot be a constant function. But if $p$ is nonconstant, then $p$ is unbounded on $\mathbb{R}$ and the same is true for $p(x) - \sin x$, a contradiction.
+
+      (b) Assume $|e^x - \sum_{k=0}^{n-1} a_k x^k| < 1$ for all $x \in \mathbb{R}$. For $x > 0$ we have
+      $$e^x - \sum_{k=0}^{n-1} a_k x^k \ge \frac{1}{n!}x^n - \sum_{k=0}^{n-1} |a_k| x^k$$
+      and for large $x$ the right side will exceed 1.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Verified against page image. bookHint from PDF p. 398 (printed 389).
+  curation:
+    why: 'sin x and eˣ are not uniform limits of polynomials on all of ℝ: Weierstrass approximation needs a compact interval.'
+- id: ross-28.4
+  source:
+    key: ross
+    chapter: 5 Differentiation
+    section: §28 Basic Properties of the Derivative
+    problemNumber: Exercise 28.4
+    page: '230'
+  topic: differentiation
+  subtopics:
+  - derivative-definition
+  - differentiability
+  - derivative-rules
+  skills:
+  - difference-quotient
+  - squeeze
+  - sequential-criterion
+  concept: 'x^2 sin(1/x): differentiable everywhere, f'' discontinuous at 0'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - derivative
+  - x-squared-sin-one-over-x
+  - discontinuous-derivative
+  - counterexample
+  problemLatex: |
+    Let $f(x) = x^2 \sin\frac1x$ for $x \neq 0$ and $f(0) = 0$.
+
+    (a) Use Theorems 28.3 and 28.4 to show $f$ is differentiable at each $a \neq 0$ and calculate $f'(a)$. Use, without proof, the fact that $\sin x$ is differentiable and that $\cos x$ is its derivative.
+
+    (b) Use the definition to show $f$ is differentiable at $x = 0$ and $f'(0) = 0$.
+
+    (c) Show $f'$ is not continuous at $x = 0$.
+
+    *[Summary, not verbatim — Theorem 28.3: the sum, constant multiple, product and quotient rules: if $f$ and $g$ are differentiable at $a$, so are $cf$, $f+g$, $fg$ and $f/g$ (when $g(a) \neq 0$), with the usual formulas.]*
+
+    *(Theorem 28.4 [Chain Rule], quoted: If $f$ is differentiable at $a$ and $g$ is differentiable at $f(a)$, then the composite function $g \circ f$ is differentiable at $a$ and we have $(g \circ f)'(a) = g'(f(a)) \cdot f'(a)$.)*
+  notes: 'Verified against page image. Theorem 28.4 quoted verbatim; Theorem 28.3 SUMMARIZED (its full text lists (i)-(iv) formulas: (cf)''=cf'', (f+g)''=f''+g'', product rule, quotient rule) — marked here as a summary. No book hint.'
+  curation:
+    why: 'x² sin(1/x): differentiable everywhere, but the derivative is not continuous at 0.'
+- id: ross-29.4
+  source:
+    key: ross
+    chapter: 5 Differentiation
+    section: §29 The Mean Value Theorem
+    problemNumber: Exercise 29.4
+    page: '239'
+  topic: differentiation
+  subtopics:
+  - rolle-mvt
+  - mvt-applications
+  skills:
+  - auxiliary-function
+  - MVT-application
+  concept: Rolle with auxiliary function h = f e^g gives f' + f g' = 0 somewhere
+  difficulty: easy
+  category: canonical
+  type: theorem-application
+  tags:
+  - Rolle
+  - auxiliary-function
+  - mean-value-theorem
+  problemLatex: |
+    Let $f$ and $g$ be differentiable functions on an open interval $I$. Suppose $a, b$ in $I$ satisfy $a < b$ and $f(a) = f(b) = 0$. Show $f'(x) + f(x)g'(x) = 0$ for some $x \in (a, b)$. *Hint*: Consider $h(x) = f(x)e^{g(x)}$.
+  notes: Verified against page image. No book hint.
+  curation:
+    why: A Rolle argument on the auxiliary function f·e^g; learning to invent the auxiliary function.
+- id: ross-29.10
+  source:
+    key: ross
+    chapter: 5 Differentiation
+    section: §29 The Mean Value Theorem
+    problemNumber: Exercise 29.10
+    page: '240'
+  topic: differentiation
+  subtopics:
+  - derivative-definition
+  - mvt-applications
+  skills:
+  - construct-counterexample
+  - sequential-criterion
+  concept: f'(0) > 0 but f not increasing on any neighborhood of 0 (x^2 sin(1/x) + x/2)
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - derivative
+  - monotonicity
+  - x-squared-sin-one-over-x
+  - counterexample
+  problemLatex: |
+    Let $f(x) = x^2 \sin(\frac1x) + \frac{x}{2}$ for $x \neq 0$ and $f(0) = 0$.
+
+    (a) Show $f'(0) > 0$; see Exercise 28.4.
+
+    (b) Show $f$ is not increasing on any open interval containing 0.
+
+    (c) Compare this example with Corollary 29.7(i).
+
+    *(Corollary 29.7(i): Let $f$ be a differentiable function on an interval $(a, b)$. Then $f$ is strictly increasing if $f'(x) > 0$ for all $x \in (a, b)$.)*
+  notes: Verified against page image. Corollary 29.7 stem and part (i) quoted verbatim (assembled). Exercise 28.4 is x^2 sin(1/x) (ross-28.4). Ross's 'increasing' means non-decreasing (Definition 29.6). No book hint.
+  curation:
+    why: f′(0) > 0 but f is not increasing on any neighborhood of 0.
+- id: ross-30.6
+  source:
+    key: ross
+    chapter: 5 Differentiation
+    section: §30 L'Hospital's Rule
+    problemNumber: Exercise 30.6
+    page: '248'
+  topic: differentiation
+  subtopics:
+  - lhopital
+  skills:
+  - auxiliary-function
+  - lhopital-infinity-over-infinity
+  concept: f + f' -> L implies f -> L and f' -> 0
+  difficulty: medium
+  category: challenge
+  type: theorem-application
+  tags:
+  - LHospital
+  - limits-at-infinity
+  - auxiliary-function
+  problemLatex: |
+    Let $f$ be differentiable on some interval $(c, \infty)$ and suppose $\lim_{x\to\infty}[f(x) + f'(x)] = L$, where $L$ is finite. Prove $\lim_{x\to\infty} f(x) = L$ and $\lim_{x\to\infty} f'(x) = 0$. *Hint*: $f(x) = \frac{f(x)e^x}{e^x}$.
+  notes: Verified against page image. Ross's L'Hospital's Rule 30.2 includes the case lim |g(x)| = +infinity (no hypothesis on f). No book hint.
+  curation:
+    why: If f + f′ → L then f → L and f′ → 0 — a slick use of L'Hôpital with eˣ.
+- id: ross-31.4
+  source:
+    key: ross
+    chapter: 5 Differentiation
+    section: §31 Taylor's Theorem
+    problemNumber: Exercise 31.4
+    page: '267'
+  topic: differentiation
+  subtopics:
+  - taylor
+  skills:
+  - construction-from-building-blocks
+  - composition
+  concept: smooth bump functions and smooth step functions from e^{-1/x}
+  difficulty: easy
+  category: canonical
+  type: construction
+  tags:
+  - smooth-functions
+  - bump-function
+  - cutoff-function
+  - e-to-minus-one-over-x
+  problemLatex: |
+    Consider $a, b$ in $\mathbb{R}$ where $a < b$. Show there exist infinitely differentiable functions $f_a$, $g_b$, $h_{a,b}$ and $h^*_{a,b}$ on $\mathbb{R}$ with the following properties. You may assume, without proof, that the sum, product, etc. of infinitely differentiable functions is again infinitely differentiable. The same applies to the quotient provided the denominator never vanishes.
+
+    (a) $f_a(x) = 0$ for $x \le a$ and $f_a(x) > 0$ for $x > a$. *Hint*: Let $f_a(x) = f(x - a)$ where $f$ is the function in Example 3.
+
+    (b) $g_b(x) = 0$ for $x \ge b$ and $g_b(x) > 0$ for $x < b$.
+
+    (c) $h_{a,b}(x) > 0$ for $x \in (a, b)$ and $h_{a,b}(x) = 0$ for $x \notin (a, b)$.
+
+    (d) $h^*_{a,b}(x) = 0$ for $x \le a$ and $h^*_{a,b}(x) = 1$ for $x \ge b$. *Hint*: Use the function $\frac{f_a}{f_a + g_b}$.
+
+    *(Example 3: Let $f(x) = e^{-1/x}$ for $x > 0$ and $f(x) = 0$ for $x \le 0$. Clearly $f$ has derivatives of all orders at all $x \neq 0$. We will prove $f^{(n)}(0) = 0$ for $n = 0, 1, 2, 3, \ldots$. Hence the Taylor series for $f$ is identically zero, so $f$ does not agree with its Taylor series in any open interval containing 0.)*
+  notes: Verified against page image. Example 3 of §31 (PDF 266, printed 257) quoted verbatim from its opening (the proof that follows is omitted); in particular f is C-infinity on R. No book hint.
+  curation:
+    why: Build smooth bump and step functions from e^{−1/x} — the standard construction behind partitions of unity.
+- id: ross-31.5
+  source:
+    key: ross
+    chapter: 5 Differentiation
+    section: §31 Taylor's Theorem
+    problemNumber: Exercise 31.5
+    page: '267'
+  topic: differentiation
+  subtopics:
+  - taylor
+  skills:
+  - induction
+  - composition-with-known-example
+  concept: 'e^{-1/x^2}: C-infinity, all derivatives 0 at 0, Taylor series agrees only at 0'
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - Taylor-series
+  - smooth-non-analytic
+  - e-to-minus-one-over-x-squared
+  - counterexample
+  problemLatex: |
+    Let $g(x) = e^{-1/x^2}$ for $x \neq 0$ and $g(0) = 0$.
+
+    (a) Show $g^{(n)}(0) = 0$ for all $n = 0, 1, 2, 3, \ldots$. *Hint*: Use Example 3.
+
+    (b) Show the Taylor series for $g$ about 0 agrees with $g$ only at $x = 0$.
+
+    *(Example 3: Let $f(x) = e^{-1/x}$ for $x > 0$ and $f(x) = 0$ for $x \le 0$. Clearly $f$ has derivatives of all orders at all $x \neq 0$. We will prove $f^{(n)}(0) = 0$ for $n = 0, 1, 2, 3, \ldots$. Hence the Taylor series for $f$ is identically zero, so $f$ does not agree with its Taylor series in any open interval containing 0.)*
+  hints:
+  - text: |
+      (a) $g(x) = f(x^2)$ for $x \in \mathbb{R}$ where $f$ is as in Example 3. Use induction to prove there exist polynomials $p_{kn}$, $1 \le k \le n$, so that
+      $$g^{(n)}(x) = \sum_{k=1}^n f^{(k)}(x^2)\, p_{kn}(x) \quad \text{for} \quad x \in \mathbb{R},\ n \ge 1.$$
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Verified against page image. Example 3 quoted verbatim (opening only). bookHint from PDF p. 400 (printed 391). If the curator wants this self-contained without Example 3, the result that e^{-1/x} (extended by 0) has all derivatives 0 at 0 is what is being used.
+  curation:
+    why: 'e^{−1/x²}: smooth, every derivative vanishes at 0, so its Taylor series converges to the wrong function.'
+- id: ross-32.2
+  source:
+    key: ross
+    chapter: 6 Integration
+    section: §32 The Riemann Integral
+    problemNumber: Exercise 32.2
+    page: '279'
+  topic: integration
+  subtopics:
+  - partitions-darboux-sums
+  - integrability-criteria
+  skills:
+  - density-argument
+  - darboux-sum-computation
+  concept: f(x)=x on Q, 0 off Q is not Riemann integrable on [0,b] (U = b^2/2, L = 0)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - Riemann-integration
+  - Darboux-sums
+  - Dirichlet-type-function
+  - non-integrable
+  problemLatex: |
+    Let $f(x) = x$ for rational $x$ and $f(x) = 0$ for irrational $x$.
+
+    (a) Calculate the upper and lower Darboux integrals for $f$ on the interval $[0, b]$.
+
+    (b) Is $f$ integrable on $[0, b]$?
+  notes: Verified against page image. Ross's Riemann integral is defined via Darboux sums U(f,P), L(f,P) and U(f) = inf U(f,P), L(f) = sup L(f,P). 32.3 (x^2 on Q) is a near-duplicate; skipped. No book hint for 32.2.
+  curation:
+    why: 'x on ℚ, 0 elsewhere: compute the upper and lower integrals and watch them disagree.'
+- id: ross-33.4
+  source:
+    key: ross
+    chapter: 6 Integration
+    section: §33 Properties of the Riemann Integral
+    problemNumber: Exercise 33.4
+    page: '289'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - integral-properties
+  skills:
+  - construct-counterexample
+  - darboux-sum-computation
+  concept: f not Riemann integrable but |f| integrable (e.g. 1 on Q, -1 off Q)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - Riemann-integration
+  - absolute-value
+  - Dirichlet-function
+  - counterexample
+  problemLatex: |
+    Give an example of a function $f$ on $[0, 1]$ that is *not* integrable for which $|f|$ is integrable. *Hint*: Modify Example 2 in §32.
+
+    *(Example 2 in §32: Consider the interval $[a, b]$, where $a < b$, and let $f(x) = 1$ for rational $x$ in $[a, b]$, and let $f(x) = 0$ for irrational $x$ in $[a, b]$. [Summary, not verbatim: the book shows $U(f, P) = b - a$ and $L(f, P) = 0$ for every partition $P$, so $f$ is not integrable.])*
+  notes: Verified against page image. Example 2 statement quoted verbatim; bracketed conclusion summarizes the example's computation. No book hint.
+  curation:
+    why: '|f| integrable does not imply f integrable.'
+- id: ross-34.12
+  source:
+    key: ross
+    chapter: 6 Integration
+    section: §34 Fundamental Theorem of Calculus
+    problemNumber: Exercise 34.12
+    page: '297'
+  topic: integration
+  subtopics:
+  - integral-properties
+  skills:
+  - test-function-choice
+  concept: if integral of f g = 0 for all continuous g then f = 0
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - test-functions
+  - fundamental-lemma
+  problemLatex: |
+    Show that if $f$ is a continuous real-valued function on $[a, b]$ satisfying $\int_a^b f(x)g(x)\,dx = 0$ for every continuous function $g$ on $[a, b]$, then $f(x) = 0$ for all $x$ in $[a, b]$.
+  notes: Verified against page image. No book hint.
+  curation:
+    why: If ∫fg = 0 for every continuous g then f = 0 — the fundamental lemma of the calculus of variations, and a test-function argument.
+- id: ross-36.3
+  source:
+    key: ross
+    chapter: 6 Integration
+    section: §36 Improper Integrals
+    problemNumber: Exercise 36.3
+    page: '336'
+  topic: integration
+  subtopics:
+  - improper-integrals
+  skills:
+  - limit-of-integrals
+  - antiderivative
+  concept: 'p-integrals: integral of x^{-p} on (0,1] finite iff p<1; on (0,infinity) always infinite'
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags:
+  - improper-integrals
+  - p-test
+  - power-functions
+  problemLatex: |
+    (a) Show
+    $$\int_0^1 x^{-p}\,dx = \frac{1}{1-p} \quad \text{if} \quad 0 < p < 1 \quad \text{and} \quad \int_0^1 x^{-p}\,dx = +\infty \quad \text{if} \quad p > 1.$$
+
+    (b) Show $\int_0^\infty x^{-p}\,dx = +\infty$ for all $p > 0$.
+  hints:
+  - text: |
+      (b) Use part (a) and Examples 1 and 2.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: 'Verified against page image. bookHint from PDF p. 402 (printed 393); Examples 1 and 2 of §36: Example 1 shows the integral of 1/x over [1,infinity), over (0,1] and over (0,infinity) is +infinity; Example 2 shows the integral of x^{-p} over [1,infinity) is 1/(p-1) if p>1 and +infinity if 0<p<1. Note the book''s (a) omits p = 1 (handled by Example 2). Ross''s Definition 36.1: improper integrals are limits of integrals over [a,d] (d -> b-) or [c,b] (c -> a+), and on (a,b) the sum of the two halves split at some alpha.'
+  curation:
+    why: 'The p-integrals: the benchmark improper integrals.'
+- id: ross-36.8
+  source:
+    key: ross
+    chapter: 6 Integration
+    section: §36 Improper Integrals
+    problemNumber: Exercise 36.8
+    page: '337'
+  topic: integration
+  subtopics:
+  - improper-integrals
+  skills:
+  - positive-negative-parts
+  - comparison-estimate
+  - cauchy-criterion
+  concept: absolutely convergent improper integral converges
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - improper-integrals
+  - absolute-convergence
+  - comparison-test
+  problemLatex: |
+    Suppose $f$ is continuous on $(a, b)$ and $\int_a^b |f(x)|\,dx < \infty$; again $a$ can be $-\infty$, $b$ can be $+\infty$. Show the integral $\int_a^b f(x)\,dx$ exists and is finite.
+  notes: Verified against page image. No book hint for 36.8 (the hint for 36.13, the Stieltjes generalization, uses the f + |f| trick).
+  curation:
+    why: Absolutely convergent improper integrals converge (Cauchy criterion for integrals).

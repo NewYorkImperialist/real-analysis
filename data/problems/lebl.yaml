@@ -1,0 +1,2944 @@
+# Curated selection from lebl. Generated from the curation pipeline, then hand-maintained.
+- id: lebl-0.3.6
+  source:
+    key: lebl
+    chapter: 0 Introduction
+    section: 0.3 Basic set theory
+    problemNumber: Exercise 0.3.6
+    page: '20'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 1, Problem 1
+  topic: foundations
+  subtopics:
+  - sets
+  - proof-techniques
+  skills:
+  - double-inclusion
+  - element-chasing
+  concept: distributive laws for union and intersection
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - set-identities
+  - double-inclusion
+  - machinery
+  problemLatex: |
+    Prove:
+    a) $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+    b) $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+  notes: Topically consistent with the MIT reading (0.3).
+  curation:
+    why: Proving set equalities by double inclusion.
+- id: lebl-0.3.10
+  source:
+    key: lebl
+    chapter: 0 Introduction
+    section: 0.3 Basic set theory
+    problemNumber: Exercise 0.3.10
+    page: '20'
+  topic: foundations
+  subtopics:
+  - functions
+  skills:
+  - unwind-definition
+  - construct-counterexample
+  concept: g∘f injective ⇒ f injective; g∘f surjective ⇒ g surjective
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - injective
+  - surjective
+  - composition
+  - counterexample
+  problemLatex: |
+    Let $f \colon A \to B$ and $g \colon B \to C$ be functions.
+    a) Prove that if $g \circ f$ is injective, then $f$ is injective.
+    b) Prove that if $g \circ f$ is surjective, then $g$ is surjective.
+    c) Find an explicit example where $g \circ f$ is bijective, but neither $f$ nor $g$ is bijective.
+  curation:
+    why: Injectivity/surjectivity of compositions — routine but foundational.
+- id: lebl-0.3.11
+  source:
+    key: lebl
+    chapter: 0 Introduction
+    section: 0.3 Basic set theory
+    problemNumber: Exercise 0.3.11
+    page: '21'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 1, Problem 2
+  topic: foundations
+  subtopics:
+  - induction
+  skills:
+  - induction
+  concept: n < 2^n by induction
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - induction
+  - inequality
+  - machinery
+  problemLatex: |
+    Prove by induction that $n < 2^n$ for all $n \in \mathbb{N}$.
+  notes: Topically consistent with the MIT reading (0.3).
+  curation:
+    why: Proof by induction of an inequality.
+- id: lebl-0.3.12
+  source:
+    key: lebl
+    chapter: 0 Introduction
+    section: 0.3 Basic set theory
+    problemNumber: Exercise 0.3.12
+    page: '21'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 1, Problem 3
+  topic: foundations
+  subtopics:
+  - cardinality
+  - induction
+  - sets
+  skills:
+  - induction
+  - bijection-counting
+  concept: '|P(A)| = 2^n for |A| = n'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - power-set
+  - cardinality
+  - induction
+  problemLatex: |
+    Show that for a finite set $A$ of cardinality $n$, the cardinality of $\mathcal{P}(A)$ is $2^n$.
+  notes: Topically consistent with the MIT reading (0.3).
+  curation:
+    why: Induction on cardinality; power sets.
+- id: lebl-0.3.15
+  source:
+    key: lebl
+    chapter: 0 Introduction
+    section: 0.3 Basic set theory
+    problemNumber: Exercise 0.3.15
+    page: '21'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 1, Problem 4
+  topic: foundations
+  subtopics:
+  - induction
+  skills:
+  - induction
+  concept: 6 divides n^3 + 5n by induction
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - induction
+  - divisibility
+  problemLatex: |
+    Prove that $n^3 + 5n$ is divisible by $6$ for all $n \in \mathbb{N}$.
+  notes: Topically consistent with the MIT reading (0.3).
+  curation:
+    why: Induction for a divisibility statement.
+- id: lebl-0.3.19
+  source:
+    key: lebl
+    chapter: 0 Introduction
+    section: 0.3 Basic set theory
+    problemNumber: Exercise 0.3.19
+    page: '21'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 1, Problem 5
+  topic: foundations
+  subtopics:
+  - cardinality
+  - sets
+  skills:
+  - construct-counterexample
+  concept: countable union of finite sets can be infinite
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags:
+  - countable-union
+  - finite-sets
+  - counterexample
+  problemLatex: |
+    Give an example of a countably infinite collection of finite sets $A_1, A_2, \ldots$, whose union is not a finite set.
+  notes: Topically consistent with the MIT reading (0.3).
+  curation:
+    why: Countable unions; finite vs infinite sets.
+- id: lebl-0.3.27
+  source:
+    key: lebl
+    chapter: 0 Introduction
+    section: 0.3 Basic set theory
+    problemNumber: Exercise 0.3.27
+    page: '21'
+  topic: foundations
+  subtopics:
+  - functions
+  - sets
+  skills:
+  - element-chasing
+  - double-inclusion
+  concept: preimage preserves arbitrary unions/intersections; image preserves unions, only ⊂ for intersections
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - preimage
+  - image
+  - indexed-families
+  - set-identities
+  problemLatex: |
+    Suppose $f \colon A \to B$ is a function and for $\lambda \in I$, we have a collection of subsets $C_\lambda \subset A$ and $D_\lambda \subset B$. Prove
+    $$f^{-1}\Bigl(\bigcup_{\lambda \in I} D_\lambda\Bigr) = \bigcup_{\lambda \in I} f^{-1}(D_\lambda), \qquad f^{-1}\Bigl(\bigcap_{\lambda \in I} D_\lambda\Bigr) = \bigcap_{\lambda \in I} f^{-1}(D_\lambda),$$
+    and
+    $$f\Bigl(\bigcup_{\lambda \in I} C_\lambda\Bigr) = \bigcup_{\lambda \in I} f(C_\lambda), \qquad f\Bigl(\bigcap_{\lambda \in I} C_\lambda\Bigr) \subset \bigcap_{\lambda \in I} f(C_\lambda).$$
+  notes: Exercise is entirely at the bottom of p. 21 (p. 22 is blank).
+  curation:
+    why: Preimages respect all set operations, images only unions — why topology is phrased with preimages.
+- id: lebl-1.1.1
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.1 Basic properties
+    problemNumber: Exercise 1.1.1
+    page: '27'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 2, Problem 1
+  topic: real-numbers
+  subtopics:
+  - ordered-fields
+  skills:
+  - axiomatic-derivation
+  concept: in an ordered field, x < 0 and y < z imply xy > xz
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - ordered-field
+  - axioms
+  - inequalities
+  problemLatex: |
+    Prove part (iii) of Proposition 1.1.8. That is, let $F$ be an ordered field and $x, y, z \in F$. Prove that if $x < 0$ and $y < z$, then $xy > xz$.
+  notes: The exercise itself states the referenced result, so it is self-contained. Topically consistent with the MIT reading (1.1).
+  curation:
+    why: Deriving order facts from the ordered-field axioms.
+- id: lebl-1.1.2
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.1 Basic properties
+    problemNumber: Exercise 1.1.2
+    page: '27'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 2, Problem 2
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - induction
+  concept: nonempty finite subset of an ordered set has max and min
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - infimum
+  - finite-sets
+  - induction
+  problemLatex: |
+    Let $S$ be an ordered set. Let $A \subset S$ be a nonempty finite subset. Show that $A$ is bounded. Furthermore, show that $\inf A$ exists and is in $A$ and $\sup A$ exists and is in $A$. Hint: Use induction.
+  notes: Topically consistent with the MIT reading (1.1).
+  curation:
+    why: Sup/inf in an abstract ordered set; finite sets attain max and min.
+- id: lebl-1.1.5
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.1 Basic properties
+    problemNumber: Exercise 1.1.5
+    page: '27'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 2, Problem 3
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - unwind-definition
+  concept: an upper bound that belongs to the set is its supremum
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags:
+  - supremum
+  - upper-bound
+  - definition
+  problemLatex: |
+    Let $S$ be an ordered set. Let $A \subset S$ and suppose $b$ is an upper bound for $A$. Suppose $b \in A$. Show that $b = \sup A$.
+  notes: Topically consistent with the MIT reading (1.1).
+  curation:
+    why: Definition of supremum (least upper bound).
+- id: lebl-1.1.6
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.1 Basic properties
+    problemNumber: Exercise 1.1.6
+    page: '27'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 2, Problem 4
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - sup-approximation
+  - recursive-construction
+  concept: if sup A is not in A, A contains a strictly increasing sequence (countably infinite subset)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - countable
+  - construction
+  problemLatex: |
+    Let $S$ be an ordered set. Let $A \subset S$ be nonempty and bounded above. Suppose $\sup A$ exists and $\sup A \notin A$. Show that $A$ contains a countably infinite subset.
+  notes: Topically consistent with the MIT reading (1.1).
+  curation:
+    why: Approximating a supremum not in the set by set elements; recursive construction.
+- id: lebl-1.1.14
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.1 Basic properties
+    problemNumber: Exercise 1.1.14
+    page: '28'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  - completeness
+  skills:
+  - construct-counterexample
+  - unwind-definition
+  concept: ordered set without the least-upper-bound property
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - least-upper-bound-property
+  - ordered-set
+  - counterexample
+  problemLatex: |
+    Let $S := \{a_k : k \in \mathbb{N}\} \cup \{b_k : k \in \mathbb{N}\}$, ordered such that $a_k < b_j$ for every $k$ and $j$, $a_k < a_m$ whenever $k < m$, and $b_k > b_m$ whenever $k < m$.
+    a) Show that $S$ is an ordered set.
+    b) Show that every subset of $S$ is bounded (both above and below).
+    c) Find a bounded subset of $S$ that has no least upper bound.
+  curation:
+    why: An ordered set where every subset is bounded yet the least-upper-bound property fails — separates boundedness from completeness.
+- id: lebl-1.2.7
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.2 The set of real numbers
+    problemNumber: Exercise 1.2.7
+    page: '34'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 2, Problem 5
+  topic: real-numbers
+  subtopics:
+  - inequalities
+  skills:
+  - algebraic-manipulation
+  - squares-nonnegative
+  concept: AM-GM inequality for two numbers
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - AM-GM
+  - inequality
+  problemLatex: |
+    Prove the arithmetic-geometric mean inequality. For two positive real numbers $x, y$,
+    $$\sqrt{xy} \leq \frac{x+y}{2}.$$
+    Furthermore, equality occurs if and only if $x = y$.
+  notes: Topically consistent with the MIT reading (1.2).
+  curation:
+    why: Basic real inequality manipulation including the equality case.
+- id: lebl-1.2.9
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.2 The set of real numbers
+    problemNumber: Exercise 1.2.9
+    page: '35'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 2, Problem 6
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - sup-approximation
+  - epsilon-argument
+  concept: sup(A + B) = sup A + sup B
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - infimum
+  - sumset
+  - machinery
+  problemLatex: |
+    Let $A$ and $B$ be two nonempty bounded sets of real numbers. Let $C := \{a + b : a \in A,\ b \in B\}$. Show that $C$ is a bounded set and that
+    $$\sup C = \sup A + \sup B \qquad \text{and} \qquad \inf C = \inf A + \inf B.$$
+  notes: Topically consistent with the MIT reading (1.2).
+  curation:
+    why: 'Two-sided sup argument: upper bound plus approximation (epsilon) to show least.'
+- id: lebl-1.2.13
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.2 The set of real numbers
+    problemNumber: Exercise 1.2.13
+    page: '35'
+  topic: real-numbers
+  subtopics:
+  - inequalities
+  skills:
+  - induction
+  concept: Bernoulli's inequality
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Bernoulli-inequality
+  - induction
+  - inequality
+  problemLatex: |
+    Prove Bernoulli's inequality: If $1 + x > 0$, then for all $n \in \mathbb{N}$, we have $(1+x)^n \geq 1 + nx$.
+  curation:
+    why: 'Bernoulli''s inequality: the induction-proved estimate behind limits like rⁿ → 0.'
+- id: lebl-1.3.5
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.3 Absolute value and bounded functions
+    problemNumber: Exercise 1.3.5
+    page: '39'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - unwind-definition
+  - construct-counterexample
+  concept: f(x) ≤ g(y) for all x,y ⇒ sup f ≤ inf g; pointwise f ≤ g is not enough
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - supremum
+  - infimum
+  - bounded-functions
+  - quantifiers
+  - counterexample
+  problemLatex: |
+    Let $f \colon D \to \mathbb{R}$ and $g \colon D \to \mathbb{R}$ be functions ($D$ nonempty).
+    a) Suppose $f(x) \leq g(y)$ for all $x \in D$ and $y \in D$. Show that
+    $$\sup_{x \in D} f(x) \leq \inf_{x \in D} g(x).$$
+    b) Find a specific $D$, $f$, and $g$, such that $f(x) \leq g(x)$ for all $x \in D$, but
+    $$\sup_{x \in D} f(x) > \inf_{x \in D} g(x).$$
+  curation:
+    why: f(x) ≤ g(y) for all x, y gives sup f ≤ inf g, but pointwise f ≤ g does not — a quantifier lesson.
+- id: lebl-1.3.7
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.3 Absolute value and bounded functions
+    problemNumber: Exercise 1.3.7
+    page: '40'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  skills:
+  - sup-bound-argument
+  - construct-counterexample
+  concept: sup(f+g) ≤ sup f + sup g, with strict inequality possible
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - infimum
+  - subadditivity
+  - counterexample
+  problemLatex: |
+    Let $D$ be a nonempty set. Suppose $f \colon D \to \mathbb{R}$ and $g \colon D \to \mathbb{R}$ are bounded functions.
+    a) Show
+    $$\sup_{x \in D} \bigl(f(x) + g(x)\bigr) \leq \sup_{x \in D} f(x) + \sup_{x \in D} g(x) \quad \text{and} \quad \inf_{x \in D} \bigl(f(x) + g(x)\bigr) \geq \inf_{x \in D} f(x) + \inf_{x \in D} g(x).$$
+    b) Find an example (or examples) where we obtain strict inequalities.
+  curation:
+    why: sup(f + g) ≤ sup f + sup g, with strict inequality possible.
+- id: lebl-1.4.5
+  source:
+    key: lebl
+    chapter: 1 Real Numbers
+    section: 1.4 Intervals and the size of R
+    problemNumber: Exercise 1.4.5
+    page: '43'
+  topic: foundations
+  subtopics:
+  - cardinality
+  skills:
+  - explicit-bijection
+  - hilbert-hotel-shift
+  concept: explicit bijection [0,1] → (0,1)
+  difficulty: medium
+  category: canonical
+  type: construction
+  tags:
+  - bijection
+  - cardinality
+  - intervals
+  - construction
+  problemLatex: |
+    (Hard) Construct an explicit bijection from $[0,1]$ to $(0,1)$.
+  curation:
+    why: An explicit bijection [0,1] → (0,1) by shifting a countable sequence (Hilbert-hotel trick).
+- id: lebl-2.1.17
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.1 Sequences and limits
+    problemNumber: Exercise 2.1.17
+    page: '60'
+  topic: sequences
+  subtopics:
+  - subsequences
+  skills:
+  - enumerate-rationals
+  - density-argument
+  - recursive-construction
+  concept: a sequence whose subsequential limits are all of R (enumeration of Q)
+  difficulty: medium
+  category: challenge
+  type: construction
+  tags:
+  - subsequence
+  - rationals
+  - enumeration
+  - subsequential-limits
+  - construction
+  problemLatex: |
+    (Tricky) Find a sequence $\{x_n\}_{n=1}^\infty$ such that for every $y \in \mathbb{R}$, there exists a subsequence $\{x_{n_i}\}_{i=1}^\infty$ converging to $y$.
+  curation:
+    why: A sequence that has every real number as a subsequential limit (enumerate ℚ).
+- id: lebl-2.1.22
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.1 Sequences and limits
+    problemNumber: Exercise 2.1.22
+    page: '60'
+  topic: sequences
+  subtopics:
+  - subsequences
+  - convergence
+  skills:
+  - subsequence-argument
+  - epsilon-N-proof
+  concept: x_{2n}, x_{2n-1}, x_{3n} convergent ⇒ x_n convergent
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - subsequence
+  - convergence
+  problemLatex: |
+    Suppose that $\{x_n\}_{n=1}^\infty$ is a sequence such that the subsequences $\{x_{2n}\}_{n=1}^\infty$, $\{x_{2n-1}\}_{n=1}^\infty$, and $\{x_{3n}\}_{n=1}^\infty$ all converge. Show that $\{x_n\}_{n=1}^\infty$ is convergent.
+  curation:
+    why: Three subsequences that converge force the whole sequence to converge — find the overlap trick.
+- id: lebl-2.2.3
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.2 Facts about limits of sequences
+    problemNumber: Exercise 2.2.3
+    page: '70'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 4, Problem 4
+  topic: sequences
+  subtopics:
+  - limit-laws
+  skills:
+  - induction
+  - theorem-application
+  concept: lim x_n^k = (lim x_n)^k
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - limit-laws
+  - induction
+  - powers
+  problemLatex: |
+    Prove that if $\{x_n\}_{n=1}^\infty$ is a convergent sequence, $k \in \mathbb{N}$, then
+    $$\lim_{n\to\infty} x_n^k = \Bigl(\lim_{n\to\infty} x_n\Bigr)^k.$$
+    Hint: Use induction.
+  notes: Topically consistent with the MIT reading (2.2).
+  curation:
+    why: Limit laws (product rule) iterated by induction.
+- id: lebl-2.2.5
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.2 Facts about limits of sequences
+    problemNumber: Exercise 2.2.5
+    page: '71'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 4, Problem 5
+  topic: sequences
+  subtopics:
+  - limit-laws
+  - convergence
+  skills:
+  - squeeze
+  concept: 'squeeze lemma: (n − cos n)/n → 1'
+  difficulty: introductory
+  category: canonical
+  type: theorem-application
+  tags:
+  - squeeze-lemma
+  - limit
+  problemLatex: |
+    Let $x_n := \frac{n - \cos(n)}{n}$. Use the squeeze lemma to show that $\{x_n\}_{n=1}^\infty$ converges and find the limit.
+  notes: Topically consistent with the MIT reading (2.2).
+  curation:
+    why: Squeeze lemma with a bounded oscillating term.
+- id: lebl-2.2.9
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.2 Facts about limits of sequences
+    problemNumber: Exercise 2.2.9
+    page: '71'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 5, Problem 1
+  topic: sequences
+  subtopics:
+  - convergence
+  skills:
+  - geometric-domination
+  - epsilon-N-proof
+  concept: '|x_{n+1} − x|/|x_n − x| → L < 1 ⇒ x_n → x'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - ratio
+  - geometric-bound
+  - convergence
+  problemLatex: |
+    Suppose $\{x_n\}_{n=1}^\infty$ is a sequence, $x \in \mathbb{R}$, and $x_n \neq x$ for all $n \in \mathbb{N}$. Suppose the limit
+    $$L := \lim_{n\to\infty} \frac{|x_{n+1} - x|}{|x_n - x|}$$
+    exists and $L < 1$. Show that $\{x_n\}_{n=1}^\infty$ converges to $x$.
+  notes: Topically consistent with the MIT reading (2.2).
+  curation:
+    why: Geometric domination from a ratio limit (ratio-test style argument).
+- id: lebl-2.3.5
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.3 Limit superior, limit inferior, and Bolzano–Weierstrass
+    problemNumber: Exercise 2.3.5
+    page: '81'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 5, Problem 2
+  topic: sequences
+  subtopics:
+  - limsup-liminf
+  skills:
+  - compute-tail-sup
+  - subsequence-extraction
+  concept: computing limsup and liminf of simple oscillating sequences
+  difficulty: introductory
+  category: canonical
+  type: computation
+  tags:
+  - limsup
+  - liminf
+  - computation
+  problemLatex: |
+    a) Let $x_n := \frac{(-1)^n}{n}$. Find $\limsup_{n\to\infty} x_n$ and $\liminf_{n\to\infty} x_n$.
+    b) Let $x_n := \frac{(n-1)(-1)^n}{n}$. Find $\limsup_{n\to\infty} x_n$ and $\liminf_{n\to\infty} x_n$.
+  notes: Topically consistent with the MIT reading (2.3).
+  curation:
+    why: Computing limsup/liminf from the definition (tail sups/infs).
+- id: lebl-2.3.6
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.3 Limit superior, limit inferior, and Bolzano–Weierstrass
+    problemNumber: Exercise 2.3.6
+    page: '81'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 5, Problem 3
+  topic: sequences
+  subtopics:
+  - limsup-liminf
+  skills:
+  - tail-sup-comparison
+  - limits-preserve-inequalities
+  concept: x_n ≤ y_n ⇒ limsup x_n ≤ limsup y_n, liminf x_n ≤ liminf y_n
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - limsup
+  - liminf
+  - inequalities
+  problemLatex: |
+    Let $\{x_n\}_{n=1}^\infty$ and $\{y_n\}_{n=1}^\infty$ be bounded sequences such that $x_n \leq y_n$ for all $n$. Show
+    $$\limsup_{n\to\infty} x_n \leq \limsup_{n\to\infty} y_n \qquad \text{and} \qquad \liminf_{n\to\infty} x_n \leq \liminf_{n\to\infty} y_n.$$
+  notes: Topically consistent with the MIT reading (2.3).
+  curation:
+    why: Monotonicity of limsup/liminf via tail sups and limits preserving ≤.
+- id: lebl-2.3.7
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.3 Limit superior, limit inferior, and Bolzano–Weierstrass
+    problemNumber: Exercise 2.3.7
+    page: '81'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 5, Problem 4
+  topic: sequences
+  subtopics:
+  - limsup-liminf
+  - subsequences
+  skills:
+  - subsequence-extraction
+  - construct-counterexample
+  concept: liminf x_n + liminf y_n ≤ liminf (x_n + y_n), strict in general
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - liminf
+  - limsup
+  - subadditivity
+  - counterexample
+  problemLatex: |
+    Let $\{x_n\}_{n=1}^\infty$ and $\{y_n\}_{n=1}^\infty$ be bounded sequences.
+    a) Show that $\{x_n + y_n\}_{n=1}^\infty$ is bounded.
+    b) Show that
+    $$\Bigl(\liminf_{n\to\infty} x_n\Bigr) + \Bigl(\liminf_{n\to\infty} y_n\Bigr) \leq \liminf_{n\to\infty} (x_n + y_n).$$
+    Hint: One proof is to find a subsequence $\{x_{n_m} + y_{n_m}\}_{m=1}^\infty$ of $\{x_n + y_n\}_{n=1}^\infty$ that converges. Then find a subsequence $\{x_{n_{m_i}}\}_{i=1}^\infty$ of $\{x_{n_m}\}_{m=1}^\infty$ that converges.
+    c) Find an explicit $\{x_n\}_{n=1}^\infty$ and $\{y_n\}_{n=1}^\infty$ such that
+    $$\Bigl(\liminf_{n\to\infty} x_n\Bigr) + \Bigl(\liminf_{n\to\infty} y_n\Bigr) < \liminf_{n\to\infty} (x_n + y_n).$$
+    Hint: Look for examples that do not have a limit.
+  notes: Topically consistent with the MIT reading (2.3). The limsup analogue is Exercise 2.3.8 (skipped as a mirror image).
+  curation:
+    why: Superadditivity of liminf; nested subsequence extraction; strictness example.
+- id: lebl-2.3.9
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.3 Limit superior, limit inferior, and Bolzano–Weierstrass
+    problemNumber: Exercise 2.3.9
+    page: '81'
+  topic: sequences
+  subtopics:
+  - bolzano-weierstrass
+  skills:
+  - subsequence-extraction
+  - distinct-terms-argument
+  concept: Bolzano–Weierstrass for sets (bounded infinite set has a limit point)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Bolzano-Weierstrass
+  - cluster-point
+  - limit-point
+  problemLatex: |
+    If $S \subset \mathbb{R}$ is a set, then $x \in \mathbb{R}$ is a *cluster point* if for every $\epsilon > 0$, the set $(x - \epsilon, x + \epsilon) \cap S \setminus \{x\}$ is not empty. That is, if there are points of $S$ arbitrarily close to $x$. For example, $S := \{1/n : n \in \mathbb{N}\}$ has a unique cluster point $0$, but $0 \notin S$. Prove the following version of the Bolzano–Weierstrass theorem:
+    **Theorem.** Let $S \subset \mathbb{R}$ be a bounded infinite set, then there exists at least one cluster point of $S$.
+    Hint: If $S$ is infinite, then $S$ contains a countably infinite subset. That is, there is a sequence $\{x_n\}_{n=1}^\infty$ of distinct numbers in $S$.
+  curation:
+    why: 'Bolzano–Weierstrass for sets: a bounded infinite set has a cluster point.'
+- id: lebl-2.3.10
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.3 Limit superior, limit inferior, and Bolzano–Weierstrass
+    problemNumber: Exercise 2.3.10
+    page: '81'
+  topic: sequences
+  subtopics:
+  - bolzano-weierstrass
+  - monotone-sequences
+  - subsequences
+  skills:
+  - peak-argument
+  - subsequence-extraction
+  - case-analysis
+  concept: every sequence has a monotone subsequence (peak lemma) ⇒ Bolzano–Weierstrass
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - monotone-subsequence
+  - peak
+  - Bolzano-Weierstrass
+  problemLatex: |
+    (Challenging)
+    a) Prove that every sequence contains a monotone subsequence. Hint: Call $n \in \mathbb{N}$ a *peak* of the sequence $\{x_n\}_{n=1}^\infty$ if $x_m \leq x_n$ for all $m \geq n$. There are two possibilities: Either the sequence has at most finitely many peaks, or it has infinitely many peaks.
+    b) Conclude the Bolzano–Weierstrass theorem.
+  curation:
+    why: 'The peak-point lemma: every sequence has a monotone subsequence, which gives Bolzano–Weierstrass.'
+- id: lebl-2.4.2
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.4 Cauchy sequences
+    problemNumber: Exercise 2.4.2
+    page: '86'
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  skills:
+  - telescoping
+  - triangle-inequality
+  - geometric-series-bound
+  concept: contractive sequence |x_{n+1} − x_n| ≤ C|x_n − x_{n−1}|, C < 1, is Cauchy
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy
+  - contractive
+  - geometric-series
+  - triangle-inequality
+  problemLatex: |
+    Let $\{x_n\}_{n=1}^\infty$ be a sequence such that there exists a positive $C < 1$ and for all $n \geq 2$,
+    $$|x_{n+1} - x_n| \leq C\,|x_n - x_{n-1}|.$$
+    Prove that $\{x_n\}_{n=1}^\infty$ is Cauchy. Hint: You can freely use the formula (for $C \neq 1$)
+    $$1 + C + C^2 + \cdots + C^n = \frac{1 - C^{n+1}}{1 - C}.$$
+  curation:
+    why: Contractive sequences are Cauchy (geometric-series estimate) — the discrete heart of the contraction mapping theorem.
+- id: lebl-2.4.3
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.4 Cauchy sequences
+    problemNumber: Exercise 2.4.3
+    page: '86'
+  topic: real-numbers
+  subtopics:
+  - completeness
+  - supremum-infimum
+  skills:
+  - bisection
+  - nested-intervals
+  - density-argument
+  concept: Cauchy completeness + density of Q ⇒ least-upper-bound property
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - completeness
+  - Cauchy
+  - least-upper-bound-property
+  - bisection
+  problemLatex: |
+    (Challenging) Suppose $F$ is an ordered field that contains the rational numbers $\mathbb{Q}$, such that $\mathbb{Q}$ is dense, that is: Whenever $x, y \in F$ are such that $x < y$, then there exists a $q \in \mathbb{Q}$ such that $x < q < y$. Say a sequence $\{x_n\}_{n=1}^\infty$ of rational numbers is Cauchy if given every $\epsilon \in \mathbb{Q}$ with $\epsilon > 0$, there exists an $M$ such that for all $n, k \geq M$, we have $|x_n - x_k| < \epsilon$. Suppose every Cauchy sequence of rational numbers has a limit in $F$. Prove that $F$ has the least-upper-bound property.
+  curation:
+    why: Cauchy completeness plus density of ℚ implies the least-upper-bound property — how completeness axioms relate.
+- id: lebl-2.4.8
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.4 Cauchy sequences
+    problemNumber: Exercise 2.4.8
+    page: '86'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 5, Problem 7
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  skills:
+  - construct-counterexample
+  concept: Cauchy sequences need not have eventually decreasing consecutive gaps
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - Cauchy
+  - counterexample
+  - true-or-false
+  problemLatex: |
+    True or false, prove or find a counterexample: If $\{x_n\}_{n=1}^\infty$ is a Cauchy sequence, then there exists an $M$ such that for all $n \geq M$, we have $|x_{n+1} - x_n| \leq |x_n - x_{n-1}|$.
+  notes: Topically consistent with the MIT reading (2.4).
+  curation:
+    why: Cauchy does not mean consecutive differences eventually decrease.
+- id: lebl-2.5.3
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.5 Series
+    problemNumber: Exercise 2.5.3
+    page: '97'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 6, Problem 1
+  topic: series
+  subtopics:
+  - convergence-tests
+  - comparison
+  skills:
+  - comparison-estimate
+  - telescoping
+  - test-selection
+  concept: deciding convergence of standard series by comparison/telescoping/p-series
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags:
+  - series
+  - comparison-test
+  - p-series
+  - telescoping
+  problemLatex: |
+    Decide the convergence or divergence of the following series.
+    a) $\displaystyle\sum_{n=1}^\infty \frac{3}{9n+1}$
+    b) $\displaystyle\sum_{n=1}^\infty \frac{1}{2n-1}$
+    c) $\displaystyle\sum_{n=1}^\infty \frac{(-1)^n}{n^2}$
+    d) $\displaystyle\sum_{n=1}^\infty \frac{1}{n(n+1)}$
+    e) $\displaystyle\sum_{n=1}^\infty n e^{-n^2}$
+  notes: Verified against page image. Topically consistent with the MIT reading (2.5).
+  curation:
+    why: Choosing and applying basic convergence tests (comparison, p-series, telescoping, absolute convergence).
+- id: lebl-2.5.4
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.5 Series
+    problemNumber: Exercise 2.5.4
+    page: '97'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 6, Problem 2
+  topic: series
+  subtopics:
+  - convergence-tests
+  skills:
+  - subsequence-of-partial-sums
+  - construct-counterexample
+  concept: inserting parentheses preserves convergence; removing them does not
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - series
+  - grouping
+  - partial-sums
+  - counterexample
+  problemLatex: |
+    a) Prove that if $\displaystyle\sum_{n=1}^\infty x_n$ converges, then $\displaystyle\sum_{n=1}^\infty (x_{2n} + x_{2n+1})$ also converges.
+    b) Find an explicit example where the converse does not hold.
+  notes: Topically consistent with the MIT reading (2.5).
+  curation:
+    why: 'Grouping terms: partial sums of grouped series are a subsequence of partial sums; converse fails.'
+- id: lebl-2.5.7
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.5 Series
+    problemNumber: Exercise 2.5.7
+    page: '98'
+  topic: series
+  subtopics:
+  - convergence-tests
+  skills:
+  - cauchy-criterion
+  - block-estimate
+  - monotonicity-bound
+  concept: decreasing summable sequence satisfies n x_n → 0
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - series
+  - decreasing
+  - Cauchy-criterion
+  - rate-of-decay
+  problemLatex: |
+    (Challenging) Suppose $\{x_n\}_{n=1}^\infty$ is a decreasing sequence and $\sum_{n=1}^\infty x_n$ converges. Prove $\lim_{n\to\infty} n x_n = 0$.
+  curation:
+    why: If xₙ is decreasing and summable then n xₙ → 0 — a condensation-style estimate.
+- id: lebl-2.5.10
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.5 Series
+    problemNumber: Exercise 2.5.10
+    page: '98'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 6, Problem 3
+  topic: series
+  subtopics:
+  - absolute-convergence
+  skills:
+  - limits-preserve-inequalities
+  - triangle-inequality
+  concept: triangle inequality for absolutely convergent series
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - triangle-inequality
+  - absolute-convergence
+  - series
+  problemLatex: |
+    Prove the triangle inequality for series: If $\sum_{n=1}^\infty x_n$ converges absolutely, then
+    $$\left| \sum_{n=1}^\infty x_n \right| \leq \sum_{n=1}^\infty |x_n|.$$
+  notes: Topically consistent with the MIT reading (2.5).
+  curation:
+    why: Passing the finite triangle inequality to the limit of partial sums.
+- id: lebl-2.5.12
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.5 Series
+    problemNumber: Exercise 2.5.12
+    page: '98'
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  - divergence
+  skills:
+  - negate-definition
+  - block-estimate
+  concept: 'harmonic partial sums: x_{n+k} − x_n → 0 for each fixed k but not Cauchy'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - Cauchy
+  - harmonic-series
+  - quantifiers
+  - counterexample
+  problemLatex: |
+    Let $x_n := \sum_{i=1}^n 1/i$. Show that for every $k$, we get $\lim_{n\to\infty} |x_{n+k} - x_n| = 0$, yet $\{x_n\}_{n=1}^\infty$ is not Cauchy.
+  curation:
+    why: 'xₙ₊ₖ − xₙ → 0 for each fixed k is not the Cauchy condition: the harmonic partial sums.'
+- id: lebl-2.5.15
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.5 Series
+    problemNumber: Exercise 2.5.15
+    page: '99'
+  topic: series
+  subtopics:
+  - convergence-tests
+  - comparison
+  skills:
+  - dyadic-blocks
+  - comparison-estimate
+  - monotonicity-bound
+  concept: Cauchy condensation test
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy-condensation
+  - p-series
+  - dyadic
+  problemLatex: |
+    (Challenging) Suppose $\{x_n\}_{n=1}^\infty$ is a decreasing sequence of positive numbers. The proof of convergence/divergence for the $p$-series generalizes. Prove the Cauchy condensation principle:
+    $$\sum_{n=1}^\infty x_n \quad \text{converges if and only if} \quad \sum_{n=1}^\infty 2^n x_{2^n} \quad \text{converges.}$$
+  curation:
+    why: 'Cauchy condensation: the clean way to settle p-series and logarithmic series.'
+- id: lebl-2.6.1
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.6 More on series
+    problemNumber: Exercise 2.6.1
+    page: '110'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 6, Problem 4
+  topic: series
+  subtopics:
+  - convergence-tests
+  - alternating-series
+  skills:
+  - test-selection
+  - root-test
+  concept: deciding convergence with root/alternating/divergence tests
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags:
+  - root-test
+  - alternating-series-test
+  - divergence-test
+  problemLatex: |
+    Decide the convergence or divergence of the following series.
+    a) $\displaystyle\sum_{n=1}^\infty \frac{1}{2^{2n+1}}$
+    b) $\displaystyle\sum_{n=1}^\infty \frac{(-1)^n (n-1)}{n}$
+    c) $\displaystyle\sum_{n=1}^\infty \frac{(-1)^n}{n^{1/10}}$
+    d) $\displaystyle\sum_{n=1}^\infty \frac{n^n}{(n+1)^{2n}}$
+  notes: Verified against page image. Topically consistent with the MIT reading (2.6).
+  curation:
+    why: Root test, alternating series test, divergence test.
+- id: lebl-2.6.2
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.6 More on series
+    problemNumber: Exercise 2.6.2
+    page: '110'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 7, Problem 1
+  topic: series
+  subtopics:
+  - double-series-products
+  - absolute-convergence
+  skills:
+  - partial-sum-bound
+  - triangle-inequality
+  concept: Cauchy product of absolutely convergent series converges absolutely
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy-product
+  - absolute-convergence
+  problemLatex: |
+    Suppose both $\sum_{n=0}^\infty a_n$ and $\sum_{n=0}^\infty b_n$ converge absolutely. Show that the product series, $\sum_{n=0}^\infty c_n$ where $c_n = a_0 b_n + a_1 b_{n-1} + \cdots + a_n b_0$, also converges absolutely.
+  notes: Topically consistent with the MIT reading (2.6).
+  curation:
+    why: Cauchy product of absolutely convergent series; bounding partial sums of a double sum.
+- id: lebl-2.6.3
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.6 More on series
+    problemNumber: Exercise 2.6.3
+    page: '110'
+  topic: series
+  subtopics:
+  - rearrangements
+  - conditional-convergence
+  skills:
+  - greedy-construction
+  - epsilon-N-proof
+  concept: Riemann rearrangement theorem
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - Riemann-rearrangement
+  - conditional-convergence
+  - rearrangement
+  problemLatex: |
+    (Challenging) Let $\sum_{n=1}^\infty a_n$ be conditionally convergent. Show that given an arbitrary $x \in \mathbb{R}$ there exists a rearrangement of $\sum_{n=1}^\infty a_n$ such that the rearranged series converges to $x$. Hint: See Example 2.6.4.
+  notes: The hint points to Example 2.6.4 (a rearrangement of the alternating harmonic series); the problem is self-contained without it. Curator may drop the hint reference.
+  curation:
+    why: 'The Riemann rearrangement theorem: a conditionally convergent series can be rearranged to sum to anything.'
+- id: lebl-2.6.10
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.6 More on series
+    problemNumber: Exercise 2.6.10
+    page: '111'
+  topic: series
+  subtopics:
+  - power-series
+  skills:
+  - binomial-estimate
+  - limsup-product
+  - root-test
+  concept: n^{1/n} → 1; ∑ n a_n x^n has the same radius as ∑ a_n x^n
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - n-th-root
+  - radius-of-convergence
+  - binomial-estimate
+  - power-series
+  problemLatex: |
+    a) Prove that $\lim_{n\to\infty} n^{1/n} = 1$ using the following procedure: Write $n^{1/n} = 1 + b_n$ and note $b_n > 0$ when $n > 1$. Then show that $(1 + b_n)^n \geq \frac{n(n-1)}{2} b_n^2$ and use this to show that $\lim_{n\to\infty} b_n = 0$.
+    b) Use the result of part a) to show that if $\sum_{n=0}^\infty a_n x^n$ is a convergent power series with radius of convergence $R$, then $\sum_{n=0}^\infty n a_n x^n$ is also convergent with the same radius of convergence.
+  notes: Radius of convergence is defined in 2.6 via the root test (R = 1/limsup |a_n|^{1/n}).
+  curation:
+    why: n^{1/n} → 1, so Σ n aₙ xⁿ has the same radius as Σ aₙ xⁿ (needed for termwise differentiation).
+- id: lebl-2.6.12
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.6 More on series
+    problemNumber: Exercise 2.6.12
+    page: '111'
+  topic: series
+  subtopics:
+  - alternating-series
+  - conditional-convergence
+  skills:
+  - construct-counterexample
+  - grouping
+  concept: alternating series test fails without monotonicity
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - alternating-series-test
+  - monotonicity
+  - counterexample
+  problemLatex: |
+    (Challenging) Show that the monotonicity in the alternating series test is necessary. That is, find a sequence of positive real numbers $\{x_n\}_{n=1}^\infty$ with $\lim_{n\to\infty} x_n = 0$ but such that $\sum_{n=1}^\infty (-1)^n x_n$ diverges.
+  curation:
+    why: The alternating series test fails without monotonicity.
+- id: lebl-2.6.13
+  source:
+    key: lebl
+    chapter: 2 Sequences and Series
+    section: 2.6 More on series
+    problemNumber: Exercise 2.6.13
+    page: '111'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 6, Problem 5
+  topic: series
+  subtopics:
+  - conditional-convergence
+  - alternating-series
+  skills:
+  - construct-counterexample
+  concept: ∑x_n converges but ∑x_n^2 diverges (e.g. (-1)^n/sqrt n)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - conditional-convergence
+  - counterexample
+  - alternating-series
+  problemLatex: |
+    Find a series $\sum_{n=1}^\infty x_n$ that converges, but $\sum_{n=1}^\infty x_n^2$ diverges. Hint: Compare Exercise 2.5.14.
+    *(Exercise 2.5.14: Suppose $\sum_{n=1}^\infty x_n$ converges and $x_n \geq 0$ for all $n$. Prove that $\sum_{n=1}^\infty x_n^2$ converges.)*
+  notes: Exercise 2.5.14 quoted verbatim for the hint. Topically consistent with the MIT reading (2.5/2.6).
+  curation:
+    why: Conditional convergence vs nonlinear operations on terms.
+- id: lebl-3.1.3
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.1 Limits of functions
+    problemNumber: Exercise 3.1.3
+    page: '120'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 8, Problem 1
+  topic: continuity
+  subtopics:
+  - functional-limits
+  skills:
+  - epsilon-delta-proof
+  - sequential-characterization
+  concept: squeeze theorem for function limits
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - squeeze-theorem
+  - functional-limit
+  - machinery
+  problemLatex: |
+    Prove Corollary 3.1.11.
+
+    (Corollary 3.1.11: Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f\colon S \to \mathbb{R}$, $g\colon S \to \mathbb{R}$, and $h\colon S \to \mathbb{R}$ are functions such that
+    $$f(x) \leq g(x) \leq h(x) \quad \text{for all } x \in S \setminus \{c\}.$$
+    Suppose the limits of $f(x)$ and $h(x)$ as $x$ goes to $c$ both exist, and
+    $$\lim_{x\to c} f(x) = \lim_{x\to c} h(x).$$
+    Then the limit of $g(x)$ as $x$ goes to $c$ exists and
+    $$\lim_{x\to c} g(x) = \lim_{x\to c} f(x) = \lim_{x\to c} h(x).$$
+    )
+  notes: 'Corollary 3.1.11 quoted verbatim from p. 118. The book places it after Lemma 3.1.7 (sequential characterization of limits), suggesting a proof via sequences. MIT number matches topic (reading 3.1, 3.2): consistent.'
+  curation:
+    why: Squeeze theorem for limits of functions, via the sequential criterion or directly with epsilon-delta.
+- id: lebl-3.1.11
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.1 Limits of functions
+    problemNumber: Exercise 3.1.11
+    page: '120'
+  topic: continuity
+  subtopics:
+  - functional-limits
+  - sequential-continuity
+  skills:
+  - interleaving-sequences
+  - sequential-characterization
+  - contradiction
+  concept: sequential criterion for existence of a function limit (convergence of f(x_n) for every x_n -> c suffices)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - sequential-criterion
+  - functional-limit
+  - interleaving
+  problemLatex: |
+    Prove the following stronger version of one direction of Lemma 3.1.7: Let $S \subset \mathbb{R}$, $c$ be a cluster point of $S$, and $f\colon S \to \mathbb{R}$ be a function. Suppose that for every sequence $\{x_n\}_{n=1}^\infty$ in $S \setminus \{c\}$ such that $\lim_{n\to\infty} x_n = c$ the sequence $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ is convergent. Then show that the limit of $f(x)$ as $x \to c$ exists.
+
+    *(Lemma 3.1.7: Let $S \subset \mathbb{R}$, let $c$ be a cluster point of $S$, let $f\colon S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $f(x) \to L$ as $x \to c$ if and only if for every sequence $\{x_n\}_{n=1}^\infty$ such that $x_n \in S \setminus \{c\}$ for all $n$, and such that $\lim_{n\to\infty} x_n = c$, we have that the sequence $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ converges to $L$.)*
+  notes: Lemma 3.1.7 quoted verbatim from p. 116 for context.
+  curation:
+    why: 'The sequential criterion with only convergence assumed: interleaving two sequences forces a common limit — a standard trick worth owning.'
+- id: lebl-3.1.13
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.1 Limits of functions
+    problemNumber: Exercise 3.1.13
+    page: '121'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 7, Problem 5
+  topic: continuity
+  subtopics:
+  - functional-limits
+  skills:
+  - subsequence-extraction
+  - cluster-point-sequence
+  concept: 'bounded f: some sequence x_n -> c has f(x_n) convergent (Bolzano–Weierstrass)'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Bolzano-Weierstrass
+  - cluster-point
+  - subsequence
+  - functional-limit
+  problemLatex: |
+    Suppose $S \subset \mathbb{R}$ and $c$ is a cluster point of $S$. Suppose $f\colon S \to \mathbb{R}$ is bounded. Show that there exists a sequence $\{x_n\}_{n=1}^\infty$ with $x_n \in S \setminus \{c\}$ and $\lim_{n\to\infty} x_n = c$ such that $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ converges.
+  notes: 'Topic matches the MIT reading (2.5, 2.6, 3.1): consistent.'
+  curation:
+    why: Bolzano–Weierstrass applied to (f(x_n)) for a sequence x_n -> c from the cluster-point definition.
+- id: lebl-3.2.10
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.2 Continuous functions
+    problemNumber: Exercise 3.2.10
+    page: '128'
+  topic: continuity
+  subtopics:
+  - sequential-continuity
+  skills:
+  - sequential-characterization
+  - density-argument
+  concept: continuous functions agreeing on Q agree everywhere
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - continuity
+  - density-of-Q
+  - sequential-criterion
+  - uniqueness
+  problemLatex: |
+    Let $f\colon \mathbb{R} \to \mathbb{R}$ and $g\colon \mathbb{R} \to \mathbb{R}$ be continuous functions. Suppose that $f(r) = g(r)$ for all $r \in \mathbb{Q}$. Show that $f(x) = g(x)$ for all $x \in \mathbb{R}$.
+  curation:
+    why: 'Density + sequential continuity: a continuous function is determined by its values on ℚ.'
+- id: lebl-3.2.11
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.2 Continuous functions
+    problemNumber: Exercise 3.2.11
+    page: '128'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 8, Problem 3
+  topic: continuity
+  subtopics:
+  - epsilon-delta-continuity
+  skills:
+  - epsilon-delta-proof
+  - choose-epsilon
+  concept: continuous f with f(c)>0 is positive on a neighborhood of c
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - continuity
+  - sign-preservation
+  - epsilon-delta
+  - machinery
+  problemLatex: |
+    Let $f\colon \mathbb{R} \to \mathbb{R}$ be continuous. Suppose $f(c) > 0$. Show that there exists an $\alpha > 0$ such that for all $x \in (c-\alpha, c+\alpha)$, we have $f(x) > 0$.
+  notes: 'Topic matches MIT reading (3.1, 3.2): consistent.'
+  curation:
+    why: 'Sign preservation: choose epsilon = f(c) in the definition of continuity.'
+- id: lebl-3.2.14
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.2 Continuous functions
+    problemNumber: Exercise 3.2.14
+    page: '128'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 8, Problem 4
+  topic: continuity
+  subtopics:
+  - epsilon-delta-continuity
+  skills:
+  - epsilon-delta-proof
+  - case-analysis
+  concept: pasting lemma for continuous functions on adjacent closed intervals
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - pasting-lemma
+  - continuity
+  - piecewise
+  - epsilon-delta
+  problemLatex: |
+    Suppose $f\colon [-1,0] \to \mathbb{R}$ and $g\colon [0,1] \to \mathbb{R}$ are continuous and $f(0) = g(0)$. Define $h\colon [-1,1] \to \mathbb{R}$ by $h(x) := f(x)$ if $x \leq 0$ and $h(x) := g(x)$ if $x > 0$. Show that $h$ is continuous.
+  notes: 'Topic matches MIT reading (3.1, 3.2): consistent.'
+  curation:
+    why: 'Pasting lemma: continuity at the junction point from one-sided behavior.'
+- id: lebl-3.2.19
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.2 Continuous functions
+    problemNumber: Exercise 3.2.19
+    page: '129'
+  topic: continuity
+  subtopics:
+  - epsilon-delta-continuity
+  skills:
+  - comparison-estimate
+  - squeeze
+  - construct-counterexample
+  concept: convex function on an open interval is continuous
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - convex-function
+  - continuity
+  - inequalities
+  - counterexample
+  problemLatex: |
+    *(Challenging)* A function $f\colon I \to \mathbb{R}$ is *convex* if whenever $a \leq x \leq b$ for $a, x, b$ in $I$, we have $f(x) \leq f(a)\frac{b-x}{b-a} + f(b)\frac{x-a}{b-a}$. In other words, the line drawn between $\bigl(a, f(a)\bigr)$ and $\bigl(b, f(b)\bigr)$ is above the graph of $f$.
+
+    a) Prove that if $I = (\alpha, \beta)$ an open interval and $f\colon I \to \mathbb{R}$ is convex, then $f$ is continuous.
+    b) Find an example of a convex $f\colon [0,1] \to \mathbb{R}$ that is not continuous.
+  notes: Verified against page image. 'if I = (α,β) an open interval' is the book's wording (missing 'is').
+  curation:
+    why: Convexity gives slope monotonicity, which squeezes f near every interior point; the endpoint counterexample shows openness matters.
+- id: lebl-3.3.3
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.3 Extreme and intermediate value theorems
+    problemNumber: Exercise 3.3.3
+    page: '136'
+  topic: continuity
+  subtopics:
+  - EVT
+  - functional-limits
+  skills:
+  - compact-subinterval-reduction
+  - case-analysis
+  concept: continuous f on (0,1) vanishing at both ends attains a max or a min
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - extreme-value-theorem
+  - open-interval
+  - limits
+  - continuity
+  problemLatex: |
+    Let $f\colon (0,1) \to \mathbb{R}$ be a continuous function such that $\displaystyle\lim_{x\to 0} f(x) = \lim_{x\to 1} f(x) = 0$. Show that $f$ achieves either an absolute minimum or an absolute maximum on $(0,1)$ (but perhaps not both).
+  curation:
+    why: 'EVT on a compact subinterval plus endpoint limits: a standard way to recover extrema on an open interval.'
+- id: lebl-3.3.11
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.3 Extreme and intermediate value theorems
+    problemNumber: Exercise 3.3.11
+    page: '137'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 9, Problem 1
+  topic: continuity
+  subtopics:
+  - EVT
+  skills:
+  - construct-counterexample
+  concept: bounded continuous function on R with no max or min (e.g. arctan)
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags:
+  - extreme-value-theorem
+  - counterexample
+  - unbounded-domain
+  problemLatex: |
+    Find an example of a continuous bounded function $f\colon \mathbb{R} \to \mathbb{R}$ that achieves neither an absolute minimum nor an absolute maximum on $\mathbb{R}$.
+  notes: 'Topic matches MIT reading (3.3, 3.4, 3.5): consistent.'
+  curation:
+    why: Shows compactness of the domain is essential in the extreme value theorem.
+- id: lebl-3.3.14
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.3 Extreme and intermediate value theorems
+    problemNumber: Exercise 3.3.14
+    page: '137'
+  topic: continuity
+  subtopics:
+  - EVT
+  - continuity-and-topology
+  skills:
+  - contradiction
+  - EVT-application
+  concept: no continuous bijection [0,1] -> (0,1)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - EVT
+  - bijection
+  - compactness
+  - contradiction
+  problemLatex: |
+    Suppose $f\colon [0,1] \to (0,1)$ is a bijection. Prove that $f$ is not continuous.
+  curation:
+    why: A one-line consequence of the EVT (and compactness) that rules out a continuous bijection [0,1] → (0,1).
+- id: lebl-3.4.3
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.4 Uniform continuity
+    problemNumber: Exercise 3.4.3
+    page: '143'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 9, Problem 2
+  topic: continuity
+  subtopics:
+  - lipschitz-holder
+  skills:
+  - algebraic-estimate
+  concept: 1/x is Lipschitz on (c, infinity) for c > 0
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - Lipschitz
+  - 1-over-x
+  - estimate
+  problemLatex: |
+    Show that $f\colon (c, \infty) \to \mathbb{R}$ for some $c > 0$ and defined by $f(x) := 1/x$ is Lipschitz continuous.
+  notes: 'Topic matches MIT reading (3.3, 3.4, 3.5): consistent. Pairs naturally with Exercise 3.4.4 (not Lipschitz on (0,∞)).'
+  curation:
+    why: Lipschitz estimate |1/x - 1/y| = |x-y|/(xy) with xy bounded below.
+- id: lebl-3.4.8
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.4 Uniform continuity
+    problemNumber: Exercise 3.4.8
+    page: '143'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 9, Problem 3
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - negate-definition
+  - sequential-characterization
+  concept: sin(1/x) is not uniformly continuous on (0, infinity)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - uniform-continuity
+  - sin-1-over-x
+  - negation
+  - counterexample
+  problemLatex: |
+    Show that $f\colon (0, \infty) \to \mathbb{R}$ defined by $f(x) := \sin(1/x)$ is not uniformly continuous.
+  notes: 'Topic matches MIT reading (3.3, 3.4, 3.5): consistent.'
+  curation:
+    why: Negating uniform continuity with pairs of points that get close while values stay apart.
+- id: lebl-3.4.9
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.4 Uniform continuity
+    problemNumber: Exercise 3.4.9
+    page: '143'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - cauchy-sequence-argument
+  - well-definedness
+  - density-argument
+  concept: uniformly continuous function on Q extends uniquely to a uniformly continuous function on R
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - uniform-continuity
+  - extension
+  - dense-set
+  - Cauchy
+  - completeness
+  problemLatex: |
+    *(Challenging)* Let $f\colon \mathbb{Q} \to \mathbb{R}$ be a uniformly continuous function. Show that there exists a uniformly continuous function $\widetilde{f}\colon \mathbb{R} \to \mathbb{R}$ such that $f(x) = \widetilde{f}(x)$ for all $x \in \mathbb{Q}$.
+  curation:
+    why: Extend a uniformly continuous function from ℚ to ℝ via Cauchy sequences — the prototype of completion arguments.
+- id: lebl-3.4.15
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.4 Uniform continuity
+    problemNumber: Exercise 3.4.15
+    page: '144'
+  topic: continuity
+  subtopics:
+  - uniform-continuity
+  skills:
+  - periodicity-reduction
+  - compactness-argument
+  concept: continuous periodic function is uniformly continuous
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - uniform-continuity
+  - periodic-function
+  - compactness
+  problemLatex: |
+    Suppose $f\colon \mathbb{R} \to \mathbb{R}$ is continuous and periodic with period $P > 0$. That is, $f(x+P) = f(x)$ for all $x \in \mathbb{R}$. Show that $f$ is uniformly continuous.
+  curation:
+    why: Periodicity reduces the problem to a compact interval, where continuity is uniform.
+- id: lebl-3.6.8
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.6 Monotone functions and continuity
+    problemNumber: Exercise 3.6.8
+    page: '153'
+  topic: continuity
+  subtopics:
+  - monotone-functions
+  - IVT
+  skills:
+  - IVT-application
+  - contradiction
+  - case-analysis
+  concept: continuous injection on an interval is strictly monotone
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - IVT
+  - injective
+  - strictly-monotone
+  - continuity
+  problemLatex: |
+    Suppose $I$ and $J$ are intervals and $f\colon I \to J$ is a continuous, bijective (one-to-one and onto) function. Show that $f$ is strictly monotone.
+  curation:
+    why: IVT forces a continuous bijection between intervals to be strictly monotone.
+- id: lebl-3.6.11
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.6 Monotone functions and continuity
+    problemNumber: Exercise 3.6.11
+    page: '154'
+  topic: continuity
+  subtopics:
+  - monotone-functions
+  - discontinuities
+  skills:
+  - enumeration-of-rationals
+  - series-construction
+  - construct-counterexample
+  concept: 'increasing function discontinuous exactly at (every) rational: sum of 2^{-n} over q_n < x'
+  difficulty: hard
+  category: challenge
+  type: construction
+  tags:
+  - monotone-function
+  - discontinuity
+  - rationals
+  - countable
+  - series
+  - construction
+  problemLatex: |
+    *(Challenging)* Find an example of an increasing function $f\colon [0,1] \to \mathbb{R}$ that has a discontinuity at each rational number. Then show that the image $f\bigl([0,1]\bigr)$ contains no interval. Hint: Enumerate the rational numbers and define the function with a series.
+  curation:
+    why: Builds a monotone function jumping at every rational via a weighted series over an enumeration of ℚ — the standard construction.
+- id: lebl-4.1.5
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.1 The derivative
+    problemNumber: Exercise 4.1.5
+    page: '160'
+  topic: differentiation
+  subtopics:
+  - derivative-definition
+  - differentiability
+  skills:
+  - squeeze
+  - density-argument
+  - sequential-characterization
+  concept: 'x^2 on Q, 0 off Q: differentiable only at 0'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - differentiable-at-one-point
+  - rational-irrational
+  - counterexample
+  problemLatex: |
+    Define $f\colon \mathbb{R} \to \mathbb{R}$ by
+    $$f(x) := \begin{cases} x^2 & \text{if } x \in \mathbb{Q}, \\ 0 & \text{otherwise.} \end{cases}$$
+    Prove that $f$ is differentiable at 0, but discontinuous at all points except 0.
+  curation:
+    why: 'x² on ℚ, 0 elsewhere: differentiable at exactly one point.'
+- id: lebl-4.1.11
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.1 The derivative
+    problemNumber: Exercise 4.1.11
+    page: '160'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 10, Problem 2
+  topic: differentiation
+  subtopics:
+  - derivative-definition
+  - differentiability
+  skills:
+  - squeeze
+  - comparison-estimate
+  concept: bounded times function with g(c)=g'(c)=0 is differentiable at c
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - derivative-definition
+  - bounded-function
+  - squeeze
+  problemLatex: |
+    Suppose $f\colon I \to \mathbb{R}$ is bounded, $g\colon I \to \mathbb{R}$ is differentiable at $c \in I$, and $g(c) = g'(c) = 0$. Show that $h(x) := f(x)g(x)$ is differentiable at $c$. Hint: You cannot apply the product rule.
+  notes: 'Topic matches MIT reading (4.1, 4.2): consistent.'
+  curation:
+    why: Working from the difference-quotient definition when the product rule does not apply.
+- id: lebl-4.2.7
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.2 Mean value theorem
+    problemNumber: Exercise 4.2.7
+    page: '169'
+  topic: differentiation
+  subtopics:
+  - darboux-property
+  skills:
+  - theorem-application
+  - contradiction
+  concept: nonvanishing derivative has constant sign (Darboux)
+  difficulty: easy
+  category: canonical
+  type: theorem-application
+  tags:
+  - Darboux
+  - derivative
+  - intermediate-value-property
+  problemLatex: |
+    Suppose $f\colon (a,b) \to \mathbb{R}$ is a differentiable function such that $f'(x) \neq 0$ for all $x \in (a,b)$. Suppose there exists a point $c \in (a,b)$ such that $f'(c) > 0$. Prove $f'(x) > 0$ for all $x \in (a,b)$.
+  notes: Book proves Darboux's theorem (Theorem 4.2.11) earlier in §4.2, so this is intended as its application.
+  curation:
+    why: 'A quick use of Darboux: a nowhere-zero derivative has constant sign.'
+- id: lebl-4.2.9
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.2 Mean value theorem
+    problemNumber: Exercise 4.2.9
+    page: '169'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 10, Problem 4
+  topic: differentiation
+  subtopics:
+  - lhopital
+  - rolle-mvt
+  skills:
+  - MVT-application
+  - sequential-characterization
+  concept: L'Hôpital's rule via Cauchy MVT
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - L-Hopital
+  - Cauchy-mean-value-theorem
+  - Rolle
+  problemLatex: |
+    Prove the following version of L'Hôpital's rule. Suppose $f\colon (a,b) \to \mathbb{R}$ and $g\colon (a,b) \to \mathbb{R}$ are differentiable functions and $c \in (a,b)$. Suppose that $f(c) = 0$, $g(c) = 0$, $g'(x) \neq 0$ when $x \neq c$, and that the limit of $f'(x)/g'(x)$ as $x$ goes to $c$ exists. Show that
+    $$\lim_{x\to c} \frac{f(x)}{g(x)} = \lim_{x\to c} \frac{f'(x)}{g'(x)}.$$
+    Compare to Exercise 4.1.15. Note: Before you do anything else, prove that $g(x) \neq 0$ when $x \neq c$.
+  notes: '''Compare to Exercise 4.1.15'' refers to a weaker version assuming f'', g'' continuous; the problem is self-contained without it. Topic matches MIT reading (4.1, 4.2): consistent.'
+  curation:
+    why: Cauchy mean value theorem to prove L'Hôpital's rule (0/0 form).
+- id: lebl-4.2.10
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.2 Mean value theorem
+    problemNumber: Exercise 4.2.10
+    page: '169'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  skills:
+  - MVT-application
+  - contrapositive
+  concept: unbounded differentiable function on bounded interval has unbounded derivative
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - mean-value-theorem
+  - unbounded
+  - bounded-interval
+  problemLatex: |
+    Let $f\colon (a,b) \to \mathbb{R}$ be an unbounded differentiable function. Show $f'\colon (a,b) \to \mathbb{R}$ is unbounded. Remark: It is important that $(a,b)$ is a bounded interval.
+  curation:
+    why: An unbounded differentiable function on a bounded interval has an unbounded derivative (MVT, contrapositive).
+- id: lebl-4.2.13
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.2 Mean value theorem
+    problemNumber: Exercise 4.2.13
+    page: '170'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 10, Problem 5
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  - differentiability
+  skills:
+  - MVT-application
+  - squeeze
+  concept: if f continuous and lim f'(x) = L at c, then f'(c) = L
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - mean-value-theorem
+  - derivative-limit
+  - one-sided-derivative
+  problemLatex: |
+    a) Prove Proposition 4.2.10.
+    b) Suppose $f\colon (a,b) \to \mathbb{R}$ is continuous, and suppose $f$ is differentiable everywhere except at $c \in (a,b)$ and $\lim_{x\to c} f'(x) = L$. Prove that $f$ is differentiable at $c$ and $f'(c) = L$.
+
+    (Proposition 4.2.10:
+    (i) Suppose $f\colon [a,b) \to \mathbb{R}$ is continuous, differentiable in $(a,b)$, and $\lim_{x\to a} f'(x) = L$. Then $f$ is differentiable at $a$ and $f'(a) = L$.
+    (ii) Suppose $f\colon (a,b] \to \mathbb{R}$ is continuous, differentiable in $(a,b)$, and $\lim_{x\to b} f'(x) = L$. Then $f$ is differentiable at $b$ and $f'(b) = L$.)
+  notes: 'Proposition 4.2.10 quoted verbatim from p. 167. Topic matches MIT reading (4.1, 4.2): consistent.'
+  curation:
+    why: 'MVT on [a,x] then squeeze: a limit of f'' at a point equals the derivative there.'
+- id: lebl-4.3.11
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.3 Taylor's theorem
+    problemNumber: Exercise 4.3.11
+    page: '175'
+  topic: differentiation
+  subtopics:
+  - local-extrema
+  - mvt-applications
+  skills:
+  - derivative-definition
+  - MVT-application
+  - sign-analysis
+  concept: second derivative test assuming only that f''(x0) exists
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - second-derivative-test
+  - extrema
+  - mean-value-theorem
+  problemLatex: |
+    Prove the more general version of the second derivative test. Suppose $f\colon (a,b) \to \mathbb{R}$ is differentiable and $x_0 \in (a,b)$ is such that, $f'(x_0) = 0$, $f''(x_0)$ exists, and $f''(x_0) > 0$. Prove that $f$ has a strict relative minimum at $x_0$. Hint: Consider the limit definition of $f''(x_0)$.
+  notes: 'Book defines ''strict relative minimum'' on p. 174: there exists δ > 0 with f(x) > f(c) for all x ∈ (c−δ, c+δ), x ≠ c.'
+  curation:
+    why: The second derivative test assuming only that f″(x₀) exists — a careful limit argument instead of Taylor.
+- id: lebl-4.4.6
+  source:
+    key: lebl
+    chapter: 4 The Derivative
+    section: 4.4 Inverse function theorem
+    problemNumber: Exercise 4.4.6
+    page: '179'
+  topic: differentiation
+  subtopics:
+  - inverse-functions
+  - differentiability
+  skills:
+  - derivative-definition
+  - construct-counterexample
+  - sign-analysis
+  concept: 'x + 2x^2 sin(1/x): f''(0)>0 but not locally invertible'
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - inverse-function-theorem
+  - counterexample
+  - continuously-differentiable
+  - oscillation
+  problemLatex: |
+    Let $f(x) := x + 2x^2\sin(1/x)$ for $x \neq 0$ and $f(0) := 0$. Show that $f$ is differentiable at all $x$, that $f'(0) > 0$, but that $f$ is not invertible on any open interval containing the origin.
+  curation:
+    why: f′(0) > 0 does not make f invertible near 0 when f′ is discontinuous — why the inverse function theorem needs C¹.
+- id: lebl-5.1.13
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.1 The Riemann integral
+    problemNumber: Exercise 5.1.13
+    page: '190'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - partition-refinement
+  - epsilon-argument
+  - sup-approximation
+  concept: Darboux integrable iff Riemann integrable (mesh definition), same value
+  difficulty: hard
+  category: synthesis
+  type: proof
+  tags:
+  - Riemann-integration
+  - Darboux-sums
+  - Riemann-sums
+  - mesh
+  - equivalence-of-definitions
+  problemLatex: |
+    Using Exercise 5.1.12 and the idea of the proof in Exercise 5.1.7, show that Darboux integral is the same as the standard definition of Riemann integral, which you have most likely seen in calculus. That is, show that $f \in \mathscr{R}\bigl([a,b]\bigr)$ if and only if there exists an $I \in \mathbb{R}$, such that for every $\epsilon > 0$ there exists a $\delta > 0$ such that if $P = \{x_0, x_1, \ldots, x_n\}$ is a partition with $\Delta x_i < \delta$ for all $i$, then $\left| \sum_{i=1}^n f(c_i)\Delta x_i - I \right| < \epsilon$ for every set $\{c_1, c_2, \ldots, c_n\}$ with $c_i \in [x_{i-1}, x_i]$. If $f \in \mathscr{R}\bigl([a,b]\bigr)$, then $I = \int_a^b f$.
+
+    *(Exercise 5.1.12: Show that $f \in \mathscr{R}\bigl([a,b]\bigr)$ if and only if there exists an $I \in \mathbb{R}$, such that for every $\epsilon > 0$ there exists a $\delta > 0$ such that if $P$ is a partition with $\Delta x_i < \delta$ for all $i$, then $\left|L(P,f) - I\right| < \epsilon$ and $\left|U(P,f) - I\right| < \epsilon$. If $f \in \mathscr{R}\bigl([a,b]\bigr)$, then $I = \int_a^b f$.)*
+
+    *(Exercise 5.1.7: Suppose $f\colon [a,b] \to \mathbb{R}$ is Riemann integrable. Let $\epsilon > 0$ be given. Then show that there exists a partition $P = \{x_0, x_1, \ldots, x_n\}$ such that for every set of numbers $\{c_1, c_2, \ldots, c_n\}$ with $c_k \in [x_{k-1}, x_k]$ for all $k$, we have $\left| \int_a^b f - \sum_{k=1}^n f(c_k)\Delta x_k \right| < \epsilon$.)*
+  notes: Referenced Exercises 5.1.12 (Challenging) and 5.1.7 quoted verbatim from p. 190 and p. 189 (5.1.12's opening 'Generalize the previous exercise.' omitted). The essential hard step is the content of 5.1.12; the curator may prefer to present 5.1.12+5.1.13 as one item.
+  curation:
+    why: Darboux integrability equals the mesh/tagged-sum definition (the one used in MIT's lecture notes).
+- id: lebl-5.1.15
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.1 The Riemann integral
+    problemNumber: Exercise 5.1.15
+    page: '190'
+  topic: integration
+  subtopics:
+  - partitions-darboux-sums
+  skills:
+  - definition-unpacking
+  concept: L(P,f)=U(P,f) for a single partition implies f constant
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - Darboux-sums
+  - definition
+  problemLatex: |
+    Suppose that $f\colon [a,b] \to \mathbb{R}$ is a bounded function, and $P$ is a partition of $[a,b]$ such that $L(P,f) = U(P,f)$. Prove that $f$ is a constant function.
+  curation:
+    why: If L(P,f) = U(P,f) for one partition then f is constant — what the sums actually measure.
+- id: lebl-5.2.11
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.2 Properties of the integral
+    problemNumber: Exercise 5.2.11
+    page: '198'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - finiteness-argument
+  - choose-partition
+  - epsilon-argument
+  concept: Thomae's (popcorn) function is Riemann integrable with integral 0
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - Thomae-function
+  - popcorn-function
+  - dense-discontinuities
+  problemLatex: |
+    (Hard) Show that the Thomae or popcorn function (see Example 3.2.12) is Riemann integrable. Therefore, there exists a function discontinuous at all rational numbers (a dense set) that is Riemann integrable.
+
+    That is, define $f\colon [0,1] \to \mathbb{R}$ by $f(0) = 1$ and for $x > 0$ by
+    $$f(x) := \begin{cases} 1/k & \text{if } x = m/k \text{ where } m, k \in \mathbb{N} \text{ and } m \text{ and } k \text{ have no common divisors}, \\ 0 & \text{if } x \text{ is irrational}. \end{cases}$$
+    Show $\int_0^1 f = 0$.
+  notes: Book labels it (Hard). The exercise itself defines the function, so it is self-contained.
+  curation:
+    why: Thomae's function is integrable with integral 0, though discontinuous on a dense set.
+- id: lebl-5.2.14
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.2 Properties of the integral
+    problemNumber: Exercise 5.2.14
+    page: '199'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - uniform-partition
+  - telescoping
+  concept: monotone functions are Riemann integrable
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - monotone-function
+  - bounded-variation
+  - telescoping
+  problemLatex: |
+    Let $f\colon [a,b] \to \mathbb{R}$ be a function.
+    a) Show that if $f$ is increasing, then it is Riemann integrable. Hint: Use a uniform partition; each subinterval of same length.
+    b) Use part a) to show that if $f$ is decreasing, then it is Riemann integrable.
+    c) Suppose $h = f - g$ where $f$ and $g$ are increasing functions on $[a,b]$. Show that $h$ is Riemann integrable.
+  notes: 'Footnote on c) in the book: ''Such an h is said to be of bounded variation.'''
+  curation:
+    why: 'Monotone functions are integrable: a uniform partition makes U − L telescope.'
+- id: lebl-5.2.15
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.2 Properties of the integral
+    problemNumber: Exercise 5.2.15
+    page: '199'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - integral-inequalities
+  skills:
+  - triangle-inequality
+  - sup-inf-inequalities
+  concept: f integrable implies |f| integrable and |∫f| <= ∫|f|
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - absolute-value
+  - integral-inequality
+  - machinery
+  problemLatex: |
+    (Challenging) Suppose $f \in \mathscr{R}\bigl([a,b]\bigr)$. Prove that the function that takes $x$ to $\left|f(x)\right|$ is also Riemann integrable on $[a,b]$. Then show the same inequality as Exercise 5.2.10.
+
+    *[Not part of the printed exercise — the inequality of Exercise 5.2.10 is:]*
+    $$\left| \int_a^b f(x)\,dx \right| \le \int_a^b \left|f(x)\right|\,dx.$$
+  notes: The inequality from Exercise 5.2.10 (p. 198) is appended, labeled, for self-containedness; it is not part of the printed text of 5.2.15.
+  curation:
+    why: f integrable ⇒ |f| integrable and |∫f| ≤ ∫|f| — the most used integral inequality.
+- id: lebl-5.3.1
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.3 Fundamental theorem of calculus
+    problemNumber: Exercise 5.3.1
+    page: '205'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 12, Problem 2
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  skills:
+  - FTC-application
+  - chain-rule
+  concept: derivative of an integral with variable limits (FTC + chain rule)
+  difficulty: introductory
+  category: canonical
+  type: computation
+  tags:
+  - fundamental-theorem-of-calculus
+  - chain-rule
+  - Riemann-integration
+  problemLatex: |
+    Compute $\displaystyle \frac{d}{dx}\left( \int_{-x}^{x} e^{s^2}\,ds \right)$.
+  notes: MIT 18.100A Fall 2020 used an older Lebl version; v6.3 Exercise 5.3.1 (FTC with variable limits) is topically consistent with the assignment's Riemann-integral reading.
+  curation:
+    why: Second form of the FTC combined with additivity and the chain rule for variable limits of integration.
+- id: lebl-5.3.9
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.3 Fundamental theorem of calculus
+    problemNumber: Exercise 5.3.9
+    page: '205'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 12, Problem 3
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  skills:
+  - density-argument
+  - FTC-application
+  - sequential-continuity
+  concept: ∫_a^x f = 0 for rational x implies f ≡ 0 (density + FTC)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - fundamental-theorem-of-calculus
+  - density-of-Q
+  - continuity
+  problemLatex: |
+    Suppose $f\colon [a,b] \to \mathbb{R}$ is continuous and $\int_a^x f = 0$ for all rational $x$ in $[a,b]$. Show that $f(x) = 0$ for all $x \in [a,b]$.
+  notes: Topically consistent with the MIT assignment's Riemann-integral reading.
+  curation:
+    why: Continuity of F(x)=∫_a^x f plus density of Q extends a vanishing condition to all x; then FTC.
+- id: lebl-5.4.6
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.4 The logarithm and the exponential
+    problemNumber: Exercise 5.4.6
+    page: '212'
+  topic: integration
+  subtopics:
+  - log-exp
+  - integral-inequalities
+  skills:
+  - integral-comparison
+  - monotone-bounded
+  concept: harmonic sums vs ln n; existence of the Euler–Mascheroni constant
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - logarithm
+  - harmonic-series
+  - Euler-Mascheroni
+  - integral-test
+  - monotone-convergence
+  problemLatex: |
+    a) Prove that for all integers $n \ge 2$,
+    $$\sum_{k=2}^n \frac{1}{k} \le \ln(n) \le \sum_{k=1}^{n-1} \frac{1}{k}.$$
+    b) Prove that the limit
+    $$\gamma := \lim_{n\to\infty} \left( \left( \sum_{k=1}^n \frac{1}{k} \right) - \ln(n) \right)$$
+    exists. This constant $\gamma$ is known as the *Euler–Mascheroni constant*. It is not known if $\gamma$ is rational or not. Approximately, $\gamma \approx 0.5772$.
+  curation:
+    why: Compare harmonic sums with ln n and show the Euler–Mascheroni constant exists.
+- id: lebl-5.5.10
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.5 Improper integrals
+    problemNumber: Exercise 5.5.10
+    page: '225'
+  topic: integration
+  subtopics:
+  - improper-integrals
+  skills:
+  - construct-counterexample
+  - geometric-series
+  concept: unbounded continuous nonnegative function with finite improper integral
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - improper-integral
+  - counterexample
+  - spikes
+  problemLatex: |
+    Find an example of an *unbounded continuous* function $f\colon [0,\infty) \to \mathbb{R}$ that is nonnegative and such that $\int_0^\infty f < \infty$. Note that $\lim_{x\to\infty} f(x)$ will not exist; compare previous exercise. Hint: On each interval $[k,k+1]$, $k \in \mathbb{N}$, define a function whose integral over this interval is less than say $2^{-k}$.
+  notes: '''previous exercise'' is Exercise 5.5.9 (decreasing nonnegative f with finite integral tends to 0).'
+  curation:
+    why: An unbounded continuous nonnegative function on [0,∞) with finite improper integral — no analogue of the nth-term test.
+- id: lebl-6.1.2
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.1 Pointwise and uniform convergence
+    problemNumber: Exercise 6.1.2
+    page: '232'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 12, Problem 4
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - uniform-convergence
+  skills:
+  - sup-norm-estimate
+  - negate-definition
+  concept: 'e^{x/n}/n: pointwise to 0, not uniform on R, uniform on [0,1]'
+  difficulty: introductory
+  category: canonical
+  type: computation
+  tags:
+  - uniform-convergence
+  - pointwise-convergence
+  - domain-dependence
+  problemLatex: |
+    a) Find the pointwise limit of $\displaystyle \left\{ \frac{e^{x/n}}{n} \right\}_{n=1}^\infty$ for $x \in \mathbb{R}$.
+    b) Is the limit uniform on $\mathbb{R}$?
+    c) Is the limit uniform on $[0,1]$?
+  notes: Topically consistent with the MIT assignment's reading (Section 6.1).
+  curation:
+    why: Computing pointwise limits and testing uniform convergence via sup norms on different domains.
+- id: lebl-6.1.5
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.1 Pointwise and uniform convergence
+    problemNumber: Exercise 6.1.5
+    page: '232'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 12, Problem 5
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  skills:
+  - epsilon-N-proof
+  - triangle-inequality
+  - epsilon-over-2
+  concept: uniform limit of a sum is the sum of uniform limits
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - uniform-convergence
+  - definition
+  - triangle-inequality
+  problemLatex: |
+    Suppose $\{f_n\}_{n=1}^\infty$ and $\{g_n\}_{n=1}^\infty$ defined on some set $A$ converge to $f$ and $g$ respectively uniformly on $A$. Show that $\{f_n + g_n\}_{n=1}^\infty$ converges uniformly to $f+g$ on $A$.
+  notes: Topically consistent with the MIT assignment's reading (Section 6.1). Pairs naturally with 6.1.6 (products need not converge uniformly).
+  curation:
+    why: Working with the definition of uniform convergence; triangle inequality with a single N for all x.
+- id: lebl-6.1.6
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.1 Pointwise and uniform convergence
+    problemNumber: Exercise 6.1.6
+    page: '232'
+  topic: function-sequences
+  subtopics:
+  - uniform-convergence
+  skills:
+  - construct-counterexample
+  - negate-definition
+  concept: product of uniformly convergent sequences need not converge uniformly
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - product
+  - counterexample
+  problemLatex: |
+    Find an example of a pair of sequences of functions $\{f_n\}_{n=1}^\infty$ and $\{g_n\}_{n=1}^\infty$ that converge uniformly to some $f$ and $g$ on some set $A$, but such that $\{f_n g_n\}_{n=1}^\infty$ (the multiple) does not converge uniformly to $fg$ on $A$. Hint: Let $A := \mathbb{R}$, let $f(x) := g(x) := x$. You can even pick $f_n = g_n$.
+  curation:
+    why: Products of uniformly convergent sequences need not converge uniformly (unboundedness is the culprit).
+- id: lebl-6.1.10
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.1 Pointwise and uniform convergence
+    problemNumber: Exercise 6.1.10
+    page: '233'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  - uniform-convergence
+  skills:
+  - construct-counterexample
+  - negate-definition
+  concept: 'moving bump: pointwise to 0 possible, uniform to 0 impossible when f_n(x_n)=1'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - pointwise-convergence
+  - moving-bump
+  - true-false
+  problemLatex: |
+    Consider a sequence of functions $f_n\colon [0,1] \to \mathbb{R}$ so that there is a sequence of distinct numbers $x_n \in [0,1]$ such that for all $n$,
+    $$f_n(x_n) = 1.$$
+    Prove or disprove the following statements:
+    a) True or false: There exists $\{f_n\}_{n=1}^\infty$ as above that converges pointwise to 0.
+    b) True or false: There exists $\{f_n\}_{n=1}^\infty$ as above that converges uniformly to 0.
+  curation:
+    why: 'If fₙ(xₙ) = 1 for some xₙ, uniform convergence to 0 is impossible: the standard non-uniformity test.'
+- id: lebl-6.1.14
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.1 Pointwise and uniform convergence
+    problemNumber: Exercise 6.1.14
+    page: '233'
+  topic: function-sequences
+  subtopics:
+  - series-of-functions
+  - uniform-convergence
+  - power-series
+  skills:
+  - tail-estimate
+  - negate-definition
+  concept: geometric series converges uniformly on [-c,c], c<1, but not on (-1,1)
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - uniform-convergence
+  - geometric-series
+  - power-series
+  problemLatex: |
+    (requires §2.6) In Example 6.1.3 we saw $\sum_{k=0}^\infty x^k$ converges pointwise to $\frac{1}{1-x}$ on $(-1,1)$.
+    a) Show that whenever $0 \le c < 1$, the series $\sum_{k=0}^\infty x^k$ converges uniformly on $[-c,c]$.
+    b) Show that the series $\sum_{k=0}^\infty x^k$ does not converge uniformly on $(-1,1)$.
+  notes: Reference to Example 6.1.3 only recalls the pointwise limit, which the sentence states; self-contained.
+  curation:
+    why: The geometric series converges uniformly on [−c,c] for c < 1 but not on (−1,1).
+- id: lebl-6.2.1
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.2 Interchange of limits
+    problemNumber: Exercise 6.2.1
+    page: '243'
+  topic: function-sequences
+  subtopics:
+  - interchange-derivative
+  - uniform-convergence
+  skills:
+  - construct-counterexample
+  - sup-norm-estimate
+  concept: differentiable functions converging uniformly to |x| (non-differentiable limit)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - differentiability
+  - counterexample
+  - absolute-value
+  problemLatex: |
+    Find an explicit example of a sequence of differentiable functions on $[-1,1]$ that converge uniformly to a function $f$ such that $f$ is not differentiable. Hint: There are many possibilities. The simplest is perhaps to combine $|x|$ and $\frac{n}{2}x^2 + \frac{1}{2n}$. Another is to consider $\sqrt{x^2 + (1/n)^2}$. Show that these functions are differentiable, converge uniformly, and then show that the limit is not differentiable.
+  curation:
+    why: 'Differentiable functions can converge uniformly to |x|: differentiability is not preserved.'
+- id: lebl-6.2.2
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.2 Interchange of limits
+    problemNumber: Exercise 6.2.2
+    page: '243'
+  topic: function-sequences
+  subtopics:
+  - interchange-derivative
+  - uniform-convergence
+  skills:
+  - construct-counterexample
+  - sup-norm-estimate
+  concept: 'x^n/n: uniform limit 0 but f_n''(1)=1 does not converge to f''(1)=0'
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - derivative
+  - interchange-of-limits
+  - counterexample
+  problemLatex: |
+    Let $f_n(x) := \frac{x^n}{n}$. Show that $\{f_n\}_{n=1}^\infty$ converges uniformly to a differentiable function $f$ on $[0,1]$ (find $f$). However, show that $f'(1) \neq \lim_{n\to\infty} f_n'(1)$.
+  curation:
+    why: xⁿ/n → 0 uniformly while the derivatives do not converge to the derivative of the limit.
+- id: lebl-6.2.22
+  source:
+    key: lebl
+    chapter: 6 Sequences of Functions
+    section: 6.2 Interchange of limits
+    problemNumber: Exercise 6.2.22
+    page: '245'
+  topic: function-sequences
+  subtopics:
+  - interchange-integral
+  - uniform-convergence
+  skills:
+  - construct-counterexample
+  concept: uniform convergence to 0 with improper integrals all equal to 1
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - uniform-convergence
+  - improper-integral
+  - interchange-of-limits
+  - counterexample
+  problemLatex: |
+    (requires §5.5) Show that uniform convergence is not enough to pass the limit through improper integrals over infinite intervals. That is, find a sequence of functions $f_n\colon \mathbb{R} \to \mathbb{R}$ Riemann integrable on every bounded interval, converging uniformly to zero, and such that $\int_{-\infty}^\infty f_n = 1$ for every $n$.
+  curation:
+    why: Uniform convergence does not control improper integrals over unbounded domains.
+- id: lebl-7.1.5
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.1 Metric spaces
+    problemNumber: Exercise 7.1.5
+    page: '262'
+  topic: topology
+  subtopics:
+  - metric-spaces
+  skills:
+  - verify-axioms
+  - triangle-inequality
+  concept: φ∘d is a metric for increasing subadditive φ with φ(0)=0
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - metric-space
+  - subadditive
+  - bounded-metric
+  problemLatex: |
+    Suppose $(X,d)$ is a metric space and $\varphi\colon [0,\infty) \to \mathbb{R}$ is an increasing function such that $\varphi(t) \ge 0$ for all $t$ and $\varphi(t) = 0$ if and only if $t = 0$. Also suppose $\varphi$ is *subadditive*, that is, $\varphi(s+t) \le \varphi(s) + \varphi(t)$. Show that with $d'(x,y) := \varphi\bigl(d(x,y)\bigr)$, we obtain a new metric space $(X,d')$.
+  curation:
+    why: 'Building new metrics: φ∘d for increasing subadditive φ (e.g. d/(1+d)).'
+- id: lebl-7.2.7
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.2 Open and closed sets
+    problemNumber: Exercise 7.2.7
+    page: '272'
+  topic: topology
+  subtopics:
+  - interior-closure-boundary
+  - open-sets
+  - closed-sets
+  skills:
+  - definition-unpacking
+  - set-identities
+  concept: E closed iff ∂E ⊂ E; U open iff ∂U ∩ U = ∅
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - boundary
+  - closure
+  - interior
+  - open-set
+  - closed-set
+  problemLatex: |
+    Prove that in a metric space,
+    a) $E$ is closed if and only if $\partial E \subset E$.
+    b) $U$ is open if and only if $\partial U \cap U = \emptyset$.
+  notes: In Lebl, $\partial A := \overline{A} \setminus A^\circ$.
+  curation:
+    why: 'Boundary characterizations: E is closed iff ∂E ⊂ E, U is open iff ∂U ∩ U = ∅.'
+- id: lebl-7.2.10
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.2 Open and closed sets
+    problemNumber: Exercise 7.2.10
+    page: '272'
+  topic: topology
+  subtopics:
+  - connectedness
+  skills:
+  - contradiction
+  - subspace-topology
+  concept: union of connected sets with a common point is connected
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - connectedness
+  - union
+  - common-point
+  problemLatex: |
+    Suppose $\{S_i\}$, $i \in \mathbb{N}$, is a collection of connected subsets of a metric space $(X,d)$, and there exists an $x \in X$ such that $x \in S_i$ for all $i \in \mathbb{N}$. Show that $\bigcup_{i=1}^\infty S_i$ is connected.
+  curation:
+    why: Connected sets sharing a point have connected union.
+- id: lebl-7.2.11
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.2 Open and closed sets
+    problemNumber: Exercise 7.2.11
+    page: '272'
+  topic: topology
+  subtopics:
+  - connectedness
+  - interior-closure-boundary
+  skills:
+  - construct-counterexample
+  - contradiction
+  concept: closure of a connected set is connected; interior need not be
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - connectedness
+  - closure
+  - interior
+  - counterexample
+  problemLatex: |
+    Let $A$ be a connected set in a metric space.
+    a) Is $\overline{A}$ connected? Prove or find a counterexample.
+    b) Is $A^\circ$ connected? Prove or find a counterexample.
+    Hint: Think of sets in $\mathbb{R}^2$.
+  curation:
+    why: The closure of a connected set is connected; the interior need not be.
+- id: lebl-7.2.13
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.2 Open and closed sets
+    problemNumber: Exercise 7.2.13
+    page: '272'
+  topic: topology
+  subtopics:
+  - interior-closure-boundary
+  - closed-sets
+  - metric-spaces
+  skills:
+  - closure-minimality
+  - construct-counterexample
+  concept: closure of open ball ⊂ closed ball, with strict inclusion possible
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - closed-ball
+  - open-ball
+  - closure
+  - discrete-metric
+  - counterexample
+  problemLatex: |
+    Let $(X,d)$ be a metric space.
+    a) For every $x \in X$ and $\delta > 0$, show $\overline{B(x,\delta)} \subset C(x,\delta)$.
+    b) Is it always true that $\overline{B(x,\delta)} = C(x,\delta)$? Prove or find a counterexample.
+
+    *[Summary, not verbatim: here $B(x,\delta) := \{y \in X : d(x,y) < \delta\}$ and $C(x,\delta) := \{y \in X : d(x,y) \le \delta\}$ (Definition 7.2.1).]*
+  notes: Ball definitions (Definition 7.2.1) inserted for self-containedness.
+  curation:
+    why: In a general metric space the closure of an open ball can be strictly smaller than the closed ball.
+- id: lebl-7.3.2
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.3 Sequences and convergence
+    problemNumber: Exercise 7.3.2
+    page: '277'
+  topic: topology
+  subtopics:
+  - metric-spaces
+  - sequential-compactness
+  skills:
+  - verify-axioms
+  - construct-counterexample
+  concept: 'min(1,|x-y|): same convergence as usual metric, but bounded sequences need not have convergent subsequences'
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - bounded-metric
+  - Bolzano-Weierstrass
+  - counterexample
+  - convergence
+  problemLatex: |
+    a) Show that $d(x,y) := \min\bigl\{1, |x-y|\bigr\}$ defines a metric on $\mathbb{R}$.
+    b) Show that a sequence converges in $(\mathbb{R},d)$ if and only if it converges in the standard metric.
+    c) Find a bounded sequence in $(\mathbb{R},d)$ that contains no convergent subsequence.
+  curation:
+    why: The bounded metric min(1,|x−y|) has the same convergent sequences as |x−y|, yet bounded sequences need not have convergent subsequences.
+- id: lebl-7.4.2
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.4 Completeness and compactness
+    problemNumber: Exercise 7.4.2
+    page: '285'
+  topic: topology
+  subtopics:
+  - compactness
+  skills:
+  - open-cover-argument
+  - construct-counterexample
+  concept: '{1/n} is not compact but {1/n} ∪ {0} is compact (open cover definition)'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - open-cover
+  - definition
+  - counterexample
+  problemLatex: |
+    Let $A := \{1/n : n \in \mathbb{N}\} \subset \mathbb{R}$.
+    a) Show that $A$ is not compact directly using the definition.
+    b) Show that $A \cup \{0\}$ is compact directly using the definition.
+  notes: The definition is the open-cover definition (Definition 7.4.7).
+  curation:
+    why: 'Use the open-cover definition directly: {1/n} is not compact, {1/n} ∪ {0} is.'
+- id: lebl-7.4.6
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.4 Completeness and compactness
+    problemNumber: Exercise 7.4.6
+    page: '286'
+  topic: topology
+  subtopics:
+  - compactness
+  - complete-metric-spaces
+  skills:
+  - subsequence-extraction
+  - epsilon-over-2
+  concept: compact metric spaces are complete
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - completeness
+  - Cauchy
+  - subsequence
+  problemLatex: |
+    Show that a compact set $K$ (in any metric space) is itself a complete metric space (using the subspace metric).
+  curation:
+    why: Compact metric spaces are complete.
+- id: lebl-7.4.8
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.4 Completeness and compactness
+    problemNumber: Exercise 7.4.8
+    page: '286'
+  topic: topology
+  subtopics:
+  - compactness
+  - metric-spaces
+  skills:
+  - construct-counterexample
+  - sequential-characterization
+  concept: closed unit ball in C[0,1] is closed and bounded but not compact
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - compactness
+  - Heine-Borel-failure
+  - function-space
+  - infinite-dimensional
+  - counterexample
+  problemLatex: |
+    (Challenging) Let $C\bigl([0,1],\mathbb{R}\bigr)$ be the metric space of Example 7.1.8. Let $0$ denote the zero function. Then show that the closed ball $C(0,1)$ is not compact (even though it is closed and bounded). Hints: Construct a sequence of distinct continuous functions $\{f_n\}_{n=1}^\infty$ such that $d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \neq k$. Show that the set $\{f_n : n \in \mathbb{N}\} \subset C(0,1)$ is closed but not compact. See chapter 6 for inspiration.
+
+    *[Summary, not verbatim: in Example 7.1.8, $C\bigl([a,b],\mathbb{R}\bigr)$ is the set of continuous real-valued functions on $[a,b]$ with metric $d(f,g) := \sup_{x\in[a,b]}|f(x)-g(x)|$; $C(x,\delta) := \{y : d(x,y) \le \delta\}$ is the closed ball.]*
+  notes: Example 7.1.8 and closed-ball notation quoted. 'See chapter 6' refers to sequences of functions.
+  curation:
+    why: 'In C[0,1] the closed unit ball is closed and bounded but not compact: Heine–Borel is special to ℝⁿ.'
+- id: lebl-7.4.10
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.4 Completeness and compactness
+    problemNumber: Exercise 7.4.10
+    page: '286'
+  topic: topology
+  subtopics:
+  - compactness
+  skills:
+  - open-cover-argument
+  - subsequence-extraction
+  concept: Cantor intersection theorem for nested nonempty compact sets
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - nested-sets
+  - Cantor-intersection
+  - finite-intersection-property
+  problemLatex: |
+    Suppose $(X,d)$ is complete and suppose we have a countably infinite collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset \cdots$. Prove $\bigcap_{j=1}^\infty E_j \neq \emptyset$.
+  notes: As printed; the completeness hypothesis is not actually needed (compactness suffices).
+  curation:
+    why: 'Cantor''s intersection theorem: nested nonempty compact sets have nonempty intersection.'
+- id: lebl-7.4.12
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.4 Completeness and compactness
+    problemNumber: Exercise 7.4.12
+    page: '286'
+  topic: topology
+  subtopics:
+  - compactness
+  - complete-metric-spaces
+  - sequential-compactness
+  skills:
+  - diagonal-argument
+  - subsequence-extraction
+  - open-cover-argument
+  concept: in a complete metric space, compact iff closed and totally bounded
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - compactness
+  - totally-bounded
+  - completeness
+  - diagonal-argument
+  problemLatex: |
+    (Challenging) Let $(X,d)$ be a complete metric space. Show that $K \subset X$ is compact if and only if $K$ is closed and such that for every $\epsilon > 0$ there exists a finite set of points $x_1, x_2, \ldots, x_n$ with $K \subset \bigcup_{j=1}^n B(x_j,\epsilon)$. Note: Such a set $K$ is said to be *totally bounded*, so in a complete metric space a set is compact if and only if it is closed and totally bounded.
+  curation:
+    why: Compact ⇔ complete and totally bounded — the characterization used throughout graduate analysis.
+- id: lebl-7.4.16
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.4 Completeness and compactness
+    problemNumber: Exercise 7.4.16
+    page: '286'
+  topic: topology
+  subtopics:
+  - complete-metric-spaces
+  - closed-sets
+  skills:
+  - sequential-characterization
+  concept: closed subset of a complete metric space is complete
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - completeness
+  - closed-set
+  - subspace
+  problemLatex: |
+    Prove Proposition 7.4.6. That is, let $(X,d)$ be a complete metric space and $E \subset X$ a closed set. Show that $E$ with the subspace metric is a complete metric space.
+  curation:
+    why: Closed subsets of complete metric spaces are complete.
+- id: lebl-7.4.19
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.4 Completeness and compactness
+    problemNumber: Exercise 7.4.19
+    page: '286'
+  topic: topology
+  subtopics:
+  - complete-metric-spaces
+  - metric-spaces
+  - compactness
+  skills:
+  - verify-axioms
+  - construct-counterexample
+  - ball-containment
+  concept: 'completeness is not a topological property: d''(x,y)=|x/(1+|x|) - y/(1+|y|)| on R'
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - completeness
+  - topology
+  - equivalent-metrics
+  - Cauchy
+  - counterexample
+  problemLatex: |
+    Consider two metrics on $\mathbb{R}$. Let $d(x,y) := |x-y|$ be the standard metric, and let $d'(x,y) := \left| \frac{x}{1+|x|} - \frac{y}{1+|y|} \right|$.
+    a) Show that $(\mathbb{R},d')$ is a metric space (if you have done Exercise 7.3.10, the computation is the same).
+    b) Show that the topology is the same, that is, a set is open in $(\mathbb{R},d)$ if and only if it is open in $(\mathbb{R},d')$.
+    c) Show that a set is compact in $(\mathbb{R},d)$ if and only if it is compact in $(\mathbb{R},d')$.
+    d) Show that a sequence converges in $(\mathbb{R},d)$ if and only if it converges in $(\mathbb{R},d')$.
+    e) Find a sequence of real numbers that is Cauchy in $(\mathbb{R},d')$ but not Cauchy in $(\mathbb{R},d)$.
+    f) While $(\mathbb{R},d)$ is complete, show that $(\mathbb{R},d')$ is not complete.
+  notes: The parenthetical reference to Exercise 7.3.10 (extended-reals metric) is only a remark; can be dropped.
+  curation:
+    why: 'Completeness is not a topological property: a metric on ℝ with the same open sets but non-convergent Cauchy sequences.'
+- id: lebl-7.5.2
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.5 Continuous functions
+    problemNumber: Exercise 7.5.2
+    page: '293'
+  topic: continuity
+  subtopics:
+  - continuity-metric-spaces
+  - sequential-continuity
+  skills:
+  - sequential-characterization
+  - construct-counterexample
+  concept: 'xy/(x^2+y^2): separately continuous but not continuous at the origin'
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags:
+  - two-variables
+  - separate-continuity
+  - joint-continuity
+  - counterexample
+  problemLatex: |
+    Define $f\colon \mathbb{R}^2 \to \mathbb{R}$ by $f(0,0) := 0$, and $f(x,y) := \frac{xy}{x^2+y^2}$ if $(x,y) \neq (0,0)$.
+    a) Show that for every fixed $x$, the function that takes $y$ to $f(x,y)$ is continuous. Similarly, for every fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
+    b) Show that $f$ is not continuous.
+  notes: Reference to Figure 7.14 (graph) omitted.
+  curation:
+    why: xy/(x²+y²) is continuous in each variable separately but not jointly — the first multivariable warning.
+- id: lebl-7.5.5
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.5 Continuous functions
+    problemNumber: Exercise 7.5.5
+    page: '294'
+  topic: continuity
+  subtopics:
+  - continuity-and-topology
+  - continuity-metric-spaces
+  skills:
+  - preimage-of-open-sets
+  - contradiction
+  - subspace-topology
+  concept: continuous image of a connected space is connected
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - connectedness
+  - continuity
+  - image
+  problemLatex: |
+    Suppose $f\colon X \to Y$ is continuous for metric spaces $(X,d_X)$ and $(Y,d_Y)$. Show that if $X$ is connected, then $f(X)$ is connected.
+  notes: Exercise 7.5.6 (IVT for connected X) is its immediate corollary.
+  curation:
+    why: Continuous images of connected spaces are connected — the topological IVT.
+- id: lebl-7.5.8
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.5 Continuous functions
+    problemNumber: Exercise 7.5.8
+    page: '294'
+  topic: continuity
+  subtopics:
+  - continuity-and-topology
+  skills:
+  - preimage-of-open-sets
+  - compactness-argument
+  concept: continuous bijection from a compact space has continuous inverse
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - inverse-function
+  - homeomorphism
+  - continuity
+  problemLatex: |
+    Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $f\colon X \to Y$ be a one-to-one and onto continuous function. Suppose $X$ is compact. Prove that the inverse $f^{-1}\colon Y \to X$ is continuous.
+  curation:
+    why: A continuous bijection from a compact space has a continuous inverse; compactness does the work.
+- id: lebl-7.5.12
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.5 Continuous functions
+    problemNumber: Exercise 7.5.12
+    page: '295'
+  topic: continuity
+  subtopics:
+  - continuity-metric-spaces
+  skills:
+  - construct-counterexample
+  - sup-norm-estimate
+  concept: derivative operator continuous in the C^1 metric, discontinuous in the sup metric (sin(nx)/n)
+  difficulty: medium
+  category: synthesis
+  type: counterexample
+  tags:
+  - function-space
+  - derivative-operator
+  - continuity
+  - sup-metric
+  - C1-metric
+  problemLatex: |
+    Let $C\bigl([a,b],\mathbb{R}\bigr)$ be the set of continuous functions and $C^1\bigl([a,b],\mathbb{R}\bigr)$ the set of once continuously differentiable functions on $[a,b]$. Define
+    $$d_C(f,g) := \|f-g\|_{[a,b]} \qquad \text{and} \qquad d_{C^1}(f,g) := \|f-g\|_{[a,b]} + \|f'-g'\|_{[a,b]},$$
+    where $\|\cdot\|_{[a,b]}$ is the uniform norm. By Example 7.1.8 and Exercise 7.1.12, we know that $C\bigl([a,b],\mathbb{R}\bigr)$ with $d_C$ is a metric space and so is $C^1\bigl([a,b],\mathbb{R}\bigr)$ with $d_{C^1}$.
+    a) Prove that the derivative operator $D\colon C^1\bigl([a,b],\mathbb{R}\bigr) \to C\bigl([a,b],\mathbb{R}\bigr)$ defined by $D(f) := f'$ is continuous.
+    b) On the other hand if we consider the metric $d_C$ on $C^1\bigl([a,b],\mathbb{R}\bigr)$, then prove the derivative operator is no longer continuous. Hint: Consider $\sin(nx)$.
+  notes: References to Example 7.1.8 and Exercise 7.1.12 only assert that these are metrics; self-contained.
+  curation:
+    why: The derivative operator is continuous in one metric and discontinuous in another — continuity depends on the metric.
+- id: lebl-7.6.6
+  source:
+    key: lebl
+    chapter: 7 Metric Spaces
+    section: 7.6 Fixed point theorem and Picard's theorem again
+    problemNumber: Exercise 7.6.6
+    page: '300'
+  topic: function-sequences
+  subtopics:
+  - fixed-point
+  skills:
+  - construct-counterexample
+  concept: contraction on incomplete space without fixed point; 1-Lipschitz map on complete space without fixed point
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - contraction-mapping
+  - Banach-fixed-point
+  - completeness
+  - counterexample
+  problemLatex: |
+    a) Find an example of a contraction $f\colon X \to X$ of a non-complete metric space $X$ with no fixed point.
+    b) Find a 1-Lipschitz map $f\colon X \to X$ of a complete metric space $X$ with no fixed point.
+
+    *[Summary, not verbatim — Definition 7.6.1: a map $\varphi\colon X \to Y$ between metric spaces is a contraction if it is a $k$-Lipschitz map for some $k < 1$, i.e. if there exists a $k < 1$ such that $d_Y\bigl(\varphi(p),\varphi(q)\bigr) \le k\,d_X(p,q)$ for all $p, q \in X$.]*
+  notes: Definition of contraction quoted. Topic placed under function-sequences/fixed-point per subtopic vocabulary; curator may move to topology (metric spaces).
+  curation:
+    why: Why completeness and strict contraction are both needed for the fixed point theorem.

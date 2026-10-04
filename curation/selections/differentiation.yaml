@@ -1,0 +1,53 @@
+- cid: lebl-4.1.11
+- cid: lebl-4.2.9
+- cid: lebl-4.2.13
+- cid: tao-10.1.2
+  why: "Differentiability as linear approximation with o(|x − x₀|) error — the definition that generalizes to several variables."
+- cid: lebl-4.1.5
+  why: "x² on ℚ, 0 elsewhere: differentiable at exactly one point."
+- cid: ross-28.4
+  why: "x² sin(1/x): differentiable everywhere, but the derivative is not continuous at 0."
+- cid: abbott-5.2.7
+  why: "Tune the exponent in xᵃ sin(1/x) to get differentiable with unbounded derivative, or continuous derivative that is not differentiable, etc."
+- cid: abbott-5.2.4
+  set: {category: synthesis}
+  why: "Carathéodory's criterion and a correct proof of the chain rule (avoiding the division-by-zero trap)."
+- cid: abbott-5.2.12
+  why: "The derivative of an inverse function, with the hypotheses that make it work."
+- cid: lebl-4.4.6
+  why: "f′(0) > 0 does not make f invertible near 0 when f′ is discontinuous — why the inverse function theorem needs C¹."
+- cid: tao-10.2.1
+  why: "Fermat's theorem: interior extrema of differentiable functions have f′ = 0. Behind Rolle's theorem."
+- cid: tao-10.2.5
+  why: "Derive the Mean Value Theorem from Rolle's theorem with the right auxiliary function."
+- cid: cummings-7.10
+  why: "Each hypothesis of Rolle's theorem is necessary — find the counterexamples."
+- cid: cummings-7.14
+  why: "The Cauchy Mean Value Theorem — the engine of L'Hôpital's rule."
+- cid: ross-29.4
+  why: "A Rolle argument on the auxiliary function f·e^g; learning to invent the auxiliary function."
+- cid: lebl-4.2.10
+  why: "An unbounded differentiable function on a bounded interval has an unbounded derivative (MVT, contrapositive)."
+- cid: tao-10.3.5
+  why: "f′ > 0 on a set that is not an interval does not make f increasing — the MVT needs an interval."
+- cid: ross-29.10
+  why: "f′(0) > 0 but f is not increasing on any neighborhood of 0."
+- cid: abbott-5.2.11
+  set: {category: challenge}
+  why: "Darboux's theorem: derivatives have the intermediate value property even when discontinuous."
+- cid: lebl-4.2.7
+  why: "A quick use of Darboux: a nowhere-zero derivative has constant sign."
+- cid: lebl-4.3.11
+  why: "The second derivative test assuming only that f″(x₀) exists — a careful limit argument instead of Taylor."
+- cid: abbott-5.3.12
+  why: "The symmetric second difference quotient converges to f″(a): MVT/L'Hôpital applied twice."
+- cid: ross-30.6
+  set: {category: challenge}
+  why: "If f + f′ → L then f → L and f′ → 0 — a slick use of L'Hôpital with eˣ."
+- cid: ross-31.5
+  why: "e^{−1/x²}: smooth, every derivative vanishes at 0, so its Taylor series converges to the wrong function."
+- cid: ross-31.4
+  why: "Build smooth bump and step functions from e^{−1/x} — the standard construction behind partitions of unity."
+- cid: abbott-5.4.7
+  set: {category: challenge, difficulty: very-hard}
+  why: "A continuous nowhere-differentiable function, step by step. The capstone counterexample of the derivative chapter."

@@ -1,0 +1,1606 @@
+chunk: "tao-ch3-8"
+book: tao
+pageOffsetNote: "printed page = pdfPage - 17 (verified at pdf 21->p.4, 73->56, 78->61, 145->128, 164->147, 197->180, 211->194, 215->198, 344->327)"
+sectionsCovered:
+  - "3.3 Functions — 8 exercises"
+  - "3.4 Images and inverse images — 11 exercises"
+  - "3.6 Cardinality of sets — 10 exercises"
+  - "5.4 Ordering the reals — 8 exercises"
+  - "5.5 The least upper bound property — 5 exercises"
+  - "6.1 Convergence and limit laws — 10 exercises"
+  - "6.2 The extended real number system — 2 exercises"
+  - "6.3 Suprema and infima of sequences — 4 exercises"
+  - "6.4 Limsup, liminf, and limit points — 10 exercises"
+  - "6.5 Some standard limits — 3 exercises"
+  - "6.6 Subsequences — 5 exercises"
+  - "7.1 Finite series — 5 exercises (selectively)"
+  - "7.2 Infinite series — 6 exercises"
+  - "7.3 Sums of non-negative numbers — 3 exercises"
+  - "7.4 Rearrangement of series — 1 exercise"
+  - "7.5 The root and ratio tests — 3 exercises"
+  - "8.1 Countability — 10 exercises"
+  - "8.2 Summation on infinite sets — 6 exercises (selectively)"
+  - "8.3 Uncountable sets — 5 exercises"
+  - "Appendix A (logic) — 8 exercises scanned; only quantifier-order exercise A.5.1 kept"
+candidates:
+
+  # ---------------- Chapter 3 ----------------
+  - cid: tao-3.3.5
+    chapter: "3 Set theory"
+    section: "3.3 Functions"
+    number: "Exercise 3.3.5"
+    page: "56"
+    pdfPage: 73
+    verdict: consider
+    machinery: "Injectivity/surjectivity of compositions; finding small counterexamples for the converse directions."
+    standardResult: "g∘f injective ⇒ f injective; g∘f surjective ⇒ g surjective (and not conversely)"
+    topic: foundations
+    subtopics: [functions]
+    skills: [construct-counterexample, unwrap-definition]
+    difficulty: introductory
+    difficultyRationale: "Direct unwinding of the definitions plus two tiny counterexamples."
+    category: canonical
+    type: proof
+    tags: [functions, injective, surjective, composition, counterexample]
+    references: []
+    problemLatex: |
+      Let $f\colon X \to Y$ and $g\colon Y \to Z$ be functions. Show that if $g \circ f$ is injective, then $f$ must be injective. Is it true that $g$ must also be injective? Show that if $g \circ f$ is surjective, then $g$ must be surjective. Is it true that $f$ must also be surjective?
+    transcriptionNotes: ""
+
+  - cid: tao-3.4.2
+    chapter: "3 Set theory"
+    section: "3.4 Images and inverse images"
+    number: "Exercise 3.4.2"
+    page: "61"
+    pdfPage: 78
+    verdict: strong
+    machinery: "Forward vs inverse images; containment arguments and counterexamples showing equality fails."
+    standardResult: "S ⊆ f^{-1}(f(S)) and f(f^{-1}(U)) ⊆ U, with strict containment possible"
+    topic: foundations
+    subtopics: [functions, sets]
+    skills: [element-chasing, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Element-chasing plus simple counterexamples; the student must discover the correct containments."
+    category: canonical
+    type: conceptual
+    tags: [functions, image, inverse-image, sets, counterexample]
+    references: []
+    problemLatex: |
+      Let $f\colon X \to Y$ be a function from one set $X$ to another set $Y$, let $S$ be a subset of $X$, and let $U$ be a subset of $Y$. What, in general, can one say about $f^{-1}(f(S))$ and $S$? What about $f(f^{-1}(U))$ and $U$?
+    transcriptionNotes: "Here $f^{-1}(U)$ denotes the inverse image $\\{x \\in X : f(x) \\in U\\}$ (Tao's Definition 3.4.4); $f$ need not be invertible."
+
+  - cid: tao-3.4.3
+    chapter: "3 Set theory"
+    section: "3.4 Images and inverse images"
+    number: "Exercise 3.4.3"
+    page: "61"
+    pdfPage: 78
+    verdict: strong
+    machinery: "Images of unions/intersections/differences; which identities hold and which are only inclusions."
+    standardResult: "f(A∩B) ⊆ f(A)∩f(B) (strict in general), f(A∪B)=f(A)∪f(B)"
+    topic: foundations
+    subtopics: [functions, sets]
+    skills: [element-chasing, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Element-chasing; the only thought required is a counterexample with a non-injective f."
+    category: canonical
+    type: proof
+    tags: [functions, image, sets, counterexample]
+    references: []
+    problemLatex: |
+      Let $A, B$ be two subsets of a set $X$, and let $f\colon X \to Y$ be a function. Show that $f(A \cap B) \subseteq f(A) \cap f(B)$, that $f(A) \setminus f(B) \subseteq f(A \setminus B)$, $f(A \cup B) = f(A) \cup f(B)$. For the first two statements, is it true that the $\subseteq$ relation can be improved to $=$?
+    transcriptionNotes: ""
+
+  - cid: tao-3.4.4
+    chapter: "3 Set theory"
+    section: "3.4 Images and inverse images"
+    number: "Exercise 3.4.4"
+    page: "61"
+    pdfPage: 78
+    verdict: consider
+    machinery: "Inverse images commute with all set operations (contrast with 3.4.3)."
+    standardResult: "preimages preserve unions, intersections, differences"
+    topic: foundations
+    subtopics: [functions, sets]
+    skills: [element-chasing]
+    difficulty: introductory
+    difficultyRationale: "Pure element-chasing."
+    category: canonical
+    type: proof
+    tags: [functions, inverse-image, sets]
+    references: []
+    problemLatex: |
+      Let $f\colon X \to Y$ be a function from one set $X$ to another set $Y$, and let $U, V$ be subsets of $Y$. Show that $f^{-1}(U \cup V) = f^{-1}(U) \cup f^{-1}(V)$, that $f^{-1}(U \cap V) = f^{-1}(U) \cap f^{-1}(V)$, and that $f^{-1}(U \setminus V) = f^{-1}(U) \setminus f^{-1}(V)$.
+    transcriptionNotes: ""
+
+  - cid: tao-3.4.5
+    chapter: "3 Set theory"
+    section: "3.4 Images and inverse images"
+    number: "Exercise 3.4.5"
+    page: "61"
+    pdfPage: 78
+    verdict: consider
+    machinery: "Characterizing injectivity/surjectivity via image/preimage identities."
+    standardResult: "f(f^{-1}(S))=S ∀S iff f surjective; f^{-1}(f(S))=S ∀S iff f injective"
+    topic: foundations
+    subtopics: [functions]
+    skills: [element-chasing, contrapositive]
+    difficulty: easy
+    difficultyRationale: "Each converse direction needs a well-chosen test set (a singleton)."
+    category: canonical
+    type: proof
+    tags: [functions, image, inverse-image, injective, surjective]
+    references: []
+    problemLatex: |
+      Let $f\colon X \to Y$ be a function from one set $X$ to another set $Y$. Show that $f(f^{-1}(S)) = S$ for every $S \subseteq Y$ if and only if $f$ is surjective. Show that $f^{-1}(f(S)) = S$ for every $S \subseteq X$ if and only if $f$ is injective.
+    transcriptionNotes: ""
+
+  - cid: tao-3.6.8
+    chapter: "3 Set theory"
+    section: "3.6 Cardinality of sets"
+    number: "Exercise 3.6.8"
+    page: "72"
+    pdfPage: 89
+    verdict: consider
+    machinery: "Building a left inverse of an injection; comparing cardinalities via injections and surjections."
+    standardResult: "injection A→B gives surjection B→A (A nonempty)"
+    topic: foundations
+    subtopics: [functions, cardinality]
+    skills: [construct-function]
+    difficulty: introductory
+    difficultyRationale: "Direct construction of a left inverse."
+    category: canonical
+    type: construction
+    tags: [functions, injective, surjective, cardinality]
+    references: ["Exercise 8.4.3 (parenthetical only)"]
+    problemLatex: |
+      Let $A$ and $B$ be sets such that there exists an injection $f\colon A \to B$ from $A$ to $B$ (i.e., $A$ has lesser or equal cardinality to $B$). Show that there then exists a surjection $g\colon B \to A$ from $B$ to $A$. (The converse to this statement requires the axiom of choice; see Exercise 8.4.3.)
+    transcriptionNotes: "Faithful to book. Note the statement as printed omits the hypothesis that A is non-empty (if A is empty and B is not, no map B→A exists); not altered. 'Lesser or equal cardinality' is defined in Exercise 3.6.7 as the existence of an injection, which the parenthetical already explains."
+
+  # ---------------- Chapter 5 ----------------
+  - cid: tao-5.4.3
+    chapter: "5 The real numbers"
+    section: "5.4 Ordering the reals"
+    number: "Exercise 5.4.3"
+    page: "116"
+    pdfPage: 133
+    verdict: consider
+    machinery: "Existence and uniqueness of the integer part via the Archimedean property and well-ordering."
+    standardResult: "existence/uniqueness of floor ⌊x⌋"
+    topic: real-numbers
+    subtopics: [archimedean-property]
+    skills: [well-ordering, existence-and-uniqueness]
+    difficulty: easy
+    difficultyRationale: "Needs Archimedean property to bound x between integers, then a least-element argument."
+    category: canonical
+    type: proof
+    tags: [Archimedean-property, integer-part, floor]
+    references: []
+    problemLatex: |
+      Show that for every real number $x$ there is exactly one integer $N$ such that $N \le x < N + 1$. (This integer $N$ is called the *integer part* of $x$, and is sometimes denoted $N = \lfloor x \rfloor$.)
+    transcriptionNotes: "In Tao the available tools at this point are Proposition 5.4.12 (every positive real is bounded by a positive integer) and Corollary 5.4.13 (Archimedean property)."
+
+  - cid: tao-5.4.4
+    chapter: "5 The real numbers"
+    section: "5.4 Ordering the reals"
+    number: "Exercise 5.4.4"
+    page: "116"
+    pdfPage: 133
+    verdict: consider
+    machinery: "Archimedean property in the 1/N < x form."
+    standardResult: "for x>0 there is N with 1/N < x"
+    topic: real-numbers
+    subtopics: [archimedean-property]
+    skills: [archimedean-argument]
+    difficulty: introductory
+    difficultyRationale: "Direct application of the Archimedean property to 1/x."
+    category: canonical
+    type: theorem-application
+    tags: [Archimedean-property]
+    references: []
+    problemLatex: |
+      Show that for any positive real number $x > 0$ there exists a positive integer $N$ such that $x > 1/N > 0$.
+    transcriptionNotes: ""
+
+  - cid: tao-5.4.5
+    chapter: "5 The real numbers"
+    section: "5.4 Ordering the reals"
+    number: "Exercise 5.4.5"
+    page: "116"
+    pdfPage: 133
+    verdict: strong
+    machinery: "Density of Q in R from the Archimedean property."
+    standardResult: "density of rationals"
+    topic: real-numbers
+    subtopics: [density-of-Q, archimedean-property]
+    skills: [archimedean-argument, contradiction]
+    difficulty: easy
+    difficultyRationale: "Standard Archimedean argument."
+    category: canonical
+    type: proof
+    tags: [density, rationals, Archimedean-property]
+    references: ["Proposition 5.4.14 (quoted)", "Exercise 5.4.4 (quoted)"]
+    problemLatex: |
+      Prove Proposition 5.4.14. (Hint: use Exercise 5.4.4. You may also need to argue by contradiction.)
+
+      *(Proposition 5.4.14: Given any two real numbers $x < y$, we can find a rational number $q$ such that $x < q < y$.)*
+
+      *(Exercise 5.4.4: Show that for any positive real number $x > 0$ there exists a positive integer $N$ such that $x > 1/N > 0$.)*
+    transcriptionNotes: "Proposition 5.4.14 (p.115) and Exercise 5.4.4 (p.116) quoted verbatim."
+
+  - cid: tao-5.4.7
+    chapter: "5 The real numbers"
+    section: "5.4 Ordering the reals"
+    number: "Exercise 5.4.7"
+    page: "116"
+    pdfPage: 133
+    verdict: strong
+    machinery: "The basic epsilon idiom: an inequality holding up to every ε>0 holds exactly."
+    standardResult: "x ≤ y + ε for all ε>0 ⇔ x ≤ y; |x−y| ≤ ε ∀ε ⇔ x=y"
+    topic: real-numbers
+    subtopics: [inequalities, absolute-value]
+    skills: [contradiction, choose-epsilon]
+    difficulty: introductory
+    difficultyRationale: "One well-chosen ε in a contradiction argument."
+    category: canonical
+    type: proof
+    tags: [epsilon, inequalities, machinery]
+    references: []
+    problemLatex: |
+      Let $x$ and $y$ be real numbers. Show that $x \le y + \varepsilon$ for all real numbers $\varepsilon > 0$ if and only if $x \le y$. Show that $|x - y| \le \varepsilon$ for all real numbers $\varepsilon > 0$ if and only if $x = y$.
+    transcriptionNotes: ""
+
+  - cid: tao-5.5.1
+    chapter: "5 The real numbers"
+    section: "5.5 The least upper bound property"
+    number: "Exercise 5.5.1"
+    page: "121"
+    pdfPage: 138
+    verdict: strong
+    machinery: "Working directly with the definitions of sup and inf; reflection of sets."
+    standardResult: "inf(−E) = −sup(E)"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [unwrap-definition, upper-bound-argument]
+    difficulty: introductory
+    difficultyRationale: "Verify both defining properties of the greatest lower bound."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum]
+    references: []
+    problemLatex: |
+      Let $E$ be a subset of the real numbers $\mathbb{R}$, and suppose that $E$ has a least upper bound $M$ which is a real number, i.e., $M = \sup(E)$. Let $-E$ be the set
+      $$-E := \{-x : x \in E\}.$$
+      Show that $-M$ is the greatest lower bound of $-E$, i.e., $-M = \inf(-E)$.
+    transcriptionNotes: ""
+
+  - cid: tao-5.5.5
+    chapter: "5 The real numbers"
+    section: "5.5 The least upper bound property"
+    number: "Exercise 5.5.5"
+    page: "121"
+    pdfPage: 138
+    verdict: strong
+    machinery: "Density of the irrationals, typically via density of Q and an irrational shift/scale."
+    standardResult: "density of irrationals"
+    topic: real-numbers
+    subtopics: [density-of-Q]
+    skills: [theorem-reuse]
+    difficulty: easy
+    difficultyRationale: "Short reduction to density of Q; needs existence of an irrational."
+    category: canonical
+    type: proof
+    tags: [density, irrationals]
+    references: ["Proposition 5.4.14 (quoted)"]
+    problemLatex: |
+      Establish an analogue of Proposition 5.4.14, in which "rational" is replaced by "irrational".
+
+      *(Proposition 5.4.14: Given any two real numbers $x < y$, we can find a rational number $q$ such that $x < q < y$.)*
+    transcriptionNotes: "Proposition 5.4.14 quoted verbatim. In Tao, existence of √2 is Proposition 5.5.12 (same section) and irrationality of √2 is Proposition 4.4.4."
+
+  # ---------------- Chapter 6 ----------------
+  - cid: tao-6.1.2
+    chapter: "6 Limits of sequences"
+    section: "6.1 Convergence and limit laws"
+    number: "Exercise 6.1.2"
+    page: "132"
+    pdfPage: 149
+    verdict: consider
+    machinery: "Unwrapping Tao's layered definition ('eventually ε-close') into the standard ε–N statement."
+    standardResult: "ε–N definition of convergence (≤ε form)"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [unwrap-definition]
+    difficulty: introductory
+    difficultyRationale: "Pure translation between equivalent quantifier forms."
+    category: canonical
+    type: definition
+    tags: [convergence, epsilon-N, quantifiers]
+    references: ["Definition 6.1.5 (quoted)"]
+    problemLatex: |
+      Let $(a_n)_{n=m}^\infty$ be a sequence of real numbers, and let $L$ be a real number. Show that $(a_n)_{n=m}^\infty$ converges to $L$ if and only if, given any real $\varepsilon > 0$, one can find an $N \ge m$ such that $|a_n - L| \le \varepsilon$ for all $n \ge N$.
+
+      *(Definition 6.1.5 (Convergence of sequences): Let $\varepsilon > 0$ be a real number, and let $L$ be a real number. A sequence $(a_n)_{n=N}^\infty$ of real numbers is said to be $\varepsilon$-close to $L$ iff $a_n$ is $\varepsilon$-close to $L$ for every $n \ge N$, i.e., we have $|a_n - L| \le \varepsilon$ for every $n \ge N$. We say that a sequence $(a_n)_{n=m}^\infty$ is eventually $\varepsilon$-close to $L$ iff there exists an $N \ge m$ such that $(a_n)_{n=N}^\infty$ is $\varepsilon$-close to $L$. We say that a sequence $(a_n)_{n=m}^\infty$ converges to $L$ iff it is eventually $\varepsilon$-close to $L$ for every real $\varepsilon > 0$.)*
+    transcriptionNotes: "Definition 6.1.5 (p.128) quoted verbatim since the exercise only has content relative to it. Low value outside Tao's framework."
+
+  - cid: tao-6.1.5
+    chapter: "6 Limits of sequences"
+    section: "6.1 Convergence and limit laws"
+    number: "Exercise 6.1.5"
+    page: "132"
+    pdfPage: 149
+    verdict: strong
+    machinery: "Triangle-inequality ε/2 argument; convergent sequences are Cauchy."
+    standardResult: "convergent ⇒ Cauchy"
+    topic: sequences
+    subtopics: [cauchy-sequences, convergence]
+    skills: [epsilon-N-proof, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Standard ε/2 triangle-inequality argument."
+    category: canonical
+    type: proof
+    tags: [Cauchy, convergence, triangle-inequality, machinery]
+    references: ["Proposition 6.1.12 (quoted)", "Definition 6.1.3 (quoted, unwrapped form)"]
+    problemLatex: |
+      Prove Proposition 6.1.12. (Hint: use the triangle inequality, or Proposition 4.3.7.)
+
+      *(Proposition 6.1.12 (Convergent sequences are Cauchy): Suppose that $(a_n)_{n=m}^\infty$ is a convergent sequence of real numbers. Then $(a_n)_{n=m}^\infty$ is also a Cauchy sequence.)*
+
+      *(From the text after Definition 6.1.3: a sequence $(a_n)_{n=m}^\infty$ of real numbers is a Cauchy sequence if, for every real $\varepsilon > 0$, there exists an $N \ge m$ such that $|a_n - a_{n'}| \le \varepsilon$ for all $n, n' \ge N$.)*
+    transcriptionNotes: "Proposition 6.1.12 (p.130) and the book's own unwrapped definition of Cauchy sequence (p.127) quoted verbatim. Hint's 'Proposition 4.3.7' refers to Tao's basic properties of ε-closeness; left as printed."
+
+  - cid: tao-6.1.8
+    chapter: "6 Limits of sequences"
+    section: "6.1 Convergence and limit laws"
+    number: "Exercise 6.1.8"
+    page: "133"
+    pdfPage: 150
+    verdict: strong
+    machinery: "Full proof of the limit laws, including the bounded-away-from-zero lemma for reciprocals."
+    standardResult: "algebraic limit theorem for sequences (sum, product, quotient, max/min)"
+    topic: sequences
+    subtopics: [limit-laws]
+    skills: [epsilon-N-proof, triangle-inequality, bounded-away-from-zero]
+    difficulty: easy
+    difficultyRationale: "Each part is a standard ε–N estimate; the quotient part (e) is the hardest essential piece."
+    category: canonical
+    type: proof
+    tags: [limit-laws, epsilon-N, machinery]
+    references: ["Theorem 6.1.19 (quoted)"]
+    problemLatex: |
+      Prove Theorem 6.1.19. (Hint: you can use some parts of the theorem to prove others, e.g., (b) can be used to prove (c); (a),(c) can be used to prove (d); and (b), (e) can be used to prove (f). The proofs are similar to those of Lemma 5.3.6, Proposition 5.3.10, and Lemma 5.3.15. For (e), you may need to first prove the auxiliary result that any sequence whose elements are non-zero, and which converges to a non-zero limit, is bounded away from zero.)
+
+      *(Theorem 6.1.19 (Limit Laws): Let $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ be convergent sequences of real numbers, and let $x, y$ be the real numbers $x := \lim_{n\to\infty} a_n$ and $y := \lim_{n\to\infty} b_n$.*
+
+      *(a) The sequence $(a_n + b_n)_{n=m}^\infty$ converges to $x + y$; in other words,* $$\lim_{n\to\infty}(a_n + b_n) = \lim_{n\to\infty} a_n + \lim_{n\to\infty} b_n.$$
+
+      *(b) The sequence $(a_n b_n)_{n=m}^\infty$ converges to $xy$; in other words,* $$\lim_{n\to\infty}(a_n b_n) = \left(\lim_{n\to\infty} a_n\right)\left(\lim_{n\to\infty} b_n\right).$$
+
+      *(c) For any real number $c$, the sequence $(c a_n)_{n=m}^\infty$ converges to $cx$; in other words,* $$\lim_{n\to\infty}(c a_n) = c \lim_{n\to\infty} a_n.$$
+
+      *(d) The sequence $(a_n - b_n)_{n=m}^\infty$ converges to $x - y$; in other words,* $$\lim_{n\to\infty}(a_n - b_n) = \lim_{n\to\infty} a_n - \lim_{n\to\infty} b_n.$$
+
+      *(e) Suppose that $y \ne 0$, and that $b_n \ne 0$ for all $n \ge m$. Then the sequence $(b_n^{-1})_{n=m}^\infty$ converges to $y^{-1}$; in other words,* $$\lim_{n\to\infty} b_n^{-1} = \left(\lim_{n\to\infty} b_n\right)^{-1}.$$
+
+      *(f) Suppose that $y \ne 0$, and that $b_n \ne 0$ for all $n \ge m$. Then the sequence $(a_n/b_n)_{n=m}^\infty$ converges to $x/y$; in other words,* $$\lim_{n\to\infty} \frac{a_n}{b_n} = \frac{\lim_{n\to\infty} a_n}{\lim_{n\to\infty} b_n}.$$
+
+      *(g) The sequence $(\max(a_n, b_n))_{n=m}^\infty$ converges to $\max(x, y)$; in other words,* $$\lim_{n\to\infty} \max(a_n, b_n) = \max\left(\lim_{n\to\infty} a_n, \lim_{n\to\infty} b_n\right).$$
+
+      *(h) The sequence $(\min(a_n, b_n))_{n=m}^\infty$ converges to $\min(x, y)$; in other words,* $$\lim_{n\to\infty} \min(a_n, b_n) = \min\left(\lim_{n\to\infty} a_n, \lim_{n\to\infty} b_n\right).$$ *)*
+    transcriptionNotes: "Theorem 6.1.19 (pp.131-132) quoted verbatim. The hint's references to Lemma 5.3.6, Proposition 5.3.10, Lemma 5.3.15 (Tao's Cauchy-sequence construction) are left as printed; they are not needed to understand the task."
+
+  - cid: tao-6.1.9
+    chapter: "6 Limits of sequences"
+    section: "6.1 Convergence and limit laws"
+    number: "Exercise 6.1.9"
+    page: "133"
+    pdfPage: 150
+    verdict: consider
+    machinery: "Understanding why hypotheses of the quotient limit law are needed (0/0 forms)."
+    standardResult: "quotient law fails when denominator limit is 0"
+    topic: sequences
+    subtopics: [limit-laws]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Produce sequences a_n, b_n → 0 with a_n/b_n behaving arbitrarily."
+    category: canonical
+    type: counterexample
+    tags: [limit-laws, counterexample]
+    references: ["Theorem 6.1.19(f) (quoted)"]
+    problemLatex: |
+      Explain why Theorem 6.1.19(f) fails when the limit of the denominator is 0. (To repair that problem requires L'Hôpital's rule, see Section 10.5.)
+
+      *(Theorem 6.1.19(f): Let $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ be convergent sequences of real numbers, and let $x := \lim_{n\to\infty} a_n$ and $y := \lim_{n\to\infty} b_n$. Suppose that $y \ne 0$, and that $b_n \ne 0$ for all $n \ge m$. Then the sequence $(a_n/b_n)_{n=m}^\infty$ converges to $x/y$; in other words,* $$\lim_{n\to\infty} \frac{a_n}{b_n} = \frac{\lim_{n\to\infty} a_n}{\lim_{n\to\infty} b_n}.\ )$$
+    transcriptionNotes: "Theorem 6.1.19 preamble and part (f) quoted verbatim (preamble lightly joined to (f))."
+
+  - cid: tao-6.3.1
+    chapter: "6 Limits of sequences"
+    section: "6.3 Suprema and infima of sequences"
+    number: "Exercise 6.3.1"
+    page: "139"
+    pdfPage: 156
+    verdict: consider
+    machinery: "Computing sup/inf from the definition, including an infimum not attained."
+    standardResult: "sup{1/n}=1, inf{1/n}=0"
+    topic: real-numbers
+    subtopics: [supremum-infimum, archimedean-property]
+    skills: [sup-approximation, archimedean-argument]
+    difficulty: introductory
+    difficultyRationale: "Direct use of the definition plus the Archimedean property for the infimum."
+    category: canonical
+    type: computation
+    tags: [supremum, infimum, Archimedean-property]
+    references: ["Example 6.3.4 (quoted)"]
+    problemLatex: |
+      Verify the claim in Example 6.3.4.
+
+      *(Example 6.3.4: Let $a_n := 1/n$; thus $(a_n)_{n=1}^\infty$ is the sequence $1, 1/2, 1/3, \ldots$. Then the set $\{a_n : n \ge 1\}$ is the countable set $\{1, 1/2, 1/3, 1/4, \ldots\}$. Thus $\sup(a_n)_{n=1}^\infty = 1$ and $\inf(a_n)_{n=1}^\infty = 0$ (Exercise 6.3.1).)*
+    transcriptionNotes: "Example 6.3.4 (p.137) quoted verbatim up to the claim being verified."
+
+  - cid: tao-6.3.3
+    chapter: "6 Limits of sequences"
+    section: "6.3 Suprema and infima of sequences"
+    number: "Exercise 6.3.3"
+    page: "139"
+    pdfPage: 156
+    verdict: core
+    machinery: "Monotone convergence theorem from the least upper bound property (sup-approximation)."
+    standardResult: "monotone convergence theorem (bounded increasing ⇒ converges to sup)"
+    topic: sequences
+    subtopics: [monotone-sequences, supremum-infimum]
+    skills: [sup-approximation, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Standard sup-approximation plus monotonicity."
+    category: canonical
+    type: proof
+    tags: [monotone-convergence, supremum, completeness, machinery]
+    references: ["Proposition 6.3.8 (quoted)", "Proposition 6.3.6 (quoted)"]
+    problemLatex: |
+      Prove Proposition 6.3.8. (Hint: use Proposition 6.3.6, together with the assumption that $a_n$ is increasing, to show that $a_n$ converges to $\sup(a_n)_{n=m}^\infty$.)
+
+      *(Proposition 6.3.8 (Monotone bounded sequences converge): Let $(a_n)_{n=m}^\infty$ be a sequence of real numbers which has some finite upper bound $M \in \mathbb{R}$, and which is also increasing (i.e., $a_{n+1} \ge a_n$ for all $n \ge m$). Then $(a_n)_{n=m}^\infty$ is convergent, and in fact* $$\lim_{n\to\infty} a_n = \sup(a_n)_{n=m}^\infty \le M.\ )$$
+
+      *(Proposition 6.3.6 (Least upper bound property): Let $(a_n)_{n=m}^\infty$ be a sequence of real numbers, and let $x$ be the extended real number $x := \sup(a_n)_{n=m}^\infty$. Then we have $a_n \le x$ for all $n \ge m$. Also, whenever $M \in \mathbb{R}^*$ is an upper bound for $a_n$ (i.e., $a_n \le M$ for all $n \ge m$), we have $x \le M$. Finally, for every extended real number $y$ for which $y < x$, there exists at least one $n \ge m$ for which $y < a_n \le x$.)*
+    transcriptionNotes: "Propositions 6.3.8 and 6.3.6 (pp.137-138) quoted verbatim. $\\mathbb{R}^*$ is Tao's extended real line $\\mathbb{R} \\cup \\{-\\infty, +\\infty\\}$ (book uses bold R*)."
+
+  - cid: tao-6.3.4
+    chapter: "6 Limits of sequences"
+    section: "6.3 Suprema and infima of sequences"
+    number: "Exercise 6.3.4"
+    page: "139"
+    pdfPage: 156
+    verdict: strong
+    machinery: "Divergence of x^n for x>1 by contradiction with limit laws; the lesson that one cannot assume a limit exists before manipulating it."
+    standardResult: "x^n diverges for x>1; fallacy of assuming the limit exists"
+    topic: sequences
+    subtopics: [divergence, limit-laws]
+    skills: [contradiction, limit-laws]
+    difficulty: easy
+    difficultyRationale: "Short contradiction argument plus a conceptual diagnosis of a fallacious proof."
+    category: canonical
+    type: conceptual
+    tags: [divergence, geometric-sequence, limit-laws, fallacy]
+    references: ["Proposition 6.3.10 (quoted)", "Example 1.2.3 (quoted)"]
+    problemLatex: |
+      Explain why Proposition 6.3.10 fails when $x > 1$. In fact, show that the sequence $(x^n)_{n=1}^\infty$ diverges when $x > 1$. (Hint: prove by contradiction and use the identity $(1/x)^n x^n = 1$ and the limit laws in Theorem 6.1.19.) Compare this with the argument in Example 1.2.3; can you now explain the flaws in the reasoning in that example?
+
+      *(Proposition 6.3.10: Let $0 < x < 1$. Then we have $\lim_{n\to\infty} x^n = 0$.)*
+
+      *(Example 1.2.3 (Divergent sequences): Here is a slight variation of the previous example. Let $x$ be a real number, and let $L$ be the limit* $$L = \lim_{n\to\infty} x^n.$$ *Changing variables $n = m + 1$, we have* $$L = \lim_{m+1\to\infty} x^{m+1} = \lim_{m+1\to\infty} x \times x^m = x \lim_{m+1\to\infty} x^m.$$ *But if $m + 1 \to \infty$, then $m \to \infty$, thus* $$\lim_{m+1\to\infty} x^m = \lim_{m\to\infty} x^m = \lim_{n\to\infty} x^n = L,$$ *and thus* $$xL = L.$$ *At this point we could cancel the $L$'s and conclude that $x = 1$ for an arbitrary real number $x$, which is absurd. But since we are already aware of the division by zero problem, we could be a little smarter and conclude instead that either $x = 1$, or $L = 0$. In particular we seem to have shown that* $$\lim_{n\to\infty} x^n = 0 \text{ for all } x \ne 1.$$ *But this conclusion is absurd if we apply it to certain values of $x$, for instance by specializing to the case $x = 2$ we could conclude that the sequence $1, 2, 4, 8, \ldots$ converges to zero, and by specializing to the case $x = -1$ we conclude that the sequence $1, -1, 1, -1, \ldots$ also converges to zero. These conclusions appear to be absurd; what is the problem with the above argument? (See Exercise 6.3.4 for an answer.))*
+    transcriptionNotes: "Proposition 6.3.10 (p.138) and Example 1.2.3 (pp.4-5) quoted verbatim. The book's proof of Prop 6.3.10 (monotone convergence gives existence of L, then xL = L) is what 'fails' for x>1; not quoted."
+
+  - cid: tao-6.4.1
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.1"
+    page: "147"
+    pdfPage: 164
+    verdict: consider
+    machinery: "Contrasting quantifiers of limit vs limit point (subsequential limit); uniqueness argument."
+    standardResult: "a convergent sequence has its limit as its only limit point"
+    topic: sequences
+    subtopics: [convergence, subsequences]
+    skills: [epsilon-N-proof, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Two short ε arguments mirroring uniqueness of limits."
+    category: canonical
+    type: proof
+    tags: [limit-point, convergence, quantifiers]
+    references: ["Proposition 6.4.5 (quoted)", "Definition 6.4.1 (quoted, book's unwrapped form)"]
+    problemLatex: |
+      Prove Proposition 6.4.5.
+
+      *(Proposition 6.4.5 (Limits are limit points): Let $(a_n)_{n=m}^\infty$ be a sequence which converges to a real number $c$. Then $c$ is a limit point of $(a_n)_{n=m}^\infty$, and in fact it is the only limit point of $(a_n)_{n=m}^\infty$.)*
+
+      *(Limit point, from the text after Definition 6.4.1: $x$ is a limit point of $(a_n)_{n=m}^\infty$ if, for every $\varepsilon > 0$ and every $N \ge m$, there exists an $n \ge N$ such that $|a_n - x| \le \varepsilon$.)*
+    transcriptionNotes: "Proposition 6.4.5 (p.141) and the book's unwrapped form of Definition 6.4.1 (p.140) quoted verbatim. Tao's 'limit point of a sequence' = cluster point / subsequential limit (see Prop 6.6.6)."
+
+  - cid: tao-6.4.3
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.3"
+    page: "147"
+    pdfPage: 164
+    verdict: core
+    machinery: "Foundational properties of limsup/liminf from the inf-sup definition: ordering, extremal limit points, and the convergence criterion limsup = liminf."
+    standardResult: "limsup/liminf are the largest/smallest limit points; a_n → c iff limsup = liminf = c"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [sup-approximation, epsilon-N-proof, unwrap-definition]
+    difficulty: medium
+    difficultyRationale: "Four parts; (e) (finite L+ is a limit point) and (f) require combining the eventually-below and infinitely-often-above properties."
+    category: canonical
+    type: proof
+    tags: [limsup, liminf, limit-point, convergence, machinery]
+    references: ["Proposition 6.4.12 (quoted)", "Definition 6.4.6 (quoted)", "Definition 6.4.1 (quoted, unwrapped form)"]
+    problemLatex: |
+      Prove parts (c),(d),(e),(f) of Proposition 6.4.12. (Hint: you can use earlier parts of the proposition to prove later ones.)
+
+      *(Definition 6.4.6 (Limit superior and limit inferior): Suppose that $(a_n)_{n=m}^\infty$ is a sequence. We define a new sequence $(a_N^+)_{N=m}^\infty$ by the formula $a_N^+ := \sup(a_n)_{n=N}^\infty$. ... We then define the limit superior of the sequence $(a_n)_{n=m}^\infty$, denoted $\limsup_{n\to\infty} a_n$, by the formula $\limsup_{n\to\infty} a_n := \inf(a_N^+)_{N=m}^\infty$. Similarly, we can define $a_N^- := \inf(a_n)_{n=N}^\infty$ and define the limit inferior of the sequence $(a_n)_{n=m}^\infty$, denoted $\liminf_{n\to\infty} a_n$, by the formula $\liminf_{n\to\infty} a_n := \sup(a_N^-)_{N=m}^\infty$.)*
+
+      *(Limit point, from the text after Definition 6.4.1: $x$ is a limit point of $(a_n)_{n=m}^\infty$ if, for every $\varepsilon > 0$ and every $N \ge m$, there exists an $n \ge N$ such that $|a_n - x| \le \varepsilon$.)*
+
+      *(Proposition 6.4.12: Let $(a_n)_{n=m}^\infty$ be a sequence of real numbers, let $L^+$ be the limit superior of this sequence, and let $L^-$ be the limit inferior of this sequence (thus both $L^+$ and $L^-$ are extended real numbers).*
+
+      *(a) For every $x > L^+$, there exists an $N \ge m$ such that $a_n < x$ for all $n \ge N$. (In other words, for every $x > L^+$, the elements of the sequence $(a_n)_{n=m}^\infty$ are eventually less than $x$.) Similarly, for every $y < L^-$ there exists an $N \ge m$ such that $a_n > y$ for all $n \ge N$.*
+
+      *(b) For every $x < L^+$, and every $N \ge m$, there exists an $n \ge N$ such that $a_n > x$. (In other words, for every $x < L^+$, the elements of the sequence $(a_n)_{n=m}^\infty$ exceed $x$ infinitely often.) Similarly, for every $y > L^-$ and every $N \ge m$, there exists an $n \ge N$ such that $a_n < y$.*
+
+      *(c) We have $\inf(a_n)_{n=m}^\infty \le L^- \le L^+ \le \sup(a_n)_{n=m}^\infty$.*
+
+      *(d) If $c$ is any limit point of $(a_n)_{n=m}^\infty$, then we have $L^- \le c \le L^+$.*
+
+      *(e) If $L^+$ is finite, then it is a limit point of $(a_n)_{n=m}^\infty$. Similarly, if $L^-$ is finite, then it is a limit point of $(a_n)_{n=m}^\infty$.*
+
+      *(f) Let $c$ be a real number. If $(a_n)_{n=m}^\infty$ converges to $c$, then we must have $L^+ = L^- = c$. Conversely, if $L^+ = L^- = c$, then $(a_n)_{n=m}^\infty$ converges to $c$.)*
+    transcriptionNotes: "Proposition 6.4.12 (pp.143-144) and Definition 6.4.6 (p.141) quoted verbatim; the '...' in Def 6.4.6 omits one informal sentence ('More informally, a_N^+ is the supremum of all the elements in the sequence from a_N onwards.'). Sups/infs are taken in the extended reals, so a_N^+ may be +∞. Parts (a),(b) are proved in the book and may be used."
+
+  - cid: tao-6.4.4
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.4"
+    page: "147"
+    pdfPage: 164
+    verdict: consider
+    machinery: "Monotonicity of sup, inf, limsup, liminf under termwise inequality."
+    standardResult: "a_n ≤ b_n ⇒ limsup a_n ≤ limsup b_n (comparison principle)"
+    topic: sequences
+    subtopics: [limsup-liminf, supremum-infimum]
+    skills: [upper-bound-argument]
+    difficulty: easy
+    difficultyRationale: "Sup/inf monotonicity applied twice through the definition of limsup."
+    category: canonical
+    type: proof
+    tags: [limsup, liminf, supremum, comparison]
+    references: ["Lemma 6.4.13 (quoted)"]
+    problemLatex: |
+      Prove Lemma 6.4.13.
+
+      *(Lemma 6.4.13 (Comparison principle): Suppose that $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ are two sequences of real numbers such that $a_n \le b_n$ for all $n \ge m$. Then we have the inequalities*
+      $$\sup(a_n)_{n=m}^\infty \le \sup(b_n)_{n=m}^\infty$$
+      $$\inf(a_n)_{n=m}^\infty \le \inf(b_n)_{n=m}^\infty$$
+      $$\limsup_{n\to\infty} a_n \le \limsup_{n\to\infty} b_n$$
+      $$\liminf_{n\to\infty} a_n \le \liminf_{n\to\infty} b_n\ )$$
+    transcriptionNotes: "Lemma 6.4.13 (p.145) quoted verbatim. limsup/liminf as in Definition 6.4.6 (inf of tail sups / sup of tail infs, extended-real valued)."
+
+  - cid: tao-6.4.5
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.5"
+    page: "147"
+    pdfPage: 164
+    verdict: consider
+    machinery: "Squeeze theorem derived from limsup/liminf comparison and the limsup = liminf criterion."
+    standardResult: "squeeze theorem for sequences"
+    topic: sequences
+    subtopics: [limit-laws, limsup-liminf]
+    skills: [theorem-reuse]
+    difficulty: easy
+    difficultyRationale: "Short combination of the comparison principle with the limsup/liminf convergence criterion."
+    category: canonical
+    type: proof
+    tags: [squeeze-theorem, limsup, liminf]
+    references: ["Lemma 6.4.13 (quoted)", "Corollary 6.4.14 (quoted)"]
+    problemLatex: |
+      Use Lemma 6.4.13 to prove Corollary 6.4.14.
+
+      *(Lemma 6.4.13 (Comparison principle): Suppose that $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ are two sequences of real numbers such that $a_n \le b_n$ for all $n \ge m$. Then we have the inequalities $\sup(a_n)_{n=m}^\infty \le \sup(b_n)_{n=m}^\infty$, $\inf(a_n)_{n=m}^\infty \le \inf(b_n)_{n=m}^\infty$, $\limsup_{n\to\infty} a_n \le \limsup_{n\to\infty} b_n$, $\liminf_{n\to\infty} a_n \le \liminf_{n\to\infty} b_n$.)*
+
+      *(Corollary 6.4.14 (Squeeze test): Let $(a_n)_{n=m}^\infty$, $(b_n)_{n=m}^\infty$, and $(c_n)_{n=m}^\infty$ be sequences of real numbers such that* $$a_n \le b_n \le c_n$$ *for all $n \ge m$. Suppose also that $(a_n)_{n=m}^\infty$ and $(c_n)_{n=m}^\infty$ both converge to the same limit $L$. Then $(b_n)_{n=m}^\infty$ is also convergent to $L$.)*
+    transcriptionNotes: "Lemma 6.4.13 and Corollary 6.4.14 (p.145) quoted verbatim (the lemma's four displayed inequalities are run inline). The intended route also uses Prop 6.4.12(f) (quoted in tao-6.4.3)."
+
+  - cid: tao-6.4.6
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.6"
+    page: "147"
+    pdfPage: 164
+    verdict: consider
+    machinery: "Strict inequalities are not preserved under sup (or limits)."
+    standardResult: "a_n < b_n does not imply sup a_n < sup b_n"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "One quick example plus a one-line explanation."
+    category: canonical
+    type: counterexample
+    tags: [supremum, strict-inequality, counterexample]
+    references: ["Lemma 6.4.13 (quoted)"]
+    problemLatex: |
+      Give an example of two bounded sequences $(a_n)_{n=1}^\infty$ and $(b_n)_{n=1}^\infty$ such that $a_n < b_n$ for all $n \ge 1$, but that $\sup(a_n)_{n=1}^\infty \not< \sup(b_n)_{n=1}^\infty$. Explain why this does not contradict Lemma 6.4.13.
+
+      *(Lemma 6.4.13 (Comparison principle): Suppose that $(a_n)_{n=m}^\infty$ and $(b_n)_{n=m}^\infty$ are two sequences of real numbers such that $a_n \le b_n$ for all $n \ge m$. Then we have the inequalities $\sup(a_n)_{n=m}^\infty \le \sup(b_n)_{n=m}^\infty$, $\inf(a_n)_{n=m}^\infty \le \inf(b_n)_{n=m}^\infty$, $\limsup_{n\to\infty} a_n \le \limsup_{n\to\infty} b_n$, $\liminf_{n\to\infty} a_n \le \liminf_{n\to\infty} b_n$.)*
+    transcriptionNotes: "Lemma 6.4.13 quoted verbatim (displays run inline). Verified $\\not<$ against page image."
+
+  - cid: tao-6.4.7
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.7"
+    page: "147"
+    pdfPage: 164
+    verdict: consider
+    machinery: "a_n → 0 iff |a_n| → 0, and the failure of the analogue for a nonzero limit."
+    standardResult: "a_n → 0 ⇔ |a_n| → 0; |a_n| → c ≠ 0 does not imply a_n → c"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [squeeze, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Squeeze argument plus a one-line counterexample."
+    category: canonical
+    type: counterexample
+    tags: [convergence, absolute-value, counterexample]
+    references: ["Corollary 6.4.17 (quoted)"]
+    problemLatex: |
+      Prove Corollary 6.4.17. Is the corollary still true if we replace zero in the statement of this Corollary by some other number?
+
+      *(Corollary 6.4.17 (Zero test for sequences): Let $(a_n)_{n=M}^\infty$ be a sequence of real numbers. Then the limit $\lim_{n\to\infty} a_n$ exists and is equal to zero if and only if the limit $\lim_{n\to\infty} |a_n|$ exists and is equal to zero.)*
+    transcriptionNotes: "Corollary 6.4.17 (p.145) quoted verbatim."
+
+  - cid: tao-6.4.8
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.8"
+    page: "147"
+    pdfPage: 164
+    verdict: consider
+    machinery: "Extending 'limit point' to ±∞ and showing limsup/liminf are the largest/smallest (extended) limit points."
+    standardResult: "limsup is the largest subsequential limit (in the extended reals)"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [case-analysis, theorem-reuse]
+    difficulty: easy
+    difficultyRationale: "Case analysis on whether limsup is finite or ±∞, using Proposition 6.4.12."
+    category: canonical
+    type: proof
+    tags: [limsup, liminf, limit-point, extended-reals]
+    references: ["Proposition 6.4.12 (see tao-6.4.3)", "Definition 6.4.6 (see tao-6.4.3)"]
+    problemLatex: |
+      Let us say that a sequence $(a_n)_{n=M}^\infty$ of real numbers has $+\infty$ as a limit point iff it has no finite upper bound, and that it has $-\infty$ as a limit point iff it has no finite lower bound. With this definition, show that $\limsup_{n\to\infty} a_n$ is a limit point of $(a_n)_{n=M}^\infty$, and furthermore that it is larger than all the other limit points of $(a_n)_{n=M}^\infty$; in other words, the limit superior is the largest limit point of a sequence. Similarly, show that the limit inferior is the smallest limit point of a sequence. (One can use Proposition 6.4.12 in the course of the proof.)
+    transcriptionNotes: "Proposition 6.4.12 and Definition 6.4.6 are quoted in full in tao-6.4.3; if this item is used, append those quotes. Overlaps substantially with 6.4.3(d),(e)."
+
+  - cid: tao-6.4.9
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.9"
+    page: "147"
+    pdfPage: 164
+    verdict: consider
+    machinery: "Constructing sequences with a prescribed set of limit points."
+    standardResult: "sequence with prescribed subsequential limits"
+    topic: sequences
+    subtopics: [subsequences, limsup-liminf]
+    skills: [construct-counterexample, interleaving]
+    difficulty: easy
+    difficultyRationale: "Simple construction, but must check no other limit points sneak in."
+    category: canonical
+    type: construction
+    tags: [limit-point, construction, extended-reals]
+    references: ["Exercise 6.4.8 definition (included in statement below)"]
+    problemLatex: |
+      Using the definition in Exercise 6.4.8, construct a sequence $(a_n)_{n=1}^\infty$ which has exactly three limit points, at $-\infty$, $0$, and $+\infty$.
+
+      *(Definition in Exercise 6.4.8: a sequence $(a_n)_{n=M}^\infty$ of real numbers has $+\infty$ as a limit point iff it has no finite upper bound, and it has $-\infty$ as a limit point iff it has no finite lower bound.)*
+    transcriptionNotes: "Definition from Exercise 6.4.8 quoted (lightly adapted from 'Let us say that...' phrasing)."
+
+  - cid: tao-6.4.10
+    chapter: "6 Limits of sequences"
+    section: "6.4 Limsup, liminf, and limit points"
+    number: "Exercise 6.4.10"
+    page: "147"
+    pdfPage: 164
+    verdict: strong
+    machinery: "ε/2 + nested-quantifier argument showing the set of subsequential limits is closed."
+    standardResult: "limit points of limit points are limit points (set of subsequential limits is closed)"
+    topic: sequences
+    subtopics: [subsequences, limsup-liminf]
+    skills: [triangle-inequality, epsilon-over-2, nested-quantifiers]
+    difficulty: easy
+    difficultyRationale: "Two-level ε/2 argument; must track the 'every N' quantifier correctly."
+    category: canonical
+    type: proof
+    tags: [limit-point, subsequential-limits, closed-set, quantifiers]
+    references: ["Definition 6.4.1 (quoted, unwrapped form)"]
+    problemLatex: |
+      Let $(a_n)_{n=N}^\infty$ be a sequence of real numbers, and let $(b_m)_{m=M}^\infty$ be another sequence of real numbers such that each $b_m$ is a limit point of $(a_n)_{n=N}^\infty$. Let $c$ be a limit point of $(b_m)_{m=M}^\infty$. Prove that $c$ is also a limit point of $(a_n)_{n=N}^\infty$. (In other words, limit points of limit points are themselves limit points of the original sequence.)
+
+      *(Limit point, from the text after Definition 6.4.1: $x$ is a limit point of $(a_n)_{n=m}^\infty$ if, for every $\varepsilon > 0$ and every $N \ge m$, there exists an $n \ge N$ such that $|a_n - x| \le \varepsilon$.)*
+    transcriptionNotes: "Book's unwrapped definition of limit point (p.140) quoted verbatim."
+
+  - cid: tao-6.5.2
+    chapter: "6 Limits of sequences"
+    section: "6.5 Some standard limits"
+    number: "Exercise 6.5.2"
+    page: "149"
+    pdfPage: 166
+    verdict: strong
+    machinery: "Complete classification of the geometric sequence x^n, using monotone convergence, squeeze, and divergence by contradiction."
+    standardResult: "x^n → 0 for |x|<1, diverges for x=−1 or |x|>1"
+    topic: sequences
+    subtopics: [convergence, divergence, monotone-sequences]
+    skills: [squeeze, case-analysis, contradiction]
+    difficulty: easy
+    difficultyRationale: "Case analysis; each case uses a standard tool."
+    category: canonical
+    type: proof
+    tags: [geometric-sequence, squeeze-theorem, divergence]
+    references: ["Lemma 6.5.2 (quoted)"]
+    problemLatex: |
+      Prove Lemma 6.5.2. (Hint: use Proposition 6.3.10, Exercise 6.3.4, and the squeeze test.)
+
+      *(Lemma 6.5.2: Let $x$ be a real number. Then the limit $\lim_{n\to\infty} x^n$ exists and is equal to zero when $|x| < 1$, exists and is equal to 1 when $x = 1$, and diverges when $x = -1$ or when $|x| > 1$.)*
+    transcriptionNotes: "Lemma 6.5.2 (p.148) quoted verbatim. Hint references: Proposition 6.3.10 = 'for 0<x<1, lim x^n = 0'; Exercise 6.3.4 = 'x^n diverges for x>1' (see tao-6.3.4)."
+
+  - cid: tao-6.5.3
+    chapter: "6 Limits of sequences"
+    section: "6.5 Some standard limits"
+    number: "Exercise 6.5.3"
+    page: "149"
+    pdfPage: 166
+    verdict: strong
+    machinery: "Standard limit x^{1/n} → 1 via monotonicity/epsilon estimates and case split."
+    standardResult: "lim x^{1/n} = 1 for x>0"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Preliminary estimate (hint given) plus a case split."
+    category: canonical
+    type: proof
+    tags: [standard-limits, nth-root]
+    references: ["Lemma 6.5.3 (quoted)"]
+    problemLatex: |
+      Prove Lemma 6.5.3. (Hint: you may need to treat the cases $x \ge 1$ and $x < 1$ separately. You might wish to first use Lemma 6.5.2 to prove the preliminary result that for every $\varepsilon > 0$ and every real number $M > 0$, there exists an $n$ such that $M^{1/n} \le 1 + \varepsilon$.)
+
+      *(Lemma 6.5.3: For any $x > 0$, we have $\lim_{n\to\infty} x^{1/n} = 1$.)*
+    transcriptionNotes: "Lemma 6.5.3 (p.148) quoted verbatim. Lemma 6.5.2 (classification of lim x^n) is quoted in tao-6.5.2."
+
+  - cid: tao-6.6.2
+    chapter: "6 Limits of sequences"
+    section: "6.6 Subsequences"
+    number: "Exercise 6.6.2"
+    page: "152"
+    pdfPage: 169
+    verdict: consider
+    machinery: "Precise definition of subsequence via strictly increasing index maps; 'subsequence' is not antisymmetric."
+    standardResult: "two distinct sequences each a subsequence of the other"
+    topic: sequences
+    subtopics: [subsequences]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "A small example suffices, but it must be checked against the formal definition."
+    category: canonical
+    type: counterexample
+    tags: [subsequence, counterexample, definition]
+    references: ["Definition 6.6.1 (quoted)"]
+    problemLatex: |
+      Can you find two sequences $(a_n)_{n=0}^\infty$ and $(b_n)_{n=0}^\infty$ which are not the same sequence, but such that each is a subsequence of the other?
+
+      *(Definition 6.6.1 (Subsequences): Let $(a_n)_{n=0}^\infty$ and $(b_n)_{n=0}^\infty$ be sequences of real numbers. We say that $(b_n)_{n=0}^\infty$ is a subsequence of $(a_n)_{n=0}^\infty$ iff there exists a function $f\colon \mathbb{N} \to \mathbb{N}$ which is strictly increasing (i.e., $f(n+1) > f(n)$ for all $n \in \mathbb{N}$) such that* $$b_n = a_{f(n)} \text{ for all } n \in \mathbb{N}.\ )$$
+    transcriptionNotes: "Definition 6.6.1 (p.149) quoted verbatim."
+
+  - cid: tao-6.6.3
+    chapter: "6 Limits of sequences"
+    section: "6.6 Subsequences"
+    number: "Exercise 6.6.3"
+    page: "152"
+    pdfPage: 169
+    verdict: consider
+    machinery: "Recursive extraction of a subsequence from an unboundedness hypothesis."
+    standardResult: "unbounded sequence has a subsequence with |b_n| → ∞"
+    topic: sequences
+    subtopics: [subsequences, bounded-sequences]
+    skills: [subsequence-extraction, recursive-construction]
+    difficulty: easy
+    difficultyRationale: "Standard recursive index selection (hint given) plus a short limit verification."
+    category: canonical
+    type: construction
+    tags: [subsequence, unbounded, recursive-construction]
+    references: []
+    problemLatex: |
+      Let $(a_n)_{n=0}^\infty$ be a sequence which is not bounded. Show that there exists a subsequence $(b_n)_{n=0}^\infty$ of $(a_n)_{n=0}^\infty$ such that $\lim_{n\to\infty} 1/b_n$ exists and is equal to zero. (Hint: for each natural number $j$, recursively introduce the quantity $n_j := \min\{n \in \mathbb{N} : |a_n| \ge j;\ n > n_{j-1}\}$ (omitting the condition $n > n_{j-1}$ when $j = 0$), first explaining why the set $\{n \in \mathbb{N} : |a_n| \ge j;\ n > n_{j-1}\}$ is non-empty. Then set $b_j := a_{n_j}$.)
+    transcriptionNotes: "Verified against page image. As printed, with j=0 the condition |a_n| ≥ 0 allows b_0 = 0, so 1/b_n need not be defined for every n; not altered."
+
+  - cid: tao-6.6.4
+    chapter: "6 Limits of sequences"
+    section: "6.6 Subsequences"
+    number: "Exercise 6.6.4"
+    page: "152"
+    pdfPage: 169
+    verdict: strong
+    machinery: "Subsequences of a convergent sequence converge to the same limit (f(n) ≥ n), and the trivial converse."
+    standardResult: "a_n → L iff every subsequence → L"
+    topic: sequences
+    subtopics: [subsequences, convergence]
+    skills: [epsilon-N-proof, index-inequality]
+    difficulty: easy
+    difficultyRationale: "One key index inequality proved by induction; converse is immediate."
+    category: canonical
+    type: proof
+    tags: [subsequence, convergence]
+    references: ["Proposition 6.6.5 (quoted)", "Definition 6.6.1 (quoted)"]
+    problemLatex: |
+      Prove Proposition 6.6.5. (Note that one of the two implications has a very short proof.)
+
+      *(Proposition 6.6.5 (Subsequences related to limits): Let $(a_n)_{n=0}^\infty$ be a sequence of real numbers, and let $L$ be a real number. Then the following two statements are logically equivalent (each one implies the other):*
+
+      *(a) The sequence $(a_n)_{n=0}^\infty$ converges to $L$.*
+
+      *(b) Every subsequence of $(a_n)_{n=0}^\infty$ converges to $L$.)*
+
+      *(Definition 6.6.1 (Subsequences): Let $(a_n)_{n=0}^\infty$ and $(b_n)_{n=0}^\infty$ be sequences of real numbers. We say that $(b_n)_{n=0}^\infty$ is a subsequence of $(a_n)_{n=0}^\infty$ iff there exists a function $f\colon \mathbb{N} \to \mathbb{N}$ which is strictly increasing (i.e., $f(n+1) > f(n)$ for all $n \in \mathbb{N}$) such that $b_n = a_{f(n)}$ for all $n \in \mathbb{N}$.)*
+    transcriptionNotes: "Proposition 6.6.5 (p.150) and Definition 6.6.1 (p.149) quoted verbatim."
+
+  - cid: tao-6.6.5
+    chapter: "6 Limits of sequences"
+    section: "6.6 Subsequences"
+    number: "Exercise 6.6.5"
+    page: "152"
+    pdfPage: 169
+    verdict: core
+    machinery: "Equivalence of cluster point and subsequential limit by recursive index selection."
+    standardResult: "L is a limit (cluster) point of (a_n) iff some subsequence converges to L"
+    topic: sequences
+    subtopics: [subsequences, limsup-liminf]
+    skills: [subsequence-extraction, recursive-construction, epsilon-N-proof]
+    difficulty: easy
+    difficultyRationale: "Standard recursive extraction with tolerance 1/j (hint given); converse is direct."
+    category: canonical
+    type: proof
+    tags: [subsequence, limit-point, cluster-point, machinery]
+    references: ["Proposition 6.6.6 (quoted)", "Definition 6.4.1 (quoted, unwrapped form)"]
+    problemLatex: |
+      Prove Proposition 6.6.6. (Hint: to show that (a) implies (b), define the numbers $n_j$ for each natural numbers $j$ by the formula $n_j := \min\{n > n_{j-1} : |a_n - L| \le 1/j\}$, with the convention $n_0 := 0$, explaining why the set $\{n > n_{j-1} : |a_n - L| \le 1/j\}$ is non-empty. Then consider the sequence $a_{n_j}$.)
+
+      *(Proposition 6.6.6 (Subsequences related to limit points): Let $(a_n)_{n=0}^\infty$ be a sequence of real numbers, and let $L$ be a real number. Then the following two statements are logically equivalent.*
+
+      *(a) $L$ is a limit point of $(a_n)_{n=0}^\infty$.*
+
+      *(b) There exists a subsequence of $(a_n)_{n=0}^\infty$ which converges to $L$.)*
+
+      *(Limit point, from the text after Definition 6.4.1: $x$ is a limit point of $(a_n)_{n=m}^\infty$ if, for every $\varepsilon > 0$ and every $N \ge m$, there exists an $n \ge N$ such that $|a_n - x| \le \varepsilon$.)*
+    transcriptionNotes: "Proposition 6.6.6 (p.151) and unwrapped Definition 6.4.1 (p.140) quoted verbatim. Hint verified against page image (n_j defined for j ≥ 1 implicitly)."
+
+  # ---------------- Chapter 7 ----------------
+  - cid: tao-7.1.4
+    chapter: "7 Series"
+    section: "7.1 Finite series"
+    number: "Exercise 7.1.4"
+    page: "164"
+    pdfPage: 181
+    verdict: consider
+    machinery: "Induction with finite sums and index shifts (binomial theorem)."
+    standardResult: "binomial theorem by induction"
+    topic: foundations
+    subtopics: [induction]
+    skills: [induction, index-shift]
+    difficulty: easy
+    difficultyRationale: "Standard induction with Pascal's identity and reindexing."
+    category: canonical
+    type: proof
+    tags: [induction, binomial-theorem, finite-sums]
+    references: []
+    problemLatex: |
+      Define the factorial function $n!$ for natural numbers $n$ by the recursive definition $0! := 1$ and $(n+1)! := n! \times (n+1)$. If $x$ and $y$ are real numbers, prove the binomial formula
+      $$(x + y)^n = \sum_{j=0}^{n} \frac{n!}{j!(n-j)!} x^j y^{n-j}$$
+      for all natural numbers $n$. (Hint: induct on $n$.)
+    transcriptionNotes: ""
+
+  - cid: tao-7.2.1
+    chapter: "7 Series"
+    section: "7.2 Infinite series"
+    number: "Exercise 7.2.1"
+    page: "169"
+    pdfPage: 186
+    verdict: consider
+    machinery: "Series convergence means convergence of partial sums; zero test; why formal manipulations of divergent series fail."
+    standardResult: "Σ(−1)^n diverges (Grandi's series)"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [partial-sums, term-test]
+    difficulty: introductory
+    difficultyRationale: "Look at the partial sums; conceptual diagnosis of the formal manipulations."
+    category: canonical
+    type: conceptual
+    tags: [series, divergence, partial-sums, fallacy]
+    references: ["Example 1.2.2 (quoted, relevant part)"]
+    problemLatex: |
+      Is the series $\sum_{n=1}^\infty (-1)^n$ convergent or divergent? Justify your answer. Can you now resolve the difficulty in Example 1.2.2?
+
+      *(From Example 1.2.2: A similar example arises with the series* $$S = 1 - 1 + 1 - 1 + 1 - 1 + \ldots;$$ *we can write* $$S = 1 - (1 - 1 + 1 - 1 + \ldots) = 1 - S$$ *and hence that $S = 1/2$; or instead we can write* $$S = (1 - 1) + (1 - 1) + (1 - 1) + \ldots = 0 + 0 + \ldots$$ *and hence that $S = 0$; or instead we can write* $$S = 1 + (-1 + 1) + (-1 + 1) + \ldots = 1 + 0 + 0 + \ldots$$ *and hence that $S = 1$. Which one is correct? (See Exercise 7.2.1 for an answer.))*
+    transcriptionNotes: "Only the part of Example 1.2.2 (pp.3-4) about 1−1+1−… is quoted verbatim; the earlier part of the example (geometric series manipulations 1+1/2+1/4+… and 1+2+4+…) is omitted."
+
+  - cid: tao-7.2.2
+    chapter: "7 Series"
+    section: "7.2 Infinite series"
+    number: "Exercise 7.2.2"
+    page: "169"
+    pdfPage: 186
+    verdict: core
+    machinery: "Cauchy criterion for series from completeness of R."
+    standardResult: "Cauchy criterion for series"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [cauchy-criterion, partial-sums]
+    difficulty: easy
+    difficultyRationale: "Translate partial-sum Cauchy condition; uses convergent ⇔ Cauchy."
+    category: canonical
+    type: proof
+    tags: [Cauchy-criterion, series, completeness, machinery]
+    references: ["Proposition 7.2.5 (quoted)"]
+    problemLatex: |
+      Prove Proposition 7.2.5. (Hint: use Proposition 6.1.12 and Theorem 6.4.18.)
+
+      *(Proposition 7.2.5: Let $\sum_{n=m}^\infty a_n$ be a formal series of real numbers. Then $\sum_{n=m}^\infty a_n$ converges if and only if, for every real number $\varepsilon > 0$, there exists an integer $N \ge m$ such that* $$\left|\sum_{n=p}^{q} a_n\right| \le \varepsilon \text{ for all } p, q \ge N.\ )$$
+    transcriptionNotes: "Proposition 7.2.5 (p.166) quoted verbatim. Hint references: Proposition 6.1.12 = convergent sequences are Cauchy; Theorem 6.4.18 = a real sequence is Cauchy iff convergent. Note: for p > q the sum is empty (= 0) in Tao's convention."
+
+  - cid: tao-7.2.3
+    chapter: "7 Series"
+    section: "7.2 Infinite series"
+    number: "Exercise 7.2.3"
+    page: "169"
+    pdfPage: 186
+    verdict: consider
+    machinery: "Term test as a special case (p = q) of the Cauchy criterion."
+    standardResult: "nth-term (zero) test"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [cauchy-criterion]
+    difficulty: introductory
+    difficultyRationale: "Immediate special case of the Cauchy criterion."
+    category: canonical
+    type: theorem-application
+    tags: [term-test, series]
+    references: ["Proposition 7.2.5 (quoted)", "Corollary 7.2.6 (quoted)"]
+    problemLatex: |
+      Use Proposition 7.2.5 to prove Corollary 7.2.6.
+
+      *(Proposition 7.2.5: Let $\sum_{n=m}^\infty a_n$ be a formal series of real numbers. Then $\sum_{n=m}^\infty a_n$ converges if and only if, for every real number $\varepsilon > 0$, there exists an integer $N \ge m$ such that $\left|\sum_{n=p}^{q} a_n\right| \le \varepsilon$ for all $p, q \ge N$.)*
+
+      *(Corollary 7.2.6 (Zero test): Let $\sum_{n=m}^\infty a_n$ be a convergent series of real numbers. Then we must have $\lim_{n\to\infty} a_n = 0$. To put this another way, if $\lim_{n\to\infty} a_n$ is non-zero or divergent, then the series $\sum_{n=m}^\infty a_n$ is divergent.)*
+    transcriptionNotes: "Proposition 7.2.5 and Corollary 7.2.6 (p.166) quoted verbatim."
+
+  - cid: tao-7.2.4
+    chapter: "7 Series"
+    section: "7.2 Infinite series"
+    number: "Exercise 7.2.4"
+    page: "169"
+    pdfPage: 186
+    verdict: strong
+    machinery: "Absolute convergence implies convergence via Cauchy criterion + finite triangle inequality; infinite triangle inequality by passing to limits."
+    standardResult: "absolute convergence ⇒ convergence, |Σa_n| ≤ Σ|a_n|"
+    topic: series
+    subtopics: [absolute-convergence]
+    skills: [cauchy-criterion, triangle-inequality, limits-preserve-inequalities]
+    difficulty: easy
+    difficultyRationale: "Two standard steps: Cauchy criterion, then limit of partial-sum inequality."
+    category: canonical
+    type: proof
+    tags: [absolute-convergence, Cauchy-criterion, triangle-inequality]
+    references: ["Proposition 7.2.9 (quoted)", "Lemma 7.1.4(e) (quoted)"]
+    problemLatex: |
+      Prove Proposition 7.2.9. (Hint: use Proposition 7.2.5 and Proposition 7.1.4(e).)
+
+      *(Proposition 7.2.9 (Absolute convergence test): Let $\sum_{n=m}^\infty a_n$ be a formal series of real numbers. If this series is absolutely convergent, then it is also conditionally convergent. Furthermore, in this case we have the triangle inequality* $$\left|\sum_{n=m}^\infty a_n\right| \le \sum_{n=m}^\infty |a_n|.\ )$$
+
+      *(Lemma 7.1.4(e) (Triangle inequality for finite series): Let $m \le n$ be integers, and let $a_i$ be a real number assigned to each integer $m \le i \le n$. Then we have $\left|\sum_{i=m}^n a_i\right| \le \sum_{i=m}^n |a_i|$.)*
+    transcriptionNotes: "Proposition 7.2.9 (p.167) and Lemma 7.1.4(e) (p.157) quoted verbatim. The book's hint says 'Proposition 7.1.4(e)' but the result is labeled Lemma 7.1.4; left as printed in the hint. In Tao 'conditionally convergent' just means convergent (Remark 7.2.11). Proposition 7.2.5 (Cauchy criterion) is quoted in tao-7.2.2."
+
+  - cid: tao-7.2.6
+    chapter: "7 Series"
+    section: "7.2 Infinite series"
+    number: "Exercise 7.2.6"
+    page: "170"
+    pdfPage: 187
+    verdict: consider
+    machinery: "Telescoping partial sums by induction; effect of a nonzero limit."
+    standardResult: "telescoping series Σ(a_n − a_{n+1}) = a_0 − lim a_n"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [telescoping, induction]
+    difficulty: introductory
+    difficultyRationale: "Compute partial sums by induction and take limits."
+    category: canonical
+    type: proof
+    tags: [telescoping, series]
+    references: ["Lemma 7.2.15 (quoted)"]
+    problemLatex: |
+      Prove Lemma 7.2.15. (Hint: First work out what the partial sums $\sum_{n=0}^N (a_n - a_{n+1})$ should be, and prove your assertion using induction.) How does the proposition change if we assume that $a_n$ does not converge to zero, but instead converges to some other real number $L$?
+
+      *(Lemma 7.2.15 (Telescoping series): Let $(a_n)_{n=0}^\infty$ be a sequence of real numbers which converge to 0, i.e., $\lim_{n\to\infty} a_n = 0$. Then the series $\sum_{n=0}^\infty (a_n - a_{n+1})$ converges to $a_0$.)*
+    transcriptionNotes: "Lemma 7.2.15 (p.169) quoted verbatim."
+
+  - cid: tao-7.3.1
+    chapter: "7 Series"
+    section: "7.3 Sums of non-negative numbers"
+    number: "Exercise 7.3.1"
+    page: "174"
+    pdfPage: 191
+    verdict: consider
+    machinery: "Comparison test from bounded partial sums of non-negative series."
+    standardResult: "comparison test"
+    topic: series
+    subtopics: [comparison]
+    skills: [bounded-partial-sums, comparison-estimate]
+    difficulty: introductory
+    difficultyRationale: "Short bounded-partial-sums argument."
+    category: canonical
+    type: proof
+    tags: [comparison-test, series, non-negative-series]
+    references: ["Proposition 7.3.1 (quoted)", "Corollary 7.3.2 (quoted)"]
+    problemLatex: |
+      Use Proposition 7.3.1 to prove Corollary 7.3.2.
+
+      *(Proposition 7.3.1: Let $\sum_{n=m}^\infty a_n$ be a formal series of non-negative real numbers. Then this series is convergent if and only if there is a real number $M$ such that* $$\sum_{n=m}^N a_n \le M \text{ for all integers } N \ge m.\ )$$
+
+      *(Corollary 7.3.2 (Comparison test): Let $\sum_{n=m}^\infty a_n$ and $\sum_{n=m}^\infty b_n$ be two formal series of real numbers, and suppose that $|a_n| \le b_n$ for all $n \ge m$. Then if $\sum_{n=m}^\infty b_n$ is convergent, then $\sum_{n=m}^\infty a_n$ is absolutely convergent, and in fact* $$\left|\sum_{n=m}^\infty a_n\right| \le \sum_{n=m}^\infty |a_n| \le \sum_{n=m}^\infty b_n.\ )$$
+    transcriptionNotes: "Proposition 7.3.1 and Corollary 7.3.2 (p.170) quoted verbatim."
+
+  - cid: tao-7.3.2
+    chapter: "7 Series"
+    section: "7.3 Sums of non-negative numbers"
+    number: "Exercise 7.3.2"
+    page: "174"
+    pdfPage: 191
+    verdict: strong
+    machinery: "Geometric series: closed-form partial sums plus limits of x^n; zero test for divergence."
+    standardResult: "geometric series Σx^n = 1/(1−x) iff |x|<1"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [induction, partial-sums, term-test]
+    difficulty: introductory
+    difficultyRationale: "Partial sum formula by induction plus a known limit."
+    category: canonical
+    type: proof
+    tags: [geometric-series, series]
+    references: ["Lemma 7.3.3 (quoted)", "Lemma 6.5.2 (quoted)"]
+    problemLatex: |
+      Prove Lemma 7.3.3. (Hint: for the first part, use the zero test. For the second part, first use induction to establish the geometric series formula
+      $$\sum_{n=0}^N x^n = (1 - x^{N+1})/(1 - x)$$
+      and then apply Lemma 6.5.2.)
+
+      *(Lemma 7.3.3 (Geometric series): Let $x$ be a real number. If $|x| \ge 1$, then the series $\sum_{n=0}^\infty x^n$ is divergent. If however $|x| < 1$, then the series is absolutely convergent and* $$\sum_{n=0}^\infty x^n = 1/(1 - x).\ )$$
+
+      *(Lemma 6.5.2: Let $x$ be a real number. Then the limit $\lim_{n\to\infty} x^n$ exists and is equal to zero when $|x| < 1$, exists and is equal to 1 when $x = 1$, and diverges when $x = -1$ or when $|x| > 1$.)*
+    transcriptionNotes: "Lemma 7.3.3 (p.171) and Lemma 6.5.2 (p.148) quoted verbatim. 'Zero test' = Corollary 7.2.6 (terms of a convergent series tend to 0)."
+
+  - cid: tao-7.4.1
+    chapter: "7 Series"
+    section: "7.4 Rearrangement of series"
+    number: "Exercise 7.4.1"
+    page: "177"
+    pdfPage: 194
+    verdict: strong
+    machinery: "Subseries of an absolutely convergent series are absolutely convergent (bounded partial sums)."
+    standardResult: "subseries of an absolutely convergent series converges absolutely"
+    topic: series
+    subtopics: [absolute-convergence]
+    skills: [bounded-partial-sums, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Bounded-partial-sums comparison (hint given)."
+    category: canonical
+    type: proof
+    tags: [absolute-convergence, subseries, non-negative-series]
+    references: []
+    problemLatex: |
+      Let $\sum_{n=0}^\infty a_n$ be an absolutely convergent series of real numbers. Let $f\colon \mathbb{N} \to \mathbb{N}$ be an increasing function (i.e., $f(n+1) > f(n)$ for all $n \in \mathbb{N}$). Show that $\sum_{n=0}^\infty a_{f(n)}$ is also an absolutely convergent series. (Hint: try to compare each partial sum of $\sum_{n=0}^\infty a_{f(n)}$ with a (slightly different) partial sum of $\sum_{n=0}^\infty a_n$.)
+    transcriptionNotes: ""
+
+  - cid: tao-7.5.1
+    chapter: "7 Series"
+    section: "7.5 The root and ratio tests"
+    number: "Exercise 7.5.1"
+    page: "180"
+    pdfPage: 197
+    verdict: core
+    machinery: "Comparing ratio and root asymptotics via liminf/limsup and the limit c^{1/n} → 1."
+    standardResult: "liminf c_{n+1}/c_n ≤ liminf c_n^{1/n} (ratio test implies root test)"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [limsup-liminf-manipulation, epsilon-argument, induction]
+    difficulty: medium
+    difficultyRationale: "Mirrors the book's proof of the last inequality but with liminf; edge cases need care."
+    category: canonical
+    type: proof
+    tags: [ratio-test, root-test, limsup, liminf, machinery]
+    references: ["Lemma 7.5.2 (quoted)"]
+    problemLatex: |
+      Prove the first inequality in Lemma 7.5.2.
+
+      *(Lemma 7.5.2: Let $(c_n)_{n=m}^\infty$ be a sequence of positive numbers. Then we have* $$\liminf_{n\to\infty} \frac{c_{n+1}}{c_n} \le \liminf_{n\to\infty} c_n^{1/n} \le \limsup_{n\to\infty} c_n^{1/n} \le \limsup_{n\to\infty} \frac{c_{n+1}}{c_n}.\ )$$
+    transcriptionNotes: "Lemma 7.5.2 (p.179) quoted verbatim. The book proves the third inequality in the text (pp.179-180) as a model."
+
+  - cid: tao-7.5.2
+    chapter: "7 Series"
+    section: "7.5 The root and ratio tests"
+    number: "Exercise 7.5.2"
+    page: "180"
+    pdfPage: 197
+    verdict: strong
+    machinery: "Ratio/root test application; polynomial growth beaten by geometric decay; term test."
+    standardResult: "Σ n^q x^n converges absolutely for |x|<1, hence n^q x^n → 0"
+    topic: series
+    subtopics: [convergence-tests, absolute-convergence]
+    skills: [ratio-test, term-test]
+    difficulty: easy
+    difficultyRationale: "Direct ratio/root test application, then the zero test."
+    category: canonical
+    type: theorem-application
+    tags: [ratio-test, root-test, geometric-decay]
+    references: []
+    problemLatex: |
+      Let $x$ be a real number with $|x| < 1$, and $q$ be a real number. Show that the series $\sum_{n=1}^\infty n^q x^n$ is absolutely convergent, and that $\lim_{n\to\infty} n^q x^n = 0$.
+    transcriptionNotes: "Verified against page image. In Tao, n^q for real q is defined in Section 6.7."
+
+  - cid: tao-7.5.3
+    chapter: "7 Series"
+    section: "7.5 The root and ratio tests"
+    number: "Exercise 7.5.3"
+    page: "180"
+    pdfPage: 197
+    verdict: strong
+    machinery: "Showing the ratio and root tests are inconclusive at 1 with p-series examples."
+    standardResult: "ratio/root tests inconclusive when limit is 1 (Σ1/n vs Σ1/n²)"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [construct-counterexample, standard-limits]
+    difficulty: introductory
+    difficultyRationale: "Standard p-series examples plus the limit n^{1/n} → 1."
+    category: canonical
+    type: counterexample
+    tags: [ratio-test, root-test, p-series, counterexample]
+    references: []
+    problemLatex: |
+      Give an example of a divergent series $\sum_{n=1}^\infty a_n$ of positive numbers $a_n$ such that $\lim_{n\to\infty} a_{n+1}/a_n = \lim_{n\to\infty} a_n^{1/n} = 1$, and give an example of a convergent series $\sum_{n=1}^\infty b_n$ of positive numbers $b_n$ such that $\lim_{n\to\infty} b_{n+1}/b_n = \lim_{n\to\infty} b_n^{1/n} = 1$. (Hint: use Corollary 7.3.7.) This shows that the ratio and root tests can be inconclusive even when the summands are positive and all the limits converge.
+    transcriptionNotes: "Hint reference Corollary 7.3.7 is the p-series test: for rational q>0, Σ1/n^q converges iff q>1. Verified against page image."
+
+  # ---------------- Chapter 8 ----------------
+  - cid: tao-8.1.1
+    chapter: "8 Infinite sets"
+    section: "8.1 Countability"
+    number: "Exercise 8.1.1"
+    page: "187"
+    pdfPage: 204
+    verdict: consider
+    machinery: "Dedekind characterization of infinite sets; building a countable subset and shifting along it."
+    standardResult: "X infinite iff X is equinumerous with a proper subset"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [construct-bijection, recursive-construction]
+    difficulty: medium
+    difficultyRationale: "Requires extracting a sequence of distinct elements (choice) and the shift-map bijection; converse via pigeonhole."
+    category: canonical
+    type: proof
+    tags: [cardinality, infinite-sets, bijection, Dedekind-infinite]
+    references: []
+    problemLatex: |
+      Let $X$ be a set. Show that $X$ is infinite if and only if there exists a proper subset $Y \subsetneq X$ of $X$ which has the same cardinality as $X$. (This exercise requires the axiom of choice, Axiom 8.1)
+    transcriptionNotes: ""
+
+  - cid: tao-8.1.2
+    chapter: "8 Infinite sets"
+    section: "8.1 Countability"
+    number: "Exercise 8.1.2"
+    page: "187"
+    pdfPage: 204
+    verdict: consider
+    machinery: "Well-ordering principle of N and why it fails for Z and Q^+."
+    standardResult: "well-ordering principle"
+    topic: foundations
+    subtopics: [induction]
+    skills: [induction, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Strong induction or inf argument; plus two quick counterexamples."
+    category: canonical
+    type: proof
+    tags: [well-ordering, induction, counterexample]
+    references: ["Proposition 8.1.4 (quoted)"]
+    problemLatex: |
+      Prove Proposition 8.1.4. (Hint: you can either use induction, or use the principle of infinite descent, Exercise 4.4.2, or use the least upper bound (or greatest lower bound) principle, Theorem 5.5.9.) Does the well-ordering principle work if we replace the natural numbers by the integers? What if we replace the natural numbers by the positive rationals? Explain.
+
+      *(Proposition 8.1.4 (Well ordering principle): Let $X$ be a non-empty subset of the natural numbers $\mathbb{N}$. Then there exists exactly one element $n \in X$ such that $n \le m$ for all $m \in X$. In other words, every non-empty set of natural numbers has a minimum element.)*
+    transcriptionNotes: "Proposition 8.1.4 (p.183) quoted verbatim. Hint references (Exercise 4.4.2, Theorem 5.5.9 = existence of least upper bound) left as printed."
+
+  - cid: tao-8.1.4
+    chapter: "8 Infinite sets"
+    section: "8.1 Countability"
+    number: "Exercise 8.1.4"
+    page: "187"
+    pdfPage: 204
+    verdict: consider
+    machinery: "Removing repetitions to show the image of a sequence is at most countable."
+    standardResult: "image of N under any map is at most countable"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [construct-bijection]
+    difficulty: easy
+    difficultyRationale: "Follow the hint: restrict f to first-occurrence indices."
+    category: canonical
+    type: proof
+    tags: [countability, image, cardinality]
+    references: ["Proposition 8.1.8 (quoted)", "Proposition 8.1.5 (quoted)"]
+    problemLatex: |
+      Prove Proposition 8.1.8. (Hint: the basic problem here is that $f$ is not assumed to be one-to-one. Define $A$ to be the set
+      $$A := \{n \in \mathbb{N} : f(m) \ne f(n) \text{ for all } 0 \le m < n\};$$
+      informally speaking, $A$ is the set of natural numbers $n$ for which $f(n)$ does not appear in the sequence $f(0), f(1), \ldots f(n-1)$. Prove that when $f$ is restricted to $A$, it becomes a bijection from $A$ to $f(\mathbb{N})$. Then use Proposition 8.1.5.)
+
+      *(Proposition 8.1.8: Let $Y$ be a set, and let $f\colon \mathbb{N} \to Y$ be a function. Then $f(\mathbb{N})$ is at most countable.)*
+
+      *(Proposition 8.1.5: Let $X$ be an infinite subset of the natural numbers $\mathbb{N}$. Then there exists a unique bijection $f\colon \mathbb{N} \to X$ which is increasing, in the sense that $f(n+1) > f(n)$ for all $n \in \mathbb{N}$. In particular, $X$ has equal cardinality with $\mathbb{N}$ and is hence countable.)*
+    transcriptionNotes: "Propositions 8.1.8 and 8.1.5 (p.183-184) quoted verbatim. 'At most countable' = finite or countably infinite (Definition 8.1.1)."
+
+  - cid: tao-8.1.6
+    chapter: "8 Infinite sets"
+    section: "8.1 Countability"
+    number: "Exercise 8.1.6"
+    page: "188"
+    pdfPage: 205
+    verdict: strong
+    machinery: "Characterizing 'at most countable' by injections into N."
+    standardResult: "A at most countable iff there is an injection A → N"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [construct-bijection]
+    difficulty: easy
+    difficultyRationale: "Uses that subsets of N are at most countable."
+    category: canonical
+    type: proof
+    tags: [countability, injection, cardinality]
+    references: []
+    problemLatex: |
+      Let $A$ be a set. Show that $A$ is at most countable if and only if there exists an injective map $f\colon A \to \mathbb{N}$ from $A$ to $\mathbb{N}$.
+    transcriptionNotes: "'At most countable' = finite or countably infinite (Tao Definition 8.1.1). Tao has already shown (Corollary 8.1.6) that all subsets of N are at most countable."
+
+  - cid: tao-8.1.7
+    chapter: "8 Infinite sets"
+    section: "8.1 Countability"
+    number: "Exercise 8.1.7"
+    page: "188"
+    pdfPage: 205
+    verdict: consider
+    machinery: "Interleaving enumerations to show a union of two countable sets is countable."
+    standardResult: "union of two countable sets is countable"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [interleaving, construct-function]
+    difficulty: introductory
+    difficultyRationale: "Hint gives the interleaving map; just verify."
+    category: canonical
+    type: proof
+    tags: [countability, union]
+    references: ["Proposition 8.1.10 (quoted)", "Corollary 8.1.9 (quoted)"]
+    problemLatex: |
+      Prove Proposition 8.1.10. (Hint: by hypothesis, we have a bijection $f\colon \mathbb{N} \to X$, and a bijection $g\colon \mathbb{N} \to Y$. Now define $h\colon \mathbb{N} \to X \cup Y$ by setting $h(2n) := f(n)$ and $h(2n+1) := g(n)$ for every natural number $n$, and show that $h(\mathbb{N}) = X \cup Y$. Then use Corollary 8.1.9, and show that $X \cup Y$ cannot possibly be finite.)
+
+      *(Proposition 8.1.10: Let $X$ be a countable set, and let $Y$ be a countable set. Then $X \cup Y$ is a countable set.)*
+
+      *(Corollary 8.1.9: Let $X$ be a countable set, and let $f\colon X \to Y$ be a function. Then $f(X)$ is at most countable.)*
+    transcriptionNotes: "Proposition 8.1.10 and Corollary 8.1.9 (p.185) quoted verbatim. Largely subsumed by 8.1.9."
+
+  - cid: tao-8.1.9
+    chapter: "8 Infinite sets"
+    section: "8.1 Countability"
+    number: "Exercise 8.1.9"
+    page: "188"
+    pdfPage: 205
+    verdict: core
+    machinery: "Countable union of countable sets is countable (via N×N countable and images of countable sets)."
+    standardResult: "countable union of countable sets is countable"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [diagonal-enumeration, construct-surjection]
+    difficulty: easy
+    difficultyRationale: "Reduce to countability of N×N and images of countable sets; needs choices of enumerations."
+    category: canonical
+    type: proof
+    tags: [countability, countable-union, axiom-of-choice]
+    references: []
+    problemLatex: |
+      Suppose that $I$ is an at most countable set, and for each $\alpha \in I$, let $A_\alpha$ be an at most countable set. Show that the set $\bigcup_{\alpha \in I} A_\alpha$ is also at most countable. In particular, countable unions of countable sets are countable. (This exercise requires the axiom of choice, see Section 8.4.)
+    transcriptionNotes: "Tao has proved N×N countable (Corollary 8.1.13) and that images of countable sets are at most countable (Corollary 8.1.9)."
+
+  - cid: tao-8.1.10
+    chapter: "8 Infinite sets"
+    section: "8.1 Countability"
+    number: "Exercise 8.1.10"
+    page: "188"
+    pdfPage: 205
+    verdict: consider
+    machinery: "Explicit enumeration of Q (making a map simultaneously injective and surjective)."
+    standardResult: "explicit bijection N → Q"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [construct-bijection]
+    difficulty: medium
+    difficultyRationale: "Must handle duplicates (reduced fractions) or use a clever scheme (e.g. Calkin–Wilf); verifying bijectivity takes care."
+    category: challenge
+    type: construction
+    tags: [countability, rationals, bijection]
+    references: []
+    problemLatex: |
+      Find a bijection $f\colon \mathbb{N} \to \mathbb{Q}$ from the natural numbers to the rationals. (Warning: this is actually rather tricky to do explicitly; it is difficult to get $f$ to be simultaneously injective and surjective.)
+    transcriptionNotes: ""
+
+  - cid: tao-8.2.2
+    chapter: "8 Infinite sets"
+    section: "8.2 Summation on infinite sets"
+    number: "Exercise 8.2.2"
+    page: "194"
+    pdfPage: 211
+    verdict: strong
+    machinery: "Bounded sums over finite subsets force countable support: level sets {|f|>1/n} are finite."
+    standardResult: "absolutely summable family has at most countably many nonzero terms"
+    topic: series
+    subtopics: [absolute-convergence]
+    skills: [countable-union, counting-argument]
+    difficulty: medium
+    difficultyRationale: "Key idea (|f|>1/n has ≤ Mn elements) plus countable union; hint provides structure."
+    category: synthesis
+    type: proof
+    tags: [unordered-sums, countability, absolute-convergence]
+    references: ["Definition 8.2.4 (quoted)", "Lemma 8.2.5 (quoted)", "Exercise 8.1.9 (see tao-8.1.9)"]
+    problemLatex: |
+      Prove Lemma 8.2.5. (Hint: first show if $M$ is the quantity
+      $$M := \sup\Big\{\sum_{x \in A} |f(x)| : A \subseteq X, A \text{ finite}\Big\}$$
+      then the sets $\{x \in X : |f(x)| > 1/n\}$ are finite with cardinality at most $Mn$ for every positive integer $n$. Then use Exercise 8.1.9 (which uses the axiom of choice, see Section 8.4).)
+
+      *(Definition 8.2.4: Let $X$ be a set (which could be uncountable), and let $f\colon X \to \mathbb{R}$ be a function. We say that the series $\sum_{x \in X} f(x)$ is absolutely convergent iff* $$\sup\Big\{\sum_{x \in A} |f(x)| : A \subseteq X, A \text{ finite}\Big\} < \infty.\ )$$
+
+      *(Lemma 8.2.5: Let $X$ be a set (which could be uncountable), and let $f\colon X \to \mathbb{R}$ be a function such that the series $\sum_{x \in X} f(x)$ is absolutely convergent. Then the set $\{x \in X : f(x) \ne 0\}$ is at most countable. (This result requires the axiom of choice, see Section 8.4.))*
+    transcriptionNotes: "Definition 8.2.4 and Lemma 8.2.5 (p.191) quoted verbatim; verified against page images. Exercise 8.1.9 = countable union of at most countable sets is at most countable."
+
+  - cid: tao-8.2.4
+    chapter: "8 Infinite sets"
+    section: "8.2 Summation on infinite sets"
+    number: "Exercise 8.2.4"
+    page: "194"
+    pdfPage: 211
+    verdict: consider
+    machinery: "For a conditionally (not absolutely) convergent series, both positive and negative parts diverge."
+    standardResult: "positive and negative parts of a conditionally convergent series both diverge"
+    topic: series
+    subtopics: [conditional-convergence, rearrangements]
+    skills: [contradiction, limit-laws]
+    difficulty: easy
+    difficultyRationale: "Short contradiction argument with limit laws."
+    category: canonical
+    type: proof
+    tags: [conditional-convergence, positive-part, negative-part]
+    references: ["Lemma 8.2.7 (quoted)"]
+    problemLatex: |
+      Prove Lemma 8.2.7. (Hint: prove by contradiction, and use limit laws.)
+
+      *(Lemma 8.2.7: Let $\sum_{n=0}^\infty a_n$ be a series of real numbers which is conditionally convergent, but not absolutely convergent. Define the sets $A_+ := \{n \in \mathbb{N} : a_n \ge 0\}$ and $A_- := \{n \in \mathbb{N} : a_n < 0\}$, thus $A_+ \cup A_- = \mathbb{N}$ and $A_+ \cap A_- = \emptyset$. Then both of the series $\sum_{n \in A_+} a_n$ and $\sum_{n \in A_-} a_n$ are not conditionally convergent (and thus not absolutely convergent).)*
+    transcriptionNotes: "Lemma 8.2.7 (p.193) quoted verbatim. Sums over index sets A_± are Tao's series on countable sets (Definition 8.2.1: sum along a bijection N → A_±); for finite A_± the sum is a finite sum. Notationally Tao-specific, hence 'consider'."
+
+  - cid: tao-8.2.5
+    chapter: "8 Infinite sets"
+    section: "8.2 Summation on infinite sets"
+    number: "Exercise 8.2.5"
+    page: "194"
+    pdfPage: 211
+    verdict: strong
+    machinery: "Riemann rearrangement theorem via the greedy over/undershoot construction."
+    standardResult: "Riemann rearrangement theorem"
+    topic: series
+    subtopics: [rearrangements, conditional-convergence]
+    skills: [recursive-construction, contradiction, epsilon-N-proof]
+    difficulty: hard
+    difficultyRationale: "Filling every gap (surjectivity, both cases infinitely often, convergence of partial sums to L) is a substantial argument even with the sketch."
+    category: synthesis
+    type: proof
+    tags: [Riemann-rearrangement, conditional-convergence, rearrangement]
+    references: ["Theorem 8.2.8 and its proof sketch (quoted)", "Lemma 8.2.7 (see tao-8.2.4)"]
+    problemLatex: |
+      Explain the gaps marked (why?) in the proof of Theorem 8.2.8.
+
+      *(Theorem 8.2.8: Let $\sum_{n=0}^\infty a_n$ be a series which is conditionally convergent, but not absolutely convergent, and let $L$ be any real number. Then there exists a bijection $f\colon \mathbb{N} \to \mathbb{N}$ such that $\sum_{m=0}^\infty a_{f(m)}$ converges conditionally to $L$.*
+
+      *Proof. (Optional) We give a sketch of the proof, leaving the details to be filled in in Exercise 8.2.5. Let $A_+$ and $A_-$ be the sets in Lemma 8.2.7; from that lemma we know that $\sum_{n \in A_+} a_n$ and $\sum_{n \in A_-} a_n$ both fail to be absolutely convergent. In particular $A_+$ and $A_-$ are infinite (why?). By Proposition 8.1.5 we can then find increasing bijections $f_+\colon \mathbb{N} \to A_+$ and $f_-\colon \mathbb{N} \to A_-$. Thus the sums $\sum_{m=0}^\infty a_{f_+(m)}$ and $\sum_{m=0}^\infty a_{f_-(m)}$ both fail to be absolutely convergent (why?). The plan shall be to select terms from the divergent series $\sum_{m=0}^\infty a_{f_+(m)}$ and $\sum_{m=0}^\infty a_{f_-(m)}$ in a well-chosen order in order to keep their difference converging towards $L$.*
+
+      *We define the sequence $n_0, n_1, n_2, \ldots$ of natural numbers recursively as follows. Suppose that $j$ is a natural number, and that $n_i$ has already been defined for all $i < j$ (this is vacuously true if $j = 0$). We then define $n_j$ by the following rule:*
+
+      *(I) If $\sum_{0 \le i < j} a_{n_i} < L$, then we set* $$n_j := \min\{n \in A_+ : n \ne n_i \text{ for all } i < j\}.$$
+
+      *(II) If instead $\sum_{0 \le i < j} a_{n_i} \ge L$, then we set* $$n_j := \min\{n \in A_- : n \ne n_i \text{ for all } i < j\}.$$
+
+      *Note that this recursive definition is well-defined because $A_+$ and $A_-$ are infinite, and so the sets $\{n \in A_+ : n \ne n_i \text{ for all } i < j\}$ and $\{n \in A_- : n \ne n_i \text{ for all } i < j\}$ are never empty. (Intuitively, we add a non-negative number to the series whenever the partial sum is too low, and add a negative number when the sum is too high.) One can then verify the following claims:*
+
+      *• The map $j \mapsto n_j$ is injective. (Why?)*
+
+      *• Case I occurs an infinite number of times, and Case II also occurs an infinite number of times. (Why? prove by contradiction.)*
+
+      *• The map $j \mapsto n_j$ is surjective. (Why?)*
+
+      *• We have $\lim_{j\to\infty} a_{n_j} = 0$. (Why? Note from Corollary 7.2.6 that $\lim_{n\to\infty} a_n = 0$.)*
+
+      *• We have $\lim_{j\to\infty} \sum_{0 \le i < j} a_{n_i} = L$. (Why?)*
+
+      *The claim then follows by setting $f(i) := n_i$ for all $i$.)*
+    transcriptionNotes: "Theorem 8.2.8 and its full proof sketch (pp.193-194) quoted verbatim, verified against page image. One unambiguous typo fixed inside the quote: the book prints 'the sets {n ∈ A+ : ...} and n_j := min{n ∈ A− : ...} are never empty'; the stray 'n_j := min' was removed. Lemma 8.2.7 (A_± parts diverge) quoted in tao-8.2.4; Proposition 8.1.5 (increasing bijection N → infinite subset of N) quoted in tao-8.1.4. Long context; curator may prefer another source's direct statement of Riemann's theorem."
+
+  - cid: tao-8.2.6
+    chapter: "8 Infinite sets"
+    section: "8.2 Summation on infinite sets"
+    number: "Exercise 8.2.6"
+    page: "194"
+    pdfPage: 211
+    verdict: consider
+    machinery: "Rearranging a conditionally convergent series to diverge to +∞ (variant of the Riemann construction)."
+    standardResult: "conditionally convergent series can be rearranged to diverge to +∞"
+    topic: series
+    subtopics: [rearrangements, conditional-convergence]
+    skills: [recursive-construction]
+    difficulty: hard
+    difficultyRationale: "Requires designing the greedy construction with increasing targets and verifying liminf of partial sums → ∞."
+    category: challenge
+    type: construction
+    tags: [rearrangement, conditional-convergence, divergence]
+    references: []
+    problemLatex: |
+      Let $\sum_{n=0}^\infty a_n$ be a series which is conditionally convergent, but not absolutely convergent. Show that there exists a bijection $f\colon \mathbb{N} \to \mathbb{N}$ such that $\sum_{m=0}^\infty a_{f(m)}$ diverges to $+\infty$, or more precisely that
+      $$\liminf_{N\to\infty} \sum_{m=0}^{N} a_{f(m)} = \limsup_{N\to\infty} \sum_{m=0}^{N} a_{f(m)} = +\infty.$$
+      (Of course, a similar statement holds with $+\infty$ replaced by $-\infty$.)
+    transcriptionNotes: "Typo fixed: the book prints the displayed sums as $\\sum_{m=N}^{\\infty} a_{f(m)}$ (tails), which is meaningless for a divergent rearrangement; the intended partial sums $\\sum_{m=0}^{N} a_{f(m)}$ are used. Verified against page image (p.195)."
+
+  - cid: tao-8.3.2
+    chapter: "8 Infinite sets"
+    section: "8.3 Uncountable sets"
+    number: "Exercise 8.3.2"
+    page: "198"
+    pdfPage: 215
+    verdict: strong
+    machinery: "The key construction in the Schröder–Bernstein theorem (pushing the 'defect' B∖A along f)."
+    standardResult: "Schröder–Bernstein lemma: A ⊆ B ⊆ C with injection C → A gives A ~ B"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [construct-bijection, induction]
+    difficulty: medium
+    difficultyRationale: "Disjointness by induction plus careful checking that g is well-defined, injective and surjective."
+    category: synthesis
+    type: proof
+    tags: [Schroeder-Bernstein, cardinality, bijection]
+    references: []
+    problemLatex: |
+      Let $A, B, C$ be sets such that $A \subseteq B \subseteq C$, and suppose that there is a injection $f\colon C \to A$. Define the sets $D_0, D_1, D_2, \ldots$ recursively by setting $D_0 := B \setminus A$, and then $D_{n+1} := f(D_n)$ for all natural numbers $n$. Prove that the sets $D_0, D_1, \ldots$ are all disjoint from each other (i.e., $D_n \cap D_m = \emptyset$ whenever $n \ne m$). Also show that if $g\colon A \to B$ is the function defined by setting $g(x) := f^{-1}(x)$ when $x \in \bigcup_{n=1}^\infty D_n$, and $g(x) := x$ when $x \notin \bigcup_{n=1}^\infty D_n$, then $g$ does indeed map $A$ to $B$ and is a bijection between the two. In particular, $A$ and $B$ have the same cardinality.
+    transcriptionNotes: "Verified against page image. 'a injection' as printed."
+
+  - cid: tao-8.3.3
+    chapter: "8 Infinite sets"
+    section: "8.3 Uncountable sets"
+    number: "Exercise 8.3.3"
+    page: "198"
+    pdfPage: 215
+    verdict: strong
+    machinery: "Schröder–Bernstein theorem from the preceding lemma."
+    standardResult: "Schröder–Bernstein theorem"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [theorem-reuse]
+    difficulty: easy
+    difficultyRationale: "Given 8.3.2, one well-chosen chain of subsets finishes it."
+    category: canonical
+    type: proof
+    tags: [Schroeder-Bernstein, cardinality]
+    references: ["Exercise 8.3.2 (see tao-8.3.2; quoted)"]
+    problemLatex: |
+      Recall from Exercise 3.6.7 that a set $A$ is said to have lesser or equal cardinality than a set $B$ iff there is an injective map $f\colon A \to B$ from $A$ to $B$. Using Exercise 8.3.2, show that if $A, B$ are sets such that $A$ has lesser or equal cardinality to $B$ and $B$ has lesser or equal cardinality to $A$, then $A$ and $B$ have equal cardinality. (This is known as the *Schröder–Bernstein theorem*, after Ernst Schröder (1841–1902) and Felix Bernstein (1878–1956).)
+
+      *(Exercise 8.3.2: Let $A, B, C$ be sets such that $A \subseteq B \subseteq C$, and suppose that there is a injection $f\colon C \to A$. Define the sets $D_0, D_1, D_2, \ldots$ recursively by setting $D_0 := B \setminus A$, and then $D_{n+1} := f(D_n)$ for all natural numbers $n$. Prove that the sets $D_0, D_1, \ldots$ are all disjoint from each other (i.e., $D_n \cap D_m = \emptyset$ whenever $n \ne m$). Also show that if $g\colon A \to B$ is the function defined by setting $g(x) := f^{-1}(x)$ when $x \in \bigcup_{n=1}^\infty D_n$, and $g(x) := x$ when $x \notin \bigcup_{n=1}^\infty D_n$, then $g$ does indeed map $A$ to $B$ and is a bijection between the two. In particular, $A$ and $B$ have the same cardinality.)*
+    transcriptionNotes: "Exercise 8.3.2 quoted verbatim. Pair with tao-8.3.2."
+
+  - cid: tao-8.3.4
+    chapter: "8 Infinite sets"
+    section: "8.3 Uncountable sets"
+    number: "Exercise 8.3.4"
+    page: "198"
+    pdfPage: 215
+    verdict: consider
+    machinery: "Cantor's theorem as strict cardinal inequality; transitivity of strict inequality via Schröder–Bernstein."
+    standardResult: "|X| < |2^X|; transitivity of strict cardinality"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [theorem-reuse, contradiction]
+    difficulty: easy
+    difficultyRationale: "Injection x ↦ {x} plus Cantor; transitivity needs Schröder–Bernstein for the 'not equal' part."
+    category: canonical
+    type: proof
+    tags: [Cantor, power-set, cardinality, Schroeder-Bernstein]
+    references: ["Theorem 8.3.1 (quoted)"]
+    problemLatex: |
+      Let us say that a set $A$ has *strictly lesser cardinality* than a set $B$ if $A$ has lesser than or equal cardinality to $B$ (in the sense of Exercise 3.6.7) but $A$ does not have equal cardinality to $B$. Show that for any set $X$, that $X$ has strictly lesser cardinality than $2^X$. Also, show that if $A$ has strictly lesser cardinality than $B$, and $B$ has strictly lesser cardinality than $C$, then $A$ has strictly lesser cardinality than $C$.
+
+      *(Exercise 3.6.7 sense: $A$ has lesser or equal cardinality to $B$ if there exists an injection $f\colon A \to B$ from $A$ to $B$.)*
+
+      *(Theorem 8.3.1 (Cantor's theorem): Let $X$ be an arbitrary set (finite or infinite). Then the sets $X$ and $2^X$ cannot have equal cardinality.)*
+    transcriptionNotes: "Theorem 8.3.1 (p.195) and the definition from Exercise 3.6.7 quoted verbatim. $2^X$ is the power set of X."
+
+  - cid: tao-8.3.5
+    chapter: "8 Infinite sets"
+    section: "8.3 Uncountable sets"
+    number: "Exercise 8.3.5"
+    page: "198"
+    pdfPage: 215
+    verdict: consider
+    machinery: "Case analysis on finite/infinite X combined with Cantor's theorem."
+    standardResult: "no power set is countably infinite"
+    topic: foundations
+    subtopics: [cardinality]
+    skills: [case-analysis, theorem-reuse]
+    difficulty: easy
+    difficultyRationale: "Case split on finite/infinite X, then reduce to Cantor-type results."
+    category: canonical
+    type: proof
+    tags: [power-set, countability, Cantor]
+    references: []
+    problemLatex: |
+      Show that no power set (i.e., a set of the form $2^X$ for some set $X$) can be countably infinite.
+    transcriptionNotes: "$2^X$ denotes the power set of $X$."
+
+  # ---------------- Appendix A ----------------
+  - cid: tao-A.5.1
+    chapter: "A Appendix: the basics of mathematical logic"
+    section: "A.5 Nested quantifiers"
+    number: "Exercise A.5.1"
+    page: "327"
+    pdfPage: 344
+    verdict: consider
+    machinery: "Reading and evaluating statements with nested/reordered quantifiers."
+    standardResult: "order of quantifiers matters (∀∃ vs ∃∀)"
+    topic: foundations
+    subtopics: [logic-quantifiers]
+    skills: [quantifier-order]
+    difficulty: introductory
+    difficultyRationale: "Interpret five short quantified statements and decide truth."
+    category: canonical
+    type: conceptual
+    tags: [quantifiers, logic]
+    references: []
+    problemLatex: |
+      What does each of the following statements mean, and which of them are true? Can you find gaming metaphors for each of these statements?
+      (a) For every positive number $x$, and every positive number $y$, we have $y^2 = x$.
+      (b) There exists a positive number $x$ such that for every positive number $y$, we have $y^2 = x$.
+      (c) There exists a positive number $x$, and there exists a positive number $y$, such that $y^2 = x$.
+      (d) For every positive number $y$, there exists a positive number $x$ such that $y^2 = x$.
+      (e) There exists a positive number $y$ such that for every positive number $x$, we have $y^2 = x$.
+    transcriptionNotes: "Trains quantifier order rather than negation; included for that reason. 'Gaming metaphors' refers to Tao's adversarial-game reading of quantifiers in Section A.5."
+
+skipped:
+  - "3.3.1 Tao-specific equality-of-functions axiomatics; 3.3.2 routine (composition of injections/surjections) — 3.3.5 is the better composition exercise; 3.3.3 empty-function trivia; 3.3.4 cancellation laws, near-duplicate of 3.3.5; 3.3.6, 3.3.7 routine inverse-function verifications; 3.3.8 inclusion-map formalism"
+  - "3.4.1 notational consistency of f^{-1}(V); 3.4.6, 3.4.7, 3.4.8 ZF set-theory axiomatics; 3.4.9, 3.4.10 indexed union/intersection formalism; 3.4.11 de Morgan for indexed families — pure set algebra, superseded for this bank by 3.4.3/3.4.4"
+  - "3.6.1, 3.6.2, 3.6.4 proofs of Tao's finite-cardinality framework; 3.6.3 finite sets of naturals bounded (Tao-internal); 3.6.5, 3.6.6 cardinal arithmetic of naturals (constructing N's arithmetic); 3.6.7 finite injection vs #(A) ≤ #(B), finite-set framework; 3.6.9, 3.6.10 finite combinatorics (inclusion–exclusion, pigeonhole)"
+  - "5.4.1, 5.4.2, 5.4.8 Cauchy-sequence construction of R (formal limits LIM); 5.4.6 routine absolute-value equivalences"
+  - "5.5.2, 5.5.3, 5.5.4 mechanics of Tao's proof of the least upper bound property via LIM of rational Cauchy sequences"
+  - "6.1.1 trivial induction (increasing ⇒ a_m > a_n); 6.1.3, 6.1.4 introductory index-shift invariance of limits; 6.1.6 formal limits are genuine limits (construction mechanics); 6.1.7, 6.1.10 consistency of definitions with Ch.5 construction"
+  - "6.2.1, 6.2.2 extended-real arithmetic/sup on R* — Tao-specific framework"
+  - "6.3.2 sup of a sequence in R* (Tao-specific framework; core content appears in 6.3.3's quoted statement)"
+  - "6.4.2 vague 'state and prove analogues' of index-shift exercises"
+  - "6.5.1 1/n^q → 0 for rational q relies on Tao's rational-exponent machinery; routine"
+  - "6.6.1 subsequence relation reflexive/transitive — trivial"
+  - "7.1.1, 7.1.2 Tao's finite-sum formalism; 7.1.3 open-ended finite products; 7.1.5 interchange of finite sum and limit — trivial induction on limit laws"
+  - "7.2.5 series laws — routine application of limit laws to partial sums"
+  - "7.3.3 Σ|a_n| = 0 ⇒ all a_n = 0 — trivial"
+  - "8.1.3 filling gaps in Tao's proof that infinite subsets of N are countable (mid-proof); 8.1.5 one-line corollary; 8.1.8 X×Y countable from N×N — near-duplicate of the countable-union exercise 8.1.9"
+  - "8.2.1 Lemma 8.2.3 — Tao-specific definition of sums over countable sets; 8.2.3 series laws for sums over arbitrary sets (Tao-specific, routine)"
+  - "8.3.1 |2^X| = 2^n — finite combinatorics"
+  - "Appendix A: A.1.1–A.1.6 propositional logic (negation of xor/iff, logical equivalence chains), not quantifier negation; A.7.1 equality axioms — trivial"

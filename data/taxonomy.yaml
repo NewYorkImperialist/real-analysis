@@ -1,0 +1,154 @@
+# Topic taxonomy. Order here is the curriculum order used throughout the site.
+# Every problem has exactly one `topic` and one or more `subtopics` from that topic.
+topics:
+  - key: foundations
+    label: Foundations
+    blurb: Logic, quantifiers, sets, functions, induction, cardinality.
+    subtopics:
+      logic-quantifiers: Logic & quantifiers
+      sets: Sets
+      functions: Functions, images & preimages
+      induction: Induction
+      cardinality: Cardinality & countability
+      proof-techniques: Proof techniques
+
+  - key: real-numbers
+    label: Real Numbers
+    blurb: Ordered fields, the Archimedean property, suprema and infima, completeness.
+    subtopics:
+      ordered-fields: Ordered fields
+      archimedean-property: Archimedean property
+      supremum-infimum: Supremum & infimum
+      completeness: Completeness (least upper bound property)
+      density-of-Q: Density of Q
+      absolute-value: Absolute value
+      inequalities: Inequalities
+      decimal-representation: Decimal representation
+
+  - key: sequences
+    label: Sequences
+    blurb: Convergence, monotone and Cauchy sequences, subsequences, limsup and liminf.
+    subtopics:
+      convergence: Convergence (definition)
+      divergence: Divergence
+      limit-laws: Limit laws & order
+      bounded-sequences: Bounded sequences
+      monotone-sequences: Monotone convergence
+      recursive-sequences: Recursively defined sequences
+      subsequences: Subsequences
+      bolzano-weierstrass: Bolzano–Weierstrass
+      cauchy-sequences: Cauchy sequences
+      limsup-liminf: limsup & liminf
+
+  - key: series
+    label: Series
+    blurb: Convergence tests, absolute and conditional convergence, rearrangements, power series.
+    subtopics:
+      convergence-tests: Convergence tests
+      comparison: Comparison
+      absolute-convergence: Absolute convergence
+      conditional-convergence: Conditional convergence
+      alternating-series: Alternating series
+      rearrangements: Rearrangements
+      power-series: Power series (radius of convergence)
+      double-series-products: Double series & products
+
+  - key: topology
+    label: Topology & Metric Spaces
+    blurb: Open and closed sets, closure, limit points, compactness, connectedness, metric spaces.
+    subtopics:
+      open-sets: Open sets
+      closed-sets: Closed sets
+      interior-closure-boundary: Interior, closure, boundary
+      limit-points: Limit / cluster points
+      dense-sets: Dense sets
+      compactness: Compactness
+      sequential-compactness: Sequential compactness
+      connectedness: Connectedness
+      metric-spaces: Metric spaces
+      complete-metric-spaces: Complete metric spaces
+      cantor-set: The Cantor set
+      perfect-sets: Perfect sets
+      baire-category: Baire category
+
+  - key: continuity
+    label: Continuity
+    blurb: Functional limits, ε–δ and sequential continuity, uniform continuity, IVT, EVT.
+    subtopics:
+      functional-limits: Limits of functions
+      epsilon-delta-continuity: ε–δ continuity
+      sequential-continuity: Sequential continuity
+      discontinuities: Discontinuities
+      continuity-metric-spaces: Continuity on metric spaces
+      continuity-and-topology: Continuity & open/compact/connected sets
+      uniform-continuity: Uniform continuity
+      lipschitz-holder: Lipschitz & Hölder conditions
+      IVT: Intermediate Value Theorem
+      EVT: Extreme Value Theorem
+      monotone-functions: Monotone functions
+      limits-at-infinity: Limits at infinity
+
+  - key: differentiation
+    label: Differentiation
+    blurb: The derivative from the definition, the Mean Value Theorem and its applications, Taylor's theorem.
+    subtopics:
+      derivative-definition: Derivative from the definition
+      differentiability: Differentiability
+      derivative-rules: Derivative rules
+      local-extrema: Local extrema
+      rolle-mvt: Rolle's theorem & MVT
+      mvt-applications: Applications of the MVT
+      darboux-property: Darboux property of derivatives
+      taylor: Taylor's theorem
+      lhopital: L'Hôpital's rule
+      inverse-functions: Inverse functions
+
+  - key: integration
+    label: Riemann Integration
+    blurb: Partitions, upper and lower sums, integrability, properties of the integral, the FTC.
+    subtopics:
+      partitions-darboux-sums: Partitions & upper/lower sums
+      integrability-criteria: Integrability criteria
+      integral-properties: Properties of the integral
+      integral-inequalities: Integral inequalities
+      fundamental-theorem: Fundamental Theorem of Calculus
+      improper-integrals: Improper integrals
+      log-exp: Logarithm & exponential
+
+  - key: function-sequences
+    label: Sequences & Series of Functions
+    blurb: Pointwise and uniform convergence, interchange of limits, power series.
+    subtopics:
+      pointwise-convergence: Pointwise convergence
+      uniform-convergence: Uniform convergence
+      uniform-cauchy: Uniform Cauchy criterion
+      interchange-limits: Interchange of limits
+      interchange-integral: Limits & integrals
+      interchange-derivative: Limits & derivatives
+      series-of-functions: Series of functions
+      weierstrass-m-test: Weierstrass M-test
+      power-series: Power series as functions
+      taylor-series: Taylor series
+      approximation: Approximation theorems
+      fixed-point: Fixed points & contractions
+
+difficulties:
+  introductory: Very direct application of a definition or elementary fact.
+  easy: Basic machinery and some independent proof construction along a standard route.
+  medium: Meaningful proof construction, theorem recognition, several steps or combined ideas.
+  hard: Substantial synthesis, nontrivial constructions or estimates, several interacting ideas.
+  very-hard: Unusually strong mastery, real ingenuity, or a long chain of reasoning.
+
+categories:
+  canonical: A fundamental problem representing standard undergraduate machinery.
+  synthesis: Combines several pieces of standard machinery.
+  challenge: Substantially difficult or unusually insightful.
+
+types:
+  definition: Work directly with (or negate, or state) a definition.
+  proof: Prove a statement.
+  theorem-application: Recognize and apply a standard theorem.
+  counterexample: Show a plausible statement fails, or decide true/false with examples.
+  construction: Build an object with prescribed properties.
+  computation: Compute a limit, sum, derivative, integral or radius.
+  conceptual: Explain, compare or interpret ideas.

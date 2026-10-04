@@ -1,0 +1,1026 @@
+chunk: "ross-ch3"
+book: ross
+pageOffsetNote: "printed page = pdfPage - 11 throughout Chapter 3 (e.g. PDF 135 = p.124, PDF 150 = p.139, PDF 196 = p.185). Selected Hints and Answers pages also follow pdfPage - 11 (PDF 388 = p.379)."
+sectionsCovered:
+  - "§17 Continuous Functions — 16 exercises (17.1–17.16)"
+  - "§18 Properties of Continuous Functions — 12 exercises (18.1–18.12)"
+  - "§19 Uniform Continuity — 12 exercises (19.1–19.12)"
+  - "§20 Limits of Functions — 20 exercises (20.1–20.20)"
+  - "§21 More on Metric Spaces: Continuity — 14 exercises (21.1–21.14)"
+  - "§22 More on Metric Spaces: Connectedness — 14 exercises (22.1–22.14)"
+candidates:
+  # ---------------- §17 ----------------
+  - cid: ross-17.5
+    chapter: "3 Continuity"
+    section: "§17 Continuous Functions"
+    number: "Exercise 17.5"
+    page: "131"
+    pdfPage: 142
+    verdict: consider
+    machinery: "Building continuity of polynomials from continuity of x and closure under products/sums (induction)."
+    standardResult: "polynomials are continuous on R"
+    topic: continuity
+    subtopics: [sequential-continuity, epsilon-delta-continuity]
+    skills: [induction, limit-laws]
+    difficulty: introductory
+    difficultyRationale: "Direct induction using product/sum rules for continuous functions."
+    category: canonical
+    type: proof
+    tags: [continuity, polynomials, induction, machinery]
+    references: []
+    problemLatex: |
+      (a) Prove that if $m \in \mathbb{N}$, then the function $f(x) = x^m$ is continuous on $\mathbb{R}$.
+      (b) Prove every *polynomial function* $p(x) = a_0 + a_1 x + \cdots + a_n x^n$ is continuous on $\mathbb{R}$.
+    bookHint: |
+      (a) Remarks. An $\epsilon$–$\delta$ proof can be given based on the identity
+      $$x^m - y^m = (x - y)(x^{m-1} + x^{m-2}y + \cdots + xy^{m-2} + y^{m-1}).$$
+      Or the result can be proved by induction on $m$, as follows. It is easy to prove $g(x) = x$ is continuous on $\mathbb{R}$. If $f(x) = x^m$ is continuous on $\mathbb{R}$, then so is $(fg)(x) = x^{m+1}$ by Theorem 17.4(ii).
+      (b) Just use (a) and Theorems 17.4(i) and 17.3.
+    transcriptionNotes: "bookHint from Selected Hints and Answers, PDF p.388 (printed 379). Hint cites Theorems 17.3/17.4 (scalar multiples, sums, products of continuous functions are continuous)."
+    audit: fixed
+    auditNotes: "Restored the book's italic emphasis on *polynomial function* in (b). Otherwise problem and bookHint match the page images (PDF 142, 388)."
+
+  - cid: ross-17.9
+    chapter: "3 Continuity"
+    section: "§17 Continuous Functions"
+    number: "Exercise 17.9"
+    page: "132"
+    pdfPage: 143
+    verdict: strong
+    machinery: "Writing epsilon-delta continuity proofs: bounding a factor locally, choosing delta = min{...}."
+    standardResult: "epsilon-delta continuity proofs (x^2, sqrt x at 0, x sin(1/x) at 0, x^3)"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity]
+    skills: [epsilon-delta-proof, choose-delta, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "Part (d) (arbitrary x0 for x^3) requires a local bound on x^2 + x0 x + x0^2; the rest are introductory."
+    category: canonical
+    type: proof
+    tags: [continuity, epsilon-delta, machinery]
+    references: ["Theorem 17.2 (quoted)"]
+    problemLatex: |
+      Prove each of the following functions in continuous at $x_0$ by verifying the $\epsilon$–$\delta$ property of Theorem 17.2.
+      *(Theorem 17.2: Let $f$ be a real-valued function whose domain is a subset of $\mathbb{R}$. Then $f$ is continuous at $x_0$ in $\operatorname{dom}(f)$ if and only if for each $\epsilon > 0$ there exists $\delta > 0$ such that $x \in \operatorname{dom}(f)$ and $|x - x_0| < \delta$ imply $|f(x) - f(x_0)| < \epsilon$.)*
+      (a) $f(x) = x^2$, $x_0 = 2$;
+      (b) $f(x) = \sqrt{x}$, $x_0 = 0$;
+      (c) $f(x) = x \sin(\frac{1}{x})$ for $x \neq 0$ and $f(0) = 0$, $x_0 = 0$;
+      (d) $g(x) = x^3$, $x_0$ arbitrary.
+      *Hint for* (d): $x^3 - x_0^3 = (x - x_0)(x^2 + x_0 x + x_0^2)$.
+    bookHint: |
+      (a) Discussion. Let $\epsilon > 0$. We want $|x^2 - 4| < \epsilon$ for $|x - 2|$ small, i.e., we want $|x - 2| \cdot |x + 2| < \epsilon$ for $|x - 2|$ small. If $|x - 2| < 1$, then $|x + 2| < 5$, so it suffices to get $|x - 2| \cdot 5 < \epsilon$. Set $\delta = \min\{1, \frac{\epsilon}{5}\}$.
+      (c) For $\epsilon > 0$, let $\delta = \epsilon$ and observe
+      $$|x - 0| < \delta \quad\text{implies}\quad \left|x \sin\left(\frac{1}{x}\right) - 0\right| < \epsilon.$$
+    transcriptionNotes: "Book typo 'in continuous' (for 'is continuous') kept verbatim. Theorem 17.2 quoted verbatim (condition (1)). bookHint from PDF p.388 (printed 379). Verified against page image."
+    audit: ok
+
+  - cid: ross-17.10
+    chapter: "3 Continuity"
+    section: "§17 Continuous Functions"
+    number: "Exercise 17.10"
+    page: "132"
+    pdfPage: 143
+    verdict: strong
+    machinery: "Proving discontinuity by negating the sequential or epsilon-delta definition (jump, sin(1/x) oscillation, signum)."
+    standardResult: "sin(1/x) (and jump functions) discontinuous at 0 via sequences"
+    topic: continuity
+    subtopics: [discontinuities, sequential-continuity]
+    skills: [negate-definition, sequential-characterization, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Part (b) requires choosing sequences x_n -> 0 with sin(1/x_n) not tending to 0; others are introductory."
+    category: canonical
+    type: proof
+    tags: [continuity, discontinuity, sequences, sin-1-over-x, negation]
+    references: ["Definition 17.1 (quoted)", "Theorem 17.2 (quoted)"]
+    problemLatex: |
+      Prove the following functions are discontinuous at the indicated points. You may use either Definition 17.1 or the $\epsilon$–$\delta$ property in Theorem 17.2.
+      *(Definition 17.1: the function $f$ is continuous at $x_0$ in $\operatorname{dom}(f)$ if, for every sequence $(x_n)$ in $\operatorname{dom}(f)$ converging to $x_0$, we have $\lim_n f(x_n) = f(x_0)$. Theorem 17.2: $f$ is continuous at $x_0$ in $\operatorname{dom}(f)$ if and only if for each $\epsilon > 0$ there exists $\delta > 0$ such that $x \in \operatorname{dom}(f)$ and $|x - x_0| < \delta$ imply $|f(x) - f(x_0)| < \epsilon$.)*
+      (a) $f(x) = 1$ for $x > 0$ and $f(x) = 0$ for $x \le 0$, $x_0 = 0$;
+      (b) $g(x) = \sin(\frac{1}{x})$ for $x \neq 0$ and $g(0) = 0$, $x_0 = 0$;
+      (c) $\operatorname{sgn}(x) = -1$ for $x < 0$, $\operatorname{sgn}(x) = 1$ for $x > 0$, and $\operatorname{sgn}(0) = 0$, $x_0 = 0$. The function sgn is called the *signum function*; note $\operatorname{sgn}(x) = \frac{x}{|x|}$ for $x \neq 0$.
+    transcriptionNotes: "Definition 17.1 and Theorem 17.2 quoted verbatim (core sentences only). No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-17.11
+    chapter: "3 Continuity"
+    section: "§17 Continuous Functions"
+    number: "Exercise 17.11"
+    page: "132"
+    pdfPage: 143
+    verdict: consider
+    machinery: "Sequential characterization refined: monotone sequences suffice, via monotone subsequence theorem and negation."
+    standardResult: "continuity tested by monotone sequences"
+    topic: continuity
+    subtopics: [sequential-continuity, subsequences]
+    skills: [contradiction, subsequence-extraction, negate-definition]
+    difficulty: medium
+    difficultyRationale: "Requires negating sequential continuity to get an epsilon-bad subsequence, then extracting a monotone subsequence."
+    category: synthesis
+    type: proof
+    tags: [continuity, sequences, monotone-subsequence, contradiction]
+    references: ["Theorem 11.4 (quoted)"]
+    problemLatex: |
+      Let $f$ be a real-valued function with $\operatorname{dom}(f) \subseteq \mathbb{R}$. Prove $f$ is continuous at $x_0$ if and only if, for every *monotonic* sequence $(x_n)$ in $\operatorname{dom}(f)$ converging to $x_0$, we have $\lim f(x_n) = f(x_0)$. *Hint*: Don't forget Theorem 11.4.
+      *(Theorem 11.4: Every sequence $(s_n)$ has a monotonic subsequence.)*
+    bookHint: |
+      If $f$ is continuous at $x_0$ and if $(x_n)$ is a monotonic sequence in $\operatorname{dom}(f)$ converging to $x_0$, then we have $\lim f(x_n) = f(x_0)$ by Definition 17.1. Now assume
+      $$\text{if } (x_n) \text{ is monotonic in } \operatorname{dom}(f) \text{ and } \lim x_n = x_0, \text{ then } \lim f(x_n) = f(x_0), \qquad (1)$$
+      but $f$ is discontinuous at $x_0$. Then by Definition 17.1, there exists a sequence $(x_n)$ in $\operatorname{dom}(f)$ such that $\lim x_n = x_0$ but $(f(x_n))$ does not converge to $f(x_0)$. Negating Definition 17.1, we see there exists $\epsilon > 0$ such that
+      $$\text{for each } N \text{ there is } n > N \text{ satisfying } |f(x_n) - f(x_0)| \ge \epsilon. \qquad (2)$$
+      It is easy to use (2) to obtain a subsequence $(x_{n_k})$ of $(x_n)$ such that
+      $$|f(x_{n_k}) - f(x_0)| \ge \epsilon \quad \text{for all } k. \qquad (3)$$
+      Now Theorem 11.4 shows $(x_{n_k})$ has a monotonic subsequence $(x_{n_{k_j}})$. By (1) we have $\lim_{j\to\infty} f(x_{n_{k_j}}) = f(x_0)$, but by (3) we have $|f(x_{n_{k_j}}) - f(x_0)| \ge \epsilon$ for all $j$, a contradiction.
+    transcriptionNotes: "Theorem 11.4 quoted verbatim. bookHint (a full solution) from PDF pp.388–389 (printed 379–380). Book's continuity is Definition 17.1 (sequential)."
+    audit: ok
+
+  - cid: ross-17.12
+    chapter: "3 Continuity"
+    section: "§17 Continuous Functions"
+    number: "Exercise 17.12"
+    page: "132"
+    pdfPage: 143
+    verdict: core
+    machinery: "Density of Q plus sequential continuity: a continuous function is determined by its values on a dense set."
+    standardResult: "continuous functions agreeing on the rationals are equal"
+    topic: continuity
+    subtopics: [sequential-continuity, density-of-Q]
+    skills: [sequential-characterization, density-argument]
+    difficulty: easy
+    difficultyRationale: "Choose rationals r_n -> x and pass to the limit; part (b) reduces to (a) via f - g."
+    category: canonical
+    type: proof
+    tags: [continuity, density, rationals, sequences, machinery]
+    references: []
+    problemLatex: |
+      (a) Let $f$ be a continuous real-valued function with domain $(a, b)$. Show that if $f(r) = 0$ for each rational number $r$ in $(a, b)$, then $f(x) = 0$ for all $x \in (a, b)$.
+      (b) Let $f$ and $g$ be continuous real-valued functions on $(a, b)$ such that $f(r) = g(r)$ for each rational number $r$ in $(a, b)$. Prove $f(x) = g(x)$ for all $x \in (a, b)$. *Hint*: Use part (a).
+    transcriptionNotes: "No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-17.13
+    chapter: "3 Continuity"
+    section: "§17 Continuous Functions"
+    number: "Exercise 17.13"
+    page: "132"
+    pdfPage: 143
+    verdict: core
+    machinery: "Standard pathological examples: Dirichlet function (nowhere continuous) and x·1_Q (continuous at exactly one point)."
+    standardResult: "Dirichlet function nowhere continuous; x on Q, 0 off Q continuous only at 0"
+    topic: continuity
+    subtopics: [discontinuities, sequential-continuity, density-of-Q]
+    skills: [sequential-characterization, construct-counterexample, epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "Uses density of Q and of irrationals to build sequences; part (b) needs both directions."
+    category: canonical
+    type: counterexample
+    tags: [continuity, Dirichlet-function, counterexample, rationals, irrationals]
+    references: []
+    problemLatex: |
+      (a) Let $f(x) = 1$ for rational numbers $x$ and $f(x) = 0$ for irrational numbers. Show $f$ is discontinuous at every $x$ in $\mathbb{R}$.
+      (b) Let $h(x) = x$ for rational numbers $x$ and $h(x) = 0$ for irrational numbers. Show $h$ is continuous at $x = 0$ and at no other point.
+    bookHint: |
+      (a) Hint: Let $x \in \mathbb{R}$. Select a sequence $(x_n)$ such that $\lim x_n = x$, $x_n$ is rational for even $n$, and $x_n$ is irrational for odd $n$. Then $f(x_n)$ is 1 for even $n$ and 0 for odd $n$, so $(f(x_n))$ cannot converge.
+    transcriptionNotes: "bookHint from PDF p.389 (printed 380)."
+    audit: ok
+
+  - cid: ross-17.14
+    chapter: "3 Continuity"
+    section: "§17 Continuous Functions"
+    number: "Exercise 17.14"
+    page: "132"
+    pdfPage: 143
+    verdict: core
+    machinery: "Thomae's function: continuity at irrationals via finiteness of rationals with bounded denominator, discontinuity at rationals via density of irrationals."
+    standardResult: "Thomae's function continuous exactly on the irrationals"
+    topic: continuity
+    subtopics: [discontinuities, epsilon-delta-continuity, density-of-Q]
+    skills: [epsilon-delta-proof, choose-delta, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Continuity at irrationals requires the finiteness argument for denominators q <= N near x0."
+    category: canonical
+    type: proof
+    tags: [continuity, Thomae-function, rationals, irrationals, counterexample]
+    references: []
+    problemLatex: |
+      For each nonzero rational number $x$, write $x$ as $\frac{p}{q}$ where $p, q$ are integers with no common factors and $q > 0$, and then define $f(x) = \frac{1}{q}$. Also define $f(0) = 1$ and $f(x) = 0$ for all $x \in \mathbb{R} \setminus \mathbb{Q}$. Thus $f(x) = 1$ for each integer, $f(\frac{1}{2}) = f(-\frac{1}{2}) = f(\frac{3}{2}) = \cdots = \frac{1}{2}$, etc. Show $f$ is continuous at each point of $\mathbb{R} \setminus \mathbb{Q}$ and discontinuous at each point of $\mathbb{Q}$.
+    transcriptionNotes: "No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  # ---------------- §18 ----------------
+  - cid: ross-18.4
+    chapter: "3 Continuity"
+    section: "§18 Properties of Continuous Functions"
+    number: "Exercise 18.4"
+    page: "139"
+    pdfPage: 150
+    verdict: strong
+    machinery: "Why closedness is needed in the extreme value theorem: construct an unbounded continuous function using a missing limit point."
+    standardResult: "non-closed set admits unbounded continuous function (1/|x - x0|)"
+    topic: continuity
+    subtopics: [EVT, closed-sets]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Take f(x) = 1/|x - x0|; verify continuity and unboundedness along (x_n)."
+    category: canonical
+    type: construction
+    tags: [continuity, extreme-value-theorem, closed-set, unbounded, counterexample]
+    references: []
+    problemLatex: |
+      Let $S \subseteq \mathbb{R}$ and suppose there exists a sequence $(x_n)$ in $S$ converging to a number $x_0 \notin S$. Show there exists an unbounded continuous function on $S$.
+    transcriptionNotes: "No entry in Selected Hints. Compare metric-space version ross-21.5."
+    audit: ok
+
+  - cid: ross-18.5
+    chapter: "3 Continuity"
+    section: "§18 Properties of Continuous Functions"
+    number: "Exercise 18.5"
+    page: "139"
+    pdfPage: 150
+    verdict: consider
+    machinery: "IVT applied to a difference function; fixed-point theorem on [0,1] as a special case."
+    standardResult: "IVT for f - g / fixed point of continuous map [0,1] -> [0,1]"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [auxiliary-function, IVT-application]
+    difficulty: easy
+    difficultyRationale: "Standard application of IVT to h = f - g."
+    category: canonical
+    type: theorem-application
+    tags: [IVT, fixed-point, continuity]
+    references: ["Example 1 of §18 (quoted)"]
+    problemLatex: |
+      (a) Let $f$ and $g$ be continuous functions on $[a, b]$ such that $f(a) \ge g(a)$ and $f(b) \le g(b)$. Prove $f(x_0) = g(x_0)$ for at least one $x_0$ in $[a, b]$.
+      (b) Show Example 1 can be viewed as a special case of part (a).
+      *(Example 1 of §18: Let $f$ be a continuous function mapping $[0, 1]$ into $[0, 1]$. In other words, $\operatorname{dom}(f) = [0, 1]$ and $f(x) \in [0, 1]$ for all $x \in [0, 1]$. Show $f$ has a fixed point, i.e., a point $x_0 \in [0, 1]$ such that $f(x_0) = x_0$.)*
+    bookHint: |
+      (a) Let $h = f - g$. Then $h$ is continuous [why?] and $h(b) \le 0 \le h(a)$. Now apply Theorem 18.2.
+      (b) Use the function $g$ defined by $g(x) = x$ for $x \in [0, 1]$.
+    transcriptionNotes: "Statement of Example 1 (§18, PDF p.146) quoted verbatim. Theorem 18.2 = Intermediate Value Theorem. bookHint from PDF p.389 (printed 380)."
+    audit: ok
+
+  - cid: ross-18.9
+    chapter: "3 Continuity"
+    section: "§18 Properties of Continuous Functions"
+    number: "Exercise 18.9"
+    page: "139"
+    pdfPage: 150
+    verdict: strong
+    machinery: "IVT plus a dominance estimate of the leading term to find sign changes."
+    standardResult: "odd-degree polynomial has a real root"
+    topic: continuity
+    subtopics: [IVT, inequalities]
+    skills: [IVT-application, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Needs an explicit bound showing the leading term dominates for |x| large, then IVT."
+    category: canonical
+    type: theorem-application
+    tags: [IVT, polynomial, roots, estimate]
+    references: []
+    problemLatex: |
+      Prove that a polynomial function $f$ of odd degree has at least one real root. *Hint*: It may help to consider first the case of a cubic, i.e., $f(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3$ where $a_3 \neq 0$.
+    bookHint: |
+      Let $f(x) = a_0 + a_1 x + \cdots + a_n x^n$ where $a_n \neq 0$ and $n$ is odd. We may suppose $a_n = 1$; otherwise we would work with $(1/a_n)f$. Since $f$ is continuous, Theorem 18.2 shows it suffices to show $f(x) < 0$ for some $x$ and $f(x) > 0$ for some other $x$. This is true because $\lim_{x\to\infty} f(x) = +\infty$ and $\lim_{x\to-\infty} f(x) = -\infty$ [remember $a_n = 1$], but we can avoid these limit notions as follows. Observe
+      $$f(x) = x^n \left[1 + \frac{a_0 + a_1 x + \cdots + a_{n-1}x^{n-1}}{x^n}\right]. \qquad (1)$$
+      Let $c = 1 + |a_0| + |a_1| + \cdots + |a_{n-1}|$. If $|x| > c$, then
+      $$|a_0 + a_1 x + \cdots + a_{n-1}x^{n-1}| \le (|a_0| + |a_1| + \cdots + |a_{n-1}|)|x|^{n-1} < |x|^n,$$
+      so the number in brackets in (1) is positive. Now if $x > c$, then $x^n > 0$, so $f(x) > 0$. And if $x < -c$, then $x^n < 0$ [why?], so $f(x) < 0$.
+    transcriptionNotes: "bookHint (full solution) from PDF pp.389–390 (printed 380–381), verified against page image. Theorem 18.2 = Intermediate Value Theorem."
+    audit: ok
+
+  - cid: ross-18.10
+    chapter: "3 Continuity"
+    section: "§18 Properties of Continuous Functions"
+    number: "Exercise 18.10"
+    page: "139"
+    pdfPage: 150
+    verdict: strong
+    machinery: "IVT on an auxiliary difference function g(x) = f(x+1) - f(x)."
+    standardResult: "horizontal chord theorem (chord of length 1)"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [auxiliary-function, IVT-application]
+    difficulty: easy
+    difficultyRationale: "With the given auxiliary function, g(0) = -g(1) and IVT finishes."
+    category: canonical
+    type: theorem-application
+    tags: [IVT, horizontal-chord, auxiliary-function]
+    references: []
+    problemLatex: |
+      Suppose $f$ is continuous on $[0, 2]$ and $f(0) = f(2)$. Prove there exist $x, y$ in $[0, 2]$ such that $|y - x| = 1$ and $f(x) = f(y)$. *Hint*: Consider $g(x) = f(x + 1) - f(x)$ on $[0, 1]$.
+    transcriptionNotes: "No entry in Selected Hints."
+    audit: ok
+
+  - cid: ross-18.12
+    chapter: "3 Continuity"
+    section: "§18 Properties of Continuous Functions"
+    number: "Exercise 18.12"
+    page: "139"
+    pdfPage: 150
+    verdict: core
+    machinery: "Intermediate value property does not imply continuity: sin(1/x) with f(0) = 0."
+    standardResult: "sin(1/x): intermediate value property but discontinuous"
+    topic: continuity
+    subtopics: [IVT, discontinuities]
+    skills: [construct-counterexample, IVT-application]
+    difficulty: easy
+    difficultyRationale: "Must check IVP on intervals touching 0 using that sin(1/x) attains every value in [-1,1] near 0."
+    category: canonical
+    type: counterexample
+    tags: [intermediate-value-property, counterexample, sin-1-over-x, discontinuity]
+    references: ["Exercise 17.10(b)"]
+    problemLatex: |
+      Let $f(x) = \sin(\frac{1}{x})$ for $x \neq 0$ and let $f(0) = 0$.
+      (a) Observe that $f$ is discontinuous at 0 by Exercise 17.10(b).
+      (b) Show $f$ has the intermediate value property on $\mathbb{R}$.
+    transcriptionNotes: "Exercise 17.10(b) asks to prove this function is discontinuous at 0 (see ross-17.10). Intermediate value property (Theorem 18.2): whenever a, b in I, a < b and y lies between f(a) and f(b), there is x in (a, b) with f(x) = y. No entry in Selected Hints."
+    audit: ok
+
+  # ---------------- §19 ----------------
+  - cid: ross-19.1
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.1"
+    page: "151"
+    pdfPage: 162
+    verdict: strong
+    machinery: "Deciding uniform continuity with the toolkit: compact interval theorem, continuous-extension criterion, Cauchy-preservation, and the definition for x^3 on R."
+    standardResult: "classifying uniform continuity of x^3, 1/x^3, sin(1/x^2), x^2 sin(1/x) on various sets"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [negate-definition, theorem-recognition, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Hardest part (d): proving x^3 is not uniformly continuous on R directly from the negated definition."
+    category: canonical
+    type: conceptual
+    tags: [uniform-continuity, counterexample, extension, Cauchy]
+    references: []
+    problemLatex: |
+      Which of the following continuous functions are uniformly continuous on the specified set? Justify your answers. Use any theorems you wish.
+      (a) $f(x) = x^{17}\sin x - e^x \cos 3x$ on $[0, \pi]$,
+      (b) $f(x) = x^3$ on $[0, 1]$,
+      (c) $f(x) = x^3$ on $(0, 1)$,
+      (d) $f(x) = x^3$ on $\mathbb{R}$,
+      (e) $f(x) = \frac{1}{x^3}$ on $(0, 1]$,
+      (f) $f(x) = \sin\frac{1}{x^2}$ on $(0, 1]$,
+      (g) $f(x) = x^2 \sin\frac{1}{x}$ on $(0, 1]$.
+    bookHint: |
+      Hints: To decide (a) and (b), use Theorem 19.2. Parts (c), (e), (f) and (g) can be settled using Theorem 19.5. Theorem 19.4 can also be used to decide (e) and (f); compare Example 6. One needs to resort to the definition to handle (d).
+    transcriptionNotes: "bookHint from PDF p.390 (printed 381). For reference: Theorem 19.2 = continuous on [a,b] implies uniformly continuous; Theorem 19.4 = uniformly continuous functions map Cauchy sequences to Cauchy sequences; Theorem 19.5 = f on (a,b) is uniformly continuous iff it extends continuously to [a,b]; Example 6 = 1/x^2 not uniformly continuous on (0,1) via s_n = 1/n. Verified against page image."
+    audit: ok
+
+  - cid: ross-19.2
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.2"
+    page: "151"
+    pdfPage: 162
+    verdict: strong
+    machinery: "Direct epsilon-delta proofs of uniform continuity with delta independent of the point."
+    standardResult: "direct epsilon-delta proofs of uniform continuity (linear, x^2 on bounded interval, 1/x away from 0)"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, choose-delta]
+    difficulty: introductory
+    difficultyRationale: "Each part is a single factorization plus a uniform bound."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, epsilon-delta, machinery]
+    references: ["Definition 19.1 (quoted)"]
+    problemLatex: |
+      Prove each of the following functions is uniformly continuous on the indicated set by directly verifying the $\epsilon$–$\delta$ property in Definition 19.1.
+      *(Definition 19.1: Let $f$ be a real-valued function defined on a set $S \subseteq \mathbb{R}$. Then $f$ is uniformly continuous on $S$ if for each $\epsilon > 0$ there exists $\delta > 0$ such that $x, y \in S$ and $|x - y| < \delta$ imply $|f(x) - f(y)| < \epsilon$.)*
+      (a) $f(x) = 3x + 11$ on $\mathbb{R}$,
+      (b) $f(x) = x^2$ on $[0, 3]$,
+      (c) $f(x) = \frac{1}{x}$ on $[\frac{1}{2}, \infty)$.
+    transcriptionNotes: "Definition 19.1 quoted verbatim. No entry for 19.2 in Selected Hints (the companion Exercise 19.3, skipped, has one). Verified against page image."
+    audit: ok
+
+  - cid: ross-19.4
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.4"
+    page: "151"
+    pdfPage: 162
+    verdict: core
+    machinery: "Uniform continuity on bounded sets forces boundedness, via Bolzano–Weierstrass and Cauchy preservation; a fast non-uniform-continuity test."
+    standardResult: "uniformly continuous on a bounded set implies bounded"
+    topic: continuity
+    subtopics: [uniform-continuity, bolzano-weierstrass, cauchy-sequences]
+    skills: [contradiction, subsequence-extraction]
+    difficulty: medium
+    difficultyRationale: "Combine unbounded |f(x_n)| > n, a Cauchy subsequence from B–W, and Cauchy preservation for a contradiction."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, boundedness, Bolzano-Weierstrass, Cauchy]
+    references: ["Theorem 11.5 (quoted)", "Theorem 19.4 (quoted)"]
+    problemLatex: |
+      (a) Prove that if $f$ is uniformly continuous on a bounded set $S$, then $f$ is a bounded function on $S$. *Hint*: Assume not. Use Theorems 11.5 and 19.4.
+      (b) Use (a) to give yet another proof that $\frac{1}{x^2}$ is not uniformly continuous on $(0, 1)$.
+      *(Theorem 11.5 [Bolzano–Weierstrass]: Every bounded sequence has a convergent subsequence. Theorem 19.4: If $f$ is uniformly continuous on a set $S$ and $(s_n)$ is a Cauchy sequence in $S$, then $(f(s_n))$ is a Cauchy sequence.)*
+    transcriptionNotes: "Theorems 11.5 and 19.4 quoted verbatim. No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-19.6
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.6"
+    page: "152"
+    pdfPage: 163
+    verdict: strong
+    machinery: "Bounded derivative is sufficient but not necessary for uniform continuity: sqrt x on (0,1]."
+    standardResult: "sqrt x uniformly continuous although f' unbounded"
+    topic: continuity
+    subtopics: [uniform-continuity, lipschitz-holder]
+    skills: [construct-counterexample, epsilon-delta-proof, MVT-application]
+    difficulty: easy
+    difficultyRationale: "Use extension to [0,1] (or |sqrt x - sqrt y| <= sqrt|x-y|) and Theorem 19.6 on [1, infinity)."
+    category: canonical
+    type: counterexample
+    tags: [uniform-continuity, square-root, derivative, counterexample]
+    references: ["Theorem 19.6 (quoted)"]
+    problemLatex: |
+      (a) Let $f(x) = \sqrt{x}$ for $x \ge 0$. Show $f'$ is unbounded on $(0, 1]$ but $f$ is nevertheless uniformly continuous on $(0, 1]$. Compare with Theorem 19.6.
+      (b) Show $f$ is uniformly continuous on $[1, \infty)$.
+      *(Theorem 19.6: Let $f$ be a continuous function on an interval $I$ [$I$ may be bounded or unbounded]. Let $I^\circ$ be the interval obtained by removing from $I$ any endpoints that happen to be in $I$. If $f$ is differentiable on $I^\circ$ and if $f'$ is bounded on $I^\circ$, then $f$ is uniformly continuous on $I$.)*
+    transcriptionNotes: "Theorem 19.6 quoted verbatim. No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-19.7
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.7"
+    page: "152"
+    pdfPage: 163
+    verdict: strong
+    machinery: "Gluing uniform continuity on overlapping pieces (compact piece + tail), with delta = min of deltas and an overlap of width 1."
+    standardResult: "uniform continuity on [0,k] and [k,infinity) gives uniform continuity on [0,infinity); sqrt x uniformly continuous on [0, infinity)"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, choose-delta, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Requires the overlap trick (using [0, k+1]) to handle points straddling k."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, gluing, square-root]
+    references: ["Exercise 19.6(b) (ross-19.6)"]
+    problemLatex: |
+      (a) Let $f$ be a continuous function on $[0, \infty)$. Prove that if $f$ is uniformly continuous on $[k, \infty)$ for some $k$, then $f$ is uniformly continuous on $[0, \infty)$.
+      (b) Use (a) and Exercise 19.6(b) to prove $\sqrt{x}$ is uniformly continuous on $[0, \infty)$.
+    bookHint: |
+      (a) We are given $f$ is uniformly continuous on $[k, \infty)$, and $f$ is uniformly continuous on $[0, k + 1]$ by Theorem 19.2. Let $\epsilon > 0$. There exist $\delta_1$ and $\delta_2$ so that
+      $$|x - y| < \delta_1,\ x, y \in [k, \infty) \quad\text{imply}\quad |f(x) - f(y)| < \epsilon,$$
+      $$|x - y| < \delta_2,\ x, y \in [0, k + 1] \quad\text{imply}\quad |f(x) - f(y)| < \epsilon.$$
+      Let $\delta = \min\{1, \delta_1, \delta_2\}$ and show
+      $$|x - y| < \delta,\ x, y \in [0, \infty) \quad\text{imply}\quad |f(x) - f(y)| < \epsilon.$$
+    transcriptionNotes: "Exercise 19.6(b): sqrt x is uniformly continuous on [1, infinity). bookHint from PDF p.391 (printed 382)."
+    audit: ok
+
+  - cid: ross-19.8
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.8"
+    page: "152"
+    pdfPage: 163
+    verdict: consider
+    machinery: "MVT gives a Lipschitz bound, which gives uniform continuity."
+    standardResult: "sin is 1-Lipschitz hence uniformly continuous on R"
+    topic: continuity
+    subtopics: [uniform-continuity, lipschitz-holder]
+    skills: [MVT-application]
+    difficulty: introductory
+    difficultyRationale: "One application of MVT with |cos| <= 1."
+    category: canonical
+    type: theorem-application
+    tags: [uniform-continuity, Lipschitz, mean-value-theorem, sine]
+    references: []
+    problemLatex: |
+      (a) Use the Mean Value theorem to prove
+      $$|\sin x - \sin y| \le |x - y|$$
+      for all $x, y$ in $\mathbb{R}$; see the proof of Theorem 19.6.
+      (b) Show $\sin x$ is uniformly continuous on $\mathbb{R}$.
+    transcriptionNotes: "The proof of Theorem 19.6 is the MVT argument |f(b) - f(a)| = |f'(x)||b - a| <= M|b - a|. No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-19.9
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.9"
+    page: "152"
+    pdfPage: 163
+    verdict: strong
+    machinery: "Uniform continuity on R via splitting into a compact middle piece (Theorem 19.2) and tails with bounded derivative."
+    standardResult: "x sin(1/x) is uniformly continuous on R"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [theorem-recognition, MVT-application, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Part (c) requires combining the compact-interval theorem near 0 with a bounded-derivative argument on the tails and a gluing step."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, x-sin-1-over-x, gluing]
+    references: ["Exercises 17.3(f), 17.9(c)"]
+    problemLatex: |
+      Let $f(x) = x\sin(\frac{1}{x})$ for $x \neq 0$ and $f(0) = 0$.
+      (a) Observe $f$ is continuous on $\mathbb{R}$; see Exercises 17.3(f) and 17.9(c).
+      (b) Why is $f$ uniformly continuous on any bounded subset of $\mathbb{R}$?
+      (c) Is $f$ uniformly continuous on $\mathbb{R}$?
+    bookHint: |
+      (c) This is tricky, but it turns out that $f$ is uniformly continuous on $\mathbb{R}$. A simple modification of Exercise 19.7(a) shows it suffices to show $f$ is uniformly continuous on $[1, \infty)$ and $(-\infty, -1]$. This can be done using Theorem 19.6. Note we cannot apply Theorem 19.6 on $\mathbb{R}$ because $f$ is not differentiable at $x = 0$; also $f'$ is not bounded near $x = 0$.
+    transcriptionNotes: "Exercises 17.3(f) and 17.9(c) ask to show x sin(1/x) (with f(0)=0) is continuous (17.9(c) is in ross-17.9). Exercise 19.10 (same for x^2 sin(1/x)) is a near-duplicate and was skipped. bookHint from PDF p.391 (printed 382)."
+    audit: ok
+
+  - cid: ross-19.12
+    chapter: "3 Continuity"
+    section: "§19 Uniform Continuity"
+    number: "Exercise 19.12"
+    page: "153"
+    pdfPage: 164
+    verdict: strong
+    machinery: "Running maximum of a continuous function is continuous; uses uniform continuity on [a,b] to control the sup over a short interval."
+    standardResult: "running supremum f*(x) = sup_{[a,x]} f is continuous and increasing"
+    topic: continuity
+    subtopics: [uniform-continuity, monotone-functions, EVT]
+    skills: [epsilon-delta-proof, sup-approximation]
+    difficulty: medium
+    difficultyRationale: "Need to show f*(x) - f*(x0) is small by bounding sup of f over [x0, x] using uniform continuity; monotonicity is easy."
+    category: synthesis
+    type: proof
+    tags: [continuity, supremum, uniform-continuity, running-maximum]
+    references: []
+    problemLatex: |
+      Let $f$ be a continuous function on $[a, b]$. Show the function $f^*$ defined by $f^*(x) = \sup\{f(y) : a \le y \le x\}$, for $x \in [a, b]$, is an increasing continuous function on $[a, b]$.
+    transcriptionNotes: "Ross's 'increasing' means non-decreasing. No entry in Selected Hints."
+    audit: ok
+
+  # ---------------- §20 ----------------
+  - cid: ross-20.16
+    chapter: "3 Continuity"
+    section: "§20 Limits of Functions"
+    number: "Exercise 20.16"
+    page: "163"
+    pdfPage: 174
+    verdict: strong
+    machinery: "Order is preserved by one-sided limits, but strict inequality is not."
+    standardResult: "limits preserve <=, not <"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [sequential-characterization, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "(a) reduces to the sequence order limit theorem; (b) needs a simple counterexample."
+    category: canonical
+    type: counterexample
+    tags: [functional-limits, order, counterexample, one-sided-limits]
+    references: []
+    problemLatex: |
+      Suppose the limits $L_1 = \lim_{x\to a^+} f_1(x)$ and $L_2 = \lim_{x\to a^+} f_2(x)$ exist.
+      (a) Show if $f_1(x) \le f_2(x)$ for all $x$ in some interval $(a, b)$, then $L_1 \le L_2$.
+      (b) Suppose that, in fact, $f_1(x) < f_2(x)$ for all $x$ in some interval $(a, b)$. Can you conclude $L_1 < L_2$?
+    transcriptionNotes: "Ross defines lim_{x->a+} f(x) = L to mean: for every sequence (x_n) in some interval (a, b) with limit a, lim f(x_n) = L (L may be +-infinity). No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-20.17
+    chapter: "3 Continuity"
+    section: "§20 Limits of Functions"
+    number: "Exercise 20.17"
+    page: "163"
+    pdfPage: 174
+    verdict: strong
+    machinery: "Squeeze lemma for one-sided function limits, including infinite limits, without assuming the middle limit exists."
+    standardResult: "squeeze theorem for functional limits"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Standard squeeze argument; must also handle L = +-infinity."
+    category: canonical
+    type: proof
+    tags: [functional-limits, squeeze-theorem, machinery]
+    references: ["Exercise 20.16(a) (ross-20.16)"]
+    problemLatex: |
+      Show that if $\lim_{x\to a^+} f_1(x) = \lim_{x\to a^+} f_3(x) = L$ and if $f_1(x) \le f_2(x) \le f_3(x)$ for all $x$ in some interval $(a, b)$, then $\lim_{x\to a^+} f_2(x) = L$. This is called the squeeze lemma. *Warning*: This is not immediate from Exercise 20.16(a), because we are not assuming $\lim_{x\to a^+} f_2(x)$ exists; this must be proved.
+    bookHint: |
+      Suppose first that $L$ is finite. We use (1) in Corollary 20.8. Let $\epsilon > 0$. There exist $\delta_1 > 0$ and $\delta_3 > 0$ such that
+      $$a < x < a + \delta_1 \quad\text{implies}\quad L - \epsilon < f_1(x) < L + \epsilon$$
+      and
+      $$a < x < a + \delta_3 \quad\text{implies}\quad L - \epsilon < f_3(x) < L + \epsilon.$$
+      If $\delta = \min\{\delta_1, \delta_3\}$, then
+      $$a < x < a + \delta \quad\text{implies}\quad L - \epsilon < f_2(x) < L + \epsilon.$$
+      So by Corollary 20.8 we have $\lim_{x\to a^+} f_2(x) = L$.
+      Suppose $L = +\infty$. Let $M > 0$. In view of Discussion 20.9, there exists $\delta > 0$ such that
+      $$a < x < a + \delta \quad\text{implies}\quad f_1(x) > M.$$
+      Then clearly
+      $$a < x < a + \delta \quad\text{implies}\quad f_2(x) > M,$$
+      and this shows $\lim_{x\to a^+} f_2(x) = +\infty$. The case $L = -\infty$ is similar.
+    transcriptionNotes: "L may be finite or +-infinity in Ross's definition. bookHint (full solution) from PDF pp.392–393 (printed 383–384); it cites Corollary 20.8 (epsilon-delta form of one-sided limits) and Discussion 20.9 (infinite limits). Verified problem against page image."
+    audit: ok
+
+  # ---------------- §21 ----------------
+  - cid: ross-21.2
+    chapter: "3 Continuity"
+    section: "§21 More on Metric Spaces: Continuity"
+    number: "Exercise 21.2"
+    page: "176"
+    pdfPage: 187
+    verdict: strong
+    machinery: "Topological (open set) characterization of continuity at a point in metric spaces."
+    standardResult: "continuity at a point via open neighborhoods"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, continuity-and-topology, open-sets]
+    skills: [epsilon-delta-proof, open-ball-argument]
+    difficulty: easy
+    difficultyRationale: "Translate between epsilon-balls and open sets in both directions."
+    category: canonical
+    type: proof
+    tags: [metric-space, continuity, open-set, topology]
+    references: []
+    problemLatex: |
+      Consider $f\colon S \to S^*$ where $(S, d)$ and $(S^*, d^*)$ are metric spaces. Show that $f$ is continuous at $s_0 \in S$ if and only if
+      for every open set $U$ in $S^*$ containing $f(s_0)$, there is an open set $V$ in $S$ containing $s_0$ such that $f(V) \subseteq U$.
+    transcriptionNotes: "Ross's Definition 21.1: f is continuous at s0 if for each eps > 0 there exists delta > 0 such that d(s, s0) < delta implies d*(f(s), f(s0)) < eps. No entry in Selected Hints."
+    audit: ok
+
+  - cid: ross-21.3
+    chapter: "3 Continuity"
+    section: "§21 More on Metric Spaces: Continuity"
+    number: "Exercise 21.3"
+    page: "176"
+    pdfPage: 187
+    verdict: strong
+    machinery: "Reverse triangle inequality in a metric space; distance function is 1-Lipschitz."
+    standardResult: "distance to a point is uniformly continuous (1-Lipschitz)"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, uniform-continuity, lipschitz-holder]
+    skills: [triangle-inequality]
+    difficulty: introductory
+    difficultyRationale: "Reverse triangle inequality then delta = epsilon."
+    category: canonical
+    type: proof
+    tags: [metric-space, uniform-continuity, triangle-inequality, Lipschitz]
+    references: []
+    problemLatex: |
+      Let $(S, d)$ be a metric space and choose $s_0 \in S$. Show $f(s) = d(s, s_0)$ defines a uniformly continuous real-valued function $f$ on $S$.
+    bookHint: |
+      Hint: Show $|d(s, s_0) - d(t, s_0)| \le d(s, t)$. Hence if $\epsilon > 0$, then
+      $$s, t \in S \quad\text{and}\quad d(s, t) < \epsilon \quad\text{imply}\quad |f(s) - f(t)| < \epsilon.$$
+    transcriptionNotes: "bookHint from PDF p.393 (printed 384)."
+    audit: ok
+
+  - cid: ross-21.4
+    chapter: "3 Continuity"
+    section: "§21 More on Metric Spaces: Continuity"
+    number: "Exercise 21.4"
+    page: "176"
+    pdfPage: 187
+    verdict: consider
+    machinery: "Preimage characterization of continuity reduced to a basis of open intervals (rational endpoints)."
+    standardResult: "f continuous iff preimages of (rational) open intervals are open"
+    topic: continuity
+    subtopics: [continuity-metric-spaces, continuity-and-topology, open-sets]
+    skills: [open-set-argument, density-argument]
+    difficulty: easy
+    difficultyRationale: "Uses the preimage theorem plus writing open sets of R as unions of (rational) intervals."
+    category: canonical
+    type: proof
+    tags: [metric-space, continuity, preimage, open-set, topology]
+    references: []
+    problemLatex: |
+      Consider $f\colon S \to \mathbb{R}$ where $(S, d)$ is a metric space. Show the following are equivalent:
+      (i) $f$ is continuous;
+      (ii) $f^{-1}((a, b))$ is open in $S$ for all $a < b$;
+      (iii) $f^{-1}((a, b))$ is open in $S$ for all rational $a < b$.
+    transcriptionNotes: "Theorem 21.3 in the text (f continuous iff f^{-1}(U) open for every open U) is the natural tool. No entry in Selected Hints."
+    audit: ok
+
+  - cid: ross-21.5
+    chapter: "3 Continuity"
+    section: "§21 More on Metric Spaces: Continuity"
+    number: "Exercise 21.5"
+    page: "177"
+    pdfPage: 188
+    verdict: core
+    machinery: "Converse of the extreme value theorem in R^k: on a noncompact set there is an unbounded continuous function, and a bounded one with no maximum (Heine–Borel)."
+    standardResult: "E compact iff every continuous function on E is bounded / attains its max"
+    topic: topology
+    subtopics: [compactness, continuity-metric-spaces, EVT]
+    skills: [construct-counterexample, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Requires splitting via Heine–Borel into unbounded vs non-closed and building 1/d(x,x0); (b) needs the |f|/(1+|f|) trick."
+    category: canonical
+    type: construction
+    tags: [compactness, Heine-Borel, extreme-value-theorem, counterexample, construction]
+    references: []
+    problemLatex: |
+      Let $E$ be a noncompact subset of $\mathbb{R}^k$.
+      (a) Show there is an unbounded continuous real-valued function on $E$. *Hint*: Either $E$ is unbounded or else its closure $E^-$ contains $\mathbf{x}_0 \notin E$. In the latter case, use $\frac{1}{g}$ where $g(\mathbf{x}) = d(\mathbf{x}, \mathbf{x}_0)$.
+      (b) Show there is a bounded continuous real-valued function on $E$ that does not assume its maximum on $E$.
+    bookHint: |
+      (b) By part (a), there is an unbounded continuous real-valued function $f$ on $E$. Show $h = \frac{|f|}{1 + |f|}$ is continuous, bounded and does not assume its supremum 1 on $E$.
+    transcriptionNotes: "Ross writes E^- for closure and boldface x for points of R^k. bookHint from PDF p.393 (printed 384). Verified against page image. Compare 1-D version ross-18.4."
+    audit: ok
+
+  - cid: ross-21.10
+    chapter: "3 Continuity"
+    section: "§21 More on Metric Spaces: Continuity"
+    number: "Exercise 21.10"
+    page: "177"
+    pdfPage: 188
+    verdict: strong
+    machinery: "Explicit continuous surjections and the obstruction from continuous images of compact (and connected) sets."
+    standardResult: "continuous image of compact is compact: no continuous map [0,1] onto (0,1) or R"
+    topic: topology
+    subtopics: [compactness, continuity-and-topology]
+    skills: [construct-counterexample, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Constructions (a)-(c) are short; (d) is an application of compactness preservation."
+    category: canonical
+    type: construction
+    tags: [compactness, continuous-image, surjection, construction]
+    references: []
+    problemLatex: |
+      Show there exist continuous functions
+      (a) Mapping $(0, 1)$ onto $[0, 1]$,
+      (b) Mapping $(0, 1)$ onto $\mathbb{R}$,
+      (c) Mapping $[0, 1] \cup [2, 3]$ onto $[0, 1]$.
+      (d) Explain why there are no continuous functions mapping $[0, 1]$ onto $(0, 1)$ or $\mathbb{R}$.
+    transcriptionNotes: "'f maps E onto F' means f(E) = F (defined in Exercise 21.9). No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-21.11
+    chapter: "3 Continuity"
+    section: "§21 More on Metric Spaces: Continuity"
+    number: "Exercise 21.11"
+    page: "177"
+    pdfPage: 188
+    verdict: core
+    machinery: "Baire category theorem: Q is not a G_delta; leads to no function continuous exactly on Q."
+    standardResult: "Q is not a countable intersection of open sets (not G_delta)"
+    topic: topology
+    subtopics: [baire-category, open-sets, dense-sets]
+    skills: [contradiction, baire-category-argument]
+    difficulty: hard
+    difficultyRationale: "Requires applying Baire (intersection of dense open sets is dense) to the G_delta together with complements of the countably many rationals."
+    category: challenge
+    type: proof
+    tags: [Baire-category, G-delta, rationals, open-set, counterexample]
+    references: []
+    problemLatex: |
+      Show the set $\mathbb{Q}$ of rational numbers is not the intersection of a sequence of open sets, so that the set $\mathbb{R} \setminus \mathbb{Q}$ of irrational numbers is not the union of a sequence of closed subsets of $\mathbb{R}$.
+    bookHint: |
+      If $\mathbb{Q}$ were equal to $\cap_{n=1}^\infty U_n$, where each $U_n$ is open, then $\cap_{n=1}^\infty \cap \cap_{r\in\mathbb{Q}}(\mathbb{R} \setminus \{r\})$ would be an intersection of a sequence of open sets that is equal to the empty set, contrary to Theorem 21.7(a).
+    transcriptionNotes: "bookHint from PDF p.394 (printed 385), transcribed verbatim from the page image; the book's displayed '∩_{n=1}^∞ ∩ ∩_{r∈Q}' appears to omit U_n (intended ∩_{n=1}^∞ U_n ∩ ∩_{r∈Q}(R \\ {r})). Theorem 21.7(a): in a complete metric space, if (U_n) is a sequence of dense open subsets, then ∩ U_n is dense. In the text this exercise is used to show no function on R is continuous exactly on Q (Example 8(b))."
+    audit: ok
+
+  - cid: ross-21.13
+    chapter: "3 Continuity"
+    section: "§21 More on Metric Spaces: Continuity"
+    number: "Exercise 21.13"
+    page: "178"
+    pdfPage: 189
+    verdict: strong
+    machinery: "Oscillation of a function at a point; continuity iff oscillation zero."
+    standardResult: "f continuous at x iff oscillation omega_f(x) = 0"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity, discontinuities]
+    skills: [epsilon-delta-proof, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "Both directions are direct unpackings of sup/inf and epsilon-delta."
+    category: canonical
+    type: proof
+    tags: [oscillation, continuity, supremum, infimum]
+    references: ["Example 8(a) of §21 (definition of ω_f quoted)"]
+    problemLatex: |
+      Let $\omega_f$ be the oscillation function in Example 8(a). Show that $f$ is continuous at $x$ in $\mathbb{R}$ if and only if $\omega_f(x) = 0$.
+      *(Example 8(a): Consider any function $f$ on $\mathbb{R}$. For each $x$ in $\mathbb{R}$, let
+      $$\omega_f(x) = \inf_{\delta > 0} \sup\{|f(y) - f(z)| : y, z \in (x - \delta, x + \delta)\}.$$
+      The function $\omega_f$ is the "oscillation function" of $f$.)*
+    bookHint: |
+      Suppose $\omega_f(x) = 0$. Given $\epsilon > 0$, there is $\delta > 0$ so that
+      $$\sup\{|f(y) - f(z)| : y, z \in (x - \delta, x + \delta)\} < \epsilon.$$
+      Then $|f(x) - f(y)| < \epsilon$ for all $y \in (x - \delta, x + \delta)$, i.e., $|x - y| < \delta$ implies $|f(x) - f(y)| < \epsilon$. So $f$ is continuous at $x$. The proof that continuity of $f$ at $x$ implies $\omega_f(x) = 0$ is similar.
+    transcriptionNotes: "Definition of ω_f quoted verbatim from Example 8(a), PDF p.186. bookHint from PDF p.394 (printed 385), verified against page image."
+    audit: ok
+
+  # ---------------- §22 ----------------
+  - cid: ross-22.1
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.1"
+    page: "184"
+    pdfPage: 195
+    verdict: strong
+    machinery: "Continuous images of connected sets are connected (intervals in R); IVT obstruction to surjections."
+    standardResult: "continuous image of an interval is an interval (no continuous map onto disconnected set or Q)"
+    topic: topology
+    subtopics: [connectedness, continuity-and-topology, IVT]
+    skills: [theorem-recognition, contradiction]
+    difficulty: easy
+    difficultyRationale: "Direct application of the connectedness/IVT theorem; (b) also uses countability or a nonconstant value argument."
+    category: canonical
+    type: theorem-application
+    tags: [connectedness, IVT, continuous-image, rationals]
+    references: []
+    problemLatex: |
+      Show there do not exist continuous functions
+      (a) Mapping $[0, 1]$ onto $[0, 1] \cup [2, 3]$,
+      (b) Mapping $(0, 1)$ onto $\mathbb{Q}$.
+    bookHint: |
+      (a) $[0, 1]$ is connected but $[0, 1] \cup [2, 3]$ is not. See Theorem 22.2. Alternatively, apply the Intermediate Value Theorem 18.2.
+    transcriptionNotes: "Theorem 22.2: continuous images of connected sets are connected. bookHint from PDF p.394 (printed 385)."
+    audit: ok
+
+  - cid: ross-22.3
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.3"
+    page: "184"
+    pdfPage: 195
+    verdict: core
+    machinery: "Working with the open-set definition of connectedness and closure in a metric space."
+    standardResult: "closure of a connected set is connected"
+    topic: topology
+    subtopics: [connectedness, interior-closure-boundary, metric-spaces]
+    skills: [contradiction, open-set-argument]
+    difficulty: medium
+    difficultyRationale: "Must show a separation of E^- restricts to a separation of E, using that each open set meeting E^- meets E."
+    category: canonical
+    type: proof
+    tags: [connectedness, closure, metric-space, topology]
+    references: []
+    problemLatex: |
+      Prove that if $E$ is a connected subset of a metric space $(S, d)$, then its closure $E^-$ is also connected.
+    bookHint: |
+      Assume $E$ is connected but $E^-$ is not. Then there exist open sets $U_1$ and $U_2$ that separate $E^-$ as in Definition 22.1(a). Show that $U_1$ and $U_2$ separate $E$, which is a contradiction. Since $E$ satisfies (1) in Definition 22.1(a), it suffices to show $E \cap U_1 \neq \varnothing$ and $E \cap U_2 \neq \varnothing$. In fact, if $E \cap U_1 = \varnothing$, then $E^- \cap (S \setminus U_1)$ would be a closed set containing $E$, and it is smaller than $E^-$ since $E^- \cap U_1 \neq \varnothing$. This contradicts the definition of $E^-$ in Definition 13.8, so $E \cap U_1 \neq \varnothing$. Likewise $E \cap U_2 \neq \varnothing$.
+    transcriptionNotes: "Ross's Definition 22.1(a): E is disconnected if there are open subsets U1, U2 of S with (E∩U1)∩(E∩U2) = ∅, E = (E∩U1)∪(E∩U2), E∩U1 ≠ ∅ and E∩U2 ≠ ∅; connected means not disconnected. E^- denotes closure. bookHint from PDF p.394 (printed 385)."
+    audit: ok
+
+  - cid: ross-22.4
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.4"
+    page: "184"
+    pdfPage: 195
+    verdict: core
+    machinery: "Topologist's sine curve: connected but not path-connected."
+    standardResult: "topologist's sine curve is connected but not path-connected"
+    topic: topology
+    subtopics: [connectedness, interior-closure-boundary]
+    skills: [construct-counterexample, sequential-characterization, contradiction]
+    difficulty: hard
+    difficultyRationale: "Part (c) requires a careful continuity argument showing no path can reach the segment on the y-axis."
+    category: canonical
+    type: counterexample
+    tags: [connectedness, path-connected, topologist-sine-curve, counterexample]
+    references: ["Exercise 22.3 (ross-22.3)", "Fig. 19.4 (graph of sin(1/x))"]
+    problemLatex: |
+      Consider the following subset of $\mathbb{R}^2$:
+      $$E = \left\{\left(x, \sin\frac{1}{x}\right) : x \in (0, 1]\right\};$$
+      $E$ is simply the graph of $g(x) = \sin\frac{1}{x}$ along the interval $(0, 1]$.
+      (a) Determine its closure $E^-$. See Fig. 19.4.
+      (b) Show $E^-$ is connected.
+      (c) Show $E^-$ is not path-connected.
+    transcriptionNotes: "Fig. 19.4 is a plot of sin(1/x) on (0, 1/π]; the reference is non-essential. Path-connected (Definition 22.4): for each pair s, t of points in E there is a continuous γ: [a,b] → E with γ(a) = s, γ(b) = t. No entry in Selected Hints. Exercise 22.13 (graph-of-a-function version) skipped as near-duplicate. Verified against page image."
+    audit: ok
+
+  - cid: ross-22.5
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.5"
+    page: "184"
+    pdfPage: 195
+    verdict: strong
+    machinery: "Unions of connected sets with a common point are connected; intersections need not be."
+    standardResult: "union of intersecting connected sets is connected; intersection need not be"
+    topic: topology
+    subtopics: [connectedness, metric-spaces]
+    skills: [contradiction, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Short separation argument plus a planar example."
+    category: canonical
+    type: proof
+    tags: [connectedness, union, intersection, counterexample]
+    references: []
+    problemLatex: |
+      Let $E$ and $F$ be connected sets in some metric space.
+      (a) Prove that if $E \cap F \neq \varnothing$, then $E \cup F$ is connected.
+      (b) Give an example to show $E \cap F$ need not be connected. Incidentally, the empty set *is* connected.
+    bookHint: |
+      (a) Assume open sets $U_1$ and $U_2$ separate $E \cup F$ as in Definition 22.1(a). Consider $x \in E \cap F$; $x$ belongs to one of the open sets, say $x \in U_1$. Select $y$ in $(E \cup F) \cap U_2$. Then $y$ is in $E$ or $F$, say $y \in E$. Since $x \in E \cap U_1$ and $y \in E \cap U_2$, these sets are nonempty. Thus $U_1$ and $U_2$ separate $E$, and $E$ is not connected, a contradiction.
+      (b) No such example exists in $\mathbb{R}$ [why?], but many exist in the plane.
+    transcriptionNotes: "bookHint from PDF p.394 (printed 385). Verified against page image."
+    audit: ok
+
+  - cid: ross-22.6
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.6"
+    page: "184"
+    pdfPage: 195
+    verdict: consider
+    machinery: "The sup metric on bounded continuous functions; why boundedness is needed for a metric."
+    standardResult: "C(S) with the sup metric is a metric space"
+    topic: function-sequences
+    subtopics: [uniform-convergence, metric-spaces]
+    skills: [triangle-inequality, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "Triangle inequality for sup requires a pointwise estimate then taking sup."
+    category: canonical
+    type: proof
+    tags: [metric-space, sup-norm, function-space, uniform-convergence]
+    references: ["Definition 22.6 (quoted)", "Definition 24.2 (quoted)"]
+    problemLatex: |
+      (a) Show $C(S)$ given in Definition 22.6 is a metric space.
+      (b) Why did we require the functions in $C(S)$ to be bounded when no such requirement appears in Definition 24.2?
+      *(Definition 22.6: Let $S$ be a subset of $\mathbb{R}$. Let $C(S)$ be the set of all bounded continuous real-valued functions on $S$ and, for $f, g \in C(S)$, let
+      $$d(f, g) = \sup\{|f(x) - g(x)| : x \in S\}.$$
+      Definition 24.2: Let $(f_n)$ be a sequence of real-valued functions defined on a set $S \subseteq \mathbb{R}$. The sequence $(f_n)$ converges uniformly on $S$ to a function $f$ defined on $S$ if for each $\epsilon > 0$ there exists a number $N$ such that $|f_n(x) - f(x)| < \epsilon$ for all $x \in S$ and all $n > N$.)*
+    transcriptionNotes: "Definitions 22.6 (PDF p.194) and 24.2 (PDF p.204, §24) quoted verbatim. No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-22.10
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.10"
+    page: "185"
+    pdfPage: 196
+    verdict: consider
+    machinery: "Uniform continuity is exactly what makes translation continuous in the sup metric."
+    standardResult: "translation x -> f(x + ·) is uniformly continuous into C(R) for uniformly continuous f"
+    topic: continuity
+    subtopics: [uniform-continuity, continuity-metric-spaces]
+    skills: [epsilon-delta-proof, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "d(f_x, f_t) = sup_y |f(x+y) - f(t+y)| is controlled directly by the uniform continuity modulus of f."
+    category: synthesis
+    type: proof
+    tags: [uniform-continuity, function-space, sup-norm, translation]
+    references: ["Definition 22.6 (quoted)"]
+    problemLatex: |
+      Let $f$ be a (fixed) uniformly continuous function in $C(\mathbb{R})$. For each $x \in \mathbb{R}$, let $f_x$ be the function defined by $f_x(y) = f(x + y)$ for $y \in \mathbb{R}$. Let $F(x) = f_x$; show $F$ is uniformly continuous from $\mathbb{R}$ into $C(\mathbb{R})$.
+      *(Definition 22.6: Let $S$ be a subset of $\mathbb{R}$. Let $C(S)$ be the set of all bounded continuous real-valued functions on $S$ and, for $f, g \in C(S)$, let $d(f, g) = \sup\{|f(x) - g(x)| : x \in S\}$.)*
+    transcriptionNotes: "Definition 22.6 quoted verbatim. No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+  - cid: ross-22.11
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.11"
+    page: "185"
+    pdfPage: 196
+    verdict: consider
+    machinery: "Closed sets and connectedness in a function space via convex combinations (paths t f + (1-t) g)."
+    standardResult: "closed unit ball of C(S) is closed and connected; C(S) connected"
+    topic: topology
+    subtopics: [connectedness, closed-sets, metric-spaces]
+    skills: [sequential-characterization, path-construction]
+    difficulty: easy
+    difficultyRationale: "Closedness via limits of sequences; connectedness via straight-line paths (convexity)."
+    category: synthesis
+    type: proof
+    tags: [function-space, connectedness, closed-set, convexity, sup-norm]
+    references: ["Definition 22.6 (quoted)"]
+    problemLatex: |
+      Consider $C(S)$ where $S \subseteq \mathbb{R}$, and let $\mathcal{E}$ consist of all $f$ in $C(S)$ such that $\sup\{|f(x)| : x \in S\} \le 1$.
+      (a) Show $\mathcal{E}$ is closed in $C(S)$.
+      (b) Show $C(S)$ is connected.
+      (c) Show $\mathcal{E}$ is connected.
+      *(Definition 22.6: Let $S$ be a subset of $\mathbb{R}$. Let $C(S)$ be the set of all bounded continuous real-valued functions on $S$ and, for $f, g \in C(S)$, let $d(f, g) = \sup\{|f(x) - g(x)| : x \in S\}$.)*
+    bookHint: |
+      (a) Let $(f_n)$ be a convergent sequence in $\mathcal{E}$. By Proposition 13.9(b), it suffices to show $f = \lim f_n$ is in $\mathcal{E}$. For each $x \in S$,
+      $$|f(x)| \le |f(x) - f_n(x)| + |f_n(x)| \le d(f, f_n) + 1.$$
+      Since $\lim d(f, f_n) = 0$, we have $|f(x)| \le 1$.
+      (b) It suffices to show $C(S)$ is path-connected. So use Exercise 22.9.
+    transcriptionNotes: "Definition 22.6 quoted verbatim. bookHint from PDF p.395 (printed 386); the hint's Exercise 22.9 asks to show F(t) = t f + (1 - t) g is uniformly continuous from R into C(S); Proposition 13.9(b): a set is closed iff it contains the limits of its convergent sequences. Verified against page image."
+    audit: ok
+
+  - cid: ross-22.14
+    chapter: "3 Continuity"
+    section: "§22 More on Metric Spaces: Connectedness"
+    number: "Exercise 22.14"
+    page: "185"
+    pdfPage: 196
+    verdict: strong
+    machinery: "Subsequential limits plus connectedness: if consecutive differences tend to 0, the set of subsequential limits is an interval."
+    standardResult: "s_{n+1} - s_n -> 0 implies set of subsequential limits is an interval [liminf, limsup]"
+    topic: sequences
+    subtopics: [subsequences, limsup-liminf, connectedness]
+    skills: [subsequence-extraction, epsilon-N-proof]
+    difficulty: hard
+    difficultyRationale: "Must show the sequence crosses every neighborhood of c infinitely often using small steps between visits near a and near b."
+    category: challenge
+    type: proof
+    tags: [subsequential-limits, connectedness, limsup, sequences]
+    references: ["Theorem 11.8 (quoted)", "Theorem 11.2 (quoted)"]
+    problemLatex: |
+      Consider a bounded sequence $(s_n)$ in $\mathbb{R}$ and its set $S$ of subsequential limits as in Theorem 11.8. Show that if $\lim_n (s_{n+1} - s_n) = 0$, then $S$ is a connected interval in $\mathbb{R}$. *Hint*: Consider $a < c < b$ where $a$ and $b$ are in $S$, and show $c$ is in $S$. Use Theorem 11.2.
+      *(Theorem 11.8: Let $(s_n)$ be any sequence in $\mathbb{R}$, and let $S$ denote the set of subsequential limits of $(s_n)$. (i) $S$ is nonempty. (ii) $\sup S = \limsup s_n$ and $\inf S = \liminf s_n$. (iii) $\lim s_n$ exists if and only if $S$ has exactly one element, namely $\lim s_n$. Theorem 11.2(i): If $t$ is in $\mathbb{R}$, then there is a subsequence of $(s_n)$ converging to $t$ if and only if the set $\{n \in \mathbb{N} : |s_n - t| < \epsilon\}$ is infinite for all $\epsilon > 0$.)*
+    transcriptionNotes: "Theorems 11.8 and 11.2(i) quoted verbatim (only part (i) of 11.2 is relevant; parts (ii)-(iii) concern unbounded sequences). The book cites '[11]' as the source of the exercise; reference dropped. No entry in Selected Hints. Verified against page image."
+    audit: ok
+
+skipped:
+  - "17.1 routine computation of domains/values of compositions; 17.2 routine (sums/compositions of a step function and x^2)"
+  - "17.3 routine application of continuity theorems to specific formulas; 17.4 sqrt x continuous (covered by ross-17.9(b) and Theorem 18.4); 17.6 rational functions continuous (immediate from 17.5); 17.7 |x| continuous / alternate proof of book's Theorem 17.3 (mid-development); 17.8 min(f,g) continuous (routine identity, weaker than 17.5-type machinery)"
+  - "17.15 continuity tested by sequences in dom(f)\\{x0} (minor variant of definition; near-duplicate of ross-17.11 which is better); 17.16 postage-stamp function discontinuous at integers (duplicate of 17.10(a))"
+  - "18.1 trivial (-f max iff f min); 18.2 'reread the proof of Theorem 18.1 on (a,b)' requires quoting the full proof (conceptual point covered by ross-18.4); 18.3 calculus max/min computation on [0,5) (the trap that the max is not attained is covered by 18.4/21.5); 18.6 x = cos x and 18.7 x e^x = 2 routine IVT applications; 18.8 trivial IVT restatement; 18.11 routine (strictly decreasing versions of book's Theorems 18.4/18.5)"
+  - "19.3 duplicate of ross-19.2 (direct UC proofs); 19.5 near-duplicate of ross-19.1 (classification of UC on sets); 19.10 x^2 sin(1/x) UC on R, near-duplicate of ross-19.9; 19.11 sin(x)/x UC on R, requires accepting continuity at 0 and is the same technique as 19.9"
+  - "20.1-20.4, 20.9 sketch/inspect one-sided limits (routine); 20.5-20.8, 20.10 prove those routine limit assertions; 20.11 routine limit computations; 20.12 routine sketch/limits of a rational function; 20.13 routine limit-law applications; 20.14 1/x one-sided infinite limits (routine); 20.15 routine (book's Example 4); 20.18 routine limit computation; 20.19 technicality about Ross's limit-along-S definition; 20.20 arithmetic of infinite limits stated in Ross's book-specific lim_{x->a^S} notation (routine given Theorems 9.9/9.11)"
+  - "21.1 uniform continuity of a path from uniformly continuous components (routine, tied to book's Proposition 21.2); 21.6 composition of continuous maps via preimages (routine); 21.7 definitional (subspace metric, define continuity of a path); 21.8 uniformly continuous maps Cauchy to Cauchy in metric spaces (restates book's Theorem 19.4 verbatim in metric setting); 21.9 (a) trivial projection, (b) speculative 'do you think' about Peano curves; 21.12 second-category disjoint sets (requires Ross's category definitions, exotic for this bank); 21.14 completes the book's proof of Theorem 21.11 (mid-development)"
+  - "22.2 unit circle connected (routine: continuous image of an interval); 22.7 refers to the metric space B of Exercise 13.3 (not self-contained); 22.8 evaluation map uniformly continuous on C(S) (routine); 22.9 F(t) = t f + (1-t) g uniformly continuous into C(S) (routine; used as the hint for ross-22.11); 22.12 topology of pointwise convergence on C(S) (needs Discussion 13.7 topology axioms; beyond scope); 22.13 graph of (x, sin(1/x)) connected not path-connected (near-duplicate of ross-22.4, which is better posed; also book writes f(0) = 0 where (0,0) is meant)"

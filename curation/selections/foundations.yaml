@@ -1,0 +1,29 @@
+- cid: lebl-0.3.6
+- cid: lebl-0.3.11
+- cid: lebl-0.3.12
+- cid: lebl-0.3.15
+- cid: lebl-0.3.19
+- cid: abbott-1.2.11
+  set: {difficulty: easy}
+  why: "Negate nested-quantifier statements into positive form — the skill behind every proof by contradiction and every counterexample."
+- cid: tao-A.5.1
+  why: "Reorder ∀ and ∃ and watch the meaning change; the root of the pointwise vs. uniform distinction."
+- cid: lebl-0.3.10
+  why: "Injectivity/surjectivity of compositions — routine but foundational."
+- cid: tao-3.4.5
+  why: "f(f⁻¹(S)) = S and f⁻¹(f(S)) = S characterize surjectivity and injectivity; good element-chasing."
+- cid: lebl-0.3.27
+  why: "Preimages respect all set operations, images only unions — why topology is phrased with preimages."
+- cid: abbott-1.5.3
+  why: "Countable unions of countable sets: the array enumeration, and why induction cannot reach the infinite union."
+- cid: abbott-1.5.6
+  why: "Each disjoint open interval contains its own rational, so there are only countably many — a trick reused for monotone discontinuities and open sets."
+- cid: abbott-1.5.8
+  why: "Sorting elements by size (> 1/n) to prove countability — the same pattern behind summable families and jump discontinuities."
+- cid: abbott-1.5.9
+  why: "Algebraic numbers are countable, so transcendental numbers exist — counting as an existence proof."
+- cid: lebl-1.4.5
+  why: "An explicit bijection [0,1] → (0,1) by shifting a countable sequence (Hilbert-hotel trick)."
+- cid: tao-8.3.2
+  set: {category: synthesis}
+  why: "The construction at the heart of Schröder–Bernstein: chase the ‘defect’ B∖A forward under f."

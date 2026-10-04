@@ -1,0 +1,1270 @@
+# MIT 18.100A / 18.1001 Real Analysis — Fall 2020 (MIT OpenCourseWare).
+# Problems written by the course itself. Lebl exercises assigned by the course live in
+# lebl.yaml with an `assignedIn` entry.
+# Point values printed on the exams ("(5 points)") are omitted; nothing else is changed.
+
+- id: mit20-a1-6
+  source:
+    key: mit
+    chapter: "Assignment 1"
+    section: "Reading: Lebl §0.3"
+    problemNumber: "Problem 6"
+    page: "1"
+  topic: foundations
+  subtopics: [cardinality, functions]
+  skills: [construct-bijection, injectivity-surjectivity, unique-factorization]
+  concept: "Q is countable (explicit bijection via prime factorizations)"
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags: [cardinality, countable, bijection, rationals, machinery]
+  problemLatex: |
+    In this exercise, you will prove that
+    $$|\{q \in \mathbb{Q} : q > 0\}| = |\mathbb{N}|.$$
+    In what follows, we will use the following theorem without proof:
+
+    **Theorem.** *Let $q \in \mathbb{Q}$ with $q > 0$. Then*
+
+    1) *if $q \in \mathbb{N}$ and $q \neq 1$, then there exists unique prime numbers $p_1 < p_2 < \cdots < p_N$ and unique exponents $r_1, \ldots, r_N \in \mathbb{N}$ such that*
+    $$q = p_1^{r_1} p_2^{r_2} \cdots p_N^{r_N}, \qquad (\dagger)$$
+
+    2) *if $q \notin \mathbb{N}$, then there exist unique prime numbers $p_1 < p_2 < \ldots < p_N$, $q_1 < q_2 < \cdots < q_M$ with $p_i \neq q_j$ for all $i \in \{1, \ldots, N\}$, $j \in \{1, \ldots, M\}$, and unique exponents $r_1, \ldots, r_N, s_1, \ldots, s_M \in \mathbb{N}$ such that*
+    $$q = \frac{p_1^{r_1} p_2^{r_2} \cdots p_N^{r_N}}{q_1^{s_1} q_2^{s_2} \cdots q_M^{s_M}}. \qquad (\ddagger)$$
+
+    Define $f \colon \{q \in \mathbb{Q} : q > 0\} \to \mathbb{N}$ as follows: $f(1) = 1$, if $q \in \mathbb{N} \setminus \{1\}$ is given by $(\dagger)$, then
+    $$f(q) = p_1^{2r_1} \cdots p_N^{2r_N},$$
+    and if $q \in \mathbb{Q} \setminus \mathbb{N}$ is given by $(\ddagger)$, then
+    $$f(q) = p_1^{2r_1} \cdots p_N^{2r_N} q_1^{2s_1 - 1} \cdots q_M^{2s_M - 1}.$$
+
+    (a) Compute $f(4/15)$. Find $q$ such that $f(q) = 108$.
+
+    (b) Use the **Theorem** to prove that $f$ is a bijection.
+  notes: "Transcribed from the assignment PDF; layout of the theorem lightly reformatted."
+  curation:
+    why: "Countability of Q done by an explicit bijection rather than a picture — forces you to verify injectivity and surjectivity honestly."
+
+- id: mit20-a2-7
+  source:
+    key: mit
+    chapter: "Assignment 2"
+    section: "Reading: Lebl §0.3, §1.1, §1.2"
+    problemNumber: "Problem 7"
+    page: "1"
+  topic: real-numbers
+  subtopics: [completeness, supremum-infimum]
+  skills: [sup-approximation, contradiction, algebraic-estimate]
+  concept: "existence of roots via the least upper bound property"
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags: [supremum, completeness, least-upper-bound, roots, machinery, canonical]
+  problemLatex: |
+    Let
+    $$E = \{x \in \mathbb{R} : x > 0 \text{ and } x^3 < 2\}.$$
+    (a) Prove that $E$ is bounded above.
+
+    (b) Let $r = \sup E$ (which exists by part (a)). Prove that $r > 0$ and $r^3 = 2$.
+
+    *Hint:* Adapt the proof used in Example 1.2.3.
+  notes: "The hint refers to Lebl, Basic Analysis I, Example 1.2.3 (existence of $\\sqrt{2}$ via the supremum)."
+  curation:
+    why: "The archetypal use of completeness: rule out r³ < 2 and r³ > 2 by perturbing r. Every later sup argument has this shape."
+
+- id: mit20-a3-1
+  source:
+    key: mit
+    chapter: "Assignment 3"
+    section: "Reading: Lebl §1.2–1.5, §2.1"
+    problemNumber: "Problem 1"
+    page: "1"
+  topic: real-numbers
+  subtopics: [density-of-Q, archimedean-property]
+  skills: [use-density-of-Q, shift-by-irrational]
+  concept: "density of the irrationals"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [density, irrationals, Archimedean-property, machinery]
+  problemLatex: |
+    Suppose $x, y \in \mathbb{R}$ and $x < y$. Prove that there exists $i \in \mathbb{R} \setminus \mathbb{Q}$ such that $x < i < y$.
+  curation:
+    why: "Density of the irrationals from density of Q — a short, standard trick you will reuse constantly (e.g. Dirichlet-type functions)."
+
+- id: mit20-a3-2
+  source:
+    key: mit
+    chapter: "Assignment 3"
+    section: "Reading: Lebl §1.2–1.5, §2.1"
+    problemNumber: "Problem 2"
+    page: "1"
+  topic: foundations
+  subtopics: [cardinality]
+  skills: [construct-bijection, decimal-expansions]
+  concept: "uncountable sets via a bijection with the power set of N"
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags: [cardinality, uncountable, power-set, decimal-representation]
+  problemLatex: |
+    Let $E \subset (0, 1)$ be the set of all real numbers with decimal representation using only the digits 1 and 2:
+    $$E := \{x \in (0, 1) : \forall j \in \mathbb{N},\ \exists d_{-j} \in \{1, 2\} \text{ such that } x = 0.d_{-1}d_{-2}\ldots\}$$
+    Prove that $|E| = |\wp(\mathbb{N})|$. *Hint:* Consider the function $f \colon E \to \wp(\mathbb{N})$ such that if $x \in E$, $x = 0.d_{-1}d_{-2}\ldots$,
+    $$f(x) = \{j \in \mathbb{N} : d_{-j} = 2\}.$$
+  curation:
+    why: "Shows how to identify a concrete set of reals with ℘(ℕ); the subtle point is that decimal expansions using only 1s and 2s are unique."
+
+- id: mit20-a3-3
+  source:
+    key: mit
+    chapter: "Assignment 3"
+    section: "Reading: Lebl §1.2–1.5, §2.1"
+    problemNumber: "Problem 3"
+    page: "1"
+  topic: foundations
+  subtopics: [cardinality]
+  skills: [construct-bijection, contradiction]
+  concept: "irrationals are uncountable"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [cardinality, countable, uncountable, irrationals]
+  problemLatex: |
+    (a) Let $A$ and $B$ be two disjoint, countably infinite sets. Prove that $A \cup B$ is countably infinite.
+
+    (b) Prove that the set of irrational numbers, $\mathbb{R} \setminus \mathbb{Q}$, is uncountable. You may use the facts discussed in the lectures that $\mathbb{R} \setminus \mathbb{Q}$ is infinite and $\mathbb{R}$ is uncountable without proof.
+  curation:
+    why: "The standard two-step argument (countable ∪ countable is countable ⇒ irrationals uncountable)."
+
+- id: mit20-a3-4
+  source:
+    key: mit
+    chapter: "Assignment 3"
+    section: "Reading: Lebl §1.2–1.5, §2.1"
+    problemNumber: "Problem 4"
+    page: "1"
+  topic: real-numbers
+  subtopics: [supremum-infimum]
+  skills: [sup-approximation, negate-definition, epsilon-argument]
+  concept: "ε-characterization of the supremum"
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags: [supremum, epsilon, characterization, machinery, canonical]
+  problemLatex: |
+    Let $A$ be a subset of $\mathbb{R}$ which is bounded above, and let $a_0$ be an upper bound for $A$. Prove that $a_0 = \sup A$ if and only if for every $\epsilon > 0$, there exists $a \in A$ such that $a_0 - \epsilon < a$.
+  curation:
+    why: "The working definition of sup. You will use the ‘a₀ − ε < a’ form far more than the ‘least upper bound’ form."
+
+- id: mit20-a3-5
+  source:
+    key: mit
+    chapter: "Assignment 3"
+    section: "Reading: Lebl §1.2–1.5, §2.1"
+    problemNumber: "Problem 5"
+    page: "1–2"
+  topic: topology
+  subtopics: [open-sets]
+  skills: [choose-epsilon, unions-intersections, counterexample-via-density]
+  concept: "open sets in R: intervals, unions, finite intersections; Q is not open"
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags: [open-set, topology, definition, density, machinery, canonical]
+  problemLatex: |
+    We say a set $U \subset \mathbb{R}$ is *open* if for every $x \in U$ there exists $\epsilon > 0$ such that $(x - \epsilon, x + \epsilon) \subset U$.
+
+    Since the definition is vacuous for $U = \emptyset$, it follows that the empty set is open. It is also clear from the definition that $U = \mathbb{R}$ is open.
+
+    (a) Let $a, b \in \mathbb{R}$ with $a < b$. Prove that the sets $(-\infty, a)$, $(a, b)$, and $(b, \infty)$ are open.
+
+    (b) Let $\Lambda$ be a set (not necessarily a subset of $\mathbb{R}$), and for each $\lambda \in \Lambda$, let $U_\lambda \subset \mathbb{R}$. Prove that if $U_\lambda$ is open for all $\lambda \in \Lambda$ then the set
+    $$\bigcup_{\lambda \in \Lambda} U_\lambda = \{x \in \mathbb{R} : \exists \lambda \in \Lambda \text{ such that } x \in U_\lambda\}$$
+    is open.
+
+    (c) Let $n \in \mathbb{N}$, and let $U_1, \ldots, U_n \subset \mathbb{R}$. Prove that if $U_1, \ldots, U_n$ are open then the set
+    $$\bigcap_{m=1}^{n} U_m = \{x \in \mathbb{R} : x \in U_m \text{ for all } m = 1, \ldots, n\}$$
+    is an open set.
+
+    (d) Is the set of rationals $\mathbb{Q} \subset \mathbb{R}$ open? Provide a proof to substantiate your claim.
+  curation:
+    why: "Builds the topology of ℝ from the ε-ball definition. Part (c) shows exactly where finiteness is used (take the minimum ε)."
+
+- id: mit20-a3-6
+  source:
+    key: mit
+    chapter: "Assignment 3"
+    section: "Reading: Lebl §1.2–1.5, §2.1"
+    problemNumber: "Problem 6"
+    page: "2"
+  topic: sequences
+  subtopics: [convergence]
+  skills: [epsilon-N-proof, Archimedean-property, crude-bound]
+  concept: "ε–N proof of a limit"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [epsilon-N, convergence, definition, sequence]
+  problemLatex: |
+    Prove that
+    $$\lim_{n \to \infty} \frac{1}{20n^2 + 20n + 2020} = 0.$$
+  curation:
+    why: "A first ε–N proof where you should bound crudely (denominator ≥ 20n) rather than solve exactly."
+
+- id: mit20-a4-1
+  source:
+    key: mit
+    chapter: "Assignment 4"
+    section: "Reading: Lebl §2.1, §2.2"
+    problemNumber: "Problem 1"
+    page: "1"
+  topic: topology
+  subtopics: [closed-sets]
+  skills: [complement-argument, counterexample-via-density]
+  concept: "closed sets in R: [a,b], Z closed; Q not closed"
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags: [closed-set, open-set, topology, definition, density]
+  problemLatex: |
+    We say a set $F \subset \mathbb{R}$ is *closed* if its complement $F^c := \mathbb{R} \setminus F$ is open (see Assignment 3 for a discussion of open sets). Since $\emptyset$ and $\mathbb{R}$ are open, it follows that $\emptyset$ and $\mathbb{R}$ are closed as well.
+
+    (a) Let $a, b \in \mathbb{R}$ with $a < b$. Prove that $[a, b]$ is closed.
+
+    (b) Is the set $\mathbb{Z} \subset \mathbb{R}$ closed? Provide a proof to substantiate your claim.
+
+    (c) Is the set of rationals $\mathbb{Q} \subset \mathbb{R}$ closed? Provide a proof to substantiate your claim.
+  notes: "“Assignment 3” refers to MIT 18.100A (2020) Assignment 3, Problem 5 (definition of open set: for every $x \\in U$ there is $\\epsilon > 0$ with $(x-\\epsilon, x+\\epsilon) \\subset U$)."
+  curation:
+    why: "Closedness via the complement; together with Problem 5 of Assignment 3, shows Q is neither open nor closed."
+
+- id: mit20-a4-2
+  source:
+    key: mit
+    chapter: "Assignment 4"
+    section: "Reading: Lebl §2.1, §2.2"
+    problemNumber: "Problem 2"
+    page: "1"
+  topic: topology
+  subtopics: [closed-sets]
+  skills: [de-morgan, complement-argument]
+  concept: "arbitrary intersections / finite unions of closed sets are closed"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [closed-set, De-Morgan, topology]
+  problemLatex: |
+    (a) Let $\Lambda$ be a set (not necessarily a subset of $\mathbb{R}$), and for each $\lambda \in \Lambda$, let $F_\lambda \subset \mathbb{R}$. Prove that if $F_\lambda$ is closed for all $\lambda \in \Lambda$ then the set
+    $$\bigcap_{\lambda \in \Lambda} F_\lambda = \{x \in \mathbb{R} : x \in F_\lambda \text{ for all } \lambda \in \Lambda\}$$
+    is closed.
+
+    (b) Let $n \in \mathbb{N}$, and let $F_1, \ldots, F_n \subset \mathbb{R}$. Prove that if $F_1, \ldots, F_n$ are closed then the set $\bigcup_{m=1}^{n} F_m$ is closed.
+  curation:
+    why: "De Morgan transfers the open-set axioms to closed sets; quick but foundational."
+
+- id: mit20-a4-3
+  source:
+    key: mit
+    chapter: "Assignment 4"
+    section: "Reading: Lebl §2.1, §2.2"
+    problemNumber: "Problem 3"
+    page: "1"
+  topic: topology
+  subtopics: [closed-sets]
+  skills: [contradiction, epsilon-ball-argument, sequential-characterization]
+  concept: "closed sets contain the limits of their convergent sequences"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [closed-set, sequence, sequential-characterization, machinery, canonical]
+  problemLatex: |
+    Let $F \subset \mathbb{R}$ be a closed set, and let $\{x_n\}$ be a sequence of elements of $F$ converging to $x \in \mathbb{R}$. Prove that $x \in F$.
+
+    *Hint:* Assume that $x \in F^c$ and arrive at a contradiction.
+  curation:
+    why: "One direction of the sequential characterization of closed sets — the bridge between topology and sequences."
+
+- id: mit20-a4-6
+  source:
+    key: mit
+    chapter: "Assignment 4"
+    section: "Reading: Lebl §2.1, §2.2"
+    problemNumber: "Problem 6"
+    page: "1"
+  topic: real-numbers
+  subtopics: [supremum-infimum]
+  skills: [sup-approximation, sequential-characterization]
+  concept: "sequential characterization of the supremum"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [supremum, sequence, characterization, machinery]
+  problemLatex: |
+    Let $A \subset \mathbb{R}$ be bounded above, and let $a_0$ be an upper bound for $A$. Prove that $a_0 = \sup A$ if and only if there exists a sequence $\{a_n\}$ of elements of $A$ such that $\lim_{n \to \infty} a_n = a_0$.
+
+    *Hint:* By Assignment 3, if $a_0 = \sup A$ then for all $n \in \mathbb{N}$ there exists $a_n \in A$ such that
+    $$a_0 - \frac{1}{n} < a_n \le a_0.$$
+  notes: "“By Assignment 3” refers to MIT 18.100A (2020) Assignment 3, Problem 4 (ε-characterization of sup)."
+  curation:
+    why: "Converts the ε-characterization of sup into a sequence statement; used everywhere (e.g. attaining extrema)."
+
+- id: mit20-a4-7
+  source:
+    key: mit
+    chapter: "Assignment 4"
+    section: "Reading: Lebl §2.1, §2.2"
+    problemNumber: "Problem 7"
+    page: "1–2"
+  topic: topology
+  subtopics: [limit-points, closed-sets]
+  skills: [sequential-characterization, epsilon-ball-argument, triangle-inequality]
+  concept: "cluster points: sequential characterization; the derived set is closed"
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags: [cluster-point, limit-point, closed-set, sequence, machinery]
+  problemLatex: |
+    Let $E \subset \mathbb{R}$ be a nonempty set of real numbers. We say $x \in \mathbb{R}$ is a *cluster point* of $E$ if for every $\epsilon > 0$
+    $$(x - \epsilon, x + \epsilon) \cap E \setminus \{x\} \neq \emptyset.$$
+    Said less formally, $x$ is a cluster point of $E$ if every interval containing $x$ contains at least one element of $E$ other than $x$.
+
+    (a) Prove that $x$ is a cluster point of $E$ if and only if there exists a sequence $\{x_n\}$ of elements of $E \setminus \{x\}$ such that $\lim_{n \to \infty} x_n = x$.
+
+    *Hint:* If $x$ is a cluster point of $E$, then for all $n \in \mathbb{N}$ there exists $x_n \in E$ with $x_n \neq x$ such that
+    $$x - \frac{1}{n} < x_n < x + \frac{1}{n}.$$
+
+    (b) Prove that the set of all cluster points of $E$ is closed.
+  curation:
+    why: "Part (b) is a genuine two-layer ε argument (a cluster point of cluster points is a cluster point)."
+
+- id: mit20-a5-5
+  source:
+    key: mit
+    chapter: "Assignment 5"
+    section: "Reading: Lebl §2.2–2.5"
+    problemNumber: "Problem 5"
+    page: "1"
+  topic: sequences
+  subtopics: [limsup-liminf]
+  skills: [limsup-characterization, squeeze]
+  concept: "x_n → 0 iff limsup |x_n| = 0"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [limsup, convergence, absolute-value]
+  problemLatex: |
+    Let $\{x_n\}$ be a bounded sequence of real numbers. Prove
+    $$\lim_{n \to \infty} x_n = 0,$$
+    if and only if
+    $$\limsup_{n \to \infty} |x_n| = 0.$$
+  curation:
+    why: "A first exercise in using limsup as a tool rather than an object: 0 ≤ liminf ≤ limsup squeezes the sequence."
+
+- id: mit20-a5-6
+  source:
+    key: mit
+    chapter: "Assignment 5"
+    section: "Reading: Lebl §2.2–2.5"
+    problemNumber: "Problem 6"
+    page: "1"
+  topic: sequences
+  subtopics: [limsup-liminf]
+  skills: [limsup-characterization]
+  concept: "a sequence converges iff liminf = limsup"
+  difficulty: introductory
+  category: canonical
+  type: conceptual
+  tags: [limsup, liminf, convergence, conceptual]
+  problemLatex: |
+    Does there exist a sequence $\{x_n\}$ such that
+    $$\liminf_{n \to \infty} x_n = -1, \qquad \lim_{n \to \infty} x_n = 0, \qquad \limsup_{n \to \infty} x_n = 1?$$
+    Either give an example, or explain why no such example exists.
+  curation:
+    why: "Tests whether you know that a convergent sequence has liminf = lim = limsup."
+
+- id: mit20-a7-2
+  source:
+    key: mit
+    chapter: "Assignment 7"
+    section: "Reading: Lebl §2.5, §2.6, §3.1"
+    problemNumber: "Problem 2"
+    page: "1"
+  topic: series
+  subtopics: [power-series, convergence-tests]
+  skills: [ratio-test, root-test, endpoint-analysis]
+  concept: "interval of convergence of power series"
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags: [power-series, ratio-test, root-test, radius-of-convergence, computation]
+  problemLatex: |
+    Find all real numbers $x$ so that the series converges.
+
+    (a) $\sum_{n=0}^{\infty} 2^n x^n$
+
+    (b) $\sum_{n=0}^{\infty} n x^n$
+
+    (c) $\sum_{n=0}^{\infty} \frac{1}{(2n)!} (x - 10)^n$
+
+    (d) $\sum_{n=0}^{\infty} n!\, x^n$
+  curation:
+    why: "Covers the four behaviours of the radius (finite, finite with endpoint check, infinite, zero) in one problem."
+
+- id: mit20-a7-3
+  source:
+    key: mit
+    chapter: "Assignment 7"
+    section: "Reading: Lebl §2.5, §2.6, §3.1"
+    problemNumber: "Problem 3"
+    page: "1"
+  topic: series
+  subtopics: [absolute-convergence, comparison]
+  skills: [AM-GM-estimate, comparison-test, partial-sums, limit-of-inequality]
+  concept: "Cauchy–Schwarz inequality for series (ℓ²)"
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags: [series, Cauchy-Schwarz, absolute-convergence, comparison, inequality]
+  problemLatex: |
+    (Cauchy-Schwarz inequality) Prove that if $\sum |x_n|^2$ and $\sum |y_n|^2$ converge, then the series $\sum x_n y_n$ converges absolutely and
+    $$\left| \sum_{n=1}^{\infty} x_n y_n \right| \le \left( \sum_{n=1}^{\infty} |x_n|^2 \right)^{\frac{1}{2}} \left( \sum_{n=1}^{\infty} |y_n|^2 \right)^{\frac{1}{2}}.$$
+  curation:
+    why: "Comparison test plus passing an inequality on partial sums to the limit — the ℓ² machinery behind graduate analysis."
+
+- id: mit20-a7-4
+  source:
+    key: mit
+    chapter: "Assignment 7"
+    section: "Reading: Lebl §2.5, §2.6, §3.1"
+    problemNumber: "Problem 4"
+    page: "1"
+  topic: topology
+  subtopics: [limit-points, dense-sets]
+  skills: [density-argument]
+  concept: "every real is a cluster point of the irrationals"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [cluster-point, density, irrationals]
+  problemLatex: |
+    Prove that every real number is a cluster point of the set of irrational numbers.
+  curation:
+    why: "Short link between density and cluster points; needed for limits of functions on ℝ∖ℚ."
+
+- id: mit20-a7-6
+  source:
+    key: mit
+    chapter: "Assignment 7"
+    section: "Reading: Lebl §2.5, §2.6, §3.1"
+    problemNumber: "Problem 6"
+    page: "1"
+  topic: continuity
+  subtopics: [functional-limits]
+  skills: [epsilon-delta-proof, choose-epsilon]
+  concept: "local boundedness and sign-preservation of functional limits"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [functional-limit, epsilon-delta, local-boundedness, machinery]
+  problemLatex: |
+    Let $S \subset \mathbb{R}$, let $c$ be a cluster point of $S$, and let $f \colon S \to \mathbb{R}$.
+
+    (a) Assume $\lim_{x \to c} f(x)$ exists. Prove that there exist $B \ge 0$ and $\delta > 0$ such that if $x \in S$ and $0 < |x - c| < \delta$ then $|f(x)| \le B$.
+
+    (b) Assume that $\lim_{x \to c} f(x) = L > 0$. Prove that there exists $\delta > 0$ such that if $x \in S$ and $0 < |x - c| < \delta$ then $f(x) > 0$.
+  curation:
+    why: "The two ‘choose ε cleverly’ lemmas (ε = 1, ε = L/2) used inside countless proofs."
+
+- id: mit20-a8-2
+  source:
+    key: mit
+    chapter: "Assignment 8"
+    section: "Reading: Lebl §3.1, §3.2"
+    problemNumber: "Problem 2"
+    page: "1"
+  topic: continuity
+  subtopics: [epsilon-delta-continuity, discontinuities, sequential-continuity]
+  skills: [epsilon-delta-proof, sequential-criterion-for-discontinuity, density-argument]
+  concept: "Dirichlet-type function continuous at exactly one point"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [continuity, discontinuity, Dirichlet-function, density, epsilon-delta, counterexample]
+  problemLatex: |
+    Let
+    $$f(x) = \begin{cases} 0 & \text{if } x \in \mathbb{Q}, \\ 2x & \text{if } x \notin \mathbb{Q}. \end{cases}$$
+    Prove that $f$ is continuous at $x = 0$ and discontinuous at $x = 1$.
+  curation:
+    why: "Continuity is a pointwise notion: ε–δ at 0, a pair of sequences (rational vs. irrational) at 1."
+
+- id: mit20-a8-5
+  source:
+    key: mit
+    chapter: "Assignment 8"
+    section: "Reading: Lebl §3.1, §3.2"
+    problemNumber: "Problem 5"
+    page: "1"
+  topic: continuity
+  subtopics: [continuity-and-topology]
+  skills: [epsilon-delta-proof, preimage-manipulation]
+  concept: "topological characterization of continuity (preimages of open sets)"
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags: [continuity, open-set, preimage, topology, characterization, machinery, canonical]
+  problemLatex: |
+    Let $f \colon \mathbb{R} \to \mathbb{R}$. Recall that if $U \subset \mathbb{R}$, the inverse image of $U$ is the set
+    $$f^{-1}(U) := \{x \in \mathbb{R} : f(x) \in U\}.$$
+    Prove that $f$ is continuous if and only if for every open set $U \subset \mathbb{R}$, $f^{-1}(U)$ is open.
+  curation:
+    why: "The definition of continuity used in graduate analysis and topology; proving it from ε–δ is essential."
+
+- id: mit20-a9-4
+  source:
+    key: mit
+    chapter: "Assignment 9"
+    section: "Reading: Lebl §3.3–3.5"
+    problemNumber: "Problem 4"
+    page: "1"
+  topic: continuity
+  subtopics: [uniform-continuity, lipschitz-holder]
+  skills: [choose-delta]
+  concept: "Lipschitz implies uniformly continuous"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [Lipschitz, uniform-continuity, definition]
+  problemLatex: |
+    Let $S \subset \mathbb{R}$. We say that $f \colon S \to \mathbb{R}$ is *Lipschitz continuous* on $S$ if there exists $L \ge 0$ such that for all $x, y \in S$,
+    $$|f(x) - f(y)| \le L|x - y|.$$
+    Prove that if $f \colon S \to \mathbb{R}$ is Lipschitz continuous on $S$ then $f$ is uniformly continuous on $S$.
+  curation:
+    why: "The cleanest uniform-continuity proof: δ = ε/L, independent of the point."
+
+- id: mit20-a9-5
+  source:
+    key: mit
+    chapter: "Assignment 9"
+    section: "Reading: Lebl §3.3–3.5"
+    problemNumber: "Problem 5"
+    page: "1"
+  topic: continuity
+  subtopics: [lipschitz-holder, uniform-continuity]
+  skills: [MVT-application, Heine-Cantor, negate-definition]
+  concept: "uniformly continuous but not Lipschitz (cube root)"
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags: [Lipschitz, uniform-continuity, counterexample, compactness]
+  problemLatex: |
+    (a) Prove that $f(x) = \cos x$ is Lipschitz continuous on $\mathbb{R}$.
+
+    (b) Prove that $f(x) = x^{1/3}$ is uniformly continuous on $[0, 1]$ and is not Lipschitz continuous on $[0, 1]$.
+  curation:
+    why: "Separates the hierarchy Lipschitz ⊊ uniformly continuous with a concrete example."
+
+- id: mit20-a9-6
+  source:
+    key: mit
+    chapter: "Assignment 9"
+    section: "Reading: Lebl §3.3–3.5"
+    problemNumber: "Problem 6"
+    page: "1"
+  topic: continuity
+  subtopics: [limits-at-infinity]
+  skills: [epsilon-M-proof, sequential-criterion-for-divergence]
+  concept: "limits at infinity: proof and non-existence"
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags: [limit-at-infinity, definition, sequences, divergence]
+  problemLatex: |
+    Let $R \in \mathbb{R}$, and let $f \colon [R, \infty) \to \mathbb{R}$. We say that $f(x)$ *converges to $L$ as $x \to \infty$* if for every $\epsilon > 0$ there exists $M \ge R$ such that for all $x \ge M$ we have $|f(x) - L| < \epsilon$. We write $f(x) \to L$ as $x \to \infty$ or
+    $$\lim_{x \to \infty} f(x) = L.$$
+    [A similar definition can be formulated for limits as $x \to -\infty$ but we will not do so here.]
+
+    (a) Prove that
+    $$\lim_{x \to \infty} \frac{x^2}{x^2 + 1} = 1.$$
+
+    (b) Prove that
+    $$\lim_{x \to \infty} \sin x$$
+    does not exist.
+  curation:
+    why: "Applying a new definition directly, and proving non-existence with two sequences."
+
+- id: mit20-a10-1
+  source:
+    key: mit
+    chapter: "Assignment 10"
+    section: "Reading: Lebl §4.1, §4.2"
+    problemNumber: "Problem 1"
+    page: "1"
+  topic: differentiation
+  subtopics: [derivative-definition, mvt-applications]
+  skills: [choose-delta, difference-quotient-estimate]
+  concept: "Hölder condition with exponent > 1 forces constant"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [Holder, uniform-continuity, derivative, difference-quotient]
+  problemLatex: |
+    Let $I$ be an interval. A function $f \colon I \to \mathbb{R}$ is said to satisfy a *Hölder condition with exponent $\alpha > 0$* if there exists a constant $C > 0$ such that if $x, y \in I$ then
+    $$|f(x) - f(y)| \le C|x - y|^{\alpha}.$$
+
+    (a) Prove that if $f \colon I \to \mathbb{R}$ satisfies a Hölder condition with exponent $\alpha > 0$, then $f$ is uniformly continuous on $I$.
+
+    (b) Prove that if $f \colon I \to \mathbb{R}$ satisfies a Hölder condition with exponent $\alpha > 1$, then $f$ is constant.
+  curation:
+    why: "Part (b) is a nice derivative-from-the-definition argument: the difference quotient is squeezed to 0."
+
+- id: mit20-a10-3
+  source:
+    key: mit
+    chapter: "Assignment 10"
+    section: "Reading: Lebl §4.1, §4.2"
+    problemNumber: "Problem 3"
+    page: "1"
+  topic: differentiation
+  subtopics: [mvt-applications]
+  skills: [MVT-application, derivative-from-definition]
+  concept: "differentiable f is Lipschitz iff f' is bounded"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [mean-value-theorem, Lipschitz, derivative, machinery, canonical]
+  problemLatex: |
+    Let $f \colon \mathbb{R} \to \mathbb{R}$ be a differentiable function. Prove that $f$ is Lipschitz continuous if and only if $f'$ is a bounded function.
+  curation:
+    why: "The single most common MVT application; the converse direction uses the definition of the derivative."
+
+- id: mit20-a11-1
+  source:
+    key: mit
+    chapter: "Assignment 11"
+    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+    problemNumber: "Problem 1"
+    page: "1"
+  topic: differentiation
+  subtopics: [rolle-mvt]
+  skills: [IVT-application, Rolle-application, monotonicity-via-derivative]
+  concept: "existence and uniqueness of a root via IVT + Rolle/monotonicity"
+  difficulty: easy
+  category: synthesis
+  type: theorem-application
+  tags: [IVT, Rolle, mean-value-theorem, polynomial, roots]
+  problemLatex: |
+    Prove that the polynomial equation $\frac{x^{1121}}{1121} + \frac{x^{2021}}{2021} + x + 1 = 0$ has exactly one real root.
+  curation:
+    why: "The standard existence (IVT) + uniqueness (Rolle / positive derivative) pattern."
+
+- id: mit20-a11-2
+  source:
+    key: mit
+    chapter: "Assignment 11"
+    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+    problemNumber: "Problem 2"
+    page: "1"
+  topic: differentiation
+  subtopics: [taylor]
+  skills: [compute-derivatives]
+  concept: "computing Taylor polynomials"
+  difficulty: introductory
+  category: canonical
+  type: computation
+  tags: [Taylor, computation]
+  problemLatex: |
+    Compute the fourth Taylor polynomial for:
+
+    (a) $f(x) = \sin x$ at $x = 0$.
+
+    (b) $f(x) = \frac{1}{1-x}$ at $x = -1$.
+  curation:
+    why: "Routine but sets the notation for Taylor's theorem; (b) checks the expansion point is not 0."
+
+- id: mit20-a11-3
+  source:
+    key: mit
+    chapter: "Assignment 11"
+    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+    problemNumber: "Problem 3"
+    page: "1"
+  topic: differentiation
+  subtopics: [taylor]
+  skills: [taylor-remainder-estimate]
+  concept: "limits via Taylor's theorem"
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags: [Taylor, limits, computation]
+  problemLatex: |
+    Compute:
+
+    (a)
+    $$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
+
+    (b)
+    $$\lim_{x \to \frac{\pi}{2}} \frac{1 - \sin x}{\left(x - \frac{\pi}{2}\right)^2}$$
+  curation:
+    why: "Use Taylor's theorem with remainder (not L'Hôpital by rote) to compute limits rigorously."
+
+- id: mit20-a11-4
+  source:
+    key: mit
+    chapter: "Assignment 11"
+    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+    problemNumber: "Problem 4"
+    page: "1"
+  topic: differentiation
+  subtopics: [taylor, local-extrema]
+  skills: [taylor-remainder-sign, continuity-sign-preservation]
+  concept: "third-derivative test via Taylor's theorem"
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags: [Taylor, local-extrema, derivative-test]
+  problemLatex: |
+    Suppose that $f \colon (a, b) \to \mathbb{R}$ is three times continuously differentiable, $c \in (a, b)$, $f'(c) = f''(c) = 0$ and $f'''(c) > 0$. Prove that $f$ has a neither a local maximum nor a local minimum at $c$.
+  notes: "“has a neither” is verbatim from the source."
+  curation:
+    why: "Taylor's theorem with a Lagrange remainder plus continuity of f''' controls the sign of f(x) − f(c) near c."
+
+- id: mit20-a11-5
+  source:
+    key: mit
+    chapter: "Assignment 11"
+    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+    problemNumber: "Problem 5"
+    page: "1"
+  topic: integration
+  subtopics: [partitions-darboux-sums]
+  skills: [riemann-sum-computation, telescoping]
+  concept: "Riemann sums of a linear function without the FTC"
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags: [Riemann-integration, Riemann-sum, partition, computation]
+  problemLatex: |
+    Let $a < b$, and define a sequence of tagged partitions by
+    $$\underline{x}^{(r)} := \left\{ a + (b - a)\frac{k}{r} : k = 0, \ldots, r \right\},$$
+    $$\underline{\xi}^{(r)} := \left\{ a + (b - a)\frac{k}{r} : k = 1, \ldots, r \right\}.$$
+
+    (a) Compute $\|\underline{x}^{(r)}\|$.
+
+    (b) Let $f(x) = \alpha x + \beta$. Prove that
+    $$\lim_{r \to \infty} S_f\!\left(\underline{x}^{(r)}, \underline{\xi}^{(r)}\right) = \alpha \frac{b^2 - a^2}{2} + \beta(b - a).$$
+    You may not use the fundamental theorem of calculus.
+  notes: "Notation from the course's Riemann Integral lecture notes: $\\|\\underline{x}\\|$ is the norm (mesh) of the partition and $S_f(\\underline{x}, \\underline{\\xi})$ the Riemann sum with tags $\\underline{\\xi}$."
+  curation:
+    why: "Computing an integral straight from Riemann sums once, by hand, is part of understanding what the integral is."
+
+- id: mit20-a12-1
+  source:
+    key: mit
+    chapter: "Assignment 12"
+    section: "Reading: Riemann Integral lecture notes; Lebl §6.1"
+    problemNumber: "Problem 1"
+    page: "1"
+  topic: integration
+  subtopics: [integral-properties]
+  skills: [continuity-sign-preservation, integration-by-parts, contradiction]
+  concept: "nonnegative continuous function with zero integral vanishes; energy uniqueness argument"
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags: [Riemann-integration, continuity, integration-by-parts, ODE, uniqueness]
+  problemLatex: |
+    (a) Suppose that $f \in C([a, b])$, $f(x) \ge 0$ for all $x \in [a, b]$. Prove that if
+    $$\int_a^b f = 0,$$
+    then $f(x) = 0$ for all $x \in [a, b]$.
+
+    (b) Suppose that $u \in C([a, b])$ is twice continuously differentiable, $V \in C([a, b])$, $V(x) \ge 0$ for all $x \in [a, b]$ and
+    $$-u''(x) + V(x)u(x) = 0, \quad x \in [a, b], \qquad u(a) = u(b) = 0.$$
+    Prove that $u(x) = 0$ for all $x \in [a, b]$. *Hint: What's one of the most useful theorems in analysis mentioned in Lecture 22?*
+  notes: "Typo corrected: the source reads “$f(x) = 0$ for all $f \\in [a,b]$” in (a); intended “$x \\in [a,b]$”. The hint in (b) refers to a course lecture (the intended theorem is not named in the assignment)."
+  curation:
+    why: "(a) is a basic positivity lemma; (b) multiplies by u and integrates by parts — the energy method behind graduate PDE uniqueness proofs."
+
+- id: mit20-mid-1a
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 1(a)"
+    page: "2"
+  topic: foundations
+  subtopics: [functions, sets]
+  skills: [element-chasing]
+  concept: "preimages commute with intersections"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [preimage, sets, functions, element-chasing]
+  problemLatex: |
+    Let $f \colon A \to B$, and let $C, D$ be subsets of $B$. Prove
+    $$f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D).$$
+  curation:
+    why: "Element-chasing with preimages; the reason preimages, not images, appear in the topological definition of continuity."
+
+- id: mit20-mid-1bc
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 1(b)–(c)"
+    page: "3"
+  topic: foundations
+  subtopics: [cardinality]
+  skills: [contradiction, construct-counterexample]
+  concept: "complements of countable / uncountable subsets of R"
+  difficulty: introductory
+  category: canonical
+  type: conceptual
+  tags: [cardinality, countable, uncountable, counterexample]
+  problemLatex: |
+    (b) When $E$ is a countable subset of $\mathbb{R}$, is the complement $\mathbb{R} \setminus E$ always uncountable? Explain why or why not.
+
+    (c) When $E$ is an uncountable subset of $\mathbb{R}$, is the complement $\mathbb{R} \setminus E$ always countable? Explain why or why not.
+  curation:
+    why: "Quick check that you can use ‘countable ∪ countable is countable’ and produce a counterexample for the false converse."
+
+- id: mit20-mid-2
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 2"
+    page: "4–5"
+  topic: topology
+  subtopics: [open-sets, closed-sets]
+  skills: [negate-definition, sequential-characterization, contradiction]
+  concept: "sequentially closed implies closed (negating openness)"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [open-set, closed-set, negation, quantifiers, sequence, sequential-characterization, machinery]
+  problemLatex: |
+    A subset of real numbers $U \subset \mathbb{R}$ is *open* if for all $x \in U$, there exists $\epsilon > 0$ such that $(x - \epsilon, x + \epsilon) \subset U$. A subset of real numbers $F \subset \mathbb{R}$ is *closed* if $F^c$ is open.
+
+    (a) State what it means to say $U$ is not open.
+
+    (b) Prove that if $U$ is not open, then there exists $x \in U$ and a sequence $\{x_n\}_n$ of elements of $U^c$ such that
+    $$\lim_{n \to \infty} x_n = x.$$
+
+    (c) Suppose $F \subset \mathbb{R}$ has the following property: for every convergent sequence $\{x_n\}_n$ of elements of $F$ we have $\lim_{n \to \infty} x_n \in F$. Prove that $F$ is closed.
+
+    *Hint:* Argue by contradiction using (b).
+  curation:
+    why: "Negate a ∀∃ definition, then turn the negation into a sequence. With Assignment 4 Problem 3 this proves closed ⇔ sequentially closed."
+
+- id: mit20-mid-3a
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 3(a)"
+    page: "6"
+  topic: sequences
+  subtopics: [convergence]
+  skills: [epsilon-N-proof, crude-bound]
+  concept: "ε–N proof of a rational-function limit"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [epsilon-N, convergence, definition]
+  problemLatex: |
+    Use the definition of convergence to prove that
+    $$\lim_{n \to \infty} \frac{10n^2}{n^2 + 16n + 1} = 10.$$
+  curation:
+    why: "An ε–N proof where the difference must be simplified and bounded — the standard exam-level drill."
+
+- id: mit20-mid-3b
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 3(b)"
+    page: "7"
+  topic: sequences
+  subtopics: [monotone-sequences, subsequences]
+  skills: [construct-counterexample]
+  concept: "examples: convergent non-monotone; unbounded with convergent subsequence"
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags: [sequence, monotone, subsequence, bounded, counterexample]
+  problemLatex: |
+    For each of the following scenarios, give an example satisfying the stated property. Formal proofs are not required, but some explanation may be useful.
+
+    (i) A sequence $\{x_n\}$ converging to $0$ which is not monotonic.
+
+    (ii) An unbounded sequence that has a convergent subsequence.
+  curation:
+    why: "Quick examples showing that monotone convergence and Bolzano–Weierstrass have no converses."
+
+- id: mit20-mid-4a
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 4(a)"
+    page: "8"
+  topic: sequences
+  subtopics: [limsup-liminf, bounded-sequences]
+  skills: [tail-sup-argument, limit-of-inequality]
+  concept: "subadditivity of limsup"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [limsup, inequality, bounded-sequence, machinery, canonical]
+  problemLatex: |
+    Let $\{x_n\}$ and $\{y_n\}$ be bounded sequences of real numbers.
+
+    (i) Prove that the sequence $\{x_n + y_n\}$ is bounded.
+
+    (ii) Prove that
+    $$\limsup_{n \to \infty} (x_n + y_n) \le \limsup_{n \to \infty} x_n + \limsup_{n \to \infty} y_n.$$
+  curation:
+    why: "Work with limsup as lim of tail sups: sup of a sum ≤ sum of sups, then take limits."
+
+- id: mit20-mid-4b
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 4(b)"
+    page: "9"
+  topic: topology
+  subtopics: [limit-points]
+  skills: [construct-sequence, decimal-expansions]
+  concept: "cluster point of a digit-restricted set"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [cluster-point, decimal-representation, sequence]
+  problemLatex: |
+    Let $E$ denote the set of all real numbers in $(0, 1)$ with decimal expansion involving only 1's and 2's:
+    $$E = \{x \in (0, 1) : \forall j \in \mathbb{N},\ \exists d_{-j} \in \{1, 2\}, \text{ such that } x = 0.d_{-1}d_{-2}\ldots\}.$$
+    Note that $0.2 \notin E$ but $0.222222\ldots \in E$. Prove that $0.1111111\ldots$ is a cluster point of $E$.
+  curation:
+    why: "Constructing points of a set that approach a given point, with an honest estimate on the distance."
+
+- id: mit20-mid-5a
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 5(a)"
+    page: "10"
+  topic: series
+  subtopics: [comparison]
+  skills: [comparison-test, epsilon-argument]
+  concept: "limit comparison test"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [series, comparison, limit-comparison, machinery]
+  problemLatex: |
+    Suppose that for all $n \in \mathbb{N}$, $a_n > 0$, $b_n > 0$ and
+    $$\lim_{n \to \infty} \frac{a_n}{b_n} = L > 0.$$
+    Prove that $\sum a_n$ converges if and only if $\sum b_n$ converges.
+  curation:
+    why: "Proving the limit comparison test: choose ε = L/2 to sandwich aₙ between multiples of bₙ."
+
+- id: mit20-mid-5b
+  source:
+    key: mit
+    chapter: "Midterm Exam (October 16, 2020)"
+    problemNumber: "Problem 5(b)"
+    page: "11"
+  topic: series
+  subtopics: [power-series, absolute-convergence, conditional-convergence]
+  skills: [ratio-test, endpoint-analysis]
+  concept: "convergence vs absolute convergence of power series"
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags: [power-series, absolute-convergence, ratio-test, computation]
+  problemLatex: |
+    Find all real numbers $x$ such that the series converges. Find all real numbers $x$ such that the series converges absolutely.
+
+    (i)
+    $$\sum_{n=0}^{\infty} \frac{(-1)^n}{2020n} (x - 10)^n$$
+
+    (ii)
+    $$\sum_{n=0}^{\infty} n!\, x^{n!}$$
+  notes: "Verified against the exam PDF: in (i) the denominator is $2020n$ (not $2020^n$), and the sum is printed from $n=0$ even though the $n=0$ term is undefined — read it as starting at $n=1$. In (ii) the exponent is $n!$."
+  curation:
+    why: "(i) has conditional convergence at one endpoint (alternating harmonic); (ii) is a lacunary series where the usual coefficient-ratio test does not apply directly."
+
+- id: mit20-final-1
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 1"
+    page: "2–3"
+  topic: foundations
+  subtopics: [logic-quantifiers]
+  skills: [negate-definition]
+  concept: "negating continuity, uniform continuity, uniform convergence"
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags: [quantifiers, negation, continuity, uniform-continuity, uniform-convergence, definition, canonical]
+  problemLatex: |
+    Complete the following **negations**:
+
+    (i) Let $S \subset \mathbb{R}$. A function $f \colon S \to \mathbb{R}$ is **not continuous at** $c \in S$ if
+
+    (ii) Let $S \subset \mathbb{R}$. A function $f \colon S \to \mathbb{R}$ is **not uniformly continuous on** $S$ if
+
+    (iii) Let $S \subset \mathbb{R}$. A sequence of functions $f_n \colon S \to \mathbb{R}$ **does not converge uniformly** to $f \colon S \to \mathbb{R}$ if
+  curation:
+    why: "Negating the three most important ∀∃∀ definitions of the course. If you cannot do this instantly, every counterexample proof will be shaky."
+
+- id: mit20-final-2a
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 2(a)"
+    page: "3–4"
+  topic: continuity
+  subtopics: [EVT, IVT]
+  skills: [construct-counterexample]
+  concept: "EVT needs compactness; IVT needs continuity"
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags: [EVT, IVT, counterexample, compactness, continuity]
+  problemLatex: |
+    Give explicit examples satisfying the stated conditions. Explanation, but not a formal proof, for each case is required.
+
+    (i) A continuous function on $(0, 1)$ with neither a global maximum nor minimum.
+
+    (ii) A function on $[0, 1]$ with an absolute minimum at $0$, absolute maximum at $1$ and such that there exists $y \in (f(0), f(1))$ not in the range of $f$.
+  curation:
+    why: "Locate exactly which hypothesis of the EVT / IVT fails."
+
+- id: mit20-final-2b
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 2(b)"
+    page: "5"
+  topic: continuity
+  subtopics: [epsilon-delta-continuity]
+  skills: [epsilon-delta-proof, add-and-subtract, local-boundedness]
+  concept: "product of continuous functions is continuous (ε–δ)"
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags: [continuity, epsilon-delta, product-rule, machinery]
+  problemLatex: |
+    Let $f \colon S \to \mathbb{R}$ and $g \colon S \to \mathbb{R}$ be functions continuous at $c \in S$. Prove that the product $fg \colon S \to \mathbb{R}$ is continuous at $c$.
+  curation:
+    why: "The add-and-subtract trick f(x)g(x) − f(c)g(c) = f(x)(g(x) − g(c)) + g(c)(f(x) − f(c)) with local boundedness."
+
+- id: mit20-final-3
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 3"
+    page: "6–7"
+  topic: topology
+  subtopics: [sequential-compactness, compactness]
+  skills: [Bolzano-Weierstrass, closed-sets-contain-limits, subsequence-extraction, continuity-sequential]
+  concept: "[a,b] is (sequentially) compact; continuous image of [a,b] is compact"
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags: [compactness, sequential-compactness, Bolzano-Weierstrass, continuity, machinery, canonical]
+  problemLatex: |
+    We say a subset $K \subset \mathbb{R}$ is **compact** if for every sequence $\{x_n\}_n$ of elements of $K$, there exists a subsequence $\{x_{n_k}\}_k$ and $x \in K$ such that $\lim_{k \to \infty} x_{n_k} = x$ (every sequence has a subsequence converging in $K$).
+
+    (a) Let $a < b$. Prove that $[a, b]$ is compact. *Hint:* A theorem named after two men, one with an Italian surname and the other with a German surname, might be useful.
+
+    (b) Let $a < b$, and let $f \colon [a, b] \to \mathbb{R}$ be a continuous function. Prove that
+    $$f([a, b]) := \{f(x) : x \in [a, b]\}$$
+    is compact.
+  curation:
+    why: "Sequential compactness of [a, b] via Bolzano–Weierstrass, then its preservation under continuous maps — the engine behind the EVT."
+
+- id: mit20-final-4a
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 4(a)"
+    page: "7–8"
+  topic: differentiation
+  subtopics: [differentiability]
+  skills: [difference-quotient-estimate, construct-counterexample]
+  concept: "differentiable ⇒ continuous; converse false"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [derivative, continuity, counterexample, definition]
+  problemLatex: |
+    (i) Let $a < b$. Prove that if $f \colon (a, b) \to \mathbb{R}$ is differentiable at $c \in (a, b)$ then $f$ is continuous at $c$.
+
+    (ii) Give an explicit example of a function showing the converse of part (i) is false.
+  curation:
+    why: "The first theorem about derivatives, and its standard counterexample."
+
+- id: mit20-final-4b
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 4(b)"
+    page: "9"
+  topic: differentiation
+  subtopics: [derivative-definition]
+  skills: [difference-quotient-estimate, squeeze]
+  concept: "x² sin(1/x) is differentiable at 0"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [derivative, definition, x2-sin-1-over-x, squeeze]
+  problemLatex: |
+    Let
+    $$f(x) = \begin{cases} x^2 \sin\left(\frac{1}{x}\right) & \text{if } x \neq 0, \\ 0 & \text{if } x = 0. \end{cases}$$
+    Use the definition of the derivative to prove that $f$ is differentiable at $0$.
+  curation:
+    why: "The derivative straight from the limit of difference quotients, on the most important example in the subject."
+
+- id: mit20-final-5a
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 5(a)"
+    page: "9"
+  topic: differentiation
+  subtopics: [taylor]
+  skills: [taylor-remainder-estimate]
+  concept: "Taylor remainder estimate for e^x"
+  difficulty: easy
+  category: canonical
+  type: theorem-application
+  tags: [Taylor, remainder, exponential, estimate]
+  problemLatex: |
+    Let $R > 0$. Prove that for all $x \in [-R, R]$,
+    $$\left| e^x - \sum_{j=0}^{n} \frac{x^j}{j!} \right| \le \frac{e^R R^{n+1}}{(n+1)!}.$$
+  curation:
+    why: "Lagrange remainder in action — and the reason the exponential series converges uniformly on bounded sets."
+
+- id: mit20-final-5b
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 5(b)"
+    page: "10"
+  topic: integration
+  subtopics: [fundamental-theorem]
+  skills: [integration-by-parts, FTC]
+  concept: "Taylor's theorem with integral remainder (first order)"
+  difficulty: easy
+  category: synthesis
+  type: proof
+  tags: [FTC, integration-by-parts, Taylor, integral-remainder]
+  problemLatex: |
+    Suppose $f \colon \mathbb{R} \to \mathbb{R}$ is twice continuously differentiable. Prove that for all $c, x \in \mathbb{R}$ with $c < x$,
+    $$f(x) = f(c) + f'(c)(x - c) + \int_c^x f''(t)(x - t)\,dt.$$
+    *Hint:* Compute the integral using a theorem which ends in “parts.”
+  curation:
+    why: "Ties the FTC and integration by parts to Taylor's theorem — the integral form of the remainder."
+
+- id: mit20-final-6a
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 6(a)"
+    page: "11"
+  topic: integration
+  subtopics: [improper-integrals]
+  skills: [FTC, integration-by-parts, lhopital]
+  concept: "improper integral ∫₀¹ x log x as a limit"
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags: [improper-integral, FTC, L-Hopital, computation]
+  problemLatex: |
+    Compute
+    $$\int_0^1 x \log x \, dx := \lim_{a \to 0^+} \int_a^1 x \log x \, dx.$$
+    You may use without proof the following version of **L'Hôpital's rule**: if $f, g \colon (0, 1) \to \mathbb{R}$, $g(x) \neq 0$ for all $x$, $f(x) \to -\infty$, $g(x) \to \infty$ as $x \to 0^+$, and $L = \lim_{x \to 0^+} f'(x)/g'(x)$ exists, then $\lim_{x \to 0^+} f(x)/g(x) = L$.
+  curation:
+    why: "An improper integral treated honestly as a limit of proper integrals."
+
+- id: mit20-final-6b
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 6(b)"
+    page: "12"
+  topic: integration
+  subtopics: [integral-inequalities]
+  skills: [integral-estimate, squeeze]
+  concept: "lim ∫₀¹ xⁿ sin x dx = 0 by direct estimate"
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags: [Riemann-integration, estimate, limits-of-integrals]
+  problemLatex: |
+    Prove
+    $$\lim_{n \to \infty} \int_0^1 x^n \sin(x)\,dx = 0.$$
+  curation:
+    why: "Estimating an integral (|∫| ≤ ∫ xⁿ = 1/(n+1)) instead of computing it; contrast with the non-uniform convergence of xⁿ."
+
+- id: mit20-final-6c
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 6(c)"
+    page: "13"
+  topic: integration
+  subtopics: [integral-inequalities, fundamental-theorem]
+  skills: [integration-by-parts, EVT-bound]
+  concept: "Riemann–Lebesgue lemma for C¹ functions"
+  difficulty: easy
+  category: synthesis
+  type: proof
+  tags: [Riemann-integration, integration-by-parts, Riemann-Lebesgue, estimate]
+  problemLatex: |
+    Let $f \colon [-\pi, \pi] \to \mathbb{R}$ be a continuously differentiable function. Prove that
+    $$\lim_{n \to \infty} \int_{-\pi}^{\pi} \sin(nx) f(x)\,dx = 0.$$
+    *Hint:* $\sin(nx) = \left[-\frac{1}{n}\cos(nx)\right]'$
+  curation:
+    why: "A first look at the Riemann–Lebesgue lemma: integrate by parts and bound with the EVT."
+
+- id: mit20-final-7a
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 7(a)"
+    page: "14"
+  topic: function-sequences
+  subtopics: [pointwise-convergence, uniform-convergence]
+  skills: [construct-counterexample]
+  concept: "pointwise but not uniform convergence to a continuous limit"
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags: [uniform-convergence, pointwise-convergence, counterexample]
+  problemLatex: |
+    Give an explicit example of a sequence of continuous functions on $(0, 1)$ that converges pointwise to a continuous function on $(0, 1)$ but the convergence is not uniform. Explanation, but not a formal proof, is required. Feel free to use pictures.
+  curation:
+    why: "Shows that a continuous limit does not imply uniform convergence (the ‘moving bump’ / xⁿ examples)."
+
+- id: mit20-final-7b
+  source:
+    key: mit
+    chapter: "Final Assignment (December 6, 2020)"
+    problemNumber: "Problem 7(b)"
+    page: "14–15"
+  topic: function-sequences
+  subtopics: [uniform-convergence]
+  skills: [MVT-application, sup-norm-estimate]
+  concept: "bounded derivative ⇒ Lipschitz ⇒ translates converge uniformly"
+  difficulty: easy
+  category: synthesis
+  type: proof
+  tags: [uniform-convergence, Lipschitz, mean-value-theorem]
+  problemLatex: |
+    Suppose $f \colon \mathbb{R} \to \mathbb{R}$ is a differentiable function and there exists $L > 0$ such that
+    $$|f'(c)| \le L, \quad \forall c \in \mathbb{R}.$$
+
+    (i) Prove that $f \colon \mathbb{R} \to \mathbb{R}$ is Lipschitz continuous on $\mathbb{R}$.
+
+    (ii) Define a sequence of functions $f_n \colon \mathbb{R} \to \mathbb{R}$ by
+    $$f_n(x) := f\left(x + \frac{1}{n}\right).$$
+    Prove that $\{f_n\}_n$ converges to $f$ uniformly on $\mathbb{R}$.
+  curation:
+    why: "Uniform convergence via an x-independent bound — the sup-norm estimate in its simplest form."

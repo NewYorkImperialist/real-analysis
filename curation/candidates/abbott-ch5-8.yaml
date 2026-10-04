@@ -1,0 +1,2273 @@
+chunk: "abbott-ch5-8"
+book: abbott
+pageOffsetNote: "offset varies (unnumbered plates): printed = pdfPage - 11 for pdf <= 178 (Ch. 5); pdfPage - 10 for pdf 179-224 (Ch. 6); pdfPage - 9 for pdf >= 225 (Chs. 7-8). Verified from running heads."
+sectionsCovered:
+  - "5.2 Derivatives and the Intermediate Value Property — 12 exercises"
+  - "5.3 The Mean Value Theorems — 12 exercises"
+  - "5.4 A Continuous Nowhere-Differentiable Function — 8 exercises (selective)"
+  - "6.2 Uniform Convergence of a Sequence of Functions — 15 exercises"
+  - "6.3 Uniform Convergence and Differentiation — 7 exercises"
+  - "6.4 Series of Functions — 10 exercises"
+  - "6.5 Power Series — 11 exercises"
+  - "6.6 Taylor Series — 10 exercises"
+  - "6.7 The Weierstrass Approximation Theorem — 11 exercises (selective)"
+  - "7.2 The Definition of the Riemann Integral — 7 exercises"
+  - "7.3 Integrating Functions with Discontinuities — 9 exercises"
+  - "7.4 Properties of the Integral — 11 exercises"
+  - "7.5 The Fundamental Theorem of Calculus — 11 exercises"
+  - "7.6 Lebesgue's Criterion for Riemann Integrability — 19 exercises (selective)"
+  - "8.2 Metric Spaces and the Baire Category Theorem — 18 exercises"
+candidates:
+
+  # ---------------------------------------------------------------- 5.2
+  - cid: abbott-5.2.2
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.2"
+    page: "152"
+    pdfPage: 163
+    verdict: strong
+    machinery: "Testing the algebra of differentiability (sums/products) against carefully chosen non-differentiable functions."
+    standardResult: "f not differentiable, g differentiable => f+g not differentiable; products can be differentiable; function differentiable at exactly one point"
+    topic: differentiation
+    subtopics: [differentiability, derivative-rules]
+    skills: [construct-counterexample, contradiction]
+    difficulty: medium
+    difficultyRationale: "(d) requires inventing a function like x^2 times Dirichlet's function and checking differentiability only at 0; identifying (c) as impossible is easy."
+    category: canonical
+    type: counterexample
+    tags: [derivative, counterexample, differentiability, product-rule, Dirichlet-function]
+    references: []
+    problemLatex: |
+      Exactly one of the following requests is impossible. Decide which it is, and provide examples for the other three. In each case, let's assume the functions are defined on all of $\mathbb{R}$.
+
+      (a) Functions $f$ and $g$ not differentiable at zero but where $fg$ is differentiable at zero.
+
+      (b) A function $f$ not differentiable at zero and a function $g$ differentiable at zero where $fg$ is differentiable at zero.
+
+      (c) A function $f$ not differentiable at zero and a function $g$ differentiable at zero where $f+g$ is differentiable at zero.
+
+      (d) A function $f$ differentiable at zero but not differentiable at any other point.
+
+  - cid: abbott-5.2.4
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.4"
+    page: "153"
+    pdfPage: 164
+    verdict: strong
+    machinery: "Carathéodory's linear-factor characterization of the derivative and a clean proof of the Chain Rule."
+    standardResult: "Carathéodory criterion for differentiability; proof of the Chain Rule"
+    topic: differentiation
+    subtopics: [derivative-definition, derivative-rules]
+    skills: [epsilon-delta-proof, functional-limits]
+    difficulty: medium
+    difficultyRationale: "Both directions of the criterion are short, but using it to handle the f(x)=f(c) issue in the Chain Rule takes insight."
+    category: canonical
+    type: proof
+    tags: [chain-rule, derivative, Caratheodory, machinery]
+    references: ["Theorem 5.2.5 (Chain Rule) (quoted)"]
+    problemLatex: |
+      Follow these steps to provide a slightly modified proof of the Chain Rule.
+
+      (a) Show that a function $h\colon A \to \mathbb{R}$ is differentiable at $a \in A$ if and only if there exists a function $l\colon A \to \mathbb{R}$ which is continuous at $a$ and satisfies
+      $$h(x) - h(a) = l(x)(x-a) \quad \text{for all } x \in A.$$
+
+      (b) Use this criterion for differentiability (in both directions) to prove Theorem 5.2.5.
+
+      *(Theorem 5.2.5 (Chain Rule): Let $f\colon A \to \mathbb{R}$ and $g\colon B \to \mathbb{R}$ satisfy $f(A) \subseteq B$ so that the composition $g \circ f$ is defined. If $f$ is differentiable at $c \in A$ and if $g$ is differentiable at $f(c) \in B$, then $g\circ f$ is differentiable at $c$ with $(g\circ f)'(c) = g'(f(c))\cdot f'(c)$.)*
+    transcriptionNotes: "Statement of Theorem 5.2.5 quoted verbatim from p. 150."
+
+  - cid: abbott-5.2.7
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.7"
+    page: "153"
+    pdfPage: 164
+    verdict: core
+    machinery: "The x^a sin(1/x) family: calibrating differentiability vs. continuity/boundedness of the derivative."
+    standardResult: "x^a sin(1/x): differentiable with unbounded / continuous-not-differentiable / discontinuous second derivative"
+    topic: differentiation
+    subtopics: [differentiability, derivative-definition]
+    skills: [construct-counterexample, difference-quotient-estimate, squeeze]
+    difficulty: medium
+    difficultyRationale: "Requires computing derivatives from the definition at 0 and analyzing limits for noninteger exponents; three calibrated choices of a."
+    category: canonical
+    type: counterexample
+    tags: [x-sin-1-over-x, derivative, counterexample, continuity-of-derivative]
+    references: []
+    problemLatex: |
+      Let
+      $$g_a(x) = \begin{cases} x^a \sin(1/x) & \text{if } x \neq 0 \\ 0 & \text{if } x = 0. \end{cases}$$
+      Find a particular (potentially noninteger) value for $a$ so that
+
+      (a) $g_a$ is differentiable on $\mathbb{R}$ but such that $g_a'$ is unbounded on $[0,1]$.
+
+      (b) $g_a$ is differentiable on $\mathbb{R}$ with $g_a'$ continuous but not differentiable at zero.
+
+      (c) $g_a$ is differentiable on $\mathbb{R}$ and $g_a'$ is differentiable on $\mathbb{R}$, but such that $g_a''$ is not continuous at zero.
+
+  - cid: abbott-5.2.8
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.8"
+    page: "154"
+    pdfPage: 165
+    verdict: strong
+    machinery: "Uniformity in the definition of the derivative; links uniform differentiability to continuity of f' and compactness."
+    standardResult: "uniformly differentiable iff f' continuous (on closed interval); x^2 vs x^3"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [epsilon-delta-proof, construct-counterexample, MVT-application]
+    difficulty: medium
+    difficultyRationale: "(b) is a short epsilon argument, (c) requires spotting that x^2 sin(1/x) breaks the analogue of Theorem 4.4.7."
+    category: synthesis
+    type: conceptual
+    tags: [uniform-differentiability, uniform-continuity, derivative, compactness]
+    references: ["Definition 4.4.4 (uniform continuity)", "Theorem 4.4.7 (quoted)"]
+    problemLatex: |
+      Review the definition of uniform continuity (Definition 4.4.4). Given a differentiable function $f\colon A \to \mathbb{R}$, let's say that $f$ is *uniformly differentiable* on $A$ if, given $\epsilon > 0$ there exists a $\delta > 0$ such that
+      $$\left| \frac{f(x) - f(y)}{x - y} - f'(y) \right| < \epsilon \quad \text{whenever } 0 < |x - y| < \delta.$$
+
+      (a) Is $f(x) = x^2$ uniformly differentiable on $\mathbb{R}$? How about $g(x) = x^3$?
+
+      (b) Show that if a function is uniformly differentiable on an interval $A$, then the derivative must be continuous on $A$.
+
+      (c) Is there a theorem analogous to Theorem 4.4.7 for differentiation? Are functions that are differentiable on a closed interval $[a,b]$ necessarily uniformly differentiable?
+
+      *(Theorem 4.4.7 (Uniform Continuity on Compact Sets): A function that is continuous on a compact set $K$ is uniformly continuous on $K$.)*
+    transcriptionNotes: "Theorem 4.4.7 quoted verbatim from p. 133 (pdf 144). Definition 4.4.4 is the standard definition of uniform continuity and is left as a reference."
+
+  - cid: abbott-5.2.9
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.9"
+    page: "154"
+    pdfPage: 165
+    verdict: strong
+    machinery: "Applying Darboux's theorem and the x^2 sin(1/x) example to decide claims about derivatives."
+    standardResult: "Darboux property consequences; f'(c)>0 does not force f'>0 nearby; limit of f' equals f'(0)"
+    topic: differentiation
+    subtopics: [darboux-property, differentiability]
+    skills: [construct-counterexample, theorem-recognition]
+    difficulty: medium
+    difficultyRationale: "Each part is short but needs the right tool (Darboux for (a),(c); oscillating counterexample for (b))."
+    category: synthesis
+    type: counterexample
+    tags: [Darboux-theorem, derivative, intermediate-value-property, counterexample]
+    references: []
+    problemLatex: |
+      Decide whether each conjecture is true or false. Provide an argument for those that are true and a counterexample for each one that is false.
+
+      (a) If $f'$ exists on an interval and is not constant, then $f'$ must take on some irrational values.
+
+      (b) If $f'$ exists on an open interval and there is some point $c$ where $f'(c) > 0$, then there exists a $\delta$-neighborhood $V_\delta(c)$ around $c$ in which $f'(x) > 0$ for all $x \in V_\delta(c)$.
+
+      (c) If $f$ is differentiable on an interval containing zero and if $\lim_{x\to 0} f'(x) = L$, then it must be that $L = f'(0)$.
+
+  - cid: abbott-5.2.10
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.10"
+    page: "154"
+    pdfPage: 165
+    verdict: core
+    machinery: "Positive derivative at a single point does not give local monotonicity; computing a derivative at 0 from the definition."
+    standardResult: "x/2 + x^2 sin(1/x): g'(0)>0 but g not increasing near 0"
+    topic: differentiation
+    subtopics: [derivative-definition, mvt-applications]
+    skills: [construct-counterexample, difference-quotient-estimate]
+    difficulty: medium
+    difficultyRationale: "Requires locating points arbitrarily close to 0 where g' < 0 and converting that to failure of monotonicity."
+    category: canonical
+    type: counterexample
+    tags: [derivative, monotone, counterexample, x-sin-1-over-x]
+    references: []
+    problemLatex: |
+      Recall that a function $f\colon (a,b) \to \mathbb{R}$ is *increasing* on $(a,b)$ if $f(x) \le f(y)$ whenever $x < y$ in $(a,b)$. A familiar mantra from calculus is that a differentiable function is increasing if its derivative is positive, but this statement requires some sharpening in order to be completely accurate.
+
+      Show that the function
+      $$g(x) = \begin{cases} x/2 + x^2\sin(1/x) & \text{if } x \neq 0 \\ 0 & \text{if } x = 0 \end{cases}$$
+      is differentiable on $\mathbb{R}$ and satisfies $g'(0) > 0$. Now, prove that $g$ is *not* increasing over any open interval containing 0.
+
+  - cid: abbott-5.2.11
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.11"
+    page: "154"
+    pdfPage: 165
+    verdict: core
+    machinery: "Proof of Darboux's theorem via the Extreme Value Theorem and Interior Extremum Theorem."
+    standardResult: "Darboux's theorem (derivatives have the intermediate value property)"
+    topic: differentiation
+    subtopics: [darboux-property, local-extrema]
+    skills: [EVT-application, interior-extremum, sign-of-difference-quotient]
+    difficulty: hard
+    difficultyRationale: "The guided steps help, but the key idea (minimum is interior because g'(a)<0<g'(b)) is the canonical 'hard' derivative proof."
+    category: canonical
+    type: proof
+    tags: [Darboux-theorem, derivative, intermediate-value-property, extreme-value-theorem]
+    references: ["Theorem 5.2.7 (Darboux's Theorem) and the start of its proof (quoted)"]
+    problemLatex: |
+      *(Context, quoted from the text: Theorem 5.2.7 (Darboux's Theorem). If $f$ is differentiable on an interval $[a,b]$, and if $\alpha$ satisfies $f'(a) < \alpha < f'(b)$ (or $f'(a) > \alpha > f'(b)$), then there exists a point $c \in (a,b)$ where $f'(c) = \alpha$. Proof begins: define $g(x) = f(x) - \alpha x$ on $[a,b]$. Notice that $g$ is differentiable on $[a,b]$ with $g'(x) = f'(x) - \alpha$. In terms of $g$, our hypothesis states that $g'(a) < 0 < g'(b)$, and we hope to show that $g'(c) = 0$ for some $c \in (a,b)$.)*
+
+      Assume that $g$ is differentiable on $[a,b]$ and satisfies $g'(a) < 0 < g'(b)$.
+
+      (a) Show that there exists a point $x \in (a,b)$ where $g(a) > g(x)$, and a point $y \in (a,b)$ where $g(y) < g(b)$.
+
+      (b) Now complete the proof of Darboux's Theorem started earlier.
+    transcriptionNotes: "Theorem 5.2.7 and the opening of its proof quoted (lightly condensed connective words) from p. 152 so part (b) is self-contained."
+
+  - cid: abbott-5.2.12
+    chapter: "5 The Derivative"
+    section: "5.2 Derivatives and the Intermediate Value Property"
+    number: "Exercise 5.2.12"
+    page: "155"
+    pdfPage: 166
+    verdict: consider
+    machinery: "Derivative of an inverse function via sequential/functional limits and continuity of the inverse."
+    standardResult: "inverse function theorem in one variable: (f^{-1})'(y) = 1/f'(x)"
+    topic: differentiation
+    subtopics: [inverse-functions, derivative-definition]
+    skills: [functional-limits, composition-of-limits]
+    difficulty: medium
+    difficultyRationale: "Needs continuity of f^{-1} and a careful rewriting of the difference quotient."
+    category: canonical
+    type: proof
+    tags: [inverse-function, derivative, continuity]
+    references: ["Exercise 4.5.8 (result stated in the exercise)"]
+    problemLatex: |
+      **(Inverse functions).** If $f\colon [a,b] \to \mathbb{R}$ is one-to-one, then there exists an inverse function $f^{-1}$ defined on the range of $f$ given by $f^{-1}(y) = x$ where $y = f(x)$. In Exercise 4.5.8 we saw that if $f$ is continuous on $[a,b]$, then $f^{-1}$ is continuous on its domain. Let's add the assumption that $f$ is differentiable on $[a,b]$ with $f'(x) \neq 0$ for all $x \in [a,b]$. Show $f^{-1}$ is differentiable with
+      $$\left(f^{-1}\right)'(y) = \frac{1}{f'(x)} \quad \text{where } y = f(x).$$
+    transcriptionNotes: "The fact cited from Exercise 4.5.8 is stated in the exercise itself."
+
+  # ---------------------------------------------------------------- 5.3
+  - cid: abbott-5.3.1
+    chapter: "5 The Derivative"
+    section: "5.3 The Mean Value Theorems"
+    number: "Exercise 5.3.1"
+    page: "160"
+    pdfPage: 171
+    verdict: strong
+    machinery: "MVT plus EVT give Lipschitz bounds; |f'|<1 pointwise vs. a uniform contraction constant."
+    standardResult: "C^1 on [a,b] => Lipschitz; |f'|<1 => contractive on [a,b]"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, EVT-application]
+    difficulty: easy
+    difficultyRationale: "(a) is a direct MVT+EVT argument; (b) needs noticing that the max of |f'| on a compact set is < 1."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem, Lipschitz, contraction, compactness]
+    references: ["Exercise 4.4.9 (definition given in the exercise)", "Exercise 4.3.11 (contractive definition quoted)"]
+    problemLatex: |
+      Recall from Exercise 4.4.9 that a function $f\colon A \to \mathbb{R}$ is *Lipschitz* on $A$ if there exists an $M > 0$ such that
+      $$\left| \frac{f(x) - f(y)}{x - y} \right| \le M$$
+      for all $x \neq y$ in $A$.
+
+      (a) Show that if $f$ is differentiable on a closed interval $[a,b]$ and if $f'$ is continuous on $[a,b]$, then $f$ is Lipschitz on $[a,b]$.
+
+      (b) Review the definition of a contractive function in Exercise 4.3.11. If we add the assumption that $|f'(x)| < 1$ on $[a,b]$, does it follow that $f$ is contractive on this set?
+
+      *(From Exercise 4.3.11: $f$ is contractive if there is a constant $c$ such that $0 < c < 1$ and $|f(x) - f(y)| \le c|x - y|$ for all $x, y$.)*
+    transcriptionNotes: "Contractive condition quoted from Exercise 4.3.11 (p. 128), where it is stated for f on all of R; here applied to [a,b]."
+
+  - cid: abbott-5.3.3
+    chapter: "5 The Derivative"
+    section: "5.3 The Mean Value Theorems"
+    number: "Exercise 5.3.3"
+    page: "161"
+    pdfPage: 172
+    verdict: consider
+    machinery: "Combining IVT, MVT and Darboux's theorem on concrete data."
+    standardResult: "IVT/MVT/Darboux combination problem"
+    topic: differentiation
+    subtopics: [rolle-mvt, darboux-property]
+    skills: [MVT-application, IVT-application, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Each part is a single well-chosen theorem; (c) needs Darboux between slopes 1 and 0."
+    category: synthesis
+    type: theorem-application
+    tags: [mean-value-theorem, IVT, Darboux-theorem]
+    references: []
+    problemLatex: |
+      Let $h$ be a differentiable function defined on the interval $[0,3]$, and assume that $h(0) = 1$, $h(1) = 2$, and $h(3) = 2$.
+
+      (a) Argue that there exists a point $d \in [0,3]$ where $h(d) = d$.
+
+      (b) Argue that at some point $c$ we have $h'(c) = 1/3$.
+
+      (c) Argue that $h'(x) = 1/4$ at some point in the domain.
+
+  - cid: abbott-5.3.5
+    chapter: "5 The Derivative"
+    section: "5.3 The Mean Value Theorems"
+    number: "Exercise 5.3.5"
+    page: "161"
+    pdfPage: 172
+    verdict: consider
+    machinery: "Proof of Cauchy's generalized MVT from the MVT by an auxiliary function."
+    standardResult: "Cauchy's generalized mean value theorem"
+    topic: differentiation
+    subtopics: [rolle-mvt]
+    skills: [auxiliary-function, MVT-application]
+    difficulty: easy
+    difficultyRationale: "Auxiliary function is given in the text; verification is short."
+    category: canonical
+    type: proof
+    tags: [Cauchy-MVT, mean-value-theorem]
+    references: ["Theorem 5.3.5 (quoted)"]
+    problemLatex: |
+      (a) Supply the details for the proof of Cauchy's Generalized Mean Value Theorem (Theorem 5.3.5).
+
+      (b) Give a graphical interpretation of the Generalized Mean Value Theorem analogous to the one given for the Mean Value Theorem at the beginning of Section 5.3. (Consider $f$ and $g$ as parametric equations for a curve.)
+
+      *(Theorem 5.3.5 (Generalized Mean Value Theorem): If $f$ and $g$ are continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$, then there exists a point $c \in (a,b)$ where $[f(b) - f(a)]g'(c) = [g(b) - g(a)]f'(c)$. If $g'$ is never zero on $(a,b)$, then the conclusion can be stated as $\frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)}$. The text indicates: this result follows by applying the Mean Value Theorem to the function $h(x) = [f(b)-f(a)]g(x) - [g(b)-g(a)]f(x)$.)*
+    transcriptionNotes: "Theorem 5.3.5 and the book's one-line proof sketch quoted from p. 158. The MVT's 'graphical interpretation' is the secant-slope picture."
+
+  - cid: abbott-5.3.6
+    chapter: "5 The Derivative"
+    section: "5.3 The Mean Value Theorems"
+    number: "Exercise 5.3.6"
+    page: "161"
+    pdfPage: 172
+    verdict: strong
+    machinery: "Iterated MVT bounds — the germ of Taylor's remainder estimate."
+    standardResult: "|g'|<=M, g(0)=0 => |g(x)|<=Mx; second-order version |h|<=Mx^2/2"
+    topic: differentiation
+    subtopics: [mvt-applications, taylor]
+    skills: [MVT-application, induction]
+    difficulty: easy
+    difficultyRationale: "(a) is one MVT step; (b) applies (a) twice; (c) is the pattern generalization."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem, Taylor, inequalities]
+    references: []
+    problemLatex: |
+      (a) Let $g\colon [0,a] \to \mathbb{R}$ be differentiable, $g(0) = 0$, and $|g'(x)| \le M$ for all $x \in [0,a]$. Show $|g(x)| \le Mx$ for all $x \in [0,a]$.
+
+      (b) Let $h\colon [0,a] \to \mathbb{R}$ be twice differentiable, $h'(0) = h(0) = 0$ and $|h''(x)| \le M$ for all $x \in [0,a]$. Show $|h(x)| \le Mx^2/2$ for all $x \in [0,a]$.
+
+      (c) Conjecture and prove an analogous result for a function that is differentiable three times on $[0,a]$.
+
+  - cid: abbott-5.3.8
+    chapter: "5 The Derivative"
+    section: "5.3 The Mean Value Theorems"
+    number: "Exercise 5.3.8"
+    page: "161"
+    pdfPage: 172
+    verdict: core
+    machinery: "MVT to convert a limit of derivatives into a derivative at a point."
+    standardResult: "if f continuous at 0 and lim_{x->0} f'(x) = L then f'(0) = L"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "One MVT application on [0,x] plus a squeeze; standard pattern."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem, derivative, functional-limit]
+    references: []
+    problemLatex: |
+      Assume $f$ is continuous on an interval containing zero and differentiable for all $x \neq 0$. If $\lim_{x\to 0} f'(x) = L$, show $f'(0)$ exists and equals $L$.
+
+  - cid: abbott-5.3.11
+    chapter: "5 The Derivative"
+    section: "5.3 The Mean Value Theorems"
+    number: "Exercise 5.3.11"
+    page: "162"
+    pdfPage: 173
+    verdict: strong
+    machinery: "Proof of L'Hospital's rule (0/0) via the generalized MVT; infinite-limit variant."
+    standardResult: "L'Hospital's rule 0/0 case proof"
+    topic: differentiation
+    subtopics: [lhopital, rolle-mvt]
+    skills: [MVT-application, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Requires applying Cauchy MVT on [a,x] and passing the intermediate point to the limit; (b) adapts to M-delta."
+    category: canonical
+    type: proof
+    tags: [LHospital, Cauchy-MVT, functional-limit]
+    references: ["Theorem 5.3.6 (quoted)", "Definition 5.3.7 (quoted)"]
+    problemLatex: |
+      (a) Use the Generalized Mean Value Theorem to furnish a proof of the 0/0 case of L'Hospital's Rule (Theorem 5.3.6).
+
+      (b) If we keep the first part of the hypothesis of Theorem 5.3.6 the same but we assume that
+      $$\lim_{x\to a} \frac{f'(x)}{g'(x)} = \infty,$$
+      does it necessarily follow that
+      $$\lim_{x\to a} \frac{f(x)}{g(x)} = \infty?$$
+
+      *(Theorem 5.3.6 (L'Hospital's Rule: 0/0 case): Let $f$ and $g$ be continuous on an interval containing $a$, and assume $f$ and $g$ are differentiable on this interval with the possible exception of the point $a$. If $f(a) = g(a) = 0$ and $g'(x) \neq 0$ for all $x \neq a$, then $\lim_{x\to a} \frac{f'(x)}{g'(x)} = L$ implies $\lim_{x\to a}\frac{f(x)}{g(x)} = L$. Definition 5.3.7: $\lim_{x\to c} g(x) = \infty$ if, for every $M > 0$, there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$ it follows that $g(x) \ge M$.)*
+    transcriptionNotes: "Theorem 5.3.6 and Definition 5.3.7 quoted from p. 159. Generalized MVT is stated in candidate abbott-5.3.5."
+
+  - cid: abbott-5.3.12
+    chapter: "5 The Derivative"
+    section: "5.3 The Mean Value Theorems"
+    number: "Exercise 5.3.12"
+    page: "162"
+    pdfPage: 173
+    verdict: strong
+    machinery: "Second symmetric difference quotient via MVT/L'Hospital and continuity of f''."
+    standardResult: "second symmetric derivative equals f''(a) when f'' continuous"
+    topic: differentiation
+    subtopics: [mvt-applications, lhopital, taylor]
+    skills: [MVT-application, LHospital-application]
+    difficulty: medium
+    difficultyRationale: "Requires two applications of mean-value-type results or L'Hospital, handling the h-dependence carefully."
+    category: canonical
+    type: proof
+    tags: [second-derivative, mean-value-theorem, LHospital, symmetric-difference]
+    references: ["Exercise 5.2.6(b) (quoted)"]
+    problemLatex: |
+      If $f$ is twice differentiable on an open interval containing $a$ and $f''$ is continuous at $a$, show
+      $$\lim_{h\to 0} \frac{f(a+h) - 2f(a) + f(a-h)}{h^2} = f''(a).$$
+      (Compare this to Exercise 5.2.6(b).)
+
+      *(Exercise 5.2.6(b): Assume $A$ is open. If $g$ is differentiable at $c \in A$, show $g'(c) = \lim_{h\to 0}\frac{g(c+h) - g(c-h)}{2h}$.)*
+    transcriptionNotes: "Exercise 5.2.6(b) quoted from p. 153."
+
+  # ---------------------------------------------------------------- 5.4
+  - cid: abbott-5.4.7
+    chapter: "5 The Derivative"
+    section: "5.4 A Continuous Nowhere-Differentiable Function"
+    number: "Exercise 5.4.7"
+    page: "166"
+    pdfPage: 177
+    verdict: strong
+    machinery: "Straddling-sequence lemma for derivatives, then the key step showing the sawtooth series is nowhere differentiable."
+    standardResult: "continuous nowhere-differentiable function (sawtooth/Takagi-type series): non-dyadic points"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [sequential-characterization, convex-combination-estimate, construct-counterexample]
+    difficulty: very-hard
+    difficultyRationale: "(a) is medium; (b) requires computing the dyadic difference quotients of every h_n and showing they cannot converge — the nowhere-differentiability argument."
+    category: challenge
+    type: proof
+    tags: [nowhere-differentiable, Weierstrass-function, derivative, sawtooth, dyadic]
+    references: ["Definitions of h, h_n, g and sequences x_m, y_m from Section 5.4 (quoted)"]
+    problemLatex: |
+      *(Setup quoted from Section 5.4: Define $h(x) = |x|$ on the interval $[-1,1]$ and extend the definition of $h$ to all of $\mathbb{R}$ by requiring that $h(x+2) = h(x)$. Define
+      $$g(x) = \sum_{n=0}^\infty h_n(x) = \sum_{n=0}^\infty \frac{1}{2^n} h(2^n x).$$
+      Assume $x$ is not a dyadic number. For a fixed value of $m \in \mathbb{N}\cup\{0\}$, $x$ falls between two adjacent dyadic points, $\frac{p_m}{2^m} < x < \frac{p_m+1}{2^m}$. Set $x_m = p_m/2^m$ and $y_m = (p_m+1)/2^m$. Repeating this for each $m$ yields two sequences $(x_m)$ and $(y_m)$ satisfying $\lim x_m = \lim y_m = x$ and $x_m < x < y_m$.)*
+
+      (a) First prove the following general lemma: Let $f$ be defined on an open interval $J$ and assume $f$ is differentiable at $a \in J$. If $(a_n)$ and $(b_n)$ are sequences satisfying $a_n < a < b_n$ and $\lim a_n = \lim b_n = a$, show
+      $$f'(a) = \lim_{n\to\infty} \frac{f(b_n) - f(a_n)}{b_n - a_n}.$$
+
+      (b) Now use this lemma to show that $g'(x)$ does not exist.
+    transcriptionNotes: "Definitions of h, g and the dyadic sequences quoted from pp. 163–165 (pdf 174–176). Continuity of g is established elsewhere (Exercise 6.4.3/M-test). Part (a) alone is a self-contained lemma of medium difficulty."
+
+  # ---------------------------------------------------------------- 6.2
+  - cid: abbott-6.2.1
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.1"
+    page: "180"
+    pdfPage: 190
+    verdict: strong
+    machinery: "Computing pointwise limits and testing uniform convergence via sup-norm on different domains."
+    standardResult: "nx/(1+nx^2): uniform on (1,inf), not on (0,1)"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence]
+    skills: [sup-norm-estimate, negate-definition]
+    difficulty: easy
+    difficultyRationale: "Routine sup computations once uniform convergence is understood; domain dependence is the lesson."
+    category: canonical
+    type: computation
+    tags: [uniform-convergence, pointwise-convergence, sup-norm]
+    references: []
+    problemLatex: |
+      Let
+      $$f_n(x) = \frac{nx}{1 + nx^2}.$$
+
+      (a) Find the pointwise limit of $(f_n)$ for all $x \in (0, \infty)$.
+
+      (b) Is the convergence uniform on $(0,\infty)$?
+
+      (c) Is the convergence uniform on $(0,1)$?
+
+      (d) Is the convergence uniform on $(1,\infty)$?
+
+  - cid: abbott-6.2.5
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.5"
+    page: "181"
+    pdfPage: 191
+    verdict: core
+    machinery: "Cauchy criterion for uniform convergence, built from completeness of R."
+    standardResult: "Cauchy criterion for uniform convergence"
+    topic: function-sequences
+    subtopics: [uniform-cauchy, uniform-convergence]
+    skills: [epsilon-N-proof, limit-in-inequality]
+    difficulty: medium
+    difficultyRationale: "Defining the pointwise limit and passing m to infinity in the Cauchy inequality uniformly in x is the key step."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, Cauchy, completeness, machinery]
+    references: ["Theorem 6.2.5 (quoted)", "Theorem 2.6.4 (quoted)"]
+    problemLatex: |
+      Using the Cauchy Criterion for convergent sequences of real numbers (Theorem 2.6.4), supply a proof for Theorem 6.2.5. (First, define a candidate for $f(x)$, and then argue that $f_n \to f$ uniformly.)
+
+      *(Theorem 6.2.5 (Cauchy Criterion for Uniform Convergence): A sequence of functions $(f_n)$ defined on a set $A \subseteq \mathbb{R}$ converges uniformly on $A$ if and only if for every $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that $|f_n(x) - f_m(x)| < \epsilon$ whenever $m, n \ge N$ and $x \in A$. Theorem 2.6.4 (Cauchy Criterion): A sequence converges if and only if it is a Cauchy sequence.)*
+    transcriptionNotes: "Theorems 6.2.5 and 2.6.4 quoted verbatim."
+
+  - cid: abbott-6.2.6
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.6"
+    page: "181"
+    pdfPage: 191
+    verdict: core
+    machinery: "Which properties pass to pointwise vs. uniform limits; building counterexamples."
+    standardResult: "properties inherited under uniform (not pointwise) limits: uniform continuity, boundedness, discontinuity counts"
+    topic: function-sequences
+    subtopics: [pointwise-convergence, uniform-convergence, interchange-limits]
+    skills: [construct-counterexample, epsilon-over-3]
+    difficulty: medium
+    difficultyRationale: "Five parts; (a) and (b) are epsilon/3 arguments, (c)-(e) need examples like approximations of Dirichlet/Thomae-type functions and judgement."
+    category: synthesis
+    type: counterexample
+    tags: [uniform-convergence, pointwise-convergence, counterexample, uniform-continuity, discontinuities]
+    references: ["Theorem 6.2.6 (quoted)"]
+    problemLatex: |
+      Assume $f_n \to f$ on a set $A$. Theorem 6.2.6 is an example of a typical type of question which asks whether a trait possessed by each $f_n$ is inherited by the limit function. Provide an example to show that all of the following propositions are false if the convergence is only assumed to be pointwise on $A$. Then go back and decide which are true under the stronger hypothesis of uniform convergence.
+
+      (a) If each $f_n$ is uniformly continuous, then $f$ is uniformly continuous.
+
+      (b) If each $f_n$ is bounded, then $f$ is bounded.
+
+      (c) If each $f_n$ has a finite number of discontinuities, then $f$ has a finite number of discontinuities.
+
+      (d) If each $f_n$ has fewer than $M$ discontinuities (where $M \in \mathbb{N}$ is fixed), then $f$ has fewer than $M$ discontinuities.
+
+      (e) If each $f_n$ has at most a countable number of discontinuities, then $f$ has at most a countable number of discontinuities.
+
+      *(Theorem 6.2.6 (Continuous Limit Theorem): Let $(f_n)$ be a sequence of functions defined on $A \subseteq \mathbb{R}$ that converges uniformly on $A$ to a function $f$. If each $f_n$ is continuous at $c \in A$, then $f$ is continuous at $c$.)*
+    transcriptionNotes: "Theorem 6.2.6 quoted verbatim."
+
+  - cid: abbott-6.2.7
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.7"
+    page: "181"
+    pdfPage: 191
+    verdict: strong
+    machinery: "Uniform continuity is exactly what makes translates converge uniformly."
+    standardResult: "f uniformly continuous => f(x+1/n) -> f uniformly; fails for x^2"
+    topic: function-sequences
+    subtopics: [uniform-convergence]
+    skills: [epsilon-delta-proof, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Direct from the definition of uniform continuity; counterexample is standard."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, uniform-continuity, translation]
+    references: []
+    problemLatex: |
+      Let $f$ be uniformly continuous on all of $\mathbb{R}$, and define a sequence of functions by $f_n(x) = f(x + \frac{1}{n})$. Show that $f_n \to f$ uniformly. Give an example to show that this proposition fails if $f$ is only assumed to be continuous and not uniformly continuous on $\mathbb{R}$.
+
+  - cid: abbott-6.2.10
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.10"
+    page: "181"
+    pdfPage: 191
+    verdict: strong
+    machinery: "Monotonicity + uniform continuity of the limit on a compact interval upgrade pointwise to uniform convergence."
+    standardResult: "Pólya-type theorem: increasing f_n -> continuous f pointwise on [a,b] implies uniform"
+    topic: function-sequences
+    subtopics: [uniform-convergence, pointwise-convergence]
+    skills: [partition-argument, uniform-continuity, sandwich-between-grid-points]
+    difficulty: hard
+    difficultyRationale: "Requires a non-obvious grid argument using monotonicity of each f_n and uniform continuity of f."
+    category: challenge
+    type: proof
+    tags: [uniform-convergence, monotone-functions, uniform-continuity, Polya]
+    references: ["Theorem 6.2.6 (Continuous Limit Theorem), stated in abbott-6.2.6"]
+    problemLatex: |
+      This exercise and the next explore partial converses of the Continuous Limit Theorem (Theorem 6.2.6). Assume $f_n \to f$ pointwise on $[a,b]$ and the limit function $f$ is continuous on $[a,b]$. If each $f_n$ is increasing (but not necessarily continuous), show $f_n \to f$ uniformly.
+
+  - cid: abbott-6.2.11
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.11"
+    page: "182"
+    pdfPage: 192
+    verdict: core
+    machinery: "Dini's theorem via nested compact sets (or open covers)."
+    standardResult: "Dini's theorem"
+    topic: function-sequences
+    subtopics: [uniform-convergence, pointwise-convergence]
+    skills: [nested-compact-sets, open-cover-argument]
+    difficulty: hard
+    difficultyRationale: "Guided, but the compactness argument on nested closed sets is the classic hard step."
+    category: canonical
+    type: proof
+    tags: [Dini, uniform-convergence, compactness, monotone]
+    references: []
+    problemLatex: |
+      **(Dini's Theorem).** Assume $f_n \to f$ pointwise on a compact set $K$ and assume that for each $x \in K$ the sequence $f_n(x)$ is increasing. Follow these steps to show that if $f_n$ and $f$ are continuous on $K$, then the convergence is uniform.
+
+      (a) Set $g_n = f - f_n$ and translate the preceding hypothesis into statements about the sequence $(g_n)$.
+
+      (b) Let $\epsilon > 0$ be arbitrary, and define $K_n = \{x \in K : g_n(x) \ge \epsilon\}$. Argue that $K_1 \supseteq K_2 \supseteq K_3 \supseteq \cdots$, and use this observation to finish the argument.
+
+  - cid: abbott-6.2.12
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.12"
+    page: "182"
+    pdfPage: 192
+    verdict: strong
+    machinery: "Constructing the Cantor function as a uniform limit; uniform Cauchy estimates and inherited properties."
+    standardResult: "Cantor function (devil's staircase) construction"
+    topic: function-sequences
+    subtopics: [uniform-convergence, uniform-cauchy]
+    skills: [geometric-series-estimate, uniform-cauchy, induction]
+    difficulty: hard
+    difficultyRationale: "Requires estimating |f_{n+1}-f_n| <= c/2^n via the self-similar recursion and then deducing continuity, monotonicity, and f'=0 off C."
+    category: canonical
+    type: construction
+    tags: [Cantor-function, Cantor-set, uniform-convergence, construction]
+    references: ["Cantor set C and C_1 from Section 3.1"]
+    problemLatex: |
+      **(Cantor Function).** Review the construction of the Cantor set $C \subseteq [0,1]$ from Section 3.1. This exercise makes use of results and notation from this discussion.
+
+      (a) Define $f_0(x) = x$ for all $x \in [0,1]$. Now, let
+      $$f_1(x) = \begin{cases} (3/2)x & \text{for } 0 \le x \le 1/3 \\ 1/2 & \text{for } 1/3 < x < 2/3 \\ (3/2)x - 1/2 & \text{for } 2/3 \le x \le 1. \end{cases}$$
+      Sketch $f_0$ and $f_1$ over $[0,1]$ and observe that $f_1$ is continuous, increasing, and constant on the middle third $(1/3, 2/3) = [0,1]\setminus C_1$.
+
+      (b) Construct $f_2$ by imitating this process of flattening out the middle third of each nonconstant segment of $f_1$. Specifically, let
+      $$f_2(x) = \begin{cases} (1/2)f_1(3x) & \text{for } 0 \le x \le 1/3 \\ f_1(x) & \text{for } 1/3 < x < 2/3 \\ (1/2)f_1(3x - 2) + 1/2 & \text{for } 2/3 \le x \le 1. \end{cases}$$
+      If we continue this process, show that the resulting sequence $(f_n)$ converges uniformly on $[0,1]$.
+
+      (c) Let $f = \lim f_n$. Prove that $f$ is a continuous, increasing function on $[0,1]$ with $f(0) = 0$ and $f(1) = 1$ that satisfies $f'(x) = 0$ for all $x$ in the open set $[0,1]\setminus C$. Recall that the "length" of the Cantor set $C$ is 0. Somehow, $f$ manages to increase from 0 to 1 while remaining constant on a set of "length 1."
+    transcriptionNotes: "Uses the standard middle-thirds Cantor set: C_0=[0,1], C_1=[0,1/3]∪[2/3,1], C = ∩ C_n (Section 3.1)."
+
+  - cid: abbott-6.2.13
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.13"
+    page: "182"
+    pdfPage: 192
+    verdict: consider
+    machinery: "Cantor diagonal argument for subsequences converging pointwise on a countable set."
+    standardResult: "diagonal subsequence: uniformly bounded sequence converges pointwise on countable set"
+    topic: function-sequences
+    subtopics: [pointwise-convergence]
+    skills: [diagonal-argument, subsequence-extraction, bolzano-weierstrass]
+    difficulty: medium
+    difficultyRationale: "Guided, but the diagonal construction and verification are a genuinely new technique for most students."
+    category: canonical
+    type: construction
+    tags: [diagonal-argument, Bolzano-Weierstrass, subsequence, pointwise-convergence]
+    references: ["Theorem 2.5.5 (Bolzano–Weierstrass, stated in exercise)"]
+    problemLatex: |
+      Recall that the Bolzano–Weierstrass Theorem (Theorem 2.5.5) states that every bounded sequence of real numbers has a convergent subsequence. An analogous statement for bounded sequences of functions is not true in general, but under stronger hypotheses several different conclusions are possible. One avenue is to assume the common domain for all of the functions in the sequence is countable. (Another is explored in the next two exercises.)
+
+      Let $A = \{x_1, x_2, x_3, \ldots\}$ be a countable set. For each $n \in \mathbb{N}$, let $f_n$ be defined on $A$ and assume there exists an $M > 0$ such that $|f_n(x)| \le M$ for all $n \in \mathbb{N}$ and $x \in A$. Follow these steps to show that there exists a subsequence of $(f_n)$ that converges pointwise on $A$.
+
+      (a) Why does the sequence of real numbers $f_n(x_1)$ necessarily contain a convergent subsequence $(f_{n_k})$? To indicate that the subsequence of functions $(f_{n_k})$ is generated by considering the values of the functions at $x_1$, we will use the notation $f_{n_k} = f_{1,k}$.
+
+      (b) Now, explain why the sequence $f_{1,k}(x_2)$ contains a convergent subsequence.
+
+      (c) Carefully construct a nested family of subsequences $(f_{m,k})$, and show how this can be used to produce a single subsequence of $(f_n)$ that converges at every point of $A$.
+
+  - cid: abbott-6.2.15
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.2 Uniform Convergence of a Sequence of Functions"
+    number: "Exercise 6.2.15"
+    page: "183"
+    pdfPage: 193
+    verdict: strong
+    machinery: "Arzelà–Ascoli: diagonal subsequence on rationals + equicontinuity + finite net => uniform Cauchy."
+    standardResult: "Arzelà–Ascoli theorem on [0,1]"
+    topic: function-sequences
+    subtopics: [uniform-cauchy, uniform-convergence]
+    skills: [diagonal-argument, epsilon-over-3, finite-net, uniform-cauchy]
+    difficulty: hard
+    difficultyRationale: "Guided synthesis of diagonalization, compactness (finite cover) and an epsilon/3 estimate."
+    category: canonical
+    type: proof
+    tags: [Arzela-Ascoli, equicontinuity, uniform-convergence, compactness, diagonal-argument]
+    references: ["Exercise 6.2.13 (result quoted)", "Exercise 6.2.14 (definition of equicontinuous quoted)"]
+    problemLatex: |
+      **(Arzela–Ascoli Theorem).** For each $n \in \mathbb{N}$, let $f_n$ be a function defined on $[0,1]$. If $(f_n)$ is bounded on $[0,1]$—that is, there exists an $M > 0$ such that $|f_n(x)| \le M$ for all $n \in \mathbb{N}$ and $x \in [0,1]$—and if the collection of functions $(f_n)$ is equicontinuous (Exercise 6.2.14), follow these steps to show that $(f_n)$ contains a uniformly convergent subsequence.
+
+      *(Exercise 6.2.14: A sequence of functions $(f_n)$ defined on a set $E \subseteq \mathbb{R}$ is called equicontinuous if for every $\epsilon > 0$ there exists a $\delta > 0$ such that $|f_n(x) - f_n(y)| < \epsilon$ for all $n \in \mathbb{N}$ and $|x - y| < \delta$ in $E$. Exercise 6.2.13 shows: if $A$ is countable and $|f_n(x)| \le M$ for all $n$ and $x \in A$, then some subsequence of $(f_n)$ converges pointwise on $A$.)*
+
+      (a) Use Exercise 6.2.13 to produce a subsequence $(f_{n_k})$ that converges at every rational point in $[0,1]$. To simplify the notation, set $g_k = f_{n_k}$. It remains to show that $(g_k)$ converges uniformly on all of $[0,1]$.
+
+      (b) Let $\epsilon > 0$. By equicontinuity, there exists a $\delta > 0$ such that
+      $$|g_k(x) - g_k(y)| < \frac{\epsilon}{3}$$
+      for all $|x - y| < \delta$ and $k \in \mathbb{N}$. Using this $\delta$, let $r_1, r_2, \ldots, r_m$ be a finite collection of rational points with the property that the union of the neighborhoods $V_\delta(r_i)$ contains $[0,1]$.
+
+      Explain why there must exist an $N \in \mathbb{N}$ such that
+      $$|g_s(r_i) - g_t(r_i)| < \frac{\epsilon}{3}$$
+      for all $s, t \ge N$ and $r_i$ in the finite subset of $[0,1]$ just described. Why does having the set $\{r_1, r_2, \ldots, r_m\}$ be finite matter?
+
+      (c) Finish the argument by showing that, for an arbitrary $x \in [0,1]$,
+      $$|g_s(x) - g_t(x)| < \epsilon$$
+      for all $s, t \ge N$.
+    transcriptionNotes: "Definition of equicontinuity quoted verbatim from Exercise 6.2.14; result of Exercise 6.2.13 summarized (marked) from its statement."
+
+  # ---------------------------------------------------------------- 6.3
+  - cid: abbott-6.3.1
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.3 Uniform Convergence and Differentiation"
+    number: "Exercise 6.3.1"
+    page: "186"
+    pdfPage: 196
+    verdict: strong
+    machinery: "Uniform convergence of f_n does not give convergence of derivatives to the derivative of the limit."
+    standardResult: "x^n/n -> 0 uniformly but lim (x^n/n)' != 0 at x=1"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-convergence]
+    skills: [sup-norm-estimate, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Direct computations; the conceptual point is the mismatch at x=1."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, derivative, interchange-of-limits, counterexample]
+    references: []
+    problemLatex: |
+      Consider the sequence of functions defined by
+      $$g_n(x) = \frac{x^n}{n}.$$
+
+      (a) Show $(g_n)$ converges uniformly on $[0,1]$ and find $g = \lim g_n$. Show that $g$ is differentiable and compute $g'(x)$ for all $x \in [0,1]$.
+
+      (b) Now, show that $(g_n')$ converges on $[0,1]$. Is the convergence uniform? Set $h = \lim g_n'$ and compare $h$ and $g'$. Are they the same?
+
+  - cid: abbott-6.3.2
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.3 Uniform Convergence and Differentiation"
+    number: "Exercise 6.3.2"
+    page: "186"
+    pdfPage: 196
+    verdict: strong
+    machinery: "Smooth functions converging uniformly to |x|; using the Differentiable Limit Theorem contrapositively."
+    standardResult: "sqrt(x^2+1/n) -> |x| uniformly; derivatives not uniformly convergent near 0"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-convergence]
+    skills: [sup-norm-estimate, contrapositive, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Uniform estimate via rationalizing; non-uniformity follows from a theorem (or continuity of limits)."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, absolute-value, derivative, Differentiable-Limit-Theorem]
+    references: []
+    problemLatex: |
+      Consider the sequence of functions
+      $$h_n(x) = \sqrt{x^2 + \frac{1}{n}}.$$
+
+      (a) Compute the pointwise limit of $(h_n)$ and then prove that the convergence is uniform on $\mathbb{R}$.
+
+      (b) Note that each $h_n$ is differentiable. Show $g(x) = \lim h_n'(x)$ exists for all $x$, and explain how we can be certain that the convergence is *not* uniform on any neighborhood of zero.
+
+  - cid: abbott-6.3.4
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.3 Uniform Convergence and Differentiation"
+    number: "Exercise 6.3.4"
+    page: "187"
+    pdfPage: 197
+    verdict: strong
+    machinery: "Uniform convergence to 0 while derivatives diverge everywhere."
+    standardResult: "sin(nx)/sqrt(n) -> 0 uniformly, derivatives diverge everywhere"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-convergence]
+    skills: [construct-counterexample, divergence-proof]
+    difficulty: medium
+    difficultyRationale: "Uniform part is trivial; showing sqrt(n) cos(nx) diverges for every x (including where cos(nx) is small) takes care."
+    category: canonical
+    type: counterexample
+    tags: [uniform-convergence, derivative, counterexample, divergence]
+    references: []
+    problemLatex: |
+      Let
+      $$h_n(x) = \frac{\sin(nx)}{\sqrt{n}}.$$
+      Show that $h_n \to 0$ uniformly on $\mathbb{R}$ but that the sequence of derivatives $(h_n')$ diverges for every $x \in \mathbb{R}$.
+
+  - cid: abbott-6.3.6
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.3 Uniform Convergence and Differentiation"
+    number: "Exercise 6.3.6"
+    page: "187"
+    pdfPage: 197
+    verdict: consider
+    machinery: "Testing the hypotheses of the Differentiable Limit Theorem by examples/impossibility."
+    standardResult: "examples around the Differentiable Limit Theorem (Theorem 6.3.3)"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-convergence]
+    skills: [construct-counterexample, theorem-recognition]
+    difficulty: medium
+    difficultyRationale: "(a) requires knowing nowhere-differentiable functions can be small; (b) needs f_n = n (or similar); (c) is impossible by Theorem 6.3.3 (on bounded intervals)."
+    category: synthesis
+    type: counterexample
+    tags: [uniform-convergence, derivative, counterexample, nowhere-differentiable]
+    references: []
+    problemLatex: |
+      Provide an example or explain why the request is impossible. Let's take the domain of the functions to be all of $\mathbb{R}$.
+
+      (a) A sequence $(f_n)$ of nowhere differentiable functions with $f_n \to f$ uniformly and $f$ everywhere differentiable.
+
+      (b) A sequence $(f_n)$ of differentiable functions such that $(f_n')$ converges uniformly but the original sequence $(f_n)$ does not converge for any $x \in \mathbb{R}$.
+
+      (c) A sequence $(f_n)$ of differentiable functions such that both $(f_n)$ and $(f_n')$ converge uniformly but $f = \lim f_n$ is not differentiable at some point.
+
+  - cid: abbott-6.3.7
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.3 Uniform Convergence and Differentiation"
+    number: "Exercise 6.3.7"
+    page: "187"
+    pdfPage: 197
+    verdict: core
+    machinery: "MVT applied to f_n - f_m gives uniform Cauchy from uniformly Cauchy derivatives plus one point."
+    standardResult: "f_n' uniformly convergent and f_n(x0) convergent => f_n uniformly convergent"
+    topic: function-sequences
+    subtopics: [interchange-derivative, uniform-cauchy]
+    skills: [MVT-application, uniform-cauchy, triangle-inequality]
+    difficulty: medium
+    difficultyRationale: "Hint gives the decomposition; must apply MVT to f_n - f_m on [x0,x] and use the Cauchy criterion."
+    category: canonical
+    type: proof
+    tags: [uniform-convergence, mean-value-theorem, Cauchy, machinery]
+    references: ["Theorem 6.3.2 (quoted)"]
+    problemLatex: |
+      Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that, for any $x \in [a,b]$ and $m, n \in \mathbb{N}$,
+      $$|f_n(x) - f_m(x)| \le |(f_n(x) - f_m(x)) - (f_n(x_0) - f_m(x_0))| + |f_n(x_0) - f_m(x_0)|.$$
+
+      *(Theorem 6.3.2: Let $(f_n)$ be a sequence of differentiable functions defined on the closed interval $[a,b]$, and assume $(f_n')$ converges uniformly on $[a,b]$. If there exists a point $x_0 \in [a,b]$ where $f_n(x_0)$ is convergent, then $(f_n)$ converges uniformly on $[a,b]$.)*
+    transcriptionNotes: "Theorem 6.3.2 quoted verbatim from p. 186."
+
+  # ---------------------------------------------------------------- 6.4
+  - cid: abbott-6.4.1
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.4 Series of Functions"
+    number: "Exercise 6.4.1"
+    page: "189"
+    pdfPage: 199
+    verdict: strong
+    machinery: "Weierstrass M-test from the Cauchy criterion for uniform convergence of series."
+    standardResult: "Weierstrass M-test proof"
+    topic: function-sequences
+    subtopics: [weierstrass-m-test, series-of-functions, uniform-cauchy]
+    skills: [M-test, uniform-cauchy, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Direct combination of the Cauchy criterion and the comparison of tails."
+    category: canonical
+    type: proof
+    tags: [Weierstrass-M-test, uniform-convergence, series-of-functions, machinery]
+    references: ["Corollary 6.4.5 (quoted)", "Theorem 6.4.4 (quoted)"]
+    problemLatex: |
+      Supply the details for the proof of the Weierstrass M-Test (Corollary 6.4.5).
+
+      *(Corollary 6.4.5 (Weierstrass M-Test): For each $n \in \mathbb{N}$, let $f_n$ be a function defined on a set $A \subseteq \mathbb{R}$, and let $M_n > 0$ be a real number satisfying $|f_n(x)| \le M_n$ for all $x \in A$. If $\sum_{n=1}^\infty M_n$ converges, then $\sum_{n=1}^\infty f_n$ converges uniformly on $A$. It is presented as a corollary of Theorem 6.4.4 (Cauchy Criterion for Uniform Convergence of Series): A series $\sum_{n=1}^\infty f_n$ converges uniformly on $A \subseteq \mathbb{R}$ if and only if for every $\epsilon > 0$ there exists an $N \in \mathbb{N}$ such that $|f_{m+1}(x) + f_{m+2}(x) + \cdots + f_n(x)| < \epsilon$ whenever $n > m \ge N$ and $x \in A$.)*
+    transcriptionNotes: "Corollary 6.4.5 and Theorem 6.4.4 quoted from p. 189."
+
+  - cid: abbott-6.4.2
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.4 Series of Functions"
+    number: "Exercise 6.4.2"
+    page: "189"
+    pdfPage: 199
+    verdict: strong
+    machinery: "Understanding uniform convergence of series: term test, comparison, and the converse of the M-test."
+    standardResult: "uniform convergence of series: term test, comparison, M-test converse fails"
+    topic: function-sequences
+    subtopics: [series-of-functions, weierstrass-m-test]
+    skills: [construct-counterexample, uniform-cauchy]
+    difficulty: medium
+    difficultyRationale: "(a),(b) via Cauchy criterion; (c) needs a counterexample (e.g. alternating or disjointly supported terms)."
+    category: synthesis
+    type: counterexample
+    tags: [Weierstrass-M-test, uniform-convergence, series-of-functions, counterexample]
+    references: []
+    problemLatex: |
+      Decide whether each proposition is true or false, providing a short justification or counterexample as appropriate.
+
+      (a) If $\sum_{n=1}^\infty g_n$ converges uniformly, then $(g_n)$ converges uniformly to zero.
+
+      (b) If $0 \le f_n(x) \le g_n(x)$ and $\sum_{n=1}^\infty g_n$ converges uniformly, then $\sum_{n=1}^\infty f_n$ converges uniformly.
+
+      (c) If $\sum_{n=1}^\infty f_n$ converges uniformly on $A$, then there exist constants $M_n$ such that $|f_n(x)| \le M_n$ for all $x \in A$ and $\sum_{n=1}^\infty M_n$ converges.
+
+  - cid: abbott-6.4.5
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.4 Series of Functions"
+    number: "Exercise 6.4.5"
+    page: "190"
+    pdfPage: 200
+    verdict: consider
+    machinery: "M-test on [-1,1]; local M-test on [-c,c] to get continuity at each point of a non-compact domain."
+    standardResult: "continuity of sum x^n/n^2 on [-1,1] and of sum x^n/n on (-1,1) via local M-test"
+    topic: function-sequences
+    subtopics: [weierstrass-m-test, power-series, series-of-functions]
+    skills: [M-test, local-uniform-convergence]
+    difficulty: easy
+    difficultyRationale: "Direct M-test applications; (b) teaches localization to a smaller interval."
+    category: canonical
+    type: theorem-application
+    tags: [Weierstrass-M-test, continuity, power-series]
+    references: []
+    problemLatex: |
+      (a) Prove that
+      $$h(x) = \sum_{n=1}^\infty \frac{x^n}{n^2} = x + \frac{x^2}{4} + \frac{x^3}{9} + \frac{x^4}{16} + \cdots$$
+      is continuous on $[-1,1]$.
+
+      (b) The series
+      $$f(x) = \sum_{n=1}^\infty \frac{x^n}{n} = x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots$$
+      converges for every $x$ in the half-open interval $[-1,1)$ but does not converge when $x = 1$. For a fixed $x_0 \in (-1,1)$, explain how we can still use the Weierstrass M-Test to prove that $f$ is continuous at $x_0$.
+
+  - cid: abbott-6.4.7
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.4 Series of Functions"
+    number: "Exercise 6.4.7"
+    page: "190"
+    pdfPage: 200
+    verdict: strong
+    machinery: "Term-by-term differentiation via M-test on the differentiated series; limits of the method."
+    standardResult: "sum sin(kx)/k^3 is C^1 by term-by-term differentiation"
+    topic: function-sequences
+    subtopics: [interchange-derivative, weierstrass-m-test, series-of-functions]
+    skills: [M-test, term-by-term-differentiation]
+    difficulty: easy
+    difficultyRationale: "(a) is a direct application of Theorem 6.4.3 with the M-test; (b) asks for honest reflection on 1/k series."
+    category: canonical
+    type: theorem-application
+    tags: [term-by-term-differentiation, Weierstrass-M-test, trigonometric-series]
+    references: []
+    problemLatex: |
+      Let
+      $$f(x) = \sum_{k=1}^\infty \frac{\sin(kx)}{k^3}.$$
+
+      (a) Show that $f(x)$ is differentiable and that the derivative $f'(x)$ is continuous.
+
+      (b) Can we determine if $f$ is twice-differentiable?
+
+  - cid: abbott-6.4.10
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.4 Series of Functions"
+    number: "Exercise 6.4.10"
+    page: "191"
+    pdfPage: 201
+    verdict: core
+    machinery: "Series of weighted jump functions: monotone function continuous exactly off the rationals."
+    standardResult: "monotone function discontinuous exactly at the rationals (sum of 2^{-n} jumps at r_n)"
+    topic: function-sequences
+    subtopics: [series-of-functions, weierstrass-m-test]
+    skills: [M-test, construct-counterexample, enumeration-argument]
+    difficulty: medium
+    difficultyRationale: "Continuity at irrationals needs uniform convergence on a set excluding finitely many jumps or an epsilon/tail argument."
+    category: canonical
+    type: construction
+    tags: [monotone-functions, discontinuities, rationals, Weierstrass-M-test, construction]
+    references: []
+    problemLatex: |
+      Let $\{r_1, r_2, r_3, \ldots\}$ be an enumeration of the set of rational numbers. For each $r_n \in \mathbb{Q}$, define
+      $$u_n(x) = \begin{cases} 1/2^n & \text{for } x > r_n \\ 0 & \text{for } x \le r_n. \end{cases}$$
+      Now, let $h(x) = \sum_{n=1}^\infty u_n(x)$. Prove that $h$ is a monotone function defined on all of $\mathbb{R}$ that is continuous at every irrational point.
+
+  # ---------------------------------------------------------------- 6.5
+  - cid: abbott-6.5.2
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.5 Power Series"
+    number: "Exercise 6.5.2"
+    page: "195"
+    pdfPage: 205
+    verdict: strong
+    machinery: "Shape of the convergence set of a power series; endpoint behavior."
+    standardResult: "possible intervals of convergence of power series / endpoint behavior"
+    topic: function-sequences
+    subtopics: [power-series]
+    skills: [construct-counterexample, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Standard examples (x^n/n!, n! x^n, x^n/n^2, (-1)^n x^n/n) plus one impossibility via Theorem 6.5.1."
+    category: canonical
+    type: construction
+    tags: [power-series, radius-of-convergence, conditional-convergence, counterexample]
+    references: []
+    problemLatex: |
+      Find suitable coefficients $(a_n)$ so that the resulting power series $\sum a_n x^n$ has the given properties, or explain why such a request is impossible.
+
+      (a) Converges for every value of $x \in \mathbb{R}$.
+
+      (b) Diverges for every value of $x \in \mathbb{R}$.
+
+      (c) Converges absolutely for all $x \in [-1,1]$ and diverges off of this set.
+
+      (d) Converges conditionally at $x = -1$ and converges absolutely at $x = 1$.
+
+      (e) Converges conditionally at both $x = -1$ and $x = 1$.
+
+  - cid: abbott-6.5.5
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.5 Power Series"
+    number: "Exercise 6.5.5"
+    page: "196"
+    pdfPage: 206
+    verdict: consider
+    machinery: "Differentiated power series has the same radius: comparison with a geometric series."
+    standardResult: "term-by-term differentiated power series converges on (-R,R)"
+    topic: function-sequences
+    subtopics: [power-series, interchange-derivative]
+    skills: [comparison-estimate, bounded-sequence]
+    difficulty: medium
+    difficultyRationale: "Requires the trick of factoring (x/t)^n and bounding n s^{n-1}."
+    category: canonical
+    type: proof
+    tags: [power-series, term-by-term-differentiation, radius-of-convergence]
+    references: ["Theorem 6.5.6 (quoted)"]
+    problemLatex: |
+      (a) If $s$ satisfies $0 < s < 1$, show $ns^{n-1}$ is bounded for all $n \ge 1$.
+
+      (b) Given an arbitrary $x \in (-R,R)$, pick $t$ to satisfy $|x| < t < R$. Use this start to construct a proof for Theorem 6.5.6.
+
+      *(Theorem 6.5.6: If $\sum_{n=0}^\infty a_n x^n$ converges for all $x \in (-R,R)$, then the differentiated series $\sum_{n=1}^\infty n a_n x^{n-1}$ converges at each $x \in (-R,R)$ as well. Consequently, the convergence is uniform on compact sets contained in $(-R,R)$.)*
+    transcriptionNotes: "Theorem 6.5.6 quoted verbatim from p. 194."
+
+  - cid: abbott-6.5.8
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.5 Power Series"
+    number: "Exercise 6.5.8"
+    page: "197"
+    pdfPage: 207
+    verdict: consider
+    machinery: "Uniqueness of power series coefficients via repeated differentiation/continuity at 0; solving f'=f."
+    standardResult: "uniqueness of power series representations"
+    topic: function-sequences
+    subtopics: [power-series]
+    skills: [term-by-term-differentiation, induction]
+    difficulty: easy
+    difficultyRationale: "Uses Theorem 6.5.7 to differentiate and evaluate at 0; (b) is coefficient matching."
+    category: canonical
+    type: proof
+    tags: [power-series, uniqueness, exponential]
+    references: []
+    problemLatex: |
+      (a) Show that power series representations are unique. If we have
+      $$\sum_{n=0}^\infty a_n x^n = \sum_{n=0}^\infty b_n x^n$$
+      for all $x$ in an interval $(-R,R)$, prove that $a_n = b_n$ for all $n = 0, 1, 2, \ldots$.
+
+      (b) Let $f(x) = \sum_{n=0}^\infty a_n x^n$ converge on $(-R,R)$, and assume $f'(x) = f(x)$ for all $x \in (-R,R)$ and $f(0) = 1$. Deduce the values of $a_n$.
+
+  - cid: abbott-6.5.10
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.5 Power Series"
+    number: "Exercise 6.5.10"
+    page: "197"
+    pdfPage: 207
+    verdict: strong
+    machinery: "Identity theorem for power series: zeros accumulating at 0 force all coefficients to vanish."
+    standardResult: "identity theorem for power series (zeros accumulating at center)"
+    topic: function-sequences
+    subtopics: [power-series]
+    skills: [contradiction, induction, continuity-argument]
+    difficulty: medium
+    difficultyRationale: "Inductively factor out x^k and use continuity at 0 to kill the leading coefficient."
+    category: canonical
+    type: proof
+    tags: [power-series, identity-theorem, zeros]
+    references: []
+    problemLatex: |
+      Let $g(x) = \sum_{n=0}^\infty b_n x^n$ converge on $(-R,R)$, and assume $(x_n) \to 0$ with $x_n \neq 0$. If $g(x_n) = 0$ for all $n \in \mathbb{N}$, show that $g(x)$ must be identically zero on all of $(-R,R)$.
+
+  - cid: abbott-6.5.11
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.5 Power Series"
+    number: "Exercise 6.5.11"
+    page: "197"
+    pdfPage: 207
+    verdict: consider
+    machinery: "Abel's theorem as a summability statement; Abel summation of a divergent series."
+    standardResult: "Abel summability is regular; sum (-1)^n is Abel-summable to 1/2"
+    topic: function-sequences
+    subtopics: [power-series]
+    skills: [theorem-application]
+    difficulty: easy
+    difficultyRationale: "(a) is a direct consequence of Abel's Theorem; (b) is a geometric series computation."
+    category: synthesis
+    type: theorem-application
+    tags: [Abel-theorem, Abel-summation, power-series]
+    references: ["Abel's Theorem (Theorem 6.5.4) is the intended tool"]
+    problemLatex: |
+      A series $\sum_{n=0}^\infty a_n$ is said to be *Abel-summable* to $L$ if the power series
+      $$f(x) = \sum_{n=0}^\infty a_n x^n$$
+      converges for all $x \in [0,1)$ and $L = \lim_{x\to 1^-} f(x)$.
+
+      (a) Show that any series that converges to a limit $L$ is also Abel-summable to $L$.
+
+      (b) Show that $\sum_{n=0}^\infty (-1)^n$ is Abel-summable and find the sum.
+    transcriptionNotes: "Part (a) relies on Abel's Theorem (power series converging at x=1 converges uniformly on [0,1]); not quoted since it is a standard named theorem."
+
+  # ---------------------------------------------------------------- 6.6
+  - cid: abbott-6.6.4
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.6 Taylor Series"
+    number: "Exercise 6.6.4"
+    page: "204"
+    pdfPage: 214
+    verdict: strong
+    machinery: "Bounding the Lagrange remainder at an endpoint to sum a conditionally convergent series."
+    standardResult: "alternating harmonic series = log 2 via Lagrange remainder"
+    topic: function-sequences
+    subtopics: [taylor-series]
+    skills: [remainder-estimate]
+    difficulty: medium
+    difficultyRationale: "Requires computing derivatives of log(1+x) and bounding the remainder at x=1 uniformly in c."
+    category: canonical
+    type: proof
+    tags: [Taylor, Lagrange-remainder, alternating-harmonic-series, logarithm]
+    references: ["Theorem 6.6.3 (Lagrange's Remainder Theorem) (quoted)"]
+    problemLatex: |
+      Using only Lagrange's Remainder Theorem (and no references to Abel's Theorem) prove
+      $$1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \cdots = \log(2).$$
+
+      *(Theorem 6.6.3 (Lagrange's Remainder Theorem): Let $f$ be differentiable $N+1$ times on $(-R,R)$, define $a_n = f^{(n)}(0)/n!$ for $n = 0, 1, \ldots, N$, and let $S_N(x) = a_0 + a_1 x + a_2 x^2 + \cdots + a_N x^N$. Given $x \neq 0$ in $(-R,R)$, there exists a point $c$ satisfying $|c| < |x|$ where the error function $E_N(x) = f(x) - S_N(x)$ satisfies $E_N(x) = \frac{f^{(N+1)}(c)}{(N+1)!}x^{N+1}$.)*
+    transcriptionNotes: "Theorem 6.6.3 quoted verbatim from p. 200. Note: f(x)=log(1+x) is smooth on (-1,∞) but the theorem is stated on a symmetric interval (-R,R); applying it at x=1 implicitly uses the one-sided version on [0,1] (the proof works for any x in an interval where f is N+1 times differentiable)."
+
+  - cid: abbott-6.6.6
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.6 Taylor Series"
+    number: "Exercise 6.6.6"
+    page: "204"
+    pdfPage: 214
+    verdict: core
+    machinery: "e^{-1/x^2}: all derivatives vanish at 0, so Taylor series does not represent the function."
+    standardResult: "e^{-1/x^2}: smooth, all derivatives 0 at 0, not analytic"
+    topic: function-sequences
+    subtopics: [taylor-series]
+    skills: [induction, LHospital-application, derivative-from-definition]
+    difficulty: medium
+    difficultyRationale: "Needs an inductive description of g^{(n)} as polynomial-in-1/x times e^{-1/x^2} and a limit argument at 0."
+    category: canonical
+    type: counterexample
+    tags: [Taylor-series, smooth-non-analytic, counterexample, exp-minus-1-over-x2]
+    references: []
+    problemLatex: |
+      Review the proof that $g'(0) = 0$ for the function
+      $$g(x) = \begin{cases} e^{-1/x^2} & \text{for } x \neq 0, \\ 0 & \text{for } x = 0. \end{cases}$$
+      introduced at the end of this section.
+
+      (a) Compute $g'(x)$ for $x \neq 0$. Then use the definition of the derivative to find $g''(0)$.
+
+      (b) Compute $g''(x)$ and $g'''(x)$ for $x \neq 0$. Use these observations and invent whatever notation is needed to give a general description for the $n$th derivative $g^{(n)}(x)$ at points different from zero.
+
+      (c) Construct a general argument for why $g^{(n)}(0) = 0$ for all $n \in \mathbb{N}$.
+
+  - cid: abbott-6.6.7
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.6 Taylor Series"
+    number: "Exercise 6.6.7"
+    page: "204"
+    pdfPage: 214
+    verdict: consider
+    machinery: "Using e^{-1/x^2}-type functions and known series to build functions with prescribed Taylor behavior."
+    standardResult: "Taylor series convergence vs representation: examples with e^{-1/x^2}"
+    topic: function-sequences
+    subtopics: [taylor-series]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Requires combining 1/(1+x^2) and the flat function e^{-1/x^2} (one-sided version) creatively."
+    category: synthesis
+    type: construction
+    tags: [Taylor-series, counterexample, smooth-non-analytic]
+    references: []
+    problemLatex: |
+      Find an example of each of the following or explain why no such function exists.
+
+      (a) An infinitely differentiable function $g(x)$ on all of $\mathbb{R}$ with a Taylor series that converges to $g(x)$ only for $x \in (-1,1)$.
+
+      (b) An infinitely differentiable function $h(x)$ with the same Taylor series as $\sin(x)$ but such that $h(x) \neq \sin(x)$ for all $x \neq 0$.
+
+      (c) An infinitely differentiable function $f(x)$ on all of $\mathbb{R}$ with a Taylor series that converges to $f(x)$ if and only if $x \le 0$.
+
+  - cid: abbott-6.6.8
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.6 Taylor Series"
+    number: "Exercise 6.6.8"
+    page: "205"
+    pdfPage: 215
+    verdict: strong
+    machinery: "Monotonicity comparison lemma iterated to get a Taylor remainder bound."
+    standardResult: "Taylor remainder bound |E_N| <= M x^{N+1}/(N+1)! via derivative comparison"
+    topic: differentiation
+    subtopics: [taylor, mvt-applications]
+    skills: [MVT-application, induction, comparison-estimate]
+    difficulty: medium
+    difficultyRationale: "Lemma is a one-line MVT argument; iterating it N+1 times with the right comparison functions takes organization."
+    category: canonical
+    type: proof
+    tags: [Taylor, remainder-estimate, mean-value-theorem]
+    references: ["Theorem 6.6.3 notation (S_N, E_N) — see abbott-6.6.4"]
+    problemLatex: |
+      Here is a weaker form of Lagrange's Remainder Theorem whose proof is arguably more illuminating than the one for the stronger result.
+
+      (a) First establish a lemma: If $g$ and $h$ are differentiable on $[0,x]$ with $g(0) = h(0)$ and $g'(t) \le h'(t)$ for all $t \in [0,x]$, then $g(t) \le h(t)$ for all $t \in [0,x]$.
+
+      (b) Let $f$, $S_N$, and $E_N$ be as Theorem 6.6.3, and take $0 < x < R$. If $|f^{(N+1)}(t)| \le M$ for all $t \in [0,x]$, show
+      $$|E_N(x)| \le \frac{M x^{N+1}}{(N+1)!}.$$
+
+      *(As in Theorem 6.6.3: $f$ is differentiable $N+1$ times on $(-R,R)$, $a_n = f^{(n)}(0)/n!$, $S_N(x) = a_0 + a_1 x + \cdots + a_N x^N$, and $E_N(x) = f(x) - S_N(x)$.)*
+    transcriptionNotes: "Notation from Theorem 6.6.3 quoted."
+
+  # ---------------------------------------------------------------- 6.7
+  - cid: abbott-6.7.2
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.7 The Weierstrass Approximation Theorem"
+    number: "Exercise 6.7.2"
+    page: "207"
+    pdfPage: 217
+    verdict: strong
+    machinery: "Uniform continuity on [a,b] yields uniform approximation by polygonal interpolants."
+    standardResult: "continuous functions on [a,b] are uniform limits of polygonal (piecewise linear) functions"
+    topic: function-sequences
+    subtopics: [approximation, uniform-convergence]
+    skills: [uniform-continuity, partition-argument]
+    difficulty: medium
+    difficultyRationale: "Choose mesh from uniform continuity; check linear interpolation stays within epsilon on each subinterval."
+    category: canonical
+    type: proof
+    tags: [polygonal-approximation, uniform-continuity, approximation]
+    references: ["Theorem 6.7.3 (quoted)", "Definition 6.7.2 (quoted)"]
+    problemLatex: |
+      Prove Theorem 6.7.3.
+
+      *(Definition 6.7.2: A continuous function $\varphi\colon [a,b] \to \mathbb{R}$ is polygonal if there is a partition $a = x_0 < x_1 < x_2 < \cdots < x_n = b$ of $[a,b]$ such that $\varphi$ is linear on each subinterval $[x_{i-1}, x_i]$, where $i = 1, \ldots, n$.
+      Theorem 6.7.3: Let $f\colon [a,b] \to \mathbb{R}$ be continuous. Given $\epsilon > 0$, there exists a polygonal function $\varphi$ satisfying $|f(x) - \varphi(x)| < \epsilon$ for all $x \in [a,b]$.)*
+    transcriptionNotes: "Definition 6.7.2 and Theorem 6.7.3 quoted verbatim from pp. 206–207."
+
+  - cid: abbott-6.7.9
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.7 The Weierstrass Approximation Theorem"
+    number: "Exercise 6.7.9"
+    page: "211"
+    pdfPage: 221
+    verdict: strong
+    machinery: "Role of compactness in the Weierstrass Approximation Theorem."
+    standardResult: "WAT fails on (a,b) and on [a,inf)"
+    topic: function-sequences
+    subtopics: [approximation]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Need an unbounded continuous function on (a,b) (polynomials are bounded there) and a growth argument on [a,∞)."
+    category: canonical
+    type: counterexample
+    tags: [Weierstrass-approximation, compactness, counterexample]
+    references: ["Theorem 6.7.1 (WAT) (quoted)"]
+    problemLatex: |
+      (a) Find a counterexample which shows that WAT is not true if we replace the closed interval $[a,b]$ with the open interval $(a,b)$.
+
+      (b) What happens if we replace $[a,b]$ with the closed set $[a,\infty)$. Does the theorem still hold?
+
+      *(Theorem 6.7.1 (Weierstrass Approximation Theorem, WAT): Let $f\colon [a,b] \to \mathbb{R}$ be continuous. Given $\epsilon > 0$, there exists a polynomial $p(x)$ satisfying $|f(x) - p(x)| < \epsilon$ for all $x \in [a,b]$.)*
+    transcriptionNotes: "WAT statement quoted verbatim from p. 206."
+
+  - cid: abbott-6.7.11
+    chapter: "6 Sequences and Series of Functions"
+    section: "6.7 The Weierstrass Approximation Theorem"
+    number: "Exercise 6.7.11"
+    page: "211"
+    pdfPage: 221
+    verdict: consider
+    machinery: "Approximate f' by a polynomial and integrate (FTC) to approximate f and f' simultaneously."
+    standardResult: "C^1 approximation by polynomials (approximate f' and integrate)"
+    topic: function-sequences
+    subtopics: [approximation]
+    skills: [theorem-application, integral-estimate]
+    difficulty: medium
+    difficultyRationale: "Key idea is to apply WAT to f' and antidifferentiate; the estimate is then short."
+    category: synthesis
+    type: proof
+    tags: [Weierstrass-approximation, fundamental-theorem-of-calculus, approximation]
+    references: ["Theorem 6.7.1 (WAT) — see abbott-6.7.9"]
+    problemLatex: |
+      Assume that $f$ has a continuous derivative on $[a,b]$. Show that there exists a polynomial $p(x)$ such that
+      $$|f(x) - p(x)| < \epsilon \quad\text{and}\quad |f'(x) - p'(x)| < \epsilon$$
+      for all $x \in [a,b]$.
+    transcriptionNotes: "Assumes WAT (Theorem 6.7.1). The book's statement leaves 'given epsilon > 0' implicit."
+
+  # ---------------------------------------------------------------- 7.2
+  - cid: abbott-7.2.3
+    chapter: "7 The Riemann Integral"
+    section: "7.2 The Definition of the Riemann Integral"
+    number: "Exercise 7.2.3"
+    page: "223"
+    pdfPage: 232
+    verdict: strong
+    machinery: "Sequential form of the integrability criterion; computing an integral from upper/lower sums."
+    standardResult: "sequential criterion for Riemann integrability; integral of x from the definition"
+    topic: integration
+    subtopics: [partitions-darboux-sums, integrability-criteria]
+    skills: [sup-approximation, squeeze, partition-refinement]
+    difficulty: easy
+    difficultyRationale: "(a) follows from the epsilon criterion; (b),(c) are direct computations."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Darboux-sums, integrability-criterion]
+    references: []
+    problemLatex: |
+      **(Sequential Criterion for Integrability).**
+
+      (a) Prove that a bounded function $f$ is integrable on $[a,b]$ if and only if there exists a sequence of partitions $(P_n)_{n=1}^\infty$ satisfying
+      $$\lim_{n\to\infty} [U(f,P_n) - L(f,P_n)] = 0,$$
+      and in this case $\int_a^b f = \lim_{n\to\infty} U(f,P_n) = \lim_{n\to\infty} L(f,P_n)$.
+
+      (b) For each $n$, let $P_n$ be the partition of $[0,1]$ into $n$ equal subintervals. Find formulas for $U(f,P_n)$ and $L(f,P_n)$ if $f(x) = x$. The formula $1 + 2 + 3 + \cdots + n = n(n+1)/2$ will be useful.
+
+      (c) Use the sequential criterion for integrability from (a) to show directly that $f(x) = x$ is integrable on $[0,1]$ and compute $\int_0^1 f$.
+    transcriptionNotes: "U(f,P), L(f,P) are Darboux upper/lower sums (Definition 7.2.1); integrability means U(f)=L(f) (Definition 7.2.7)."
+
+  - cid: abbott-7.2.5
+    chapter: "7 The Riemann Integral"
+    section: "7.2 The Definition of the Riemann Integral"
+    number: "Exercise 7.2.5"
+    page: "223"
+    pdfPage: 232
+    verdict: core
+    machinery: "Uniform limits preserve Riemann integrability via the upper-minus-lower-sum criterion."
+    standardResult: "uniform limit of integrable functions is integrable"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [epsilon-over-3, sup-norm-estimate]
+    difficulty: medium
+    difficultyRationale: "Requires bounding U(f,P)-L(f,P) by U(f_n,P)-L(f_n,P) plus 2(b-a)||f-f_n||."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, uniform-convergence, integrability-criterion]
+    references: []
+    problemLatex: |
+      Assume that, for each $n$, $f_n$ is an integrable function on $[a,b]$. If $(f_n) \to f$ uniformly on $[a,b]$, prove that $f$ is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
+
+  - cid: abbott-7.2.6
+    chapter: "7 The Riemann Integral"
+    section: "7.2 The Definition of the Riemann Integral"
+    number: "Exercise 7.2.6"
+    page: "223"
+    pdfPage: 232
+    verdict: consider
+    machinery: "Relating Riemann-sum (mesh) definition to Darboux integrability via sup/inf approximation by tags."
+    standardResult: "Riemann's definition (tagged sums) implies Darboux integrability"
+    topic: integration
+    subtopics: [partitions-darboux-sums, integrability-criteria]
+    skills: [sup-approximation, choose-tags]
+    difficulty: medium
+    difficultyRationale: "Must choose tags near sup/inf on each subinterval to compare Riemann sums with U and L."
+    category: canonical
+    type: proof
+    tags: [Riemann-sums, Darboux-sums, Riemann-integration]
+    references: ["Definition 7.2.7 (Darboux integrability: U(f)=L(f))"]
+    problemLatex: |
+      A *tagged partition* $(P, \{c_k\})$ is one where in addition to a partition $P$ we choose a sampling point $c_k$ in each of the subintervals $[x_{k-1}, x_k]$. The corresponding Riemann sum,
+      $$R(f,P) = \sum_{k=1}^n f(c_k)\Delta x_k,$$
+      is discussed in Section 7.1, where the following definition is alluded to.
+
+      **Riemann's Original Definition of the Integral:** A bounded function $f$ is integrable on $[a,b]$ with $\int_a^b f = A$ if for all $\epsilon > 0$ there exists a $\delta > 0$ such that for any tagged partition $(P, \{c_k\})$ satisfying $\Delta x_k < \delta$ for all $k$, it follows that
+      $$|R(f,P) - A| < \epsilon.$$
+
+      Show that if $f$ satisfies Riemann's definition above, then $f$ is integrable in the sense of Definition 7.2.7. (The full equivalence of these two characterizations of integrability is proved in Section 8.1.)
+    transcriptionNotes: "Definition 7.2.7: a bounded f on [a,b] is Riemann-integrable if U(f) = inf_P U(f,P) equals L(f) = sup_P L(f,P)."
+
+  - cid: abbott-7.2.7
+    chapter: "7 The Riemann Integral"
+    section: "7.2 The Definition of the Riemann Integral"
+    number: "Exercise 7.2.7"
+    page: "223"
+    pdfPage: 232
+    verdict: core
+    machinery: "Telescoping upper-minus-lower sums for monotone functions on uniform partitions."
+    standardResult: "monotone functions are Riemann integrable"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [telescoping, partition-refinement]
+    difficulty: easy
+    difficultyRationale: "Equal partition gives U-L = (f(b)-f(a))(b-a)/n; short once seen."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, monotone-functions, telescoping]
+    references: []
+    problemLatex: |
+      Let $f\colon [a,b] \to \mathbb{R}$ be increasing on the set $[a,b]$ (i.e., $f(x) \le f(y)$ whenever $x < y$). Show that $f$ is integrable on $[a,b]$.
+
+  # ---------------------------------------------------------------- 7.3
+  - cid: abbott-7.3.2
+    chapter: "7 The Riemann Integral"
+    section: "7.3 Integrating Functions with Discontinuities"
+    number: "Exercise 7.3.2"
+    page: "226"
+    pdfPage: 235
+    verdict: core
+    machinery: "Integrability of Thomae's function: finitely many large values isolated in small subintervals."
+    standardResult: "Thomae's function is Riemann integrable with integral 0"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [partition-construction, finite-set-isolation]
+    difficulty: medium
+    difficultyRationale: "Must see D_{eps/2} is finite and design a partition covering it with tiny intervals."
+    category: canonical
+    type: proof
+    tags: [Thomae-function, Riemann-integration, discontinuities]
+    references: []
+    problemLatex: |
+      Recall that Thomae's function
+      $$t(x) = \begin{cases} 1 & \text{if } x = 0 \\ 1/n & \text{if } x = m/n \in \mathbb{Q}\setminus\{0\} \text{ is in lowest terms with } n > 0 \\ 0 & \text{if } x \notin \mathbb{Q} \end{cases}$$
+      has a countable set of discontinuities occurring at precisely every rational number. Follow these steps to prove $t(x)$ is integrable on $[0,1]$ with $\int_0^1 t = 0$.
+
+      (a) First argue that $L(t,P) = 0$ for any partition $P$ of $[0,1]$.
+
+      (b) Let $\epsilon > 0$, and consider the set of points $D_{\epsilon/2} = \{x \in [0,1] : t(x) \ge \epsilon/2\}$. How big is $D_{\epsilon/2}$?
+
+      (c) To complete the argument, explain how to construct a partition $P_\epsilon$ of $[0,1]$ so that $U(t,P_\epsilon) < \epsilon$.
+    transcriptionNotes: "Exercise 7.6.1 is a verbatim duplicate (skipped)."
+
+  - cid: abbott-7.3.3
+    chapter: "7 The Riemann Integral"
+    section: "7.3 Integrating Functions with Discontinuities"
+    number: "Exercise 7.3.3"
+    page: "226"
+    pdfPage: 235
+    verdict: consider
+    machinery: "Integrability with infinitely many discontinuities accumulating at a point (via Theorem 7.3.2 or direct partition)."
+    standardResult: "indicator of {1/n} is integrable with integral 0"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [partition-construction, finite-set-isolation]
+    difficulty: easy
+    difficultyRationale: "Handle [0,δ] separately and the finitely many points in [δ,1] with small intervals."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, discontinuities, countable-set]
+    references: []
+    problemLatex: |
+      Let
+      $$f(x) = \begin{cases} 1 & \text{if } x = 1/n \text{ for some } n \in \mathbb{N} \\ 0 & \text{otherwise.} \end{cases}$$
+      Show that $f$ is integrable on $[0,1]$ and compute $\int_0^1 f$.
+
+  - cid: abbott-7.3.4
+    chapter: "7 The Riemann Integral"
+    section: "7.3 Integrating Functions with Discontinuities"
+    number: "Exercise 7.3.4"
+    page: "226"
+    pdfPage: 235
+    verdict: consider
+    machinery: "Composition and integrability: counterexamples (Thomae into indicator) and monotone composition."
+    standardResult: "composition of integrable functions need not be integrable"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "(a) needs the Thomae∘indicator idea; (b) is false and needs a subtle example (e.g. via a Cantor-type function); (c) needs an argument or example."
+    category: synthesis
+    type: counterexample
+    tags: [Riemann-integration, composition, counterexample, Thomae-function]
+    references: []
+    problemLatex: |
+      Let $f$ and $g$ be functions defined on (possibly different) closed intervals, and assume the range of $f$ is contained in the domain of $g$ so that the composition $g \circ f$ is properly defined.
+
+      (a) Show, by example, that it is not the case that if $f$ and $g$ are integrable, then $g \circ f$ is integrable.
+
+      Now decide on the validity of each of the following conjectures, supplying a proof or counterexample as appropriate.
+
+      (b) If $f$ is increasing and $g$ is integrable, then $g \circ f$ is integrable.
+
+      (c) If $f$ is integrable and $g$ is increasing, then $g \circ f$ is integrable.
+
+  - cid: abbott-7.3.5
+    chapter: "7 The Riemann Integral"
+    section: "7.3 Integrating Functions with Discontinuities"
+    number: "Exercise 7.3.5"
+    page: "227"
+    pdfPage: 236
+    verdict: strong
+    machinery: "Pointwise vs uniform limits and integrability."
+    standardResult: "pointwise limit of integrable functions need not be integrable (Dirichlet); uniform limit is"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [construct-counterexample, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "(a) enumerate rationals; (b) impossible by Exercise 7.2.5; (c) needs a small non-integrable perturbation."
+    category: canonical
+    type: counterexample
+    tags: [Riemann-integration, uniform-convergence, pointwise-convergence, Dirichlet-function]
+    references: []
+    problemLatex: |
+      Provide an example or give a reason why the request is impossible.
+
+      (a) A sequence $(f_n) \to f$ pointwise, where each $f_n$ has at most a finite number of discontinuities but $f$ is not integrable.
+
+      (b) A sequence $(g_n) \to g$ uniformly where each $g_n$ has at most a finite number of discontinuities and $g$ is not integrable.
+
+      (c) A sequence $(h_n) \to h$ uniformly where each $h_n$ is not integrable but $h$ is integrable.
+
+  - cid: abbott-7.3.7
+    chapter: "7 The Riemann Integral"
+    section: "7.3 Integrating Functions with Discontinuities"
+    number: "Exercise 7.3.7"
+    page: "227"
+    pdfPage: 236
+    verdict: strong
+    machinery: "Changing finitely many values does not affect integrability or the integral; countably many can."
+    standardResult: "integrability is unchanged by altering finitely many values; not countably many"
+    topic: integration
+    subtopics: [integrability-criteria, integral-properties]
+    skills: [partition-construction, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Finite modification handled by a difference function with finite support; Dirichlet gives the countable counterexample."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, Dirichlet-function, counterexample]
+    references: []
+    problemLatex: |
+      Assume $f\colon [a,b] \to \mathbb{R}$ is integrable.
+
+      (a) Show that if $g$ satisfies $g(x) = f(x)$ for all but a finite number of points in $[a,b]$, then $g$ is integrable as well.
+
+      (b) Find an example to show that $g$ may fail to be integrable if it differs from $f$ at a countable number of points.
+
+  - cid: abbott-7.3.9
+    chapter: "7 The Riemann Integral"
+    section: "7.3 Integrating Functions with Discontinuities"
+    number: "Exercise 7.3.9"
+    page: "228"
+    pdfPage: 237
+    verdict: strong
+    machinery: "Content zero sets of discontinuities give integrability; Cantor set has content zero."
+    standardResult: "discontinuity set of content zero => integrable; Cantor set indicator integrable"
+    topic: integration
+    subtopics: [integrability-criteria, partitions-darboux-sums]
+    skills: [partition-construction, compactness, covering-argument]
+    difficulty: medium
+    difficultyRationale: "(a) requires splitting the partition into intervals covering the bad set and intervals where f is uniformly continuous."
+    category: canonical
+    type: proof
+    tags: [content-zero, Cantor-set, Riemann-integration, discontinuities]
+    references: ["Cantor set C (Section 3.1)"]
+    problemLatex: |
+      **(Content Zero).** A set $A \subseteq [a,b]$ has *content zero* if for every $\epsilon > 0$ there exists a finite collection of open intervals $\{O_1, O_2, \ldots, O_N\}$ that contain $A$ in their union and whose lengths sum to $\epsilon$ or less. Using $|O_n|$ to refer to the length of each interval, we have
+      $$A \subseteq \bigcup_{n=1}^N O_n \quad\text{and}\quad \sum_{n=1}^N |O_n| \le \epsilon.$$
+
+      (a) Let $f$ be bounded on $[a,b]$. Show that if the set of discontinuous points of $f$ has content zero, then $f$ is integrable.
+
+      (b) Show that any finite set has content zero.
+
+      (c) Content zero sets do not have to be finite. They do not have to be countable. Show that the Cantor set $C$ defined in Section 3.1 has content zero.
+
+      (d) Prove that
+      $$h(x) = \begin{cases} 1 & \text{if } x \in C \\ 0 & \text{if } x \notin C. \end{cases}$$
+      is integrable, and find the value of the integral.
+
+  # ---------------------------------------------------------------- 7.4
+  - cid: abbott-7.4.1
+    chapter: "7 The Riemann Integral"
+    section: "7.4 Properties of the Integral"
+    number: "Exercise 7.4.1"
+    page: "232"
+    pdfPage: 241
+    verdict: core
+    machinery: "Oscillation of |f| is at most oscillation of f, giving integrability of |f| and the triangle inequality for integrals."
+    standardResult: "f integrable => |f| integrable and |∫f| <= ∫|f|"
+    topic: integration
+    subtopics: [integral-properties, integrability-criteria, integral-inequalities]
+    skills: [sup-inf-manipulation, triangle-inequality]
+    difficulty: easy
+    difficultyRationale: "(a) is a sup/inf inequality; (b),(c) follow via the criterion and monotonicity of the integral."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, absolute-value, triangle-inequality, machinery]
+    references: []
+    problemLatex: |
+      Let $f$ be a bounded function on a set $A$, and set
+      $$M = \sup\{f(x) : x \in A\}, \quad m = \inf\{f(x) : x \in A\},$$
+      $$M' = \sup\{|f(x)| : x \in A\}, \quad\text{and}\quad m' = \inf\{|f(x)| : x \in A\}.$$
+
+      (a) Show that $M - m \ge M' - m'$.
+
+      (b) Show that if $f$ is integrable on the interval $[a,b]$, then $|f|$ is also integrable on this interval.
+
+      (c) Provide the details for the argument that in this case we have $\left|\int_a^b f\right| \le \int_a^b |f|$.
+
+  - cid: abbott-7.4.3
+    chapter: "7 The Riemann Integral"
+    section: "7.4 Properties of the Integral"
+    number: "Exercise 7.4.3"
+    page: "232"
+    pdfPage: 241
+    verdict: strong
+    machinery: "Testing integral-positivity and |f|-integrability claims with standard examples."
+    standardResult: "|f| integrable does not imply f integrable; continuous nonneg nonzero has positive integral"
+    topic: integration
+    subtopics: [integral-properties, integrability-criteria]
+    skills: [construct-counterexample, continuity-argument]
+    difficulty: easy
+    difficultyRationale: "(a) Dirichlet variant ±1; (b) indicator of 1/n; (c) continuity gives a neighborhood where g > g(y0)/2."
+    category: canonical
+    type: counterexample
+    tags: [Riemann-integration, counterexample, positivity]
+    references: []
+    problemLatex: |
+      Decide which of the following conjectures is true and supply a short proof. For those that are not true, give a counterexample.
+
+      (a) If $|f|$ is integrable on $[a,b]$, then $f$ is also integrable on this set.
+
+      (b) Assume $g$ is integrable and $g(x) \ge 0$ on $[a,b]$. If $g(x) > 0$ for an infinite number of points $x \in [a,b]$, then $\int_a^b g > 0$.
+
+      (c) If $g$ is continuous on $[a,b]$ and $g(x) \ge 0$ with $g(y_0) > 0$ for at least one point $y_0 \in [a,b]$, then $\int_a^b g > 0$.
+
+  - cid: abbott-7.4.4
+    chapter: "7 The Riemann Integral"
+    section: "7.4 Properties of the Integral"
+    number: "Exercise 7.4.4"
+    page: "233"
+    pdfPage: 242
+    verdict: strong
+    machinery: "Strict positivity of the integral of an everywhere-positive integrable function (needs a continuity point or nested-interval/Baire-type argument)."
+    standardResult: "f>0 everywhere and integrable => ∫f > 0"
+    topic: integration
+    subtopics: [integral-properties, integrability-criteria]
+    skills: [nested-intervals, contradiction, partition-construction]
+    difficulty: hard
+    difficultyRationale: "Without Lebesgue's criterion one must find a subinterval where inf f > 0, e.g. by nested intervals with small oscillation — deceptively hard."
+    category: challenge
+    type: proof
+    tags: [Riemann-integration, positivity, nested-intervals, continuity-points]
+    references: []
+    problemLatex: |
+      Show that if $f(x) > 0$ for all $x \in [a,b]$ and $f$ is integrable, then $\int_a^b f > 0$.
+
+  - cid: abbott-7.4.6
+    chapter: "7 The Riemann Integral"
+    section: "7.4 Properties of the Integral"
+    number: "Exercise 7.4.6"
+    page: "233"
+    pdfPage: 242
+    verdict: strong
+    machinery: "Product of integrable functions is integrable via squares and polarization."
+    standardResult: "product of Riemann integrable functions is integrable"
+    topic: integration
+    subtopics: [integral-properties, integrability-criteria]
+    skills: [oscillation-estimate, polarization-identity]
+    difficulty: medium
+    difficultyRationale: "Guided; the oscillation inequality for f^2 and the (f+g)^2 trick are the content."
+    category: canonical
+    type: proof
+    tags: [Riemann-integration, product, integrability-criterion]
+    references: []
+    problemLatex: |
+      Although not part of Theorem 7.4.2, it is true that the product of integrable functions is integrable. Provide the details for each step in the following proof of this fact:
+
+      (a) If $f$ satisfies $|f(x)| \le M$ on $[a,b]$, show
+      $$|(f(x))^2 - (f(y))^2| \le 2M|f(x) - f(y)|.$$
+
+      (b) Prove that if $f$ is integrable on $[a,b]$, then so is $f^2$.
+
+      (c) Now show that if $f$ and $g$ are integrable, then $fg$ is integrable. (Consider $(f+g)^2$.)
+
+  - cid: abbott-7.4.7
+    chapter: "7 The Riemann Integral"
+    section: "7.4 Properties of the Integral"
+    number: "Exercise 7.4.7"
+    page: "233"
+    pdfPage: 242
+    verdict: strong
+    machinery: "Failure of interchanging limits and integrals under pointwise convergence; 'typewriter' sequence."
+    standardResult: "pointwise convergence does not commute with integration; typewriter sequence"
+    topic: function-sequences
+    subtopics: [interchange-integral, pointwise-convergence]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(b) requires the moving-bump (typewriter) construction."
+    category: canonical
+    type: counterexample
+    tags: [interchange-of-limits, integral, counterexample, typewriter-sequence]
+    references: ["Discussion preceding Theorem 7.4.4 (quoted)"]
+    problemLatex: |
+      Review the discussion immediately preceding Theorem 7.4.4.
+
+      *(From that discussion: Let
+      $$f_n(x) = \begin{cases} n & \text{if } 0 < x < 1/n \\ 0 & \text{if } x = 0 \text{ or } x \ge 1/n. \end{cases}$$
+      Each $f_n$ is integrable with $\int_0^1 f_n = 1$, and $f_n \to 0$ pointwise on $[0,1]$, but $0 \neq \lim_{n\to\infty}\int_0^1 f_n$. "We should point out that it is possible to modify this example to produce a situation where $\lim \int_0^1 f_n$ does not even exist.")*
+
+      (a) Produce an example of a sequence $f_n \to 0$ pointwise on $[0,1]$ where $\lim_{n\to\infty}\int_0^1 f_n$ does not exist.
+
+      (b) Produce an example of a sequence $g_n$ with $\int_0^1 g_n \to 0$ but $g_n(x)$ does not converge to zero for any $x \in [0,1]$. To make it more interesting, let's insist that $g_n(x) \ge 0$ for all $x$ and $n$.
+    transcriptionNotes: "The preceding example from p. 233 is quoted (condensed, marked) so the reference is self-contained."
+
+  - cid: abbott-7.4.9
+    chapter: "7 The Riemann Integral"
+    section: "7.4 Properties of the Integral"
+    number: "Exercise 7.4.9"
+    page: "234"
+    pdfPage: 243
+    verdict: strong
+    machinery: "Bounded convergence for Riemann integrals when uniform convergence fails only near an endpoint."
+    standardResult: "uniform bound + uniform convergence on [0,alpha] => integrals converge"
+    topic: function-sequences
+    subtopics: [interchange-integral, uniform-convergence]
+    skills: [split-the-domain, epsilon-over-3]
+    difficulty: medium
+    difficultyRationale: "Split [0,1] into [0,α] and [α,1], controlling the latter by 2M(1-α)."
+    category: canonical
+    type: proof
+    tags: [interchange-of-limits, integral, uniform-convergence, bounded-convergence]
+    references: []
+    problemLatex: |
+      Let $g_n$ and $g$ be uniformly bounded on $[0,1]$, meaning that there exists a single $M > 0$ satisfying $|g(x)| \le M$ and $|g_n(x)| \le M$ for all $n \in \mathbb{N}$ and $x \in [0,1]$. Assume $g_n \to g$ pointwise on $[0,1]$ and uniformly on any set of the form $[0,\alpha]$, where $0 < \alpha < 1$.
+
+      If all the functions are integrable, show that $\lim_{n\to\infty}\int_0^1 g_n = \int_0^1 g$.
+
+  - cid: abbott-7.4.10
+    chapter: "7 The Riemann Integral"
+    section: "7.4 Properties of the Integral"
+    number: "Exercise 7.4.10"
+    page: "234"
+    pdfPage: 243
+    verdict: consider
+    machinery: "Combining continuity at a point, boundedness, and domain splitting to evaluate a limit of integrals."
+    standardResult: "lim ∫_0^1 g(x^n) dx = g(0) for g integrable and continuous at 0"
+    topic: integration
+    subtopics: [integral-properties, integral-inequalities]
+    skills: [split-the-domain, epsilon-delta-proof]
+    difficulty: medium
+    difficultyRationale: "Requires seeing x^n is small on [0,1-δ] and controlling the rest by a bound; integrability of g(x^n) also needs comment."
+    category: synthesis
+    type: proof
+    tags: [integral, limit, continuity, split-domain]
+    references: []
+    problemLatex: |
+      Assume $g$ is integrable on $[0,1]$ and continuous at 0. Show
+      $$\lim_{n\to\infty}\int_0^1 g(x^n)\,dx = g(0).$$
+
+  # ---------------------------------------------------------------- 7.5
+  - cid: abbott-7.5.2
+    chapter: "7 The Riemann Integral"
+    section: "7.5 The Fundamental Theorem of Calculus"
+    number: "Exercise 7.5.2"
+    page: "236"
+    pdfPage: 245
+    verdict: strong
+    machinery: "Precise content of both parts of the FTC; derivatives vs continuous functions."
+    standardResult: "FTC true/false: derivatives need not be continuous; continuous functions are derivatives; H differentiable does not force h continuous"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [construct-counterexample, theorem-recognition]
+    difficulty: easy
+    difficultyRationale: "Each part settled by a known example (x^2 sin(1/x)) or FTC part (ii); (c) uses a removable discontinuity."
+    category: canonical
+    type: counterexample
+    tags: [fundamental-theorem-of-calculus, counterexample, derivative]
+    references: []
+    problemLatex: |
+      Decide whether each statement is true or false, providing a short justification for each conclusion.
+
+      (a) If $h' = g$ on $[a,b]$, then $g$ is continuous on $[a,b]$.
+
+      (b) If $g$ is continuous on $[a,b]$, then $g = h'$ for some $h$ on $[a,b]$.
+
+      (c) If $H(x) = \int_a^x h$ is differentiable at $c \in [a,b]$, then $h$ is continuous at $c$.
+
+  - cid: abbott-7.5.4
+    chapter: "7 The Riemann Integral"
+    section: "7.5 The Fundamental Theorem of Calculus"
+    number: "Exercise 7.5.4"
+    page: "236"
+    pdfPage: 245
+    verdict: consider
+    machinery: "FTC part (ii) (or positivity argument) to recover f from vanishing integrals."
+    standardResult: "∫_a^x f = 0 for all x with f continuous implies f ≡ 0"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [theorem-application, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Differentiate G(x)=0 by FTC; counterexample with a single nonzero point."
+    category: canonical
+    type: proof
+    tags: [fundamental-theorem-of-calculus, continuity]
+    references: []
+    problemLatex: |
+      Show that if $f\colon [a,b] \to \mathbb{R}$ is continuous and $\int_a^x f = 0$ for all $x \in [a,b]$, then $f(x) = 0$ everywhere on $[a,b]$. Provide an example to show that this conclusion does not follow if $f$ is not continuous.
+
+  - cid: abbott-7.5.8
+    chapter: "7 The Riemann Integral"
+    section: "7.5 The Fundamental Theorem of Calculus"
+    number: "Exercise 7.5.8"
+    page: "237"
+    pdfPage: 246
+    verdict: strong
+    machinery: "Defining log as an integral, deriving its functional equation via FTC; monotone convergence for Euler's constant."
+    standardResult: "natural logarithm via ∫1/t; Euler's constant exists; alternating harmonic series = log 2"
+    topic: integration
+    subtopics: [log-exp, fundamental-theorem]
+    skills: [differentiate-and-compare, monotone-convergence, integral-comparison]
+    difficulty: medium
+    difficultyRationale: "(d) needs monotone+bounded via comparing sums with integrals; (e) a telescoping identification."
+    category: canonical
+    type: proof
+    tags: [logarithm, Euler-constant, fundamental-theorem-of-calculus, harmonic-series]
+    references: []
+    problemLatex: |
+      **(Natural Logarithm and Euler's Constant).** Let
+      $$L(x) = \int_1^x \frac{1}{t}\,dt,$$
+      where we consider only $x > 0$.
+
+      (a) What is $L(1)$? Explain why $L$ is differentiable and find $L'(x)$.
+
+      (b) Show that $L(xy) = L(x) + L(y)$. (Think of $y$ as a constant and differentiate $g(x) = L(xy)$.)
+
+      (c) Show $L(x/y) = L(x) - L(y)$.
+
+      (d) Let
+      $$\gamma_n = \left(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}\right) - L(n).$$
+      Prove that $(\gamma_n)$ converges. The constant $\gamma = \lim\gamma_n$ is called Euler's constant.
+
+      (e) Show how consideration of the sequence $\gamma_{2n} - \gamma_n$ leads to the interesting identity
+      $$L(2) = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \cdots.$$
+
+  - cid: abbott-7.5.9
+    chapter: "7 The Riemann Integral"
+    section: "7.5 The Fundamental Theorem of Calculus"
+    number: "Exercise 7.5.9"
+    page: "238"
+    pdfPage: 247
+    verdict: consider
+    machinery: "Total variation of a C^1 function equals ∫|f'| using FTC and MVT with Riemann sums."
+    standardResult: "total variation of C^1 function equals ∫|f'|"
+    topic: integration
+    subtopics: [fundamental-theorem, integral-inequalities]
+    skills: [MVT-application, Riemann-sum-comparison, sup-approximation]
+    difficulty: medium
+    difficultyRationale: "(b) requires recognizing sum |f'(t_k)|Δx_k as a Riemann sum and using integrability."
+    category: synthesis
+    type: proof
+    tags: [total-variation, fundamental-theorem-of-calculus, mean-value-theorem, Riemann-sums]
+    references: []
+    problemLatex: |
+      Given a function $f$ on $[a,b]$, define the *total variation* of $f$ to be
+      $$Vf = \sup\left\{\sum_{k=1}^n |f(x_k) - f(x_{k-1})|\right\},$$
+      where the supremum is taken over all partitions $P$ of $[a,b]$.
+
+      (a) If $f$ is continuously differentiable ($f'$ exists as a continuous function), use the Fundamental Theorem of Calculus to show $Vf \le \int_a^b |f'|$.
+
+      (b) Use the Mean Value Theorem to establish the reverse inequality and conclude that $Vf = \int_a^b |f'|$.
+
+  - cid: abbott-7.5.10
+    chapter: "7 The Riemann Integral"
+    section: "7.5 The Fundamental Theorem of Calculus"
+    number: "Exercise 7.5.10"
+    page: "238"
+    pdfPage: 247
+    verdict: consider
+    machinery: "Change of variables via FTC part (ii) and the Chain Rule."
+    standardResult: "change-of-variable (substitution) formula"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [theorem-application, chain-rule]
+    difficulty: easy
+    difficultyRationale: "Take F(x)=∫_c^x f, differentiate F∘g, apply FTC part (i)."
+    category: canonical
+    type: proof
+    tags: [change-of-variables, substitution, fundamental-theorem-of-calculus, chain-rule]
+    references: []
+    problemLatex: |
+      **(Change-of-variable Formula).** Let $g\colon [a,b] \to \mathbb{R}$ be differentiable and assume $g'$ is continuous. Let $f\colon [c,d] \to \mathbb{R}$ be continuous, and assume that the range of $g$ is contained in $[c,d]$ so that the composition $f \circ g$ is properly defined.
+
+      (a) Why are we sure $f$ is the derivative of some function? How about $(f\circ g)g'$?
+
+      (b) Prove the change-of-variable formula
+      $$\int_a^b f(g(x))g'(x)\,dx = \int_{g(a)}^{g(b)} f(t)\,dt.$$
+
+  - cid: abbott-7.5.11
+    chapter: "7 The Riemann Integral"
+    section: "7.5 The Fundamental Theorem of Calculus"
+    number: "Exercise 7.5.11"
+    page: "238"
+    pdfPage: 247
+    verdict: consider
+    machinery: "Jump discontinuities produce corners in the indefinite integral; integrating a dense-jump monotone function."
+    standardResult: "F=∫f not differentiable at a jump of f; continuous monotone function non-differentiable on a dense set"
+    topic: integration
+    subtopics: [fundamental-theorem]
+    skills: [one-sided-difference-quotients, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(a) compares left/right difference quotients; (b) integrates the monotone function of Exercise 6.4.10."
+    category: synthesis
+    type: construction
+    tags: [fundamental-theorem-of-calculus, jump-discontinuity, monotone-functions, construction]
+    references: ["Exercise 6.4.10 (quoted)"]
+    problemLatex: |
+      Assume $f$ is integrable on $[a,b]$ and has a "jump discontinuity" at $c \in (a,b)$. This means that both one-sided limits exist as $x$ approaches $c$ from the left and from the right, but that
+      $$\lim_{x\to c^-} f(x) \neq \lim_{x\to c^+} f(x).$$
+      (This phenomenon is discussed in more detail in Section 4.6.)
+
+      (a) Show that, in this case, $F(x) = \int_a^x f$ is not differentiable at $x = c$.
+
+      (b) The discussion in Section 5.5 mentions the existence of a continuous monotone function that fails to be differentiable on a dense subset of $\mathbb{R}$. Combine the results of part (a) with Exercise 6.4.10 to show how to construct such a function.
+
+      *(Exercise 6.4.10: Let $\{r_1, r_2, r_3, \ldots\}$ be an enumeration of the set of rational numbers. For each $r_n \in \mathbb{Q}$, define $u_n(x) = 1/2^n$ for $x > r_n$ and $u_n(x) = 0$ for $x \le r_n$. Now, let $h(x) = \sum_{n=1}^\infty u_n(x)$. Prove that $h$ is a monotone function defined on all of $\mathbb{R}$ that is continuous at every irrational point.)*
+    transcriptionNotes: "Exercise 6.4.10 quoted verbatim (piecewise definition written inline)."
+
+  # ---------------------------------------------------------------- 7.6
+  - cid: abbott-7.6.3
+    chapter: "7 The Riemann Integral"
+    section: "7.6 Lebesgue's Criterion for Riemann Integrability"
+    number: "Exercise 7.6.3"
+    page: "240"
+    pdfPage: 249
+    verdict: strong
+    machinery: "epsilon/2^n covering argument for measure zero."
+    standardResult: "countable sets have measure zero"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [geometric-series-estimate, covering-argument]
+    difficulty: easy
+    difficultyRationale: "Standard epsilon/2^n trick."
+    category: canonical
+    type: proof
+    tags: [measure-zero, countable-set, covering]
+    references: ["Definition 7.6.1 (quoted)"]
+    problemLatex: |
+      Show that any countable set has measure zero.
+
+      *(Definition 7.6.1: A set $A \subseteq \mathbb{R}$ has measure zero if, for all $\epsilon > 0$, there exists a countable collection of open intervals $O_n$ with the property that $A$ is contained in the union of all of the intervals $O_n$ and the sum of the lengths of all of the intervals is less than or equal to $\epsilon$. More precisely, if $|O_n|$ refers to the length of the interval $O_n$, then we have $A \subseteq \bigcup_{n=1}^\infty O_n$ and $\sum_{n=1}^\infty |O_n| \le \epsilon$.)*
+    transcriptionNotes: "Definition 7.6.1 quoted verbatim from p. 240."
+
+  - cid: abbott-7.6.8
+    chapter: "7 The Riemann Integral"
+    section: "7.6 Lebesgue's Criterion for Riemann Integrability"
+    number: "Exercise 7.6.8"
+    page: "241"
+    pdfPage: 250
+    verdict: consider
+    machinery: "The set where f fails to be α-continuous (oscillation ≥ α) is closed."
+    standardResult: "set of points of oscillation >= alpha is closed"
+    topic: continuity
+    subtopics: [discontinuities, continuity-and-topology]
+    skills: [complement-is-open, neighborhood-argument]
+    difficulty: easy
+    difficultyRationale: "Show the set of α-continuity points is open: a δ-neighborhood witness works for nearby points."
+    category: canonical
+    type: proof
+    tags: [oscillation, alpha-continuity, closed-set, discontinuities]
+    references: ["Definition 7.6.3 and the set D_alpha (quoted)"]
+    problemLatex: |
+      *(Definition 7.6.3: Let $f$ be defined on $[a,b]$, and let $\alpha > 0$. The function $f$ is $\alpha$-continuous at $x \in [a,b]$ if there exists $\delta > 0$ such that for all $y, z \in (x - \delta, x + \delta)$ it follows that $|f(y) - f(z)| < \alpha$. For a bounded function $f$ on $[a,b]$ and each $\alpha > 0$, $D_\alpha = \{x \in [a,b] : f \text{ is not } \alpha\text{-continuous at } x\}$.)*
+
+      Prove that for a fixed $\alpha > 0$, the set $D_\alpha$ is closed.
+    transcriptionNotes: "Definition 7.6.3 and equation (1) defining D_alpha quoted from p. 240."
+
+  - cid: abbott-7.6.13
+    chapter: "7 The Riemann Integral"
+    section: "7.6 Lebesgue's Criterion for Riemann Integrability"
+    number: "Exercise 7.6.13"
+    page: "242"
+    pdfPage: 251
+    verdict: consider
+    machinery: "Applying Lebesgue's criterion to products and to continuous∘integrable compositions."
+    standardResult: "Lebesgue criterion applications: products; f continuous, g integrable => f∘g integrable"
+    topic: integration
+    subtopics: [integrability-criteria]
+    skills: [theorem-application, discontinuity-set-inclusion]
+    difficulty: easy
+    difficultyRationale: "Discontinuity set of fg or f∘g is contained in a union of measure-zero sets."
+    category: canonical
+    type: theorem-application
+    tags: [Lebesgue-criterion, measure-zero, composition, product]
+    references: ["Theorem 7.6.5 (Lebesgue's Theorem) (quoted)"]
+    problemLatex: |
+      (a) Show that if $f$ and $g$ are integrable on $[a,b]$, then so is the product $fg$. (This result was requested in Exercise 7.4.6, but notice how much easier the argument is now.)
+
+      (b) Show that if $g$ is integrable on $[a,b]$ and $f$ is continuous on the range of $g$, then the composition $f \circ g$ is integrable on $[a,b]$.
+
+      *(Theorem 7.6.5 (Lebesgue's Theorem): Let $f$ be a bounded function defined on the interval $[a,b]$. Then, $f$ is Riemann-integrable if and only if the set of points where $f$ is not continuous has measure zero.)*
+    transcriptionNotes: "Lebesgue's Theorem quoted verbatim from p. 242. Countable unions of measure-zero sets have measure zero (Exercise 7.6.5)."
+
+  - cid: abbott-7.6.18
+    chapter: "7 The Riemann Integral"
+    section: "7.6 Lebesgue's Criterion for Riemann Integrability"
+    number: "Exercise 7.6.18"
+    page: "245"
+    pdfPage: 254
+    verdict: consider
+    machinery: "Fat Cantor set: removing smaller middle intervals leaves positive total length."
+    standardResult: "fat (Smith–Volterra–Cantor) set has positive length"
+    topic: topology
+    subtopics: [cantor-set]
+    skills: [geometric-series-estimate]
+    difficulty: easy
+    difficultyRationale: "A geometric series computation; value is conceptual (closed, nowhere dense, positive measure)."
+    category: canonical
+    type: computation
+    tags: [fat-Cantor-set, Cantor-set, measure, construction]
+    references: ["Construction of C_n from Section 3.1 (described in quoted context)"]
+    problemLatex: |
+      *(Context from the text: The reason the Cantor set has measure zero is that, at each stage, $2^{n-1}$ open intervals of length $1/3^n$ are removed from $C_{n-1}$. The resulting sum $\sum_{n=1}^\infty 2^{n-1}\left(\frac{1}{3^n}\right)$ converges to one, which means that the approximating sets $C_1, C_2, C_3, \ldots$ have total lengths tending to zero. Instead of removing open intervals of length $1/3^n$ at each stage, let's see what happens when we remove intervals of length $1/3^{n+1}$.)*
+
+      Show that, under these circumstances, the sum of the lengths of the intervals making up each $C_n$ no longer tends to zero as $n \to \infty$. What is this limit?
+    transcriptionNotes: "Preceding paragraph quoted verbatim from p. 245 (pdf 254). Intervals are removed from the middle of each remaining interval, as in the Cantor construction."
+
+  # ---------------------------------------------------------------- 8.2
+  - cid: abbott-8.2.2
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.2"
+    page: "258"
+    pdfPage: 267
+    verdict: strong
+    machinery: "Checking metric axioms on function spaces: sup metric, evaluation at a point, L^1 distance."
+    standardResult: "metrics on C[0,1]: sup metric and L^1 metric are metrics; evaluation at 1 is not"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [verify-axioms, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Axiom checks; (c) needs continuity to show ∫|f-g|=0 forces f=g."
+    category: canonical
+    type: definition
+    tags: [metric-space, sup-norm, function-space, C01]
+    references: ["Definition 8.2.1 (quoted)"]
+    problemLatex: |
+      *(Definition 8.2.1: Given a set $X$, a function $d\colon X \times X \to \mathbb{R}$ is a metric on $X$ if for all $x, y \in X$: (i) $d(x,y) \ge 0$ with $d(x,y) = 0$ if and only if $x = y$, (ii) $d(x,y) = d(y,x)$, and (iii) for all $z \in X$, $d(x,y) \le d(x,z) + d(z,y)$.)*
+
+      Let $C[0,1]$ be the collection of continuous functions on the closed interval $[0,1]$. Decide which of the following are metrics on $C[0,1]$.
+
+      (a) $d(f,g) = \sup\{|f(x) - g(x)| : x \in [0,1]\}$.
+
+      (b) $d(f,g) = |f(1) - g(1)|$.
+
+      (c) $d(f,g) = \int_0^1 |f - g|$.
+    transcriptionNotes: "Definition 8.2.1 quoted verbatim from p. 258."
+
+  - cid: abbott-8.2.5
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.5"
+    page: "259"
+    pdfPage: 268
+    verdict: core
+    machinery: "Completeness of C[0,1] under the sup metric (uniform Cauchy => uniform limit continuous); incompleteness of C^1 under sup."
+    standardResult: "C[0,1] with sup metric is complete; C^1[0,1] with sup metric is not"
+    topic: topology
+    subtopics: [complete-metric-spaces, metric-spaces]
+    skills: [uniform-cauchy, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "(b) combines the Cauchy criterion for uniform convergence with the Continuous Limit Theorem; (c) needs smooth approximants of |x - 1/2|."
+    category: canonical
+    type: proof
+    tags: [complete-metric-space, C01, uniform-convergence, discrete-metric]
+    references: ["Discrete metric (Exercise 8.2.3) and Exercise 8.2.2(a) sup metric (quoted)"]
+    problemLatex: |
+      *(The discrete metric on a set $X$: $\rho(x,y) = 1$ if $x \neq y$ and $\rho(x,y) = 0$ if $x = y$. The metric in Exercise 8.2.2(a) is $d(f,g) = \sup\{|f(x) - g(x)| : x \in [0,1]\}$ on $C[0,1]$, the continuous functions on $[0,1]$. A metric space is complete if every Cauchy sequence in $X$ converges to an element of $X$.)*
+
+      (a) Consider $\mathbb{R}^2$ with the discrete metric $\rho(x,y)$ examined in Exercise 8.2.3. What do Cauchy sequences look like in this space? Is $\mathbb{R}^2$ complete with respect to this metric?
+
+      (b) Show that $C[0,1]$ is complete with respect to the metric in Exercise 8.2.2 (a).
+
+      (c) Define $C^1[0,1]$ to be the collection of differentiable functions on $[0,1]$ whose derivatives are also continuous. Is $C^1[0,1]$ complete with respect to the metric defined in Exercise 8.2.2 (a)?
+    transcriptionNotes: "Definitions of the discrete metric, sup metric, and completeness (Definition 8.2.4) quoted from pp. 258–259."
+
+  - cid: abbott-8.2.6
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.6"
+    page: "260"
+    pdfPage: 269
+    verdict: consider
+    machinery: "Continuity of functionals on C[0,1]; dependence of continuity on the chosen metric."
+    standardResult: "point evaluation is continuous for sup metric but not for L^1 metric"
+    topic: continuity
+    subtopics: [continuity-metric-spaces]
+    skills: [epsilon-delta-proof, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "(a),(b) direct estimates; (c) requires tall narrow spikes."
+    category: canonical
+    type: proof
+    tags: [metric-space, continuity, functional, C01, L1-metric]
+    references: ["Exercise 8.2.2(c) metric (quoted)", "Definition 8.2.5 (continuity, standard)"]
+    problemLatex: |
+      Which of these functions from $C[0,1]$ to $\mathbb{R}$ (with the usual metric) are continuous?
+
+      (a) $g(f) = \int_0^1 fk$, where $k$ is some fixed function in $C[0,1]$.
+
+      (b) $g(f) = f(1/2)$.
+
+      (c) $g(f) = f(1/2)$, but this time with respect to the metric on $C[0,1]$ from Exercise 8.2.2 (c).
+
+      *(Unless otherwise specified, $C[0,1]$ carries the sup metric $\|f - g\|_\infty = \sup\{|f(x) - g(x)| : x \in [0,1]\}$. The metric in Exercise 8.2.2(c) is $d(f,g) = \int_0^1 |f - g|$.)*
+    transcriptionNotes: "Default sup metric convention and the 8.2.2(c) metric quoted from pp. 258–260."
+
+  - cid: abbott-8.2.8
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.8"
+    page: "260"
+    pdfPage: 269
+    verdict: strong
+    machinery: "Basic metric topology: open balls are open, closed balls are closed, open/closed duality."
+    standardResult: "open balls open; closed balls closed; E open iff complement closed (metric spaces)"
+    topic: topology
+    subtopics: [metric-spaces, open-sets, closed-sets]
+    skills: [triangle-inequality, limit-point-argument]
+    difficulty: easy
+    difficultyRationale: "Triangle inequality arguments and the standard complement proof."
+    category: canonical
+    type: proof
+    tags: [metric-space, open-set, closed-set, triangle-inequality]
+    references: []
+    problemLatex: |
+      *(In a metric space $(X,d)$: the $\epsilon$-neighborhood of $x$ is $V_\epsilon(x) = \{y \in X : d(x,y) < \epsilon\}$. A set $O \subseteq X$ is open if for every $x \in O$ we can find a neighborhood $V_\epsilon(x) \subseteq O$. A point $x$ is a limit point of a set $A$ if every $V_\epsilon(x)$ intersects $A$ in some point other than $x$. A set $C$ is closed if it contains its limit points.)*
+
+      Let $(X,d)$ be a metric space.
+
+      (a) Verify that a typical $\epsilon$-neighborhood $V_\epsilon(x)$ is an open set. Is the set
+      $$C_\epsilon(x) = \{y \in X : d(x,y) \le \epsilon\}$$
+      a closed set?
+
+      (b) Show that a set $E \subseteq X$ is open if and only if its complement is closed.
+    transcriptionNotes: "Definitions (Definition 8.2.6 and the following paragraph) quoted from p. 260."
+
+  - cid: abbott-8.2.10
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.10"
+    page: "261"
+    pdfPage: 270
+    verdict: core
+    machinery: "Compact => closed and bounded in metric spaces; closed unit ball of C[0,1] is not compact."
+    standardResult: "Heine–Borel fails in C[0,1]: closed bounded unit ball not compact"
+    topic: topology
+    subtopics: [compactness, sequential-compactness, metric-spaces]
+    skills: [subsequence-extraction, construct-counterexample, contradiction]
+    difficulty: medium
+    difficultyRationale: "(b) routine; (c) needs a sequence like x^n with no uniformly convergent subsequence."
+    category: canonical
+    type: counterexample
+    tags: [compactness, Heine-Borel, C01, metric-space, counterexample]
+    references: ["Definition 8.2.7 (quoted)", "Set Y from Exercise 8.2.9(a) (quoted)"]
+    problemLatex: |
+      *(Definition 8.2.7: A subset $K$ of a metric space $(X,d)$ is compact if every sequence in $K$ has a convergent subsequence that converges to a limit in $K$. In Exercise 8.2.9(a), $Y = \{f \in C[0,1] : \|f\|_\infty \le 1\}$, where $C[0,1]$ carries the sup metric.)*
+
+      (a) Supply a definition for *bounded* subsets of a metric space $(X,d)$.
+
+      (b) Show that if $K$ is a compact subset of the metric space $(X,d)$, then $K$ is closed and bounded.
+
+      (c) Show that $Y \subseteq C[0,1]$ from Exercise 8.2.9 (a) is closed and bounded but not compact.
+    transcriptionNotes: "Definition 8.2.7 and the set Y quoted from pp. 260–261. The book follows with a hint pointing to equicontinuity (Exercise 6.2.14) — not included since it is printed after the exercise as discussion."
+
+  - cid: abbott-8.2.11
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.11"
+    page: "261"
+    pdfPage: 270
+    verdict: strong
+    machinery: "Closure/interior duality in metric spaces."
+    standardResult: "closure of complement = complement of interior"
+    topic: topology
+    subtopics: [interior-closure-boundary, metric-spaces]
+    skills: [set-identity-proof, complement-argument]
+    difficulty: easy
+    difficultyRationale: "Definition-chasing with neighborhoods."
+    category: canonical
+    type: proof
+    tags: [closure, interior, complement, metric-space]
+    references: ["Definition 8.2.8 (quoted)"]
+    problemLatex: |
+      *(Definition 8.2.8: Given a subset $E$ of a metric space $(X,d)$, the closure $\overline{E}$ is the union of $E$ together with its limit points. The interior of $E$ is denoted by $E^\circ$ and is defined as $E^\circ = \{x \in E : \text{there exists } V_\epsilon(x) \subseteq E\}$.)*
+
+      (a) Show that $E$ is closed if and only if $\overline{E} = E$. Show that $E$ is open if and only if $E^\circ = E$.
+
+      (b) Show that $\overline{E}^c = (E^c)^\circ$, and similarly that $(E^\circ)^c = \overline{E^c}$.
+    transcriptionNotes: "Definition 8.2.8 quoted from p. 261. Verified against page image: (b) reads closure(E)^c = (E^c)^° and (E^°)^c = closure(E^c)."
+
+  - cid: abbott-8.2.12
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.12"
+    page: "261"
+    pdfPage: 270
+    verdict: consider
+    machinery: "Closure of an open ball vs. the closed ball; discrete metric as counterexample."
+    standardResult: "closure of open ball can be strictly smaller than closed ball (discrete metric)"
+    topic: topology
+    subtopics: [metric-spaces, interior-closure-boundary]
+    skills: [construct-counterexample, limit-point-argument]
+    difficulty: easy
+    difficultyRationale: "(a) uses that closed balls are closed; (b) discrete metric with epsilon = 1."
+    category: canonical
+    type: counterexample
+    tags: [metric-space, closure, open-ball, discrete-metric, counterexample]
+    references: []
+    problemLatex: |
+      (a) Show
+      $$\overline{V_\epsilon(x)} \subseteq \{y \in X : d(x,y) \le \epsilon\},$$
+      in an arbitrary metric space $(X,d)$.
+
+      (b) To keep things from sounding too familiar, find an example of a specific metric space where
+      $$\overline{V_\epsilon(x)} \neq \{y \in X : d(x,y) \le \epsilon\}.$$
+
+  - cid: abbott-8.2.14
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.14"
+    page: "262"
+    pdfPage: 271
+    verdict: strong
+    machinery: "Baire's theorem (intersection of dense open sets is nonempty) via a Cauchy sequence of shrinking balls."
+    standardResult: "Baire category theorem: countable intersection of dense open sets in a complete metric space is nonempty"
+    topic: topology
+    subtopics: [baire-category, complete-metric-spaces]
+    skills: [nested-balls, cauchy-sequence-construction, induction]
+    difficulty: hard
+    difficultyRationale: "Requires constructing nested closed balls with radii →0 and using completeness; the closure condition is the subtle point."
+    category: canonical
+    type: proof
+    tags: [Baire-category-theorem, complete-metric-space, dense-set, open-set]
+    references: ["Theorem 8.2.10 and opening of its proof (quoted)", "Definition 8.2.9 (dense) (quoted)"]
+    problemLatex: |
+      *(Theorem 8.2.10: Let $(X,d)$ be a complete metric space, and let $\{O_n\}$ be a countable collection of dense, open subsets of $X$. Then, $\bigcap_{n=1}^\infty O_n$ is not empty. [A set $A \subseteq X$ is dense in $(X,d)$ if $\overline{A} = X$.] Proof begins: Pick $x_1 \in O_1$. Because $O_1$ is open, there exists an $\epsilon_1 > 0$ such that $V_{\epsilon_1}(x_1) \subseteq O_1$.)*
+
+      (a) Give the details for why we know there exists a point $x_2 \in V_{\epsilon_1}(x_1) \cap O_2$ and an $\epsilon_2 > 0$ satisfying $\epsilon_2 < \epsilon_1/2$ with $V_{\epsilon_2}(x_2)$ contained in $O_2$ and
+      $$\overline{V_{\epsilon_2}(x_2)} \subseteq V_{\epsilon_1}(x_1).$$
+
+      (b) Proceed along this line and use the completeness of $(X,d)$ to produce a single point $x \in O_n$ for every $n \in \mathbb{N}$.
+    transcriptionNotes: "Theorem 8.2.10, the dense definition (Definition 8.2.9) and the first step of the proof quoted from pp. 262. Closure bar verified against the page image."
+
+  - cid: abbott-8.2.15
+    chapter: "8 Additional Topics"
+    section: "8.2 Metric Spaces and the Baire Category Theorem"
+    number: "Exercise 8.2.15"
+    page: "263"
+    pdfPage: 272
+    verdict: strong
+    machinery: "Deducing the Baire Category Theorem (no countable union of nowhere-dense sets) from the dense-open-intersection form."
+    standardResult: "Baire category theorem: complete metric space is not a countable union of nowhere-dense sets"
+    topic: topology
+    subtopics: [baire-category, complete-metric-spaces]
+    skills: [complement-argument, contradiction]
+    difficulty: medium
+    difficultyRationale: "Pass to complements of closures, which are dense open, and invoke Theorem 8.2.10."
+    category: canonical
+    type: proof
+    tags: [Baire-category-theorem, nowhere-dense, complete-metric-space]
+    references: ["Theorem 8.2.11, Theorem 8.2.10, Definition 8.2.9 (quoted)"]
+    problemLatex: |
+      *(Theorem 8.2.11 (Baire Category Theorem): A complete metric space is not the union of a countable collection of nowhere-dense sets.
+      Definition 8.2.9: A set $A \subseteq X$ is dense in the metric space $(X,d)$ if $\overline{A} = X$. A subset $E$ of a metric space $(X,d)$ is nowhere-dense in $X$ if $\overline{E}^\circ$ is empty.
+      Theorem 8.2.10: Let $(X,d)$ be a complete metric space, and let $\{O_n\}$ be a countable collection of dense, open subsets of $X$. Then, $\bigcap_{n=1}^\infty O_n$ is not empty.)*
+
+      Complete the proof of the theorem.
+    transcriptionNotes: "The exercise is literally 'Complete the proof of the theorem.' following Theorem 8.2.11; the theorem, the relevant definitions and Theorem 8.2.10 are quoted from pp. 262–263 so the problem is self-contained. Exercise 8.2.13 (E nowhere-dense iff closure(E)^c dense) is the natural lemma."
+
+skipped:
+  - "5.2.1 routine proofs of sum/scalar rules; 5.2.3 routine derivation of quotient rule; 5.2.5 x^a piecewise — weaker version of 5.2.7; 5.2.6 symmetric derivative — minor, its (b) is subsumed in 5.3.12's comparison"
+  - "5.3.2 f'≠0 ⇒ injective — easy, overlaps 5.3.7/Rolle pattern; 5.3.4 zeros accumulating ⇒ f'(0)=0 — minor (identity-theorem flavor covered by 6.5.10); 5.3.7 at most one fixed point — easy Rolle duplicate of 5.3.2; 5.3.9 weaker L'Hospital under stronger hypotheses — dominated by 5.3.11; 5.3.10 L'Hospital curiosity requiring heavy exp/trig computation"
+  - "5.4.1 sketch; 5.4.2 absolute convergence trivial; 5.4.3 cite theorems; 5.4.4 max of g (figure-dependent); 5.4.5, 5.4.6 dyadic-point steps of the nowhere-differentiable construction (mid-construction; 5.4.7 kept as representative); 5.4.8 open-ended variant"
+  - "6.2.2 indicator sequences vs Continuous Limit Theorem — weaker than 6.2.6; 6.2.3 near-duplicate of 6.2.1; 6.2.4 duplicates 5.2.8(b); 6.2.8 1/g_n uniform — fine but minor; 6.2.9 sums/products of uniformly convergent sequences — minor; 6.2.14 equicontinuity definitional question (definition quoted inside 6.2.15)"
+  - "6.3.3 x/(1+nx^2) — near-duplicate of 6.3.1/6.3.2; 6.3.5 routine computation"
+  - "6.4.3 cos(2^n x)/2^n — routine M-test; 6.4.4 x^{2n}/(1+x^{2n}) — routine; 6.4.6 alternating 1/(x+n) series — optional, more computational; 6.4.8 sin(x/k)/k — similar to 6.4.7; 6.4.9 1/(x^2+n^2) — near-duplicate of 6.4.7"
+  - "6.5.1 log series questions — routine; 6.5.3 proof of Theorem 6.5.2 — routine M-test; 6.5.4 term-by-term antidifferentiation — routine; 6.5.6 compute sums n/2^n — computation; 6.5.7 ratio test for radius — routine/standard series material; 6.5.9 Cauchy product via Abel — depends on Exercise 2.8.7 and Section 2.8 context"
+  - "6.6.1 arctan(1) via Abel — minor; 6.6.2 computations; 6.6.3 Taylor coefficient formula — routine; 6.6.5 e^x series — routine; 6.6.9 Cauchy remainder — computational, optional; 6.6.10 1/sqrt(1-x) remainder — computational"
+  - "6.7.1 trivial restatement of WAT; 6.7.3 interpolation computation; 6.7.4–6.7.8 steps of the book's proof of WAT (mid-proof chain; 6.7.2 kept); 6.7.10 countable dense set of polynomials — optional (separability), skipped for space"
+  - "7.2.1 proof of Lemma 7.2.6 (L(f)≤U(f)) — routine; 7.2.2 computation; 7.2.4 L(g,P)=U(g,P) — minor"
+  - "7.3.1 single-jump step function — introductory, dominated by 7.3.2/7.3.9; 7.3.6 series of indicators at rationals — minor variant; 7.3.8 monotone series with jumps at rationals — integrable by 7.2.7, minor"
+  - "7.4.2 orientation convention for integrals — routine; 7.4.5 U(f+g,P) inequality/additivity — routine; 7.4.8 sum of step functions — near-duplicate of 7.3.8; 7.4.11 U(f) as integral fails — optional conceptual"
+  - "7.5.1 computation of ∫|x|; 7.5.3 requires reading book's proof; 7.5.5 FTC proof of differentiable limit theorem — optional; 7.5.6 integration by parts — routine; 7.5.7 alternate FTC(i) proof — routine"
+  - "7.6.1 verbatim duplicate of 7.3.2; 7.6.2 Cantor indicator — duplicate of 7.3.9(d); 7.6.4 Cantor measure zero — dominated by 7.3.9(c); 7.6.5 union of measure-zero sets — routine; 7.6.6, 7.6.7 steps of α-continuity setup; 7.6.9–7.6.12 mid-proof steps of Lebesgue's theorem; 7.6.14 x^2 sin(1/x) derivative — duplicate of 5.2.7; 7.6.15–7.6.17 mid-construction of nonintegrable derivative; 7.6.19 integrable∘continuous not integrable — needs the fat-Cantor construction context, very hard and heavily context-dependent"
+  - "8.2.1 metrics on R^2 — routine; 8.2.3 discrete metric is a metric — trivial; 8.2.4 convergent ⇒ Cauchy — trivial; 8.2.7 describe neighborhoods — descriptive; 8.2.9 sets in C[0,1] open/closed — minor; 8.2.13 nowhere-dense iff complement of closure dense — lemma folded into 8.2.15; 8.2.16–8.2.18 mid-proof steps of Theorem 8.2.12 (nowhere-differentiable functions are generic) requiring A_{m,n} context"

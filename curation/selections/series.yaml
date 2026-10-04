@@ -1,0 +1,49 @@
+- cid: lebl-2.5.3
+- cid: lebl-2.5.4
+- cid: lebl-2.5.10
+- cid: lebl-2.6.1
+- cid: lebl-2.6.2
+- cid: lebl-2.6.13
+- cid: tao-7.3.2
+  why: "The geometric series, with exactly when it converges — the comparison series behind most tests."
+- cid: tao-7.2.2
+  why: "The Cauchy criterion for series: the tool that proves convergence without knowing the sum."
+- cid: cummings-4.2
+  why: "Absolute convergence implies convergence (via the Cauchy criterion)."
+- cid: cummings-4.5
+  why: "For positive terms Σaₖ² converges whenever Σaₖ does — and positivity is essential."
+- cid: abbott-2.7.8
+  why: "True/false statements about absolute and conditional convergence; locate the counterexamples."
+- cid: abbott-2.7.4
+  why: "Examples or impossibility for sums and products of convergent and divergent series."
+- cid: abbott-2.7.1
+  why: "Proving the Alternating Series Test (nested intervals / Cauchy / monotone subsequences)."
+- cid: lebl-2.6.12
+  why: "The alternating series test fails without monotonicity."
+- cid: abbott-2.7.9
+  why: "Proving the Ratio Test by comparison with a geometric series."
+- cid: tao-7.5.1
+  why: "liminf of ratios ≤ liminf of roots ≤ limsup of roots ≤ limsup of ratios: the root test is stronger."
+- cid: ross-14.10
+  why: "A series where the root test decides but the ratio test is inconclusive."
+- cid: lebl-2.5.15
+  why: "Cauchy condensation: the clean way to settle p-series and logarithmic series."
+- cid: ross-15.3
+  why: "Σ 1/(n (log n)^p) converges iff p > 1 — the standard borderline family."
+- cid: tao-11.6.3
+  set: {category: synthesis}
+  why: "The integral test, proved from Riemann sums of a monotone function."
+- cid: lebl-2.5.7
+  why: "If xₙ is decreasing and summable then n xₙ → 0 — a condensation-style estimate."
+- cid: ross-14.12
+  why: "If liminf |aₙ| = 0, some subseries converges — choose a fast subsequence."
+- cid: abbott-2.7.14
+  set: {category: synthesis}
+  why: "Dirichlet's test via summation by parts; the alternating series test is a special case."
+- cid: lebl-2.6.10
+  why: "n^{1/n} → 1, so Σ n aₙ xⁿ has the same radius as Σ aₙ xⁿ (needed for termwise differentiation)."
+- cid: cummings-4.18
+  why: "Rearranging an absolutely convergent series does not change its sum."
+- cid: lebl-2.6.3
+  set: {category: challenge}
+  why: "The Riemann rearrangement theorem: a conditionally convergent series can be rearranged to sum to anything."

@@ -1,0 +1,43 @@
+- cid: lebl-1.1.1
+- cid: lebl-1.1.2
+- cid: lebl-1.1.5
+- cid: lebl-1.1.6
+- cid: lebl-1.2.7
+- cid: lebl-1.2.9
+- cid: abbott-1.2.6
+  why: "Triangle and reverse triangle inequalities — used in nearly every ε argument."
+- cid: cummings-1.9
+  why: "If a < b + ε for every ε > 0 then a ≤ b: the basic way analysts prove inequalities and equalities."
+- cid: lebl-1.2.13
+  why: "Bernoulli's inequality: the induction-proved estimate behind limits like rⁿ → 0."
+- cid: lebl-1.1.14
+  why: "An ordered set where every subset is bounded yet the least-upper-bound property fails — separates boundedness from completeness."
+- cid: abbott-1.3.3
+  why: "Infima exist once suprema do: inf A is the sup of the lower bounds."
+- cid: abbott-1.3.5
+  why: "Scaling a set: sup(cA) = c·sup A for c ≥ 0 and c·inf A for c < 0. Clean practice with both directions of a sup proof."
+- cid: abbott-1.3.9
+  why: "If sup A < sup B then some element of B bounds A — the approximation property in action."
+- cid: abbott-1.3.11
+  why: "True/false statements about sups and infs; locate exactly where strict inequalities fail."
+- cid: cummings-1.19
+  why: "Compute a sup and an inf and prove them with the ε-characterization."
+- cid: lebl-1.3.5
+  why: "f(x) ≤ g(y) for all x, y gives sup f ≤ inf g, but pointwise f ≤ g does not — a quantifier lesson."
+- cid: lebl-1.3.7
+  why: "sup(f + g) ≤ sup f + sup g, with strict inequality possible."
+- cid: abbott-1.4.4
+  why: "Density of ℚ via a sup computation: sup(ℚ ∩ [a,b]) = b."
+- cid: cummings-1.22
+  why: "The Nested Interval Property from the least upper bound property — the engine behind bisection proofs."
+- cid: abbott-1.4.8
+  why: "Why every hypothesis of the Nested Interval Property (closed, bounded, nested) is needed."
+- cid: abbott-2.5.4
+  set: {category: synthesis}
+  why: "Run the bisection argument backwards: the Nested Interval Property implies the Axiom of Completeness."
+- cid: lebl-2.4.3
+  set: {category: challenge}
+  why: "Cauchy completeness plus density of ℚ implies the least-upper-bound property — how completeness axioms relate."
+- cid: ross-16.8
+  set: {topic: foundations, subtopics: [cardinality, decimal-representation]}
+  why: "Cantor's diagonal argument with decimals, including the 6/7 trick that avoids the 0.999… ambiguity."

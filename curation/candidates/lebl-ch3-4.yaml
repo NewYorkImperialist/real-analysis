@@ -1,0 +1,1611 @@
+chunk: "lebl-ch3-4"
+book: lebl
+pageOffsetNote: "printed page = pdfPage - 0 (verified: PDF page 120 carries printed header 120)"
+sectionsCovered:
+  - "3.1 Limits of functions — 16 exercises"
+  - "3.2 Continuous functions — 19 exercises"
+  - "3.3 Extreme and intermediate value theorems — 17 exercises"
+  - "3.4 Uniform continuity — 17 exercises"
+  - "3.5 Limits at infinity — 9 exercises"
+  - "3.6 Monotone functions and continuity — 15 exercises"
+  - "4.1 The derivative — 16 exercises"
+  - "4.2 Mean value theorem — 15 exercises"
+  - "4.3 Taylor's theorem — 11 exercises"
+  - "4.4 Inverse function theorem — 8 exercises"
+candidates:
+  # ---------------- 3.1 ----------------
+  - cid: lebl-3.1.1
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.1"
+    page: "120"
+    pdfPage: 120
+    audit: ok
+    verdict: consider
+    machinery: "Epsilon-delta limit proofs and sequential disproof of limits (sin(1/x)-type oscillation)."
+    standardResult: "computing/disproving function limits incl. x^2 cos(1/x), sin(1/x)cos(1/x)"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, sequential-characterization, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Parts (a) and (d) need a small estimate or a choice of sequences; the rest are routine."
+    category: canonical
+    type: computation
+    tags: [functional-limit, epsilon-delta, oscillation, sequential-criterion]
+    references: []
+    problemLatex: |
+      Find the limit (and prove it of course) or prove that the limit does not exist:
+
+      a) $\displaystyle\lim_{x\to c} \sqrt{x}$, for $c \geq 0$
+      b) $\displaystyle\lim_{x\to c} x^2 + x + 1$, for $c \in \mathbb{R}$
+      c) $\displaystyle\lim_{x\to 0} x^2 \cos(1/x)$
+      d) $\displaystyle\lim_{x\to 0} \sin(1/x)\cos(1/x)$
+      e) $\displaystyle\lim_{x\to 0} \sin(x)\cos(1/x)$
+    transcriptionNotes: "Verified against page image."
+
+  - cid: lebl-3.1.3
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.3"
+    page: "120"
+    pdfPage: 120
+    audit: ok
+    verdict: core
+    machinery: "Squeeze theorem for limits of functions, via the sequential criterion or directly with epsilon-delta."
+    standardResult: "squeeze theorem for function limits"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Standard transfer of the sequence squeeze lemma to function limits."
+    category: canonical
+    type: proof
+    tags: [squeeze-theorem, functional-limit, machinery]
+    references: ["Corollary 3.1.11 (quoted)"]
+    problemLatex: |
+      Prove Corollary 3.1.11.
+
+      (Corollary 3.1.11: Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f\colon S \to \mathbb{R}$, $g\colon S \to \mathbb{R}$, and $h\colon S \to \mathbb{R}$ are functions such that
+      $$f(x) \leq g(x) \leq h(x) \quad \text{for all } x \in S \setminus \{c\}.$$
+      Suppose the limits of $f(x)$ and $h(x)$ as $x$ goes to $c$ both exist, and
+      $$\lim_{x\to c} f(x) = \lim_{x\to c} h(x).$$
+      Then the limit of $g(x)$ as $x$ goes to $c$ exists and
+      $$\lim_{x\to c} g(x) = \lim_{x\to c} f(x) = \lim_{x\to c} h(x).$$
+      )
+    transcriptionNotes: "Corollary 3.1.11 quoted verbatim from p. 118. The book places it after Lemma 3.1.7 (sequential characterization of limits), suggesting a proof via sequences. MIT number matches topic (reading 3.1, 3.2): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 8, Problem 1"
+
+  - cid: lebl-3.1.9
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.9"
+    page: "120"
+    pdfPage: 120
+    audit: ok
+    verdict: strong
+    machinery: "Limit of a composition; handling the case where the inner function hits the limit point."
+    standardResult: "limit of composition g(f(x)) with g(c2)=L hypothesis"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Chaining two epsilon-deltas is easy, but the subtle case f(x)=c2 must be handled using g(c2)=L."
+    category: canonical
+    type: proof
+    tags: [composition, functional-limit, epsilon-delta, subtlety]
+    references: ["Exercise 3.1.14 (mentioned in hint)"]
+    problemLatex: |
+      Let $c_1$ be a cluster point of $A \subset \mathbb{R}$ and $c_2$ be a cluster point of $B \subset \mathbb{R}$. Suppose $f\colon A \to B$ and $g\colon B \to \mathbb{R}$ are functions such that $f(x) \to c_2$ as $x \to c_1$ and $g(y) \to L$ as $y \to c_2$. If $c_2 \in B$, also suppose that $g(c_2) = L$. Let $h(x) := g\bigl(f(x)\bigr)$ and show $h(x) \to L$ as $x \to c_1$. Hint: Note that $f(x)$ could equal $c_2$ for many $x \in A$ (see also Exercise 3.1.14).
+    transcriptionNotes: "Exercise 3.1.14 (the companion counterexample) is recorded separately."
+
+  - cid: lebl-3.1.10
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.10"
+    page: "120"
+    pdfPage: 120
+    audit: ok
+    verdict: consider
+    machinery: "Exploiting the 'for every sequence' quantifier by interleaving sequences."
+    standardResult: "f(x_n) convergent for every sequence implies f constant"
+    topic: continuity
+    subtopics: [sequential-continuity]
+    skills: [interleaving-sequences, contradiction]
+    difficulty: easy
+    difficultyRationale: "Key trick: apply the hypothesis to the alternating sequence x, y, x, y, ..."
+    category: synthesis
+    type: proof
+    tags: [sequences, quantifiers, interleaving, functional-limit]
+    references: []
+    problemLatex: |
+      Suppose $f\colon \mathbb{R} \to \mathbb{R}$ is a function such that for every sequence $\{x_n\}_{n=1}^\infty$ in $\mathbb{R}$, the sequence $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ converges. Prove that $f$ is constant, that is, $f(x) = f(y)$ for all $x, y \in \mathbb{R}$.
+
+  - cid: lebl-3.1.11
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.11"
+    page: "120"
+    pdfPage: 120
+    audit: ok
+    verdict: strong
+    machinery: "Sequential criterion for limits where only convergence (not a common limit) is assumed; interleaving sequences forces a common limit."
+    standardResult: "sequential criterion for existence of a function limit (convergence of f(x_n) for every x_n -> c suffices)"
+    topic: continuity
+    subtopics: [functional-limits, sequential-continuity]
+    skills: [interleaving-sequences, sequential-characterization, contradiction]
+    difficulty: medium
+    difficultyRationale: "Must show all the limits agree by merging two sequences, then invoke the sequential characterization."
+    category: canonical
+    type: proof
+    tags: [sequential-criterion, functional-limit, interleaving]
+    references: ["Lemma 3.1.7 (quoted)"]
+    problemLatex: |
+      Prove the following stronger version of one direction of Lemma 3.1.7: Let $S \subset \mathbb{R}$, $c$ be a cluster point of $S$, and $f\colon S \to \mathbb{R}$ be a function. Suppose that for every sequence $\{x_n\}_{n=1}^\infty$ in $S \setminus \{c\}$ such that $\lim_{n\to\infty} x_n = c$ the sequence $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ is convergent. Then show that the limit of $f(x)$ as $x \to c$ exists.
+
+      *(Lemma 3.1.7: Let $S \subset \mathbb{R}$, let $c$ be a cluster point of $S$, let $f\colon S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $f(x) \to L$ as $x \to c$ if and only if for every sequence $\{x_n\}_{n=1}^\infty$ such that $x_n \in S \setminus \{c\}$ for all $n$, and such that $\lim_{n\to\infty} x_n = c$, we have that the sequence $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ converges to $L$.)*
+    transcriptionNotes: "Lemma 3.1.7 quoted verbatim from p. 116 for context."
+
+  - cid: lebl-3.1.12
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.12"
+    page: "120"
+    pdfPage: 120
+    audit: ok
+    verdict: consider
+    machinery: "Two-sided limit iff both one-sided limits exist and agree."
+    standardResult: "limit exists iff one-sided limits exist and are equal"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [epsilon-delta-proof]
+    difficulty: easy
+    difficultyRationale: "Direct from definitions using min of two deltas."
+    category: canonical
+    type: proof
+    tags: [one-sided-limits, functional-limit, epsilon-delta]
+    references: ["Proposition 3.1.17 (quoted)"]
+    problemLatex: |
+      Prove Proposition 3.1.17.
+
+      (Proposition 3.1.17: Let $S \subset \mathbb{R}$ be such that $c$ is a cluster point of both $S \cap (-\infty, c)$ and $S \cap (c, \infty)$, let $f\colon S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $c$ is a cluster point of $S$ and
+      $$\lim_{x\to c} f(x) = L \quad\text{if and only if}\quad \lim_{x\to c^-} f(x) = \lim_{x\to c^+} f(x) = L.$$
+      )
+    transcriptionNotes: "Proposition 3.1.17 quoted verbatim from p. 120. One-sided limits are defined in the book as limits of the restrictions to S∩(−∞,c) and S∩(c,∞)."
+
+  - cid: lebl-3.1.13
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.13"
+    page: "121"
+    pdfPage: 121
+    audit: ok
+    verdict: core
+    machinery: "Bolzano–Weierstrass applied to (f(x_n)) for a sequence x_n -> c from the cluster-point definition."
+    standardResult: "bounded f: some sequence x_n -> c has f(x_n) convergent (Bolzano–Weierstrass)"
+    topic: continuity
+    subtopics: [functional-limits, bolzano-weierstrass]
+    skills: [subsequence-extraction, cluster-point-sequence]
+    difficulty: easy
+    difficultyRationale: "Build x_n -> c from the cluster-point property, then extract a convergent subsequence of f(x_n)."
+    category: canonical
+    type: proof
+    tags: [Bolzano-Weierstrass, cluster-point, subsequence, functional-limit]
+    references: []
+    problemLatex: |
+      Suppose $S \subset \mathbb{R}$ and $c$ is a cluster point of $S$. Suppose $f\colon S \to \mathbb{R}$ is bounded. Show that there exists a sequence $\{x_n\}_{n=1}^\infty$ with $x_n \in S \setminus \{c\}$ and $\lim_{n\to\infty} x_n = c$ such that $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ converges.
+    transcriptionNotes: "Topic matches the MIT reading (2.5, 2.6, 3.1): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 7, Problem 5"
+
+  - cid: lebl-3.1.14
+    chapter: "3 Continuous Functions"
+    section: "3.1 Limits of functions"
+    number: "Exercise 3.1.14"
+    page: "121"
+    pdfPage: 121
+    audit: ok
+    verdict: strong
+    machinery: "Counterexample showing that limits of compositions can fail without the hypothesis g(c2)=L."
+    standardResult: "limit of composition fails without g(c2)=L (counterexample)"
+    topic: continuity
+    subtopics: [functional-limits]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Need an inner f that hits c2 infinitely often near c1 and an outer g with a removable discontinuity at c2."
+    category: canonical
+    type: counterexample
+    tags: [composition, functional-limit, counterexample]
+    references: ["Exercise 3.1.9 (quoted)"]
+    problemLatex: |
+      *(Challenging)* Show that the hypothesis that $g(c_2) = L$ in Exercise 3.1.9 is necessary. That is, find $f$ and $g$ such that $f(x) \to c_2$ as $x \to c_1$ and $g(y) \to L$ as $y \to c_2$, but $g\bigl(f(x)\bigr)$ does not go to $L$ as $x \to c_1$.
+
+      *(Exercise 3.1.9: Let $c_1$ be a cluster point of $A \subset \mathbb{R}$ and $c_2$ be a cluster point of $B \subset \mathbb{R}$. Suppose $f\colon A \to B$ and $g\colon B \to \mathbb{R}$ are functions such that $f(x) \to c_2$ as $x \to c_1$ and $g(y) \to L$ as $y \to c_2$. If $c_2 \in B$, also suppose that $g(c_2) = L$. Let $h(x) := g\bigl(f(x)\bigr)$ and show $h(x) \to L$ as $x \to c_1$.)*
+    transcriptionNotes: "Book labels it (Challenging). Exercise 3.1.9 quoted verbatim (without its hint) for self-containedness."
+
+  # ---------------- 3.2 ----------------
+  - cid: lebl-3.2.3
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.3"
+    page: "127"
+    pdfPage: 127
+    audit: ok
+    verdict: strong
+    machinery: "Epsilon-delta continuity/discontinuity at a point for a rational/irrational piecewise function; uses density of Q and irrationals."
+    standardResult: "f = x on Q, x^2 off Q: continuous exactly where x = x^2"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity, discontinuities]
+    skills: [epsilon-delta-proof, negate-definition, density-argument]
+    difficulty: easy
+    difficultyRationale: "Continuity part is a simple estimate; discontinuity requires negating the definition and using density."
+    category: canonical
+    type: proof
+    tags: [continuity, discontinuity, rational-irrational, epsilon-delta, density]
+    references: []
+    problemLatex: |
+      Define $f\colon \mathbb{R} \to \mathbb{R}$ by
+      $$f(x) := \begin{cases} x & \text{if } x \text{ is rational,} \\ x^2 & \text{if } x \text{ is irrational.} \end{cases}$$
+      Using the definition of continuity directly, prove that $f$ is continuous at 1 and discontinuous at 2.
+
+  - cid: lebl-3.2.4
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.4"
+    page: "128"
+    pdfPage: 128
+    audit: ok
+    verdict: strong
+    machinery: "Proving discontinuity with a sequence; the topologist's sine as a standard counterexample."
+    standardResult: "sin(1/x) (with f(0)=0) is discontinuous at 0"
+    topic: continuity
+    subtopics: [discontinuities, sequential-continuity]
+    skills: [sequential-characterization, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Pick x_n = 1/(pi/2 + 2 pi n); continuity elsewhere from composition rules."
+    category: canonical
+    type: proof
+    tags: [sin-1-over-x, discontinuity, sequential-criterion, counterexample]
+    references: []
+    problemLatex: |
+      Define $f\colon \mathbb{R} \to \mathbb{R}$ by
+      $$f(x) := \begin{cases} \sin(1/x) & \text{if } x \neq 0, \\ 0 & \text{if } x = 0. \end{cases}$$
+      Is $f$ continuous? Prove your assertion.
+
+  - cid: lebl-3.2.9
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.9"
+    page: "128"
+    pdfPage: 128
+    audit: ok
+    verdict: consider
+    machinery: "Counterexample: sums of discontinuous (even nowhere continuous) functions can be continuous."
+    standardResult: "nowhere continuous f, g with f+g continuous (Dirichlet-type)"
+    topic: continuity
+    subtopics: [discontinuities]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Take a Dirichlet-type function and its negative."
+    category: canonical
+    type: counterexample
+    tags: [counterexample, Dirichlet-function, continuity]
+    references: []
+    problemLatex: |
+      Give an example of functions $f\colon \mathbb{R} \to \mathbb{R}$ and $g\colon \mathbb{R} \to \mathbb{R}$ such that the function $h$, defined by $h(x) := f(x) + g(x)$, is continuous, but $f$ and $g$ are not continuous. Can you find $f$ and $g$ that are nowhere continuous, but $h$ is a continuous function?
+
+  - cid: lebl-3.2.10
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.10"
+    page: "128"
+    pdfPage: 128
+    audit: ok
+    verdict: core
+    machinery: "Density of Q plus sequential continuity: continuous functions are determined by values on a dense set."
+    standardResult: "continuous functions agreeing on Q agree everywhere"
+    topic: continuity
+    subtopics: [sequential-continuity, dense-sets]
+    skills: [sequential-characterization, density-argument]
+    difficulty: easy
+    difficultyRationale: "Approximate x by rationals and pass to the limit."
+    category: canonical
+    type: proof
+    tags: [continuity, density-of-Q, sequential-criterion, uniqueness]
+    references: []
+    problemLatex: |
+      Let $f\colon \mathbb{R} \to \mathbb{R}$ and $g\colon \mathbb{R} \to \mathbb{R}$ be continuous functions. Suppose that $f(r) = g(r)$ for all $r \in \mathbb{Q}$. Show that $f(x) = g(x)$ for all $x \in \mathbb{R}$.
+
+  - cid: lebl-3.2.11
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.11"
+    page: "128"
+    pdfPage: 128
+    audit: ok
+    verdict: core
+    machinery: "Sign preservation: choose epsilon = f(c) in the definition of continuity."
+    standardResult: "continuous f with f(c)>0 is positive on a neighborhood of c"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity]
+    skills: [epsilon-delta-proof, choose-epsilon]
+    difficulty: introductory
+    difficultyRationale: "One application of the definition with epsilon = f(c)."
+    category: canonical
+    type: proof
+    tags: [continuity, sign-preservation, epsilon-delta, machinery]
+    references: []
+    problemLatex: |
+      Let $f\colon \mathbb{R} \to \mathbb{R}$ be continuous. Suppose $f(c) > 0$. Show that there exists an $\alpha > 0$ such that for all $x \in (c-\alpha, c+\alpha)$, we have $f(x) > 0$.
+    transcriptionNotes: "Topic matches MIT reading (3.1, 3.2): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 8, Problem 3"
+
+  - cid: lebl-3.2.13
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.13"
+    page: "128"
+    pdfPage: 128
+    audit: ok
+    verdict: consider
+    machinery: "Sequential criterion for continuity with only convergence assumed (constant sequence pins the limit)."
+    standardResult: "f(x_n) convergent for all x_n -> c implies continuity at c"
+    topic: continuity
+    subtopics: [sequential-continuity]
+    skills: [interleaving-sequences, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Interleave x_n with the constant sequence c to force the limit f(c)."
+    category: canonical
+    type: proof
+    tags: [sequential-criterion, continuity, interleaving]
+    references: []
+    problemLatex: |
+      Let $f\colon S \to \mathbb{R}$ be a function and $c \in S$ such that for every sequence $\{x_n\}_{n=1}^\infty$ in $S$ with $\lim_{n\to\infty} x_n = c$, the sequence $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ converges. Show that $f$ is continuous at $c$.
+    transcriptionNotes: "Close cousin of Exercise 3.1.11 (limit version); 3.1.11 is the richer one."
+
+  - cid: lebl-3.2.14
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.14"
+    page: "128"
+    pdfPage: 128
+    audit: ok
+    verdict: core
+    machinery: "Pasting lemma: continuity at the junction point from one-sided behavior."
+    standardResult: "pasting lemma for continuous functions on adjacent closed intervals"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity]
+    skills: [epsilon-delta-proof, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Only x = 0 needs care; take the min of two deltas."
+    category: canonical
+    type: proof
+    tags: [pasting-lemma, continuity, piecewise, epsilon-delta]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [-1,0] \to \mathbb{R}$ and $g\colon [0,1] \to \mathbb{R}$ are continuous and $f(0) = g(0)$. Define $h\colon [-1,1] \to \mathbb{R}$ by $h(x) := f(x)$ if $x \leq 0$ and $h(x) := g(x)$ if $x > 0$. Show that $h$ is continuous.
+    transcriptionNotes: "Topic matches MIT reading (3.1, 3.2): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 8, Problem 4"
+
+  - cid: lebl-3.2.16
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.16"
+    page: "128"
+    pdfPage: 128
+    audit: ok
+    verdict: strong
+    machinery: "Cauchy functional equation: additivity + continuity forces linearity via Q-linearity and density."
+    standardResult: "additive function continuous at a point is linear (Cauchy functional equation)"
+    topic: continuity
+    subtopics: [sequential-continuity, dense-sets]
+    skills: [induction, density-argument, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Multi-step: integer then rational homogeneity, continuity everywhere from continuity at 0, extension by density."
+    category: synthesis
+    type: proof
+    tags: [Cauchy-functional-equation, additive-function, continuity, density-of-Q]
+    references: []
+    problemLatex: |
+      *(Challenging)* Suppose $f\colon \mathbb{R} \to \mathbb{R}$ is continuous at 0 and such that $f(x+y) = f(x) + f(y)$ for every $x$ and $y$. Show that $f(x) = ax$ for some $a \in \mathbb{R}$. Hint: Show that $f(nx) = nf(x)$, then show $f$ is continuous on $\mathbb{R}$. Then show that $f(x)/x = f(1)$ for all rational $x \neq 0$.
+    transcriptionNotes: "Book labels it (Challenging); hint is the book's own."
+
+  - cid: lebl-3.2.19
+    chapter: "3 Continuous Functions"
+    section: "3.2 Continuous functions"
+    number: "Exercise 3.2.19"
+    page: "129"
+    pdfPage: 129
+    audit: ok
+    verdict: strong
+    machinery: "Convex functions on open intervals are continuous; slope-monotonicity estimates; endpoint counterexample."
+    standardResult: "convex function on an open interval is continuous"
+    topic: continuity
+    subtopics: [epsilon-delta-continuity]
+    skills: [comparison-estimate, squeeze, construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "Part (a) requires deriving two-sided linear bounds near each point from the convexity inequality; (b) is easy."
+    category: challenge
+    type: proof
+    tags: [convex-function, continuity, inequalities, counterexample]
+    references: []
+    problemLatex: |
+      *(Challenging)* A function $f\colon I \to \mathbb{R}$ is *convex* if whenever $a \leq x \leq b$ for $a, x, b$ in $I$, we have $f(x) \leq f(a)\frac{b-x}{b-a} + f(b)\frac{x-a}{b-a}$. In other words, the line drawn between $\bigl(a, f(a)\bigr)$ and $\bigl(b, f(b)\bigr)$ is above the graph of $f$.
+
+      a) Prove that if $I = (\alpha, \beta)$ an open interval and $f\colon I \to \mathbb{R}$ is convex, then $f$ is continuous.
+      b) Find an example of a convex $f\colon [0,1] \to \mathbb{R}$ that is not continuous.
+    transcriptionNotes: "Verified against page image. 'if I = (α,β) an open interval' is the book's wording (missing 'is')."
+
+  # ---------------- 3.3 ----------------
+  - cid: lebl-3.3.2
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.2"
+    page: "136"
+    pdfPage: 136
+    audit: ok
+    verdict: consider
+    machinery: "Shows continuity is needed in the extreme value theorem even for bounded functions."
+    standardResult: "bounded discontinuous function on [0,1] with no max or min"
+    topic: continuity
+    subtopics: [EVT]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Requires a function whose sup and inf are both approached but not attained."
+    category: canonical
+    type: counterexample
+    tags: [extreme-value-theorem, counterexample, hypotheses]
+    references: []
+    problemLatex: |
+      Find an example of a bounded discontinuous function $f\colon [0,1] \to \mathbb{R}$ that has neither an absolute minimum nor an absolute maximum.
+
+  - cid: lebl-3.3.3
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.3"
+    page: "136"
+    pdfPage: 136
+    audit: ok
+    verdict: strong
+    machinery: "Extreme value theorem on a compact subinterval combined with limits at the endpoints of an open interval."
+    standardResult: "continuous f on (0,1) vanishing at both ends attains a max or a min"
+    topic: continuity
+    subtopics: [EVT, functional-limits]
+    skills: [compact-subinterval-reduction, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Choose a subinterval [a,b] outside which |f| is small relative to a nonzero value, then apply EVT there."
+    category: synthesis
+    type: proof
+    tags: [extreme-value-theorem, open-interval, limits, continuity]
+    references: []
+    problemLatex: |
+      Let $f\colon (0,1) \to \mathbb{R}$ be a continuous function such that $\displaystyle\lim_{x\to 0} f(x) = \lim_{x\to 1} f(x) = 0$. Show that $f$ achieves either an absolute minimum or an absolute maximum on $(0,1)$ (but perhaps not both).
+
+  - cid: lebl-3.3.4
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.4"
+    page: "136"
+    pdfPage: 136
+    audit: ok
+    verdict: strong
+    machinery: "Intermediate value property does not imply continuity: sin(1/x) has the IVP."
+    standardResult: "sin(1/x) (f(0)=0) has the intermediate value property but is discontinuous"
+    topic: continuity
+    subtopics: [IVT, discontinuities]
+    skills: [IVT-application, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Case analysis on whether 0 is in [a,b]; near 0 sin(1/x) takes every value in [-1,1]."
+    category: canonical
+    type: proof
+    tags: [intermediate-value-property, sin-1-over-x, counterexample, IVT]
+    references: []
+    problemLatex: |
+      Let
+      $$f(x) := \begin{cases} \sin(1/x) & \text{if } x \neq 0, \\ 0 & \text{if } x = 0. \end{cases}$$
+      Show that $f$ has the intermediate value property. That is, whenever $a < b$, if there exists a $y$ such that $f(a) < y < f(b)$ or $f(a) > y > f(b)$, then there exists a $c \in (a,b)$ such that $f(c) = y$.
+
+  - cid: lebl-3.3.9
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.9"
+    page: "137"
+    pdfPage: 137
+    audit: ok
+    verdict: consider
+    machinery: "Growth of polynomials at infinity (leading term dominates)."
+    standardResult: "bounded polynomial on R is constant"
+    topic: continuity
+    subtopics: [limits-at-infinity]
+    skills: [growth-estimate, contradiction]
+    difficulty: easy
+    difficultyRationale: "Factor out the leading power and bound the remaining terms for large |x|."
+    category: canonical
+    type: proof
+    tags: [polynomial, growth, boundedness]
+    references: []
+    problemLatex: |
+      *(Challenging)* Suppose $f(x)$ is a bounded polynomial, in other words, there is an $M$ such that $\bigl|f(x)\bigr| \leq M$ for all $x \in \mathbb{R}$. Prove that $f$ must be a constant.
+    transcriptionNotes: "Book labels it (Challenging); rated easy on mathematical content."
+
+  - cid: lebl-3.3.10
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.10"
+    page: "137"
+    pdfPage: 137
+    audit: ok
+    verdict: core
+    machinery: "IVT applied to the auxiliary function f(x) - x."
+    standardResult: "Brouwer fixed point theorem in 1D: continuous f:[0,1]->[0,1] has a fixed point"
+    topic: continuity
+    subtopics: [IVT]
+    skills: [auxiliary-function, IVT-application]
+    difficulty: easy
+    difficultyRationale: "Standard auxiliary function trick."
+    category: canonical
+    type: theorem-application
+    tags: [fixed-point, IVT, auxiliary-function]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [0,1] \to [0,1]$ is continuous. Show that $f$ has a fixed point, in other words, show that there exists an $x \in [0,1]$ such that $f(x) = x$.
+
+  - cid: lebl-3.3.11
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.11"
+    page: "137"
+    pdfPage: 137
+    audit: ok
+    verdict: strong
+    machinery: "Shows compactness of the domain is essential in the extreme value theorem."
+    standardResult: "bounded continuous function on R with no max or min (e.g. arctan)"
+    topic: continuity
+    subtopics: [EVT]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "A single standard example plus a short verification."
+    category: canonical
+    type: counterexample
+    tags: [extreme-value-theorem, counterexample, unbounded-domain]
+    references: []
+    problemLatex: |
+      Find an example of a continuous bounded function $f\colon \mathbb{R} \to \mathbb{R}$ that achieves neither an absolute minimum nor an absolute maximum on $\mathbb{R}$.
+    transcriptionNotes: "Topic matches MIT reading (3.3, 3.4, 3.5): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 9, Problem 1"
+
+  - cid: lebl-3.3.13
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.13"
+    page: "137"
+    pdfPage: 137
+    audit: ok
+    verdict: consider
+    machinery: "Testing intuition: boundedness on Z says nothing about boundedness on R."
+    standardResult: "continuous f bounded on Z need not be bounded"
+    topic: continuity
+    subtopics: [EVT]
+    skills: [construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "False; e.g. tent spikes of growing height between integers."
+    category: canonical
+    type: counterexample
+    tags: [true-false, counterexample, boundedness]
+    references: []
+    problemLatex: |
+      True/False, prove or find a counterexample. If $f\colon \mathbb{R} \to \mathbb{R}$ is a continuous function such that $f|_{\mathbb{Z}}$ is bounded, then $f$ is bounded.
+
+  - cid: lebl-3.3.14
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.14"
+    page: "137"
+    pdfPage: 137
+    audit: ok
+    verdict: strong
+    machinery: "EVT obstruction: a continuous image of [0,1] attains its max, but (0,1) has no max."
+    standardResult: "no continuous bijection [0,1] -> (0,1)"
+    topic: continuity
+    subtopics: [EVT, continuity-and-topology]
+    skills: [contradiction, EVT-application]
+    difficulty: easy
+    difficultyRationale: "Short once one thinks of EVT."
+    category: canonical
+    type: proof
+    tags: [EVT, bijection, compactness, contradiction]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [0,1] \to (0,1)$ is a bijection. Prove that $f$ is not continuous.
+
+  - cid: lebl-3.3.16
+    chapter: "3 Continuous Functions"
+    section: "3.3 Extreme and intermediate value theorems"
+    number: "Exercise 3.3.16"
+    page: "137"
+    pdfPage: 137
+    audit: ok
+    verdict: consider
+    machinery: "EVT on a large compact interval plus growth at infinity gives a global minimum."
+    standardResult: "even-degree monic polynomial attains an absolute minimum on R"
+    topic: continuity
+    subtopics: [EVT]
+    skills: [compact-subinterval-reduction, growth-estimate]
+    difficulty: medium
+    difficultyRationale: "Must choose an interval outside which g exceeds g(0), then apply EVT."
+    category: synthesis
+    type: proof
+    tags: [EVT, polynomial, global-minimum, coercive]
+    references: []
+    problemLatex: |
+      Suppose $g(x)$ is a monic polynomial of even degree $d$, that is,
+      $$g(x) = x^d + b_{d-1}x^{d-1} + \cdots + b_1 x + b_0,$$
+      for some real numbers $b_0, b_1, \ldots, b_{d-1}$. Show that $g$ achieves an absolute minimum on $\mathbb{R}$.
+
+  # ---------------- 3.4 ----------------
+  - cid: lebl-3.4.2
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.2"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: strong
+    machinery: "Uniformly continuous functions map Cauchy sequences to Cauchy sequences, giving existence of endpoint limits."
+    standardResult: "uniformly continuous f on (a,b) has a limit at b (continuous extension)"
+    topic: continuity
+    subtopics: [uniform-continuity, functional-limits]
+    skills: [cauchy-sequence-argument, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Show f(x_n) is Cauchy for any x_n -> b, then that all such limits agree."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, Cauchy, extension, endpoint-limit]
+    references: ["Proposition 3.4.6 (quoted)"]
+    problemLatex: |
+      Let $f\colon (a,b) \to \mathbb{R}$ be a uniformly continuous function. Finish the proof of Proposition 3.4.6 by showing that the limit $\displaystyle\lim_{x\to b} f(x)$ exists.
+
+      (Proposition 3.4.6: A function $f\colon (a,b) \to \mathbb{R}$ is uniformly continuous if and only if the limits
+      $$L_a := \lim_{x\to a} f(x) \quad\text{and}\quad L_b := \lim_{x\to b} f(x)$$
+      exist and the function $\widetilde{f}\colon [a,b] \to \mathbb{R}$ defined by
+      $$\widetilde{f}(x) := \begin{cases} f(x) & \text{if } x \in (a,b), \\ L_a & \text{if } x = a, \\ L_b & \text{if } x = b \end{cases}$$
+      is continuous.)
+    transcriptionNotes: "Proposition 3.4.6 quoted verbatim from p. 140. The book's proof (before this exercise) treats the limit at a; the exercise asks for the symmetric limit at b — effectively a standalone problem: uniformly continuous on (a,b) implies lim_{x->b} f(x) exists."
+
+  - cid: lebl-3.4.3
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.3"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: strong
+    machinery: "Lipschitz estimate |1/x - 1/y| = |x-y|/(xy) with xy bounded below."
+    standardResult: "1/x is Lipschitz on (c, infinity) for c > 0"
+    topic: continuity
+    subtopics: [lipschitz-holder]
+    skills: [algebraic-estimate]
+    difficulty: introductory
+    difficultyRationale: "One-line estimate."
+    category: canonical
+    type: proof
+    tags: [Lipschitz, 1-over-x, estimate]
+    references: []
+    problemLatex: |
+      Show that $f\colon (c, \infty) \to \mathbb{R}$ for some $c > 0$ and defined by $f(x) := 1/x$ is Lipschitz continuous.
+    transcriptionNotes: "Topic matches MIT reading (3.3, 3.4, 3.5): consistent. Pairs naturally with Exercise 3.4.4 (not Lipschitz on (0,∞))."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 9, Problem 2"
+
+  - cid: lebl-3.4.5
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.5"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: consider
+    machinery: "Gluing uniformly continuous functions on overlapping intervals."
+    standardResult: "gluing uniformly continuous functions on overlapping intervals"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Points x in A, y in B far from the overlap need routing through a common point; (b) is easy."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, gluing, intervals]
+    references: []
+    problemLatex: |
+      Let $A, B$ be intervals. Let $f\colon A \to \mathbb{R}$ and $g\colon B \to \mathbb{R}$ be uniformly continuous functions such that $f(x) = g(x)$ for $x \in A \cap B$. Define the function $h\colon A \cup B \to \mathbb{R}$ by $h(x) := f(x)$ if $x \in A$ and $h(x) := g(x)$ if $x \in B \setminus A$.
+
+      a) Prove that if $A \cap B \neq \emptyset$, then $h$ is uniformly continuous.
+      b) Find an example where $A \cap B = \emptyset$ and $h$ is not even continuous.
+
+  - cid: lebl-3.4.6
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.6"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: consider
+    machinery: "Negating Lipschitz for higher-degree polynomials via growth of difference quotients."
+    standardResult: "polynomials of degree >= 2 are not Lipschitz on R"
+    topic: continuity
+    subtopics: [lipschitz-holder]
+    skills: [negate-definition, growth-estimate]
+    difficulty: medium
+    difficultyRationale: "Need to show difference quotients (f(x+1)-f(x)) are unbounded, a polynomial of degree d-1."
+    category: canonical
+    type: proof
+    tags: [Lipschitz, polynomial, growth]
+    references: []
+    problemLatex: |
+      *(Challenging)* Let $f\colon \mathbb{R} \to \mathbb{R}$ be a polynomial of degree $d \geq 2$. Show that $f$ is not Lipschitz continuous.
+
+  - cid: lebl-3.4.7
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.7"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: consider
+    machinery: "Uniform continuity on (0,1) via existence of endpoint limits / continuous extension."
+    standardResult: "x(1-x)f(x) uniformly continuous for bounded continuous f on (0,1)"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [continuous-extension, squeeze]
+    difficulty: easy
+    difficultyRationale: "Extend g by 0 at endpoints and apply continuous-on-compact implies uniformly continuous."
+    category: synthesis
+    type: theorem-application
+    tags: [uniform-continuity, extension, compactness]
+    references: []
+    problemLatex: |
+      Let $f\colon (0,1) \to \mathbb{R}$ be a bounded continuous function. Show that the function $g(x) := x(1-x)f(x)$ is uniformly continuous.
+
+  - cid: lebl-3.4.8
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.8"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: core
+    machinery: "Negating uniform continuity with pairs of points that get close while values stay apart."
+    standardResult: "sin(1/x) is not uniformly continuous on (0, infinity)"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [negate-definition, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Choose x_n, y_n -> 0 with sin(1/x_n)=1 and sin(1/y_n)=-1."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, sin-1-over-x, negation, counterexample]
+    references: []
+    problemLatex: |
+      Show that $f\colon (0, \infty) \to \mathbb{R}$ defined by $f(x) := \sin(1/x)$ is not uniformly continuous.
+    transcriptionNotes: "Topic matches MIT reading (3.3, 3.4, 3.5): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 9, Problem 3"
+
+  - cid: lebl-3.4.9
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.9"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: strong
+    machinery: "Extension of uniformly continuous functions from a dense set via Cauchy sequences."
+    standardResult: "uniformly continuous function on Q extends uniquely to a uniformly continuous function on R"
+    topic: continuity
+    subtopics: [uniform-continuity, dense-sets, cauchy-sequences]
+    skills: [cauchy-sequence-argument, well-definedness, density-argument]
+    difficulty: hard
+    difficultyRationale: "Define the extension via limits along rational Cauchy sequences, check well-definedness and uniform continuity."
+    category: synthesis
+    type: construction
+    tags: [uniform-continuity, extension, dense-set, Cauchy, completeness]
+    references: []
+    problemLatex: |
+      *(Challenging)* Let $f\colon \mathbb{Q} \to \mathbb{R}$ be a uniformly continuous function. Show that there exists a uniformly continuous function $\widetilde{f}\colon \mathbb{R} \to \mathbb{R}$ such that $f(x) = \widetilde{f}(x)$ for all $x \in \mathbb{Q}$.
+
+  - cid: lebl-3.4.10
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.10"
+    page: "143"
+    pdfPage: 143
+    audit: ok
+    verdict: strong
+    machinery: "Continuity vs uniform continuity on Cauchy sequences; completeness of R makes continuity enough."
+    standardResult: "continuous functions need not preserve Cauchy sequences; on R they do"
+    topic: continuity
+    subtopics: [uniform-continuity, cauchy-sequences, sequential-continuity]
+    skills: [construct-counterexample, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "(a) 1/x with x_n=1/n; (b) Cauchy converges in R, then sequential continuity."
+    category: canonical
+    type: counterexample
+    tags: [Cauchy, continuity, uniform-continuity, completeness]
+    references: []
+    problemLatex: |
+      a) Find a continuous $f\colon (0,1) \to \mathbb{R}$ and a sequence $\{x_n\}_{n=1}^\infty$ in $(0,1)$ that is Cauchy, but such that $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ is not Cauchy.
+      b) Prove that if $f\colon \mathbb{R} \to \mathbb{R}$ is continuous, and $\{x_n\}_{n=1}^\infty$ is Cauchy, then $\bigl\{f(x_n)\bigr\}_{n=1}^\infty$ is Cauchy.
+
+  - cid: lebl-3.4.14
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.14"
+    page: "144"
+    pdfPage: 144
+    audit: ok
+    verdict: consider
+    machinery: "Using the Lipschitz bound from both endpoints; sharpness example."
+    standardResult: "Lipschitz K with f(0)=f(1)=0 implies |f| <= K/2 (sharp)"
+    topic: continuity
+    subtopics: [lipschitz-holder]
+    skills: [two-sided-estimate, construct-example]
+    difficulty: easy
+    difficultyRationale: "Bound |f(x)| by K min(x, 1-x); tent function shows sharpness."
+    category: canonical
+    type: proof
+    tags: [Lipschitz, estimate, sharpness]
+    references: []
+    problemLatex: |
+      Suppose for $f\colon [0,1] \to \mathbb{R}$, we have $\bigl|f(x) - f(y)\bigr| \leq K|x-y|$ for all $x, y$ in $[0,1]$, and $f(0) = f(1) = 0$. Prove that $\bigl|f(x)\bigr| \leq K/2$ for all $x \in [0,1]$. Further show by example that $K/2$ is the best possible. That is, find such a continuous function for which $\bigl|f(x)\bigr| = K/2$ for some $x \in [0,1]$.
+    transcriptionNotes: "Fixed typo 'fund' -> 'find'."
+
+  - cid: lebl-3.4.15
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.15"
+    page: "144"
+    pdfPage: 144
+    audit: ok
+    verdict: strong
+    machinery: "Uniform continuity on a compact interval transported by periodicity."
+    standardResult: "continuous periodic function is uniformly continuous"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [periodicity-reduction, compactness-argument]
+    difficulty: easy
+    difficultyRationale: "Apply uniform continuity on [0,2P] (or [-P,2P]) and translate; small care at period boundaries."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, periodic-function, compactness]
+    references: []
+    problemLatex: |
+      Suppose $f\colon \mathbb{R} \to \mathbb{R}$ is continuous and periodic with period $P > 0$. That is, $f(x+P) = f(x)$ for all $x \in \mathbb{R}$. Show that $f$ is uniformly continuous.
+
+  - cid: lebl-3.4.16
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.16"
+    page: "144"
+    pdfPage: 144
+    audit: ok
+    verdict: consider
+    machinery: "Modulus of continuity characterization of uniform continuity."
+    standardResult: "|f(x)-f(y)| <= g(|x-y|) with g continuous at 0, g(0)=0 implies uniform continuity"
+    topic: continuity
+    subtopics: [uniform-continuity]
+    skills: [epsilon-delta-proof]
+    difficulty: introductory
+    difficultyRationale: "Delta from continuity of g at 0 is independent of the point."
+    category: canonical
+    type: proof
+    tags: [uniform-continuity, modulus-of-continuity]
+    references: []
+    problemLatex: |
+      Suppose $f\colon S \to \mathbb{R}$ and $g\colon [0,\infty) \to [0,\infty)$ are functions, $g$ is continuous at 0, $g(0) = 0$, and whenever $x$ and $y$ are in $S$, we have $\bigl|f(x) - f(y)\bigr| \leq g\bigl(|x-y|\bigr)$. Prove that $f$ is uniformly continuous.
+
+  - cid: lebl-3.4.17
+    chapter: "3 Continuous Functions"
+    section: "3.4 Uniform continuity"
+    number: "Exercise 3.4.17"
+    page: "144"
+    pdfPage: 144
+    audit: ok
+    verdict: strong
+    machinery: "Local-to-global via compactness of [a,b] (Lebesgue number / sequential compactness); counterexample on open interval."
+    standardResult: "locally Lipschitz on [a,b] implies Lipschitz"
+    topic: continuity
+    subtopics: [lipschitz-holder, compactness]
+    skills: [compactness-argument, contradiction, subsequence-extraction, construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "Part (a) needs a genuine compactness argument handling both nearby and far-apart pairs."
+    category: synthesis
+    type: proof
+    tags: [Lipschitz, locally-Lipschitz, compactness, local-to-global, counterexample]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [a,b] \to \mathbb{R}$ is a function such that for every $c \in [a,b]$ there is a $K_c > 0$ and an $\epsilon_c > 0$ for which $\bigl|f(x) - f(y)\bigr| \leq K_c|x-y|$ for all $x$ and $y$ in $(c-\epsilon_c, c+\epsilon_c) \cap [a,b]$. In other words, $f$ is "locally Lipschitz."
+
+      a) Prove that there exists a single $K > 0$ such that $\bigl|f(x) - f(y)\bigr| \leq K|x-y|$ for all $x, y$ in $[a,b]$.
+      b) Find a counterexample to the above if the interval is open, that is, find an $f\colon (a,b) \to \mathbb{R}$ that is locally Lipschitz, but not Lipschitz.
+
+  # ---------------- 3.5 ----------------
+  - cid: lebl-3.5.2
+    chapter: "3 Continuous Functions"
+    section: "3.5 Limits at infinity"
+    number: "Exercise 3.5.2"
+    page: "148"
+    pdfPage: 148
+    audit: ok
+    verdict: consider
+    machinery: "Translating limits at infinity into one-sided limits at 0 via x -> 1/x, directly from definitions."
+    standardResult: "lim_{x->0+} f(1/x) = lim_{x->infinity} f(x)"
+    topic: continuity
+    subtopics: [limits-at-infinity, functional-limits]
+    skills: [unwind-definition, change-of-variables]
+    difficulty: easy
+    difficultyRationale: "Match M with 1/delta in both directions."
+    category: canonical
+    type: proof
+    tags: [limit-at-infinity, one-sided-limit, substitution]
+    references: []
+    problemLatex: |
+      Let $f\colon [1,\infty) \to \mathbb{R}$ be a function. Define $g\colon (0,1] \to \mathbb{R}$ via $g(x) := f(1/x)$. Using the definitions of limits directly, show that $\lim_{x\to 0^+} g(x)$ exists if and only if $\lim_{x\to\infty} f(x)$ exists, in which case they are equal.
+
+  # ---------------- 3.6 ----------------
+  - cid: lebl-3.6.8
+    chapter: "3 Continuous Functions"
+    section: "3.6 Monotone functions and continuity"
+    number: "Exercise 3.6.8"
+    page: "153"
+    pdfPage: 153
+    audit: ok
+    verdict: strong
+    machinery: "IVT forces a continuous injective function on an interval to be strictly monotone."
+    standardResult: "continuous injection on an interval is strictly monotone"
+    topic: continuity
+    subtopics: [monotone-functions, IVT]
+    skills: [IVT-application, contradiction, case-analysis]
+    difficulty: medium
+    difficultyRationale: "Requires a careful three-point IVT argument against non-monotonicity."
+    category: canonical
+    type: proof
+    tags: [IVT, injective, strictly-monotone, continuity]
+    references: []
+    problemLatex: |
+      Suppose $I$ and $J$ are intervals and $f\colon I \to J$ is a continuous, bijective (one-to-one and onto) function. Show that $f$ is strictly monotone.
+
+  - cid: lebl-3.6.10
+    chapter: "3 Continuous Functions"
+    section: "3.6 Monotone functions and continuity"
+    number: "Exercise 3.6.10"
+    page: "153"
+    pdfPage: 153
+    audit: ok
+    verdict: consider
+    machinery: "Extending a monotone function via sup over lower values; counterexample to strict extension."
+    standardResult: "bounded increasing function on S extends to increasing function on R"
+    topic: continuity
+    subtopics: [monotone-functions, supremum-infimum]
+    skills: [sup-construction, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Define F(x) as a sup over S ∩ (−∞, x] (with care if empty); (b) needs a gap argument."
+    category: synthesis
+    type: construction
+    tags: [monotone-function, extension, supremum, counterexample]
+    references: []
+    problemLatex: |
+      a) Let $S \subset \mathbb{R}$ be a subset. If $f\colon S \to \mathbb{R}$ is increasing and bounded, then show that there exists an increasing $F\colon \mathbb{R} \to \mathbb{R}$ such that $f(x) = F(x)$ for all $x \in S$.
+      b) Find an example of a strictly increasing bounded $f\colon S \to \mathbb{R}$ such that an increasing $F$ as above cannot be strictly increasing no matter how we choose it.
+
+  - cid: lebl-3.6.11
+    chapter: "3 Continuous Functions"
+    section: "3.6 Monotone functions and continuity"
+    number: "Exercise 3.6.11"
+    page: "154"
+    pdfPage: 154
+    audit: ok
+    verdict: strong
+    machinery: "Constructing a monotone function with jumps at every rational via a series over an enumeration of Q."
+    standardResult: "increasing function discontinuous exactly at (every) rational: sum of 2^{-n} over q_n < x"
+    topic: continuity
+    subtopics: [monotone-functions, discontinuities]
+    skills: [enumeration-of-rationals, series-construction, construct-counterexample]
+    difficulty: hard
+    difficultyRationale: "Construction plus verification of jumps and that the image contains no interval."
+    category: challenge
+    type: construction
+    tags: [monotone-function, discontinuity, rationals, countable, series, construction]
+    references: []
+    problemLatex: |
+      *(Challenging)* Find an example of an increasing function $f\colon [0,1] \to \mathbb{R}$ that has a discontinuity at each rational number. Then show that the image $f\bigl([0,1]\bigr)$ contains no interval. Hint: Enumerate the rational numbers and define the function with a series.
+
+  - cid: lebl-3.6.14
+    chapter: "3 Continuous Functions"
+    section: "3.6 Monotone functions and continuity"
+    number: "Exercise 3.6.14"
+    page: "154"
+    pdfPage: 154
+    audit: ok
+    verdict: consider
+    machinery: "Differences of increasing functions have one-sided limits everywhere (bounded variation obstruction)."
+    standardResult: "Dirichlet function is not a difference of two increasing functions"
+    topic: continuity
+    subtopics: [monotone-functions, discontinuities]
+    skills: [one-sided-limits, contradiction]
+    difficulty: medium
+    difficultyRationale: "Use that g - h has one-sided limits at every point, which the Dirichlet function lacks."
+    category: synthesis
+    type: proof
+    tags: [Dirichlet-function, monotone-function, one-sided-limits, bounded-variation]
+    references: []
+    problemLatex: |
+      Prove that the Dirichlet function $f\colon [0,1] \to \mathbb{R}$, defined by $f(x) := 1$ if $x$ is rational and $f(x) := 0$ otherwise, cannot be written as a difference of two increasing functions. That is, there do not exist increasing $g$ and $h$ such that $f(x) = g(x) - h(x)$.
+
+  # ---------------- 4.1 ----------------
+  - cid: lebl-4.1.5
+    chapter: "4 The Derivative"
+    section: "4.1 The derivative"
+    number: "Exercise 4.1.5"
+    page: "160"
+    pdfPage: 160
+    audit: ok
+    verdict: strong
+    machinery: "Differentiability at a single point from the definition; discontinuity elsewhere via density."
+    standardResult: "x^2 on Q, 0 off Q: differentiable only at 0"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [squeeze, density-argument, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Difference quotient bounded by |x|; discontinuity via rational/irrational sequences."
+    category: canonical
+    type: counterexample
+    tags: [differentiable-at-one-point, rational-irrational, counterexample]
+    references: []
+    problemLatex: |
+      Define $f\colon \mathbb{R} \to \mathbb{R}$ by
+      $$f(x) := \begin{cases} x^2 & \text{if } x \in \mathbb{Q}, \\ 0 & \text{otherwise.} \end{cases}$$
+      Prove that $f$ is differentiable at 0, but discontinuous at all points except 0.
+
+  - cid: lebl-4.1.11
+    chapter: "4 The Derivative"
+    section: "4.1 The derivative"
+    number: "Exercise 4.1.11"
+    page: "160"
+    pdfPage: 160
+    audit: ok
+    verdict: core
+    machinery: "Working from the difference-quotient definition when the product rule does not apply."
+    standardResult: "bounded times function with g(c)=g'(c)=0 is differentiable at c"
+    topic: differentiation
+    subtopics: [derivative-definition, differentiability]
+    skills: [squeeze, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "|h(x)/(x-c)| <= M |g(x)/(x-c)| -> 0."
+    category: canonical
+    type: proof
+    tags: [derivative-definition, bounded-function, squeeze]
+    references: []
+    problemLatex: |
+      Suppose $f\colon I \to \mathbb{R}$ is bounded, $g\colon I \to \mathbb{R}$ is differentiable at $c \in I$, and $g(c) = g'(c) = 0$. Show that $h(x) := f(x)g(x)$ is differentiable at $c$. Hint: You cannot apply the product rule.
+    transcriptionNotes: "Topic matches MIT reading (4.1, 4.2): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 10, Problem 2"
+
+  - cid: lebl-4.1.12
+    chapter: "4 The Derivative"
+    section: "4.1 The derivative"
+    number: "Exercise 4.1.12"
+    page: "160"
+    pdfPage: 160
+    audit: ok
+    verdict: strong
+    machinery: "Squeeze theorem for difference quotients, with sign care on either side of c."
+    standardResult: "squeeze theorem for derivatives"
+    topic: differentiation
+    subtopics: [derivative-definition]
+    skills: [squeeze, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Divide by x - c, handling the sign flip for x < c."
+    category: canonical
+    type: proof
+    tags: [squeeze, derivative-definition]
+    references: []
+    problemLatex: |
+      Suppose $f\colon I \to \mathbb{R}$, $g\colon I \to \mathbb{R}$, and $h\colon I \to \mathbb{R}$, are functions. Suppose $c \in I$ is such that $f(c) = g(c) = h(c)$, $g$ and $h$ are differentiable at $c$, and $g'(c) = h'(c)$. Furthermore, suppose $h(x) \leq f(x) \leq g(x)$ for all $x \in I$. Prove $f$ is differentiable at $c$ and $f'(c) = g'(c) = h'(c)$.
+
+  - cid: lebl-4.1.14
+    chapter: "4 The Derivative"
+    section: "4.1 The derivative"
+    number: "Exercise 4.1.14"
+    page: "161"
+    pdfPage: 161
+    audit: ok
+    verdict: consider
+    machinery: "Derivative as best linear approximation (little-o formulation)."
+    standardResult: "differentiability as linear approximation with o(|x-c|) error"
+    topic: differentiation
+    subtopics: [derivative-definition]
+    skills: [unwind-definition]
+    difficulty: easy
+    difficultyRationale: "Take a = f(c), b = f'(c), and rewrite the definition."
+    category: canonical
+    type: conceptual
+    tags: [linear-approximation, derivative-definition, little-o]
+    references: []
+    problemLatex: |
+      Suppose $f\colon I \to \mathbb{R}$ is differentiable at $c \in I$. Prove that there exist numbers $a$ and $b$ with the property that for every $\epsilon > 0$, there is a $\delta > 0$, such that $\bigl|a + b(x-c) - f(x)\bigr| \leq \epsilon|x-c|$, whenever $x \in I$ and $|x-c| < \delta$. In other words, show that there exists a function $g\colon I \to \mathbb{R}$ such that $\lim_{x\to c} g(x) = 0$ and $\bigl|a + b(x-c) - f(x)\bigr| = g(x)|x-c|$.
+
+  - cid: lebl-4.1.16
+    chapter: "4 The Derivative"
+    section: "4.1 The derivative"
+    number: "Exercise 4.1.16"
+    page: "161"
+    pdfPage: 161
+    audit: ok
+    verdict: consider
+    machinery: "Sign of difference quotient near c from f'(c) > 0 (no continuity of f' assumed)."
+    standardResult: "f(c)=0, f'(c)>0 implies f changes sign from negative to positive at c"
+    topic: differentiation
+    subtopics: [derivative-definition, local-extrema]
+    skills: [epsilon-delta-proof, choose-epsilon]
+    difficulty: easy
+    difficultyRationale: "Apply the limit definition with epsilon = f'(c)."
+    category: canonical
+    type: proof
+    tags: [derivative-definition, sign, local-behavior]
+    references: []
+    problemLatex: |
+      Suppose $f\colon (a,b) \to \mathbb{R}$ is differentiable at $c \in (a,b)$, $f(c) = 0$, and $f'(c) > 0$. Prove that there is a $\delta > 0$ such that $f(x) < 0$ whenever $c - \delta < x < c$ and $f(x) > 0$ whenever $c < x < c + \delta$.
+
+  # ---------------- 4.2 ----------------
+  - cid: lebl-4.2.3
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.3"
+    page: "169"
+    pdfPage: 169
+    audit: ok
+    verdict: core
+    machinery: "Mean value theorem turns a derivative bound into a Lipschitz bound."
+    standardResult: "bounded derivative implies Lipschitz"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application]
+    difficulty: easy
+    difficultyRationale: "One application of the MVT."
+    category: canonical
+    type: theorem-application
+    tags: [mean-value-theorem, Lipschitz, bounded-derivative, machinery]
+    references: []
+    problemLatex: |
+      Suppose $f\colon \mathbb{R} \to \mathbb{R}$ is a differentiable function such that $f'$ is a bounded function. Prove that $f$ is a Lipschitz continuous function.
+
+  - cid: lebl-4.2.4
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.4"
+    page: "169"
+    pdfPage: 169
+    audit: ok
+    verdict: consider
+    machinery: "MVT gives points x_n where f' equals difference quotients converging to f'(c)."
+    standardResult: "f'(c) is a limit of f'(x_n) for some x_n -> c"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Apply MVT on [c, c+1/n] (or [c-1/n, c])."
+    category: synthesis
+    type: proof
+    tags: [mean-value-theorem, derivative, sequences]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [a,b] \to \mathbb{R}$ is differentiable and $c \in [a,b]$. Show there exists a sequence $\{x_n\}_{n=1}^\infty$ converging to $c$, $x_n \neq c$ for all $n$, such that
+      $$f'(c) = \lim_{n\to\infty} f'(x_n).$$
+      Do note this does not imply that $f'$ is continuous (why?).
+
+  - cid: lebl-4.2.5
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.5"
+    page: "169"
+    pdfPage: 169
+    audit: ok
+    verdict: core
+    machinery: "Hölder bound with exponent 2 forces zero derivative; zero derivative implies constant via MVT."
+    standardResult: "|f(x)-f(y)| <= |x-y|^2 implies f constant"
+    topic: differentiation
+    subtopics: [derivative-definition, mvt-applications]
+    skills: [squeeze, MVT-application]
+    difficulty: easy
+    difficultyRationale: "Difference quotient bounded by |x-y|; f'=0 then MVT."
+    category: canonical
+    type: proof
+    tags: [Holder-condition, constant-function, mean-value-theorem, derivative-definition]
+    references: []
+    problemLatex: |
+      Suppose $f\colon \mathbb{R} \to \mathbb{R}$ is a function such that $\bigl|f(x) - f(y)\bigr| \leq |x-y|^2$ for all $x$ and $y$. Show that $f(x) = C$ for some constant $C$. Hint: Show that $f$ is differentiable at all points and compute the derivative.
+
+  - cid: lebl-4.2.7
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.7"
+    page: "169"
+    pdfPage: 169
+    audit: ok
+    verdict: strong
+    machinery: "Darboux's theorem (intermediate value property of derivatives) applied."
+    standardResult: "nonvanishing derivative has constant sign (Darboux)"
+    topic: differentiation
+    subtopics: [darboux-property]
+    skills: [theorem-application, contradiction]
+    difficulty: easy
+    difficultyRationale: "Immediate from Darboux's theorem once recognized; without it, needs the Darboux argument."
+    category: canonical
+    type: theorem-application
+    tags: [Darboux, derivative, intermediate-value-property]
+    references: []
+    problemLatex: |
+      Suppose $f\colon (a,b) \to \mathbb{R}$ is a differentiable function such that $f'(x) \neq 0$ for all $x \in (a,b)$. Suppose there exists a point $c \in (a,b)$ such that $f'(c) > 0$. Prove $f'(x) > 0$ for all $x \in (a,b)$.
+    transcriptionNotes: "Book proves Darboux's theorem (Theorem 4.2.11) earlier in §4.2, so this is intended as its application."
+
+  - cid: lebl-4.2.9
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.9"
+    page: "169"
+    pdfPage: 169
+    audit: ok
+    verdict: core
+    machinery: "Cauchy mean value theorem to prove L'Hôpital's rule (0/0 form)."
+    standardResult: "L'Hôpital's rule via Cauchy MVT"
+    topic: differentiation
+    subtopics: [lhopital, rolle-mvt]
+    skills: [MVT-application, sequential-characterization]
+    difficulty: medium
+    difficultyRationale: "Must show g(x) != 0 via Rolle, then apply Cauchy MVT on [c,x] and squeeze the intermediate point."
+    category: canonical
+    type: proof
+    tags: [L-Hopital, Cauchy-mean-value-theorem, Rolle]
+    references: ["Exercise 4.1.15 (comparison only)"]
+    problemLatex: |
+      Prove the following version of L'Hôpital's rule. Suppose $f\colon (a,b) \to \mathbb{R}$ and $g\colon (a,b) \to \mathbb{R}$ are differentiable functions and $c \in (a,b)$. Suppose that $f(c) = 0$, $g(c) = 0$, $g'(x) \neq 0$ when $x \neq c$, and that the limit of $f'(x)/g'(x)$ as $x$ goes to $c$ exists. Show that
+      $$\lim_{x\to c} \frac{f(x)}{g(x)} = \lim_{x\to c} \frac{f'(x)}{g'(x)}.$$
+      Compare to Exercise 4.1.15. Note: Before you do anything else, prove that $g(x) \neq 0$ when $x \neq c$.
+    transcriptionNotes: "'Compare to Exercise 4.1.15' refers to a weaker version assuming f', g' continuous; the problem is self-contained without it. Topic matches MIT reading (4.1, 4.2): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 10, Problem 4"
+
+  - cid: lebl-4.2.10
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.10"
+    page: "169"
+    pdfPage: 169
+    audit: ok
+    verdict: strong
+    machinery: "Contrapositive of 'bounded derivative implies Lipschitz implies bounded on a bounded interval'."
+    standardResult: "unbounded differentiable function on bounded interval has unbounded derivative"
+    topic: differentiation
+    subtopics: [mvt-applications]
+    skills: [MVT-application, contrapositive]
+    difficulty: easy
+    difficultyRationale: "MVT from a fixed base point bounds f if f' is bounded."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem, unbounded, bounded-interval]
+    references: []
+    problemLatex: |
+      Let $f\colon (a,b) \to \mathbb{R}$ be an unbounded differentiable function. Show $f'\colon (a,b) \to \mathbb{R}$ is unbounded. Remark: It is important that $(a,b)$ is a bounded interval.
+
+  - cid: lebl-4.2.13
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.13"
+    page: "170"
+    pdfPage: 170
+    audit: ok
+    verdict: core
+    machinery: "MVT on [a,x] then squeeze: a limit of f' at a point equals the derivative there."
+    standardResult: "if f continuous and lim f'(x) = L at c, then f'(c) = L"
+    topic: differentiation
+    subtopics: [mvt-applications, differentiability]
+    skills: [MVT-application, squeeze]
+    difficulty: medium
+    difficultyRationale: "Requires applying the MVT on shrinking intervals and passing the intermediate point to the limit."
+    category: canonical
+    type: proof
+    tags: [mean-value-theorem, derivative-limit, one-sided-derivative]
+    references: ["Proposition 4.2.10 (quoted)"]
+    problemLatex: |
+      a) Prove Proposition 4.2.10.
+      b) Suppose $f\colon (a,b) \to \mathbb{R}$ is continuous, and suppose $f$ is differentiable everywhere except at $c \in (a,b)$ and $\lim_{x\to c} f'(x) = L$. Prove that $f$ is differentiable at $c$ and $f'(c) = L$.
+
+      (Proposition 4.2.10:
+      (i) Suppose $f\colon [a,b) \to \mathbb{R}$ is continuous, differentiable in $(a,b)$, and $\lim_{x\to a} f'(x) = L$. Then $f$ is differentiable at $a$ and $f'(a) = L$.
+      (ii) Suppose $f\colon (a,b] \to \mathbb{R}$ is continuous, differentiable in $(a,b)$, and $\lim_{x\to b} f'(x) = L$. Then $f$ is differentiable at $b$ and $f'(b) = L$.)
+    transcriptionNotes: "Proposition 4.2.10 quoted verbatim from p. 167. Topic matches MIT reading (4.1, 4.2): consistent."
+    mitAssigned: "MIT 18.100A (Fall 2020) Assignment 10, Problem 5"
+
+  - cid: lebl-4.2.14
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.14"
+    page: "170"
+    pdfPage: 170
+    audit: fixed
+    auditNotes: "Quoted Proposition 3.4.6 had been reflowed into prose (f~(a) := L_a, ...); replaced with the verbatim statement including the displayed limits and the cases definition, matching p. 140."
+    verdict: strong
+    machinery: "Bounded derivative ⇒ Lipschitz ⇒ uniformly continuous ⇒ continuous extension; oscillating counterexample."
+    standardResult: "f' bounded on (0,1) gives continuous extension to 0, not necessarily differentiable"
+    topic: differentiation
+    subtopics: [mvt-applications, uniform-continuity]
+    skills: [theorem-combination, construct-counterexample, MVT-application]
+    difficulty: medium
+    difficultyRationale: "(a) chains MVT with the uniform-continuity extension result; (b) requires building x sin(ln x)-type example; (c) uses 4.2.13-type argument."
+    category: synthesis
+    type: proof
+    tags: [mean-value-theorem, Lipschitz, uniform-continuity, extension, counterexample]
+    references: ["Proposition 3.4.6 (quoted)", "Exercise 4.2.3 (quoted)"]
+    problemLatex: |
+      Suppose $f\colon (0,1) \to \mathbb{R}$ is differentiable and $f'$ is bounded.
+
+      a) Show that there exists a continuous function $g\colon [0,1) \to \mathbb{R}$ such that $f(x) = g(x)$ for all $x \neq 0$.
+      Hint: Proposition 3.4.6 and Exercise 4.2.3.
+      b) Find an example where the $g$ is not differentiable at $x = 0$.
+      Hint: Consider something based on $\sin(\ln x)$, and assume you know basic properties of $\sin$ and $\ln$ from calculus.
+      c) Instead of assuming that $f'$ is bounded, assume that $\lim_{x\to 0} f'(x) = L$. Prove that not only does $g$ exist but it is differentiable at 0 and $g'(0) = L$.
+
+      (Proposition 3.4.6: A function $f\colon (a,b) \to \mathbb{R}$ is uniformly continuous if and only if the limits
+      $$L_a := \lim_{x\to a} f(x) \quad\text{and}\quad L_b := \lim_{x\to b} f(x)$$
+      exist and the function $\widetilde{f}\colon [a,b] \to \mathbb{R}$ defined by
+      $$\widetilde{f}(x) := \begin{cases} f(x) & \text{if } x \in (a,b), \\ L_a & \text{if } x = a, \\ L_b & \text{if } x = b \end{cases}$$
+      is continuous.)
+
+      *(Exercise 4.2.3: Suppose $f\colon \mathbb{R} \to \mathbb{R}$ is a differentiable function such that $f'$ is a bounded function. Prove that $f$ is a Lipschitz continuous function.)*
+    transcriptionNotes: "Referenced Proposition 3.4.6 (p. 140) and Exercise 4.2.3 quoted; Prop 3.4.6 now quoted verbatim with its displayed limits and piecewise definition (audit)."
+
+  - cid: lebl-4.2.15
+    chapter: "4 The Derivative"
+    section: "4.2 Mean value theorem"
+    number: "Exercise 4.2.15"
+    page: "170"
+    pdfPage: 170
+    audit: ok
+    verdict: consider
+    machinery: "Rolle's theorem applied to an auxiliary function to get the Cauchy MVT."
+    standardResult: "Cauchy mean value theorem"
+    topic: differentiation
+    subtopics: [rolle-mvt]
+    skills: [auxiliary-function, MVT-application]
+    difficulty: easy
+    difficultyRationale: "Standard auxiliary function h = (f(b)-f(a))φ - (φ(b)-φ(a))f."
+    category: canonical
+    type: proof
+    tags: [Cauchy-mean-value-theorem, Rolle, auxiliary-function]
+    references: ["Theorem 4.2.5 (quoted)"]
+    problemLatex: |
+      Prove Theorem 4.2.5.
+
+      (Theorem 4.2.5 (Cauchy's mean value theorem): Let $f\colon [a,b] \to \mathbb{R}$ and $\varphi\colon [a,b] \to \mathbb{R}$ be continuous functions differentiable on $(a,b)$. Then there exists a point $c \in (a,b)$ such that
+      $$\bigl(f(b) - f(a)\bigr)\varphi'(c) = f'(c)\bigl(\varphi(b) - \varphi(a)\bigr).$$
+      )
+    transcriptionNotes: "Theorem 4.2.5 quoted verbatim from p. 165."
+
+  # ---------------- 4.3 ----------------
+  - cid: lebl-4.3.3
+    chapter: "4 The Derivative"
+    section: "4.3 Taylor's theorem"
+    number: "Exercise 4.3.3"
+    page: "174"
+    pdfPage: 174
+    audit: ok
+    verdict: consider
+    machinery: "Higher derivatives from the definition at a non-smooth point."
+    standardResult: "|x|^3 is C^2 but f'''(0) does not exist"
+    topic: differentiation
+    subtopics: [differentiability, taylor]
+    skills: [derivative-definition, one-sided-limits]
+    difficulty: easy
+    difficultyRationale: "Compute f'' = 6|x| and check the third derivative quotient at 0."
+    category: canonical
+    type: counterexample
+    tags: [higher-derivatives, absolute-value, counterexample]
+    references: []
+    problemLatex: |
+      Let $f(x) := |x|^3$. Compute $f'(x)$ and $f''(x)$ for all $x$, but show that $f^{(3)}(0)$ does not exist.
+
+  - cid: lebl-4.3.6
+    chapter: "4 The Derivative"
+    section: "4.3 Taylor's theorem"
+    number: "Exercise 4.3.6"
+    page: "174"
+    pdfPage: 174
+    audit: ok
+    verdict: consider
+    machinery: "Taylor's theorem with remainder to characterize order of vanishing."
+    standardResult: "vanishing of derivatives up to n iff f(x)/(x-x0)^{n+1} has a limit"
+    topic: differentiation
+    subtopics: [taylor]
+    skills: [taylor-remainder, induction]
+    difficulty: medium
+    difficultyRationale: "Forward direction via Lagrange remainder; converse needs successive limits forcing derivatives to vanish."
+    category: synthesis
+    type: proof
+    tags: [Taylor, remainder, order-of-vanishing]
+    references: []
+    problemLatex: |
+      Suppose $f\colon [a,b] \to \mathbb{R}$ has $n+1$ continuous derivatives and $x_0 \in (a,b)$. Prove: $f^{(k)}(x_0) = 0$ for all $k = 0, 1, 2, \ldots, n$ if and only if $\displaystyle\lim_{x\to x_0} \frac{f(x)}{(x-x_0)^{n+1}}$ exists.
+
+  - cid: lebl-4.3.8
+    chapter: "4 The Derivative"
+    section: "4.3 Taylor's theorem"
+    number: "Exercise 4.3.8"
+    page: "175"
+    pdfPage: 175
+    audit: ok
+    verdict: consider
+    machinery: "Counterexample: fast vanishing at a point does not imply higher differentiability (oscillation)."
+    standardResult: "x^3 sin(1/x^2)-type: |f| <= |x^3| but f''(0) fails to exist"
+    topic: differentiation
+    subtopics: [differentiability, taylor]
+    skills: [construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Needs an oscillating example and verification that f' exists near 0 but its difference quotient at 0 diverges."
+    category: challenge
+    type: counterexample
+    tags: [Taylor, counterexample, oscillation, second-derivative]
+    references: []
+    problemLatex: |
+      *(Challenging)* Show that a simple converse to Taylor's theorem does not hold. Find a function $f\colon \mathbb{R} \to \mathbb{R}$ with no second derivative at $x = 0$ such that $\bigl|f(x)\bigr| \leq \bigl|x^3\bigr|$, that is, $f$ goes to zero at 0 faster than $x^2$, and while $f'(0)$ exists, $f''(0)$ does not.
+
+  - cid: lebl-4.3.10
+    chapter: "4 The Derivative"
+    section: "4.3 Taylor's theorem"
+    number: "Exercise 4.3.10"
+    page: "175"
+    pdfPage: 175
+    audit: ok
+    verdict: strong
+    machinery: "Taylor's theorem with Lagrange remainder plus continuity of f^(n) gives the higher derivative test."
+    standardResult: "nth derivative test for extrema"
+    topic: differentiation
+    subtopics: [taylor, local-extrema]
+    skills: [taylor-remainder, sign-analysis]
+    difficulty: medium
+    difficultyRationale: "Apply Taylor to order n-1, use continuity of f^(n) to fix sign of the remainder; parity analysis."
+    category: canonical
+    type: proof
+    tags: [Taylor, higher-derivative-test, extrema]
+    references: []
+    problemLatex: |
+      Prove the $n$th *derivative test*. Suppose $n \in \mathbb{N}$, $x_0 \in (a,b)$, and $f\colon (a,b) \to \mathbb{R}$ is $n$ times continuously differentiable, with $f^{(k)}(x_0) = 0$ for $k = 1, 2, \ldots, n-1$, and $f^{(n)}(x_0) \neq 0$. Prove:
+
+      a) If $n$ is odd, then $f$ has neither a relative minimum, nor a maximum at $x_0$.
+      b) If $n$ is even, then $f$ has a strict relative minimum at $x_0$ if $f^{(n)}(x_0) > 0$ and a strict relative maximum at $x_0$ if $f^{(n)}(x_0) < 0$.
+
+  - cid: lebl-4.3.11
+    chapter: "4 The Derivative"
+    section: "4.3 Taylor's theorem"
+    number: "Exercise 4.3.11"
+    page: "175"
+    pdfPage: 175
+    audit: ok
+    verdict: strong
+    machinery: "Second derivative test without continuity of f'' using the limit definition of f''(x_0) and the MVT."
+    standardResult: "second derivative test assuming only that f''(x0) exists"
+    topic: differentiation
+    subtopics: [local-extrema, mvt-applications]
+    skills: [derivative-definition, MVT-application, sign-analysis]
+    difficulty: medium
+    difficultyRationale: "f' changes sign at x0 (by the definition of f''(x0)), then first-derivative/MVT argument."
+    category: canonical
+    type: proof
+    tags: [second-derivative-test, extrema, mean-value-theorem]
+    references: []
+    problemLatex: |
+      Prove the more general version of the second derivative test. Suppose $f\colon (a,b) \to \mathbb{R}$ is differentiable and $x_0 \in (a,b)$ is such that, $f'(x_0) = 0$, $f''(x_0)$ exists, and $f''(x_0) > 0$. Prove that $f$ has a strict relative minimum at $x_0$. Hint: Consider the limit definition of $f''(x_0)$.
+    transcriptionNotes: "Book defines 'strict relative minimum' on p. 174: there exists δ > 0 with f(x) > f(c) for all x ∈ (c−δ, c+δ), x ≠ c."
+
+  # ---------------- 4.4 ----------------
+  - cid: lebl-4.4.4
+    chapter: "4 The Derivative"
+    section: "4.4 Inverse function theorem"
+    number: "Exercise 4.4.4"
+    page: "179"
+    pdfPage: 179
+    audit: ok
+    verdict: consider
+    machinery: "IVT + strict monotonicity for existence/uniqueness of roots; inverse function derivative formula and its failure at 0."
+    standardResult: "odd nth root is differentiable except at 0"
+    topic: differentiation
+    subtopics: [inverse-functions]
+    skills: [IVT-application, inverse-derivative-formula]
+    difficulty: easy
+    difficultyRationale: "Standard application of the inverse function theorem; non-differentiability at 0 from unbounded difference quotient."
+    category: canonical
+    type: theorem-application
+    tags: [inverse-function, nth-root, differentiability]
+    references: []
+    problemLatex: |
+      Let $n \in \mathbb{N}$ be odd and $n \geq 3$. Prove that every $x$ has a unique $n$th root. That is, there exists a number $y$ such that $y^n = x$. Prove that the function defined by $g(x) := y$ is differentiable except at $x = 0$ and compute the derivative. Prove that $g$ is not differentiable at $x = 0$.
+
+  - cid: lebl-4.4.6
+    chapter: "4 The Derivative"
+    section: "4.4 Inverse function theorem"
+    number: "Exercise 4.4.6"
+    page: "179"
+    pdfPage: 179
+    audit: ok
+    verdict: strong
+    machinery: "f'(0) > 0 does not give local monotonicity/invertibility without continuity of f'."
+    standardResult: "x + 2x^2 sin(1/x): f'(0)>0 but not locally invertible"
+    topic: differentiation
+    subtopics: [inverse-functions, differentiability]
+    skills: [derivative-definition, construct-counterexample, sign-analysis]
+    difficulty: medium
+    difficultyRationale: "Compute f' and show it takes negative values arbitrarily near 0, so f is not monotone (hence not injective) near 0."
+    category: canonical
+    type: counterexample
+    tags: [inverse-function-theorem, counterexample, continuously-differentiable, oscillation]
+    references: []
+    problemLatex: |
+      Let $f(x) := x + 2x^2\sin(1/x)$ for $x \neq 0$ and $f(0) := 0$. Show that $f$ is differentiable at all $x$, that $f'(0) > 0$, but that $f$ is not invertible on any open interval containing the origin.
+
+  - cid: lebl-4.4.7
+    chapter: "4 The Derivative"
+    section: "4.4 Inverse function theorem"
+    number: "Exercise 4.4.7"
+    page: "179"
+    pdfPage: 179
+    audit: ok
+    verdict: consider
+    machinery: "MVT lower bound gives surjectivity; inverse function theorem; counterexample with f' > 0 but not onto."
+    standardResult: "f' >= k > 0 implies f is a C^1 bijection of R"
+    topic: differentiation
+    subtopics: [inverse-functions, mvt-applications]
+    skills: [MVT-application, IVT-application, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "f(x) >= f(0) + kx gives unboundedness, then IVT; (b) e.g. e^x."
+    category: canonical
+    type: proof
+    tags: [inverse-function, mean-value-theorem, surjective, counterexample]
+    references: []
+    problemLatex: |
+      a) Let $f\colon \mathbb{R} \to \mathbb{R}$ be a continuously differentiable function and $k > 0$ be a number such that $f'(x) \geq k$ for all $x \in \mathbb{R}$. Show $f$ is one-to-one and onto, and has a continuously differentiable inverse $f^{-1}\colon \mathbb{R} \to \mathbb{R}$.
+      b) Find an example $f\colon \mathbb{R} \to \mathbb{R}$ where $f'(x) > 0$ for all $x$, but $f$ is not onto.
+
+  - cid: lebl-4.4.8
+    chapter: "4 The Derivative"
+    section: "4.4 Inverse function theorem"
+    number: "Exercise 4.4.8"
+    page: "179"
+    pdfPage: 179
+    audit: ok
+    verdict: consider
+    machinery: "Differentiability of inverse functions via difference quotients and the chain rule."
+    standardResult: "differentiability of f from that of its inverse g; g'(y)=0 obstructs"
+    topic: differentiation
+    subtopics: [inverse-functions]
+    skills: [derivative-definition, chain-rule, contradiction]
+    difficulty: medium
+    difficultyRationale: "(a) requires continuity of the monotone inverse and a difference-quotient argument; (b) chain rule contradiction."
+    category: canonical
+    type: proof
+    tags: [inverse-function, derivative, chain-rule]
+    references: []
+    problemLatex: |
+      Suppose $I, J$ are intervals and a monotone onto $f\colon I \to J$ has an inverse $g\colon J \to I$. Suppose $x \in I$ and $y := f(x) \in J$, and that $g$ is differentiable at $y$. Prove:
+
+      a) If $g'(y) \neq 0$, then $f$ is differentiable at $x$.
+      b) If $g'(y) = 0$, then $f$ is not differentiable at $x$.
+
+skipped:
+  - "3.1.2 (prove Cor 3.1.10, limits preserve non-strict inequalities) and 3.1.4 (limit laws, Cor 3.1.12): routine transfer from sequences, same pattern as recorded 3.1.3."
+  - "3.1.5, 3.1.6: routine restriction/cluster-point facts; 3.1.7: minor restriction counterexample; 3.1.8: trivial example (f = -g)."
+  - "3.1.16: |f| limit + converse counterexample, routine (Cor 3.1.13)."
+  - "3.2.2: 1/x epsilon-delta, near-duplicate of 3.2.1; 3.2.6: prove algebra of continuous functions (Prop 3.2.5), routine; 3.2.7, 3.2.8: restriction/locality routine; 3.2.12: functions on Z are continuous (isolated points), trivial; 3.2.18: technical modification near 0, low payoff."
+  - "3.3.1: trivial IVT counterexample (3.3.2/3.3.11 better); 3.3.5: odd-degree polynomial negative at -K, routine lemma; 3.3.12: f(R)=R, easy IVT computation; 3.3.17: degree parity from f(R)=R, near-duplicate of 3.3.6/3.5.6 growth arguments."
+  - "3.4.1: restriction of uniformly continuous is uniformly continuous, trivial; 3.4.11, 3.4.12: closure of UC/Lipschitz under sums and scalars, routine; 3.4.13: Lipschitz constant of x^m on [0,1], computation."
+  - "3.5.1: uniqueness of limits at infinity (routine); 3.5.3: composition with limits at infinity (Prop 3.5.8), duplicate of 3.1.9; 3.5.4: diverging to infinity is not converging, trivial; 3.5.6: polynomial limits at ±infinity, routine; 3.5.7: sequence limit = function limit on N, routine; 3.5.9: specialized periodic-reparametrization exercise, low value."
+  - "3.6.2, 3.6.3, 3.6.5: 'finish the proof' of book propositions mid-development (monotone one-sided limits, Cor 3.6.3, continuity of inverse); 3.6.4: verify claims of the book's Example 3.6.5, needs heavy context."
+  - "3.6.6: technical limit facts for increasing functions; 3.6.7: niche supporting-line condition; 3.6.9: right/left-continuous modification of monotone function, technical; 3.6.12: complement of monotone image as countable union of intervals, niche; 3.6.13, 3.6.15: niche monotone constructions."
+  - "4.1.2 quotient rule, 4.1.3 power rule, 4.1.4 polynomials, 4.1.6/4.1.7 derivative of sin, 4.1.8 power chain rule: routine calculus rules; 4.1.10: inverse derivative formula via chain rule, duplicate of 4.4.2; 4.1.15: weaker L'Hôpital, superseded by 4.2.9."
+  - "4.2.1, 4.2.2: 'finish the proof' of Props 4.2.7(ii)/4.2.9(ii), symmetric halves; 4.2.8: f'=g' implies f=g+C, routine (4.2.5 better); 4.2.12: f'=a, f(0)=b uniqueness, routine."
+  - "4.3.1, 4.3.2: Taylor polynomial computations; 4.3.4: technical polynomial sandwich; 4.3.5: remainder o((x-x0)^n), depends on book's R_n notation and near-duplicate of 4.3.6; 4.3.7: f''=a uniqueness, routine; 4.3.9: second-order analogue of 4.2.14, near-duplicate."
+  - "4.4.1: near-duplicate of 4.4.7(a); 4.4.2: duplicate of 4.1.10 (book says so); 4.4.3: negative even root, routine; 4.4.5: C^k inverse, needs Taylor section context and is a technical induction."
+  - "Demoted to keep the chunk focused (all have some value but are routine or duplicated by recorded items): 3.1.15 (cluster-point necessity, vacuous); 3.2.1 (x^2 epsilon-delta, introductory); 3.2.5 (x sin(1/x) continuous, trivial squeeze); 3.2.15 (non-uniform version of recorded 3.4.16); 3.2.17 (max/min continuous, routine); 3.3.6 (even-degree polynomial two roots, routine IVT); 3.3.7 (image of [a,b] is closed interval, EVT+IVT standard combo, Cor 3.3.13); 3.3.8 (periodic attains max/min; recorded 3.4.15 is the better periodic exercise); 3.3.15 (f(c)f(-c)<0 IVT, routine); 3.4.4 (1/x not Lipschitz on (0,inf), companion to recorded 3.4.3); 3.5.5 (state definitions of infinite limits); 3.5.8 (sequential criterion for infinite limits, routine adaptation); 3.6.1 (monotone on [0,1] bounded, trivial); 4.1.1 (product rule, routine); 4.1.9 (Lipschitz implies f' bounded, trivial converse of recorded 4.2.3); 4.1.13 (overlaps recorded 4.1.11); 4.2.6 (f'>0 strictly increasing, one-line MVT); 4.2.11 (Rolle's original theorem, one-line Rolle)."

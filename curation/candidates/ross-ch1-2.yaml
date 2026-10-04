@@ -1,0 +1,1918 @@
+chunk: "ross-ch1-2"
+book: ross
+pageOffsetNote: "printed page = pdfPage - 12 (e.g. PDF 17 = printed 5; PDF 133 = printed 121). Selected Hints and Answers: PDF 376 = printed 367 (offset 9 there)."
+sectionsCovered:
+  - "§1 The Set N of Natural Numbers — 12 exercises (1.1–1.12)"
+  - "§2 The Set Q of Rational Numbers — 8 exercises (2.1–2.8)"
+  - "§3 The Set R of Real Numbers — 8 exercises (3.1–3.8)"
+  - "§4 The Completeness Axiom — 16 exercises (4.1–4.16)"
+  - "§5 The Symbols +∞ and −∞ — 7 exercises (5.1–5.7)"
+  - "§6 A Development of R — skipped per instructions"
+  - "§7 Limits of Sequences — 5 exercises (7.1–7.5)"
+  - "§8 A Discussion about Proofs — 10 exercises (8.1–8.10)"
+  - "§9 Limit Theorems for Sequences — 18 exercises (9.1–9.18)"
+  - "§10 Monotone Sequences and Cauchy Sequences — 12 exercises (10.1–10.12)"
+  - "§11 Subsequences — 11 exercises (11.1–11.11)"
+  - "§12 lim sup's and lim inf's — 14 exercises (12.1–12.14)"
+  - "§13 Some Topological Concepts in Metric Spaces — 15 exercises (13.1–13.15)"
+  - "§14 Series — 14 exercises (14.1–14.14)"
+  - "§15 Alternating Series and Integral Tests — 8 exercises (15.1–15.8)"
+  - "§16 Decimal Expansions of Real Numbers — 10 exercises (16.1–16.10), selective"
+candidates:
+  # ---------------- §1 ----------------
+  - cid: ross-1.11
+    chapter: "1 Introduction"
+    section: "§1 The Set N of Natural Numbers"
+    number: "Exercise 1.11"
+    page: "5"
+    pdfPage: 17
+    verdict: consider
+    machinery: "Why the base case of induction matters."
+    standardResult: "induction step without base case proves nothing"
+    topic: foundations
+    subtopics: [induction, proof-techniques]
+    skills: [induction]
+    difficulty: introductory
+    difficultyRationale: "Inductive step is one line of algebra; the point is conceptual."
+    category: canonical
+    type: conceptual
+    tags: [induction, base-case]
+    references: []
+    problemLatex: |
+      For each $n \in \mathbb{N}$, let $P_n$ denote the assertion "$n^2 + 5n + 1$ is an even integer."
+      (a) Prove $P_{n+1}$ is true whenever $P_n$ is true.
+      (b) For which $n$ is $P_n$ actually true? What is the moral of this exercise?
+    bookHint: |
+      (a) Hint: If $n^2 + 5n + 1$ is even, then so is $(n+1)^2 + 5(n+1) + 1 = n^2 + 5n + 1 + [2n + 6]$.
+      (b) $P_n$ is false for all $n$. Moral: The basis for induction (I1) is crucial for mathematical induction.
+    transcriptionNotes: "bookHint from PDF p. 377."
+  # ---------------- §2 ----------------
+  # ---------------- §3 ----------------
+  - cid: ross-3.5
+    chapter: "1 Introduction"
+    section: "§3 The Set R of Real Numbers"
+    number: "Exercise 3.5"
+    page: "19"
+    pdfPage: 31
+    verdict: strong
+    machinery: "Absolute value inequalities; reverse triangle inequality."
+    standardResult: "reverse triangle inequality ||a|-|b|| <= |a-b|"
+    topic: real-numbers
+    subtopics: [absolute-value, inequalities]
+    skills: [triangle-inequality]
+    difficulty: introductory
+    difficultyRationale: "Part (b) is a two-line application of the triangle inequality together with (a)."
+    category: canonical
+    type: proof
+    tags: [absolute-value, triangle-inequality, machinery]
+    references: []
+    problemLatex: |
+      (a) Show $|b| \le a$ if and only if $-a \le b \le a$.
+      (b) Prove $||a| - |b|| \le |a - b|$ for all $a, b \in \mathbb{R}$.
+    bookHint: |
+      (a) If $|b| \le a$, then $-a \le -|b|$, so $-a \le -|b| \le b \le |b| \le a$. Now suppose $-a \le b \le a$. If $b \ge 0$, then $|b| = b \le a$. If $b < 0$, then $|b| = -b \le a$; the last inequality holds by Theorem 3.2(i) since $-a \le b$.
+      (b) By (a), it suffices to prove $-|a - b| \le |a| - |b| \le |a - b|$. Each of these inequalities follows from the triangle inequality: $|b| = |(b - a) + a| \le |b - a| + |a| = |a - b| + |a|$ which implies the first inequality; $|a| = |(a - b) + b| \le |a - b| + |b|$ which implies the second inequality.
+    transcriptionNotes: "bookHint from PDF pp. 377–378."
+  - cid: ross-3.8
+    chapter: "1 Introduction"
+    section: "§3 The Set R of Real Numbers"
+    number: "Exercise 3.8"
+    page: "19"
+    pdfPage: 31
+    verdict: strong
+    machinery: "The 'a ≤ b + ε for all ε ⇒ a ≤ b' proof pattern underlying every epsilon argument."
+    standardResult: "if a <= b1 for every b1 > b then a <= b (epsilon-room lemma)"
+    topic: real-numbers
+    subtopics: [ordered-fields, inequalities]
+    skills: [contradiction]
+    difficulty: introductory
+    difficultyRationale: "One-step contradiction using the midpoint (a+b)/2."
+    category: canonical
+    type: proof
+    tags: [inequalities, epsilon-room, machinery]
+    references: []
+    problemLatex: |
+      Let $a, b \in \mathbb{R}$. Show if $a \le b_1$ for every $b_1 > b$, then $a \le b$.
+  # ---------------- §4 ----------------
+  - cid: ross-4.3
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.3"
+    page: "26"
+    pdfPage: 38
+    verdict: consider
+    machinery: "Computing suprema of concrete sets (including sets of rationals, unions/intersections)."
+    standardResult: "compute sup of concrete sets"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-computation]
+    difficulty: introductory
+    difficultyRationale: "Each item is a direct computation; no proofs required."
+    category: canonical
+    type: computation
+    tags: [supremum, computation]
+    references: ["Exercise 4.1 (list of sets quoted)"]
+    problemLatex: |
+      For each set in Exercise 4.1, give its supremum if it has one. Otherwise write "NO sup."
+      *(Exercise 4.1 sets:)*
+      (a) $[0, 1]$  (b) $(0, 1)$  (c) $\{2, 7\}$  (d) $\{\pi, e\}$
+      (e) $\{\frac{1}{n} : n \in \mathbb{N}\}$  (f) $\{0\}$  (g) $[0, 1] \cup [2, 3]$
+      (h) $\cup_{n=1}^{\infty} [2n, 2n + 1]$  (i) $\cap_{n=1}^{\infty} [-\frac{1}{n}, 1 + \frac{1}{n}]$
+      (j) $\{1 - \frac{1}{3^n} : n \in \mathbb{N}\}$  (k) $\{n + \frac{(-1)^n}{n} : n \in \mathbb{N}\}$
+      (l) $\{r \in \mathbb{Q} : r < 2\}$  (m) $\{r \in \mathbb{Q} : r^2 < 4\}$  (n) $\{r \in \mathbb{Q} : r^2 < 2\}$
+      (o) $\{x \in \mathbb{R} : x < 0\}$  (p) $\{1, \frac{\pi}{3}, \pi^2, 10\}$  (q) $\{0, 1, 2, 4, 8, 16\}$
+      (r) $\cap_{n=1}^{\infty} (1 - \frac{1}{n}, 1 + \frac{1}{n})$  (s) $\{\frac{1}{n} : n \in \mathbb{N} \text{ and } n \text{ is prime}\}$
+      (t) $\{x \in \mathbb{R} : x^3 < 8\}$  (u) $\{x^2 : x \in \mathbb{R}\}$  (v) $\{\cos(\frac{n\pi}{3}) : n \in \mathbb{N}\}$
+      (w) $\{\sin(\frac{n\pi}{3}) : n \in \mathbb{N}\}$
+    bookHint: |
+      (a) 1; (c) 7; (e) 1; (g) 3; (i) 1; (k) No sup; (m) 2; (o) 0; (q) 16; (s) $\frac{1}{2}$; (u) No sup; (w) $\frac{\sqrt{3}}{2}$. In (s), note 1 is not prime.
+    transcriptionNotes: "List of sets quoted verbatim from Exercise 4.1 (PDF 38, verified against image). Footnote in 4.1: an integer p >= 2 is prime if its only positive factors are 1 and p. bookHint from PDF p. 378. Representative of 4.1–4.4 and 5.2–5.3."
+  - cid: ross-4.7
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.7"
+    page: "27"
+    pdfPage: 39
+    verdict: strong
+    machinery: "Monotonicity of sup/inf under inclusion; sup of a union — least-upper-bound arguments."
+    standardResult: "S ⊆ T ⇒ inf T ≤ inf S ≤ sup S ≤ sup T; sup(S∪T)=max(sup S, sup T)"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [least-upper-bound-argument]
+    difficulty: easy
+    difficultyRationale: "Requires both directions of a sup equality via the least-upper-bound property."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, machinery]
+    references: []
+    problemLatex: |
+      Let $S$ and $T$ be nonempty bounded subsets of $\mathbb{R}$.
+      (a) Prove if $S \subseteq T$, then $\inf T \le \inf S \le \sup S \le \sup T$.
+      (b) Prove $\sup(S \cup T) = \max\{\sup S, \sup T\}$. Note: In part (b), do not assume $S \subseteq T$.
+    bookHint: |
+      (a) Suppose $S \subseteq T$. Since $\sup T \ge t$ for all $t \in T$ we obviously have $\sup T \ge s$ for all $s \in S$. So $\sup T$ is an upper bound for the set $S$. Hence $\sup T$ is $\ge$ the least upper bound for $S$, i.e., $\sup T \ge \sup S$. A similar argument shows $\inf T \le \inf S$; give it.
+      (b) Since $S \subseteq S \cup T$, $\sup S \le \sup(S \cup T)$ by (a). Similarly $\sup T \le \sup(S \cup T)$, so $\max\{\sup S, \sup T\} \le \sup(S \cup T)$. Since $\sup(S \cup T)$ is the least upper bound for $S \cup T$, we will have equality here provided we show: $\max\{\sup S, \sup T\}$ is an upper bound for the set $S \cup T$. This is easy. If $x \in S$, then $x \le \sup S \le \max\{\sup S, \sup T\}$ and if $x \in T$, then $x \le \sup T \le \max\{\sup S, \sup T\}$. That is, $x \le \max\{\sup S, \sup T\}$ for all $x \in S \cup T$.
+    transcriptionNotes: "bookHint from PDF p. 378."
+  - cid: ross-4.8
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.8"
+    page: "27"
+    pdfPage: 39
+    verdict: strong
+    machinery: "Separated sets: sup of lower set ≤ inf of upper set; examples showing what can/can't be concluded."
+    standardResult: "s ≤ t for all s∈S, t∈T ⇒ sup S ≤ inf T"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [least-upper-bound-argument, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Two nested applications of the lub property plus simple examples."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, examples]
+    references: []
+    problemLatex: |
+      Let $S$ and $T$ be nonempty subsets of $\mathbb{R}$ with the following property: $s \le t$ for all $s \in S$ and $t \in T$.
+      (a) Observe $S$ is bounded above and $T$ is bounded below.
+      (b) Prove $\sup S \le \inf T$.
+      (c) Give an example of such sets $S$ and $T$ where $S \cap T$ is nonempty.
+      (d) Give an example of sets $S$ and $T$ where $\sup S = \inf T$ and $S \cap T$ is the empty set.
+  - cid: ross-4.11
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.11"
+    page: "27"
+    pdfPage: 39
+    verdict: strong
+    machinery: "Iterating density of Q to get infinitely many rationals in an interval."
+    standardResult: "infinitely many rationals between any two reals"
+    topic: real-numbers
+    subtopics: [density-of-Q]
+    skills: [induction, contradiction]
+    difficulty: easy
+    difficultyRationale: "Repeated application of density, organized by induction or contradiction."
+    category: canonical
+    type: proof
+    tags: [density, rationals]
+    references: ["Denseness of Q 4.7 (quoted)"]
+    problemLatex: |
+      Consider $a, b \in \mathbb{R}$ where $a < b$. Use Denseness of $\mathbb{Q}$ 4.7 to show there are infinitely many rationals between $a$ and $b$.
+      *(Denseness of $\mathbb{Q}$ 4.7: If $a, b \in \mathbb{R}$ and $a < b$, then there is a rational $r \in \mathbb{Q}$ such that $a < r < b$.)*
+    bookHint: |
+      Proof. By 4.7 there is a rational $r_1$ such that $a < r_1 < b$. By 4.7 again, there is a rational $r_2$ such that $a < r_2 < r_1$. We continue by induction: If rationals $r_1, \ldots, r_n$ have been selected so that $a < r_n < r_{n-1} < \cdots < r_2 < r_1$, then 4.7 applies to $a < r_n$ to yield a rational $r_{n+1}$ such that $a < r_{n+1} < r_n$. This process yields an infinite set $\{r_1, r_2, \ldots\}$ in $\mathbb{Q} \cap (a, b)$.
+      Alternative Proof. Assume $\mathbb{Q} \cap (a, b)$ is finite. The set is nonempty by 4.7. Let $c = \min(\mathbb{Q} \cap (a, b))$. Then $a < c$, so by 4.7 there is a rational $r$ such that $a < r < c$. Then $r$ belongs to $\mathbb{Q} \cap (a, b)$, so $c \le r$, a contradiction.
+    transcriptionNotes: "Statement of 4.7 quoted from the book's theorem (PDF 37). bookHint from PDF pp. 378–379."
+  - cid: ross-4.12
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.12"
+    page: "27"
+    pdfPage: 39
+    verdict: core
+    machinery: "Density of the irrationals via translating density of Q."
+    standardResult: "irrationals are dense in R"
+    topic: real-numbers
+    subtopics: [density-of-Q]
+    skills: [translation-trick, contradiction]
+    difficulty: easy
+    difficultyRationale: "Needs the idea of shifting rationals by sqrt 2 (given as a hint) and density of Q."
+    category: canonical
+    type: proof
+    tags: [density, irrationals, Archimedean-property]
+    references: []
+    problemLatex: |
+      Let $\mathbb{I}$ be the set of real numbers that are not rational; elements of $\mathbb{I}$ are called *irrational numbers*. Prove if $a < b$, then there exists $x \in \mathbb{I}$ such that $a < x < b$. Hint: First show $\{r + \sqrt{2} : r \in \mathbb{Q}\} \subseteq \mathbb{I}$.
+  - cid: ross-4.14
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.14"
+    page: "28"
+    pdfPage: 40
+    verdict: core
+    machinery: "Proving a sup identity by two inequalities; upper-bound shifting argument."
+    standardResult: "sup(A+B) = sup A + sup B"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [least-upper-bound-argument, sup-approximation]
+    difficulty: easy
+    difficultyRationale: "The ≥ direction needs a genuine two-stage upper-bound (or epsilon) argument."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, machinery]
+    references: []
+    problemLatex: |
+      Let $A$ and $B$ be nonempty bounded subsets of $\mathbb{R}$, and let $A + B$ be the set of all sums $a + b$ where $a \in A$ and $b \in B$.
+      (a) Prove $\sup(A + B) = \sup A + \sup B$. Hint: To show $\sup A + \sup B \le \sup(A + B)$, show that for each $b \in B$, $\sup(A + B) - b$ is an upper bound for $A$, hence $\sup A \le \sup(A + B) - b$. Then show $\sup(A + B) - \sup A$ is an upper bound for $B$.
+      (b) Prove $\inf(A + B) = \inf A + \inf B$.
+  - cid: ross-4.15
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.15"
+    page: "28"
+    pdfPage: 40
+    verdict: strong
+    machinery: "Archimedean property used to get the 'a ≤ b + 1/n for all n ⇒ a ≤ b' lemma."
+    standardResult: "a <= b + 1/n for all n implies a <= b"
+    topic: real-numbers
+    subtopics: [archimedean-property, inequalities]
+    skills: [archimedean-property, contradiction]
+    difficulty: introductory
+    difficultyRationale: "One application of the Archimedean property by contradiction."
+    category: canonical
+    type: proof
+    tags: [Archimedean-property, epsilon-room]
+    references: []
+    problemLatex: |
+      Let $a, b \in \mathbb{R}$. Show if $a \le b + \frac{1}{n}$ for all $n \in \mathbb{N}$, then $a \le b$. Compare Exercise 3.8.
+    bookHint: |
+      Assume $a \le b + \frac{1}{n}$ for all $n \in \mathbb{N}$ but $a > b$. Then $a - b > 0$, and by the Archimedean property 4.6 we have $n_0(a - b) > 1$ for some $n_0 \in \mathbb{N}$. Then $a > b + \frac{1}{n_0}$ contrary to our assumption.
+    transcriptionNotes: "Exercise 3.8 (also a candidate): 'Let a, b ∈ R. Show if a ≤ b1 for every b1 > b, then a ≤ b.' bookHint from PDF p. 379."
+  - cid: ross-4.16
+    chapter: "1 Introduction"
+    section: "§4 The Completeness Axiom"
+    number: "Exercise 4.16"
+    page: "28"
+    pdfPage: 40
+    verdict: strong
+    machinery: "Sup characterized via density of Q: every real is the sup of the rationals below it."
+    standardResult: "sup{r ∈ Q : r < a} = a"
+    topic: real-numbers
+    subtopics: [supremum-infimum, density-of-Q]
+    skills: [least-upper-bound-argument, density-argument]
+    difficulty: easy
+    difficultyRationale: "Upper bound is trivial; leastness uses density of Q."
+    category: canonical
+    type: proof
+    tags: [supremum, density, rationals]
+    references: []
+    problemLatex: |
+      Show $\sup\{r \in \mathbb{Q} : r < a\} = a$ for each $a \in \mathbb{R}$.
+  # ---------------- §5 ----------------
+  - cid: ross-5.4
+    chapter: "1 Introduction"
+    section: "§5 The Symbols +∞ and −∞"
+    number: "Exercise 5.4"
+    page: "30"
+    pdfPage: 42
+    verdict: strong
+    machinery: "Duality between inf and sup, including the extended-real (unbounded) case."
+    standardResult: "inf S = -sup(-S)"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [least-upper-bound-argument, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Needs both bound directions plus handling the unbounded case."
+    category: canonical
+    type: proof
+    tags: [supremum, infimum, extended-reals]
+    references: ["Exercise 4.9 (the bounded case: completing the proof of Corollary 4.5)"]
+    problemLatex: |
+      Let $S$ be a nonempty subset of $\mathbb{R}$, and let $-S = \{-s : s \in S\}$. Prove $\inf S = -\sup(-S)$. Hint: For the case $-\infty < \inf S$, simply state that this was proved in Exercise 4.9.
+    transcriptionNotes: "The referenced Exercise 4.9 asks to complete the proof that inf S = −sup(−S) for S bounded below (Corollary 4.5); on a standalone site the student should just prove the bounded case too. No book hint for 5.4."
+  - cid: ross-5.7
+    chapter: "1 Introduction"
+    section: "§5 The Symbols +∞ and −∞"
+    number: "Exercise 5.7"
+    page: "30"
+    pdfPage: 42
+    verdict: consider
+    machinery: "Extending inf(A+B)=inf A+inf B to possibly unbounded sets."
+    standardResult: "inf(A+B) = inf A + inf B for arbitrary nonempty sets"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-approximation, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Epsilon argument plus infinite case, mirroring a worked example."
+    category: canonical
+    type: proof
+    tags: [infimum, extended-reals]
+    references: ["Example 1 of §5 (quoted)"]
+    problemLatex: |
+      Finish Example 1 by verifying the equality involving infimums.
+      *(Example 1 of §5: For nonempty subsets $A$ and $B$ of $\mathbb{R}$ — not necessarily bounded — with $A + B = \{a + b : a \in A, b \in B\}$, the book verifies $\sup(A + B) = \sup A + \sup B$ even if $A$ or $B$ is unbounded; the exercise asks for the analogous equality $\inf(A + B) = \inf A + \inf B$, with the conventions $\sup S = +\infty$ if $S$ is not bounded above and $\inf S = -\infty$ if $S$ is not bounded below.)*
+    bookHint: |
+      Use Exercise 5.4 and the fact $-(A + B) = (-A) + (-B)$.
+    transcriptionNotes: "The bracketed context is a summary of Example 1 (PDF 41), NOT verbatim — curator may prefer to restate as 'Prove inf(A+B)=inf A+inf B for all nonempty A, B ⊆ R'. bookHint from PDF p. 379."
+  # ---------------- §7 ----------------
+  - cid: ross-7.4
+    chapter: "2 Sequences"
+    section: "§7 Limits of Sequences"
+    number: "Exercise 7.4"
+    page: "38"
+    pdfPage: 50
+    verdict: consider
+    machinery: "Limits do not preserve rationality/irrationality; Q not closed."
+    standardResult: "sequence of rationals with irrational limit (and vice versa)"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [construct-example]
+    difficulty: introductory
+    difficultyRationale: "Simple examples like sqrt(2)/n or decimal truncations."
+    category: canonical
+    type: construction
+    tags: [examples, rationals, irrationals, limits]
+    references: []
+    problemLatex: |
+      Give examples of
+      (a) A sequence $(x_n)$ of irrational numbers having a limit $\lim x_n$ that is a rational number.
+      (b) A sequence $(r_n)$ of rational numbers having a limit $\lim r_n$ that is an irrational number.
+  # ---------------- §8 ----------------
+  - cid: ross-8.1
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.1"
+    page: "44"
+    pdfPage: 56
+    verdict: core
+    machinery: "Formal epsilon-N proofs of limits from the definition."
+    standardResult: "epsilon-N proofs of explicit limits"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof, comparison-estimate]
+    difficulty: introductory
+    difficultyRationale: "Direct definition; (d) needs crude bounding of numerator and denominator."
+    category: canonical
+    type: proof
+    tags: [epsilon-N, limit-definition, machinery]
+    references: []
+    problemLatex: |
+      Formal proofs are required in the following exercises.
+      Prove the following:
+      (a) $\lim \frac{(-1)^n}{n} = 0$
+      (b) $\lim \frac{1}{n^{1/3}} = 0$
+      (c) $\lim \frac{2n - 1}{3n + 2} = \frac{2}{3}$
+      (d) $\lim \frac{n + 6}{n^2 - 6} = 0$
+    bookHint: |
+      (a) Formal Proof. Let $\epsilon > 0$. Let $N = \frac{1}{\epsilon}$. Then $n > N$ implies $|\frac{(-1)^n}{n} - 0| = \frac{1}{n} < \epsilon$.
+      (b) Discussion. We want $n^{-1/3} < \epsilon$ or $\frac{1}{n} < \epsilon^3$ or $1/\epsilon^3 < n$. So for each $\epsilon > 0$, let $N = 1/\epsilon^3$. You should write out the formal proof.
+      (c) Discussion. We want $|\frac{2n-1}{3n+2} - \frac{2}{3}| < \epsilon$ or $|\frac{-7}{(3n+2)\cdot 3}| < \epsilon$ or $\frac{7}{3(3n+2)} < \epsilon$ or $\frac{7}{3\epsilon} < 3n + 2$ or $\frac{7}{9\epsilon} - \frac{2}{3} < n$. So set $N$ equal to $\frac{7}{9\epsilon} - \frac{2}{3}$.
+      (d) Discussion. We want $(n + 6)/(n^2 - 6) < \epsilon$; we assume $n > 2$ so that absolute values can be dropped. As in Example 3 we observe $n + 6 \le 7n$ and $n^2 - 6 \ge \frac{1}{2}n^2$ provided $n > 3$. So it suffices to get $7n/(\frac{1}{2}n^2) < \epsilon$ [for $n > 3$] or $\frac{14}{\epsilon} < n$. So try $N = \max\{3, \frac{14}{\epsilon}\}$.
+    transcriptionNotes: "The sentence 'Formal proofs are required in the following exercises.' precedes the §8 exercise list in the book. bookHint from PDF pp. 379–380. Representative of 8.2."
+  - cid: ross-8.3
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.3"
+    page: "44"
+    pdfPage: 56
+    verdict: strong
+    machinery: "Epsilon-N with a transformed tolerance (epsilon^2)."
+    standardResult: "s_n → 0, s_n ≥ 0 ⇒ sqrt(s_n) → 0"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof]
+    difficulty: introductory
+    difficultyRationale: "Choose epsilon^2 in the hypothesis."
+    category: canonical
+    type: proof
+    tags: [epsilon-N, square-root]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ be a sequence of nonnegative real numbers, and suppose $\lim s_n = 0$. Prove $\lim \sqrt{s_n} = 0$. This will complete the proof for Example 5.
+    bookHint: |
+      Discussion. We want $\sqrt{s_n} < \epsilon$ or $s_n < \epsilon^2$. But $s_n \to 0$, so we can get $s_n < \epsilon^2$ for large $n$.
+      Formal Proof. Let $\epsilon > 0$. Since $\epsilon^2 > 0$ and $\lim s_n = 0$, there exists $N$ so that $|s_n - 0| < \epsilon^2$ for $n > N$. Thus $s_n < \epsilon^2$ for $n > N$, so $\sqrt{s_n} < \epsilon$ for $n > N$. That is, $|\sqrt{s_n} - 0| < \epsilon$ for $n > N$. We conclude $\lim \sqrt{s_n} = 0$.
+    transcriptionNotes: "The trailing sentence 'This will complete the proof for Example 5' refers to the book's Example 5 of §8 (lim sqrt(s_n) = sqrt(s)); harmless to drop on a website. bookHint from PDF p. 380."
+  - cid: ross-8.4
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.4"
+    page: "44"
+    pdfPage: 56
+    verdict: core
+    machinery: "Bounded times null is null — epsilon/M scaling."
+    standardResult: "bounded sequence times null sequence tends to 0"
+    topic: sequences
+    subtopics: [convergence, limit-laws, bounded-sequences]
+    skills: [epsilon-N-proof]
+    difficulty: introductory
+    difficultyRationale: "Pick epsilon/M; one step."
+    category: canonical
+    type: proof
+    tags: [epsilon-N, bounded, machinery]
+    references: []
+    problemLatex: |
+      Let $(t_n)$ be a bounded sequence, i.e., there exists $M$ such that $|t_n| \le M$ for all $n$, and let $(s_n)$ be a sequence such that $\lim s_n = 0$. Prove $\lim(s_n t_n) = 0$.
+  - cid: ross-8.5
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.5"
+    page: "44"
+    pdfPage: 56
+    verdict: core
+    machinery: "Squeeze lemma from the definition."
+    standardResult: "squeeze theorem for sequences"
+    topic: sequences
+    subtopics: [convergence, limit-laws]
+    skills: [epsilon-N-proof, max-of-N]
+    difficulty: introductory
+    difficultyRationale: "Take max of two N's; standard."
+    category: canonical
+    type: proof
+    tags: [squeeze, epsilon-N, machinery]
+    references: []
+    problemLatex: |
+      (a) Consider three sequences $(a_n)$, $(b_n)$ and $(s_n)$ such that $a_n \le s_n \le b_n$ for all $n$ and $\lim a_n = \lim b_n = s$. Prove $\lim s_n = s$. This is called the "squeeze lemma."
+      (b) Suppose $(s_n)$ and $(t_n)$ are sequences such that $|s_n| \le t_n$ for all $n$ and $\lim t_n = 0$. Prove $\lim s_n = 0$.
+    bookHint: |
+      (a) Let $\epsilon > 0$. Our goal is to show $s - \epsilon < s_n < s + \epsilon$ for large $n$. Since $\lim a_n = s$, there exists $N_1$ so that $|a_n - s| < \epsilon$ for $n > N_1$. In particular,
+      $$n > N_1 \quad\text{implies}\quad s - \epsilon < a_n. \qquad (1)$$
+      Likewise there exists $N_2$ so that $|b_n - s| < \epsilon$ for $n > N_2$, so
+      $$n > N_2 \quad\text{implies}\quad b_n < s + \epsilon. \qquad (2)$$
+      Now
+      $$n > \max\{N_1, N_2\} \quad\text{implies}\quad s - \epsilon < a_n \le s_n \le b_n < s + \epsilon;$$
+      hence $|s - s_n| < \epsilon$.
+      (b) It is easy to show $\lim(-t_n) = 0$ if $\lim t_n = 0$. Now apply (a) to the inequalities $-t_n \le s_n \le t_n$.
+    transcriptionNotes: "Starred in the book ('This exercise is referred to in several places'). bookHint from PDF p. 380."
+  - cid: ross-8.7
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.7"
+    page: "44"
+    pdfPage: 56
+    verdict: strong
+    machinery: "Proving divergence from the negated definition (epsilon = 1 and triangle inequality)."
+    standardResult: "proving a sequence does not converge"
+    topic: sequences
+    subtopics: [divergence]
+    skills: [negate-definition, triangle-inequality, contradiction]
+    difficulty: easy
+    difficultyRationale: "Requires choosing a fixed epsilon and two subsequential values for a contradiction."
+    category: canonical
+    type: proof
+    tags: [divergence, negation, triangle-inequality]
+    references: []
+    problemLatex: |
+      Show the following sequences do not converge.
+      (a) $\cos(\frac{n\pi}{3})$
+      (b) $s_n = (-1)^n n$
+      (c) $\sin(\frac{n\pi}{3})$
+    bookHint: |
+      (a) Assume $\lim \cos(\frac{n\pi}{3}) = a$. Then there exists $N$ such that $n > N$ implies $|\cos(\frac{n\pi}{3}) - a| < 1$. Consider $n > N$ and $n + 3$ where $n$ is a multiple of 6; substituting these values in the inequality gives $|1 - a| < 1$ and $|-1 - a| < 1$. By the triangle inequality
+      $$2 = |(1 - a) - (-1 - a)| \le |1 - a| + |-1 - a| < 1 + 1 = 2,$$
+      a contradiction.
+      (b) Assume $\lim (-1)^n n = a$. Then there exists $N$ such that $n > N$ implies $|(-1)^n n - a| < 1$. For an even $n > N$ and for $n + 2$ this tells us $|n - a| < 1$ and $|n + 2 - a| < 1$. So $2 = |n + 2 - a - (n - a)| \le |n + 2 - a| + |n - a| < 2$, a contradiction.
+      (c) Note the sequence takes the values $\pm\frac{\sqrt{3}}{2}$ for large $n$. Assume $\lim \sin(\frac{n\pi}{3}) = a$. Then there is $N$ such that
+      $$n > N \quad\text{implies}\quad \left|\sin\left(\frac{n\pi}{3}\right) - a\right| < \frac{\sqrt{3}}{2}.$$
+      Substituting suitable $n > N$, we obtain $\left|\frac{\sqrt{3}}{2} - a\right| < \frac{\sqrt{3}}{2}$ and $\left|-\frac{\sqrt{3}}{2} - a\right| < \frac{\sqrt{3}}{2}$. By the triangle inequality
+      $$\sqrt{3} = \left|\frac{\sqrt{3}}{2} - \left(-\frac{\sqrt{3}}{2}\right)\right| \le \left|\frac{\sqrt{3}}{2} - a\right| + \left|a - \left(-\frac{\sqrt{3}}{2}\right)\right| < \frac{\sqrt{3}}{2} + \frac{\sqrt{3}}{2} = \sqrt{3},$$
+      a contradiction.
+    transcriptionNotes: "bookHint from PDF pp. 380–381."
+  - cid: ross-8.8
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.8"
+    page: "45"
+    pdfPage: 57
+    verdict: consider
+    machinery: "Epsilon-N proofs needing rationalization (conjugate) and estimation."
+    standardResult: "lim (sqrt(n^2+n) - n) = 1/2"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof, rationalize, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Conjugate trick plus a nontrivial estimate for an explicit N."
+    category: canonical
+    type: proof
+    tags: [epsilon-N, conjugate, square-root]
+    references: ["Exercise 7.5 (same limits, computed without proof)"]
+    problemLatex: |
+      Prove the following [see Exercise 7.5]:
+      (a) $\lim[\sqrt{n^2 + 1} - n] = 0$
+      (b) $\lim[\sqrt{n^2 + n} - n] = \frac{1}{2}$
+      (c) $\lim[\sqrt{4n^2 + n} - 2n] = \frac{1}{4}$
+    transcriptionNotes: "Exercise 7.5 asks to determine these limits without proof, with hint for (a): first show s_n = 1/(sqrt(n^2+1)+n). Supersedes 7.5."
+  - cid: ross-8.9
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.9"
+    page: "45"
+    pdfPage: 57
+    verdict: core
+    machinery: "Limits preserve non-strict inequalities; closed intervals contain limits."
+    standardResult: "order limit theorem: s_n ≥ a eventually ⇒ lim s_n ≥ a"
+    topic: sequences
+    subtopics: [convergence, limit-laws]
+    skills: [epsilon-N-proof, contradiction]
+    difficulty: easy
+    difficultyRationale: "Contradiction with epsilon = a - s; standard but must be set up correctly."
+    category: canonical
+    type: proof
+    tags: [order-limit-theorem, inequalities, machinery]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ be a sequence that converges.
+      (a) Show that if $s_n \ge a$ for all but finitely many $n$, then $\lim s_n \ge a$.
+      (b) Show that if $s_n \le b$ for all but finitely many $n$, then $\lim s_n \le b$.
+      (c) Conclude that if all but finitely many $s_n$ belong to $[a, b]$, then $\lim s_n$ belongs to $[a, b]$.
+    bookHint: |
+      (a) Hint: There exists $N_0$ in $\mathbb{N}$ such that $s_n \ge a$ for $n > N_0$. Assume $s = \lim s_n$ and $s < a$. Let $\epsilon = a - s$ and select $N \ge N_0$ so that $|s_n - s| < \epsilon$ for $n > N$. Show $s_n < a$ for $n > N$; a picture might help.
+    transcriptionNotes: "Starred in the book (referred to in several places). bookHint from PDF p. 381."
+  - cid: ross-8.10
+    chapter: "2 Sequences"
+    section: "§8 A Discussion about Proofs"
+    number: "Exercise 8.10"
+    page: "45"
+    pdfPage: 57
+    verdict: strong
+    machinery: "Strict inequality of the limit propagates to tail (sign-preservation)."
+    standardResult: "lim s_n > a ⇒ s_n > a eventually"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [epsilon-N-proof]
+    difficulty: introductory
+    difficultyRationale: "Choose epsilon = lim s_n - a."
+    category: canonical
+    type: proof
+    tags: [limits, inequalities, machinery]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ be a convergent sequence, and suppose $\lim s_n > a$. Prove there exists a number $N$ such that $n > N$ implies $s_n > a$.
+  # ---------------- §9 ----------------
+  - cid: ross-9.6
+    chapter: "2 Sequences"
+    section: "§9 Limit Theorems for Sequences"
+    number: "Exercise 9.6"
+    page: "54"
+    pdfPage: 66
+    verdict: strong
+    machinery: "Fixed-point equation for a recursive limit is only valid if the limit exists."
+    standardResult: "recursive sequence: must prove convergence before solving a = f(a)"
+    topic: sequences
+    subtopics: [recursive-sequences]
+    skills: [limit-laws, construct-counterexample]
+    difficulty: introductory
+    difficultyRationale: "Computation is easy; the point is conceptual."
+    category: canonical
+    type: conceptual
+    tags: [recursive-sequence, existence-of-limit, pitfall]
+    references: []
+    problemLatex: |
+      Let $x_1 = 1$ and $x_{n+1} = 3x_n^2$ for $n \ge 1$.
+      (a) Show if $a = \lim x_n$, then $a = \frac{1}{3}$ or $a = 0$.
+      (b) Does $\lim x_n$ exist? Explain.
+      (c) Discuss the apparent contradiction between parts (a) and (b).
+  - cid: ross-9.9
+    chapter: "2 Sequences"
+    section: "§9 Limit Theorems for Sequences"
+    number: "Exercise 9.9"
+    page: "55"
+    pdfPage: 67
+    verdict: strong
+    machinery: "Comparison for limits including infinite limits."
+    standardResult: "comparison of limits: s_n ≤ t_n ⇒ lim s_n ≤ lim t_n (incl. ±∞)"
+    topic: sequences
+    subtopics: [limit-laws, divergence]
+    skills: [epsilon-N-proof, M-N-proof]
+    difficulty: easy
+    difficultyRationale: "Definition of infinite limits plus Exercise 8.9-type reasoning."
+    category: canonical
+    type: proof
+    tags: [infinite-limits, comparison, order-limit-theorem]
+    references: []
+    problemLatex: |
+      Suppose there exists $N_0$ such that $s_n \le t_n$ for all $n > N_0$.
+      (a) Prove that if $\lim s_n = +\infty$, then $\lim t_n = +\infty$.
+      (b) Prove that if $\lim t_n = -\infty$, then $\lim s_n = -\infty$.
+      (c) Prove that if $\lim s_n$ and $\lim t_n$ exist, then $\lim s_n \le \lim t_n$.
+    bookHint: |
+      (a) Let $M > 0$. Since $\lim s_n = +\infty$ there exists $N \ge N_0$ such that $s_n > M$ for $n > N$. Then clearly $t_n > M$ for $n > N$, since $s_n \le t_n$ for all $n$. This shows $\lim t_n = +\infty$.
+      (c) Parts (a) and (b) take care of the infinite limits, so assume $(s_n)$ and $(t_n)$ converge. Since $t_n - s_n \ge 0$ for all $n > N_0$, $\lim(t_n - s_n) \ge 0$ by Exercise 8.9(a). Hence $\lim t_n - \lim s_n \ge 0$ by Theorems 9.3 and 9.2.
+    transcriptionNotes: "In Ross, 'lim s_n exists' includes the values ±∞. bookHint from PDF p. 382."
+  - cid: ross-9.12
+    chapter: "2 Sequences"
+    section: "§9 Limit Theorems for Sequences"
+    number: "Exercise 9.12"
+    page: "55"
+    pdfPage: 67
+    verdict: core
+    machinery: "Ratio test for sequences via geometric domination."
+    standardResult: "ratio test for sequences: lim |s_{n+1}/s_n| < 1 ⇒ s_n → 0"
+    topic: sequences
+    subtopics: [convergence, divergence]
+    skills: [geometric-comparison, induction]
+    difficulty: easy
+    difficultyRationale: "Pick a between L and 1, induct to get geometric bound; hint is given."
+    category: canonical
+    type: proof
+    tags: [ratio-test, geometric-bound, machinery]
+    references: ["Theorem 9.10 (quoted)"]
+    problemLatex: |
+      Assume all $s_n \ne 0$ and that the limit $L = \lim |\frac{s_{n+1}}{s_n}|$ exists.
+      (a) Show that if $L < 1$, then $\lim s_n = 0$. Hint: Select $a$ so that $L < a < 1$ and obtain $N$ so that $|s_{n+1}| < a|s_n|$ for $n \ge N$. Then show $|s_n| < a^{n-N}|s_N|$ for $n > N$.
+      (b) Show that if $L > 1$, then $\lim |s_n| = +\infty$. Hint: Apply (a) to the sequence $t_n = \frac{1}{|s_n|}$; see Theorem 9.10.
+      *(Theorem 9.10: For a sequence $(s_n)$ of positive real numbers, we have $\lim s_n = +\infty$ if and only if $\lim(\frac{1}{s_n}) = 0$.)*
+    transcriptionNotes: "Starred in the book (referred to in several places). Theorem 9.10 quoted from the book, PDF 66. No book hint for 9.12 (even number)."
+  - cid: ross-9.13
+    chapter: "2 Sequences"
+    section: "§9 Limit Theorems for Sequences"
+    number: "Exercise 9.13"
+    page: "55"
+    pdfPage: 67
+    verdict: consider
+    machinery: "Complete case analysis of geometric sequences a^n."
+    standardResult: "lim a^n: 0, 1, +∞, or DNE"
+    topic: sequences
+    subtopics: [convergence, divergence]
+    skills: [case-analysis]
+    difficulty: easy
+    difficultyRationale: "Several cases; the a ≤ -1 case needs a divergence argument."
+    category: canonical
+    type: proof
+    tags: [geometric-sequence, divergence]
+    references: []
+    problemLatex: |
+      Show
+      $$\lim_{n\to\infty} a^n = \begin{cases} 0 & \text{if } |a| < 1 \\ 1 & \text{if } a = 1 \\ +\infty & \text{if } a > 1 \\ \text{does not exist} & \text{if } a \le -1. \end{cases}$$
+    bookHint: |
+      If $|a| < 1$, then $\lim a^n = 0$ by Theorem 9.7(b). If $a = 1$, then obviously $\lim a^n = 1$.
+      Suppose $a > 1$. Then $\frac{1}{a} < 1$, so $\lim(1/a)^n = 0$ as above. Thus $\lim 1/a^n = 0$. Theorem 9.10 [with $s_n = a^n$] now shows $\lim a^n = +\infty$. [This case can also be handled by applying Exercise 9.12.]
+      Suppose $a \le -1$ and assume $\lim a^n$ exists. For even $n$, $a^n \ge 1$ and for odd $n$, $a^n \le -1$. Clearly $\lim a^n = +\infty$ and $\lim a^n = -\infty$ are impossible. Assume $\lim a^n = A$ for a real number $A$. There exists $N$ such that $|a^n - A| < 1$ for $n > N$. For even $n$ this implies $A > 0$ and for odd $n$ this implies $A < 0$, a contradiction.
+    transcriptionNotes: "bookHint from PDF p. 382. 9.14 (a^n/n^p) is the similar sequel."
+  - cid: ross-9.14
+    chapter: "2 Sequences"
+    section: "§9 Limit Theorems for Sequences"
+    number: "Exercise 9.14"
+    page: "55"
+    pdfPage: 67
+    verdict: consider
+    machinery: "Exponential beats polynomial via the sequence ratio test."
+    standardResult: "a^n/n^p limits"
+    topic: sequences
+    subtopics: [convergence, divergence]
+    skills: [ratio-test-sequences, case-analysis]
+    difficulty: easy
+    difficultyRationale: "Apply 9.12 in each case; |a| = 1 case needs separate care."
+    category: canonical
+    type: theorem-application
+    tags: [ratio-test, exponential-vs-polynomial]
+    references: ["Exercise 9.12 (quoted)"]
+    problemLatex: |
+      Let $p > 0$. Use Exercise 9.12 to show
+      $$\lim_{n\to\infty} \frac{a^n}{n^p} = \begin{cases} 0 & \text{if } |a| \le 1 \\ +\infty & \text{if } a > 1 \\ \text{does not exist} & \text{if } a < -1. \end{cases}$$
+      Hint: For the $a > 1$ case, use Exercise 9.12(b).
+      *(Exercise 9.12: Assume all $s_n \ne 0$ and that the limit $L = \lim |\frac{s_{n+1}}{s_n}|$ exists. (a) If $L < 1$, then $\lim s_n = 0$. (b) If $L > 1$, then $\lim |s_n| = +\infty$.)*
+    transcriptionNotes: "Exercise 9.12 statement quoted (without its hints)."
+  - cid: ross-9.15
+    chapter: "2 Sequences"
+    section: "§9 Limit Theorems for Sequences"
+    number: "Exercise 9.15"
+    page: "56"
+    pdfPage: 68
+    verdict: strong
+    machinery: "Factorial dominates exponential."
+    standardResult: "a^n/n! → 0"
+    topic: sequences
+    subtopics: [convergence]
+    skills: [ratio-test-sequences, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "One application of the ratio test for sequences, or a direct estimate."
+    category: canonical
+    type: proof
+    tags: [factorial, exponential, limits]
+    references: []
+    problemLatex: |
+      Show $\lim_{n\to\infty} \frac{a^n}{n!} = 0$ for all $a \in \mathbb{R}$.
+    bookHint: |
+      Apply Exercise 9.12 with $s_n = a^n/n!$. Then $L = \lim |s_{n+1}/s_n| = \lim \frac{a}{n+1} = 0$, so $\lim s_n = 0$.
+    transcriptionNotes: "bookHint from PDF p. 382 (printed 'lim a/(n+1)'; the case a = 0 is trivial). Exercise 9.12 is the sequence ratio test (see ross-9.12)."
+  # ---------------- §10 ----------------
+  - cid: ross-10.4
+    chapter: "2 Sequences"
+    section: "§10 Monotone Sequences and Cauchy Sequences"
+    number: "Exercise 10.4"
+    page: "65"
+    pdfPage: 77
+    verdict: strong
+    machinery: "Monotone convergence and Cauchy completeness both encode completeness; fail in Q."
+    standardResult: "monotone convergence theorem and Cauchy criterion fail in Q"
+    topic: sequences
+    subtopics: [monotone-sequences, cauchy-sequences]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Needs a rational sequence converging (in R) to an irrational, e.g. decimal truncations of sqrt 2."
+    category: canonical
+    type: counterexample
+    tags: [completeness, rationals, Cauchy, monotone-convergence]
+    references: ["Theorem 10.2 and Theorem 10.11 (quoted)"]
+    problemLatex: |
+      Discuss why Theorems 10.2 and 10.11 would fail if we restricted our world of numbers to the set $\mathbb{Q}$ of rational numbers.
+      *(Theorem 10.2: All bounded monotone sequences converge.)*
+      *(Theorem 10.11: A sequence is a convergent sequence if and only if it is a Cauchy sequence.)*
+    transcriptionNotes: "Theorems 10.2 (PDF 69) and 10.11 (PDF 75) quoted verbatim."
+  - cid: ross-10.6
+    chapter: "2 Sequences"
+    section: "§10 Monotone Sequences and Cauchy Sequences"
+    number: "Exercise 10.6"
+    page: "65"
+    pdfPage: 77
+    verdict: core
+    machinery: "Proving Cauchy via summable increments (telescoping + geometric tail); harmonic increments not enough."
+    standardResult: "|s_{n+1}-s_n| < 2^{-n} ⇒ Cauchy; 1/n increments not sufficient"
+    topic: sequences
+    subtopics: [cauchy-sequences]
+    skills: [telescoping, triangle-inequality, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Telescoping triangle inequality with geometric tail; (b) needs the partial sums of the harmonic series as counterexample."
+    category: canonical
+    type: proof
+    tags: [Cauchy, telescoping, counterexample, machinery]
+    references: []
+    problemLatex: |
+      (a) Let $(s_n)$ be a sequence such that
+      $$|s_{n+1} - s_n| < 2^{-n} \quad\text{for all}\quad n \in \mathbb{N}.$$
+      Prove $(s_n)$ is a Cauchy sequence and hence a convergent sequence.
+      (b) Is the result in (a) true if we only assume $|s_{n+1} - s_n| < \frac{1}{n}$ for all $n \in \mathbb{N}$?
+  - cid: ross-10.7
+    chapter: "2 Sequences"
+    section: "§10 Monotone Sequences and Cauchy Sequences"
+    number: "Exercise 10.7"
+    page: "65"
+    pdfPage: 77
+    verdict: strong
+    machinery: "Sequential approximation of the supremum."
+    standardResult: "sup S is a limit of a sequence in S"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-approximation, squeeze]
+    difficulty: introductory
+    difficultyRationale: "Use t - 1/n not an upper bound, then squeeze."
+    category: canonical
+    type: proof
+    tags: [supremum, sequences, approximation]
+    references: []
+    problemLatex: |
+      Let $S$ be a bounded nonempty subset of $\mathbb{R}$ such that $\sup S$ is not in $S$. Prove there is a sequence $(s_n)$ of points in $S$ such that $\lim s_n = \sup S$. See also Exercise 11.11.
+    bookHint: |
+      Let $t = \sup S$. For each $n \in \mathbb{N}$, $t - \frac{1}{n}$ is not an upper bound for $S$, so there exists $s_n$ satisfying $t - \frac{1}{n} < s_n < t$. Now apply the squeeze lemma in Exercise 8.5.
+    transcriptionNotes: "bookHint from PDF p. 382. 11.11 (increasing sequence) is the stronger version — see ross-11.11."
+  - cid: ross-10.9
+    chapter: "2 Sequences"
+    section: "§10 Monotone Sequences and Cauchy Sequences"
+    number: "Exercise 10.9"
+    page: "65"
+    pdfPage: 77
+    verdict: consider
+    machinery: "Monotone convergence for a recursive sequence; identifying the limit and ruling out spurious roots."
+    standardResult: "recursive sequence: monotone bounded, solve fixed-point equation"
+    topic: sequences
+    subtopics: [recursive-sequences, monotone-sequences]
+    skills: [induction, monotone-convergence, limit-laws]
+    difficulty: easy
+    difficultyRationale: "Induction for monotonicity and boundedness, then pass to limit and exclude s = 1."
+    category: canonical
+    type: proof
+    tags: [recursive-sequence, monotone-convergence]
+    references: []
+    problemLatex: |
+      Let $s_1 = 1$ and $s_{n+1} = (\frac{n}{n+1})s_n^2$ for $n \ge 1$.
+      (a) Find $s_2$, $s_3$ and $s_4$.
+      (b) Show $\lim s_n$ exists.
+      (c) Prove $\lim s_n = 0$.
+    bookHint: |
+      (a) $s_2 = \frac{1}{2}$, $s_3 = \frac{1}{6}$, $s_4 = \frac{1}{48}$.
+      (b) First we prove
+      $$0 < s_{n+1} < s_n \le 1 \quad\text{for all}\quad n \ge 1. \qquad (1)$$
+      This is obvious from part (a) for $n = 1, 2, 3$. Assume (1) holds for $n$. Then $s_{n+1} < 1$, so
+      $$s_{n+2} = \frac{n+1}{n+2}s_{n+1}^2 = \left[\frac{n+1}{n+2}s_{n+1}\right]s_{n+1} < s_{n+1}$$
+      since $(\frac{n+1}{n+2})s_{n+1} < 1$. Since $s_{n+1} > 0$ we also have $s_{n+2} > 0$. Hence $0 < s_{n+2} < s_{n+1} \le 1$ and (1) holds by induction.
+      Assertion (1) shows $(s_n)$ is a bounded monotone sequence, so $(s_n)$ converges by Theorem 10.2.
+      (c) Let $s = \lim s_n$. Using limit theorems we find $s = \lim s_{n+1} = \lim \frac{n}{n+1} \cdot \lim s_n^2 = s^2$. Consequently $s = 1$ or $s = 0$. But $s = 1$ is impossible since $s_n \le \frac{1}{2}$ for $n \ge 2$. So $s = 0$.
+    transcriptionNotes: "bookHint from PDF pp. 382–383; bracket grouping in the displayed s_{n+2} line inferred from extraction (large brackets)."
+  - cid: ross-10.10
+    chapter: "2 Sequences"
+    section: "§10 Monotone Sequences and Cauchy Sequences"
+    number: "Exercise 10.10"
+    page: "65"
+    pdfPage: 77
+    verdict: strong
+    machinery: "Template monotone-convergence argument for a recursively defined sequence."
+    standardResult: "recursive sequence s_{n+1} = (s_n+1)/3: bounded below, decreasing, limit 1/2"
+    topic: sequences
+    subtopics: [recursive-sequences, monotone-sequences]
+    skills: [induction, monotone-convergence, limit-laws]
+    difficulty: easy
+    difficultyRationale: "Standard four-step template, guided by the parts."
+    category: canonical
+    type: proof
+    tags: [recursive-sequence, monotone-convergence, induction]
+    references: []
+    problemLatex: |
+      Let $s_1 = 1$ and $s_{n+1} = \frac{1}{3}(s_n + 1)$ for $n \ge 1$.
+      (a) Find $s_2$, $s_3$ and $s_4$.
+      (b) Use induction to show $s_n > \frac{1}{2}$ for all $n$.
+      (c) Show $(s_n)$ is a decreasing sequence.
+      (d) Show $\lim s_n$ exists and find $\lim s_n$.
+  - cid: ross-10.11
+    chapter: "2 Sequences"
+    section: "§10 Monotone Sequences and Cauchy Sequences"
+    number: "Exercise 10.11"
+    page: "65"
+    pdfPage: 77
+    verdict: consider
+    machinery: "Existence of a limit via monotone convergence even when its value is hard (Wallis product)."
+    standardResult: "existence via monotone convergence vs. computing the value"
+    topic: sequences
+    subtopics: [monotone-sequences, recursive-sequences]
+    skills: [monotone-convergence]
+    difficulty: introductory
+    difficultyRationale: "(a) is immediate; (b) is a guess."
+    category: canonical
+    type: conceptual
+    tags: [monotone-convergence, Wallis-product]
+    references: []
+    problemLatex: |
+      Let $t_1 = 1$ and $t_{n+1} = [1 - \frac{1}{4n^2}] \cdot t_n$ for $n \ge 1$.
+      (a) Show $\lim t_n$ exists.
+      (b) What do you think $\lim t_n$ is?
+    bookHint: |
+      (a) Show $(t_n)$ is a bounded monotone sequence.
+      (b) The answer is not obvious! It turns out that $\lim t_n$ is a Wallis product and has value $\frac{2}{\pi}$ which is about 0.6366. Observe how much easier part (a) is than part (b).
+    transcriptionNotes: "bookHint from PDF p. 383. Sibling 10.12 skipped."
+  # ---------------- §11 ----------------
+  - cid: ross-11.3
+    chapter: "2 Sequences"
+    section: "§11 Subsequences"
+    number: "Exercise 11.3"
+    page: "76"
+    pdfPage: 88
+    verdict: consider
+    machinery: "Computing subsequential limits, limsup and liminf of concrete sequences."
+    standardResult: "compute subsequential limits, limsup, liminf"
+    topic: sequences
+    subtopics: [subsequences, limsup-liminf]
+    skills: [subsequence-extraction]
+    difficulty: introductory
+    difficultyRationale: "Direct computation."
+    category: canonical
+    type: computation
+    tags: [subsequential-limits, limsup, liminf]
+    references: ["Exercise 11.2 (parts quoted)"]
+    problemLatex: |
+      Repeat Exercise 11.2 for the sequences:
+      $$s_n = \cos\left(\frac{n\pi}{3}\right), \quad t_n = \frac{3}{4n + 1}, \quad u_n = \left(-\frac{1}{2}\right)^n, \quad v_n = (-1)^n + \frac{1}{n}.$$
+      *(Exercise 11.2 asks:)*
+      (a) For each sequence, give an example of a monotone subsequence.
+      (b) For each sequence, give its set of subsequential limits.
+      (c) For each sequence, give its $\limsup$ and $\liminf$.
+      (d) Which of the sequences converges? diverges to $+\infty$? diverges to $-\infty$?
+      (e) Which of the sequences is bounded?
+    bookHint: |
+      (b) For $(s_n)$, the set $S$ of subsequential limits is $\{-1, -\frac{1}{2}, \frac{1}{2}, 1\}$. For $(t_n)$, $S = \{0\}$. For $(u_n)$, $S = \{0\}$. For $(v_n)$, $S = \{-1, 1\}$.
+      (c) $\limsup s_n = 1$, $\liminf s_n = -1$, $\limsup t_n = \liminf t_n = \lim t_n = 0$, $\limsup u_n = \liminf u_n = \lim u_n = 0$, $\limsup v_n = 1$, $\liminf v_n = -1$.
+      (d) $(t_n)$ and $(u_n)$ converge.
+      (e) $(s_n)$, $(t_n)$, $(u_n)$ and $(v_n)$ are all bounded.
+    transcriptionNotes: "Parts (a)–(e) of Exercise 11.2 quoted verbatim. bookHint from PDF p. 383. Representative of 11.1–11.4."
+  - cid: ross-11.5
+    chapter: "2 Sequences"
+    section: "§11 Subsequences"
+    number: "Exercise 11.5"
+    page: "77"
+    pdfPage: 89
+    verdict: strong
+    machinery: "Every point of [0,1] is a subsequential limit of an enumeration of rationals."
+    standardResult: "enumeration of Q∩(0,1] has every point of [0,1] as subsequential limit"
+    topic: sequences
+    subtopics: [subsequences, limsup-liminf]
+    skills: [subsequence-extraction, density-argument]
+    difficulty: easy
+    difficultyRationale: "Answer is quick, but justifying needs density and infinitely-many-terms reasoning."
+    category: canonical
+    type: conceptual
+    tags: [subsequential-limits, rationals, enumeration]
+    references: []
+    problemLatex: |
+      Let $(q_n)$ be an enumeration of all the rationals in the interval $(0, 1]$.
+      (a) Give the set of subsequential limits for $(q_n)$.
+      (b) Give the values of $\limsup q_n$ and $\liminf q_n$.
+    bookHint: |
+      (a) $[0, 1]$; (b) $\limsup q_n = 1$, $\liminf q_n = 0$.
+    transcriptionNotes: "bookHint from PDF p. 383."
+  - cid: ross-11.7
+    chapter: "2 Sequences"
+    section: "§11 Subsequences"
+    number: "Exercise 11.7"
+    page: "77"
+    pdfPage: 89
+    verdict: strong
+    machinery: "Constructing a subsequence with prescribed behavior by inductive selection."
+    standardResult: "enumeration of Q has a subsequence tending to +∞"
+    topic: sequences
+    subtopics: [subsequences]
+    skills: [subsequence-extraction, induction]
+    difficulty: easy
+    difficultyRationale: "Inductive choice of increasing indices with r_{n_k} > k."
+    category: canonical
+    type: construction
+    tags: [subsequence, enumeration, rationals]
+    references: []
+    problemLatex: |
+      Let $(r_n)$ be an enumeration of the set $\mathbb{Q}$ of all rational numbers. Show there exists a subsequence $(r_{n_k})$ such that $\lim_{k\to\infty} r_{n_k} = +\infty$.
+    bookHint: |
+      Apply Theorem 11.2.
+    transcriptionNotes: "bookHint from PDF p. 383. Theorem 11.2 (ii): if (s_n) is unbounded above, it has a subsequence with limit +∞."
+  - cid: ross-11.8
+    chapter: "2 Sequences"
+    section: "§11 Subsequences"
+    number: "Exercise 11.8"
+    page: "77"
+    pdfPage: 89
+    verdict: strong
+    machinery: "liminf/limsup duality from the tail-sup definition."
+    standardResult: "liminf s_n = -limsup(-s_n)"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [unpack-definition]
+    difficulty: easy
+    difficultyRationale: "Apply inf S = -sup(-S) to tail sets, then pass to the limit (including infinite cases)."
+    category: canonical
+    type: proof
+    tags: [limsup, liminf, duality]
+    references: ["Definition 10.6 (quoted)", "Exercise 5.4 (quoted)"]
+    problemLatex: |
+      Use Definition 10.6 and Exercise 5.4 to prove $\liminf s_n = -\limsup(-s_n)$ for every sequence $(s_n)$.
+      *(Definition 10.6: Let $(s_n)$ be a sequence in $\mathbb{R}$. We define $\limsup s_n = \lim_{N\to\infty} \sup\{s_n : n > N\}$ and $\liminf s_n = \lim_{N\to\infty} \inf\{s_n : n > N\}$. If $(s_n)$ is not bounded above, $\sup\{s_n : n > N\} = +\infty$ for all $N$ and we decree $\limsup s_n = +\infty$. Likewise, if $(s_n)$ is not bounded below, $\inf\{s_n : n > N\} = -\infty$ for all $N$ and we decree $\liminf s_n = -\infty$.)*
+      *(Exercise 5.4: For a nonempty $S \subseteq \mathbb{R}$ and $-S = \{-s : s \in S\}$, $\inf S = -\sup(-S)$.)*
+    transcriptionNotes: "Starred in the book. Definition 10.6 quoted (lightly condensed) from PDF 72; Exercise 5.4 statement quoted."
+  - cid: ross-11.9
+    chapter: "2 Sequences"
+    section: "§11 Subsequences"
+    number: "Exercise 11.9"
+    page: "77"
+    pdfPage: 89
+    verdict: strong
+    machinery: "Set of subsequential limits is closed; sequential closedness of [a,b]."
+    standardResult: "set of subsequential limits is closed; (0,1) cannot be such a set"
+    topic: sequences
+    subtopics: [subsequences, limsup-liminf]
+    skills: [sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "(a) via order limit theorem; (b) needs to recall/apply closedness of subsequential-limit sets."
+    category: synthesis
+    type: conceptual
+    tags: [closed-set, subsequential-limits]
+    references: ["Ross's sequential notion of closed set and Theorem 11.9 (quoted)"]
+    problemLatex: |
+      (a) Show the closed interval $[a, b]$ is a closed set.
+      (b) Is there a sequence $(s_n)$ such that $(0, 1)$ is its set of subsequential limits?
+      *(Context, §11: A set $S$ is called closed if it contains all limits of sequences from $S$. Theorem 11.9: Let $S$ denote the set of subsequential limits of a sequence $(s_n)$. Suppose $(t_n)$ is a sequence in $S \cap \mathbb{R}$ and that $t = \lim t_n$. Then $t$ belongs to $S$.)*
+    bookHint: |
+      (a) To show $[a, b]$ is closed, we need to consider a limit $s$ of a convergent sequence $(s_n)$ from $[a, b]$ and show $s$ is also in $[a, b]$. But this was done in Exercise 8.9.
+      (b) No! $(0, 1)$ is not closed, i.e., $(0, 1)$ does not have the property described in Theorem 11.9. For example, $t_n = \frac{1}{n}$ defines a sequence in $(0, 1)$ such that $t = \lim t_n$ does not belong to $(0, 1)$.
+    transcriptionNotes: "Closed-set notion paraphrased from the sentence before Theorem 11.9 (PDF 87: 'the set S of subsequential limits always contains all limits of sequences from S. Such sets are called closed sets.'); Theorem 11.9 quoted verbatim. bookHint from PDF p. 383."
+  - cid: ross-11.11
+    chapter: "2 Sequences"
+    section: "§11 Subsequences"
+    number: "Exercise 11.11"
+    page: "78"
+    pdfPage: 90
+    verdict: strong
+    machinery: "Monotone sequence in S converging to sup S."
+    standardResult: "increasing sequence in S converging to sup S"
+    topic: real-numbers
+    subtopics: [supremum-infimum]
+    skills: [sup-approximation, induction]
+    difficulty: easy
+    difficultyRationale: "Inductive choice ensuring monotonicity plus sup approximation."
+    category: canonical
+    type: construction
+    tags: [supremum, monotone, approximation]
+    references: []
+    problemLatex: |
+      Let $S$ be a bounded set. Prove there is an increasing sequence $(s_n)$ of points in $S$ such that $\lim s_n = \sup S$. Compare Exercise 10.7. Note: If $\sup S$ is in $S$, it's sufficient to define $s_n = \sup S$ for all $n$.
+    bookHint: |
+      Let $t = \sup S$. There are several ways to prove the result. (1) Provide an inductive definition where $s_k \ge \max\{s_{k-1}, t - \frac{1}{k}\}$ for all $k$. (2) Apply Theorem 11.2 directly. (3) Use the sequence $(s_n)$ obtained in Exercise 10.7, and show $t_n = \max\{s_1, \ldots, s_n\}$ defines an increasing sequence $(t_n)$ in $S$ converging to $t$.
+    transcriptionNotes: "Book says 'bounded set' (implicitly nonempty). Exercise 10.7: S bounded nonempty, sup S ∉ S ⇒ some sequence in S converges to sup S. bookHint from PDF p. 383."
+  # ---------------- §12 ----------------
+  - cid: ross-12.1
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.1"
+    page: "82"
+    pdfPage: 94
+    verdict: strong
+    machinery: "Monotonicity of limsup/liminf under eventual domination."
+    standardResult: "s_n ≤ t_n eventually ⇒ limsup s_n ≤ limsup t_n, liminf s_n ≤ liminf t_n"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [unpack-definition, tail-sup]
+    difficulty: easy
+    difficultyRationale: "Compare tail infima/suprema and pass to the limit."
+    category: canonical
+    type: proof
+    tags: [limsup, liminf, comparison]
+    references: ["Definition 10.6 (quoted)"]
+    problemLatex: |
+      Let $(s_n)$ and $(t_n)$ be sequences and suppose there exists $N_0$ such that $s_n \le t_n$ for all $n > N_0$. Show $\liminf s_n \le \liminf t_n$ and $\limsup s_n \le \limsup t_n$. Hint: Use Definition 10.6 and Exercise 9.9(c).
+      *(Definition 10.6: $\limsup s_n = \lim_{N\to\infty} \sup\{s_n : n > N\}$ and $\liminf s_n = \lim_{N\to\infty} \inf\{s_n : n > N\}$. Exercise 9.9(c): if $s_n \le t_n$ for all $n > N_0$ and $\lim s_n$, $\lim t_n$ exist, then $\lim s_n \le \lim t_n$.)*
+    bookHint: |
+      Let $u_N = \inf\{s_n : n > N\}$ and $w_N = \inf\{t_n : n > N\}$. Then $(u_N)$ and $(w_N)$ are increasing sequences and $u_N \le w_N$ for all $N > N_0$. By Exercise 9.9(c), $\liminf s_n = \lim u_N \le \lim w_N = \liminf t_n$. The inequality $\limsup s_n \le \limsup t_n$ can be shown in a similar way or one can apply Exercise 11.8.
+    transcriptionNotes: "References quoted. bookHint from PDF p. 384."
+  - cid: ross-12.2
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.2"
+    page: "82"
+    pdfPage: 94
+    verdict: strong
+    machinery: "Convergence to 0 characterized by limsup of absolute values."
+    standardResult: "limsup |s_n| = 0 iff s_n → 0"
+    topic: sequences
+    subtopics: [limsup-liminf, convergence]
+    skills: [squeeze, unpack-definition]
+    difficulty: easy
+    difficultyRationale: "Needs liminf ≤ limsup and the 'limsup = liminf iff convergent' theorem, or a squeeze with tail sups."
+    category: canonical
+    type: proof
+    tags: [limsup, null-sequence]
+    references: []
+    problemLatex: |
+      Prove $\limsup |s_n| = 0$ if and only if $\lim s_n = 0$.
+  - cid: ross-12.3
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.3"
+    page: "82"
+    pdfPage: 94
+    verdict: consider
+    machinery: "Concrete example showing limsup/liminf inequalities for sums and products can be strict."
+    standardResult: "strict inequality in limsup(s+t) ≤ limsup s + limsup t"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [computation]
+    difficulty: introductory
+    difficultyRationale: "Direct reading of periodic sequences."
+    category: canonical
+    type: counterexample
+    tags: [limsup, liminf, strict-inequality]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ and $(t_n)$ be the following sequences that repeat in cycles of four:
+      $$(s_n) = (0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, \ldots)$$
+      $$(t_n) = (2, 1, 1, 0, 2, 1, 1, 0, 2, 1, 1, 0, 2, 1, 1, 0, 2, \ldots)$$
+      Find
+      (a) $\liminf s_n + \liminf t_n$,
+      (b) $\liminf(s_n + t_n)$,
+      (c) $\liminf s_n + \limsup t_n$,
+      (d) $\limsup(s_n + t_n)$,
+      (e) $\limsup s_n + \limsup t_n$,
+      (f) $\liminf(s_n t_n)$,
+      (g) $\limsup(s_n t_n)$
+    bookHint: |
+      (a) 0; (b) 1; (c) 2; (d) 3; (e) 4; (f) 0; (g) 2.
+    transcriptionNotes: "bookHint from PDF p. 384."
+  - cid: ross-12.4
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.4"
+    page: "82"
+    pdfPage: 94
+    verdict: core
+    machinery: "Subadditivity of limsup via tail suprema."
+    standardResult: "limsup(s_n + t_n) ≤ limsup s_n + limsup t_n"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [tail-sup, sup-inequality]
+    difficulty: easy
+    difficultyRationale: "Sup of sum ≤ sum of sups on tails, then pass to the limit."
+    category: canonical
+    type: proof
+    tags: [limsup, subadditivity, machinery]
+    references: ["Exercise 9.9(c) (quoted)"]
+    problemLatex: |
+      Show $\limsup(s_n + t_n) \le \limsup s_n + \limsup t_n$ for bounded sequences $(s_n)$ and $(t_n)$. Hint: First show
+      $$\sup\{s_n + t_n : n > N\} \le \sup\{s_n : n > N\} + \sup\{t_n : n > N\}.$$
+      Then apply Exercise 9.9(c).
+      *(Exercise 9.9(c): if $s_n \le t_n$ for all $n > N_0$ and $\lim s_n$ and $\lim t_n$ exist, then $\lim s_n \le \lim t_n$.)*
+    transcriptionNotes: "No book hint (even). 12.5 (liminf superadditivity) follows via 11.8."
+  - cid: ross-12.8
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.8"
+    page: "82"
+    pdfPage: 94
+    verdict: strong
+    machinery: "Submultiplicativity of limsup for nonnegative sequences."
+    standardResult: "limsup s_n t_n ≤ (limsup s_n)(limsup t_n) for nonnegative bounded sequences"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [tail-sup, sup-inequality]
+    difficulty: easy
+    difficultyRationale: "Analogue of 12.4 with nonnegativity needed for the tail-sup product bound."
+    category: canonical
+    type: proof
+    tags: [limsup, products]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ and $(t_n)$ be bounded sequences of nonnegative numbers. Prove $\limsup s_n t_n \le (\limsup s_n)(\limsup t_n)$.
+  - cid: ross-12.9
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.9"
+    page: "82"
+    pdfPage: 94
+    verdict: consider
+    machinery: "Products with infinite limits, using a positive tail lower bound from liminf > 0."
+    standardResult: "s_n → +∞, liminf t_n > 0 ⇒ s_n t_n → +∞"
+    topic: sequences
+    subtopics: [limsup-liminf, divergence]
+    skills: [M-N-proof, subsequence-extraction]
+    difficulty: easy
+    difficultyRationale: "Extract a positive tail infimum m and use M/m."
+    category: canonical
+    type: proof
+    tags: [infinite-limits, liminf, products]
+    references: ["Exercise 12.7 (quoted)"]
+    problemLatex: |
+      (a) Prove that if $\lim s_n = +\infty$ and $\liminf t_n > 0$, then $\lim s_n t_n = +\infty$.
+      (b) Prove that if $\limsup s_n = +\infty$ and $\liminf t_n > 0$, then $\limsup s_n t_n = +\infty$.
+      (c) Observe that Exercise 12.7 is the special case of (b) where $t_n = k$ for all $n \in \mathbb{N}$.
+      *(Exercise 12.7: Prove if $\limsup s_n = +\infty$ and $k > 0$, then $\limsup(k s_n) = +\infty$.)*
+    bookHint: |
+      (a) Since $\liminf t_n > 0$, there exists $N_1$ such that $m = \inf\{t_n : n > N_1\} > 0$. Now consider $M > 0$. Since $\lim s_n = +\infty$, there exists $N_2$ such that $s_n > \frac{M}{m}$ for $n > N_2$. Then $n > \max\{N_1, N_2\}$ implies $s_n t_n > (\frac{M}{m})t_n \ge (\frac{M}{m})m = M$. Hence $\lim s_n t_n = +\infty$.
+    transcriptionNotes: "bookHint from PDF p. 384. 12.7 skipped as the special case."
+  - cid: ross-12.11
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.11"
+    page: "83"
+    pdfPage: 95
+    verdict: consider
+    machinery: "Ratio-root inequality (the liminf half), which underlies root test ≥ ratio test."
+    standardResult: "liminf |s_{n+1}/s_n| ≤ liminf |s_n|^{1/n}"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [geometric-comparison, tail-sup]
+    difficulty: medium
+    difficultyRationale: "Geometric lower bound from the ratio tail, then nth roots and limits — multi-step."
+    category: synthesis
+    type: proof
+    tags: [ratio-test, root-test, liminf]
+    references: ["Theorem 12.2 (quoted)"]
+    problemLatex: |
+      Prove the first inequality in Theorem 12.2.
+      *(Theorem 12.2: Let $(s_n)$ be any sequence of nonzero real numbers. Then we have
+      $$\liminf\left|\frac{s_{n+1}}{s_n}\right| \le \liminf |s_n|^{1/n} \le \limsup |s_n|^{1/n} \le \limsup\left|\frac{s_{n+1}}{s_n}\right|.)$$*
+    bookHint: |
+      Partial Proof. Let $M = \liminf |s_{n+1}/s_n|$ and $\beta = \liminf |s_n|^{1/n}$. To show $M \le \beta$, it suffices to prove $M_1 \le \beta$ for all $M_1 < M$. Since
+      $$\liminf\left|\frac{s_{n+1}}{s_n}\right| = \lim_{N\to\infty} \inf\left\{\left|\frac{s_{n+1}}{s_n}\right| : n > N\right\} > M_1,$$
+      there exists $N$ such that
+      $$\inf\left\{\left|\frac{s_{n+1}}{s_n}\right| : n > N\right\} > M_1.$$
+      Now imitate the proof in Theorem 12.2, but note that many of the inequalities will be reversed.
+    transcriptionNotes: "Theorem 12.2 quoted (PDF 91). The book proves the last inequality; the hint says to imitate that proof. bookHint from PDF p. 384."
+  - cid: ross-12.12
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.12"
+    page: "83"
+    pdfPage: 95
+    verdict: core
+    machinery: "Cesàro means: limsup/liminf sandwich via splitting off an initial segment."
+    standardResult: "Cesàro mean: lim s_n = s ⇒ lim σ_n = s; converse false"
+    topic: sequences
+    subtopics: [limsup-liminf, convergence]
+    skills: [split-sum, tail-sup, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Requires the split-at-N estimate and then taking limits in M and N carefully."
+    category: synthesis
+    type: proof
+    tags: [Cesaro, averages, limsup, counterexample]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ be a sequence of nonnegative numbers, and for each $n$ define $\sigma_n = \frac{1}{n}(s_1 + s_2 + \cdots + s_n)$.
+      (a) Show
+      $$\liminf s_n \le \liminf \sigma_n \le \limsup \sigma_n \le \limsup s_n.$$
+      Hint: For the last inequality, show first that $M > N$ implies
+      $$\sup\{\sigma_n : n > M\} \le \frac{1}{M}(s_1 + s_2 + \cdots + s_N) + \sup\{s_n : n > N\}.$$
+      (b) Show that if $\lim s_n$ exists, then $\lim \sigma_n$ exists and $\lim \sigma_n = \lim s_n$.
+      (c) Give an example where $\lim \sigma_n$ exists, but $\lim s_n$ does not exist.
+    transcriptionNotes: "No book hint (even). Verified against page image PDF 95."
+  - cid: ross-12.13
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.13"
+    page: "83"
+    pdfPage: 95
+    verdict: strong
+    machinery: "Alternative characterization of liminf/limsup via 'eventually above/below' thresholds."
+    standardResult: "liminf s_n = sup{a : s_n ≥ a eventually}, limsup = inf{b : s_n ≤ b eventually}"
+    topic: sequences
+    subtopics: [limsup-liminf]
+    skills: [tail-sup, two-inequalities]
+    difficulty: medium
+    difficultyRationale: "Two-sided argument relating tail infima to a threshold set; requires careful quantifier handling."
+    category: canonical
+    type: proof
+    tags: [limsup, liminf, characterization]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ be a bounded sequence in $\mathbb{R}$. Let $A$ be the set of $a \in \mathbb{R}$ such that $\{n \in \mathbb{N} : s_n < a\}$ is finite, i.e., all but finitely many $s_n$ are $\ge a$. Let $B$ be the set of $b \in \mathbb{R}$ such that $\{n \in \mathbb{N} : s_n > b\}$ is finite. Prove $\sup A = \liminf s_n$ and $\inf B = \limsup s_n$.
+    bookHint: |
+      Proof of $\sup A = \liminf s_n$. Consider $N$ in $\mathbb{N}$ and observe $u_N = \inf\{s_n : n > N\}$ is a number in $A$, since $\{n \in \mathbb{N} : s_n < u_N\} \subseteq \{1, 2, \ldots, N\}$. So $u_N \le \sup A$ for all $N$ and consequently $\liminf s_n = \lim u_N \le \sup A$.
+      Next consider $a \in A$. Let $N_0 = \max\{n \in \mathbb{N} : s_n < a\} < \infty$. Then $s_n \ge a$ for $n > N_0$. Thus for $N \ge N_0$ we have $u_N = \inf\{s_n : n > N\} \ge a$. It follows that $\liminf s_n = \lim u_N \ge a$. We have just shown that $\liminf s_n$ is an upper bound for the set $A$. Therefore $\liminf s_n \ge \sup A$.
+    transcriptionNotes: "bookHint from PDF p. 384."
+  - cid: ross-12.14
+    chapter: "2 Sequences"
+    section: "§12 lim sup's and lim inf's"
+    number: "Exercise 12.14"
+    page: "83"
+    pdfPage: 95
+    verdict: consider
+    machinery: "Using the ratio-root inequality to compute nth-root limits."
+    standardResult: "(n!)^{1/n} → ∞ and (n!)^{1/n}/n → 1/e"
+    topic: sequences
+    subtopics: [limsup-liminf, convergence]
+    skills: [ratio-root-comparison]
+    difficulty: easy
+    difficultyRationale: "Apply Theorem 12.2 with s_n = n! and s_n = n!/n^n; needs (1+1/n)^n → e."
+    category: canonical
+    type: computation
+    tags: [factorial, root-test, ratio-test]
+    references: ["Theorem 12.2 (see ross-12.11) is the intended tool"]
+    problemLatex: |
+      Calculate (a) $\lim (n!)^{1/n}$, (b) $\lim \frac{1}{n}(n!)^{1/n}$.
+    transcriptionNotes: "No book hint. Intended tool is Theorem 12.2 (ratio-root inequality), quoted in ross-12.11."
+  # ---------------- §13 ----------------
+  - cid: ross-13.1
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.1"
+    page: "93"
+    pdfPage: 105
+    verdict: consider
+    machinery: "Verifying metric axioms; equivalence of metrics preserves Cauchy/completeness."
+    standardResult: "max and taxicab metrics on R^k are complete"
+    topic: topology
+    subtopics: [metric-spaces, complete-metric-spaces]
+    skills: [triangle-inequality, metric-comparison]
+    difficulty: easy
+    difficultyRationale: "Triangle inequality coordinatewise; completeness via comparison with Euclidean metric."
+    category: canonical
+    type: proof
+    tags: [metric, completeness, R^k]
+    references: []
+    problemLatex: |
+      For points $\mathbf{x}, \mathbf{y}$ in $\mathbb{R}^k$, let
+      $$d_1(\mathbf{x}, \mathbf{y}) = \max\{|x_j - y_j| : j = 1, 2, \ldots, k\}$$
+      and
+      $$d_2(\mathbf{x}, \mathbf{y}) = \sum_{j=1}^{k} |x_j - y_j|.$$
+      (a) Show $d_1$ and $d_2$ are metrics for $\mathbb{R}^k$.
+      (b) Show $d_1$ and $d_2$ are complete metrics on $\mathbb{R}^k$.
+    bookHint: |
+      (a) It is clear that $d_1$ and $d_2$ satisfy D1 and D2 of Definition 13.1. If $\mathbf{x}, \mathbf{y}, \mathbf{z} \in \mathbb{R}^k$, then for each $j = 1, 2, \ldots, k$,
+      $$|x_j - z_j| \le |x_j - y_j| + |y_j - z_j| \le d_1(\mathbf{x}, \mathbf{y}) + d_1(\mathbf{y}, \mathbf{z}),$$
+      so $d_1(\mathbf{x}, \mathbf{z}) \le d_1(\mathbf{x}, \mathbf{y}) + d_1(\mathbf{y}, \mathbf{z})$. So $d_1$ satisfies the triangle inequality and a similar argument works for $d_2$; give it.
+      (b) For the completeness of $d_1$ we use Theorem 13.4 and the inequalities
+      $$d_1(\mathbf{x}, \mathbf{y}) \le d(\mathbf{x}, \mathbf{y}) \le \sqrt{k}\, d_1(\mathbf{x}, \mathbf{y}).$$
+      In fact, if $(\mathbf{x}_n)$ is Cauchy for $d_1$, then the second inequality shows $(\mathbf{x}_n)$ is Cauchy for $d$. Hence by Theorem 13.4, for some $\mathbf{x} \in \mathbb{R}^k$ we have $\lim d(\mathbf{x}_n, \mathbf{x}) = 0$. By the first inequality, we also have $\lim d_1(\mathbf{x}_n, \mathbf{x}) = 0$, i.e., $(\mathbf{x}_n)$ converges to $\mathbf{x}$ in the metric $d_1$. For $d_2$, use the completeness of $d_1$ and the inequalities $d_1(\mathbf{x}, \mathbf{y}) \le d_2(\mathbf{x}, \mathbf{y}) \le k\, d_1(\mathbf{x}, \mathbf{y})$.
+    transcriptionNotes: "Book uses bold x, y for points of R^k; rendered as \\mathbf. bookHint from PDF pp. 384–385 (Theorem 13.4: R^k with the Euclidean metric d is complete)."
+  - cid: ross-13.3
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.3"
+    page: "93"
+    pdfPage: 105
+    verdict: strong
+    machinery: "The sup metric on bounded sequences (ℓ^∞); why ℓ^1-type distance fails on it."
+    standardResult: "sup metric on bounded sequences (ℓ^∞)"
+    topic: topology
+    subtopics: [metric-spaces]
+    skills: [triangle-inequality, sup-inequality, construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Triangle inequality through sup; (b) needs noticing infinite values."
+    category: canonical
+    type: proof
+    tags: [metric, sequence-space, l-infinity]
+    references: []
+    problemLatex: |
+      Let $B$ be the set of all bounded sequences $\mathbf{x} = (x_1, x_2, \ldots)$, and define $d(\mathbf{x}, \mathbf{y}) = \sup\{|x_j - y_j| : j = 1, 2, \ldots\}$.
+      (a) Show $d$ is a metric for $B$.
+      (b) Does $d^*(\mathbf{x}, \mathbf{y}) = \sum_{j=1}^{\infty} |x_j - y_j|$ define a metric for $B$?
+    bookHint: |
+      (b) No, because $d^*(\mathbf{x}, \mathbf{y})$ need not be finite. For example, consider the elements $\mathbf{x} = (1, 1, 1, \ldots)$ and $\mathbf{y} = (0, 0, 0, \ldots)$.
+    transcriptionNotes: "bookHint from PDF p. 385."
+  - cid: ross-13.4
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.4"
+    page: "93"
+    pdfPage: 105
+    verdict: strong
+    machinery: "Open sets in a metric space are closed under arbitrary unions and finite intersections."
+    standardResult: "arbitrary unions / finite intersections of open sets are open"
+    topic: topology
+    subtopics: [open-sets, metric-spaces]
+    skills: [min-of-radii, unpack-definition]
+    difficulty: introductory
+    difficultyRationale: "Direct from the definition; finite intersection uses min of radii."
+    category: canonical
+    type: proof
+    tags: [open-set, metric-space, machinery]
+    references: ["Discussion 13.7 and Definition 13.6 (quoted)"]
+    problemLatex: |
+      Prove (iii) and (iv) in Discussion 13.7.
+      *(Definition 13.6: Let $(S, d)$ be a metric space and $E \subseteq S$. An element $s_0 \in E$ is interior to $E$ if for some $r > 0$ we have $\{s \in S : d(s, s_0) < r\} \subseteq E$. The set $E$ is open in $S$ if every point in $E$ is interior to $E$.)*
+      *(Discussion 13.7: (iii) The union of any collection of open sets is open. (iv) The intersection of finitely many open sets is again an open set.)*
+    transcriptionNotes: "Definition 13.6 and items (iii), (iv) of Discussion 13.7 quoted (PDF 99). No book hint."
+  - cid: ross-13.6
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.6"
+    page: "93"
+    pdfPage: 105
+    verdict: strong
+    machinery: "Closure, closedness and boundary via sequences in a metric space."
+    standardResult: "closed iff contains limits of its convergent sequences; closure = set of sequential limits"
+    topic: topology
+    subtopics: [closed-sets, interior-closure-boundary, metric-spaces]
+    skills: [sequential-characterization, contradiction]
+    difficulty: medium
+    difficultyRationale: "Four related characterizations; (c) needs building a sequence from balls of radius 1/n and showing the sequential-limit set is closed."
+    category: canonical
+    type: proof
+    tags: [closure, closed-set, boundary, sequences, metric-space]
+    references: ["Proposition 13.9 (quoted)", "Definition 13.8: closure and boundary (quoted)"]
+    problemLatex: |
+      Prove Proposition 13.9.
+      *(Definitions from 13.6/13.8: $E^\circ$ is the set of points interior to $E$; $E$ is closed if $S \setminus E$ is open; the closure $E^-$ of a set $E$ is the intersection of all closed sets containing $E$; the boundary of $E$ is the set $E^- \setminus E^\circ$.)*
+      *(Proposition 13.9: Let $E$ be a subset of a metric space $(S, d)$.
+      (a) The set $E$ is closed if and only if $E = E^-$.
+      (b) The set $E$ is closed if and only if it contains the limit of every convergent sequence of points in $E$.
+      (c) An element is in $E^-$ if and only if it is the limit of some sequence of points in $E$.
+      (d) A point is in the boundary of $E$ if and only if it belongs to the closure of both $E$ and its complement.)*
+    transcriptionNotes: "Proposition 13.9 and the definitions of closure and boundary quoted from PDF 100. No book hint."
+  - cid: ross-13.7
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.7"
+    page: "93"
+    pdfPage: 105
+    verdict: core
+    machinery: "Structure theorem for open subsets of R via maximal intervals and rational indexing."
+    standardResult: "every open set in R is a countable disjoint union of open intervals"
+    topic: topology
+    subtopics: [open-sets]
+    skills: [maximal-interval, countability-via-rationals]
+    difficulty: hard
+    difficultyRationale: "Requires constructing maximal component intervals, showing disjointness, and countability."
+    category: canonical
+    type: proof
+    tags: [open-set, structure-theorem, intervals, countable]
+    references: []
+    problemLatex: |
+      Show that every open set in $\mathbb{R}$ is the disjoint union of a finite or infinite sequence of open intervals.
+    bookHint: |
+      Outline of Proof. Consider an open set $U \subseteq \mathbb{R}$. Let $(q_n)$ be an enumeration of the rationals in $U$. For each $n$, let
+      $$a_n = \inf\{a \in \mathbb{R} : (a, q_n] \subseteq U\}, \quad b_n = \sup\{b \in \mathbb{R} : [q_n, b) \subseteq U\}.$$
+      Show $(a_n, b_n) \subseteq U$ for each $n$ and $U = \bigcup_{n=1}^{\infty} (a_n, b_n)$. Show
+      $$(a_n, b_n) \cap (a_m, b_m) \ne \varnothing \quad\text{implies}\quad (a_n, b_n) = (a_m, b_m).$$
+      Now either there will be only finitely many distinct [and disjoint] intervals or else a subsequence $\{(a_{n_k}, b_{n_k})\}_{k=1}^{\infty}$ of $\{(a_n, b_n)\}$ will consist of disjoint intervals for which $\bigcup_{k=1}^{\infty} (a_{n_k}, b_{n_k}) = U$.
+    transcriptionNotes: "Open intervals may be unbounded here (a_n, b_n can be ±∞), consistent with Ross's §5 conventions. bookHint from PDF p. 385 (union symbols verified against page image; text extraction showed '+')."
+  - cid: ross-13.10
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.10"
+    page: "94"
+    pdfPage: 106
+    verdict: consider
+    machinery: "Empty interior: sets with no interval inside, including the Cantor set."
+    standardResult: "Q and the Cantor set have empty interior"
+    topic: topology
+    subtopics: [interior-closure-boundary, cantor-set]
+    skills: [unpack-definition, density-argument, length-argument]
+    difficulty: easy
+    difficultyRationale: "(a),(b) immediate from density; (c) uses that the n-th stage intervals have length 3^{-(n-1)}."
+    category: canonical
+    type: proof
+    tags: [interior, Cantor-set, rationals]
+    references: ["Cantor set of Example 5 (described)"]
+    problemLatex: |
+      Show that the interior of each of the following sets is the empty set.
+      (a) $\{\frac{1}{n} : n \in \mathbb{N}\}$,
+      (b) $\mathbb{Q}$, the set of rational numbers,
+      (c) The Cantor set in Example 5.
+      *(Example 5: The Cantor set is $F = \bigcap_{n=1}^{\infty} F_n$, where $F_1 = [0, 1]$ and each $F_{n+1}$ is obtained from $F_n$ by removing the open middle third of each of the closed intervals comprising $F_n$; the sum of the lengths of the intervals comprising $F_n$ is $(\frac{2}{3})^{n-1}$.)*
+    transcriptionNotes: "Ross defines the Cantor set pictorially (Fig. 13.1, PDF 101–102); the bracketed description is a standard-construction paraphrase consistent with the figure and the stated length (2/3)^{n-1} — NOT verbatim."
+  - cid: ross-13.11
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.11"
+    page: "94"
+    pdfPage: 106
+    verdict: core
+    machinery: "Compactness = sequential compactness in R^k via Heine–Borel and Bolzano–Weierstrass."
+    standardResult: "compact iff sequentially compact in R^k"
+    topic: topology
+    subtopics: [compactness, sequential-compactness]
+    skills: [subsequence-extraction, contradiction, theorem-recognition]
+    difficulty: medium
+    difficultyRationale: "Both directions combine Heine–Borel, Bolzano–Weierstrass, and the sequential characterization of closed sets."
+    category: canonical
+    type: proof
+    tags: [compactness, sequential-compactness, Heine-Borel, Bolzano-Weierstrass]
+    references: []
+    problemLatex: |
+      Let $E$ be a subset of $\mathbb{R}^k$. Show that $E$ is compact if and only if every sequence in $E$ has a subsequence converging to a point in $E$.
+    bookHint: |
+      Suppose $E$ is compact, hence closed and bounded by Theorem 13.12. Consider a sequence $(\mathbf{x}_n)$ in $E$. By Theorem 13.5, a subsequence of $(\mathbf{x}_n)$ converges to some $\mathbf{x}$ in $\mathbb{R}^k$. Since $E$ is closed, $\mathbf{x}$ must be *in* $E$; see Proposition 13.9(b).
+      Suppose every sequence in $E$ has a subsequence converging to a point *in* $E$. By Theorem 13.12, it suffices to show $E$ is closed and bounded. If $E$ were unbounded, $E$ would contain a sequence $(\mathbf{x}_n)$ where $\lim d(\mathbf{x}_n, \mathbf{0}) = +\infty$ and then no subsequence would converge at all. Thus $E$ is bounded. If $E$ were nonclosed, then by Proposition 13.9 there would be a convergent sequence $(\mathbf{x}_n)$ in $E$ such that $\mathbf{x} = \lim \mathbf{x}_n \notin E$. Since every subsequence would also converge to $\mathbf{x} \notin E$, we would have a contradiction.
+    transcriptionNotes: "Compact = every open cover has a finite subcover (Definition 13.11). bookHint from PDF p. 385 (Theorem 13.12 = Heine–Borel; Theorem 13.5 = Bolzano–Weierstrass in R^k)."
+  - cid: ross-13.12
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.12"
+    page: "94"
+    pdfPage: 106
+    verdict: strong
+    machinery: "Open-cover arguments: closed subsets and finite unions of compact sets."
+    standardResult: "closed subset of compact is compact; finite union of compacts is compact"
+    topic: topology
+    subtopics: [compactness, metric-spaces]
+    skills: [open-cover-argument]
+    difficulty: easy
+    difficultyRationale: "Standard open-cover manipulations (add the complement of E)."
+    category: canonical
+    type: proof
+    tags: [compactness, open-cover, closed-set]
+    references: []
+    problemLatex: |
+      Let $(S, d)$ be any metric space.
+      (a) Show that if $E$ is a closed subset of a compact set $F$, then $E$ is also compact.
+      (b) Show that the finite union of compact sets in $S$ is compact.
+  - cid: ross-13.13
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.13"
+    page: "94"
+    pdfPage: 106
+    verdict: strong
+    machinery: "Compact subsets of R contain their sup and inf."
+    standardResult: "compact nonempty E ⊆ R has max and min"
+    topic: topology
+    subtopics: [compactness, closed-sets]
+    skills: [sup-approximation, sequential-characterization]
+    difficulty: easy
+    difficultyRationale: "Combine sup approximation with closedness."
+    category: canonical
+    type: proof
+    tags: [compactness, supremum, closed-set]
+    references: []
+    problemLatex: |
+      Let $E$ be a compact nonempty subset of $\mathbb{R}$. Show $\sup E$ and $\inf E$ belong to $E$.
+    bookHint: |
+      Assume, for example, that $\sup E \notin E$. The set $E$ is bounded, so by Exercise 10.7, there exists a sequence $(s_n)$ in $E$ where $\lim s_n = \sup E$. Now Proposition 13.9(b) shows $\sup E \in E$, a contradiction.
+    transcriptionNotes: "bookHint from PDF p. 386."
+  - cid: ross-13.14
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.14"
+    page: "94"
+    pdfPage: 106
+    verdict: consider
+    machinery: "Diameter of a compact set is attained (sequential compactness in product)."
+    standardResult: "diameter of compact set is attained"
+    topic: topology
+    subtopics: [compactness, sequential-compactness]
+    skills: [subsequence-extraction, sup-approximation]
+    difficulty: medium
+    difficultyRationale: "Pick pairs approaching the sup, extract convergent subsequences twice, use continuity of d."
+    category: synthesis
+    type: proof
+    tags: [compactness, diameter, extremum]
+    references: []
+    problemLatex: |
+      Let $E$ be a compact nonempty subset of $\mathbb{R}^k$, and let $\delta = \sup\{d(\mathbf{x}, \mathbf{y}) : \mathbf{x}, \mathbf{y} \in E\}$. Show $E$ contains points $\mathbf{x}_0, \mathbf{y}_0$ such that $d(\mathbf{x}_0, \mathbf{y}_0) = \delta$.
+  - cid: ross-13.15
+    chapter: "2 Sequences"
+    section: "§13 Some Topological Concepts in Metric Spaces"
+    number: "Exercise 13.15"
+    page: "94"
+    pdfPage: 106
+    verdict: strong
+    machinery: "Heine–Borel fails in infinite dimensions: closed unit ball of ℓ^∞ not compact."
+    standardResult: "closed bounded but not compact (unit ball in ℓ^∞)"
+    topic: topology
+    subtopics: [compactness, metric-spaces]
+    skills: [open-cover-argument, construct-counterexample]
+    difficulty: medium
+    difficultyRationale: "Closedness via coordinatewise limits; noncompactness via a separated family and a cover with no finite subcover."
+    category: canonical
+    type: counterexample
+    tags: [compactness, Heine-Borel, infinite-dimensional, counterexample]
+    references: ["Exercise 13.3 (space (B, d) quoted)"]
+    problemLatex: |
+      Let $(B, d)$ be as in Exercise 13.3, and let $F$ consist of all $\mathbf{x} \in B$ such that $\sup\{|x_j| : j = 1, 2, \ldots\} \le 1$.
+      *(Exercise 13.3: $B$ is the set of all bounded sequences $\mathbf{x} = (x_1, x_2, \ldots)$ and $d(\mathbf{x}, \mathbf{y}) = \sup\{|x_j - y_j| : j = 1, 2, \ldots\}$.)*
+      (a) Show $F$ is closed and bounded. [A set $F$ in a metric space $(S, d)$ is *bounded* if there exist $s_0 \in S$ and $r > 0$ such that $F \subseteq \{s \in S : d(s, s_0) \le r\}$.]
+      (b) Show $F$ is not compact. Hint: For each $\mathbf{x}$ in $F$, let $U(\mathbf{x}) = \{\mathbf{y} \in B : d(\mathbf{y}, \mathbf{x}) < 1\}$, and consider the cover $\mathcal{U}$ of $F$ consisting of all $U(\mathbf{x})$. For each $n \in \mathbb{N}$, let $\mathbf{x}^{(n)}$ be defined so that $x_n^{(n)} = -1$ and $x_j^{(n)} = 1$ for $j \ne n$. Show that distinct $\mathbf{x}^{(n)}$ cannot belong to the same member of $\mathcal{U}$.
+    bookHint: |
+      (a) $F$ is bounded because $d(\mathbf{x}, \mathbf{0}) \le 1$ for all $\mathbf{x} \in F$ where $\mathbf{0} = (0, 0, 0, \ldots)$. To show $F$ is closed, consider a convergent sequence $(\mathbf{x}^{(n)})$ in $F$. We need to show $\mathbf{x} = \lim \mathbf{x}^{(n)}$ is in $F$. For each $j = 1, 2, \ldots$, it is easy to see $\lim_{n\to\infty} x_j^{(n)} = x_j$. Since each $x_j^{(n)}$ belongs to $[-1, 1]$, $x_j$ belongs to $[-1, 1]$ by Exercise 8.9. It follows that $\mathbf{x} \in F$.
+      (b) For the last assertion of the hint, observe $\mathbf{x}^{(n)}, \mathbf{x}^{(m)}$ in $U(\mathbf{x})$ implies $d(\mathbf{x}^{(n)}, \mathbf{x}^{(m)}) \le d(\mathbf{x}^{(n)}, \mathbf{x}) + d(\mathbf{x}, \mathbf{x}^{(m)}) < 2$ while $d(\mathbf{x}^{(n)}, \mathbf{x}^{(m)}) = 2$ for $m \ne n$. Now show no finite subfamily of $\mathcal{U}$ can cover $\{\mathbf{x}^{(n)} : n \in \mathbb{N}\}$.
+    transcriptionNotes: "Exercise 13.3 setup quoted. bookHint from PDF p. 386."
+  # ---------------- §14 ----------------
+  - cid: ross-14.4
+    chapter: "2 Sequences"
+    section: "§14 Series"
+    number: "Exercise 14.4"
+    page: "104"
+    pdfPage: 116
+    verdict: consider
+    machinery: "Less mechanical convergence decisions: telescoping divergence, n!/n^n via ratio, comparison with oscillating denominators."
+    standardResult: "convergence of sum n!/n^n and sum (sqrt(n+1)-sqrt(n))"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [ratio-test, telescoping, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Each part needs a slightly non-obvious choice of test."
+    category: canonical
+    type: computation
+    tags: [series, telescoping, ratio-test]
+    references: ["Exercise 14.1 (instruction quoted)"]
+    problemLatex: |
+      Repeat Exercise 14.1 for the following. *(Exercise 14.1: Determine which of the following series converge. Justify your answers.)*
+      (a) $\sum_{n=2}^{\infty} \frac{1}{[n + (-1)^n]^2}$
+      (b) $\sum [\sqrt{n + 1} - \sqrt{n}]$
+      (c) $\sum \frac{n!}{n^n}$
+    transcriptionNotes: "No book hint (even)."
+  - cid: ross-14.6
+    chapter: "2 Sequences"
+    section: "§14 Series"
+    number: "Exercise 14.6"
+    page: "104"
+    pdfPage: 116
+    verdict: strong
+    machinery: "Cauchy criterion for series with a bounded multiplier."
+    standardResult: "sum |a_n| < ∞, (b_n) bounded ⇒ sum a_n b_n converges"
+    topic: series
+    subtopics: [absolute-convergence, comparison]
+    skills: [cauchy-criterion, comparison-estimate]
+    difficulty: easy
+    difficultyRationale: "Cauchy criterion with |b_n| ≤ M."
+    category: canonical
+    type: proof
+    tags: [absolute-convergence, Cauchy-criterion]
+    references: ["Theorem 14.4 and Corollary 14.7 (quoted)"]
+    problemLatex: |
+      (a) Prove that if $\sum |a_n|$ converges and $(b_n)$ is a bounded sequence, then $\sum a_n b_n$ converges. Hint: Use Theorem 14.4.
+      (b) Observe that Corollary 14.7 is a special case of part (a).
+      *(Theorem 14.4: A series converges if and only if it satisfies the Cauchy criterion. Corollary 14.7: Absolutely convergent series are convergent.)*
+    transcriptionNotes: "Theorem 14.4 and Corollary 14.7 quoted (PDF 110–111). Cauchy criterion: for each ε>0 there is N with |Σ_{k=m}^n a_k| < ε for n ≥ m > N."
+  - cid: ross-14.7
+    chapter: "2 Sequences"
+    section: "§14 Series"
+    number: "Exercise 14.7"
+    page: "104"
+    pdfPage: 116
+    verdict: strong
+    machinery: "Terms eventually < 1 ⇒ powers are smaller; comparison."
+    standardResult: "sum a_n < ∞, a_n ≥ 0, p > 1 ⇒ sum a_n^p < ∞"
+    topic: series
+    subtopics: [comparison]
+    skills: [comparison-estimate]
+    difficulty: introductory
+    difficultyRationale: "a_n → 0 then comparison."
+    category: canonical
+    type: proof
+    tags: [comparison-test, powers]
+    references: []
+    problemLatex: |
+      Prove that if $\sum a_n$ is a convergent series of nonnegative numbers and $p > 1$, then $\sum a_n^p$ converges.
+    bookHint: |
+      By Corollary 14.5, there exists $N$ such that $a_n < 1$ for $n > N$. Since $p > 1$, $a_n^p = a_n a_n^{p-1} < a_n$ for $n > N$. Hence $\sum_{n=N+1}^{\infty} a_n^p$ converges by the Comparison Test, so $\sum a_n^p$ also converges.
+    transcriptionNotes: "bookHint from PDF p. 386."
+  - cid: ross-14.8
+    chapter: "2 Sequences"
+    section: "§14 Series"
+    number: "Exercise 14.8"
+    page: "104"
+    pdfPage: 116
+    verdict: strong
+    machinery: "AM-GM-type pointwise bound plus comparison."
+    standardResult: "sum sqrt(a_n b_n) converges if sum a_n, sum b_n converge"
+    topic: series
+    subtopics: [comparison]
+    skills: [comparison-estimate, inequality]
+    difficulty: introductory
+    difficultyRationale: "Hint gives the inequality; the rest is comparison."
+    category: canonical
+    type: proof
+    tags: [comparison-test, AM-GM]
+    references: []
+    problemLatex: |
+      Show that if $\sum a_n$ and $\sum b_n$ are convergent series of nonnegative numbers, then $\sum \sqrt{a_n b_n}$ converges. Hint: Show $\sqrt{a_n b_n} \le a_n + b_n$ for all $n$.
+  - cid: ross-14.10
+    chapter: "2 Sequences"
+    section: "§14 Series"
+    number: "Exercise 14.10"
+    page: "105"
+    pdfPage: 117
+    verdict: strong
+    machinery: "Root test is strictly stronger than ratio test (construct an example)."
+    standardResult: "root test decides where ratio test is inconclusive"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [construct-counterexample, limsup-computation]
+    difficulty: easy
+    difficultyRationale: "Modify Example 8 (alternating ratios) to a divergent series."
+    category: canonical
+    type: construction
+    tags: [root-test, ratio-test, counterexample]
+    references: ["Example 8 of §14 (described)"]
+    problemLatex: |
+      Find a series $\sum a_n$ which diverges by the Root Test but for which the Ratio Test gives no information. Compare Example 8.
+      *(Example 8 of §14 considers $\sum_{n=0}^{\infty} 2^{(-1)^n - n} = 2 + \frac{1}{4} + \frac{1}{2} + \frac{1}{16} + \frac{1}{8} + \frac{1}{64} + \cdots$, where $a_{n+1}/a_n$ alternates between $1/8$ and $2$, so the Ratio Test gives no information while the Root Test shows convergence.)*
+    transcriptionNotes: "Example 8 (PDF 114) summarized — the series is quoted verbatim, the explanatory clause is a summary. Root/Ratio tests in Ross are stated via limsup |a_n|^{1/n} and limsup/liminf of |a_{n+1}/a_n|."
+  - cid: ross-14.12
+    chapter: "2 Sequences"
+    section: "§14 Series"
+    number: "Exercise 14.12"
+    page: "105"
+    pdfPage: 117
+    verdict: strong
+    machinery: "liminf |a_n| = 0 ⇒ subsequence with summable terms (choose |a_{n_k}| < 2^{-k})."
+    standardResult: "liminf |a_n| = 0 ⇒ some subseries converges"
+    topic: series
+    subtopics: [convergence-tests, comparison]
+    skills: [subsequence-extraction, comparison-estimate, induction]
+    difficulty: easy
+    difficultyRationale: "Inductive extraction with geometric bounds, then comparison."
+    category: synthesis
+    type: construction
+    tags: [subsequence, liminf, series, geometric-bound]
+    references: []
+    problemLatex: |
+      Let $(a_n)_{n\in\mathbb{N}}$ be a sequence such that $\liminf |a_n| = 0$. Prove there is a subsequence $(a_{n_k})_{k\in\mathbb{N}}$ such that $\sum_{k=1}^{\infty} a_{n_k}$ converges.
+  - cid: ross-14.14
+    chapter: "2 Sequences"
+    section: "§14 Series"
+    number: "Exercise 14.14"
+    page: "105"
+    pdfPage: 117
+    verdict: consider
+    machinery: "Divergence of the harmonic series by block comparison (Oresme/condensation)."
+    standardResult: "harmonic series diverges (grouping in powers of 2)"
+    topic: series
+    subtopics: [comparison]
+    skills: [comparison-estimate, grouping]
+    difficulty: introductory
+    difficultyRationale: "Each dyadic block of the comparison sequence sums to 1/2."
+    category: canonical
+    type: proof
+    tags: [harmonic-series, condensation, comparison-test]
+    references: []
+    problemLatex: |
+      Prove $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges by comparing with the series $\sum_{n=2}^{\infty} a_n$ where $(a_n)$ is the sequence
+      $$\left(\frac{1}{2}, \frac{1}{4}, \frac{1}{4}, \frac{1}{8}, \frac{1}{8}, \frac{1}{8}, \frac{1}{8}, \frac{1}{16}, \frac{1}{16}, \frac{1}{16}, \frac{1}{16}, \frac{1}{16}, \frac{1}{16}, \frac{1}{16}, \frac{1}{16}, \frac{1}{32}, \frac{1}{32}, \ldots\right).$$
+    transcriptionNotes: "Sequence of comparison terms read from text extraction (PDF 117); indexing starts at n = 2 as printed."
+  # ---------------- §15 ----------------
+  - cid: ross-15.3
+    chapter: "2 Sequences"
+    section: "§15 Alternating Series and Integral Tests"
+    number: "Exercise 15.3"
+    page: "109"
+    pdfPage: 121
+    verdict: strong
+    machinery: "Integral test with substitution u = log x."
+    standardResult: "sum 1/(n (log n)^p) converges iff p > 1"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [integral-test, substitution]
+    difficulty: easy
+    difficultyRationale: "Integral test plus a substitution, both directions."
+    category: canonical
+    type: proof
+    tags: [integral-test, log-series]
+    references: []
+    problemLatex: |
+      Show $\sum_{n=2}^{\infty} \frac{1}{n(\log n)^p}$ converges if and only if $p > 1$.
+    bookHint: |
+      Hint: Use integral tests. Note
+      $$\lim_{n\to\infty} \int_3^n \frac{1}{x(\log x)^p}\, dx = \lim_{n\to\infty} \int_{\log 3}^{\log n} \frac{1}{u^p}\, du.$$
+    transcriptionNotes: "bookHint from PDF p. 387 (verified against image). Ross's integral test is the informal 15.2 discussion, not a formal theorem. Similar 15.4 skipped."
+  - cid: ross-15.5
+    chapter: "2 Sequences"
+    section: "§15 Alternating Series and Integral Tests"
+    number: "Exercise 15.5"
+    page: "109"
+    pdfPage: 121
+    verdict: consider
+    machinery: "Understanding the limitations of the comparison test."
+    standardResult: "why comparison can't prove all p-series converge at once"
+    topic: series
+    subtopics: [comparison]
+    skills: [conceptual-reasoning]
+    difficulty: introductory
+    difficultyRationale: "Short conceptual observation."
+    category: canonical
+    type: conceptual
+    tags: [p-series, comparison-test]
+    references: ["Theorem 15.1 (quoted)"]
+    problemLatex: |
+      Why didn't we use the Comparison Test to prove Theorem 15.1 for $p > 1$?
+      *(Theorem 15.1: $\sum \frac{1}{n^p}$ converges if and only if $p > 1$.)*
+    bookHint: |
+      There is no smallest $p_0 > 1$, so there is no single series $\sum 1/n^{p_0}$ with which all series $\sum 1/n^p$ $[p > 1]$ can be compared.
+    transcriptionNotes: "Theorem 15.1 quoted (PDF 119). bookHint from PDF p. 387."
+  - cid: ross-15.6
+    chapter: "2 Sequences"
+    section: "§15 Alternating Series and Integral Tests"
+    number: "Exercise 15.6"
+    page: "109"
+    pdfPage: 121
+    verdict: strong
+    machinery: "Examples separating convergence of sum a_n and sum a_n^2 (conditional convergence)."
+    standardResult: "sum a_n vs sum a_n^2: neither implies the other without sign condition"
+    topic: series
+    subtopics: [conditional-convergence, comparison]
+    skills: [construct-counterexample]
+    difficulty: easy
+    difficultyRationale: "Needs 1/n and (-1)^n/sqrt(n) type examples."
+    category: canonical
+    type: counterexample
+    tags: [counterexample, conditional-convergence, alternating-series]
+    references: ["Exercise 14.7 (quoted)"]
+    problemLatex: |
+      (a) Give an example of a divergent series $\sum a_n$ for which $\sum a_n^2$ converges.
+      (b) Observe that if $\sum a_n$ is a convergent series of nonnegative terms, then $\sum a_n^2$ also converges. See Exercise 14.7.
+      (c) Give an example of a convergent series $\sum a_n$ for which $\sum a_n^2$ diverges.
+      *(Exercise 14.7: if $\sum a_n$ is a convergent series of nonnegative numbers and $p > 1$, then $\sum a_n^p$ converges.)*
+  - cid: ross-15.7
+    chapter: "2 Sequences"
+    section: "§15 Alternating Series and Integral Tests"
+    number: "Exercise 15.7"
+    page: "109"
+    pdfPage: 121
+    verdict: core
+    machinery: "Cauchy-criterion tail estimate for decreasing terms: n a_n → 0."
+    standardResult: "a_n decreasing and sum a_n converges ⇒ n a_n → 0"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [cauchy-criterion, block-estimate]
+    difficulty: medium
+    difficultyRationale: "Requires the idea of bounding (n−N)a_n by a Cauchy block and then handling n > 2N."
+    category: synthesis
+    type: proof
+    tags: [Cauchy-criterion, monotone-terms, harmonic-series]
+    references: []
+    problemLatex: |
+      (a) Prove if $(a_n)$ is a decreasing sequence of real numbers and if $\sum a_n$ converges, then $\lim n a_n = 0$. Hint: Consider $|a_{N+1} + a_{N+2} + \cdots + a_n|$ for suitable $N$.
+      (b) Use (a) to give another proof that $\sum \frac{1}{n}$ diverges.
+    bookHint: |
+      (a) Proof. Let $\epsilon > 0$. By the Cauchy criterion, there exists $N$ such that $n \ge m > N$ implies $|\sum_{k=m}^{n} a_k| < \frac{\epsilon}{2}$. In particular,
+      $$n > N \quad\text{implies}\quad a_{N+1} + \cdots + a_n < \frac{\epsilon}{2}.$$
+      So $n > N$ implies
+      $$(n - N)a_n \le a_{N+1} + \cdots + a_n < \frac{\epsilon}{2}.$$
+      If $n > 2N$, then $n < 2(n - N)$, so $n a_n < 2(n - N)a_n < \epsilon$. This proves $\lim(n a_n) = 0$.
+    transcriptionNotes: "Note: a decreasing sequence with convergent series has a_n ≥ 0 (since a_n → 0). bookHint from PDF p. 387 (verified against image)."
+  - cid: ross-15.8
+    chapter: "2 Sequences"
+    section: "§15 Alternating Series and Integral Tests"
+    number: "Exercise 15.8"
+    page: "109"
+    pdfPage: 121
+    verdict: consider
+    machinery: "Formulating and proving the integral test (comparison of sums with integrals for decreasing f)."
+    standardResult: "integral test"
+    topic: series
+    subtopics: [convergence-tests]
+    skills: [integral-comparison, monotone-convergence]
+    difficulty: medium
+    difficultyRationale: "Student must formulate the statement and prove two-sided sum/integral comparisons."
+    category: canonical
+    type: proof
+    tags: [integral-test, formulate-theorem]
+    references: ["15.2 Integral Tests discussion (quoted)"]
+    problemLatex: |
+      Formulate and prove a general integral test as advised in 15.2.
+      *(15.2 Integral Tests: Here are the conditions under which an integral test is advisable: (a) The tests in §14 do not seem to apply. (b) The terms $a_n$ of the series $\sum a_n$ are nonnegative. (c) There is a nice decreasing function $f$ on $[1, \infty)$ such that $f(n) = a_n$ for all $n$ [$f$ is decreasing if $x < y$ implies $f(x) \ge f(y)$]. (d) The integral of $f$ is easy to calculate or estimate. If $\lim_{n\to\infty} \int_1^n f(x)\, dx = +\infty$, then the series will diverge just as in Example 1. If $\lim_{n\to\infty} \int_1^n f(x)\, dx < +\infty$, then the series will converge just as in Example 2.)*
+    transcriptionNotes: "15.2 quoted (PDF 119–120). Integration is not developed until later in Ross; uses calculus-level integrals."
+  # ---------------- §16 ----------------
+  - cid: ross-16.8
+    chapter: "2 Sequences"
+    section: "§16 Decimal Expansions of Real Numbers"
+    number: "Exercise 16.8"
+    page: "121"
+    pdfPage: 133
+    verdict: strong
+    machinery: "Cantor's diagonal argument for uncountability of (0,1)."
+    standardResult: "(0,1) is uncountable (diagonal argument)"
+    topic: real-numbers
+    subtopics: [decimal-representation, cardinality]
+    skills: [diagonal-argument]
+    difficulty: medium
+    difficultyRationale: "Diagonal construction plus uniqueness of decimal expansions without 0s/9s tails."
+    category: canonical
+    type: proof
+    tags: [uncountable, diagonal-argument, decimal-expansion]
+    references: []
+    problemLatex: |
+      Let $(s_n)$ be a sequence of numbers in $(0, 1)$. Each $s_n$ has a decimal expansion $0.d_1^{(n)} d_2^{(n)} d_3^{(n)} \cdots$. For each $n$, let $e_n = 6$ if $d_n^{(n)} \ne 6$ and $e_n = 7$ if $d_n^{(n)} = 6$. Show $.e_1 e_2 e_3 \cdots$ is the decimal expansion for some number $y$ in $(0, 1)$ and $y \ne s_n$ for all $n$. *Remark*: This shows the elements of $(0, 1)$ cannot be listed as a sequence. In set-theoretic parlance, $(0, 1)$ is "uncountable." Since the set $\mathbb{Q} \cap (0, 1)$ can be listed as a sequence, there are a lot of irrational numbers in $(0, 1)$!
+    transcriptionNotes: "Verified against page image PDF 133. Uses §16's facts that a number has at most two decimal expansions (one ending in 0s, one in 9s)."
+  - cid: ross-16.9
+    chapter: "2 Sequences"
+    section: "§16 Decimal Expansions of Real Numbers"
+    number: "Exercise 16.9"
+    page: "121"
+    pdfPage: 133
+    verdict: consider
+    machinery: "Existence of Euler's constant via monotone convergence and sum/integral comparison."
+    standardResult: "Euler–Mascheroni constant exists"
+    topic: sequences
+    subtopics: [monotone-sequences]
+    skills: [monotone-convergence, integral-comparison]
+    difficulty: easy
+    difficultyRationale: "Compare 1/(n+1) with integral of 1/t; bounded monotone."
+    category: canonical
+    type: proof
+    tags: [Euler-constant, monotone-convergence, harmonic-series]
+    references: []
+    problemLatex: |
+      Let $\gamma_n = (\sum_{k=1}^{n} \frac{1}{k}) - \log_e n = \sum_{k=1}^{n} \frac{1}{k} - \int_1^n \frac{1}{t}\, dt$.
+      (a) Show $(\gamma_n)$ is a decreasing sequence. Hint: Look at $\gamma_n - \gamma_{n+1}$.
+      (b) Show $0 < \gamma_n \le 1$ for all $n$.
+      (c) Observe that $\gamma = \lim_n \gamma_n$ exists and is finite.
+    bookHint: |
+      (a) $\gamma_n - \gamma_{n+1} = \int_n^{n+1} t^{-1}\, dt - \frac{1}{n+1} > 0$ since $\frac{1}{n+1} < t^{-1}$ for all $t$ in $[n, n+1)$.
+      (b) For any $n$, $\gamma_n \le \gamma_1 = 1$. Also
+      $$\gamma_n > \sum_{k=1}^{n} \left(\frac{1}{k} - \int_k^{k+1} t^{-1}\, dt\right) > 0.$$
+      (c) Apply Theorem 10.2.
+    transcriptionNotes: "Verified against page image PDF 133. bookHint from PDF p. 387 (verified against image)."
+skipped:
+  - "§1: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.10 routine induction identities/divisibility; 1.8 extended induction (a)(b) routine (1.9 better); 1.12 binomial theorem by induction — algebraic, far from analysis core."
+  - "§2: 2.2–2.5 near-duplicates of 2.1 (rational zeros theorem); 2.6 mid-example discussion (Example 6); 2.7 algebraic simplification; 2.8 rational root computation."
+  - "§3: 3.1, 3.2 field/order axiomatics; 3.3, 3.4 prove parts of Theorems 3.1/3.2 (axiomatic algebra); 3.7 duplicate of 3.5(a)-style absolute value equivalences."
+  - "§4: 4.1, 4.2, 4.4 duplicates of 4.3 (upper/lower bounds, infima of the same list); 4.5 trivial (sup S ∈ S ⇒ max); 4.9 mid-proof of Corollary 4.5 (superseded by 5.4); 4.13 duplicate of 3.7(b)."
+  - "§5: 5.1, 5.2, 5.3 interval notation / sup-inf computations; 5.5, 5.6 extensions of 4.6(a), 4.7(a) to unbounded sets (near-duplicates)."
+  - "§6 skipped per instructions (Dedekind cuts)."
+  - "§7: 7.1, 7.2, 7.3 compute-limits-without-proof drills; 7.5 superseded by 8.8 (same limits with proof)."
+  - "§8: 8.2 near-duplicate of 8.1 (more epsilon-N drills)."
+  - "§9: 9.1, 9.2 routine limit-law computations (9.3 kept); 9.5 near-duplicate of 9.4; 9.7 completes a step inside the proof of Theorem 9.7(c); 9.8 infinite-limit drill; 9.10 routine (superseded by 9.11); 9.16 routine computations."
+  - "§10: 10.1 monotone/bounded classification drill; 10.2 mirror of a proof in text; 10.3 decimal technicality (Discussion 10.3); 10.5 mirror of Theorem 10.4(i); 10.12 near-duplicate of 10.11."
+  - "§11: 11.1, 11.2, 11.4 routine (11.3 kept as representative); 11.10 depends on a figure (Fig. 11.2)."
+  - "§12: 12.7 special case of 12.9(b)."
+  - "§13: 13.2 parts of Lemma 13.3 (coordinatewise convergence in R^k) — mid-development; 13.8 verifying assertions in Examples 3 and 4 (open/closed balls, half-planes) — routine and requires quoting examples."
+  - "§14: 14.2, 14.3 duplicates of 14.1; 14.11 trivial (constant ratio ⇒ geometric)."
+  - "§15: 15.1, 15.2 routine alternating/divergence checks; 15.4 duplicate of 15.3 (integral-test computations)."
+  - "§16 (selective): 16.1, 16.2, 16.4, 16.5, 16.6 decimal technicalities/computations; 16.7 decimal rationality question (answer only); 16.10 algebraic remark about irrationality of π from π² (depends on Example 6(b))."
+  - "1.9 (demoted after calibration): routine induction inequality (1.11 kept for the base-case moral)."
+  - "2.1 (demoted after calibration): routine irrationality via rational zeros theorem."
+  - "3.6 (demoted after calibration): routine finite triangle inequality."
+  - "4.6 (demoted after calibration): near-trivial (inf S <= sup S)."
+  - "4.10 (demoted after calibration): one-line Archimedean application (4.12, 4.15 cover it)."
+  - "8.6 (demoted after calibration): near-trivial."
+  - "9.3 (demoted after calibration): routine limit-law bookkeeping."
+  - "9.4 (demoted after calibration): recursive limit assuming convergence (9.6 conceptual and 10.10 full version better)."
+  - "9.11 (demoted after calibration): routine infinite-limit arithmetic (9.9 better)."
+  - "9.17 (demoted after calibration): routine M-N definition drill."
+  - "9.18 (demoted after calibration): geometric partial sums routine."
+  - "10.8 (demoted after calibration): minor algebra."
+  - "12.5 (demoted after calibration): mechanical corollary of 12.4 via 11.8."
+  - "12.6 (demoted after calibration): routine scaling of limsup."
+  - "12.10 (demoted after calibration): routine."
+  - "13.5 (demoted after calibration): De Morgan bookkeeping (13.4 better)."
+  - "13.9 (demoted after calibration): routine closure computation."
+  - "14.1 (demoted after calibration): routine test-selection drill (14.4 kept as representative)."
+  - "14.5 (demoted after calibration): routine linearity of series."
+  - "14.9 (demoted after calibration): near-trivial from Cauchy criterion."
+  - "14.13 (demoted after calibration): routine telescoping/geometric evaluations."
+  - "16.3 (demoted after calibration): minor strict-comparison fact."
+  - "11.6 (demoted after calibration): definitional bookkeeping (composition of increasing maps)."

@@ -1,0 +1,25 @@
+{
+  "name": "undergraduate-analysis-problem-bank",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "data": "node scripts/build-data.mjs",
+    "dev": "node scripts/build-data.mjs && vite",
+    "build": "node scripts/build-data.mjs && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "node scripts/build-data.mjs --check"
+  },
+  "dependencies": {
+    "katex": "^0.19.0",
+    "minisearch": "^7.2.0",
+    "preact": "^11.0.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "@types/js-yaml": "^4.0.9",
+    "js-yaml": "^5.4.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2"
+  }
+}

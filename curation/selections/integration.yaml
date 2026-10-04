@@ -1,0 +1,55 @@
+- cid: lebl-5.3.1
+- cid: lebl-5.3.9
+- cid: abbott-7.2.3
+  why: "The sequential criterion for integrability (Uₙ − Lₙ → 0), then ∫x computed from the definition."
+- cid: ross-32.2
+  why: "x on ℚ, 0 elsewhere: compute the upper and lower integrals and watch them disagree."
+- cid: lebl-5.1.15
+  why: "If L(P,f) = U(P,f) for one partition then f is constant — what the sums actually measure."
+- cid: abbott-7.3.7
+  why: "Changing finitely many values preserves integrability and the integral; changing countably many need not."
+- cid: lebl-5.1.13
+  set: {category: synthesis}
+  why: "Darboux integrability equals the mesh/tagged-sum definition (the one used in MIT's lecture notes)."
+- cid: lebl-5.2.14
+  why: "Monotone functions are integrable: a uniform partition makes U − L telescope."
+- cid: cummings-8.25
+  why: "A bounded function with one discontinuity is integrable: isolate the bad point in a tiny interval."
+- cid: lebl-5.2.11
+  why: "Thomae's function is integrable with integral 0, though discontinuous on a dense set."
+- cid: abbott-7.3.9
+  set: {category: synthesis}
+  why: "Discontinuities on a set of content zero do not obstruct integrability (e.g. the Cantor set's indicator)."
+- cid: ross-33.4
+  why: "|f| integrable does not imply f integrable."
+- cid: lebl-5.2.15
+  why: "f integrable ⇒ |f| integrable and |∫f| ≤ ∫|f| — the most used integral inequality."
+- cid: abbott-7.4.6
+  why: "Products of integrable functions are integrable (via f² and polarization or direct estimates)."
+- cid: abbott-7.2.5
+  why: "A uniform limit of integrable functions is integrable."
+- cid: abbott-7.3.5
+  why: "A pointwise limit of integrable functions need not be integrable (enumerate the rationals)."
+- cid: abbott-7.4.4
+  set: {category: challenge}
+  why: "f > 0 everywhere and integrable ⇒ ∫f > 0 — surprisingly hard without measure theory."
+- cid: cummings-8.27
+  why: "Mean value theorem for integrals, including the weighted version."
+- cid: ross-34.12
+  why: "If ∫fg = 0 for every continuous g then f = 0 — the fundamental lemma of the calculus of variations, and a test-function argument."
+- cid: abbott-7.4.10
+  why: "lim ∫₀¹ g(xⁿ) dx = g(0): split the interval where xⁿ is small and use boundedness elsewhere."
+- cid: abbott-7.5.2
+  why: "True/false about the FTC: which functions are derivatives, which are integrals."
+- cid: abbott-7.5.10
+  why: "Prove the change-of-variables formula from the FTC and the chain rule."
+- cid: tao-11.9.3
+  why: "For monotone f, F(x) = ∫ₐˣ f is differentiable at x₀ exactly when f is continuous there."
+- cid: ross-36.3
+  why: "The p-integrals: the benchmark improper integrals."
+- cid: lebl-5.5.10
+  why: "An unbounded continuous nonnegative function on [0,∞) with finite improper integral — no analogue of the nth-term test."
+- cid: ross-36.8
+  why: "Absolutely convergent improper integrals converge (Cauchy criterion for integrals)."
+- cid: lebl-5.4.6
+  why: "Compare harmonic sums with ln n and show the Euler–Mascheroni constant exists."

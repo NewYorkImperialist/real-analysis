@@ -1,0 +1,87 @@
+- cid: lebl-2.2.3
+- cid: lebl-2.2.5
+- cid: lebl-2.2.9
+- cid: lebl-2.3.5
+- cid: lebl-2.3.6
+- cid: lebl-2.3.7
+- cid: lebl-2.4.8
+# convergence from the definition
+- cid: abbott-2.2.2
+  why: "ε–N proofs for several explicit limits; the basic drill."
+- cid: abbott-2.2.1
+  set: {type: definition}
+  why: "Swap the quantifiers in the definition of convergence and identify what you get (boundedness). Quantifier order is the whole definition."
+- cid: abbott-2.2.6
+  why: "Uniqueness of limits — the first ε/2 argument."
+- cid: ross-8.7
+  why: "Proving divergence means negating the definition: some ε works against every N."
+- cid: abbott-2.3.2
+  why: "To handle 1/xₙ, first bound xₙ away from 0 — a technique reused in every quotient argument."
+- cid: abbott-2.3.9
+  why: "Bounded × null → 0, with a counterexample when boundedness fails."
+- cid: abbott-2.3.12
+  why: "Limits preserve ≤ and closed intervals but not strict inequalities or rationality."
+- cid: abbott-2.3.7
+  why: "Examples or impossibility proofs for sums and products of divergent sequences — sharpens the limit laws."
+- cid: abbott-2.3.10
+  why: "True/false conjectures about limits (|bₙ| → |b|, etc.); practise finding counterexamples quickly."
+- cid: abbott-2.3.11
+  why: "Cesàro means: averages of a convergent sequence converge, but not conversely. A standard split-the-sum estimate."
+- cid: abbott-2.3.13
+  set: {category: synthesis}
+  why: "Iterated limits vs. a double limit: the first warning that limits cannot always be interchanged."
+- cid: cummings-4.3
+  why: "The geometric sequence rⁿ: the most used limit in analysis, proved carefully."
+- cid: tao-6.3.4
+  why: "Why you must prove a limit exists before manipulating it — the classic xL = L fallacy."
+# monotone & recursive
+- cid: cummings-3.16
+  why: "Prove the Monotone Convergence Theorem from the infimum."
+- cid: ross-10.4
+  set: {type: conceptual}
+  why: "In ℚ, monotone convergence and the Cauchy criterion fail — locates exactly where completeness enters."
+- cid: cummings-3.24
+  why: "The standard recursive sequence: induction for monotonicity and boundedness, then MCT and the fixed-point equation."
+- cid: abbott-2.4.5
+  why: "The Babylonian iteration for √2: monotone convergence plus the AM–GM estimate."
+- cid: abbott-2.4.6
+  why: "The arithmetic–geometric mean: two coupled monotone sequences with a common limit."
+- cid: cummings-3.25
+  why: "A two-term averaging recursion: show it converges (Cauchy or subsequences) and find the limit."
+# Cauchy sequences
+- cid: cummings-3.15
+  why: "Cauchy sequences are bounded — the first step in proving Cauchy ⇒ convergent."
+- cid: abbott-2.6.2
+  why: "Examples or impossibility for Cauchy sequences; tests what the Cauchy condition really controls."
+- cid: ross-10.6
+  why: "Geometric increments give a Cauchy sequence; increments 1/n do not. The prototype of telescoping estimates."
+- cid: lebl-2.5.12
+  why: "xₙ₊ₖ − xₙ → 0 for each fixed k is not the Cauchy condition: the harmonic partial sums."
+- cid: lebl-2.4.2
+  why: "Contractive sequences are Cauchy (geometric-series estimate) — the discrete heart of the contraction mapping theorem."
+# subsequences & Bolzano–Weierstrass
+- cid: lebl-2.1.22
+  why: "Three subsequences that converge force the whole sequence to converge — find the overlap trick."
+- cid: lebl-2.3.10
+  why: "The peak-point lemma: every sequence has a monotone subsequence, which gives Bolzano–Weierstrass."
+- cid: lebl-2.3.9
+  why: "Bolzano–Weierstrass for sets: a bounded infinite set has a cluster point."
+- cid: abbott-2.5.5
+  why: "A bounded sequence whose convergent subsequences all have limit a converges to a. Used constantly with compactness."
+- cid: abbott-2.5.2
+  why: "True/false about subsequences; quick checks of BW and its limits."
+- cid: lebl-2.1.17
+  set: {category: challenge}
+  why: "A sequence that has every real number as a subsequential limit (enumerate ℚ)."
+- cid: ross-11.9
+  why: "The set of subsequential limits is closed, so (0,1) cannot be one."
+# limsup & liminf
+- cid: abbott-2.4.7
+  why: "limsup and liminf exist for bounded sequences, and lim exists iff they agree."
+- cid: tao-6.4.3
+  why: "The core facts: liminf ≤ limsup, they are the extreme limit points, and convergence ⇔ they agree."
+- cid: ross-12.13
+  why: "limsup as inf of ‘eventual upper bounds’ — the characterization most used in practice."
+- cid: ross-22.14
+  set: {category: challenge}
+  why: "If sₙ₊₁ − sₙ → 0, the subsequential limits fill the interval [liminf, limsup]."

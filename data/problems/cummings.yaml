@@ -1,0 +1,653 @@
+# Curated selection from cummings. Generated from the curation pipeline, then hand-maintained.
+- id: cummings-1.9
+  source:
+    key: cummings
+    chapter: 1 The Reals
+    section: Chapter 1 Exercises
+    problemNumber: Exercise 1.9
+    page: '35'
+  topic: real-numbers
+  subtopics:
+  - inequalities
+  - ordered-fields
+  skills:
+  - contradiction
+  - choose-epsilon
+  concept: if a < b + ε for all ε>0 then a ≤ b; if |a−b|<ε for all ε then a=b
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - epsilon
+  - inequalities
+  - ordered-field
+  - machinery
+  problemLatex: |
+    Let $a, b$ and $\varepsilon$ be elements of an ordered field.
+    (a) Show that if $a < b + \varepsilon$ for every $\varepsilon > 0$, then $a \le b$.
+    (b) Use part (a) to show that if $|a-b| < \varepsilon$ for all $\varepsilon > 0$, then $a = b$.
+    Note whenever you use an axiom.
+  notes: Verbatim from page image.
+  curation:
+    why: 'If a < b + ε for every ε > 0 then a ≤ b: the basic way analysts prove inequalities and equalities.'
+- id: cummings-1.19
+  source:
+    key: cummings
+    chapter: 1 The Reals
+    section: Chapter 1 Exercises
+    problemNumber: Exercise 1.19
+    page: '36'
+  topic: real-numbers
+  subtopics:
+  - supremum-infimum
+  - archimedean-property
+  skills:
+  - sup-approximation
+  - archimedean-argument
+  concept: sup{n/(n+1)} = 1, inf = 1/2 via ε-characterization
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - supremum
+  - infimum
+  - Archimedean-property
+  problemLatex: |
+    Prove that
+    $$\sup\left(\left\{\frac{n}{n+1} : n \in \mathbb{N}\right\}\right) = 1 \qquad\text{and}\qquad \inf\left(\left\{\frac{n}{n+1} : n \in \mathbb{N}\right\}\right) = \frac{1}{2}.$$
+  notes: Verbatim; N starts at 1 in this book.
+  curation:
+    why: Compute a sup and an inf and prove them with the ε-characterization.
+- id: cummings-1.22
+  source:
+    key: cummings
+    chapter: 1 The Reals
+    section: Chapter 1 Exercises
+    problemNumber: Exercise 1.22
+    page: '37'
+  topic: real-numbers
+  subtopics:
+  - completeness
+  - supremum-infimum
+  skills:
+  - nested-intervals
+  - sup-approximation
+  concept: Nested interval property
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - nested-intervals
+  - completeness
+  - supremum
+  - machinery
+  problemLatex: |
+    For each $n \in \mathbb{N}$, assume we are given a closed interval $I_n = [a_n, b_n]$. Also, assume that each $I_{n+1}$ is contained inside of $I_n$. This gives a sequence of increasingly smaller intervals,
+    $$I_1 \supseteq I_2 \supseteq I_3 \supseteq I_4 \supseteq \cdots.$$
+    Prove that $\displaystyle\bigcap_{n=1}^{\infty} I_n \ne \emptyset$. That is, prove that there is some real number $x$ such that $x \in I_n$ for every $n \in \mathbb{N}$.
+  notes: 'Verbatim; omitted a footnote defining closed/open intervals in the usual way ([a,b] = {x in R : a <= x <= b}).'
+  curation:
+    why: The Nested Interval Property from the least upper bound property — the engine behind bisection proofs.
+- id: cummings-3.15
+  source:
+    key: cummings
+    chapter: 3 Sequences
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 3.15
+    page: '104'
+  topic: sequences
+  subtopics:
+  - cauchy-sequences
+  - bounded-sequences
+  skills:
+  - choose-epsilon
+  - finite-max-argument
+  concept: Cauchy sequences are bounded
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy
+  - bounded-sequence
+  problemLatex: |
+    Suppose a sequence $(a_n)$ has the property that for any $\varepsilon > 0$ there exists some $N$ such that $m, n > N$ implies
+    $$|a_m - a_n| < \varepsilon.$$
+    Prove that $(a_n)$ is bounded.
+  notes: Verbatim.
+  curation:
+    why: Cauchy sequences are bounded — the first step in proving Cauchy ⇒ convergent.
+- id: cummings-3.16
+  source:
+    key: cummings
+    chapter: 3 Sequences
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 3.16
+    page: '105'
+  topic: sequences
+  subtopics:
+  - monotone-sequences
+  skills:
+  - sup-approximation
+  - epsilon-N-proof
+  concept: Monotone convergence theorem
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - monotone-convergence
+  - infimum
+  - completeness
+  - machinery
+  problemLatex: |
+    Prove the decreasing case of the monotone convergence theorem (Theorem 3.27).
+
+    *(Theorem 3.27 (The monotone convergence theorem). Suppose $(a_n)$ is monotone. Then $(a_n)$ converges if and only if it is bounded. Moreover,*
+    *- If $(a_n)$ is increasing then either $(a_n)$ diverges to $\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \sup(\{a_n : n \in \mathbb{N}\})$.*
+    *- If $(a_n)$ is decreasing then either $(a_n)$ diverges to $-\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \inf(\{a_n : n \in \mathbb{N}\})$.)*
+  notes: Theorem 3.27 quoted verbatim from pdf p.100 (printed p.84).
+  curation:
+    why: Prove the Monotone Convergence Theorem from the infimum.
+- id: cummings-3.24
+  source:
+    key: cummings
+    chapter: 3 Sequences
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 3.24
+    page: '105'
+  topic: sequences
+  subtopics:
+  - recursive-sequences
+  - monotone-sequences
+  skills:
+  - induction
+  - monotone-convergence
+  - pass-to-limit
+  concept: a_1=√2, a_{n+1}=√(2+a_n) → 2
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - recursive-sequence
+  - monotone-convergence
+  - induction
+  problemLatex: |
+    Define a sequence $(a_n)$ recursively by $a_1 = \sqrt{2}$ and $a_{n+1} = \sqrt{2 + a_n}$ for all $n \ge 1$.
+    (a) Show that $a_n \le 2$ for every $n$.
+    (b) Show that $(a_n)$ is an monotone increasing sequence, and use this to conclude that $(a_n)$ converges.
+    (c) Show that $a_n \to 2$.
+  notes: Verbatim, including the book's 'an monotone'.
+  curation:
+    why: 'The standard recursive sequence: induction for monotonicity and boundedness, then MCT and the fixed-point equation.'
+- id: cummings-3.25
+  source:
+    key: cummings
+    chapter: 3 Sequences
+    section: Chapter 3 Exercises
+    problemNumber: Exercise 3.25
+    page: '106'
+  topic: sequences
+  subtopics:
+  - recursive-sequences
+  - cauchy-sequences
+  skills:
+  - telescoping
+  - geometric-estimate
+  - cauchy-criterion
+  concept: a_n = (a_{n-1}+a_{n-2})/2 converges (to (a_1+2a_2)/3)
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - recursive-sequence
+  - Cauchy
+  - telescoping
+  - geometric-series
+  problemLatex: |
+    Define a sequence $(a_n)$ recursively as follows. Let $a_1$ and $a_2$ be a pair of real numbers, and recursively define
+    $$a_n := \frac{a_{n-1} + a_{n-2}}{2}$$
+    for all $n \ge 3$. Does $(a_n)$ necessarily converge?
+  notes: Verbatim.
+  curation:
+    why: 'A two-term averaging recursion: show it converges (Cauchy or subsequences) and find the limit.'
+- id: cummings-4.2
+  source:
+    key: cummings
+    chapter: 4 Series
+    section: Chapter 4 Exercises
+    problemNumber: Exercise 4.2
+    page: '132'
+  topic: series
+  subtopics:
+  - absolute-convergence
+  skills:
+  - cauchy-criterion
+  - triangle-inequality
+  concept: Absolute convergence implies convergence
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - absolute-convergence
+  - Cauchy
+  - series
+  - machinery
+  problemLatex: |
+    Prove Proposition 4.18. That is, prove that if $\displaystyle\sum_{k=1}^{\infty} |a_k|$ converges, then $\displaystyle\sum_{k=1}^{\infty} a_k$ converges too.
+  notes: Verbatim; the exercise restates Proposition 4.18 itself.
+  curation:
+    why: Absolute convergence implies convergence (via the Cauchy criterion).
+- id: cummings-4.3
+  source:
+    key: cummings
+    chapter: 4 Series
+    section: Chapter 4 Exercises
+    problemNumber: Exercise 4.3
+    page: '132'
+  topic: sequences
+  subtopics:
+  - convergence
+  - monotone-sequences
+  skills:
+  - monotone-convergence
+  - bernoulli-inequality
+  - case-analysis
+  concept: r^n → 0 for |r|<1, diverges for r ≤ −1 or r > 1
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - geometric-sequence
+  - convergence
+  - divergence
+  problemLatex: |
+    Prove Lemma 4.8. That is, prove that the sequence $(r^n)$ converges to $0$ if $r \in (-1,1)$, converges to $1$ if $r = 1$, and diverges otherwise.
+  notes: Verbatim; the exercise restates Lemma 4.8.
+  curation:
+    why: 'The geometric sequence rⁿ: the most used limit in analysis, proved carefully.'
+- id: cummings-4.5
+  source:
+    key: cummings
+    chapter: 4 Series
+    section: Chapter 4 Exercises
+    problemNumber: Exercise 4.5
+    page: '132'
+  topic: series
+  subtopics:
+  - comparison
+  - conditional-convergence
+  skills:
+  - comparison-estimate
+  - construct-counterexample
+  concept: Σa_k (a_k>0) converges ⇒ Σa_k² converges; false without positivity
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - comparison-test
+  - series
+  - counterexample
+  problemLatex: |
+    (a) Prove that if $\displaystyle\sum_{k=1}^{\infty} a_k$ converges where each $a_k > 0$, then $\displaystyle\sum_{k=1}^{\infty} a_k^2$ converges.
+    (b) Show by example that this is not true if we do not insist that each $a_k > 0$.
+  notes: Verbatim.
+  curation:
+    why: For positive terms Σaₖ² converges whenever Σaₖ does — and positivity is essential.
+- id: cummings-4.18
+  source:
+    key: cummings
+    chapter: 4 Series
+    section: Chapter 4 Exercises
+    problemNumber: Exercise 4.18
+    page: '135'
+  topic: series
+  subtopics:
+  - rearrangements
+  - absolute-convergence
+  skills:
+  - tail-estimate
+  - epsilon-N-proof
+  concept: Rearrangements of absolutely convergent series have the same sum
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - rearrangement
+  - absolute-convergence
+  - machinery
+  problemLatex: |
+    Prove that if each $\displaystyle\sum_{k=1}^{\infty} a_k$ converges absolutely to $L$, then any rearrangement of this sum also converges to $L$.
+    Hint: Consider the partial sums $(s_n)$ of the given series, and the partial sums $(s_n')$ of a rearrangement of the given series, and show that $|s_n - s_n'| \to 0$.
+  notes: Verbatim, including the book's odd 'if each'. 'Converges absolutely to L' means Σ|a_k| converges and Σa_k = L. Hint is the book's own, within the exercise.
+  curation:
+    why: Rearranging an absolutely convergent series does not change its sum.
+- id: cummings-5.3
+  source:
+    key: cummings
+    chapter: 5 The Topology of R
+    section: Chapter 5 Exercises
+    problemNumber: Exercise 5.3
+    page: '152'
+  topic: topology
+  subtopics:
+  - open-sets
+  - closed-sets
+  skills:
+  - construct-counterexample
+  concept: Infinite intersection of open sets need not be open; infinite union of closed sets need not be closed
+  difficulty: introductory
+  category: canonical
+  type: counterexample
+  tags:
+  - open-set
+  - closed-set
+  - counterexample
+  problemLatex: |
+    For each of the following, you should state which sets you are choosing and what their intersection/union is, but you do not need to prove your examples work.
+    (a) Give an example of an infinite collection of open sets whose intersection is *not* open.
+    (b) Give an example of an infinite collection of closed sets whose union is *not* closed.
+  notes: Verbatim.
+  curation:
+    why: Infinite intersections of open sets (and infinite unions of closed sets) can fail — find the examples.
+- id: cummings-5.7
+  source:
+    key: cummings
+    chapter: 5 The Topology of R
+    section: Chapter 5 Exercises
+    problemNumber: Exercise 5.7
+    page: '152'
+  topic: topology
+  subtopics:
+  - sequential-compactness
+  - closed-sets
+  - compactness
+  skills:
+  - subsequence-extraction
+  - contrapositive
+  - sequential-characterization
+  concept: Closed and bounded ⇔ sequentially compact (in R)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - sequential-compactness
+  - Bolzano-Weierstrass
+  - closed-set
+  - Heine-Borel
+  problemLatex: |
+    Let $A \subseteq \mathbb{R}$. Prove that $A$ is closed and bounded if and only if every sequence of numbers from $A$ has a subsequence that converges to a point in $A$.
+  notes: Verbatim. In the book this completes Theorem 5.20 (Heine–Borel, expanded).
+  curation:
+    why: In ℝ, closed and bounded ⇔ sequentially compact, both directions.
+- id: cummings-5.8
+  source:
+    key: cummings
+    chapter: 5 The Topology of R
+    section: Chapter 5 Exercises
+    problemNumber: Exercise 5.8
+    page: '153'
+  topic: topology
+  subtopics:
+  - compactness
+  - closed-sets
+  skills:
+  - open-cover-argument
+  concept: Closed subset of a compact set is compact
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - compactness
+  - closed-set
+  - open-cover
+  - machinery
+  problemLatex: |
+    Let $A$ be compact and $U \subseteq A$ be closed. Prove that $U$ is compact.
+  notes: Verbatim.
+  curation:
+    why: A closed subset of a compact set is compact.
+- id: cummings-6.32
+  source:
+    key: cummings
+    chapter: 6 Continuity
+    section: Chapter 6 Exercises
+    problemNumber: Exercise 6.32
+    page: '192'
+  topic: continuity
+  subtopics:
+  - IVT
+  - EVT
+  skills:
+  - IVT-application
+  - contradiction
+  - case-analysis
+  - construct-counterexample
+  concept: no continuous function on R takes every value exactly twice
+  difficulty: hard
+  category: challenge
+  type: proof
+  tags:
+  - IVT
+  - extreme-value-theorem
+  - two-to-one
+  - counterexample
+  - construction
+  problemLatex: |
+    (a) Give an example of a continuous function defined on $\mathbb{R}$ which obtains every value exactly once. (That is, for each $b \in \mathbb{R}$ there is exactly one $a \in \mathbb{R}$ for which $f(a) = b$.)
+
+    (b) Prove that there does not exist a continuous function defined on $\mathbb{R}$ which obtains every value exactly *twice*.
+
+    (c) Give an example of a continuous function which obtains every value exactly three times. (If your function's graph is simple and clear, just sketching its graph is sufficient.)
+  curation:
+    why: 'No continuous function takes every value exactly twice: a careful IVT/EVT case analysis.'
+- id: cummings-6.33
+  source:
+    key: cummings
+    chapter: 6 Continuity
+    section: Chapter 6 Exercises
+    problemNumber: Exercise 6.33
+    page: '192'
+  topic: continuity
+  subtopics:
+  - IVT
+  skills:
+  - IVT-application
+  - contradiction
+  concept: 'no continuous f: R -> R with f(R) = Q'
+  difficulty: easy
+  category: canonical
+  type: conceptual
+  tags:
+  - IVT
+  - rationals
+  - continuous-image
+  problemLatex: |
+    Is it possible for a continuous function $f\colon \mathbb{R} \to \mathbb{R}$ to have the property that $f(\mathbb{R}) = \mathbb{Q}$?
+  curation:
+    why: Continuous images of intervals are intervals; ℚ is not one.
+- id: cummings-7.10
+  source:
+    key: cummings
+    chapter: 7 Differentiation
+    section: Chapter 7 Exercises
+    problemNumber: Exercise 7.10
+    page: '221'
+  topic: differentiation
+  subtopics:
+  - rolle-mvt
+  skills:
+  - construct-counterexample
+  concept: Rolle's theorem hypotheses are sharp (counterexamples)
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - Rolle
+  - hypotheses
+  - counterexample
+  problemLatex: |
+    In this exercise you will explore why each of the three main assumptions in Rolle's theorem is necessary. To that end, give an example of a function $f$ which satisfies each of the following conditions, and yet $f'(c) \neq 0$ for all $c \in (a,b)$.
+
+    (a) A function $f$ which is continuous on $[a,b]$ and differentiable on $(a,b)$ (but we don't assume $f(a) = f(b)$).
+
+    (b) A function $f$ which is continuous on $[a,b]$ and $f(a) = f(b)$ (but we don't assume $f$ is differentiable on $(a,b)$).
+
+    (c) A function $f$ which is differentiable on $(a,b)$ and $f(a) = f(b)$ (but we don't assume $f$ is continuous on $[a,b]$).
+  notes: Book reads 'which satisfies of each of the following'; normalized to 'which satisfies each of the following'. In (b), f'(c) ≠ 0 should be read as 'f'(c) is never 0 where it exists'.
+  curation:
+    why: Each hypothesis of Rolle's theorem is necessary — find the counterexamples.
+- id: cummings-7.14
+  source:
+    key: cummings
+    chapter: 7 Differentiation
+    section: Chapter 7 Exercises
+    problemNumber: Exercise 7.14
+    page: '221'
+  topic: differentiation
+  subtopics:
+  - rolle-mvt
+  skills:
+  - auxiliary-function
+  - rolle-application
+  concept: Cauchy mean value theorem
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Cauchy-mean-value-theorem
+  - Rolle
+  - auxiliary-function
+  - machinery
+  problemLatex: |
+    Prove the *Cauchy mean value theorem*, which says this:
+
+    > If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that
+    > $$[f(b) - f(a)] \cdot g'(x) = [g(b) - g(a)] \cdot f'(x).$$
+
+    (Note that the mean value theorem (Theorem 7.22) is a special case of this, in which $g(x) = x$.)
+  curation:
+    why: The Cauchy Mean Value Theorem — the engine of L'Hôpital's rule.
+- id: cummings-8.25
+  source:
+    key: cummings
+    chapter: 8 Integration
+    section: Chapter 8 Exercises
+    problemNumber: Exercise 8.25
+    page: '274'
+  topic: integration
+  subtopics:
+  - integrability-criteria
+  - partitions-darboux-sums
+  skills:
+  - partition-refinement
+  - epsilon-over-3
+  concept: bounded function with one discontinuity is integrable
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - discontinuity
+  - Darboux-sums
+  - machinery
+  problemLatex: |
+    Suppose that $f\colon [a,b] \to \mathbb{R}$ is bounded. Suppose further that $f$ is continuous at every point in $[a,b]$ with the exception of a single point $x_0 \in (a,b)$. Prove that $f$ is integrable on $[a,b]$.
+  curation:
+    why: 'A bounded function with one discontinuity is integrable: isolate the bad point in a tiny interval.'
+- id: cummings-8.27
+  source:
+    key: cummings
+    chapter: 8 Integration
+    section: Chapter 8 Exercises
+    problemNumber: Exercise 8.27
+    page: '274'
+  topic: integration
+  subtopics:
+  - integral-properties
+  - integral-inequalities
+  skills:
+  - IVT-application
+  - EVT-application
+  - comparison-estimate
+  concept: mean value theorem for integrals (including weighted version)
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - mean-value-theorem-for-integrals
+  - IVT
+  - integral-inequalities
+  problemLatex: |
+    (a) Prove that if $f$ is integrable on $[a,b]$ and $m \le f(x) \le M$ for all $x$ in $[a,b]$, then
+    $$\int_a^b f(x)\,dx = (b-a)\cdot\gamma$$
+    for some $\gamma$ with $m \le \gamma \le M$.
+
+    (b) Prove that if $f$ is continuous on $[a,b]$, then
+    $$\int_a^b f(x)\,dx = (b-a)\cdot f(x_0)$$
+    for some $x_0 \in [a,b]$.
+
+    (c) Show by example that (b) need not hold if $f$ is not continuous.
+
+    (d) Prove the following more general result (Part (b) is the special case $g(x) = 1$ for all $x$.), known as the *general mean value theorem for integrals*: Suppose that $f$ is continuous on $[a,b]$ and $g$ is integrable and nonnegative on $[a,b]$. Prove that
+    $$\int_a^b f(x) g(x)\,dx = f(x_0)\cdot\int_a^b g(x)\,dx$$
+    for some $x_0 \in [a,b]$.
+  notes: 'Typo fixed in (d): book says ''Part (c) is the special case g(x) = 1''; it is Part (b).'
+  curation:
+    why: Mean value theorem for integrals, including the weighted version.
+- id: cummings-9.12
+  source:
+    key: cummings
+    chapter: 9 Sequences and Series of Functions
+    section: Chapter 9 Exercises
+    problemNumber: Exercise 9.12
+    page: '312'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  skills:
+  - construct-counterexample
+  - sequential-characterization
+  concept: pointwise limit of continuous functions need not be continuous (x^n on [0,1])
+  difficulty: easy
+  category: canonical
+  type: counterexample
+  tags:
+  - pointwise-convergence
+  - continuity
+  - counterexample
+  - interchange-of-limits
+  problemLatex: |
+    Give an example of (1) a sequence of functions $f_n$ on $[0,1]$, (2) a function $f$ on $[0,1]$, and (3) a sequence $(a_n)$ where each $a_n \in [0,1]$ and $a_n \to a$ for some $a$, such that the following conditions hold.
+
+    (i) Each $f_n$ is continuous;
+
+    (ii) $f_n \to f$ pointwise; and
+
+    (iii) $f(a_n) \not\to f(a)$.
+  notes: Book typo 'Given an example' corrected to 'Give an example'.
+  curation:
+    why: 'xⁿ on [0,1]: continuous functions with a discontinuous pointwise limit.'
+- id: cummings-9.16
+  source:
+    key: cummings
+    chapter: 9 Sequences and Series of Functions
+    section: Chapter 9 Exercises
+    problemNumber: Exercise 9.16
+    page: '312'
+  topic: function-sequences
+  subtopics:
+  - power-series
+  - weierstrass-m-test
+  skills:
+  - M-test
+  concept: power series absolutely convergent at x0 converges uniformly on [-|x0|,|x0|]
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - power-series
+  - Weierstrass-M-test
+  - uniform-convergence
+  problemLatex: |
+    Prove that if a power series $\sum_{k=0}^\infty a_k x^k$ converges absolutely at some $x_0 \in \mathbb{R}$, then it converges uniformly on the closed interval $\big[-|x_0|, |x_0|\big]$.
+  curation:
+    why: A power series converging absolutely at x₀ converges uniformly on [−|x₀|, |x₀|].

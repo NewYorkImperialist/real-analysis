@@ -1,0 +1,103 @@
+# Curated selection: continuity. `why` overrides the extractor's machinery line; `set` overrides classification.
+# MIT-assigned Lebl exercises (always included)
+- cid: lebl-3.1.3
+- cid: lebl-3.1.13
+- cid: lebl-3.2.11
+- cid: lebl-3.2.14
+- cid: lebl-3.3.11
+- cid: lebl-3.4.3
+- cid: lebl-3.4.8
+# functional limits
+- cid: lebl-3.1.11
+  why: "The sequential criterion with only convergence assumed: interleaving two sequences forces a common limit — a standard trick worth owning."
+- cid: abbott-4.3.4
+  why: "Why lim g(f(x)) ≠ r in general: the inner function can hit the point q where g misbehaves. Pinpoints which continuity hypothesis is needed."
+# epsilon-delta & sequential continuity
+- cid: ross-17.9
+  why: "Four ε–δ continuity proofs of increasing subtlety: bounding a factor near x₀, δ = ε², δ = ε, and a point-dependent δ."
+- cid: abbott-4.3.2
+  set: {type: definition, difficulty: medium}
+  why: "Mutating the ε–δ definition (‘onetinuous’, ‘lesstinuous’) shows exactly what each quantifier is doing."
+- cid: abbott-4.3.6
+  why: "Quick examples/impossibility arguments for the algebra of continuity — trains you to reach for the right algebraic identity."
+- cid: lebl-3.2.10
+  why: "Density + sequential continuity: a continuous function is determined by its values on ℚ."
+- cid: abbott-4.3.13
+  why: "Cauchy's functional equation: ℕ → ℤ → ℚ by algebra, then ℝ by continuity and density. A model ‘extend from a dense set’ argument."
+- cid: lebl-3.2.19
+  set: {category: challenge}
+  why: "Convexity gives slope monotonicity, which squeezes f near every interior point; the endpoint counterexample shows openness matters."
+# discontinuities
+- cid: abbott-4.3.7
+  why: "Dirichlet and Thomae: the two functions every analyst knows. Thomae's continuity at irrationals uses the finiteness of {t ≥ ε} in a bounded set."
+- cid: ross-18.12
+  why: "The intermediate value property does not imply continuity: sin(1/x) is the standard witness."
+- cid: lebl-3.6.11
+  set: {category: challenge}
+  why: "Builds a monotone function jumping at every rational via a weighted series over an enumeration of ℚ — the standard construction."
+- cid: abbott-4.6.5
+  related: [abbott-4.6.6]
+  why: "One-sided limits of monotone functions exist (they are sups/infs), so the only discontinuities are jumps."
+- cid: abbott-4.6.6
+  related: [abbott-4.6.5]
+  why: "Disjoint jump intervals each contain a rational, so a monotone function has countably many discontinuities."
+# continuity & topology
+- cid: abbott-4.3.12
+  why: "The distance-to-a-set function: 1-Lipschitz, and zero exactly on the closed set. Used constantly in topology and measure theory."
+# EVT / compactness consequences
+- cid: lebl-3.3.3
+  why: "EVT on a compact subinterval plus endpoint limits: a standard way to recover extrema on an open interval."
+- cid: lebl-3.3.14
+  why: "A one-line consequence of the EVT (and compactness) that rules out a continuous bijection [0,1] → (0,1)."
+- cid: ross-18.4
+  why: "Closedness is necessary for the EVT: a missing limit point lets 1/|x − x₀| blow up."
+- cid: abbott-4.4.8
+  why: "Which ranges are possible on [0,1], (0,1), (0,1]? Separates what compactness forces from what it does not."
+# IVT
+- cid: abbott-4.5.7
+  why: "The 1-D Brouwer fixed point theorem: apply the IVT to f(x) − x."
+- cid: abbott-4.5.6
+  set: {category: challenge}
+  why: "Universal chord theorem: IVT on a cleverly chosen auxiliary function, and a counterexample showing only h = 1/n works."
+- cid: lebl-3.6.8
+  why: "IVT forces a continuous bijection between intervals to be strictly monotone."
+- cid: abbott-4.5.3
+  why: "A partial converse to the IVT: monotone + intermediate value property ⇒ continuous."
+- cid: abbott-4.5.8
+  why: "Continuity of inverse functions on intervals — needed before differentiating inverses."
+- cid: cummings-6.33
+  set: {type: conceptual}
+  why: "Continuous images of intervals are intervals; ℚ is not one."
+- cid: cummings-6.32
+  set: {category: challenge}
+  why: "No continuous function takes every value exactly twice: a careful IVT/EVT case analysis."
+# uniform continuity
+- cid: ross-19.2
+  why: "Direct ε–δ proofs of uniform continuity, where δ must not depend on the point."
+- cid: abbott-4.4.2
+  why: "Deciding uniform continuity on a bounded open interval: blow-up vs. continuous extension."
+- cid: ross-19.1
+  why: "Classify uniform continuity using the whole toolkit (compact domain, extension criterion, Cauchy preservation, unbounded domain)."
+- cid: abbott-4.4.10
+  why: "Sums and compositions of uniformly continuous functions are uniformly continuous; products and quotients need not be."
+- cid: ross-19.4
+  why: "Uniform continuity on a bounded set forces boundedness (Bolzano–Weierstrass + Cauchy preservation)."
+- cid: abbott-4.4.13
+  why: "Uniform continuity preserves Cauchy sequences, and on (a,b) it is equivalent to extending continuously to [a,b]."
+- cid: lebl-3.4.9
+  set: {category: challenge}
+  why: "Extend a uniformly continuous function from ℚ to ℝ via Cauchy sequences — the prototype of completion arguments."
+- cid: lebl-3.4.15
+  why: "Periodicity reduces the problem to a compact interval, where continuity is uniform."
+- cid: abbott-4.4.14
+  why: "Heine–Cantor (continuous on compact ⇒ uniformly continuous) proved with open covers instead of sequences."
+# continuity on metric spaces
+- cid: lebl-7.5.2
+  why: "xy/(x²+y²) is continuous in each variable separately but not jointly — the first multivariable warning."
+- cid: lebl-7.5.5
+  why: "Continuous images of connected spaces are connected — the topological IVT."
+- cid: lebl-7.5.8
+  why: "A continuous bijection from a compact space has a continuous inverse; compactness does the work."
+- cid: lebl-7.5.12
+  set: {category: synthesis}
+  why: "The derivative operator is continuous in one metric and discontinuous in another — continuity depends on the metric."
