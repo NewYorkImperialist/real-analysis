@@ -55,3 +55,13 @@ PDF page offsets (PDF page = printed page + offset):
 | Cummings | +16 |
 
 `show.py` reads extracted text in `curation/text/`. Regenerate it with `scripts/extract.py`, which needs PyMuPDF.
+
+## Part labels
+
+Keep the source's own part labels so a problem reads exactly as in its book or exam.
+- **Trimmed problem:** keep the original letters (e.g. Rudin 3.14 keeps (c)–(e)) and say in `notes` which
+  parts are omitted.
+- **Merged problem:** an item merged from several exercises gets its own (a), (b), … and its `notes` map each
+  part to its source exercise.
+- **Cut parts:** never cut a part out of the middle of a problem; remove whole problems only
+  (`curation/REMOVED.yaml`).
