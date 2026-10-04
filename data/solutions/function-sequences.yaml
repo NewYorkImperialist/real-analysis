@@ -28,7 +28,7 @@
 
     **(b)** No. Take $x = n^2$. Then $f_n(n^2) = e^{n}/n \ge 1$, because $e^n \ge 1 + n > n$. So $\sup_{x\in\mathbb{R}} |f_n(x) - 0| \ge 1$ for every $n$, which does not tend to $0$. The convergence is not uniform on $\mathbb{R}$.
 
-    **(c)** Yes. For $x \in [0,1]$, $0 < x/n \le 1/n \le 1$, so since $\exp$ is increasing,
+    **(c)** Yes. For $x \in [0,1]$, $0 \le x/n \le 1/n \le 1$, so since $\exp$ is increasing,
     $$0 < f_n(x) \le \frac{e^{1}}{n}.$$
     Given $\epsilon > 0$, choose $N > e/\epsilon$. Then for all $n \ge N$ and all $x \in [0,1]$, $|f_n(x) - 0| \le e/n < \epsilon$. So $f_n \to 0$ uniformly on $[0,1]$.
 

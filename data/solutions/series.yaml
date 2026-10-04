@@ -236,7 +236,7 @@
     - |
       Modify Example 8: keep the "wobble" $2^{(-1)^n}$, which makes the ratios oscillate, but replace the decaying factor $2^{-n}$ by a growing one.
   solution: |
-    Let $a_n = 2^{\,n + (-1)^n}$ for $n \ge 0$, i.e. $\tfrac12, 4, 2, 16, 8, 64, \dots$.
+    Let $a_n = 2^{\,n + (-1)^n}$ for $n \ge 0$, i.e. $2, 1, 8, 4, 32, 16, \dots$.
 
     **Root Test.** $a_n^{1/n} = 2^{\,1 + (-1)^n/n}$ for $n \ge 1$. Since $(-1)^n/n \to 0$ and $t \mapsto 2^t$ is continuous, $a_n^{1/n} \to 2$. So $\limsup a_n^{1/n} = 2 > 1$, and the Root Test shows that $\sum a_n$ diverges.
 

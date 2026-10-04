@@ -153,9 +153,9 @@
   solution: |
     **(a)** Let $h = g - f$. Then $h(x) = 0$ except at finitely many points $p_1, \dots, p_k$. If $k = 0$, then $g = f$ and there is nothing to prove, so assume $k \ge 1$. The function $h$ takes only finitely many nonzero values, so it is bounded. Let $M = 1 + \max_j |h(p_j)|$, so that $|h| \le M$ everywhere.
 
-    **Claim.** $h$ is integrable. Given $\epsilon > 0$, let $\delta = \frac{\epsilon}{4kM}$, and let $P$ be any partition of $[a,b]$ all of whose subintervals have length less than $\delta$. On a subinterval containing none of the $p_j$, $h \equiv 0$, so $\sup h - \inf h = 0$. Each $p_j$ belongs to at most two subintervals, since subintervals overlap only at endpoints. So at most $2k$ subintervals contain some $p_j$, and on each of them $\sup h - \inf h \le 2M$. Hence
-    $$U(h,P) - L(h,P) \le 2k\cdot 2M\cdot\delta = \epsilon.$$
-    By the integrability criterion, $h$ is integrable. (In fact $\int h = 0$.)
+    **Claim.** $h$ is integrable. Given $\epsilon > 0$, let $\delta = \frac{\epsilon}{4kM}$, and let $P$ be any partition of $[a,b]$ all of whose subintervals have length less than $\delta$. On a subinterval containing none of the $p_j$, $h \equiv 0$, so $\sup h - \inf h = 0$. Each $p_j$ belongs to at most two subintervals, since subintervals overlap only at endpoints. So at most $2k$ subintervals contain some $p_j$, and on each of them $\sup h - \inf h \le 2M$. These subintervals (there is at least one, as $k \ge 1$) each have length $< \delta$, so
+    $$U(h,P) - L(h,P) \le 2M\sum_{\text{such }i}\Delta x_i < 2M\cdot 2k\cdot\delta = \epsilon.$$
+    By the integrability criterion (Theorem 7.2.8), $h$ is integrable. (In fact $\int h = 0$.)
 
     Since $f$ and $h$ are integrable, $g = f + h$ is integrable by linearity of the integral (Theorem 7.4.2).
 

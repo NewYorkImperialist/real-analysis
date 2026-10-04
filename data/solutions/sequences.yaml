@@ -232,11 +232,11 @@
 
     **(b)** First choose $N_1$ with $|x_n - 2| < 1$ for $n \ge N_1$. For these $n$, $x_n > 1$, so in particular $x_n \neq 0$ and $1/x_n$ is defined. (If some earlier $x_n$ were $0$, the sequence $(1/x_n)$ would only be defined from some index on; convergence depends only on the tail, so this does not matter.) For $n \ge N_1$,
 
-    $$\left|\frac{1}{x_n} - \frac12\right| = \frac{|2 - x_n|}{2|x_n|} < \frac{|x_n - 2|}{2}.$$
+    $$\left|\frac{1}{x_n} - \frac12\right| = \frac{|2 - x_n|}{2|x_n|} \le \frac{|x_n - 2|}{2}.$$
 
     Now let $\epsilon > 0$. Choose $N_2$ with $|x_n - 2| < 2\epsilon$ for $n \ge N_2$, and let $N = \max\{N_1, N_2\}$. For $n \ge N$,
 
-    $$\left|\frac{1}{x_n} - \frac12\right| < \frac{|x_n - 2|}{2} < \frac{2\epsilon}{2} = \epsilon.$$
+    $$\left|\frac{1}{x_n} - \frac12\right| \le \frac{|x_n - 2|}{2} < \frac{2\epsilon}{2} = \epsilon.$$
 
     Hence $(1/x_n) \to 1/2$. Only Definition 2.2.3 was used. $\blacksquare$
 - id: abbott-2.3.7
@@ -280,7 +280,7 @@
 
     So $a_nb_n \to 0$. We cannot use the Algebraic Limit Theorem because its hypotheses require *both* sequences to converge, and $(a_n)$ is only assumed bounded (for example $a_n = (-1)^n$).
 
-    **(b)** Yes: $(a_nb_n)$ converges *if and only if* $(a_n)$ converges. If $(a_n)$ converges, then $(a_nb_n)$ converges by the ALT. Conversely, suppose $a_nb_n \to p$. Since $b_n \to b \neq 0$, there is $N$ with $|b_n - b| < |b|/2$ for $n \ge N$, hence $|b_n| > |b|/2 > 0$ for $n \ge N$. On that tail, $a_n = (a_nb_n)/b_n$, so by ALT (iv) $a_n \to p/b$. (Convergence only depends on the tail.) So, for example, $a_n = (-1)^n$ and $b_n = 1$ give a divergent product, while $a_n = 1$, $b_n = 1$ give a convergent one. Without further information about $(a_n)$ nothing more can be said, except that $(a_nb_n)$ is bounded.
+    **(b)** Yes: $(a_nb_n)$ converges *if and only if* $(a_n)$ converges. If $(a_n)$ converges, then $(a_nb_n)$ converges by the ALT. Conversely, suppose $a_nb_n \to p$. Since $b_n \to b \neq 0$, there is $N$ with $|b_n - b| < |b|/2$ for $n \ge N$, hence $|b_n| > |b|/2 > 0$ for $n \ge N$. On that tail, $a_n = (a_nb_n)/b_n$, so by ALT (iv) $a_n \to p/b$. (Convergence only depends on the tail.) So, for example, $a_n = (-1)^n$ and $b_n = 1$ give a divergent product, while $a_n = 1$, $b_n = 1$ give a convergent one. Without further information about $(a_n)$ nothing more can be said, except that $(a_nb_n)$ is bounded when $(a_n)$ is bounded, as in (a) (it is a product of two bounded sequences).
 
     **(c)** We prove ALT (iii) when $a = 0$: if $a_n \to 0$ and $b_n \to b$, then $a_nb_n \to 0 = ab$. Since $(b_n)$ converges, it is bounded (Theorem 2.3.2). Now apply (a) with $(b_n)$ as the bounded sequence and $(a_n)$ as the sequence tending to $0$. This gives $b_na_n \to 0$, which is the claim. $\blacksquare$
 - id: abbott-2.3.10
