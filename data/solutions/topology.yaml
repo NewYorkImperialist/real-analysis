@@ -21,13 +21,13 @@
 - id: mit20-a4-1
   hints:
     - |
-      By definition you need to look at the complement. Write each complement explicitly and decide whether it is open using the definition from Assignment 3.
+      By definition you need to look at the complement. Write each complement explicitly and decide whether it is open: $U$ is open if every $x \in U$ has some $(x - \epsilon, x + \epsilon) \subset U$.
     - |
       $[a,b]^c = (-\infty,a) \cup (b,\infty)$ and $\mathbb{Z}^c = \bigcup_{n \in \mathbb{Z}} (n, n+1)$. Unions of open sets are open.
     - |
       For $\mathbb{Q}$, the complement is the irrationals. Find an irrational point every neighborhood of which contains a rational.
   solution: |
-    We use the facts from Assignment 3: open intervals and half-lines are open, and arbitrary unions of open sets are open.
+    We use two facts that follow directly from the definition of open set. First, open intervals and half-lines are open: for $x \in (a,b)$ take $\epsilon = \min\{x - a, b - x\}$, for $x \in (-\infty, a)$ take $\epsilon = a - x$, and for $x \in (b, \infty)$ take $\epsilon = x - b$. Second, any union of open sets is open: a point of the union lies in some $U_\lambda$, and the $\epsilon$ that works for $U_\lambda$ also works for the union.
 
     **(a)** $[a,b]^c = (-\infty, a) \cup (b, \infty)$, a union of two open sets, hence open. So $[a,b]$ is closed.
 
@@ -52,20 +52,6 @@
     **(b)** Similarly, $x \notin \bigcup_{m=1}^n F_m$ iff $x \notin F_m$ for all $m$, so
     $$\Bigl(\bigcup_{m=1}^n F_m\Bigr)^c = \bigcap_{m=1}^n F_m^c,$$
     a finite intersection of open sets, which is open. Hence $\bigcup_{m=1}^n F_m$ is closed.
-- id: mit20-a7-4
-  hints:
-    - |
-      Unwind the definition: for a fixed real $x$ and any $\epsilon > 0$, you must find an irrational number in $(x-\epsilon, x+\epsilon)$ that is different from $x$.
-    - |
-      The irrationals are dense: between any two reals there is an irrational (for instance, $q\sqrt 2$ for a suitable rational $q$, or $r + \sqrt 2$ with $r$ rational).
-    - |
-      To guarantee the point is different from $x$, look in the half-interval $(x, x+\epsilon)$ rather than the whole interval.
-  solution: |
-    Let $x \in \mathbb{R}$ and $\epsilon > 0$. We must show $(x-\epsilon, x+\epsilon)$ contains an irrational number other than $x$.
-
-    By the density of $\mathbb{Q}$, there is a rational $r$ with $x - \sqrt 2 < r < x - \sqrt 2 + \epsilon$. Then $y := r + \sqrt 2$ satisfies $x < y < x + \epsilon$. The number $y$ is irrational: if $y$ were rational then $\sqrt2 = y - r$ would be rational, which is false. Since $y > x$, we have $y \neq x$, and $y \in (x-\epsilon,x+\epsilon)$.
-
-    Thus $(x-\epsilon, x+\epsilon) \cap (\mathbb{R}\setminus\mathbb{Q}) \setminus\{x\} \neq \emptyset$ for every $\epsilon > 0$, so $x$ is a cluster point of the irrationals. Since $x$ was arbitrary, every real number is a cluster point of the set of irrationals.
 - id: lebl-7.4.16
   hints:
     - |

@@ -119,33 +119,6 @@
   notes: Topically consistent with the MIT reading (0.3).
   curation:
     why: Induction on cardinality; power sets.
-- id: lebl-0.3.15
-  source:
-    key: lebl
-    chapter: 0 Introduction
-    section: 0.3 Basic set theory
-    problemNumber: Exercise 0.3.15
-    page: '21'
-  assignedIn:
-  - MIT 18.100A (Fall 2020) Assignment 1, Problem 4
-  topic: foundations
-  subtopics:
-  - induction
-  skills:
-  - induction
-  concept: 6 divides n^3 + 5n by induction
-  title: '$n^3 + 5n$ is divisible by 6'
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags:
-  - induction
-  - divisibility
-  problemLatex: |
-    Prove that $n^3 + 5n$ is divisible by $6$ for all $n \in \mathbb{N}$.
-  notes: Topically consistent with the MIT reading (0.3).
-  curation:
-    why: Induction for a divisibility statement.
 - id: lebl-0.3.19
   source:
     key: lebl
@@ -1186,7 +1159,9 @@
   - rearrangement
   problemLatex: |
     (Challenging) Let $\sum_{n=1}^\infty a_n$ be conditionally convergent. Show that given an arbitrary $x \in \mathbb{R}$ there exists a rearrangement of $\sum_{n=1}^\infty a_n$ such that the rearranged series converges to $x$. Hint: See Example 2.6.4.
-  notes: The hint points to Example 2.6.4 (a rearrangement of the alternating harmonic series); the problem is self-contained without it. Curator may drop the hint reference.
+
+    *[Summary, not verbatim — Example 2.6.4 rearranges the alternating harmonic series $\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}$, which does not converge absolutely, to converge to an arbitrary $L \in \mathbb{R}$. Its odd terms sum to $\infty$ and its even terms to $-\infty$. With $a_n := \frac{(-1)^{n+1}}{n}$, set $\sigma(1) := 1$; if $\sum_{n=1}^{N} a_{\sigma(n)} \le L$, let $\sigma(N+1)$ be the smallest odd $k \in \mathbb{N}$ not yet used, and otherwise the smallest even $k$ not yet used. Because each kind of term alone diverges, the partial sums cross $L$ infinitely often, so $\sigma$ is a bijection of $\mathbb{N}$. Between consecutive crossings the partial sums stay within $\frac{1}{\min\{\sigma(N), \sigma(N')\}}$ of $L$, where $N, N'$ are the switching indices, and $\sigma(N), \sigma(N') \to \infty$; hence $\sum_{n=1}^\infty a_{\sigma(n)} = L$.]*
+  notes: The hint points to Example 2.6.4 (a rearrangement of the alternating harmonic series, p. 103–104); a labelled summary of that example was added after the hint so the hint is usable on its own.
   curation:
     why: 'The Riemann rearrangement theorem: a conditionally convergent series can be rearranged to sum to anything.'
 - id: lebl-2.6.10
@@ -1246,36 +1221,6 @@
     (Challenging) Show that the monotonicity in the alternating series test is necessary. That is, find a sequence of positive real numbers $\{x_n\}_{n=1}^\infty$ with $\lim_{n\to\infty} x_n = 0$ but such that $\sum_{n=1}^\infty (-1)^n x_n$ diverges.
   curation:
     why: The alternating series test fails without monotonicity.
-- id: lebl-2.6.13
-  source:
-    key: lebl
-    chapter: 2 Sequences and Series
-    section: 2.6 More on series
-    problemNumber: Exercise 2.6.13
-    page: '111'
-  assignedIn:
-  - MIT 18.100A (Fall 2020) Assignment 6, Problem 5
-  topic: series
-  subtopics:
-  - conditional-convergence
-  - alternating-series
-  skills:
-  - construct-counterexample
-  concept: ∑x_n converges but ∑x_n^2 diverges (e.g. (-1)^n/sqrt n)
-  title: A convergent series $\sum x_n$ with $\sum x_n^2$ divergent
-  difficulty: easy
-  category: canonical
-  type: counterexample
-  tags:
-  - conditional-convergence
-  - counterexample
-  - alternating-series
-  problemLatex: |
-    Find a series $\sum_{n=1}^\infty x_n$ that converges, but $\sum_{n=1}^\infty x_n^2$ diverges. Hint: Compare Exercise 2.5.14.
-    *(Exercise 2.5.14: Suppose $\sum_{n=1}^\infty x_n$ converges and $x_n \geq 0$ for all $n$. Prove that $\sum_{n=1}^\infty x_n^2$ converges.)*
-  notes: Exercise 2.5.14 quoted verbatim for the hint. Topically consistent with the MIT reading (2.5/2.6).
-  curation:
-    why: Conditional convergence vs nonlinear operations on terms.
 - id: lebl-3.1.3
   source:
     key: lebl
@@ -1401,36 +1346,6 @@
     Let $f\colon \mathbb{R} \to \mathbb{R}$ and $g\colon \mathbb{R} \to \mathbb{R}$ be continuous functions. Suppose that $f(r) = g(r)$ for all $r \in \mathbb{Q}$. Show that $f(x) = g(x)$ for all $x \in \mathbb{R}$.
   curation:
     why: 'Density + sequential continuity: a continuous function is determined by its values on ℚ.'
-- id: lebl-3.2.11
-  source:
-    key: lebl
-    chapter: 3 Continuous Functions
-    section: 3.2 Continuous functions
-    problemNumber: Exercise 3.2.11
-    page: '128'
-  assignedIn:
-  - MIT 18.100A (Fall 2020) Assignment 8, Problem 3
-  topic: continuity
-  subtopics:
-  - epsilon-delta-continuity
-  skills:
-  - epsilon-delta-proof
-  - choose-epsilon
-  concept: continuous f with f(c)>0 is positive on a neighborhood of c
-  title: A continuous function stays positive near a positive value
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags:
-  - continuity
-  - sign-preservation
-  - epsilon-delta
-  - machinery
-  problemLatex: |
-    Let $f\colon \mathbb{R} \to \mathbb{R}$ be continuous. Suppose $f(c) > 0$. Show that there exists an $\alpha > 0$ such that for all $x \in (c-\alpha, c+\alpha)$, we have $f(x) > 0$.
-  notes: 'Topic matches MIT reading (3.1, 3.2): consistent.'
-  curation:
-    why: 'Sign preservation: choose epsilon = f(c) in the definition of continuity.'
 - id: lebl-3.2.14
   source:
     key: lebl
@@ -2146,35 +2061,6 @@
   notes: The inequality from Exercise 5.2.10 (p. 198) is appended, labeled, for self-containedness; it is not part of the printed text of 5.2.15.
   curation:
     why: f integrable ⇒ |f| integrable and |∫f| ≤ ∫|f| — the most used integral inequality.
-- id: lebl-5.3.1
-  source:
-    key: lebl
-    chapter: 5 The Riemann Integral
-    section: 5.3 Fundamental theorem of calculus
-    problemNumber: Exercise 5.3.1
-    page: '205'
-  assignedIn:
-  - MIT 18.100A (Fall 2020) Assignment 12, Problem 2
-  topic: integration
-  subtopics:
-  - fundamental-theorem
-  skills:
-  - FTC-application
-  - chain-rule
-  concept: derivative of an integral with variable limits (FTC + chain rule)
-  title: Differentiating $\int_{-x}^{x} e^{s^2}\,ds$
-  difficulty: introductory
-  category: canonical
-  type: computation
-  tags:
-  - fundamental-theorem-of-calculus
-  - chain-rule
-  - Riemann-integration
-  problemLatex: |
-    Compute $\displaystyle \frac{d}{dx}\left( \int_{-x}^{x} e^{s^2}\,ds \right)$.
-  notes: MIT 18.100A Fall 2020 used an older Lebl version; v6.3 Exercise 5.3.1 (FTC with variable limits) is topically consistent with the assignment's Riemann-integral reading.
-  curation:
-    why: Second form of the FTC combined with additivity and the chain rule for variable limits of integration.
 - id: lebl-5.3.9
   source:
     key: lebl

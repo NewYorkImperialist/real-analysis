@@ -1,19 +1,3 @@
-- id: mit20-a3-6
-  hints:
-    - |
-      You need: for every $\varepsilon > 0$ an $N$ with $\left|\frac{1}{20n^2+20n+2020}\right| < \varepsilon$ for all $n \ge N$. You do not need the exact $N$, just one that works.
-    - |
-      Throw away most of the denominator: compare the fraction with something simpler like $\frac{1}{n}$, then use the Archimedean property.
-  solution: |
-    **Proof.** For every $n \in \mathbb{N}$ the denominator satisfies $20n^2 + 20n + 2020 > n > 0$, so
-
-    $$0 < \frac{1}{20n^2+20n+2020} < \frac{1}{n}.$$
-
-    Let $\varepsilon > 0$. By the Archimedean property choose $N \in \mathbb{N}$ with $N > 1/\varepsilon$. Then for all $n \ge N$,
-
-    $$\left|\frac{1}{20n^2+20n+2020} - 0\right| < \frac{1}{n} \le \frac{1}{N} < \varepsilon.$$
-
-    Hence $\lim_{n\to\infty} \frac{1}{20n^2+20n+2020} = 0$. $\blacksquare$
 - id: mit20-a5-6
   hints:
     - |
@@ -30,26 +14,6 @@
     Letting $n \to \infty$ (limits preserve non-strict inequalities) gives $-\varepsilon \le \liminf x_n \le \limsup x_n \le \varepsilon$. Since $\varepsilon > 0$ was arbitrary, $\liminf x_n = \limsup x_n = 0$.
 
     So a sequence with $\lim x_n = 0$ has $\limsup x_n = 0 \neq 1$. More generally, a sequence converges exactly when $\liminf x_n = \limsup x_n$, and then both equal the limit.
-- id: mit20-mid-3a
-  hints:
-    - |
-      Compute $\frac{10n^2}{n^2+16n+1} - 10$ over a common denominator before estimating anything.
-    - |
-      The difference is $\frac{-(160n+10)}{n^2+16n+1}$. Bound the numerator above and the denominator below by simple powers of $n$ to get something like $\frac{C}{n}$.
-  solution: |
-    **Proof.** For $n \in \mathbb{N}$,
-
-    $$\frac{10n^2}{n^2+16n+1} - 10 = \frac{10n^2 - 10n^2 - 160n - 10}{n^2+16n+1} = -\frac{160n+10}{n^2+16n+1}.$$
-
-    Since $160n + 10 \le 170n$ and $n^2 + 16n + 1 > n^2$, we get
-
-    $$\left|\frac{10n^2}{n^2+16n+1} - 10\right| = \frac{160n+10}{n^2+16n+1} < \frac{170n}{n^2} = \frac{170}{n}.$$
-
-    Let $\varepsilon > 0$ and, by the Archimedean property, choose $N \in \mathbb{N}$ with $N > 170/\varepsilon$. For $n \ge N$,
-
-    $$\left|\frac{10n^2}{n^2+16n+1} - 10\right| < \frac{170}{n} \le \frac{170}{N} < \varepsilon.$$
-
-    Hence the limit is $10$. $\blacksquare$
 - id: mit20-mid-3b
   hints:
     - |
@@ -195,26 +159,6 @@
     $$|x_n - 0| = |x_n| \le a_N < \varepsilon,$$
 
     because $|x_n|$ belongs to the set whose supremum is $a_N$. Hence $x_n \to 0$. $\blacksquare$
-- id: mit20-mid-4a
-  hints:
-    - |
-      Part (i) is the triangle inequality. For (ii), work with the tail suprema $\sup_{k \ge n}$ before taking any limit.
-    - |
-      For each fixed $n$ and every $k \ge n$, compare $x_k + y_k$ with $\sup_{j\ge n} x_j + \sup_{j \ge n} y_j$. This number is an upper bound for the tail of $(x_k + y_k)$.
-    - |
-      Then let $n \to \infty$, using that limits preserve $\le$ and that the limit of a sum is the sum of the limits.
-  solution: |
-    **(i)** Choose $M_1, M_2$ with $|x_n| \le M_1$ and $|y_n| \le M_2$ for all $n$. Then $|x_n + y_n| \le |x_n| + |y_n| \le M_1 + M_2$ for all $n$, so $\{x_n + y_n\}$ is bounded.
-
-    **(ii)** All the suprema below are finite by boundedness. Let
-
-    $$a_n = \sup_{k \ge n} x_k,\qquad b_n = \sup_{k\ge n} y_k,\qquad c_n = \sup_{k\ge n}(x_k + y_k).$$
-
-    Fix $n$. For every $k \ge n$ we have $x_k \le a_n$ and $y_k \le b_n$, so $x_k + y_k \le a_n + b_n$. Thus $a_n + b_n$ is an upper bound of $\{x_k + y_k : k \ge n\}$, and so $c_n \le a_n + b_n$.
-
-    Each of $(a_n), (b_n), (c_n)$ is a decreasing bounded sequence, so it converges, and its limit is the corresponding $\limsup$. Since limits preserve non-strict inequalities, and the limit of a sum is the sum of the limits,
-
-    $$\limsup_{n\to\infty}(x_n + y_n) = \lim c_n \le \lim (a_n + b_n) = \limsup_{n\to\infty} x_n + \limsup_{n\to\infty} y_n. \qquad \blacksquare$$
 - id: abbott-2.3.2
   hints:
     - |

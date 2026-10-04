@@ -1,22 +1,3 @@
-- id: mit20-a11-2
-  hints:
-    - |
-      The $n$-th Taylor polynomial at $x_0$ is $P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k$. So you need the derivatives $f^{(0)}, \dots, f^{(4)}$ evaluated at the base point.
-    - |
-      For $\sin x$ the derivatives cycle through $\cos, -\sin, -\cos, \sin$. For $\frac{1}{1-x} = (1-x)^{-1}$, find a general formula for $f^{(k)}(x)$ by induction, then substitute $x = -1$.
-  solution: |
-    Recall $P_4(x) = \sum_{k=0}^{4} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$.
-
-    **(a)** With $f(x) = \sin x$ and $x_0 = 0$:
-    $$f(0) = 0,\quad f'(0) = \cos 0 = 1,\quad f''(0) = -\sin 0 = 0,\quad f'''(0) = -\cos 0 = -1,\quad f^{(4)}(0) = \sin 0 = 0.$$
-    Hence
-    $$P_4(x) = x - \frac{x^3}{6}.$$
-    (The degree-4 coefficient happens to be $0$, so $P_4 = P_3$.)
-
-    **(b)** With $f(x) = (1-x)^{-1}$, we claim $f^{(k)}(x) = k!\,(1-x)^{-(k+1)}$ for $x \neq 1$. This holds for $k=0$, and if it holds for $k$ then by the chain rule
-    $$f^{(k+1)}(x) = k!\,\cdot(-(k+1))(1-x)^{-(k+2)}\cdot(-1) = (k+1)!\,(1-x)^{-(k+2)}.$$
-    At $x_0 = -1$ we get $f^{(k)}(-1) = \frac{k!}{2^{k+1}}$, so the $k$-th coefficient is $\frac{f^{(k)}(-1)}{k!} = \frac{1}{2^{k+1}}$. Therefore
-    $$P_4(x) = \frac12 + \frac{x+1}{4} + \frac{(x+1)^2}{8} + \frac{(x+1)^3}{16} + \frac{(x+1)^4}{32}.$$
 - id: mit20-final-4a
   hints:
     - |
@@ -33,20 +14,6 @@
     **(ii)** Take $(a,b) = (-1,1)$, $c = 0$ and $f(x) = |x|$. It is continuous at $0$, since $|f(x) - f(0)| = |x| < \varepsilon$ whenever $|x| < \delta := \varepsilon$. But for $x \ne 0$,
     $$\frac{f(x)-f(0)}{x-0} = \frac{|x|}{x} = \begin{cases} 1 & x > 0,\\ -1 & x<0.\end{cases}$$
     Along $x_n = 1/n$ this quotient is $1$ and along $x_n = -1/n$ it is $-1$, so the limit as $x \to 0$ does not exist. Hence $f$ is continuous but not differentiable at $0$, and the converse of (i) fails.
-- id: mit20-final-4b
-  hints:
-    - |
-      Write down the difference quotient $\frac{f(h) - f(0)}{h}$ for $h \ne 0$ and simplify it.
-    - |
-      The simplified quotient is $h$ times a bounded factor. Use $|\sin t| \le 1$ and the squeeze theorem.
-  solution: |
-    **Proof.** For $h \neq 0$,
-    $$\frac{f(h) - f(0)}{h - 0} = \frac{h^2 \sin(1/h)}{h} = h \sin(1/h).$$
-    Since $|\sin(1/h)| \le 1$, we have
-    $$\left|\frac{f(h)-f(0)}{h} - 0\right| = |h|\,|\sin(1/h)| \le |h|.$$
-    Given $\varepsilon > 0$, let $\delta = \varepsilon$. Then $0 < |h| < \delta$ implies $\left|\frac{f(h)-f(0)}{h}\right| < \varepsilon$. Hence
-    $$f'(0) = \lim_{h\to 0}\frac{f(h)-f(0)}{h} = 0,$$
-    so $f$ is differentiable at $0$ with $f'(0) = 0$. $\blacksquare$
 - id: mit20-a10-1
   hints:
     - |
@@ -97,31 +64,6 @@
     because $1120$ and $2020$ are even, so $x^{1120}, x^{2020} \ge 0$. Suppose $p(x_1) = p(x_2) = 0$ with $x_1 < x_2$. By Rolle's theorem there is $\xi \in (x_1, x_2)$ with $p'(\xi) = 0$, contradicting $p' > 0$. Hence the root is unique.
 
     So the equation has exactly one real root (and it lies in $(-1,0)$). $\blacksquare$
-- id: mit20-a11-3
-  hints:
-    - |
-      Expand the numerator with Taylor's theorem about the point the limit approaches, keeping an explicit remainder term.
-    - |
-      In (a), expand $\sin x$ about $0$; since its $x^4$ coefficient is $0$, use the remainder after the degree-4 polynomial. In (b), expand $\sin x$ about $\pi/2$ up to degree 2 with the Lagrange remainder.
-    - |
-      After dividing by the power of $x$ (or of $x - \pi/2$), the remainder contributes a bounded factor times something tending to $0$.
-  solution: |
-    We use Taylor's theorem with the Lagrange remainder: if $f$ is $(n+1)$ times differentiable near $x_0$, then for each $x \neq x_0$ nearby there is $\xi$ between $x_0$ and $x$ with
-    $$f(x) = \sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}.$$
-
-    **(a)** Take $f = \sin$, $x_0 = 0$, $n = 4$. The fourth Taylor polynomial is $x - \frac{x^3}{6}$ and $f^{(5)} = \cos$, so for each $x \ne 0$ there is $\xi_x$ between $0$ and $x$ with
-    $$\sin x = x - \frac{x^3}{6} + \frac{\cos(\xi_x)}{120}x^5.$$
-    Hence, for $x\ne 0$,
-    $$\frac{x - \sin x}{x^3} = \frac16 - \frac{\cos(\xi_x)}{120}x^2.$$
-    Since $|\cos(\xi_x)\,x^2/120| \le x^2/120 \to 0$, we get
-    $$\lim_{x\to 0}\frac{x-\sin x}{x^3} = \frac16.$$
-
-    **(b)** Take $f = \sin$, $x_0 = \pi/2$, $n = 2$. We have $f(\pi/2) = 1$, $f'(\pi/2) = \cos(\pi/2) = 0$, $f''(\pi/2) = -\sin(\pi/2) = -1$, and $f''' = -\cos$. So for $x \neq \pi/2$ there is $\xi_x$ between $\pi/2$ and $x$ with
-    $$\sin x = 1 - \frac12\left(x-\frac{\pi}{2}\right)^2 - \frac{\cos(\xi_x)}{6}\left(x - \frac{\pi}{2}\right)^3.$$
-    Therefore
-    $$\frac{1-\sin x}{(x-\pi/2)^2} = \frac12 + \frac{\cos(\xi_x)}{6}\left(x-\frac{\pi}{2}\right),$$
-    and the last term is bounded in absolute value by $\frac16|x - \pi/2| \to 0$. Hence
-    $$\lim_{x\to\pi/2}\frac{1-\sin x}{(x-\pi/2)^2} = \frac12.$$
 - id: mit20-final-5a
   hints:
     - |

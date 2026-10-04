@@ -1,30 +1,3 @@
-- id: mit20-final-6b
-  hints:
-    - |
-      You do not need to compute the integral. It is enough to trap it between $0$ and something that tends to $0$.
-    - |
-      On $[0,1]$ you have $0 \le \sin x \le 1$. Compare $x^n \sin x$ with $x^n$ and use monotonicity of the integral.
-  solution: |
-    For $x \in [0,1]$ we have $0 \le \sin x \le 1$ (since $0 \le x \le 1 < \pi$) and $x^n \ge 0$, so
-    $$0 \le x^n \sin x \le x^n \qquad (0 \le x \le 1).$$
-    All three functions are continuous, hence integrable, and monotonicity of the integral gives
-    $$0 \le \int_0^1 x^n \sin x\,dx \le \int_0^1 x^n\,dx = \frac{1}{n+1},$$
-    where the last integral is computed with the fundamental theorem of calculus, $\frac{d}{dx}\frac{x^{n+1}}{n+1} = x^n$.
-
-    Since $\frac{1}{n+1} \to 0$, the squeeze theorem gives $\displaystyle\lim_{n\to\infty}\int_0^1 x^n \sin x\,dx = 0$. $\blacksquare$
-
-- id: lebl-5.3.1
-  hints:
-    - |
-      Write the integral as a difference $F(x) - F(-x)$, where $F$ is an antiderivative of the integrand. You do not need a formula for $F$.
-    - |
-      Since $s \mapsto e^{s^2}$ is continuous, the FTC says $F(y) = \int_0^y e^{s^2}\,ds$ has $F'(y) = e^{y^2}$. Then use the chain rule on $F(-x)$.
-  solution: |
-    Let $F(y) = \int_0^y e^{s^2}\,ds$ for $y \in \mathbb{R}$. The integrand $s \mapsto e^{s^2}$ is continuous, so by the fundamental theorem of calculus $F$ is differentiable on $\mathbb{R}$ with $F'(y) = e^{y^2}$. By additivity of the integral,
-    $$\int_{-x}^{x} e^{s^2}\,ds = \int_0^x e^{s^2}\,ds - \int_0^{-x} e^{s^2}\,ds = F(x) - F(-x).$$
-    By the chain rule, $\frac{d}{dx}F(-x) = F'(-x)\cdot(-1) = -e^{(-x)^2} = -e^{x^2}$. Therefore
-    $$\frac{d}{dx}\left(\int_{-x}^{x} e^{s^2}\,ds\right) = F'(x) - \bigl(-e^{x^2}\bigr) = e^{x^2} + e^{x^2} = 2e^{x^2}.$$
-
 - id: mit20-a11-5
   hints:
     - |
@@ -61,26 +34,6 @@
     Since $f'$ is continuous with antiderivative $f$, the fundamental theorem of calculus gives $\int_c^x f'(t)\,dt = f(x) - f(c)$. Hence
     $$\int_c^x f''(t)(x-t)\,dt = -f'(c)(x-c) + f(x) - f(c).$$
     Rearranging gives $f(x) = f(c) + f'(c)(x-c) + \int_c^x f''(t)(x-t)\,dt$. $\blacksquare$
-
-- id: mit20-final-6a
-  hints:
-    - |
-      First compute $\int_a^1 x\log x\,dx$ for fixed $a \in (0,1)$, then send $a \to 0^+$. Integrate by parts, differentiating $\log x$ and integrating $x$.
-    - |
-      After integrating, you will need $\lim_{a\to 0^+} a^2 \log a$. To use the given L'Hôpital rule, write it as a quotient $\frac{\log a}{a^{-2}}$ of a function tending to $-\infty$ by one tending to $+\infty$.
-  solution: |
-    **Answer:** $-\tfrac14$.
-
-    On $(0,\infty)$ let $G(x) = \frac{x^2}{2}\log x - \frac{x^2}{4}$. Then
-    $$G'(x) = x\log x + \frac{x^2}{2}\cdot\frac1x - \frac{x}{2} = x\log x.$$
-    For $0 < a < 1$, the function $x\log x$ is continuous on $[a,1]$, so by the fundamental theorem of calculus
-    $$\int_a^1 x\log x\,dx = G(1) - G(a) = -\frac14 - \frac{a^2}{2}\log a + \frac{a^2}{4}.$$
-    (This $G$ is exactly what integration by parts with $u = \log x$, $dv = x\,dx$ produces.)
-
-    Next we show $a^2\log a \to 0$ as $a \to 0^+$. Write $a^2 \log a = \frac{f(a)}{g(a)}$ with $f(a) = \log a$ and $g(a) = a^{-2}$ on $(0,1)$. Here $g(a) \ne 0$, $f(a) \to -\infty$ and $g(a) \to +\infty$ as $a \to 0^+$, and
-    $$\frac{f'(a)}{g'(a)} = \frac{1/a}{-2a^{-3}} = -\frac{a^2}{2} \to 0.$$
-    By the stated L'Hôpital rule, $a^2 \log a \to 0$. Also $a^2/4 \to 0$. Therefore
-    $$\int_0^1 x\log x\,dx = \lim_{a\to 0^+}\Bigl(-\frac14 - \frac{a^2}{2}\log a + \frac{a^2}{4}\Bigr) = -\frac14.$$
 
 - id: mit20-final-6c
   hints:
@@ -332,23 +285,6 @@
     Therefore
     $$\int_a^b \bigl((u')^2 + Vu^2\bigr) = 0.$$
     The integrand $(u')^2 + Vu^2$ is continuous and nonnegative, because $V \ge 0$. By (a), $(u'(x))^2 + V(x)u(x)^2 = 0$ for all $x$. Both summands are $\ge 0$, so $(u'(x))^2 = 0$, that is, $u' \equiv 0$ on $[a,b]$. By the mean value theorem $u$ is constant, and $u(a) = 0$ gives $u \equiv 0$. $\blacksquare$
-
-- id: abbott-7.2.5
-  hints:
-    - |
-      Use the criterion: $f$ is integrable if for every $\epsilon > 0$ some partition has $U(f,P) - L(f,P) < \epsilon$. Also check that $f$ is bounded, which Darboux sums require.
-    - |
-      Pick one $f_N$ uniformly within $\eta$ of $f$, and a partition that works for $f_N$. Compare the sup and inf of $f$ and $f_N$ on each subinterval.
-  solution: |
-    Let $\epsilon > 0$ and set $\eta = \frac{\epsilon}{4(b-a)}$. By uniform convergence, choose $N$ with $|f_N(x) - f(x)| < \eta$ for all $x \in [a,b]$.
-
-    *$f$ is bounded.* $f_N$ is integrable, hence bounded, say $|f_N| \le B$. Then $|f| \le B + \eta$ on $[a,b]$.
-
-    *Small oscillation.* Since $f_N$ is integrable, there is a partition $P = \{x_0,\dots,x_n\}$ with $U(f_N,P) - L(f_N,P) < \frac\epsilon2$. On each $I_k = [x_{k-1},x_k]$ and for every $x \in I_k$,
-    $$f(x) < f_N(x) + \eta \le \sup_{I_k} f_N + \eta, \qquad f(x) > f_N(x) - \eta \ge \inf_{I_k} f_N - \eta.$$
-    Hence $\sup_{I_k} f - \inf_{I_k} f \le \sup_{I_k} f_N - \inf_{I_k} f_N + 2\eta$. Multiplying by $\Delta x_k$ and summing,
-    $$U(f,P) - L(f,P) \le U(f_N,P) - L(f_N,P) + 2\eta(b-a) < \frac\epsilon2 + \frac\epsilon2 = \epsilon.$$
-    Since $\epsilon$ was arbitrary, the integrability criterion (Theorem 7.2.8) shows that $f$ is integrable on $[a,b]$. $\blacksquare$
 
 - id: abbott-7.3.9
   hints:

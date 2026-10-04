@@ -1,0 +1,872 @@
+# Problems removed from the bank on 2026-10-04 after the relevance review (curation/RELEVANCE_REVIEW.md).
+# Each entry keeps the exact problem and AI hints/solution so it can be restored: paste `problem` back into
+# data/problems/<source>.yaml, `solution` into data/solutions/, and place the id in data/curriculum.yaml.
+
+- id: lebl-0.3.15
+  reason: "off-topic: number theory (divisibility by induction); induction is trained elsewhere"
+  problem: |
+    - id: lebl-0.3.15
+      source:
+        key: lebl
+        chapter: 0 Introduction
+        section: 0.3 Basic set theory
+        problemNumber: Exercise 0.3.15
+        page: '21'
+      assignedIn:
+      - MIT 18.100A (Fall 2020) Assignment 1, Problem 4
+      topic: foundations
+      subtopics:
+      - induction
+      skills:
+      - induction
+      concept: 6 divides n^3 + 5n by induction
+      title: '$n^3 + 5n$ is divisible by 6'
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags:
+      - induction
+      - divisibility
+      problemLatex: |
+        Prove that $n^3 + 5n$ is divisible by $6$ for all $n \in \mathbb{N}$.
+      notes: Topically consistent with the MIT reading (0.3).
+      curation:
+        why: Induction for a divisibility statement.
+  solution: |
+    - id: lebl-0.3.15
+      hints:
+        - |
+          Use induction on $n$. Expand $(n+1)^3 + 5(n+1)$ and look for the expression $n^3 + 5n$ inside it.
+        - |
+          The leftover terms are $3n^2 + 3n + 6 = 3n(n+1) + 6$. Why is $3n(n+1)$ divisible by $6$? Think about the parity of a product of two consecutive integers.
+      solution: |
+        **Proof.** We use induction on $n \in \mathbb{N} = \{1, 2, 3, \ldots\}$.
+
+        *Base case.* For $n = 1$: $1^3 + 5 \cdot 1 = 6$, which is divisible by $6$.
+
+        *Induction step.* Suppose $6 \mid n^3 + 5n$. Then
+        $$(n+1)^3 + 5(n+1) = n^3 + 3n^2 + 3n + 1 + 5n + 5 = (n^3 + 5n) + 3n(n+1) + 6.$$
+        The first term is divisible by $6$ by hypothesis. The last term is $6$. For the middle term: one of the consecutive integers $n$, $n+1$ is even. (If $n$ is odd, then $n + 1$ is even.) So $n(n+1) = 2k$ for some integer $k$, and $3n(n+1) = 6k$. A sum of three multiples of $6$ is a multiple of $6$, so $6 \mid (n+1)^3 + 5(n+1)$.
+
+        By induction, $6 \mid n^3 + 5n$ for every $n \in \mathbb{N}$. $\blacksquare$
+
+- id: abbott-7.2.5
+  reason: "near-duplicate: contained in ross-33.9 (which also proves the integrals converge)"
+  problem: |
+    - id: abbott-7.2.5
+      source:
+        key: abbott
+        chapter: 7 The Riemann Integral
+        section: 7.2 The Definition of the Riemann Integral
+        problemNumber: Exercise 7.2.5
+        page: '223'
+      topic: function-sequences
+      subtopics:
+      - interchange-integral
+      skills:
+      - epsilon-over-3
+      - sup-norm-estimate
+      concept: uniform limit of integrable functions is integrable
+      title: 'Uniform limits of integrable functions are integrable'
+      difficulty: medium
+      category: canonical
+      type: proof
+      tags:
+      - Riemann-integration
+      - uniform-convergence
+      - integrability-criterion
+      problemLatex: |
+        Assume that, for each $n$, $f_n$ is an integrable function on $[a,b]$. If $(f_n) \to f$ uniformly on $[a,b]$, prove that $f$ is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
+      curation:
+        why: A uniform limit of integrable functions is integrable.
+  solution: |
+    - id: abbott-7.2.5
+      hints:
+        - |
+          Use the criterion: $f$ is integrable if for every $\epsilon > 0$ some partition has $U(f,P) - L(f,P) < \epsilon$. Also check that $f$ is bounded, which Darboux sums require.
+        - |
+          Pick one $f_N$ uniformly within $\eta$ of $f$, and a partition that works for $f_N$. Compare the sup and inf of $f$ and $f_N$ on each subinterval.
+      solution: |
+        Let $\epsilon > 0$ and set $\eta = \frac{\epsilon}{4(b-a)}$. By uniform convergence, choose $N$ with $|f_N(x) - f(x)| < \eta$ for all $x \in [a,b]$.
+
+        *$f$ is bounded.* $f_N$ is integrable, hence bounded, say $|f_N| \le B$. Then $|f| \le B + \eta$ on $[a,b]$.
+
+        *Small oscillation.* Since $f_N$ is integrable, there is a partition $P = \{x_0,\dots,x_n\}$ with $U(f_N,P) - L(f_N,P) < \frac\epsilon2$. On each $I_k = [x_{k-1},x_k]$ and for every $x \in I_k$,
+        $$f(x) < f_N(x) + \eta \le \sup_{I_k} f_N + \eta, \qquad f(x) > f_N(x) - \eta \ge \inf_{I_k} f_N - \eta.$$
+        Hence $\sup_{I_k} f - \inf_{I_k} f \le \sup_{I_k} f_N - \inf_{I_k} f_N + 2\eta$. Multiplying by $\Delta x_k$ and summing,
+        $$U(f,P) - L(f,P) \le U(f_N,P) - L(f_N,P) + 2\eta(b-a) < \frac\epsilon2 + \frac\epsilon2 = \epsilon.$$
+        Since $\epsilon$ was arbitrary, the integrability criterion (Theorem 7.2.8) shows that $f$ is integrable on $[a,b]$. $\blacksquare$
+
+- id: tao-8.3.4
+  reason: "near-duplicate: superseded by pugh-1.38 (Cantor's theorem, proved)"
+  problem: |
+    - id: tao-8.3.4
+      source:
+        key: tao
+        chapter: 8 Infinite sets
+        section: 8.3 Uncountable sets
+        problemNumber: Exercise 8.3.4
+        page: '198'
+      topic: foundations
+      subtopics:
+      - cardinality
+      skills:
+      - theorem-reuse
+      - contradiction
+      concept: '|X| < |2^X|; transitivity of strict cardinality'
+      title: Cantor's theorem and strict cardinality
+      difficulty: easy
+      category: canonical
+      type: proof
+      tags:
+      - Cantor
+      - power-set
+      - cardinality
+      - Schroeder-Bernstein
+      problemLatex: |
+        Let us say that a set $A$ has *strictly lesser cardinality* than a set $B$ if $A$ has lesser than or equal cardinality to $B$ (in the sense of Exercise 3.6.7) but $A$ does not have equal cardinality to $B$. Show that for any set $X$, that $X$ has strictly lesser cardinality than $2^X$. Also, show that if $A$ has strictly lesser cardinality than $B$, and $B$ has strictly lesser cardinality than $C$, then $A$ has strictly lesser cardinality than $C$.
+
+        *(Exercise 3.6.7 sense: $A$ has lesser or equal cardinality to $B$ if there exists an injection $f\colon A \to B$ from $A$ to $B$.)*
+
+        *(Theorem 8.3.1 (Cantor's theorem): Let $X$ be an arbitrary set (finite or infinite). Then the sets $X$ and $2^X$ cannot have equal cardinality.)*
+
+        *(Exercise 8.3.3 (the Schröder–Bernstein theorem): if $A, B$ are sets such that $A$ has lesser or equal cardinality to $B$ and $B$ has lesser or equal cardinality to $A$, then $A$ and $B$ have equal cardinality.)*
+      notes: "Exercise statement verified against the page (printed p. 198, pdf 215). Cantor's theorem (Theorem 8.3.1, p. 195), the definition from Exercise 3.6.7 and the statement of Exercise 8.3.3 (Schröder–Bernstein, same page) are quoted, the last lightly trimmed from 'Using Exercise 8.3.2, show that if …'. $2^X$ is the power set of $X$. The exercise uses Cantor's theorem rather than asking for its diagonal proof."
+      curation:
+        why: Cantor's theorem turned into the strict inequality |X| < |2^X|, plus transitivity of strict cardinality via Schröder–Bernstein; the bank only had |P(A)| = 2^n for finite A.
+  solution: |
+    - id: tao-8.3.4
+      hints:
+        - |
+          "Strictly lesser cardinality" has two parts: an injection exists, and no bijection exists. For the first claim, which part is supplied by Cantor's theorem, and which part do you still have to build by hand?
+        - |
+          For $X \to 2^X$, every element $x$ determines a very simple subset of $X$. For transitivity, composing injections handles "lesser or equal"; the real work is ruling out a bijection between $A$ and $C$.
+        - |
+          Suppose $A$ and $C$ had equal cardinality. Combine a bijection $C \to A$ with the injection $A \to B$ to get an injection $C \to B$, and then invoke Schröder–Bernstein on $B$ and $C$.
+      solution: |
+        **Part 1: $X$ has strictly lesser cardinality than $2^X$.** Define $f\colon X \to 2^X$ by $f(x) = \{x\}$. This is well defined, since $\{x\} \subseteq X$ for every $x \in X$. It is injective: if $\{x\} = \{y\}$ then $x \in \{y\}$, so $x = y$. Thus $X$ has lesser or equal cardinality to $2^X$. By Cantor's theorem (Theorem 8.3.1), $X$ and $2^X$ do not have equal cardinality. Hence $X$ has strictly lesser cardinality than $2^X$.
+
+        **Part 2: transitivity.** Suppose $A$ has strictly lesser cardinality than $B$, and $B$ has strictly lesser cardinality than $C$. Then there are injections $f\colon A \to B$ and $g\colon B \to C$.
+
+        *Lesser or equal.* The composition $g \circ f\colon A \to C$ is injective: if $g(f(a)) = g(f(a'))$, then $f(a) = f(a')$ because $g$ is injective, and then $a = a'$ because $f$ is injective. So $A$ has lesser or equal cardinality to $C$.
+
+        *Not equal.* Suppose, for contradiction, that $A$ and $C$ have equal cardinality, so there is a bijection $h\colon C \to A$. Then $f \circ h\colon C \to B$ is a composition of injections, hence injective, so $C$ has lesser or equal cardinality to $B$. We also have the injection $g\colon B \to C$, so $B$ has lesser or equal cardinality to $C$. By the Schröder–Bernstein theorem (Exercise 8.3.3), $B$ and $C$ have equal cardinality. This contradicts the assumption that $B$ has strictly lesser cardinality than $C$.
+
+        Therefore $A$ and $C$ do not have equal cardinality, and $A$ has strictly lesser cardinality than $C$. $\blacksquare$
+
+- id: lebl-2.6.13
+  reason: "near-duplicate: exactly part (b) of cummings-4.5"
+  problem: |
+    - id: lebl-2.6.13
+      source:
+        key: lebl
+        chapter: 2 Sequences and Series
+        section: 2.6 More on series
+        problemNumber: Exercise 2.6.13
+        page: '111'
+      assignedIn:
+      - MIT 18.100A (Fall 2020) Assignment 6, Problem 5
+      topic: series
+      subtopics:
+      - conditional-convergence
+      - alternating-series
+      skills:
+      - construct-counterexample
+      concept: ∑x_n converges but ∑x_n^2 diverges (e.g. (-1)^n/sqrt n)
+      title: A convergent series $\sum x_n$ with $\sum x_n^2$ divergent
+      difficulty: easy
+      category: canonical
+      type: counterexample
+      tags:
+      - conditional-convergence
+      - counterexample
+      - alternating-series
+      problemLatex: |
+        Find a series $\sum_{n=1}^\infty x_n$ that converges, but $\sum_{n=1}^\infty x_n^2$ diverges. Hint: Compare Exercise 2.5.14.
+        *(Exercise 2.5.14: Suppose $\sum_{n=1}^\infty x_n$ converges and $x_n \geq 0$ for all $n$. Prove that $\sum_{n=1}^\infty x_n^2$ converges.)*
+      notes: Exercise 2.5.14 quoted verbatim for the hint. Topically consistent with the MIT reading (2.5/2.6).
+      curation:
+        why: Conditional convergence vs nonlinear operations on terms.
+  solution: |
+    - id: lebl-2.6.13
+      hints:
+        - |
+          Exercise 2.5.14 shows that the example cannot have nonnegative terms. So the convergence must come from cancellation, as in an alternating series.
+        - |
+          Choose $|x_n|$ so that $x_n^2$ is the harmonic series.
+      solution: |
+        Let $x_n = \frac{(-1)^n}{\sqrt{n}}$.
+
+        **$\sum x_n$ converges.** The sequence $\frac{1}{\sqrt n}$ is positive and decreasing, and it tends to $0$: $\frac{1}{\sqrt n} < \varepsilon$ once $n > \varepsilon^{-2}$. By the alternating series test, $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt n}$ converges.
+
+        **$\sum x_n^2$ diverges.** $x_n^2 = \frac{1}{n}$, so $\sum x_n^2$ is the harmonic series, which diverges.
+
+        This is consistent with Exercise 2.5.14, which needs $x_n \ge 0$. Here the series converges only conditionally.
+
+- id: mit20-a7-4
+  reason: "no technique: restatement of the density of the irrationals (mit20-a3-1)"
+  problem: |
+    - id: mit20-a7-4
+      source:
+        key: mit
+        chapter: "Assignment 7"
+        section: "Reading: Lebl §2.5, §2.6, §3.1"
+        problemNumber: "Problem 4"
+        page: "1"
+      topic: topology
+      subtopics: [limit-points, dense-sets]
+      skills: [density-argument]
+      concept: "every real is a cluster point of the irrationals"
+      title: Every real number is a cluster point of the irrationals
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags: [cluster-point, density, irrationals]
+      problemLatex: |
+        Prove that every real number is a cluster point of the set of irrational numbers.
+      curation:
+        why: "Short link between density and cluster points; needed for limits of functions on ℝ∖ℚ."
+  solution: |
+    - id: mit20-a7-4
+      hints:
+        - |
+          Unwind the definition: for a fixed real $x$ and any $\epsilon > 0$, you must find an irrational number in $(x-\epsilon, x+\epsilon)$ that is different from $x$.
+        - |
+          The irrationals are dense: between any two reals there is an irrational (for instance, $q\sqrt 2$ for a suitable rational $q$, or $r + \sqrt 2$ with $r$ rational).
+        - |
+          To guarantee the point is different from $x$, look in the half-interval $(x, x+\epsilon)$ rather than the whole interval.
+      solution: |
+        Let $x \in \mathbb{R}$ and $\epsilon > 0$. We must show $(x-\epsilon, x+\epsilon)$ contains an irrational number other than $x$.
+
+        By the density of $\mathbb{Q}$, there is a rational $r$ with $x - \sqrt 2 < r < x - \sqrt 2 + \epsilon$. Then $y := r + \sqrt 2$ satisfies $x < y < x + \epsilon$. The number $y$ is irrational: if $y$ were rational then $\sqrt2 = y - r$ would be rational, which is false. Since $y > x$, we have $y \neq x$, and $y \in (x-\epsilon,x+\epsilon)$.
+
+        Thus $(x-\epsilon, x+\epsilon) \cap (\mathbb{R}\setminus\mathbb{Q}) \setminus\{x\} \neq \emptyset$ for every $\epsilon > 0$, so $x$ is a cluster point of the irrationals. Since $x$ was arbitrary, every real number is a cluster point of the set of irrationals.
+
+- id: mit20-a9-4
+  reason: "near-duplicate: the alpha = 1 case of mit20-a10-1 (Hölder implies uniformly continuous)"
+  problem: |
+    - id: mit20-a9-4
+      source:
+        key: mit
+        chapter: "Assignment 9"
+        section: "Reading: Lebl §3.3–3.5"
+        problemNumber: "Problem 4"
+        page: "1"
+      topic: continuity
+      subtopics: [uniform-continuity, lipschitz-holder]
+      skills: [choose-delta]
+      concept: "Lipschitz implies uniformly continuous"
+      title: Lipschitz functions are uniformly continuous
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags: [Lipschitz, uniform-continuity, definition]
+      problemLatex: |
+        Let $S \subset \mathbb{R}$. We say that $f \colon S \to \mathbb{R}$ is *Lipschitz continuous* on $S$ if there exists $L \ge 0$ such that for all $x, y \in S$,
+        $$|f(x) - f(y)| \le L|x - y|.$$
+        Prove that if $f \colon S \to \mathbb{R}$ is Lipschitz continuous on $S$ then $f$ is uniformly continuous on $S$.
+      curation:
+        why: "The cleanest uniform-continuity proof: δ = ε/L, independent of the point."
+  solution: |
+    - id: mit20-a9-4
+      hints:
+        - |
+          Write down what uniform continuity requires: given $\epsilon > 0$, a single $\delta > 0$ that works for all pairs $x, y \in S$ at once.
+        - |
+          The Lipschitz inequality already bounds $|f(x) - f(y)|$ by a multiple of $|x - y|$, with no dependence on where $x$ and $y$ are. How small must $|x-y|$ be to make $L|x-y| < \epsilon$? Remember that $L$ could be $0$.
+      solution: |
+        **Proof.** Let $L \ge 0$ be a Lipschitz constant for $f$ on $S$, and let $\epsilon > 0$. Put
+        $$\delta = \frac{\epsilon}{L + 1} > 0.$$
+        (We use $L+1$ rather than $L$ so that the formula also makes sense when $L = 0$.) Note that $\delta$ depends only on $\epsilon$ and $L$, not on any point of $S$. If $x, y \in S$ with $|x - y| < \delta$, then
+        $$|f(x) - f(y)| \le L|x - y| \le L\delta = \frac{L}{L+1}\,\epsilon < \epsilon.$$
+        (When $L = 0$ the middle quantity is $0 < \epsilon$.) Hence $f$ is uniformly continuous on $S$. $\blacksquare$
+
+- id: lebl-3.2.11
+  reason: "near-duplicate: special case of mit20-a7-6(b) (sign preservation)"
+  problem: |
+    - id: lebl-3.2.11
+      source:
+        key: lebl
+        chapter: 3 Continuous Functions
+        section: 3.2 Continuous functions
+        problemNumber: Exercise 3.2.11
+        page: '128'
+      assignedIn:
+      - MIT 18.100A (Fall 2020) Assignment 8, Problem 3
+      topic: continuity
+      subtopics:
+      - epsilon-delta-continuity
+      skills:
+      - epsilon-delta-proof
+      - choose-epsilon
+      concept: continuous f with f(c)>0 is positive on a neighborhood of c
+      title: A continuous function stays positive near a positive value
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags:
+      - continuity
+      - sign-preservation
+      - epsilon-delta
+      - machinery
+      problemLatex: |
+        Let $f\colon \mathbb{R} \to \mathbb{R}$ be continuous. Suppose $f(c) > 0$. Show that there exists an $\alpha > 0$ such that for all $x \in (c-\alpha, c+\alpha)$, we have $f(x) > 0$.
+      notes: 'Topic matches MIT reading (3.1, 3.2): consistent.'
+      curation:
+        why: 'Sign preservation: choose epsilon = f(c) in the definition of continuity.'
+  solution: |
+    - id: lebl-3.2.11
+      hints:
+        - |
+          Continuity at $c$ lets you keep $f(x)$ within any prescribed distance $\epsilon$ of $f(c)$. Which $\epsilon$ guarantees that $f(x)$ stays positive?
+        - |
+          Unpack $|f(x) - f(c)| < \epsilon$ as $f(c) - \epsilon < f(x) < f(c) + \epsilon$. Only the lower bound matters here: how large may $\epsilon$ be so that it is still at least $0$? Then take $\alpha$ to be the $\delta$ that continuity gives for that $\epsilon$.
+      solution: |
+        **Proof.** Let $\epsilon = f(c) > 0$. Since $f$ is continuous at $c$, there is $\delta > 0$ such that $|x - c| < \delta$ implies $|f(x) - f(c)| < f(c)$. Set $\alpha = \delta$. For $x \in (c-\alpha, c+\alpha)$ we have $|x - c| < \delta$, so
+        $$f(x) > f(c) - f(c) = 0.$$
+        $\blacksquare$
+
+- id: pugh-prelim-56
+  reason: "near-duplicate (upper tier): ross-30.6 with F = integral of f"
+  problem: |
+    - id: pugh-prelim-56
+      source:
+        key: pugh
+        chapter: 4 Function Spaces
+        section: More Prelim Problems
+        problemNumber: Prelim Problem 56
+        page: '275'
+      topic: integration
+      subtopics:
+      - fundamental-theorem
+      - improper-integrals
+      skills:
+      - integrating-factor
+      - lhopital-infinity-over-infinity
+      - epsilon-estimate
+      concept: if f + ∫_0^x f has a finite limit then f → 0 (F' + F → L ⇒ F → L)
+      title: If $f(x) + \int_0^x f$ converges then $f \to 0$
+      difficulty: hard
+      category: challenge
+      type: proof
+      tags:
+      - limits-at-infinity
+      - fundamental-theorem
+      - integrating-factor
+      - lhopital
+      - prelim
+      problemLatex: |
+        Let $f$ be a continuous real-valued function on $[0,\infty)$ such that
+        $$\lim_{x\to\infty} \Bigl( f(x) + \int_0^x f(t)\, dt \Bigr)$$
+        exists (and is finite). Prove that $\lim_{x\to\infty} f(x) = 0$.
+      notes: Verified against page image.
+      curation:
+        why: 'A limit-at-infinity problem whose tool is not named.'
+      tier: upper
+  solution: |
+    - id: pugh-prelim-56
+      hints:
+        - |
+          Name the integral: $F(x) = \int_0^x f(t)\,dt$. What is $F'$, and what does the hypothesis say in terms of $F$ and $F'$?
+        - |
+          The hypothesis is $F' + F \to L$, a first-order linear differential expression. Which integrating factor turns $F' + F$ into an exact derivative?
+        - |
+          Since $(e^x F)' = e^x (F + F')$, you can write $F(x) = e^{-x}\int_0^x e^t g(t)\,dt$ with $g = F + F' \to L$. Show this weighted average tends to $L$; then $f = g - F \to 0$.
+      solution: |
+        **Proof.** Let $F(x) = \int_0^x f(t)\,dt$. Since $f$ is continuous, the FTC gives that $F$ is differentiable with $F' = f$, and $F(0) = 0$. Let $g = f + F = F' + F$. By hypothesis $g(x) \to L$ for some real $L$. Note $g$ is continuous.
+
+        *Integrating factor.* $(e^x F(x))' = e^x(F'(x) + F(x)) = e^x g(x)$. This derivative is continuous, so by the FTC, $e^x F(x) - e^0 F(0) = \int_0^x e^t g(t)\,dt$, that is,
+        $$F(x) = e^{-x} \int_0^x e^t g(t)\,dt .$$
+        Since $e^{-x}\int_0^x e^t L\,dt = L(1 - e^{-x})$,
+        $$F(x) - L = e^{-x}\int_0^x e^t\big(g(t) - L\big)\,dt \;-\; L e^{-x}.$$
+
+        *$F \to L$.* Let $\epsilon > 0$ and choose $X$ with $|g(t) - L| < \epsilon$ for $t \ge X$. For $x > X$ split the integral at $X$:
+        $$|F(x) - L| \le e^{-x}\left|\int_0^X e^t (g(t) - L)\,dt\right| + e^{-x}\int_X^x e^t \epsilon\,dt + |L|e^{-x} \le K e^{-x} + \epsilon + |L|e^{-x},$$
+        where $K = \left|\int_0^X e^t(g - L)\right|$ does not depend on $x$, and we used $e^{-x}(e^x - e^X) \le 1$. Letting $x \to \infty$ gives $\limsup_{x\to\infty} |F(x) - L| \le \epsilon$. As $\epsilon$ was arbitrary, $F(x) \to L$.
+
+        *Conclusion.* $f(x) = g(x) - F(x) \to L - L = 0$. $\blacksquare$
+
+- id: mit20-mid-1a
+  reason: "near-duplicate: special case of lebl-0.3.27"
+  problem: |
+    - id: mit20-mid-1a
+      source:
+        key: mit
+        chapter: "Midterm Exam (October 16, 2020)"
+        problemNumber: "Problem 1(a)"
+        page: "2"
+      topic: foundations
+      subtopics: [functions, sets]
+      skills: [element-chasing]
+      concept: "preimages commute with intersections"
+      title: Preimages commute with intersections
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags: [preimage, sets, functions, element-chasing]
+      problemLatex: |
+        Let $f \colon A \to B$, and let $C, D$ be subsets of $B$. Prove
+        $$f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D).$$
+      curation:
+        why: "Element-chasing with preimages; the reason preimages, not images, appear in the topological definition of continuity."
+  solution: |
+    - id: mit20-mid-1a
+      hints:
+        - |
+          To prove two sets are equal, show each one is contained in the other. Equivalently, show that $x$ belongs to the left side exactly when it belongs to the right side.
+        - |
+          Unwind the definition: $x \in f^{-1}(E)$ means exactly $f(x) \in E$. Then apply the definition of intersection.
+      solution: |
+        **Proof.** Recall that $f^{-1}(E) = \{x \in A : f(x) \in E\}$ for $E \subset B$. For $x \in A$ we have the chain of equivalences
+        $$x \in f^{-1}(C \cap D) \iff f(x) \in C \cap D \iff \bigl(f(x) \in C \text{ and } f(x) \in D\bigr) \iff \bigl(x \in f^{-1}(C) \text{ and } x \in f^{-1}(D)\bigr) \iff x \in f^{-1}(C) \cap f^{-1}(D).$$
+        Every element of $A$ lies in the left side exactly when it lies in the right side, and both sides are subsets of $A$. So
+        $$f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D). \qquad \blacksquare$$
+
+- id: mit20-a3-6
+  reason: "near-duplicate: same epsilon-N rational-limit drill as abbott-2.2.2"
+  problem: |
+    - id: mit20-a3-6
+      source:
+        key: mit
+        chapter: "Assignment 3"
+        section: "Reading: Lebl §1.2–1.5, §2.1"
+        problemNumber: "Problem 6"
+        page: "2"
+      topic: sequences
+      subtopics: [convergence]
+      skills: [epsilon-N-proof, Archimedean-property, crude-bound]
+      concept: "ε–N proof of a limit"
+      title: $\varepsilon$–$N$ proof that $1/(20n^2+20n+2020)\to 0$
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags: [epsilon-N, convergence, definition, sequence]
+      problemLatex: |
+        Prove that
+        $$\lim_{n \to \infty} \frac{1}{20n^2 + 20n + 2020} = 0.$$
+      curation:
+        why: "A first ε–N proof where you should bound crudely (denominator ≥ 20n) rather than solve exactly."
+  solution: |
+    - id: mit20-a3-6
+      hints:
+        - |
+          You need: for every $\varepsilon > 0$ an $N$ with $\left|\frac{1}{20n^2+20n+2020}\right| < \varepsilon$ for all $n \ge N$. You do not need the exact $N$, just one that works.
+        - |
+          Throw away most of the denominator: compare the fraction with something simpler like $\frac{1}{n}$, then use the Archimedean property.
+      solution: |
+        **Proof.** For every $n \in \mathbb{N}$ the denominator satisfies $20n^2 + 20n + 2020 > n > 0$, so
+
+        $$0 < \frac{1}{20n^2+20n+2020} < \frac{1}{n}.$$
+
+        Let $\varepsilon > 0$. By the Archimedean property choose $N \in \mathbb{N}$ with $N > 1/\varepsilon$. Then for all $n \ge N$,
+
+        $$\left|\frac{1}{20n^2+20n+2020} - 0\right| < \frac{1}{n} \le \frac{1}{N} < \varepsilon.$$
+
+        Hence $\lim_{n\to\infty} \frac{1}{20n^2+20n+2020} = 0$. $\blacksquare$
+
+- id: mit20-mid-3a
+  reason: "near-duplicate: same epsilon-N rational-limit drill as abbott-2.2.2"
+  problem: |
+    - id: mit20-mid-3a
+      source:
+        key: mit
+        chapter: "Midterm Exam (October 16, 2020)"
+        problemNumber: "Problem 3(a)"
+        page: "6"
+      topic: sequences
+      subtopics: [convergence]
+      skills: [epsilon-N-proof, crude-bound]
+      concept: "ε–N proof of a rational-function limit"
+      title: $\varepsilon$–$N$ proof that $10n^2/(n^2+16n+1)\to 10$
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags: [epsilon-N, convergence, definition]
+      problemLatex: |
+        Use the definition of convergence to prove that
+        $$\lim_{n \to \infty} \frac{10n^2}{n^2 + 16n + 1} = 10.$$
+      curation:
+        why: "An ε–N proof where the difference must be simplified and bounded — the standard exam-level drill."
+  solution: |
+    - id: mit20-mid-3a
+      hints:
+        - |
+          Compute $\frac{10n^2}{n^2+16n+1} - 10$ over a common denominator before estimating anything.
+        - |
+          The difference is $\frac{-(160n+10)}{n^2+16n+1}$. Bound the numerator above and the denominator below by simple powers of $n$ to get something like $\frac{C}{n}$.
+      solution: |
+        **Proof.** For $n \in \mathbb{N}$,
+
+        $$\frac{10n^2}{n^2+16n+1} - 10 = \frac{10n^2 - 10n^2 - 160n - 10}{n^2+16n+1} = -\frac{160n+10}{n^2+16n+1}.$$
+
+        Since $160n + 10 \le 170n$ and $n^2 + 16n + 1 > n^2$, we get
+
+        $$\left|\frac{10n^2}{n^2+16n+1} - 10\right| = \frac{160n+10}{n^2+16n+1} < \frac{170n}{n^2} = \frac{170}{n}.$$
+
+        Let $\varepsilon > 0$ and, by the Archimedean property, choose $N \in \mathbb{N}$ with $N > 170/\varepsilon$. For $n \ge N$,
+
+        $$\left|\frac{10n^2}{n^2+16n+1} - 10\right| < \frac{170}{n} \le \frac{170}{N} < \varepsilon.$$
+
+        Hence the limit is $10$. $\blacksquare$
+
+- id: mit20-mid-4a
+  reason: "near-duplicate: mirror image of lebl-2.3.7"
+  problem: |
+    - id: mit20-mid-4a
+      source:
+        key: mit
+        chapter: "Midterm Exam (October 16, 2020)"
+        problemNumber: "Problem 4(a)"
+        page: "8"
+      topic: sequences
+      subtopics: [limsup-liminf, bounded-sequences]
+      skills: [tail-sup-argument, limit-of-inequality]
+      concept: "subadditivity of limsup"
+      title: Subadditivity of $\limsup$
+      difficulty: easy
+      category: canonical
+      type: proof
+      tags: [limsup, inequality, bounded-sequence, machinery, canonical]
+      problemLatex: |
+        Let $\{x_n\}$ and $\{y_n\}$ be bounded sequences of real numbers.
+
+        (i) Prove that the sequence $\{x_n + y_n\}$ is bounded.
+
+        (ii) Prove that
+        $$\limsup_{n \to \infty} (x_n + y_n) \le \limsup_{n \to \infty} x_n + \limsup_{n \to \infty} y_n.$$
+      curation:
+        why: "Work with limsup as lim of tail sups: sup of a sum ≤ sum of sups, then take limits."
+  solution: |
+    - id: mit20-mid-4a
+      hints:
+        - |
+          Part (i) is the triangle inequality. For (ii), work with the tail suprema $\sup_{k \ge n}$ before taking any limit.
+        - |
+          For each fixed $n$ and every $k \ge n$, compare $x_k + y_k$ with $\sup_{j\ge n} x_j + \sup_{j \ge n} y_j$. This number is an upper bound for the tail of $(x_k + y_k)$.
+        - |
+          Then let $n \to \infty$, using that limits preserve $\le$ and that the limit of a sum is the sum of the limits.
+      solution: |
+        **(i)** Choose $M_1, M_2$ with $|x_n| \le M_1$ and $|y_n| \le M_2$ for all $n$. Then $|x_n + y_n| \le |x_n| + |y_n| \le M_1 + M_2$ for all $n$, so $\{x_n + y_n\}$ is bounded.
+
+        **(ii)** All the suprema below are finite by boundedness. Let
+
+        $$a_n = \sup_{k \ge n} x_k,\qquad b_n = \sup_{k\ge n} y_k,\qquad c_n = \sup_{k\ge n}(x_k + y_k).$$
+
+        Fix $n$. For every $k \ge n$ we have $x_k \le a_n$ and $y_k \le b_n$, so $x_k + y_k \le a_n + b_n$. Thus $a_n + b_n$ is an upper bound of $\{x_k + y_k : k \ge n\}$, and so $c_n \le a_n + b_n$.
+
+        Each of $(a_n), (b_n), (c_n)$ is a decreasing bounded sequence, so it converges, and its limit is the corresponding $\limsup$. Since limits preserve non-strict inequalities, and the limit of a sum is the sum of the limits,
+
+        $$\limsup_{n\to\infty}(x_n + y_n) = \lim c_n \le \lim (a_n + b_n) = \limsup_{n\to\infty} x_n + \limsup_{n\to\infty} y_n. \qquad \blacksquare$$
+
+- id: mit20-final-4b
+  reason: "near-duplicate: exactly part (b) of ross-28.4"
+  problem: |
+    - id: mit20-final-4b
+      source:
+        key: mit
+        chapter: "Final Assignment (December 6, 2020)"
+        problemNumber: "Problem 4(b)"
+        page: "9"
+      topic: differentiation
+      subtopics: [derivative-definition]
+      skills: [difference-quotient-estimate, squeeze]
+      concept: "x² sin(1/x) is differentiable at 0"
+      title: Differentiability of $x^2\sin(1/x)$ at 0
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags: [derivative, definition, x2-sin-1-over-x, squeeze]
+      problemLatex: |
+        Let
+        $$f(x) = \begin{cases} x^2 \sin\left(\frac{1}{x}\right) & \text{if } x \neq 0, \\ 0 & \text{if } x = 0. \end{cases}$$
+        Use the definition of the derivative to prove that $f$ is differentiable at $0$.
+      curation:
+        why: "The derivative straight from the limit of difference quotients, on the most important example in the subject."
+  solution: |
+    - id: mit20-final-4b
+      hints:
+        - |
+          Write down the difference quotient $\frac{f(h) - f(0)}{h}$ for $h \ne 0$ and simplify it.
+        - |
+          The simplified quotient is $h$ times a bounded factor. Use $|\sin t| \le 1$ and the squeeze theorem.
+      solution: |
+        **Proof.** For $h \neq 0$,
+        $$\frac{f(h) - f(0)}{h - 0} = \frac{h^2 \sin(1/h)}{h} = h \sin(1/h).$$
+        Since $|\sin(1/h)| \le 1$, we have
+        $$\left|\frac{f(h)-f(0)}{h} - 0\right| = |h|\,|\sin(1/h)| \le |h|.$$
+        Given $\varepsilon > 0$, let $\delta = \varepsilon$. Then $0 < |h| < \delta$ implies $\left|\frac{f(h)-f(0)}{h}\right| < \varepsilon$. Hence
+        $$f'(0) = \lim_{h\to 0}\frac{f(h)-f(0)}{h} = 0,$$
+        so $f$ is differentiable at $0$ with $f'(0) = 0$. $\blacksquare$
+
+- id: mit20-final-6a
+  reason: "no technique: antiderivative and L'Hopital computation"
+  problem: |
+    - id: mit20-final-6a
+      source:
+        key: mit
+        chapter: "Final Assignment (December 6, 2020)"
+        problemNumber: "Problem 6(a)"
+        page: "11"
+      topic: integration
+      subtopics: [improper-integrals]
+      skills: [FTC, integration-by-parts, lhopital]
+      concept: "improper integral ∫₀¹ x log x as a limit"
+      title: The improper integral $\int_0^1 x\log x\,dx$
+      difficulty: easy
+      category: canonical
+      type: computation
+      tags: [improper-integral, FTC, L-Hopital, computation]
+      problemLatex: |
+        Compute
+        $$\int_0^1 x \log x \, dx := \lim_{a \to 0^+} \int_a^1 x \log x \, dx.$$
+        You may use without proof the following version of **L'Hôpital's rule**: if $f, g \colon (0, 1) \to \mathbb{R}$, $g(x) \neq 0$ for all $x$, $f(x) \to -\infty$, $g(x) \to \infty$ as $x \to 0^+$, and $L = \lim_{x \to 0^+} f'(x)/g'(x)$ exists, then $\lim_{x \to 0^+} f(x)/g(x) = L$.
+      curation:
+        why: "An improper integral treated honestly as a limit of proper integrals."
+  solution: |
+    - id: mit20-final-6a
+      hints:
+        - |
+          First compute $\int_a^1 x\log x\,dx$ for fixed $a \in (0,1)$, then send $a \to 0^+$. Integrate by parts, differentiating $\log x$ and integrating $x$.
+        - |
+          After integrating, you will need $\lim_{a\to 0^+} a^2 \log a$. To use the given L'Hôpital rule, write it as a quotient $\frac{\log a}{a^{-2}}$ of a function tending to $-\infty$ by one tending to $+\infty$.
+      solution: |
+        **Answer:** $-\tfrac14$.
+
+        On $(0,\infty)$ let $G(x) = \frac{x^2}{2}\log x - \frac{x^2}{4}$. Then
+        $$G'(x) = x\log x + \frac{x^2}{2}\cdot\frac1x - \frac{x}{2} = x\log x.$$
+        For $0 < a < 1$, the function $x\log x$ is continuous on $[a,1]$, so by the fundamental theorem of calculus
+        $$\int_a^1 x\log x\,dx = G(1) - G(a) = -\frac14 - \frac{a^2}{2}\log a + \frac{a^2}{4}.$$
+        (This $G$ is exactly what integration by parts with $u = \log x$, $dv = x\,dx$ produces.)
+
+        Next we show $a^2\log a \to 0$ as $a \to 0^+$. Write $a^2 \log a = \frac{f(a)}{g(a)}$ with $f(a) = \log a$ and $g(a) = a^{-2}$ on $(0,1)$. Here $g(a) \ne 0$, $f(a) \to -\infty$ and $g(a) \to +\infty$ as $a \to 0^+$, and
+        $$\frac{f'(a)}{g'(a)} = \frac{1/a}{-2a^{-3}} = -\frac{a^2}{2} \to 0.$$
+        By the stated L'Hôpital rule, $a^2 \log a \to 0$. Also $a^2/4 \to 0$. Therefore
+        $$\int_0^1 x\log x\,dx = \lim_{a\to 0^+}\Bigl(-\frac14 - \frac{a^2}{2}\log a + \frac{a^2}{4}\Bigr) = -\frac14.$$
+
+- id: mit20-final-6b
+  reason: "no technique: one-line bound; abbott-7.4.10 is the version with technique"
+  problem: |
+    - id: mit20-final-6b
+      source:
+        key: mit
+        chapter: "Final Assignment (December 6, 2020)"
+        problemNumber: "Problem 6(b)"
+        page: "12"
+      topic: integration
+      subtopics: [integral-inequalities]
+      skills: [integral-estimate, squeeze]
+      concept: "lim ∫₀¹ xⁿ sin x dx = 0 by direct estimate"
+      title: $\int_0^1 x^n \sin x\,dx$ tends to 0
+      difficulty: introductory
+      category: canonical
+      type: proof
+      tags: [Riemann-integration, estimate, limits-of-integrals]
+      problemLatex: |
+        Prove
+        $$\lim_{n \to \infty} \int_0^1 x^n \sin(x)\,dx = 0.$$
+      curation:
+        why: "Estimating an integral (|∫| ≤ ∫ xⁿ = 1/(n+1)) instead of computing it; contrast with the non-uniform convergence of xⁿ."
+  solution: |
+    - id: mit20-final-6b
+      hints:
+        - |
+          You do not need to compute the integral. It is enough to trap it between $0$ and something that tends to $0$.
+        - |
+          On $[0,1]$ you have $0 \le \sin x \le 1$. Compare $x^n \sin x$ with $x^n$ and use monotonicity of the integral.
+      solution: |
+        For $x \in [0,1]$ we have $0 \le \sin x \le 1$ (since $0 \le x \le 1 < \pi$) and $x^n \ge 0$, so
+        $$0 \le x^n \sin x \le x^n \qquad (0 \le x \le 1).$$
+        All three functions are continuous, hence integrable, and monotonicity of the integral gives
+        $$0 \le \int_0^1 x^n \sin x\,dx \le \int_0^1 x^n\,dx = \frac{1}{n+1},$$
+        where the last integral is computed with the fundamental theorem of calculus, $\frac{d}{dx}\frac{x^{n+1}}{n+1} = x^n$.
+
+        Since $\frac{1}{n+1} \to 0$, the squeeze theorem gives $\displaystyle\lim_{n\to\infty}\int_0^1 x^n \sin x\,dx = 0$. $\blacksquare$
+
+- id: mit20-final-7a
+  reason: "near-duplicate: covered by abbott-6.2.1 and lebl-6.1.2"
+  problem: |
+    - id: mit20-final-7a
+      source:
+        key: mit
+        chapter: "Final Assignment (December 6, 2020)"
+        problemNumber: "Problem 7(a)"
+        page: "14"
+      topic: function-sequences
+      subtopics: [pointwise-convergence, uniform-convergence]
+      skills: [construct-counterexample]
+      concept: "pointwise but not uniform convergence to a continuous limit"
+      title: Pointwise but not uniform convergence to a continuous limit
+      difficulty: introductory
+      category: canonical
+      type: counterexample
+      tags: [uniform-convergence, pointwise-convergence, counterexample]
+      problemLatex: |
+        Give an explicit example of a sequence of continuous functions on $(0, 1)$ that converges pointwise to a continuous function on $(0, 1)$ but the convergence is not uniform. Explanation, but not a formal proof, is required. Feel free to use pictures.
+      curation:
+        why: "Shows that a continuous limit does not imply uniform convergence (the ‘moving bump’ / xⁿ examples)."
+  solution: |
+    - id: mit20-final-7a
+      hints:
+        - |
+          Uniform convergence fails exactly when, for every $n$, some point of the domain still has $|f_n(x) - f(x)|$ not small. On an open interval you can push such points toward an endpoint.
+        - |
+          Recall a familiar sequence of continuous functions on $[0,1]$ whose pointwise limit jumps at $x = 1$. What happens to its pointwise limit when you delete the endpoint and work on $(0,1)$ only?
+        - |
+          For each $n$, find a point $x_n \in (0,1)$, close to $1$, where $|f_n(x_n) - f(x_n)|$ is still at least a fixed amount such as $\tfrac12$.
+      solution: |
+        **Example.** $f_n(x) = x^n$ on $(0,1)$.
+
+        *Pointwise limit.* For each fixed $x \in (0,1)$ we have $x^n \to 0$, so $f_n \to f$ pointwise, where $f \equiv 0$. The limit is continuous (it is constant), and every $f_n$ is continuous.
+
+        *Not uniform.* Picture the graphs: each $x^n$ is a curve that hugs $0$ for most of the interval but rises steeply to height (almost) $1$ near the right endpoint. As $n$ grows the rise moves closer to $x = 1$, but it never disappears, because $x = 1$ is not in the domain. Concretely, $x_n = 2^{-1/n} \in (0,1)$ satisfies
+        $$|f_n(x_n) - f(x_n)| = x_n^n = \tfrac12 ,$$
+        so $\sup_{x\in(0,1)} |f_n(x) - f(x)| \ge \tfrac12$ for every $n$ (in fact the supremum is $1$). Hence no single $N$ makes $|f_n(x) - 0| < \tfrac12$ for all $x$ at once, and the convergence is not uniform.
+
+- id: mit20-a11-2
+  reason: "no technique: Taylor-polynomial computation drill"
+  problem: |
+    - id: mit20-a11-2
+      source:
+        key: mit
+        chapter: "Assignment 11"
+        section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+        problemNumber: "Problem 2"
+        page: "1"
+      topic: differentiation
+      subtopics: [taylor]
+      skills: [compute-derivatives]
+      concept: "computing Taylor polynomials"
+      title: Fourth Taylor polynomials of $\sin x$ and $1/(1-x)$
+      difficulty: introductory
+      category: canonical
+      type: computation
+      tags: [Taylor, computation]
+      problemLatex: |
+        Compute the fourth Taylor polynomial for:
+
+        (a) $f(x) = \sin x$ at $x = 0$.
+
+        (b) $f(x) = \frac{1}{1-x}$ at $x = -1$.
+      curation:
+        why: "Routine but sets the notation for Taylor's theorem; (b) checks the expansion point is not 0."
+  solution: |
+    - id: mit20-a11-2
+      hints:
+        - |
+          The $n$-th Taylor polynomial at $x_0$ is $P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k$. So you need the derivatives $f^{(0)}, \dots, f^{(4)}$ evaluated at the base point.
+        - |
+          For $\sin x$ the derivatives cycle through $\cos, -\sin, -\cos, \sin$. For $\frac{1}{1-x} = (1-x)^{-1}$, find a general formula for $f^{(k)}(x)$ by induction, then substitute $x = -1$.
+      solution: |
+        Recall $P_4(x) = \sum_{k=0}^{4} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$.
+
+        **(a)** With $f(x) = \sin x$ and $x_0 = 0$:
+        $$f(0) = 0,\quad f'(0) = \cos 0 = 1,\quad f''(0) = -\sin 0 = 0,\quad f'''(0) = -\cos 0 = -1,\quad f^{(4)}(0) = \sin 0 = 0.$$
+        Hence
+        $$P_4(x) = x - \frac{x^3}{6}.$$
+        (The degree-4 coefficient happens to be $0$, so $P_4 = P_3$.)
+
+        **(b)** With $f(x) = (1-x)^{-1}$, we claim $f^{(k)}(x) = k!\,(1-x)^{-(k+1)}$ for $x \neq 1$. This holds for $k=0$, and if it holds for $k$ then by the chain rule
+        $$f^{(k+1)}(x) = k!\,\cdot(-(k+1))(1-x)^{-(k+2)}\cdot(-1) = (k+1)!\,(1-x)^{-(k+2)}.$$
+        At $x_0 = -1$ we get $f^{(k)}(-1) = \frac{k!}{2^{k+1}}$, so the $k$-th coefficient is $\frac{f^{(k)}(-1)}{k!} = \frac{1}{2^{k+1}}$. Therefore
+        $$P_4(x) = \frac12 + \frac{x+1}{4} + \frac{(x+1)^2}{8} + \frac{(x+1)^3}{16} + \frac{(x+1)^4}{32}.$$
+
+- id: mit20-a11-3
+  reason: "no technique: limit computations; remainder control is trained by mit20-final-5a"
+  problem: |
+    - id: mit20-a11-3
+      source:
+        key: mit
+        chapter: "Assignment 11"
+        section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+        problemNumber: "Problem 3"
+        page: "1"
+      topic: differentiation
+      subtopics: [taylor]
+      skills: [taylor-remainder-estimate]
+      concept: "limits via Taylor's theorem"
+      title: 'Computing limits with Taylor''s theorem'
+      difficulty: easy
+      category: canonical
+      type: computation
+      tags: [Taylor, limits, computation]
+      problemLatex: |
+        Compute:
+
+        (a)
+        $$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
+
+        (b)
+        $$\lim_{x \to \frac{\pi}{2}} \frac{1 - \sin x}{\left(x - \frac{\pi}{2}\right)^2}$$
+      curation:
+        why: "Use Taylor's theorem with remainder (not L'Hôpital by rote) to compute limits rigorously."
+  solution: |
+    - id: mit20-a11-3
+      hints:
+        - |
+          Expand the numerator with Taylor's theorem about the point the limit approaches, keeping an explicit remainder term.
+        - |
+          In (a), expand $\sin x$ about $0$; since its $x^4$ coefficient is $0$, use the remainder after the degree-4 polynomial. In (b), expand $\sin x$ about $\pi/2$ up to degree 2 with the Lagrange remainder.
+        - |
+          After dividing by the power of $x$ (or of $x - \pi/2$), the remainder contributes a bounded factor times something tending to $0$.
+      solution: |
+        We use Taylor's theorem with the Lagrange remainder: if $f$ is $(n+1)$ times differentiable near $x_0$, then for each $x \neq x_0$ nearby there is $\xi$ between $x_0$ and $x$ with
+        $$f(x) = \sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}.$$
+
+        **(a)** Take $f = \sin$, $x_0 = 0$, $n = 4$. The fourth Taylor polynomial is $x - \frac{x^3}{6}$ and $f^{(5)} = \cos$, so for each $x \ne 0$ there is $\xi_x$ between $0$ and $x$ with
+        $$\sin x = x - \frac{x^3}{6} + \frac{\cos(\xi_x)}{120}x^5.$$
+        Hence, for $x\ne 0$,
+        $$\frac{x - \sin x}{x^3} = \frac16 - \frac{\cos(\xi_x)}{120}x^2.$$
+        Since $|\cos(\xi_x)\,x^2/120| \le x^2/120 \to 0$, we get
+        $$\lim_{x\to 0}\frac{x-\sin x}{x^3} = \frac16.$$
+
+        **(b)** Take $f = \sin$, $x_0 = \pi/2$, $n = 2$. We have $f(\pi/2) = 1$, $f'(\pi/2) = \cos(\pi/2) = 0$, $f''(\pi/2) = -\sin(\pi/2) = -1$, and $f''' = -\cos$. So for $x \neq \pi/2$ there is $\xi_x$ between $\pi/2$ and $x$ with
+        $$\sin x = 1 - \frac12\left(x-\frac{\pi}{2}\right)^2 - \frac{\cos(\xi_x)}{6}\left(x - \frac{\pi}{2}\right)^3.$$
+        Therefore
+        $$\frac{1-\sin x}{(x-\pi/2)^2} = \frac12 + \frac{\cos(\xi_x)}{6}\left(x-\frac{\pi}{2}\right),$$
+        and the last term is bounded in absolute value by $\frac16|x - \pi/2| \to 0$. Hence
+        $$\lim_{x\to\pi/2}\frac{1-\sin x}{(x-\pi/2)^2} = \frac12.$$
+
+- id: lebl-5.3.1
+  reason: "no technique: FTC plus chain-rule computation"
+  problem: |
+    - id: lebl-5.3.1
+      source:
+        key: lebl
+        chapter: 5 The Riemann Integral
+        section: 5.3 Fundamental theorem of calculus
+        problemNumber: Exercise 5.3.1
+        page: '205'
+      assignedIn:
+      - MIT 18.100A (Fall 2020) Assignment 12, Problem 2
+      topic: integration
+      subtopics:
+      - fundamental-theorem
+      skills:
+      - FTC-application
+      - chain-rule
+      concept: derivative of an integral with variable limits (FTC + chain rule)
+      title: Differentiating $\int_{-x}^{x} e^{s^2}\,ds$
+      difficulty: introductory
+      category: canonical
+      type: computation
+      tags:
+      - fundamental-theorem-of-calculus
+      - chain-rule
+      - Riemann-integration
+      problemLatex: |
+        Compute $\displaystyle \frac{d}{dx}\left( \int_{-x}^{x} e^{s^2}\,ds \right)$.
+      notes: MIT 18.100A Fall 2020 used an older Lebl version; v6.3 Exercise 5.3.1 (FTC with variable limits) is topically consistent with the assignment's Riemann-integral reading.
+      curation:
+        why: Second form of the FTC combined with additivity and the chain rule for variable limits of integration.
+  solution: |
+    - id: lebl-5.3.1
+      hints:
+        - |
+          Write the integral as a difference $F(x) - F(-x)$, where $F$ is an antiderivative of the integrand. You do not need a formula for $F$.
+        - |
+          Since $s \mapsto e^{s^2}$ is continuous, the FTC says $F(y) = \int_0^y e^{s^2}\,ds$ has $F'(y) = e^{y^2}$. Then use the chain rule on $F(-x)$.
+      solution: |
+        Let $F(y) = \int_0^y e^{s^2}\,ds$ for $y \in \mathbb{R}$. The integrand $s \mapsto e^{s^2}$ is continuous, so by the fundamental theorem of calculus $F$ is differentiable on $\mathbb{R}$ with $F'(y) = e^{y^2}$. By additivity of the integral,
+        $$\int_{-x}^{x} e^{s^2}\,ds = \int_0^x e^{s^2}\,ds - \int_0^{-x} e^{s^2}\,ds = F(x) - F(-x).$$
+        By the chain rule, $\frac{d}{dx}F(-x) = F'(-x)\cdot(-1) = -e^{(-x)^2} = -e^{x^2}$. Therefore
+        $$\frac{d}{dx}\left(\int_{-x}^{x} e^{s^2}\,ds\right) = F'(x) - \bigl(-e^{x^2}\bigr) = e^{x^2} + e^{x^2} = 2e^{x^2}.$$

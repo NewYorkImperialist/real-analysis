@@ -198,28 +198,6 @@
 
     *Remark.* Uniform continuity is essential. A continuous $f$ made of triangular spikes of height $1$ and base $2^{-n}$ centered at $x = n$ has a convergent integral but does not tend to $0$.
 
-- id: pugh-prelim-56
-  hints:
-    - |
-      Name the integral: $F(x) = \int_0^x f(t)\,dt$. What is $F'$, and what does the hypothesis say in terms of $F$ and $F'$?
-    - |
-      The hypothesis is $F' + F \to L$, a first-order linear differential expression. Which integrating factor turns $F' + F$ into an exact derivative?
-    - |
-      Since $(e^x F)' = e^x (F + F')$, you can write $F(x) = e^{-x}\int_0^x e^t g(t)\,dt$ with $g = F + F' \to L$. Show this weighted average tends to $L$; then $f = g - F \to 0$.
-  solution: |
-    **Proof.** Let $F(x) = \int_0^x f(t)\,dt$. Since $f$ is continuous, the FTC gives that $F$ is differentiable with $F' = f$, and $F(0) = 0$. Let $g = f + F = F' + F$. By hypothesis $g(x) \to L$ for some real $L$. Note $g$ is continuous.
-
-    *Integrating factor.* $(e^x F(x))' = e^x(F'(x) + F(x)) = e^x g(x)$. This derivative is continuous, so by the FTC, $e^x F(x) - e^0 F(0) = \int_0^x e^t g(t)\,dt$, that is,
-    $$F(x) = e^{-x} \int_0^x e^t g(t)\,dt .$$
-    Since $e^{-x}\int_0^x e^t L\,dt = L(1 - e^{-x})$,
-    $$F(x) - L = e^{-x}\int_0^x e^t\big(g(t) - L\big)\,dt \;-\; L e^{-x}.$$
-
-    *$F \to L$.* Let $\epsilon > 0$ and choose $X$ with $|g(t) - L| < \epsilon$ for $t \ge X$. For $x > X$ split the integral at $X$:
-    $$|F(x) - L| \le e^{-x}\left|\int_0^X e^t (g(t) - L)\,dt\right| + e^{-x}\int_X^x e^t \epsilon\,dt + |L|e^{-x} \le K e^{-x} + \epsilon + |L|e^{-x},$$
-    where $K = \left|\int_0^X e^t(g - L)\right|$ does not depend on $x$, and we used $e^{-x}(e^x - e^X) \le 1$. Letting $x \to \infty$ gives $\limsup_{x\to\infty} |F(x) - L| \le \epsilon$. As $\epsilon$ was arbitrary, $F(x) \to L$.
-
-    *Conclusion.* $f(x) = g(x) - F(x) \to L - L = 0$. $\blacksquare$
-
 - id: pugh-prelim-7
   hints:
     - |

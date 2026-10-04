@@ -68,7 +68,9 @@
     (b) Let $r = \sup E$ (which exists by part (a)). Prove that $r > 0$ and $r^3 = 2$.
 
     *Hint:* Adapt the proof used in Example 1.2.3.
-  notes: "The hint refers to Lebl, Basic Analysis I, Example 1.2.3 (existence of $\\sqrt{2}$ via the supremum)."
+
+    *[Summary, not verbatim — Lebl, Example 1.2.3 proves that there is a unique positive $r \in \mathbb{R}$ with $r^2 = 2$. Take $A := \{x \in \mathbb{R} : x^2 < 2\}$; it is nonempty ($1 \in A$) and bounded above ($x \ge 2$ implies $x^2 \ge 4$), so $r := \sup A$ exists, and $r \ge 1 > 0$. To show $r^2 \ge 2$: for any $s > 0$ with $s^2 < 2$, choose $0 < h < 1$ with $h < \frac{2 - s^2}{2s + 1}$; then $(s+h)^2 - s^2 = h(2s + h) < h(2s+1) < 2 - s^2$, so $s + h \in A$ and $s < r$. To show $r^2 \le 2$: for any $s > 0$ with $s^2 > 2$, let $h := \frac{s^2 - 2}{2s}$; then $s - h > 0$ and $s^2 - (s-h)^2 = 2sh - h^2 < 2sh = s^2 - 2$, so $(s-h)^2 > 2$, hence $s - h$ is an upper bound for $A$ and $s > r$. Together, $r^2 = 2$.]*
+  notes: "The hint refers to Lebl, Basic Analysis I, Example 1.2.3 (existence of $\\sqrt{2}$ via the supremum, p. 29–30); a labelled summary of that example was added after the hint for self-containedness."
   curation:
     why: "The archetypal use of completeness: rule out r³ < 2 and r³ > 2 by perturbing r. Every later sup argument has this shape."
 
@@ -196,28 +198,6 @@
   curation:
     why: "Builds the topology of ℝ from the ε-ball definition. Part (c) shows exactly where finiteness is used (take the minimum ε)."
 
-- id: mit20-a3-6
-  source:
-    key: mit
-    chapter: "Assignment 3"
-    section: "Reading: Lebl §1.2–1.5, §2.1"
-    problemNumber: "Problem 6"
-    page: "2"
-  topic: sequences
-  subtopics: [convergence]
-  skills: [epsilon-N-proof, Archimedean-property, crude-bound]
-  concept: "ε–N proof of a limit"
-  title: $\varepsilon$–$N$ proof that $1/(20n^2+20n+2020)\to 0$
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags: [epsilon-N, convergence, definition, sequence]
-  problemLatex: |
-    Prove that
-    $$\lim_{n \to \infty} \frac{1}{20n^2 + 20n + 2020} = 0.$$
-  curation:
-    why: "A first ε–N proof where you should bound crudely (denominator ≥ 20n) rather than solve exactly."
-
 - id: mit20-a4-1
   source:
     key: mit
@@ -237,12 +217,14 @@
   problemLatex: |
     We say a set $F \subset \mathbb{R}$ is *closed* if its complement $F^c := \mathbb{R} \setminus F$ is open (see Assignment 3 for a discussion of open sets). Since $\emptyset$ and $\mathbb{R}$ are open, it follows that $\emptyset$ and $\mathbb{R}$ are closed as well.
 
+    *(Assignment 3, Problem 5: We say a set $U \subset \mathbb{R}$ is open if for every $x \in U$ there exists $\epsilon > 0$ such that $(x - \epsilon, x + \epsilon) \subset U$.)*
+
     (a) Let $a, b \in \mathbb{R}$ with $a < b$. Prove that $[a, b]$ is closed.
 
     (b) Is the set $\mathbb{Z} \subset \mathbb{R}$ closed? Provide a proof to substantiate your claim.
 
     (c) Is the set of rationals $\mathbb{Q} \subset \mathbb{R}$ closed? Provide a proof to substantiate your claim.
-  notes: "“Assignment 3” refers to MIT 18.100A (2020) Assignment 3, Problem 5 (definition of open set: for every $x \\in U$ there is $\\epsilon > 0$ with $(x-\\epsilon, x+\\epsilon) \\subset U$)."
+  notes: "“Assignment 3” refers to MIT 18.100A (2020) Assignment 3, Problem 5 (in this bank: mit20-a3-5). Its definition of open set is quoted verbatim in the statement for self-containedness."
   curation:
     why: "Closedness via the complement; together with Problem 5 of Assignment 3, shows Q is neither open nor closed."
 
@@ -316,7 +298,9 @@
 
     *Hint:* By Assignment 3, if $a_0 = \sup A$ then for all $n \in \mathbb{N}$ there exists $a_n \in A$ such that
     $$a_0 - \frac{1}{n} < a_n \le a_0.$$
-  notes: "“By Assignment 3” refers to MIT 18.100A (2020) Assignment 3, Problem 4 (ε-characterization of sup)."
+
+    *[Summary, not verbatim — “Assignment 3” refers to its Problem 4, the $\epsilon$-characterization of the supremum: if $A \subset \mathbb{R}$ is bounded above and $a_0$ is an upper bound for $A$, then $a_0 = \sup A$ if and only if for every $\epsilon > 0$ there exists $a \in A$ such that $a_0 - \epsilon < a$. The hint applies this with $\epsilon = \frac{1}{n}$.]*
+  notes: "“By Assignment 3” refers to MIT 18.100A (2020) Assignment 3, Problem 4 (ε-characterization of sup; in this bank: mit20-a3-4). A labelled summary of that fact was added after the hint for self-containedness."
   curation:
     why: "Converts the ε-characterization of sup into a sequence statement; used everywhere (e.g. attaining extrema)."
 
@@ -448,27 +432,6 @@
   curation:
     why: "Comparison test plus passing an inequality on partial sums to the limit — the ℓ² machinery behind graduate analysis."
 
-- id: mit20-a7-4
-  source:
-    key: mit
-    chapter: "Assignment 7"
-    section: "Reading: Lebl §2.5, §2.6, §3.1"
-    problemNumber: "Problem 4"
-    page: "1"
-  topic: topology
-  subtopics: [limit-points, dense-sets]
-  skills: [density-argument]
-  concept: "every real is a cluster point of the irrationals"
-  title: Every real number is a cluster point of the irrationals
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags: [cluster-point, density, irrationals]
-  problemLatex: |
-    Prove that every real number is a cluster point of the set of irrational numbers.
-  curation:
-    why: "Short link between density and cluster points; needed for limits of functions on ℝ∖ℚ."
-
 - id: mit20-a7-6
   source:
     key: mit
@@ -539,29 +502,6 @@
     Prove that $f$ is continuous if and only if for every open set $U \subset \mathbb{R}$, $f^{-1}(U)$ is open.
   curation:
     why: "The definition of continuity used in graduate analysis and topology; proving it from ε–δ is essential."
-
-- id: mit20-a9-4
-  source:
-    key: mit
-    chapter: "Assignment 9"
-    section: "Reading: Lebl §3.3–3.5"
-    problemNumber: "Problem 4"
-    page: "1"
-  topic: continuity
-  subtopics: [uniform-continuity, lipschitz-holder]
-  skills: [choose-delta]
-  concept: "Lipschitz implies uniformly continuous"
-  title: Lipschitz functions are uniformly continuous
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags: [Lipschitz, uniform-continuity, definition]
-  problemLatex: |
-    Let $S \subset \mathbb{R}$. We say that $f \colon S \to \mathbb{R}$ is *Lipschitz continuous* on $S$ if there exists $L \ge 0$ such that for all $x, y \in S$,
-    $$|f(x) - f(y)| \le L|x - y|.$$
-    Prove that if $f \colon S \to \mathbb{R}$ is Lipschitz continuous on $S$ then $f$ is uniformly continuous on $S$.
-  curation:
-    why: "The cleanest uniform-continuity proof: δ = ε/L, independent of the point."
 
 - id: mit20-a9-5
   source:
@@ -684,58 +624,6 @@
   curation:
     why: "The standard existence (IVT) + uniqueness (Rolle / positive derivative) pattern."
 
-- id: mit20-a11-2
-  source:
-    key: mit
-    chapter: "Assignment 11"
-    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
-    problemNumber: "Problem 2"
-    page: "1"
-  topic: differentiation
-  subtopics: [taylor]
-  skills: [compute-derivatives]
-  concept: "computing Taylor polynomials"
-  title: Fourth Taylor polynomials of $\sin x$ and $1/(1-x)$
-  difficulty: introductory
-  category: canonical
-  type: computation
-  tags: [Taylor, computation]
-  problemLatex: |
-    Compute the fourth Taylor polynomial for:
-
-    (a) $f(x) = \sin x$ at $x = 0$.
-
-    (b) $f(x) = \frac{1}{1-x}$ at $x = -1$.
-  curation:
-    why: "Routine but sets the notation for Taylor's theorem; (b) checks the expansion point is not 0."
-
-- id: mit20-a11-3
-  source:
-    key: mit
-    chapter: "Assignment 11"
-    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
-    problemNumber: "Problem 3"
-    page: "1"
-  topic: differentiation
-  subtopics: [taylor]
-  skills: [taylor-remainder-estimate]
-  concept: "limits via Taylor's theorem"
-  title: 'Computing limits with Taylor''s theorem'
-  difficulty: easy
-  category: canonical
-  type: computation
-  tags: [Taylor, limits, computation]
-  problemLatex: |
-    Compute:
-
-    (a)
-    $$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
-
-    (b)
-    $$\lim_{x \to \frac{\pi}{2}} \frac{1 - \sin x}{\left(x - \frac{\pi}{2}\right)^2}$$
-  curation:
-    why: "Use Taylor's theorem with remainder (not L'Hôpital by rote) to compute limits rigorously."
-
 - id: mit20-a11-4
   source:
     key: mit
@@ -779,12 +667,14 @@
     $$\underline{x}^{(r)} := \left\{ a + (b - a)\frac{k}{r} : k = 0, \ldots, r \right\},$$
     $$\underline{\xi}^{(r)} := \left\{ a + (b - a)\frac{k}{r} : k = 1, \ldots, r \right\}.$$
 
+    *[Summary, not verbatim — notation of the course's Riemann Integral lecture notes (not in the source set): a tagged partition of $[a,b]$ is a partition $\underline{x} = \{x_0, x_1, \ldots, x_n\}$ with $a = x_0 < x_1 < \cdots < x_n = b$ together with tags $\underline{\xi} = \{\xi_1, \ldots, \xi_n\}$ satisfying $x_{k-1} \le \xi_k \le x_k$. The norm of the partition is $\|\underline{x}\| := \max_{1 \le k \le n} (x_k - x_{k-1})$, and the Riemann sum of $f$ is $S_f(\underline{x}, \underline{\xi}) := \sum_{k=1}^{n} f(\xi_k)(x_k - x_{k-1})$.]*
+
     (a) Compute $\|\underline{x}^{(r)}\|$.
 
     (b) Let $f(x) = \alpha x + \beta$. Prove that
     $$\lim_{r \to \infty} S_f\!\left(\underline{x}^{(r)}, \underline{\xi}^{(r)}\right) = \alpha \frac{b^2 - a^2}{2} + \beta(b - a).$$
     You may not use the fundamental theorem of calculus.
-  notes: "Notation from the course's Riemann Integral lecture notes: $\\|\\underline{x}\\|$ is the norm (mesh) of the partition and $S_f(\\underline{x}, \\underline{\\xi})$ the Riemann sum with tags $\\underline{\\xi}$."
+  notes: "Notation from the course's Riemann Integral lecture notes: $\\|\\underline{x}\\|$ is the norm (mesh) of the partition and $S_f(\\underline{x}, \\underline{\\xi})$ the Riemann sum with tags $\\underline{\\xi}$. The lecture notes are not in the source set, so the definitions were added to the statement as a labelled summary (standard definitions, consistent with this problem's indexing)."
   curation:
     why: "Computing an integral straight from Riemann sums once, by hand, is part of understanding what the integral is."
 
@@ -812,30 +702,11 @@
     (b) Suppose that $u \in C([a, b])$ is twice continuously differentiable, $V \in C([a, b])$, $V(x) \ge 0$ for all $x \in [a, b]$ and
     $$-u''(x) + V(x)u(x) = 0, \quad x \in [a, b], \qquad u(a) = u(b) = 0.$$
     Prove that $u(x) = 0$ for all $x \in [a, b]$. *Hint: What's one of the most useful theorems in analysis mentioned in Lecture 22?*
-  notes: "Typo corrected: the source reads “$f(x) = 0$ for all $f \\in [a,b]$” in (a); intended “$x \\in [a,b]$”. The hint in (b) refers to a course lecture (the intended theorem is not named in the assignment)."
+
+    *[Summary, not verbatim — the theorem meant is integration by parts (Lecture 22 of the course covers the fundamental theorem of calculus and integration by parts): if $f, g$ are continuously differentiable on $[a,b]$, then $\int_a^b f g' = f(b)g(b) - f(a)g(a) - \int_a^b f' g$.]*
+  notes: "Typo corrected: the source reads “$f(x) = 0$ for all $f \\in [a,b]$” in (a); intended “$x \\in [a,b]$”. The hint in (b) refers to a course lecture and does not name the theorem; the lecture notes are not in the source set. A labelled summary naming the theorem (integration by parts, the step the intended energy argument needs: multiply by $u$ and integrate $u''u$ by parts) was added after the hint."
   curation:
     why: "(a) is a basic positivity lemma; (b) multiplies by u and integrates by parts — the energy method behind graduate PDE uniqueness proofs."
-
-- id: mit20-mid-1a
-  source:
-    key: mit
-    chapter: "Midterm Exam (October 16, 2020)"
-    problemNumber: "Problem 1(a)"
-    page: "2"
-  topic: foundations
-  subtopics: [functions, sets]
-  skills: [element-chasing]
-  concept: "preimages commute with intersections"
-  title: Preimages commute with intersections
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags: [preimage, sets, functions, element-chasing]
-  problemLatex: |
-    Let $f \colon A \to B$, and let $C, D$ be subsets of $B$. Prove
-    $$f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D).$$
-  curation:
-    why: "Element-chasing with preimages; the reason preimages, not images, appear in the topological definition of continuity."
 
 - id: mit20-mid-1bc
   source:
@@ -888,27 +759,6 @@
   curation:
     why: "Negate a ∀∃ definition, then turn the negation into a sequence. With Assignment 4 Problem 3 this proves closed ⇔ sequentially closed."
 
-- id: mit20-mid-3a
-  source:
-    key: mit
-    chapter: "Midterm Exam (October 16, 2020)"
-    problemNumber: "Problem 3(a)"
-    page: "6"
-  topic: sequences
-  subtopics: [convergence]
-  skills: [epsilon-N-proof, crude-bound]
-  concept: "ε–N proof of a rational-function limit"
-  title: $\varepsilon$–$N$ proof that $10n^2/(n^2+16n+1)\to 10$
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags: [epsilon-N, convergence, definition]
-  problemLatex: |
-    Use the definition of convergence to prove that
-    $$\lim_{n \to \infty} \frac{10n^2}{n^2 + 16n + 1} = 10.$$
-  curation:
-    why: "An ε–N proof where the difference must be simplified and bounded — the standard exam-level drill."
-
 - id: mit20-mid-3b
   source:
     key: mit
@@ -932,31 +782,6 @@
     (ii) An unbounded sequence that has a convergent subsequence.
   curation:
     why: "Quick examples showing that monotone convergence and Bolzano–Weierstrass have no converses."
-
-- id: mit20-mid-4a
-  source:
-    key: mit
-    chapter: "Midterm Exam (October 16, 2020)"
-    problemNumber: "Problem 4(a)"
-    page: "8"
-  topic: sequences
-  subtopics: [limsup-liminf, bounded-sequences]
-  skills: [tail-sup-argument, limit-of-inequality]
-  concept: "subadditivity of limsup"
-  title: Subadditivity of $\limsup$
-  difficulty: easy
-  category: canonical
-  type: proof
-  tags: [limsup, inequality, bounded-sequence, machinery, canonical]
-  problemLatex: |
-    Let $\{x_n\}$ and $\{y_n\}$ be bounded sequences of real numbers.
-
-    (i) Prove that the sequence $\{x_n + y_n\}$ is bounded.
-
-    (ii) Prove that
-    $$\limsup_{n \to \infty} (x_n + y_n) \le \limsup_{n \to \infty} x_n + \limsup_{n \to \infty} y_n.$$
-  curation:
-    why: "Work with limsup as lim of tail sups: sup of a sum ≤ sum of sups, then take limits."
 
 - id: mit20-mid-4b
   source:
@@ -1150,28 +975,6 @@
   curation:
     why: "The first theorem about derivatives, and its standard counterexample."
 
-- id: mit20-final-4b
-  source:
-    key: mit
-    chapter: "Final Assignment (December 6, 2020)"
-    problemNumber: "Problem 4(b)"
-    page: "9"
-  topic: differentiation
-  subtopics: [derivative-definition]
-  skills: [difference-quotient-estimate, squeeze]
-  concept: "x² sin(1/x) is differentiable at 0"
-  title: Differentiability of $x^2\sin(1/x)$ at 0
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags: [derivative, definition, x2-sin-1-over-x, squeeze]
-  problemLatex: |
-    Let
-    $$f(x) = \begin{cases} x^2 \sin\left(\frac{1}{x}\right) & \text{if } x \neq 0, \\ 0 & \text{if } x = 0. \end{cases}$$
-    Use the definition of the derivative to prove that $f$ is differentiable at $0$.
-  curation:
-    why: "The derivative straight from the limit of difference quotients, on the most important example in the subject."
-
 - id: mit20-final-5a
   source:
     key: mit
@@ -1215,49 +1018,6 @@
   curation:
     why: "Ties the FTC and integration by parts to Taylor's theorem — the integral form of the remainder."
 
-- id: mit20-final-6a
-  source:
-    key: mit
-    chapter: "Final Assignment (December 6, 2020)"
-    problemNumber: "Problem 6(a)"
-    page: "11"
-  topic: integration
-  subtopics: [improper-integrals]
-  skills: [FTC, integration-by-parts, lhopital]
-  concept: "improper integral ∫₀¹ x log x as a limit"
-  title: The improper integral $\int_0^1 x\log x\,dx$
-  difficulty: easy
-  category: canonical
-  type: computation
-  tags: [improper-integral, FTC, L-Hopital, computation]
-  problemLatex: |
-    Compute
-    $$\int_0^1 x \log x \, dx := \lim_{a \to 0^+} \int_a^1 x \log x \, dx.$$
-    You may use without proof the following version of **L'Hôpital's rule**: if $f, g \colon (0, 1) \to \mathbb{R}$, $g(x) \neq 0$ for all $x$, $f(x) \to -\infty$, $g(x) \to \infty$ as $x \to 0^+$, and $L = \lim_{x \to 0^+} f'(x)/g'(x)$ exists, then $\lim_{x \to 0^+} f(x)/g(x) = L$.
-  curation:
-    why: "An improper integral treated honestly as a limit of proper integrals."
-
-- id: mit20-final-6b
-  source:
-    key: mit
-    chapter: "Final Assignment (December 6, 2020)"
-    problemNumber: "Problem 6(b)"
-    page: "12"
-  topic: integration
-  subtopics: [integral-inequalities]
-  skills: [integral-estimate, squeeze]
-  concept: "lim ∫₀¹ xⁿ sin x dx = 0 by direct estimate"
-  title: $\int_0^1 x^n \sin x\,dx$ tends to 0
-  difficulty: introductory
-  category: canonical
-  type: proof
-  tags: [Riemann-integration, estimate, limits-of-integrals]
-  problemLatex: |
-    Prove
-    $$\lim_{n \to \infty} \int_0^1 x^n \sin(x)\,dx = 0.$$
-  curation:
-    why: "Estimating an integral (|∫| ≤ ∫ xⁿ = 1/(n+1)) instead of computing it; contrast with the non-uniform convergence of xⁿ."
-
 - id: mit20-final-6c
   source:
     key: mit
@@ -1279,26 +1039,6 @@
     *Hint:* $\sin(nx) = \left[-\frac{1}{n}\cos(nx)\right]'$
   curation:
     why: "A first look at the Riemann–Lebesgue lemma: integrate by parts and bound with the EVT."
-
-- id: mit20-final-7a
-  source:
-    key: mit
-    chapter: "Final Assignment (December 6, 2020)"
-    problemNumber: "Problem 7(a)"
-    page: "14"
-  topic: function-sequences
-  subtopics: [pointwise-convergence, uniform-convergence]
-  skills: [construct-counterexample]
-  concept: "pointwise but not uniform convergence to a continuous limit"
-  title: Pointwise but not uniform convergence to a continuous limit
-  difficulty: introductory
-  category: canonical
-  type: counterexample
-  tags: [uniform-convergence, pointwise-convergence, counterexample]
-  problemLatex: |
-    Give an explicit example of a sequence of continuous functions on $(0, 1)$ that converges pointwise to a continuous function on $(0, 1)$ but the convergence is not uniform. Explanation, but not a formal proof, is required. Feel free to use pictures.
-  curation:
-    why: "Shows that a continuous limit does not imply uniform convergence (the ‘moving bump’ / xⁿ examples)."
 
 - id: mit20-final-7b
   source:

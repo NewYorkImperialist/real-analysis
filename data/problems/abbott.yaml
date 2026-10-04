@@ -359,7 +359,9 @@
     (a) Show that $\sqrt{2}$, $\sqrt[3]{2}$, and $\sqrt{3} + \sqrt{2}$ are algebraic.
     (b) Fix $n \in \mathbb{N}$, and let $A_n$ be the algebraic numbers obtained as roots of polynomials with integer coefficients that have degree $n$. Using the fact that every polynomial has a finite number of roots, show that $A_n$ is countable.
     (c) Now, argue that the set of all algebraic numbers is countable. What may we conclude about the set of transcendental numbers?
-  notes: The sentence 'Reread the last paragraph of Section 1.1...' is kept verbatim; it is contextual only and could be dropped without affecting the problem.
+
+    *(End of the last paragraph of Section 1.1: … The one method we have seen so far for generating examples of irrational numbers is through square roots. Not too surprisingly, other roots such as $\sqrt[3]{2}$ or $\sqrt[5]{3}$ are most often irrational. Can all irrational numbers be expressed as algebraic combinations of $n$th roots and rational numbers, or are there still other irrational numbers beyond those of this form?)*
+  notes: The sentence 'Reread the last paragraph of Section 1.1...' is kept verbatim; it is contextual only and could be dropped without affecting the problem. The closing sentences of that paragraph, ending in the "final question" referred to, are quoted verbatim from p. 4 (verified against the page image).
   curation:
     why: Algebraic numbers are countable, so transcendental numbers exist — counting as an existence proof.
 - id: abbott-2.2.1
@@ -2765,32 +2767,6 @@
   notes: U(f,P), L(f,P) are Darboux upper/lower sums (Definition 7.2.1); integrability means U(f)=L(f) (Definition 7.2.7).
   curation:
     why: The sequential criterion for integrability (Uₙ − Lₙ → 0), then ∫x computed from the definition.
-- id: abbott-7.2.5
-  source:
-    key: abbott
-    chapter: 7 The Riemann Integral
-    section: 7.2 The Definition of the Riemann Integral
-    problemNumber: Exercise 7.2.5
-    page: '223'
-  topic: function-sequences
-  subtopics:
-  - interchange-integral
-  skills:
-  - epsilon-over-3
-  - sup-norm-estimate
-  concept: uniform limit of integrable functions is integrable
-  title: 'Uniform limits of integrable functions are integrable'
-  difficulty: medium
-  category: canonical
-  type: proof
-  tags:
-  - Riemann-integration
-  - uniform-convergence
-  - integrability-criterion
-  problemLatex: |
-    Assume that, for each $n$, $f_n$ is an integrable function on $[a,b]$. If $(f_n) \to f$ uniformly on $[a,b]$, prove that $f$ is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
-  curation:
-    why: A uniform limit of integrable functions is integrable.
 - id: abbott-7.3.5
   source:
     key: abbott

@@ -24,25 +24,6 @@
     $$|x_n - c| = |x_n - x_k| < \epsilon.$$
     Since $\epsilon > 0$ was arbitrary, $\lim_{n\to\infty} x_n = c$. $\blacksquare$
 
-- id: tao-8.3.4
-  hints:
-    - |
-      "Strictly lesser cardinality" has two parts: an injection exists, and no bijection exists. For the first claim, which part is supplied by Cantor's theorem, and which part do you still have to build by hand?
-    - |
-      For $X \to 2^X$, every element $x$ determines a very simple subset of $X$. For transitivity, composing injections handles "lesser or equal"; the real work is ruling out a bijection between $A$ and $C$.
-    - |
-      Suppose $A$ and $C$ had equal cardinality. Combine a bijection $C \to A$ with the injection $A \to B$ to get an injection $C \to B$, and then invoke Schröder–Bernstein on $B$ and $C$.
-  solution: |
-    **Part 1: $X$ has strictly lesser cardinality than $2^X$.** Define $f\colon X \to 2^X$ by $f(x) = \{x\}$. This is well defined, since $\{x\} \subseteq X$ for every $x \in X$. It is injective: if $\{x\} = \{y\}$ then $x \in \{y\}$, so $x = y$. Thus $X$ has lesser or equal cardinality to $2^X$. By Cantor's theorem (Theorem 8.3.1), $X$ and $2^X$ do not have equal cardinality. Hence $X$ has strictly lesser cardinality than $2^X$.
-
-    **Part 2: transitivity.** Suppose $A$ has strictly lesser cardinality than $B$, and $B$ has strictly lesser cardinality than $C$. Then there are injections $f\colon A \to B$ and $g\colon B \to C$.
-
-    *Lesser or equal.* The composition $g \circ f\colon A \to C$ is injective: if $g(f(a)) = g(f(a'))$, then $f(a) = f(a')$ because $g$ is injective, and then $a = a'$ because $f$ is injective. So $A$ has lesser or equal cardinality to $C$.
-
-    *Not equal.* Suppose, for contradiction, that $A$ and $C$ have equal cardinality, so there is a bijection $h\colon C \to A$. Then $f \circ h\colon C \to B$ is a composition of injections, hence injective, so $C$ has lesser or equal cardinality to $B$. We also have the injection $g\colon B \to C$, so $B$ has lesser or equal cardinality to $C$. By the Schröder–Bernstein theorem (Exercise 8.3.3), $B$ and $C$ have equal cardinality. This contradicts the assumption that $B$ has strictly lesser cardinality than $C$.
-
-    Therefore $A$ and $C$ do not have equal cardinality, and $A$ has strictly lesser cardinality than $C$. $\blacksquare$
-
 - id: lebl-5.2.2
   hints:
     - |

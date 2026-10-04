@@ -137,7 +137,7 @@
     - |
       In the converse, take $\epsilon = a_0 - b$ in the definition of $a_n \to a_0$ to find a term of the sequence above $b$.
   solution: |
-    **($\Rightarrow$)** Suppose $a_0 = \sup A$. By the $\epsilon$-characterization of the supremum (Assignment 3, Problem 4), applied with $\epsilon = \frac1n$, for each $n \in \mathbb{N}$ there is $a_n \in A$ with
+    **($\Rightarrow$)** Suppose $a_0 = \sup A$. By the $\epsilon$-characterization of the supremum (if $a_0 = \sup A$, then for every $\epsilon > 0$ some $a \in A$ has $a_0 - \epsilon < a$, since otherwise $a_0 - \epsilon$ would be a smaller upper bound), applied with $\epsilon = \frac1n$, for each $n \in \mathbb{N}$ there is $a_n \in A$ with
     $$a_0 - \frac1n < a_n \le a_0$$
     (the right inequality because $a_0$ is an upper bound). Hence $|a_n - a_0| < \frac1n$ for all $n$. Given $\epsilon > 0$, by the Archimedean property choose $N$ with $\frac1N < \epsilon$; then for $n \ge N$, $|a_n - a_0| < \frac1n \le \frac1N < \epsilon$. So $a_n \to a_0$, and each $a_n \in A$.
 

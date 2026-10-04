@@ -264,41 +264,6 @@
     why: 'A convergent improper integral plus uniform continuity forces decay (Barbalat''s lemma).'
   tier: upper
 
-- id: pugh-prelim-56
-  source:
-    key: pugh
-    chapter: 4 Function Spaces
-    section: More Prelim Problems
-    problemNumber: Prelim Problem 56
-    page: '275'
-  topic: integration
-  subtopics:
-  - fundamental-theorem
-  - improper-integrals
-  skills:
-  - integrating-factor
-  - lhopital-infinity-over-infinity
-  - epsilon-estimate
-  concept: if f + ∫_0^x f has a finite limit then f → 0 (F' + F → L ⇒ F → L)
-  title: If $f(x) + \int_0^x f$ converges then $f \to 0$
-  difficulty: hard
-  category: challenge
-  type: proof
-  tags:
-  - limits-at-infinity
-  - fundamental-theorem
-  - integrating-factor
-  - lhopital
-  - prelim
-  problemLatex: |
-    Let $f$ be a continuous real-valued function on $[0,\infty)$ such that
-    $$\lim_{x\to\infty} \Bigl( f(x) + \int_0^x f(t)\, dt \Bigr)$$
-    exists (and is finite). Prove that $\lim_{x\to\infty} f(x) = 0$.
-  notes: Verified against page image.
-  curation:
-    why: 'A limit-at-infinity problem whose tool is not named.'
-  tier: upper
-
 - id: pugh-prelim-7
   source:
     key: pugh

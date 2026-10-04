@@ -214,21 +214,6 @@
 
     Thus the partial sums of $\sum |c_n|$ are nondecreasing and bounded above by $AB$. By the monotone convergence theorem they converge, so $\sum c_n$ converges absolutely. $\blacksquare$
 
-- id: lebl-2.6.13
-  hints:
-    - |
-      Exercise 2.5.14 shows that the example cannot have nonnegative terms. So the convergence must come from cancellation, as in an alternating series.
-    - |
-      Choose $|x_n|$ so that $x_n^2$ is the harmonic series.
-  solution: |
-    Let $x_n = \frac{(-1)^n}{\sqrt{n}}$.
-
-    **$\sum x_n$ converges.** The sequence $\frac{1}{\sqrt n}$ is positive and decreasing, and it tends to $0$: $\frac{1}{\sqrt n} < \varepsilon$ once $n > \varepsilon^{-2}$. By the alternating series test, $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt n}$ converges.
-
-    **$\sum x_n^2$ diverges.** $x_n^2 = \frac{1}{n}$, so $\sum x_n^2$ is the harmonic series, which diverges.
-
-    This is consistent with Exercise 2.5.14, which needs $x_n \ge 0$. Here the series converges only conditionally.
-
 - id: ross-14.10
   hints:
     - |

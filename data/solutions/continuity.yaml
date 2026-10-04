@@ -1,16 +1,3 @@
-- id: mit20-a9-4
-  hints:
-    - |
-      Write down what uniform continuity requires: given $\epsilon > 0$, a single $\delta > 0$ that works for all pairs $x, y \in S$ at once.
-    - |
-      The Lipschitz inequality already bounds $|f(x) - f(y)|$ by a multiple of $|x - y|$, with no dependence on where $x$ and $y$ are. How small must $|x-y|$ be to make $L|x-y| < \epsilon$? Remember that $L$ could be $0$.
-  solution: |
-    **Proof.** Let $L \ge 0$ be a Lipschitz constant for $f$ on $S$, and let $\epsilon > 0$. Put
-    $$\delta = \frac{\epsilon}{L + 1} > 0.$$
-    (We use $L+1$ rather than $L$ so that the formula also makes sense when $L = 0$.) Note that $\delta$ depends only on $\epsilon$ and $L$, not on any point of $S$. If $x, y \in S$ with $|x - y| < \delta$, then
-    $$|f(x) - f(y)| \le L|x - y| \le L\delta = \frac{L}{L+1}\,\epsilon < \epsilon.$$
-    (When $L = 0$ the middle quantity is $0 < \epsilon$.) Hence $f$ is uniformly continuous on $S$. $\blacksquare$
-
 - id: mit20-a9-6
   hints:
     - |
@@ -44,17 +31,6 @@
     **(ii)** Define $f\colon [0,1]\to\mathbb{R}$ by
     $$f(x) = \begin{cases} x & 0 \le x < \tfrac12, \\ x + 1 & \tfrac12 \le x \le 1. \end{cases}$$
     The range is $[0, \tfrac12) \cup [\tfrac32, 2]$. So $f(0) = 0$ is the smallest value (an absolute minimum at $0$) and $f(1) = 2$ is the largest value (an absolute maximum at $1$). The value $y = 1 \in (f(0), f(1)) = (0,2)$ is not in the range. This does not contradict the Intermediate Value Theorem, because $f$ is discontinuous at $x = \tfrac12$ (the left-hand limit there is $\tfrac12$, but $f(\tfrac12) = \tfrac32$).
-
-- id: lebl-3.2.11
-  hints:
-    - |
-      Continuity at $c$ lets you keep $f(x)$ within any prescribed distance $\epsilon$ of $f(c)$. Which $\epsilon$ guarantees that $f(x)$ stays positive?
-    - |
-      Unpack $|f(x) - f(c)| < \epsilon$ as $f(c) - \epsilon < f(x) < f(c) + \epsilon$. Only the lower bound matters here: how large may $\epsilon$ be so that it is still at least $0$? Then take $\alpha$ to be the $\delta$ that continuity gives for that $\epsilon$.
-  solution: |
-    **Proof.** Let $\epsilon = f(c) > 0$. Since $f$ is continuous at $c$, there is $\delta > 0$ such that $|x - c| < \delta$ implies $|f(x) - f(c)| < f(c)$. Set $\alpha = \delta$. For $x \in (c-\alpha, c+\alpha)$ we have $|x - c| < \delta$, so
-    $$f(x) > f(c) - f(c) = 0.$$
-    $\blacksquare$
 
 - id: lebl-3.3.11
   hints:
