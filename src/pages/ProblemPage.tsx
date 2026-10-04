@@ -7,6 +7,8 @@ import { setNotes, setPersonalSolution, recordHintViewed } from '../lib/progress
 import { RichText, InlineRich } from '../components/RichText';
 import { StatusControl } from '../components/StatusControl';
 import { ProblemList } from '../components/ProblemRow';
+import { ProblemTimer } from '../components/ProblemTimer';
+import { useTimerEnabled } from '../lib/timerSetting';
 
 const PRACTICE_KEY = 'rapb.practice.current';
 
@@ -229,6 +231,7 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
   const progress = useProgress();
   const [workspace, setWorkspace] = useState(false);
   const [focusSol, setFocusSol] = useState(false);
+  const timerOn = useTimerEnabled();
 
   useEffect(() => {
     setWorkspace(false);
@@ -299,6 +302,9 @@ export function ProblemPage({ id, query }: { id: string; query: URLSearchParams 
             {workspace ? 'Close workspace' : 'Attempt'}
           </button>
         </div>
+        {timerOn && (
+          <ProblemTimer key={p.id} id={p.id} storedMs={pr?.timeSpentMs ?? 0} completed={pr?.status === 'completed'} />
+        )}
         {workspace && <Workspace p={p} notes={notes} personal={personal} focusSolution={focusSol} />}
         <div class="controls"><Hints key={p.id} p={p} /></div>
         <div class="controls"><Solution key={p.id} p={p} personal={personal} openEditor={openEditor} /></div>

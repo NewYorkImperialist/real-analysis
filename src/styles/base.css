@@ -316,3 +316,7 @@ dl.defs dd { color: var(--ink-2); }
   .rich .katex-display { overflow: visible; }
   .clamp-2 { -webkit-line-clamp: unset; line-clamp: none; display: block; overflow: visible; }
 }
+
+/* optional problem timer */
+.timer-readout { font-family: var(--font-ui); color: var(--ink-2); }
+.timer-digits { font-variant-numeric: tabular-nums; }

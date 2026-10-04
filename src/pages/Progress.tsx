@@ -16,6 +16,7 @@ import {
 import { href } from '../lib/router';
 import { StatusBar, type StatusCounts } from '../components/StatusBar';
 import { ProblemList } from '../components/ProblemRow';
+import { useTimerEnabled, setTimerEnabled, formatMinutes } from '../lib/timerSetting';
 
 function countStatuses(list: Problem[], map: ProgressMap): StatusCounts {
   const c: StatusCounts = { unseen: 0, attempted: 0, completed: 0 };
@@ -120,6 +121,64 @@ function summarize(fileName: string, parsed: ParsedImport): Pending {
     mergeReplaces,
     currentEntries: Object.keys(cur).length,
   };
+}
+
+function median(xs: number[]): number {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
+/** Your own time per difficulty, from completed problems that have timer data (core and upper tier). */
+function TimeStats({ map }: { map: ProgressMap }) {
+  const on = useTimerEnabled();
+  const rows = DIFFICULTIES.map((d) => {
+    const done = problems.filter((p) => p.difficulty === d && map[p.id]?.status === 'completed' && (map[p.id]?.timeSpentMs ?? 0) > 0);
+    const ms = done.map((p) => map[p.id]!.timeSpentMs!);
+    const hints = done.map((p) => map[p.id]!.hintsUsed ?? 0);
+    return { d, n: done.length, avg: ms.length ? ms.reduce((a, b) => a + b, 0) / ms.length : 0, med: ms.length ? median(ms) : 0,
+      hints: hints.length ? hints.reduce((a, b) => a + b, 0) / hints.length : 0 };
+  });
+  const any = rows.some((r) => r.n > 0);
+  return (
+    <section class="stats-section" aria-labelledby="time-h">
+      <h2 id="time-h">Your time per problem</h2>
+      <label class="small row">
+        <input type="checkbox" checked={on} onChange={(e) => setTimerEnabled((e.currentTarget as HTMLInputElement).checked)} />
+        Show the timer on problem pages
+      </label>
+      {any ? (
+        <table class="stats-table">
+          <caption class="visually-hidden">Average time and hints per difficulty</caption>
+          <thead>
+            <tr>
+              <th scope="col">Difficulty</th>
+              <th scope="col" class="num">Timed</th>
+              <th scope="col" class="num">Average</th>
+              <th scope="col" class="num">Median</th>
+              <th scope="col" class="num">Hints used</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr key={r.d} class={r.n === 0 ? 'is-empty' : ''}>
+                <th scope="row">{label(r.d)}</th>
+                <td class="num">{r.n}</td>
+                <td class="num">{r.n ? formatMinutes(r.avg) : '–'}</td>
+                <td class="num">{r.n ? formatMinutes(r.med) : '–'}</td>
+                <td class="num">{r.n ? r.hints.toFixed(1) : '–'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p class="muted stats-small">No timed problems yet. Start the timer on a problem page; times appear here once you mark timed problems completed.</p>
+      )}
+      <p class="muted stats-small">
+        Counts only completed problems with recorded time. The median is less affected by one long session than the average.
+      </p>
+    </section>
+  );
 }
 
 const plural = (n: number, one: string, many = one + 's') => `${n} ${n === 1 ? one : many}`;
@@ -431,6 +490,8 @@ export function ProgressPage() {
         <h2 id="diff-h">By difficulty</h2>
         <BreakdownTable caption="Progress by difficulty" head="Difficulty" rows={diffRows} map={map} />
       </section>
+
+      <TimeStats map={map} />
 
       <section class="stats-section" aria-labelledby="cat-h">
         <h2 id="cat-h">By category</h2>

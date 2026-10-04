@@ -11,6 +11,7 @@ export type ProblemProgress = {
   bookmarked?: boolean;
   confidence?: number;
   hintsUsed?: number;
+  timeSpentMs?: number; // from the optional problem timer; summed across sessions
   personalSolutionLatex?: string;
   notes?: string;
   updatedAt?: string; // used to resolve merges on import
@@ -37,6 +38,7 @@ function normalizeEntry(raw: unknown): ProblemProgress | null {
   if (typeof r.bookmarked === 'boolean') e.bookmarked = r.bookmarked;
   if (typeof r.confidence === 'number') e.confidence = r.confidence;
   if (typeof r.hintsUsed === 'number') e.hintsUsed = r.hintsUsed;
+  if (typeof r.timeSpentMs === 'number' && r.timeSpentMs >= 0) e.timeSpentMs = r.timeSpentMs;
   if (typeof r.personalSolutionLatex === 'string') e.personalSolutionLatex = r.personalSolutionLatex;
   if (typeof r.notes === 'string') e.notes = r.notes;
   if (typeof r.updatedAt === 'string') e.updatedAt = r.updatedAt;
@@ -133,6 +135,16 @@ export function setPersonalSolution(id: string, latex: string) {
 export function recordHintViewed(id: string, count: number) {
   // Counts revealed hints; never changes status.
   if ((get(id).hintsUsed ?? 0) < count) update(id, { hintsUsed: count });
+}
+
+// Timer: adds time to a problem. Never changes status.
+export function addTime(id: string, ms: number) {
+  if (ms > 0) update(id, { timeSpentMs: (get(id).timeSpentMs ?? 0) + Math.round(ms) });
+}
+
+// Manual correction or reset of a problem's recorded time.
+export function setTime(id: string, ms: number) {
+  update(id, { timeSpentMs: Math.max(0, Math.round(ms)) });
 }
 
 // ---------- export / import ----------
