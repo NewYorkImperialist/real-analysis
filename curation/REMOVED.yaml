@@ -870,3 +870,43 @@
         $$\int_{-x}^{x} e^{s^2}\,ds = \int_0^x e^{s^2}\,ds - \int_0^{-x} e^{s^2}\,ds = F(x) - F(-x).$$
         By the chain rule, $\frac{d}{dx}F(-x) = F'(-x)\cdot(-1) = -e^{(-x)^2} = -e^{x^2}$. Therefore
         $$\frac{d}{dx}\left(\int_{-x}^{x} e^{s^2}\,ds\right) = F'(x) - \bigl(-e^{x^2}\bigr) = e^{x^2} + e^{x^2} = 2e^{x^2}.$$
+
+- id: mit20-mid-4b
+  reason: "near-duplicate: one instance of rudin-2.17's \"is E perfect?\" (every point a limit point); limit points are covered by six other canonical problems"
+  problem: |
+    - id: mit20-mid-4b
+      source:
+        key: mit
+        chapter: "Midterm Exam (October 16, 2020)"
+        problemNumber: "Problem 4(b)"
+        page: "9"
+      topic: topology
+      subtopics: [limit-points]
+      skills: [construct-sequence, decimal-expansions]
+      concept: "cluster point of a digit-restricted set"
+      title: $0.111\ldots$ is a cluster point of a digit-restricted set
+      difficulty: easy
+      category: canonical
+      type: proof
+      tags: [cluster-point, decimal-representation, sequence]
+      problemLatex: |
+        Let $E$ denote the set of all real numbers in $(0, 1)$ with decimal expansion involving only 1's and 2's:
+        $$E = \{x \in (0, 1) : \forall j \in \mathbb{N},\ \exists d_{-j} \in \{1, 2\}, \text{ such that } x = 0.d_{-1}d_{-2}\ldots\}.$$
+        Note that $0.2 \notin E$ but $0.222222\ldots \in E$. Prove that $0.1111111\ldots$ is a cluster point of $E$.
+      curation:
+        why: "Constructing points of a set that approach a given point, with an honest estimate on the distance."
+  solution: |
+    - id: mit20-mid-4b
+      hints:
+        - |
+          You need points of $E$, different from $0.111\ldots$, arbitrarily close to it. Which elements of $E$ agree with $0.111\ldots$ in many leading digits?
+        - |
+          Consider $x_n = 0.\underbrace{11\ldots1}_{n}222\ldots$ and compute $x_n - 0.111\ldots$ as a geometric series.
+      solution: |
+        Let $x = 0.111\ldots = \sum_{j=1}^\infty 10^{-j} = \tfrac19$. For $n \in \mathbb{N}$ let $x_n$ be the number whose first $n$ decimal digits are $1$ and all later digits are $2$:
+        $$x_n = \sum_{j=1}^n 10^{-j} + \sum_{j=n+1}^\infty 2\cdot 10^{-j}.$$
+        Its decimal expansion uses only the digits $1$ and $2$, and $0 < x_n < 1$ (since $x_n \le \sum_j 2\cdot 10^{-j} = \tfrac29$), so $x_n \in E$. Moreover
+        $$x_n - x = \sum_{j=n+1}^\infty 10^{-j} = \frac{10^{-(n+1)}}{1 - 1/10} = \frac{10^{-n}}{9} > 0,$$
+        so $x_n \ne x$ and $|x_n - x| = 10^{-n}/9$.
+
+        Now let $\epsilon > 0$. Choose $n$ with $10^{-n} < 9\epsilon$ (possible since $10^{-n} \le 1/n \to 0$). Then $x_n \in (x-\epsilon, x+\epsilon) \cap E \setminus \{x\}$. As $\epsilon$ was arbitrary, $0.111\ldots$ is a cluster point of $E$.

@@ -198,7 +198,6 @@ topology:
   - mit20-a4-3
   - mit20-mid-2
   # group: limit points and closure
-  - mit20-mid-4b
   - mit20-a4-7
   - abbott-3.2.7
   - abbott-3.2.5

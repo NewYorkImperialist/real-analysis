@@ -98,20 +98,6 @@
     **(b)** Let $x \in U$ be as in (a). For each $n \in \mathbb{N}$, apply (a) with $\epsilon = 1/n$ to obtain $x_n \in U^c$ with $|x_n - x| < 1/n$. Given $\epsilon > 0$, choose $N$ with $1/N < \epsilon$ (Archimedean property); then for $n \ge N$, $|x_n - x| < 1/n \le 1/N < \epsilon$. Hence $\{x_n\}$ is a sequence in $U^c$ with $\lim x_n = x$, and $x \in U$.
 
     **(c)** Suppose $F$ is not closed, i.e. $U := F^c$ is not open. By (b) there exist $x \in U = F^c$ and a sequence $\{x_n\}$ in $U^c = F$ with $x_n \to x$. By the assumed property of $F$, $x = \lim x_n \in F$, contradicting $x \in F^c$. Therefore $F$ is closed.
-- id: mit20-mid-4b
-  hints:
-    - |
-      You need points of $E$, different from $0.111\ldots$, arbitrarily close to it. Which elements of $E$ agree with $0.111\ldots$ in many leading digits?
-    - |
-      Consider $x_n = 0.\underbrace{11\ldots1}_{n}222\ldots$ and compute $x_n - 0.111\ldots$ as a geometric series.
-  solution: |
-    Let $x = 0.111\ldots = \sum_{j=1}^\infty 10^{-j} = \tfrac19$. For $n \in \mathbb{N}$ let $x_n$ be the number whose first $n$ decimal digits are $1$ and all later digits are $2$:
-    $$x_n = \sum_{j=1}^n 10^{-j} + \sum_{j=n+1}^\infty 2\cdot 10^{-j}.$$
-    Its decimal expansion uses only the digits $1$ and $2$, and $0 < x_n < 1$ (since $x_n \le \sum_j 2\cdot 10^{-j} = \tfrac29$), so $x_n \in E$. Moreover
-    $$x_n - x = \sum_{j=n+1}^\infty 10^{-j} = \frac{10^{-(n+1)}}{1 - 1/10} = \frac{10^{-n}}{9} > 0,$$
-    so $x_n \ne x$ and $|x_n - x| = 10^{-n}/9$.
-
-    Now let $\epsilon > 0$. Choose $n$ with $10^{-n} < 9\epsilon$ (possible since $10^{-n} \le 1/n \to 0$). Then $x_n \in (x-\epsilon, x+\epsilon) \cap E \setminus \{x\}$. As $\epsilon$ was arbitrary, $0.111\ldots$ is a cluster point of $E$.
 - id: abbott-3.2.5
   hints:
     - |

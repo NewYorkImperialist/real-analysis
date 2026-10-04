@@ -783,28 +783,6 @@
   curation:
     why: "Quick examples showing that monotone convergence and Bolzano–Weierstrass have no converses."
 
-- id: mit20-mid-4b
-  source:
-    key: mit
-    chapter: "Midterm Exam (October 16, 2020)"
-    problemNumber: "Problem 4(b)"
-    page: "9"
-  topic: topology
-  subtopics: [limit-points]
-  skills: [construct-sequence, decimal-expansions]
-  concept: "cluster point of a digit-restricted set"
-  title: $0.111\ldots$ is a cluster point of a digit-restricted set
-  difficulty: easy
-  category: canonical
-  type: proof
-  tags: [cluster-point, decimal-representation, sequence]
-  problemLatex: |
-    Let $E$ denote the set of all real numbers in $(0, 1)$ with decimal expansion involving only 1's and 2's:
-    $$E = \{x \in (0, 1) : \forall j \in \mathbb{N},\ \exists d_{-j} \in \{1, 2\}, \text{ such that } x = 0.d_{-1}d_{-2}\ldots\}.$$
-    Note that $0.2 \notin E$ but $0.222222\ldots \in E$. Prove that $0.1111111\ldots$ is a cluster point of $E$.
-  curation:
-    why: "Constructing points of a set that approach a given point, with an honest estimate on the distance."
-
 - id: mit20-mid-5a
   source:
     key: mit

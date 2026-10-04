@@ -79,10 +79,11 @@ MIT problems were judged by the same standard as every other source.
 
 - **Cut (19):** lebl-0.3.15, abbott-7.2.5, tao-8.3.4, lebl-2.6.13, mit20-a7-4, mit20-a9-4, lebl-3.2.11,
   pugh-prelim-56, mit20-mid-1a, mit20-a3-6, mit20-mid-3a, mit20-mid-4a, mit20-final-4b, mit20-final-6a,
-  mit20-final-6b, mit20-final-7a, mit20-a11-2, mit20-a11-3, lebl-5.3.1. Each problem, with its hints, solution
+  mit20-final-6b, mit20-final-7a, mit20-a11-2, mit20-a11-3, lebl-5.3.1, and later mit20-mid-4b
+  (contained in rudin-2.17). Each problem, with its hints, solution
   and reason, is kept in `curation/REMOVED.yaml` for restoration.
 - **Context fixed (9):** the 8 issue-4 problems plus mit20-a11-5 (undefined lecture notation; kept instead
   of cut).
 - **Kept despite the flags:** lebl-0.3.6, lebl-0.3.19, lebl-0.3.12, mit20-a1-6, lebl-3.4.3, ross-18.4,
-  lebl-3.3.14, lebl-1.2.7, ross-29.10, lebl-6.2.2, mit20-mid-4b (pending decision), ross-36.3 and
+  lebl-3.3.14, lebl-1.2.7, ross-29.10, lebl-6.2.2, ross-36.3 and
   cummings-8.28 (upper tier, the owner's choice).
