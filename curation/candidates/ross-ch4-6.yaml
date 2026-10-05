@@ -660,11 +660,13 @@ candidates:
     references: ["Theorem 26.5 (quoted)"]
     problemLatex: |
       Let $f(x) = \sum_{n=0}^\infty \frac{1}{n!} x^n$ for $x \in \mathbb{R}$. Show $f' = f$. Do *not* use the fact that $f(x) = e^x$; this is true but has not been established at this point in the text.
+
+      *(Theorem 26.5, quoted: Let $f(x) = \sum_{n=0}^\infty a_n x^n$ have radius of convergence $R > 0$. Then $f$ is differentiable on $(-R, R)$ and $f'(x) = \sum_{n=1}^\infty n a_n x^{n-1}$ for $|x| < R$.)*
     bookHint: |
       *Hint*: Apply Theorem 26.5.
-
-      *(Theorem 26.5: Let $f(x) = \sum_{n=0}^\infty a_n x^n$ have radius of convergence $R > 0$. Then $f$ is differentiable on $(-R, R)$ and $f'(x) = \sum_{n=1}^\infty n a_n x^{n-1}$ for $|x| < R$.)*
-    transcriptionNotes: "Verified against page image. bookHint from PDF p. 397 (printed 388); Theorem 26.5 statement quoted verbatim by me inside the hint for self-containedness."
+    transcriptionNotes: "Theorem 26.5 (p. 210) quoted verbatim in the statement. bookHint from PDF p. 397 (printed 388)."
+    audit: fixed
+    auditNotes: "Checked against page images (pdf 220, 226, 397). Moved the quoted Theorem 26.5 from the hint into the statement, so the problem is self-contained."
 
   - cid: ross-26.6
     chapter: "4 Sequences and Series of Functions"
@@ -694,7 +696,11 @@ candidates:
       (c) Prove $s^2 + c^2 = 1$.
 
       Actually $s(x) = \sin x$ and $c(x) = \cos x$, but you do *not* need these facts.
-    transcriptionNotes: "Verified against page image. No book hint."
+
+      *(Theorem 26.5, quoted: Let $f(x) = \sum_{n=0}^\infty a_n x^n$ have radius of convergence $R > 0$. Then $f$ is differentiable on $(-R, R)$ and $f'(x) = \sum_{n=1}^\infty n a_n x^{n-1}$ for $|x| < R$.)*
+    transcriptionNotes: "Verified against page image. No book hint. Theorem 26.5 (p. 210), the tool of the section, quoted verbatim for self-containedness."
+    audit: fixed
+    auditNotes: "Checked against page image (pdf 226): statement exact. Added the quoted Theorem 26.5."
 
   - cid: ross-26.7
     chapter: "4 Sequences and Series of Functions"
@@ -1077,6 +1083,7 @@ candidates:
     problemLatex: |
       Prove $|\cos x - \cos y| \le |x - y|$ for all $x, y \in \mathbb{R}$.
     transcriptionNotes: "Verified against page image. Uses sin' = cos, cos' = -sin (assumed known in Ross). No book hint."
+    audit: ok
 
   - cid: ross-29.3
     chapter: "5 Differentiation"

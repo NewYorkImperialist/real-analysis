@@ -971,6 +971,11 @@ candidates:
 
       *(Proposition 10.3.3, quoted: Let $a < b$, and let $f : [a, b] \to \mathbf{R}$ be a differentiable function. If $f'(x) > 0$ for all $x \in [a, b]$, then $f$ is strictly monotone increasing. If $f'(x) < 0$ for all $x \in [a, b]$, then $f$ is strictly monotone decreasing. If $f'(x) = 0$ for all $x \in [a, b]$, then $f$ is a constant function.)*
 
+      *(Corollary 10.2.9 (Mean value theorem), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function which is continuous on $[a, b]$ and differentiable on $(a, b)$. Then there exists an $x \in (a, b)$ such that $f'(x) = \frac{f(b) - f(a)}{b - a}$.)*
+    transcriptionNotes: "Proposition 10.3.3 (p. 261) and Corollary 10.2.9 (p. 259, as quoted in tao-10.2.5) quoted verbatim. In Tao, f differentiable on [a,b] includes one-sided derivatives at a and b."
+    audit: fixed
+    auditNotes: "Checked against page image (pdf 278): exercise, hint and Proposition 10.3.3 exact. Added the quoted Corollary 10.2.9 named in the hint."
+
   - cid: tao-10.3.5
     chapter: "10 Differentiation of functions"
     section: "10.3 Monotone functions and derivatives"

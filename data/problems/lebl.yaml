@@ -3034,3 +3034,101 @@
   notes: Exercise 3.5.5 (definitions of the other infinite limits) is summarized and marked as a summary. Verified against page image (pdf 148).
   curation:
     why: Infinite limits at ±∞ from the definition, by an eventual inequality in which the leading term dominates.
+
+- id: lebl-5.3.1
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.3 Fundamental theorem of calculus
+    problemNumber: Exercise 5.3.1
+    page: '205'
+  assignedIn:
+  - MIT 18.100A (Fall 2020) Assignment 12, Problem 2
+  topic: integration
+  subtopics:
+  - fundamental-theorem
+  skills:
+  - FTC-application
+  - chain-rule
+  concept: derivative of an integral with variable limits (FTC + chain rule)
+  title: Differentiating $\int_{-x}^{x} e^{s^2}\,ds$
+  difficulty: introductory
+  category: canonical
+  type: computation
+  tags:
+  - fundamental-theorem-of-calculus
+  - chain-rule
+  - Riemann-integration
+  problemLatex: |
+    Compute $\displaystyle \frac{d}{dx}\left( \int_{-x}^{x} e^{s^2}\,ds \right)$.
+  notes: MIT 18.100A Fall 2020 used an older Lebl version; v6.3 Exercise 5.3.1 (FTC with variable limits) is topically consistent with the assignment's Riemann-integral reading.
+  curation:
+    why: Second form of the FTC combined with additivity and the chain rule for variable limits of integration.
+
+- id: lebl-5.4.5
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.4 The logarithm and the exponential
+    problemNumber: Exercise 5.4.5
+    page: '212'
+  topic: integration
+  subtopics:
+  - log-exp
+  skills:
+  - take-logarithm
+  - sequential-continuity
+  concept: e^x = lim (1 + x/n)^n
+  title: '$e^x$ as the limit of $(1 + x/n)^n$'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - exponential
+  - logarithm
+  - compound-interest
+  - limit
+  problemLatex: |
+    Show
+    $$e^x = \lim_{n\to\infty} \left(1 + \frac{x}{n}\right)^n.$$
+    Hint: Take the logarithm.
+
+    *(Summary of Lebl §5.4, not verbatim: $\ln x = \int_1^x \frac{1}{t}\,dt$ is a strictly increasing bijection $(0,\infty) \to \mathbb{R}$ with $\ln'(x) = 1/x$; its inverse $\exp\colon \mathbb{R} \to (0,\infty)$ is differentiable with $\exp' = \exp$, and $e^x$ denotes $\exp(x)$.)*
+  notes: The book's following Note about compound interest is omitted (motivational, not part of the task). Lebl's definitions of ln and exp (Propositions 5.4.1–5.4.2 and p. 211, pp. 207–211) are summarized, marked as a summary, so that e^x has a meaning on the site.
+  curation:
+    why: A classical limit for the exponential, computed through the logarithm.
+
+- id: lebl-5.4.4
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.4 The logarithm and the exponential
+    problemNumber: Exercise 5.4.4
+    page: '212'
+  topic: integration
+  subtopics:
+  - log-exp
+  - integral-inequalities
+  skills:
+  - remainder-estimate
+  - integral-estimate
+  concept: ln(1+x) power series on (-1,1]; alternating harmonic series = ln 2
+  title: 'The series for $\ln(1+x)$ on $(-1, 1]$'
+  difficulty: medium
+  category: synthesis
+  type: proof
+  tags:
+  - logarithm
+  - power-series
+  - alternating-harmonic-series
+  - remainder-estimate
+  problemLatex: |
+    Use the geometric sum formula to show (for $t \neq -1$)
+    $$1 - t + t^2 - \cdots + (-1)^n t^n = \frac{1}{1+t} - \frac{(-1)^{n+1}t^{n+1}}{1+t}.$$
+    Using this fact, show
+    $$\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n}$$
+    for all $x \in (-1,1]$ (note that $x = 1$ is included). Finally, find the limit of the alternating harmonic series
+    $$\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots$$
+  notes: In Lebl, ln x is defined as ∫_1^x (1/t) dt.
+  curation:
+    why: The series for ln(1+x) from a finite geometric sum and an explicit integral remainder.

@@ -1,0 +1,329 @@
+# AI hints and solutions for problems added to close first-course gaps
+# (curation/reports/COMPLETENESS_REPORT.md, "Calculus made rigorous and remaining gaps").
+
+- id: lebl-5.3.1
+  hints:
+    - |
+      Write the integral as a difference $F(x) - F(-x)$, where $F$ is an antiderivative of the integrand. You do not need a formula for $F$.
+    - |
+      Since $s \mapsto e^{s^2}$ is continuous, the FTC says $F(y) = \int_0^y e^{s^2}\,ds$ has $F'(y) = e^{y^2}$. Then use the chain rule on $F(-x)$.
+  solution: |
+    Let $F(y) = \int_0^y e^{s^2}\,ds$ for $y \in \mathbb{R}$. The integrand $s \mapsto e^{s^2}$ is continuous, so by the fundamental theorem of calculus $F$ is differentiable on $\mathbb{R}$ with $F'(y) = e^{y^2}$. By additivity of the integral,
+    $$\int_{-x}^{x} e^{s^2}\,ds = \int_0^x e^{s^2}\,ds - \int_0^{-x} e^{s^2}\,ds = F(x) - F(-x).$$
+    By the chain rule, $\frac{d}{dx}F(-x) = F'(-x)\cdot(-1) = -e^{(-x)^2} = -e^{x^2}$. Therefore
+    $$\frac{d}{dx}\left(\int_{-x}^{x} e^{s^2}\,ds\right) = F'(x) - \bigl(-e^{x^2}\bigr) = e^{x^2} + e^{x^2} = 2e^{x^2}.$$
+
+- id: mit20-a11-2
+  hints:
+    - |
+      The $n$-th Taylor polynomial at $x_0$ is $P_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k$. So you need the derivatives $f^{(0)}, \dots, f^{(4)}$ evaluated at the base point.
+    - |
+      For $\sin x$ the derivatives cycle through $\cos, -\sin, -\cos, \sin$. For $\frac{1}{1-x} = (1-x)^{-1}$, find a general formula for $f^{(k)}(x)$ by induction, then substitute $x = -1$.
+  solution: |
+    Recall $P_4(x) = \sum_{k=0}^{4} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$.
+
+    **(a)** With $f(x) = \sin x$ and $x_0 = 0$:
+    $$f(0) = 0,\quad f'(0) = \cos 0 = 1,\quad f''(0) = -\sin 0 = 0,\quad f'''(0) = -\cos 0 = -1,\quad f^{(4)}(0) = \sin 0 = 0.$$
+    Hence
+    $$P_4(x) = x - \frac{x^3}{6}.$$
+    (The degree-4 coefficient happens to be $0$, so $P_4 = P_3$.)
+
+    **(b)** With $f(x) = (1-x)^{-1}$, we claim $f^{(k)}(x) = k!\,(1-x)^{-(k+1)}$ for $x \neq 1$. This holds for $k=0$, and if it holds for $k$ then by the chain rule
+    $$f^{(k+1)}(x) = k!\,\cdot(-(k+1))(1-x)^{-(k+2)}\cdot(-1) = (k+1)!\,(1-x)^{-(k+2)}.$$
+    At $x_0 = -1$ we get $f^{(k)}(-1) = \frac{k!}{2^{k+1}}$, so the $k$-th coefficient is $\frac{f^{(k)}(-1)}{k!} = \frac{1}{2^{k+1}}$. Therefore
+    $$P_4(x) = \frac12 + \frac{x+1}{4} + \frac{(x+1)^2}{8} + \frac{(x+1)^3}{16} + \frac{(x+1)^4}{32}.$$
+
+- id: mit20-a11-3
+  hints:
+    - |
+      Expand the numerator with Taylor's theorem about the point the limit approaches, keeping an explicit remainder term.
+    - |
+      In (a), expand $\sin x$ about $0$; since its $x^4$ coefficient is $0$, use the remainder after the degree-4 polynomial. In (b), expand $\sin x$ about $\pi/2$ up to degree 2 with the Lagrange remainder.
+    - |
+      After dividing by the power of $x$ (or of $x - \pi/2$), the remainder contributes a bounded factor times something tending to $0$.
+  solution: |
+    We use Taylor's theorem with the Lagrange remainder: if $f$ is $(n+1)$ times differentiable near $x_0$, then for each $x \neq x_0$ nearby there is $\xi$ between $x_0$ and $x$ with
+    $$f(x) = \sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}.$$
+
+    **(a)** Take $f = \sin$, $x_0 = 0$, $n = 4$. The fourth Taylor polynomial is $x - \frac{x^3}{6}$ and $f^{(5)} = \cos$, so for each $x \ne 0$ there is $\xi_x$ between $0$ and $x$ with
+    $$\sin x = x - \frac{x^3}{6} + \frac{\cos(\xi_x)}{120}x^5.$$
+    Hence, for $x\ne 0$,
+    $$\frac{x - \sin x}{x^3} = \frac16 - \frac{\cos(\xi_x)}{120}x^2.$$
+    Since $|\cos(\xi_x)\,x^2/120| \le x^2/120 \to 0$, we get
+    $$\lim_{x\to 0}\frac{x-\sin x}{x^3} = \frac16.$$
+
+    **(b)** Take $f = \sin$, $x_0 = \pi/2$, $n = 2$. We have $f(\pi/2) = 1$, $f'(\pi/2) = \cos(\pi/2) = 0$, $f''(\pi/2) = -\sin(\pi/2) = -1$, and $f''' = -\cos$. So for $x \neq \pi/2$ there is $\xi_x$ between $\pi/2$ and $x$ with
+    $$\sin x = 1 - \frac12\left(x-\frac{\pi}{2}\right)^2 - \frac{\cos(\xi_x)}{6}\left(x - \frac{\pi}{2}\right)^3.$$
+    Therefore
+    $$\frac{1-\sin x}{(x-\pi/2)^2} = \frac12 + \frac{\cos(\xi_x)}{6}\left(x-\frac{\pi}{2}\right),$$
+    and the last term is bounded in absolute value by $\frac16|x - \pi/2| \to 0$. Hence
+    $$\lim_{x\to\pi/2}\frac{1-\sin x}{(x-\pi/2)^2} = \frac12.$$
+
+- id: abbott-1.2.1
+  hints:
+    - |
+      Read the quoted proof for $\sqrt2$ line by line with $3$ in place of $2$. Which single fact about the number $2$ does it use, and what would the corresponding fact about $3$ be?
+    - |
+      The fact you need is: if $3$ divides $p^2$, then $3$ divides $p$. Prove it by writing an integer not divisible by $3$ as $3k+1$ or $3k+2$ and squaring. For $\sqrt6$, decide which divisibility fact to use and check that it still reaches $q$.
+    - |
+      For (b), write out the proof with $4$ in place of $2$, starting from $p^2 = 4q^2$. Find the first step whose justification is no longer true.
+  solution: |
+    **(a)** *Lemma.* If an integer $p$ is not divisible by $3$, then neither is $p^2$. Indeed, $p = 3k+1$ or $p = 3k+2$ for some integer $k$, and then
+    $$p^2 = 3(3k^2+2k)+1 \quad\text{or}\quad p^2 = 3(3k^2+4k+1)+1 .$$
+    Either way $p^2$ leaves remainder $1$ on division by $3$. Equivalently: if $3 \mid p^2$ then $3 \mid p$.
+
+    *$\sqrt3$ is irrational.* Suppose, for contradiction, that $(p/q)^2 = 3$ for integers $p, q$ with $q \ne 0$. Cancelling common factors, we may assume $p$ and $q$ have no common factor. Then $p^2 = 3q^2$, so $3 \mid p^2$, and by the lemma $3 \mid p$. Write $p = 3r$ with $r$ an integer. Then $9r^2 = 3q^2$, that is, $q^2 = 3r^2$. So $3 \mid q^2$, and by the lemma $3 \mid q$. Thus $3$ divides both $p$ and $q$, a contradiction. Hence no rational number has square $3$, so $\sqrt3$ is irrational.
+
+    *$\sqrt6$: yes, a similar argument works.* Suppose $(p/q)^2 = 6$ with $p, q$ integers having no common factor. Then $p^2 = 6q^2 = 2(3q^2)$ is even, so $p$ is even (the square of an odd number is odd). Write $p = 2r$. Then $4r^2 = 6q^2$, so $2r^2 = 3q^2$. Hence $3q^2$ is even. If $q$ were odd, then $q^2$ and $3q^2$ would be odd. So $q$ is even. Now $2$ divides both $p$ and $q$, a contradiction. (Using $3$ instead of $2$ works just as well.)
+
+    **(b)** Run the proof with $4$ in place of $2$. Suppose $(p/q)^2 = 4$ with $p, q$ in lowest terms, so $p^2 = 4q^2$. As before, $p^2$ is even, so $p$ is even, and $p = 2r$. Substituting gives $4r^2 = 4q^2$, that is,
+    $$r^2 = q^2 ,$$
+    not $2r^2 = q^2$. The proof breaks at the step "this last equation implies that $q^2$ is even": nothing now forces $q$ to be even, so no common factor appears and there is no contradiction. This must happen, because the claim is false: $\sqrt4 = 2 = 2/1$ is rational. The lowest-terms solution $p = 2$, $q = 1$ satisfies every step that does survive.
+
+    The proof for $2$ (and for $3$ and $6$) works because the number contains some prime to an odd power. Then the prime is forced into $p$ and, after cancelling, into $q$ as well. In $4 = 2^2$ the factor $2$ can be absorbed entirely by $p$, and nothing is left over for $q$.
+
+- id: tao-8.1.2
+  hints:
+    - |
+      There are two claims: a least element exists, and there is only one. Uniqueness is a two-line argument. For existence, suppose a non-empty $X \subseteq \mathbb{N}$ has no least element, and aim for a contradiction.
+    - |
+      Under that assumption, use induction on $n$ to prove the statement "none of $0, 1, \ldots, n$ belongs to $X$".
+    - |
+      For $\mathbb{Z}$ and for the positive rationals, look for a non-empty subset with no least element. One kind keeps going down without bound. The other approaches a number that it never reaches.
+  solution: |
+    Recall that in Tao, $\mathbb{N} = \{0, 1, 2, \ldots\}$.
+
+    **Uniqueness.** If $n, n' \in X$ both satisfy the property, then $n \le n'$ (since $n' \in X$) and $n' \le n$ (since $n \in X$), so $n = n'$.
+
+    **Existence.** Let $X \subseteq \mathbb{N}$ be non-empty. Suppose, for contradiction, that no $n \in X$ satisfies $n \le m$ for all $m \in X$. We prove by induction on $n$ the statement
+
+    $P(n)$: none of the numbers $0, 1, \ldots, n$ lies in $X$.
+
+    *Base case.* If $0 \in X$, then $0 \le m$ for every $m \in X$, because every natural number is $\ge 0$. So $0$ would be a least element of $X$, which we assumed does not exist. Hence $0 \notin X$, which is $P(0)$.
+
+    *Inductive step.* Assume $P(n)$ and suppose $n+1 \in X$. Let $m \in X$. By $P(n)$, $m \notin \{0, \ldots, n\}$, so $m > n$, that is, $m \ge n+1$. So $n+1$ would be a least element of $X$, a contradiction. Hence $n+1 \notin X$, and together with $P(n)$ this gives $P(n+1)$.
+
+    By induction $P(n)$ holds for every $n \in \mathbb{N}$. But $X$ is non-empty, so pick $m \in X$; then $P(m)$ says $m \notin X$, a contradiction. Hence $X$ has a least element.
+
+    **Integers: no.** The set $X = \mathbb{Z}$ (or the set of negative integers) is non-empty and has no least element: for each $n \in X$, $n - 1 \in X$ and $n - 1 < n$.
+
+    **Positive rationals: no.** The set $X = \{q \in \mathbb{Q} : q > 0\}$ is non-empty and has no least element: for each $q \in X$, $q/2 \in X$ and $q/2 < q$. This set is bounded below and has infimum $0$, but the infimum is not attained.
+
+    The proof for $\mathbb{N}$ used two facts. There is a smallest natural number, $0$, which gives the base case. There is also no natural number strictly between $n$ and $n+1$, which gives the step "$m > n$ implies $m \ge n+1$". The integers lack the first property and the positive rationals lack the second.
+
+- id: ross-9.9
+  hints:
+    - |
+      The hypothesis $s_n \le t_n$ holds only for $n > N_0$. Whenever you take an $N$ from a definition, make sure it is also at least $N_0$.
+    - |
+      Part (b) is the mirror image of (a). This time it is the smaller sequence that must be pushed below a given negative $M$.
+    - |
+      In (c), "the limit exists" allows the values $\pm\infty$. Sort the cases by whether each limit is $+\infty$, $-\infty$ or finite. Some cases are automatic, and some follow from (a) and (b). For two finite limits, argue by contradiction with $\varepsilon$ equal to half the gap between them.
+  solution: |
+    Throughout, $-\infty < a < +\infty$ for every real $a$.
+
+    **(a)** Let $M > 0$. Since $\lim s_n = +\infty$, there is $N_1$ such that $n > N_1$ implies $s_n > M$. Put $N = \max\{N_0, N_1\}$. For $n > N$ we have $t_n \ge s_n > M$. Hence $\lim t_n = +\infty$.
+
+    **(b)** Let $M < 0$. Since $\lim t_n = -\infty$, there is $N_1$ such that $n > N_1$ implies $t_n < M$. With $N = \max\{N_0, N_1\}$, for $n > N$ we get $s_n \le t_n < M$. Hence $\lim s_n = -\infty$.
+
+    **(c)** Let $s = \lim s_n$ and $t = \lim t_n$, each a real number or $\pm\infty$. We use that a sequence has at most one limit in this extended sense. For example, if $t_n \to +\infty$ and $t_n \to t \in \mathbb{R}$, then eventually $t_n < t + 1$ and also $t_n > \max\{t+1, 1\}$, which is impossible. If $t_n \to +\infty$ and $t_n \to -\infty$, then eventually $t_n > 1$ and $t_n < -1$, which is also impossible.
+
+    *Case $s = -\infty$ or $t = +\infty$.* Then $s \le t$ trivially.
+
+    *Case $s = +\infty$.* By (a), $\lim t_n = +\infty$, so by uniqueness $t = +\infty \ge s$.
+
+    *Case $t = -\infty$.* By (b), $\lim s_n = -\infty$, so $s = -\infty \le t$.
+
+    *Case $s, t \in \mathbb{R}$.* Suppose $s > t$ and let $\varepsilon = (s - t)/2 > 0$. Choose $N_1$ such that $|s_n - s| < \varepsilon$ for $n > N_1$, and $N_2$ such that $|t_n - t| < \varepsilon$ for $n > N_2$. For $n > \max\{N_0, N_1, N_2\}$,
+    $$s_n > s - \varepsilon = \frac{s+t}{2} = t + \varepsilon > t_n ,$$
+    which contradicts $s_n \le t_n$. Hence $s \le t$.
+
+    These cases cover every combination: if $s$ is real, then $t$ is $+\infty$, $-\infty$ or real. So $\lim s_n \le \lim t_n$ whenever both limits exist.
+
+- id: abbott-5.2.2
+  hints:
+    - |
+      Before you build anything, suppose each request has been met and ask what the rules for derivatives (sum, constant multiple, product) would then force. One request leads to a contradiction.
+    - |
+      For the product requests, a factor that vanishes at $0$ can make a product better behaved than either factor. Two functions with "corners" at $0$ can also combine into a smooth product.
+    - |
+      For (d), start from a function that is discontinuous at every point. Multiply it by something that goes to $0$ fast enough at $0$. Then check differentiability at $0$ from the definition, and use "differentiable implies continuous" everywhere else.
+  solution: |
+    **(c) is impossible.** Suppose $g$ and $f+g$ are differentiable at $0$. By the algebraic rules for derivatives (sums and constant multiples of functions differentiable at a point are differentiable there),
+    $$f = (f+g) + (-1)\,g$$
+    is differentiable at $0$, contradicting the assumption on $f$.
+
+    **(a)** Let $f(x) = g(x) = |x|$. Neither is differentiable at $0$: the difference quotient $\frac{|x| - 0}{x - 0}$ equals $1$ for $x > 0$ and $-1$ for $x < 0$, so it has no limit as $x \to 0$. But $(fg)(x) = |x|^2 = x^2$, which is differentiable at $0$ with $\frac{x^2 - 0}{x} = x \to 0$, so $(fg)'(0) = 0$.
+
+    **(b)** Let $f(x) = |x|$ (not differentiable at $0$, as in (a)) and $g(x) = x$ (differentiable everywhere). Then $(fg)(x) = x|x|$ and
+    $$\frac{x|x| - 0}{x - 0} = |x| \to 0 \quad (x \to 0),$$
+    so $fg$ is differentiable at $0$ with derivative $0$. (The trivial choice $g \equiv 0$ also works.)
+
+    **(d)** Let $D(x) = 1$ for $x \in \mathbb{Q}$ and $D(x) = 0$ for $x \notin \mathbb{Q}$, and put $f(x) = x^2 D(x)$.
+
+    *Differentiable at $0$.* For $x \ne 0$,
+    $$\left|\frac{f(x) - f(0)}{x - 0}\right| = |x|\,D(x) \le |x| ,$$
+    which tends to $0$. So $f'(0) = 0$.
+
+    *Not differentiable at $c \ne 0$.* We show that $f$ is not even continuous at $c$. By density of $\mathbb{Q}$ and of the irrationals, choose rationals $r_n \to c$ and irrationals $u_n \to c$. Then $f(r_n) = r_n^2 \to c^2 \ne 0$, while $f(u_n) = 0 \to 0$. So $\lim_{x\to c} f(x)$ does not exist (sequential criterion), and $f$ is discontinuous at $c$. A function differentiable at $c$ is continuous at $c$, so $f$ is not differentiable at $c$.
+
+- id: tao-10.3.4
+  hints:
+    - |
+      Monotonicity is a statement about pairs of points. Fix $x < y$ in $[a, b]$ and decide what you must show about $f(y) - f(x)$ in each of the three cases.
+    - |
+      Apply the mean value theorem to $f$ on $[x, y]$. Check its hypotheses: where does continuity of $f$ come from?
+    - |
+      The theorem writes $f(y) - f(x)$ as a product of two factors. The sign of each factor is known.
+  solution: |
+    Since $f$ is differentiable on $[a, b]$, it is continuous on $[a, b]$, because differentiability at a point implies continuity there.
+
+    Let $a \le x < y \le b$. The restriction of $f$ to $[x, y]$ is continuous on $[x, y]$. It is differentiable at each point $c \in (x, y)$ with derivative $f'(c)$: $c$ is an interior point of both $[x, y]$ and $[a, b]$, so the two difference-quotient limits at $c$ involve the same values near $c$ and coincide. By the mean value theorem (Corollary 10.2.9) there is $c \in (x, y)$ with
+    $$f(y) - f(x) = f'(c)\,(y - x).$$
+    Here $y - x > 0$.
+
+    - If $f' > 0$ on $[a, b]$, then $f(y) - f(x) > 0$. Since $x < y$ were arbitrary, $f$ is strictly monotone increasing.
+    - If $f' < 0$ on $[a, b]$, then $f(y) - f(x) < 0$, so $f$ is strictly monotone decreasing.
+    - If $f' = 0$ on $[a, b]$, then $f(y) = f(x)$ for all $x < y$ in $[a, b]$. In particular $f(y) = f(a)$ for every $y \in [a, b]$, so $f$ is constant.
+
+    Only the mean value theorem was used, as the hint requires; no integrals.
+
+- id: ross-29.2
+  hints:
+    - |
+      The inequality says that $\cos$ is Lipschitz with constant $1$. Which theorem turns a difference of function values into a derivative?
+    - |
+      Apply that theorem to $\cos$ on the interval between $x$ and $y$, and bound the derivative that appears.
+  solution: |
+    If $x = y$ there is nothing to prove. Both sides are symmetric in $x$ and $y$, so assume $x < y$. The function $\cos$ is differentiable on $\mathbb{R}$ with $\cos' = -\sin$, so it is continuous on $[x, y]$ and differentiable on $(x, y)$. By the Mean Value Theorem there is $c \in (x, y)$ with
+    $$\cos y - \cos x = -\sin(c)\,(y - x).$$
+    Since $|\sin c| \le 1$,
+    $$|\cos x - \cos y| = |\sin c|\,|x - y| \le |x - y| .$$
+
+- id: abbott-7.5.8
+  hints:
+    - |
+      In (a)–(c) the function is an integral with a variable upper limit, and $t \mapsto 1/t$ is continuous on $(0,\infty)$, so the Fundamental Theorem of Calculus applies. For (b), compute the derivative of $g(x) = L(xy) - L(x)$. What does that say about $g$? Then evaluate $g$ at a convenient point.
+    - |
+      For (d), show that $(\gamma_n)$ is monotone and bounded. Both facts come from comparing $\frac1t$ with a constant on each interval $[k, k+1]$.
+    - |
+      For (e), express $\gamma_{2n} - \gamma_n$ through harmonic sums and $L(2n) - L(n)$, and simplify the latter with (c). Then split $1 + \frac12 + \cdots + \frac1{2n}$ into its odd and even terms.
+  solution: |
+    Throughout, $\int_1^x = -\int_x^1$ when $x < 1$, and $H_n = 1 + \frac12 + \cdots + \frac1n$.
+
+    **(a)** $L(1) = \int_1^1 \frac1t\,dt = 0$. Fix $x_0 > 0$ and choose $0 < a < \min\{1, x_0\}$ and $b > \max\{1, x_0\}$. On $[a, b]$ the function $\frac1t$ is continuous, hence integrable. By additivity, $L(x) = \int_a^x \frac{dt}{t} - \int_a^1 \frac{dt}{t}$ for all $x \in [a, b]$. The second term is a constant. By the Fundamental Theorem of Calculus, the first term is differentiable at the interior point $x_0$ with derivative $1/x_0$, because $\frac1t$ is continuous at $x_0$. Hence $L$ is differentiable on $(0, \infty)$ and
+    $$L'(x) = \frac1x .$$
+
+    **(b)** Fix $y > 0$ and let $g(x) = L(xy)$ for $x > 0$. By the chain rule and (a),
+    $$g'(x) = L'(xy)\cdot y = \frac{y}{xy} = \frac1x = L'(x).$$
+    So $h(x) = g(x) - L(x)$ satisfies $h' = 0$ on the interval $(0, \infty)$. By the Mean Value Theorem, $h$ is constant. Since $h(1) = L(y) - L(1) = L(y)$, we get $L(xy) - L(x) = L(y)$ for all $x > 0$.
+
+    **(c)** Apply (b) to $x/y$ and $y$: $L(x) = L\big(\tfrac{x}{y}\cdot y\big) = L(x/y) + L(y)$. Hence $L(x/y) = L(x) - L(y)$.
+
+    **(d)** *Monotone.* For $n \ge 1$,
+    $$\gamma_n - \gamma_{n+1} = \big(L(n+1) - L(n)\big) - \frac1{n+1} = \int_n^{n+1}\Big(\frac1t - \frac1{n+1}\Big)dt \ge 0 ,$$
+    because $\frac1t \ge \frac1{n+1}$ on $[n, n+1]$. So $(\gamma_n)$ is decreasing.
+
+    *Bounded below.* On $[k, k+1]$ we have $\frac1t \le \frac1k$, so for $n \ge 2$
+    $$L(n) = \sum_{k=1}^{n-1}\int_k^{k+1}\frac{dt}{t} \le \sum_{k=1}^{n-1}\frac1k = H_{n-1}.$$
+    Hence $\gamma_n = H_n - L(n) \ge H_n - H_{n-1} = \frac1n > 0$, and also $\gamma_1 = 1 > 0$. A decreasing sequence that is bounded below converges (Monotone Convergence Theorem). So $(\gamma_n)$ converges.
+
+    **(e)** By (c), $L(2n) - L(n) = L(2)$, so
+    $$\gamma_{2n} - \gamma_n = (H_{2n} - H_n) - L(2).$$
+    Since $\gamma_n \to \gamma$, the subsequence also satisfies $\gamma_{2n} \to \gamma$. So $\gamma_{2n} - \gamma_n \to 0$, which means $H_{2n} - H_n \to L(2)$.
+
+    Now let $S_m = \sum_{k=1}^m \frac{(-1)^{k+1}}{k}$ be the partial sums of the alternating harmonic series. Splitting off the even terms,
+    $$S_{2n} = \Big(1 + \frac12 + \cdots + \frac1{2n}\Big) - 2\Big(\frac12 + \frac14 + \cdots + \frac1{2n}\Big) = H_{2n} - H_n .$$
+    Therefore $S_{2n} \to L(2)$. Also $S_{2n+1} = S_{2n} + \frac1{2n+1} \to L(2)$. Given $\varepsilon > 0$, choose $N$ such that both $|S_{2n} - L(2)| < \varepsilon$ and $|S_{2n+1} - L(2)| < \varepsilon$ for $n \ge N$. Then $|S_m - L(2)| < \varepsilon$ for all $m \ge 2N$. Hence
+    $$L(2) = 1 - \frac12 + \frac13 - \frac14 + \frac15 - \frac16 + \cdots .$$
+
+- id: lebl-5.4.5
+  hints:
+    - |
+      Since $\exp$ is continuous and undoes $\ln$, it is enough to find the limit of $\ln\big((1 + x/n)^n\big)$. Treat $x = 0$ separately. Otherwise, take $n$ large enough that $1 + x/n > 0$.
+    - |
+      Write $n \ln(1 + x/n)$ as $x$ times a difference quotient of $\ln$ at the point $1$.
+    - |
+      Use the derivative of $\ln$ at $1$ with the sequential characterization of limits. Then go back through $\exp$.
+  solution: |
+    If $x = 0$, both sides equal $1$. Let $x \ne 0$. For $n > |x|$ we have $1 + \frac{x}{n} > 0$, so $a_n = \big(1 + \frac{x}{n}\big)^n > 0$. Since $\ln(uv) = \ln u + \ln v$, induction gives
+    $$\ln a_n = n\ln\Big(1 + \frac{x}{n}\Big).$$
+    Put $h_n = x/n$. Then $h_n \ne 0$ and $h_n \to 0$, and since $\ln 1 = 0$,
+    $$\ln a_n = x\cdot\frac{\ln(1 + h_n) - \ln 1}{h_n}.$$
+    The function $\ln$ is differentiable at $1$ with $\ln'(1) = 1/1 = 1$. By the sequential characterization of limits, the difference quotients $\frac{\ln(1 + h_n) - \ln 1}{h_n}$ tend to $1$. Hence $\ln a_n \to x$.
+
+    The function $\exp$ is differentiable, hence continuous, and $\exp(\ln y) = y$ for $y > 0$ because $\exp$ is the inverse of $\ln$. By sequential continuity of $\exp$ at $x$,
+    $$\Big(1 + \frac{x}{n}\Big)^n = a_n = \exp(\ln a_n) \to \exp(x) = e^x .$$
+
+- id: lebl-5.4.4
+  hints:
+    - |
+      The identity is the finite geometric sum with ratio $-t$. Then integrate it in $t$ from $0$ to $x$. The left side becomes a partial sum of the series. Which function has derivative $\frac{1}{1+t}$?
+    - |
+      Everything then comes down to showing that the remainder $\int_0^x \frac{t^{n+1}}{1+t}\,dt$ tends to $0$. Bound $\frac{1}{1+t}$ on the interval between $0$ and $x$, treating $0 \le x \le 1$ and $-1 < x < 0$ separately.
+    - |
+      The case $x = 1$ is allowed because the bound on the remainder does not need $|x| < 1$ there. The value of the alternating harmonic series is the case $x = 1$.
+  solution: |
+    **The identity.** For $t \ne -1$, the geometric sum with ratio $-t \ne 1$ gives
+    $$\sum_{k=0}^n (-t)^k = \frac{1 - (-t)^{n+1}}{1 + t} = \frac{1}{1+t} - \frac{(-1)^{n+1}t^{n+1}}{1+t}.$$
+
+    **$\ln(1+x)$ as an integral.** For $x > -1$ let $\varphi(x) = \ln(1+x)$. By the chain rule and $\ln'(u) = 1/u$, $\varphi'(t) = \frac{1}{1+t}$, which is continuous on $(-1, \infty)$, and $\varphi(0) = \ln 1 = 0$. By the Fundamental Theorem of Calculus on the closed interval between $0$ and $x$,
+    $$\int_0^x \frac{dt}{1+t} = \varphi(x) - \varphi(0) = \ln(1+x).$$
+
+    **Integrating the identity.** Fix $x \in (-1, 1]$. For $t$ between $0$ and $x$ we have $1 + t > 0$, so all functions involved are continuous there. Integrating the identity from $0$ to $x$ gives
+    $$\sum_{k=0}^n \frac{(-1)^k x^{k+1}}{k+1} = \ln(1+x) - (-1)^{n+1}R_n(x), \qquad R_n(x) = \int_0^x \frac{t^{n+1}}{1+t}\,dt .$$
+    With $m = k+1$ the left side is $S_{n+1}(x) = \sum_{m=1}^{n+1}\frac{(-1)^{m+1}x^m}{m}$. So
+    $$|\ln(1+x) - S_{n+1}(x)| = |R_n(x)| ,$$
+    and it suffices to show $R_n(x) \to 0$ as $n \to \infty$.
+
+    *Case $0 \le x \le 1$.* On $[0, x]$, $0 \le \frac{t^{n+1}}{1+t} \le t^{n+1}$. Hence
+    $$0 \le R_n(x) \le \int_0^x t^{n+1}\,dt = \frac{x^{n+2}}{n+2} \le \frac{1}{n+2} \to 0 .$$
+
+    *Case $-1 < x < 0$.* On $[x, 0]$, $1 + t \ge 1 + x > 0$ and $|t|^{n+1} \le |x|^{n+1}$. Hence
+    $$|R_n(x)| = \Big|\int_x^0 \frac{t^{n+1}}{1+t}\,dt\Big| \le \int_x^0 \frac{|x|^{n+1}}{1+x}\,dt = \frac{|x|^{n+2}}{1+x} \to 0,$$
+    since $|x| < 1$.
+
+    In both cases $S_{n+1}(x) \to \ln(1+x)$, so
+    $$\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n} \qquad (-1 < x \le 1).$$
+
+    **The alternating harmonic series.** Taking $x = 1$:
+    $$\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = 1 - \frac12 + \frac13 - \frac14 + \cdots = \ln 2 .$$
+
+- id: ross-26.5
+  hints:
+    - |
+      Theorem 26.5 needs a radius of convergence $R > 0$. Find the radius of convergence of $\sum \frac{1}{n!}x^n$ first.
+    - |
+      Then differentiate term by term, simplify $\frac{n}{n!}$, and shift the index of summation.
+  solution: |
+    **Radius of convergence.** Let $a_n = \frac{1}{n!}$. For $x \ne 0$,
+    $$\left|\frac{a_{n+1}x^{n+1}}{a_n x^n}\right| = \frac{|x|}{n+1} \to 0 < 1,$$
+    so by the ratio test $\sum a_n x^n$ converges (absolutely) for every $x \in \mathbb{R}$; it trivially converges at $x = 0$. A power series diverges at every $x$ with $|x| > R$, so $R = +\infty$.
+
+    **Differentiation.** By Theorem 26.5, $f$ is differentiable on $(-\infty, \infty) = \mathbb{R}$ and, for every $x$,
+    $$f'(x) = \sum_{n=1}^\infty n\,\frac{1}{n!}\,x^{n-1} = \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} = \sum_{m=0}^\infty \frac{x^m}{m!} = f(x),$$
+    using $\frac{n}{n!} = \frac{1}{(n-1)!}$ for $n \ge 1$ and the substitution $m = n - 1$. Hence $f' = f$. Nothing about $e^x$ was used.
+
+- id: ross-26.6
+  hints:
+    - |
+      Write $s$ and $c$ as power series $\sum a_n x^n$, with zero coefficients in the missing degrees. Check that both converge for every $x$, so that Theorem 26.5 applies on all of $\mathbb{R}$.
+    - |
+      For (b), combine (a) with the product rule. For (c), recall what the Mean Value Theorem says about a function whose derivative is $0$ everywhere on an interval.
+    - |
+      Finish (c) by evaluating at one convenient point.
+  solution: |
+    Write
+    $$s(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!}, \qquad c(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!} .$$
+    As power series $\sum_n a_n x^n$, $s$ has $a_n = 0$ for even $n$ and $c$ has $a_n = 0$ for odd $n$. Every nonzero term satisfies $|a_n x^n| = \frac{|x|^n}{n!}$, and $\sum \frac{|x|^n}{n!}$ converges for every $x$ (ratio test: $\frac{|x|}{n+1} \to 0$). So by comparison both series converge absolutely for every $x$, and both have radius of convergence $R = +\infty$.
+
+    **(a)** By Theorem 26.5, differentiating term by term on $\mathbb{R}$,
+    $$s'(x) = \sum_{k=0}^\infty \frac{(-1)^k(2k+1)x^{2k}}{(2k+1)!} = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!} = c(x).$$
+    The constant term of $c$ has derivative $0$, so
+    $$c'(x) = \sum_{k=1}^\infty \frac{(-1)^k (2k)x^{2k-1}}{(2k)!} = \sum_{k=1}^\infty \frac{(-1)^k x^{2k-1}}{(2k-1)!} = \sum_{j=0}^\infty \frac{(-1)^{j+1}x^{2j+1}}{(2j+1)!} = -s(x),$$
+    with $j = k - 1$.
+
+    **(b)** By the product rule (or chain rule) and (a),
+    $$(s^2 + c^2)' = 2ss' + 2cc' = 2sc + 2c(-s) = 0 .$$
+
+    **(c)** The function $h = s^2 + c^2$ is differentiable on $\mathbb{R}$ with $h' = 0$. By the Mean Value Theorem, $h(y) - h(x) = h'(\xi)(y - x) = 0$ for all $x < y$, so $h$ is constant. Since $s(0) = 0$ and $c(0) = 1$, we get $h(0) = 1$. Hence $s^2 + c^2 = 1$ on $\mathbb{R}$.

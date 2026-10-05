@@ -28,6 +28,7 @@ foundations:
   # group: induction
   - lebl-0.3.11
   - lebl-0.3.12
+  - tao-8.1.2
   # group: countable sets
   - lebl-0.3.19
   - mit20-a1-6
@@ -48,6 +49,8 @@ foundations:
   - mit20-a3-2
 
 real-numbers:
+  # group: irrational numbers (gaps in Q)
+  - abbott-1.2.1
   # group: ordered-field axioms and absolute value
   - lebl-1.1.1
   - abbott-1.2.6
@@ -95,6 +98,7 @@ sequences:
   - abbott-2.3.12
   - abbott-2.3.10
   - abbott-2.3.7
+  - ross-9.9
   # group: averages and double limits
   - abbott-2.3.11
   - abbott-2.3.13
@@ -339,7 +343,8 @@ differentiation:
   - tao-10.1.2
   - lebl-4.1.11
   - lebl-4.1.5
-  # group: derivative rules (chain rule proved)
+  # group: derivative rules (what they say; chain rule proved)
+  - abbott-5.2.2
   - abbott-5.2.4
   # group: the x^a sin(1/x) family
   - ross-28.4
@@ -353,6 +358,8 @@ differentiation:
   - mit20-a11-1
   - ross-29.4
   # group: consequences of the MVT (and where they fail)
+  - tao-10.3.4
+  - ross-29.2
   - mit20-a10-3
   - lebl-4.2.10
   - mit20-a10-1
@@ -372,6 +379,8 @@ differentiation:
   - ross-30.6
   - abbott-5.3.12
   # group: Taylor's theorem
+  - mit20-a11-2
+  - mit20-a11-3
   - mit20-final-5a
   - mit20-a11-4
   # group: smooth functions, flat at a point
@@ -415,6 +424,7 @@ integration:
   - abbott-7.4.4
   - abbott-7.4.10
   # group: fundamental theorem of calculus
+  - lebl-5.3.1
   - lebl-5.3.9
   - abbott-7.5.2
   - tao-11.9.3
@@ -424,8 +434,11 @@ integration:
   - mit20-final-5b
   - mit20-final-6c
   - mit20-a12-1
-  # group: logarithm as an integral
+  # group: logarithm and exponential
+  - abbott-7.5.8
   - lebl-5.4.6
+  - lebl-5.4.5
+  - lebl-5.4.4
   # group: improper integrals
   - ross-36.3
   - ross-36.8
@@ -477,6 +490,8 @@ function-sequences:
   # group: power series as functions
   - cummings-9.16
   - abbott-6.5.5
+  - ross-26.5
+  - ross-26.6
   - ross-26.7
   - abbott-6.5.10
   - ross-26.8

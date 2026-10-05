@@ -611,13 +611,22 @@ candidates:
     references: []
     problemLatex: |
       Suppose there exists $N_0$ such that $s_n \le t_n$ for all $n > N_0$.
+
       (a) Prove that if $\lim s_n = +\infty$, then $\lim t_n = +\infty$.
+
       (b) Prove that if $\lim t_n = -\infty$, then $\lim s_n = -\infty$.
+
       (c) Prove that if $\lim s_n$ and $\lim t_n$ exist, then $\lim s_n \le \lim t_n$.
+
+      *(Definition 9.8, quoted: For a sequence $(s_n)$, we write $\lim s_n = +\infty$ provided for each $M > 0$ there is a number $N$ such that $n > N$ implies $s_n > M$. In this case we say the sequence diverges to $+\infty$. Similarly, we write $\lim s_n = -\infty$ provided for each $M < 0$ there is a number $N$ such that $n > N$ implies $s_n < M$.)*
+
+      *(Ross, p. 51, quoted: Henceforth we will say $(s_n)$ has a limit or the limit exists provided $(s_n)$ converges or diverges to $+\infty$ or diverges to $-\infty$.)*
     bookHint: |
       (a) Let $M > 0$. Since $\lim s_n = +\infty$ there exists $N \ge N_0$ such that $s_n > M$ for $n > N$. Then clearly $t_n > M$ for $n > N$, since $s_n \le t_n$ for all $n$. This shows $\lim t_n = +\infty$.
       (c) Parts (a) and (b) take care of the infinite limits, so assume $(s_n)$ and $(t_n)$ converge. Since $t_n - s_n \ge 0$ for all $n > N_0$, $\lim(t_n - s_n) \ge 0$ by Exercise 8.9(a). Hence $\lim t_n - \lim s_n \ge 0$ by Theorems 9.3 and 9.2.
-    transcriptionNotes: "In Ross, 'lim s_n exists' includes the values ±∞. bookHint from PDF p. 382."
+    transcriptionNotes: "In Ross, 'lim s_n exists' includes the values ±∞. Definition 9.8 and the convention after it (pp. 50–51) quoted verbatim. bookHint from PDF p. 382; it cites Exercise 8.9(a) (if a convergent (s_n) has s_n ≥ a for all but finitely many n, then lim s_n ≥ a) and Theorems 9.2–9.3 (limits of scalar multiples and sums)."
+    audit: fixed
+    auditNotes: "Checked against page images (pdf 62, 63, 67, 382): statement and book hint exact. Added the quoted Definition 9.8 and Ross's 'limit exists' convention, which part (c) depends on; parts set on separate paragraphs."
   - cid: ross-9.12
     chapter: "2 Sequences"
     section: "§9 Limit Theorems for Sequences"

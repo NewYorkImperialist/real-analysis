@@ -48,7 +48,7 @@
         $\bigl(\sum f_n\bigr)'=\sum f_n'$.
       note: Uniform convergence of $(f_n)$ alone is not enough; the hypothesis is on the derivatives.
 
-- before: ross-26.7
+- before: ross-26.5
   items:
     - kind: theorem
       name: Power series as functions; Abel's Theorem

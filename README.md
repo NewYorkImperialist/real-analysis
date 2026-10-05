@@ -18,16 +18,16 @@ npm run check     # validate the problem data only
 
 ## The bank
 
-There are **367 problems**: a **core** of 330 and an optional **upper tier** of 37 harder problems.
+There are **381 problems**: a **core** of 344 and an optional **upper tier** of 37 harder problems.
 
 | Source | Core | Upper tier |
 |---|---|---|
-| MIT 18.100A Real Analysis — 2020 (assignments, midterm, final) | 41 original, plus 32 Lebl exercises the course assigned | — |
-| Abbott, *Understanding Analysis* (2nd ed.) | 101 | — |
-| Lebl, *Basic Analysis I* (v6.3) | 98 | 1 |
-| Ross, *Elementary Analysis* (2nd ed.) | 38 | — |
+| MIT 18.100A Real Analysis — 2020 (assignments, midterm, final) | 43 original, plus 33 Lebl exercises the course assigned | — |
+| Abbott, *Understanding Analysis* (2nd ed.) | 106 | — |
+| Lebl, *Basic Analysis I* (v6.3) | 70 | 1 |
+| Ross, *Elementary Analysis* (2nd ed.) | 42 | — |
 | Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 26 | 1 |
-| Tao, *Analysis I* (3rd ed.) | 14 | — |
+| Tao, *Analysis I* (3rd ed.) | 16 | — |
 | Pugh, *Real Mathematical Analysis* (2nd ed.) | 2 | 21 |
 | Rudin, *Principles of Mathematical Analysis* (3rd ed.) | 4 | 13 |
 | MIT 18.100B (2006, Fall 2010, Spring 2025) | 2 | 1 |
@@ -152,6 +152,6 @@ worksheet built from the same LaTeX.
 
 ## Curation materials
 
-`curation/` keeps all 836 candidates (551 not selected at curation, indexed in `curation/UNSELECTED.md`;
-four of these were later added as bridge problems), the
+`curation/` keeps all 840 candidates (836 from extraction, 4 transcribed later to fill coverage gaps; the 540
+still unselected are indexed in `curation/UNSELECTED.md`), the
 selection decisions, problems later removed (`curation/REMOVED.yaml`), and a safe script for adding more problems later. See `curation/README.md`.

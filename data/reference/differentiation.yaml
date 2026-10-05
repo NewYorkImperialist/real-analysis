@@ -34,13 +34,20 @@
 - before: mit20-a11-1
   items:
     - kind: theorem
-      name: Mean Value Theorem and monotonicity
+      name: Mean Value Theorem
       latex: |
         Let $a<b$ and let $f\colon[a,b]\to\mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b)$. Then
         there exists $c\in(a,b)$ with $f(b)-f(a)=f'(c)(b-a)$. (**Rolle's theorem** is the case $f(a)=f(b)$, giving
-        $f'(c)=0$.) Consequently, if $f\colon I\to\mathbb{R}$ is continuous on an interval $I$ and differentiable at
-        every interior point of $I$: if $f'\ge 0$ there, $f$ is increasing on $I$; if $f'>0$ there, $f$ is strictly
-        increasing on $I$; if $f'=0$ there, $f$ is constant on $I$.
+        $f'(c)=0$.)
+
+- before: ross-29.2
+  items:
+    - kind: theorem
+      name: Monotonicity from the sign of the derivative
+      latex: |
+        Let $f\colon I\to\mathbb{R}$ be continuous on an interval $I$ and differentiable at every interior point of
+        $I$. If $f'\ge 0$ there, $f$ is increasing on $I$; if $f'>0$ there, $f$ is strictly increasing on $I$; if
+        $f'=0$ there, $f$ is constant on $I$.
       note: Abbott and Rudin use "increasing" for non-decreasing.
 
 - before: ross-30.6
@@ -54,7 +61,7 @@
         $\lim_{x\to a^+}\frac{f(x)}{g(x)}=L$. The same holds with $x\to b^-$ in place of $x\to a^+$.
       note: Here $x\to a^+$ means $x\to-\infty$ when $a=-\infty$. The second case assumes nothing about $f$ (Ross's Theorem 30.2).
 
-- before: mit20-final-5a
+- before: mit20-a11-2
   items:
     - kind: definition
       name: Taylor polynomial and Taylor series

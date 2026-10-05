@@ -447,3 +447,70 @@
   curation:
     why: For monotone f, F(x) = ∫ₐˣ f is differentiable at x₀ exactly when f is continuous there.
 
+
+- id: tao-8.1.2
+  source:
+    key: tao
+    chapter: 8 Infinite sets
+    section: 8.1 Countability
+    problemNumber: Exercise 8.1.2
+    page: '187'
+  topic: foundations
+  subtopics:
+  - induction
+  skills:
+  - induction
+  - construct-counterexample
+  concept: well-ordering principle
+  title: 'The well-ordering principle, and whether it holds for $\mathbb{Z}$ and $\mathbb{Q}^+$'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - well-ordering
+  - induction
+  - counterexample
+  problemLatex: |
+    Prove Proposition 8.1.4. (Hint: you can either use induction, or use the principle of infinite descent, Exercise 4.4.2, or use the least upper bound (or greatest lower bound) principle, Theorem 5.5.9.) Does the well-ordering principle work if we replace the natural numbers by the integers? What if we replace the natural numbers by the positive rationals? Explain.
+
+    *(Proposition 8.1.4 (Well ordering principle), quoted: Let $X$ be a non-empty subset of the natural numbers $\mathbf{N}$. Then there exists exactly one element $n \in X$ such that $n \le m$ for all $m \in X$. In other words, every non-empty set of natural numbers has a minimum element.)*
+
+    *(Note: in Tao the natural numbers start at $0$, so $\mathbf{N} = \{0, 1, 2, \ldots\}$.)*
+
+    *(Exercise 4.4.2, quoted in part: A definition: a sequence $a_0, a_1, a_2, \ldots$ of numbers (natural numbers, integers, rationals, or reals) is said to be in infinite descent if we have $a_n > a_{n+1}$ for all natural numbers $n$ (i.e., $a_0 > a_1 > a_2 > \ldots$). (a) Prove the principle of infinite descent: that it is not possible to have a sequence of natural numbers which is in infinite descent.)*
+
+    *(Theorem 5.5.9 (Existence of least upper bound), quoted: Let $E$ be a non-empty subset of $\mathbf{R}$. If $E$ has an upper bound, (i.e., $E$ has some upper bound $M$), then it must have exactly one least upper bound.)*
+  notes: 'Proposition 8.1.4 (p. 183) quoted verbatim. The two results named in the hint are quoted: Exercise 4.4.2 (p. 93; its definition and part (a)''s statement) and Theorem 5.5.9 (p. 117).'
+  curation:
+    why: The well-ordering principle of N, proved from induction, and why it is special to N.
+
+- id: tao-10.3.4
+  source:
+    key: tao
+    chapter: 10 Differentiation of functions
+    section: 10.3 Monotone functions and derivatives
+    problemNumber: Exercise 10.3.4
+    page: '261'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  skills:
+  - MVT-application
+  concept: f'>0 implies strictly increasing; f'=0 implies constant
+  title: 'The sign of $f''$ determines monotonicity'
+  difficulty: easy
+  category: canonical
+  type: theorem-application
+  tags:
+  - mean-value-theorem
+  - monotone-function
+  - constant-function
+  problemLatex: |
+    Prove Proposition 10.3.3. (Hint: you do not have integrals or the fundamental theorem of calculus yet, so these tools cannot be used. However, one can proceed via the mean-value theorem, Corollary 10.2.9.)
+
+    *(Proposition 10.3.3, quoted: Let $a < b$, and let $f : [a, b] \to \mathbf{R}$ be a differentiable function. If $f'(x) > 0$ for all $x \in [a, b]$, then $f$ is strictly monotone increasing. If $f'(x) < 0$ for all $x \in [a, b]$, then $f$ is strictly monotone decreasing. If $f'(x) = 0$ for all $x \in [a, b]$, then $f$ is a constant function.)*
+
+    *(Corollary 10.2.9 (Mean value theorem), quoted: Let $a < b$ be real numbers, and let $f : [a, b] \to \mathbf{R}$ be a function which is continuous on $[a, b]$ and differentiable on $(a, b)$. Then there exists an $x \in (a, b)$ such that $f'(x) = \frac{f(b) - f(a)}{b - a}$.)*
+  notes: Proposition 10.3.3 (p. 261) and Corollary 10.2.9 (p. 259, as quoted in tao-10.2.5) quoted verbatim. In Tao, f differentiable on [a,b] includes one-sided derivatives at a and b.
+  curation:
+    why: The Mean Value Theorem turns the sign of the derivative into monotonicity or constancy.

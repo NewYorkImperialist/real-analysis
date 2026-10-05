@@ -74,7 +74,7 @@
         For $f\colon[a,b]\to\mathbb{R}$ the **Riemann sum** is $S(f;P,c)=\sum_{i=1}^n f(c_i)\,\Delta x_i$.
       note: For bounded $f$ and any choice of tags, $L(P,f)\le S(f;P,c)\le U(P,f)$. MIT writes $\underline{x}$, $\underline{\xi}$, $S_f(\underline{x},\underline{\xi})$.
 
-- before: lebl-5.3.9
+- before: lebl-5.3.1
   items:
     - kind: theorem
       name: Fundamental Theorem of Calculus
@@ -86,7 +86,7 @@
         differentiable at $c$ and $G'(c)=f(c)$ (a one-sided derivative if $c\in\{a,b\}$).
       note: Abbott numbers the parts as here; Tao calls (ii) the first and (i) the second fundamental theorem.
 
-- before: lebl-5.4.6
+- before: abbott-7.5.8
   items:
     - kind: definition
       name: Natural logarithm as an integral

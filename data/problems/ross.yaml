@@ -1308,3 +1308,153 @@
   notes: Verified against page image. Theorems 25.2 and 33.11 quoted verbatim (equation labels dropped). bookHint from PDF p. 401 (printed 392). Theorem 33.3 gives U(f+g,P) <= U(f,P)+U(g,P), L(f+g,P) >= L(f,P)+L(g,P).
   curation:
     why: 'The interchange theorem itself: a uniform limit of integrable functions is integrable and its integral is the limit of the integrals.'
+
+- id: ross-9.9
+  source:
+    key: ross
+    chapter: 2 Sequences
+    section: §9 Limit Theorems for Sequences
+    problemNumber: Exercise 9.9
+    page: '55'
+  topic: sequences
+  subtopics:
+  - limit-laws
+  - divergence
+  skills:
+  - epsilon-N-proof
+  - M-N-proof
+  concept: 'comparison of limits: s_n ≤ t_n ⇒ lim s_n ≤ lim t_n (incl. ±∞)'
+  title: 'Comparison of limits, including the limits $\pm\infty$'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - infinite-limits
+  - comparison
+  - order-limit-theorem
+  problemLatex: |
+    Suppose there exists $N_0$ such that $s_n \le t_n$ for all $n > N_0$.
+
+    (a) Prove that if $\lim s_n = +\infty$, then $\lim t_n = +\infty$.
+
+    (b) Prove that if $\lim t_n = -\infty$, then $\lim s_n = -\infty$.
+
+    (c) Prove that if $\lim s_n$ and $\lim t_n$ exist, then $\lim s_n \le \lim t_n$.
+
+    *(Definition 9.8, quoted: For a sequence $(s_n)$, we write $\lim s_n = +\infty$ provided for each $M > 0$ there is a number $N$ such that $n > N$ implies $s_n > M$. In this case we say the sequence diverges to $+\infty$. Similarly, we write $\lim s_n = -\infty$ provided for each $M < 0$ there is a number $N$ such that $n > N$ implies $s_n < M$.)*
+
+    *(Ross, p. 51, quoted: Henceforth we will say $(s_n)$ has a limit or the limit exists provided $(s_n)$ converges or diverges to $+\infty$ or diverges to $-\infty$.)*
+  hints:
+  - text: |
+      (a) Let $M > 0$. Since $\lim s_n = +\infty$ there exists $N \ge N_0$ such that $s_n > M$ for $n > N$. Then clearly $t_n > M$ for $n > N$, since $s_n \le t_n$ for all $n$. This shows $\lim t_n = +\infty$.
+
+      (c) Parts (a) and (b) take care of the infinite limits, so assume $(s_n)$ and $(t_n)$ converge. Since $t_n - s_n \ge 0$ for all $n > N_0$, $\lim(t_n - s_n) \ge 0$ by Exercise 8.9(a). Hence $\lim t_n - \lim s_n \ge 0$ by Theorems 9.3 and 9.2.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: In Ross, 'lim s_n exists' includes the values ±∞. Definition 9.8 and the convention after it (pp. 50–51) quoted verbatim. bookHint from PDF p. 382; it cites Exercise 8.9(a) (if a convergent (s_n) has s_n ≥ a for all but finitely many n, then lim s_n ≥ a) and Theorems 9.2–9.3 (limits of scalar multiples and sums).
+  curation:
+    why: M–N proofs for sequences that diverge to ±∞, and comparison of limits in the extended sense.
+
+- id: ross-29.2
+  source:
+    key: ross
+    chapter: 5 Differentiation
+    section: §29 The Mean Value Theorem
+    problemNumber: Exercise 29.2
+    page: '239'
+  topic: differentiation
+  subtopics:
+  - mvt-applications
+  skills:
+  - MVT-application
+  concept: '|cos x - cos y| <= |x - y| via MVT'
+  title: '$|\cos x - \cos y| \le |x - y|$'
+  difficulty: introductory
+  category: canonical
+  type: theorem-application
+  tags:
+  - mean-value-theorem
+  - Lipschitz
+  - inequality
+  problemLatex: |
+    Prove $|\cos x - \cos y| \le |x - y|$ for all $x, y \in \mathbb{R}$.
+  notes: Verified against page image. Uses sin' = cos, cos' = -sin (assumed known in Ross). No book hint.
+  curation:
+    why: 'The Mean Value Theorem as an inequality: a bound on the derivative gives a Lipschitz estimate.'
+
+- id: ross-26.5
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §26 Differentiation and Integration of Power Series
+    problemNumber: Exercise 26.5
+    page: '216'
+  topic: function-sequences
+  subtopics:
+  - power-series
+  - interchange-derivative
+  skills:
+  - term-by-term-differentiation
+  - reindexing
+  concept: exponential series satisfies f' = f
+  title: 'The exponential series satisfies $f'' = f$'
+  difficulty: introductory
+  category: canonical
+  type: theorem-application
+  tags:
+  - power-series
+  - exponential
+  - term-by-term-differentiation
+  problemLatex: |
+    Let $f(x) = \sum_{n=0}^\infty \frac{1}{n!} x^n$ for $x \in \mathbb{R}$. Show $f' = f$. Do *not* use the fact that $f(x) = e^x$; this is true but has not been established at this point in the text.
+
+    *(Theorem 26.5, quoted: Let $f(x) = \sum_{n=0}^\infty a_n x^n$ have radius of convergence $R > 0$. Then $f$ is differentiable on $(-R, R)$ and $f'(x) = \sum_{n=1}^\infty n a_n x^{n-1}$ for $|x| < R$.)*
+  hints:
+  - text: |
+      *Hint*: Apply Theorem 26.5.
+    source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
+    kind: textbook
+  notes: Theorem 26.5 (p. 210) quoted verbatim in the statement. bookHint from PDF p. 397 (printed 388).
+  curation:
+    why: 'Term-by-term differentiation: the exponential series is its own derivative.'
+
+- id: ross-26.6
+  source:
+    key: ross
+    chapter: 4 Sequences and Series of Functions
+    section: §26 Differentiation and Integration of Power Series
+    problemNumber: Exercise 26.6
+    page: '216'
+  topic: function-sequences
+  subtopics:
+  - power-series
+  - interchange-derivative
+  skills:
+  - term-by-term-differentiation
+  - derivative-zero-constant
+  concept: s(x)^2 + c(x)^2 = 1 from power-series definitions of sine and cosine
+  title: 'Sine and cosine from power series: $s^2 + c^2 = 1$'
+  difficulty: easy
+  category: synthesis
+  type: proof
+  tags:
+  - power-series
+  - sine
+  - cosine
+  - term-by-term-differentiation
+  - mean-value-theorem
+  problemLatex: |
+    Let $s(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots$ and $c(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots$ for $x \in \mathbb{R}$.
+
+    (a) Prove $s' = c$ and $c' = -s$.
+
+    (b) Prove $(s^2 + c^2)' = 0$.
+
+    (c) Prove $s^2 + c^2 = 1$.
+
+    Actually $s(x) = \sin x$ and $c(x) = \cos x$, but you do *not* need these facts.
+
+    *(Theorem 26.5, quoted: Let $f(x) = \sum_{n=0}^\infty a_n x^n$ have radius of convergence $R > 0$. Then $f$ is differentiable on $(-R, R)$ and $f'(x) = \sum_{n=1}^\infty n a_n x^{n-1}$ for $|x| < R$.)*
+  notes: Verified against page image. No book hint. Theorem 26.5 (p. 210), the tool of the section, quoted verbatim for self-containedness.
+  curation:
+    why: Sine and cosine defined by power series, with identities derived from their derivatives alone.

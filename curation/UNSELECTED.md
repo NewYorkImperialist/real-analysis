@@ -1,13 +1,13 @@
 # Unselected candidates
 
-550 candidates were transcribed and classified but not selected for the bank (66 core, 248 strong, 236 consider). Most "core"/"strong" ones lost only to a near-identical
+540 candidates were transcribed and classified but not selected for the bank (66 core, 243 strong, 231 consider). Most "core"/"strong" ones lost only to a near-identical
 version from another source that is already in the bank. Full text and metadata: `curation/candidates/*.yaml`.
 
 Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see curation/README.md).
 
 "Audited" = transcription already checked symbol-by-symbol against the page image.
 
-## foundations (27)
+## foundations (26)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -24,7 +24,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-1.4.9 | strong | medium | proof | algebraic numbers are countable; transcendental numbers exist | yes |
 | cummings-2.9 | consider | easy | proof | Every subset of N is finite or countably infinite | yes |
 | tao-7.1.4 | consider | easy | proof | binomial theorem by induction | no |
-| tao-8.1.2 | consider | easy | proof | well-ordering principle | no |
 | tao-8.1.4 | consider | easy | proof | image of N under any map is at most countable | no |
 | tao-8.3.5 | consider | easy | proof | no power set is countably infinite | no |
 | lebl-0.3.4 | consider | introductory | counterexample | f(C ∪ D) = f(C) ∪ f(D); f(C ∩ D) ⊂ f(C) ∩ f(D), strict in general | yes |
@@ -90,7 +89,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-2.4.4 | consider | medium | proof | Monotone Convergence Theorem implies Archimedean Property and Nested Interval Property | no |
 | lebl-1.2.15 | consider | medium | proof | sup{x in Q : x < y} = y; Dedekind cuts correspond to reals | yes |
 
-## sequences (85)
+## sequences (84)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -122,7 +121,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | ross-12.2 | strong | easy | proof | limsup \|s_n\| = 0 iff s_n → 0 | no |
 | ross-12.8 | strong | easy | proof | limsup s_n t_n ≤ (limsup s_n)(limsup t_n) for nonnegative bounded sequences | no |
 | ross-9.15 | strong | easy | proof | a^n/n! → 0 | no |
-| ross-9.9 | strong | easy | proof | comparison of limits: s_n ≤ t_n ⇒ lim s_n ≤ lim t_n (incl. ±∞) | no |
 | tao-6.1.5 | strong | easy | proof | convergent ⇒ Cauchy | no |
 | tao-6.1.8 | strong | easy | proof | algebraic limit theorem for sequences (sum, product, quotient, max/min) | no |
 | tao-6.4.10 | strong | easy | proof | limit points of limit points are limit points (set of subsequential limits is closed) | no |
@@ -421,7 +419,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | tao-9.3.4 | consider | medium | definition | limsup/liminf of a function at a point and sequential characterization | no |
 | tao-9.9.2 | consider | medium | proof | f uniformly continuous iff \|x_n - y_n\| -> 0 implies \|f(x_n) - f(y_n)\| -> 0 | no |
 
-## differentiation (57)
+## differentiation (54)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -442,10 +440,8 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | ross-29.17 | strong | easy | proof | piecewise-glued function differentiable at a iff values and derivatives match | no |
 | tao-10.2.4 | strong | easy | proof | Rolle's theorem | no |
 | tao-10.2.6 | strong | easy | theorem-application | \|f'\| <= M implies f is M-Lipschitz | no |
-| tao-10.3.4 | strong | easy | theorem-application | f'>0 implies strictly increasing; f'=0 implies constant | no |
 | ross-28.6 | strong | introductory | counterexample | x sin(1/x): continuous at 0 but not differentiable at 0 | no |
 | tao-10.1.3 | strong | introductory | proof | differentiable implies continuous | no |
-| abbott-5.2.2 | strong | medium | counterexample | f not differentiable, g differentiable => f+g not differentiable; products can be differentiable; function differentiable at exactly one point | no |
 | abbott-5.2.8 | strong | medium | conceptual | uniformly differentiable iff f' continuous (on closed interval); x^2 vs x^3 | no |
 | abbott-5.2.9 | strong | medium | counterexample | Darboux property consequences; f'(c)>0 does not force f'>0 nearby; limit of f' equals f'(0) | no |
 | abbott-5.3.11 | strong | medium | proof | L'Hospital's rule 0/0 case proof | no |
@@ -473,7 +469,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | ross-28.5 | consider | introductory | conceptual | the faulty proof of the chain rule (f(x)-f(a) can vanish arbitrarily close to a) | no |
 | ross-28.7 | consider | introductory | counterexample | x^2 for x>=0, 0 for x<0: C^1 but not twice differentiable | no |
 | ross-29.13 | consider | introductory | theorem-application | f(0)=g(0) and f' <= g' imply f <= g on [0, infinity) | no |
-| ross-29.2 | consider | introductory | theorem-application | \|cos x - cos y\| <= \|x - y\| via MVT | no |
 | tao-10.2.2 | consider | introductory | counterexample | \|x\|: extremum without derivative | no |
 | tao-10.2.3 | consider | introductory | counterexample | x^3: stationary point that is not an extremum | no |
 | tao-10.2.7 | consider | introductory | theorem-application | bounded derivative implies uniformly continuous | no |
@@ -483,7 +478,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-4.4.8 | consider | medium | proof | differentiability of f from that of its inverse g; g'(y)=0 obstructs | yes |
 | ross-30.7 | consider | medium | counterexample | Stolz counterexample: f'/g' -> 0 but f/g has no limit when g' vanishes | no |
 
-## integration (54)
+## integration (51)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -509,7 +504,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | ross-32.8 | strong | easy | proof | integrable on [a,b] implies integrable on every subinterval [c,d] | no |
 | ross-36.6 | strong | easy | proof | comparison test for improper integrals | no |
 | lebl-5.1.2 | strong | introductory | proof | integral of x on [0,1] from the definition (Darboux sums) | no |
-| abbott-7.5.8 | strong | medium | proof | natural logarithm via ∫1/t; Euler's constant exists; alternating harmonic series = log 2 | no |
 | cummings-8.20 | strong | medium | proof | nonnegative f with positive integral is positive at infinitely many points; converse fails (Thomae) | yes |
 | lebl-5.1.11 | strong | medium | proof | right-endpoint Riemann sums converge to the integral; converse fails | no |
 | lebl-5.2.18 | strong | medium | proof | Riemann–Lebesgue lemma for continuous functions | no |
@@ -524,7 +518,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | cummings-8.15 | consider | easy | computation | modified Dirichlet function x·1_Q: lower integral 0, upper integral 8 on [0,4] | yes |
 | cummings-8.21 | consider | easy | theorem-application | IVT via FTC + Darboux's theorem | yes |
 | lebl-5.1.10 | consider | easy | counterexample | lower sums over uniform partitions need not be monotone | no |
-| lebl-5.4.5 | consider | easy | proof | e^x = lim (1 + x/n)^n | no |
 | lebl-5.5.9 | consider | easy | proof | decreasing nonnegative f with finite improper integral tends to 0; converse fails | no |
 | ross-34.1 | consider | easy | proof | FTC II implies FTC I for continuously differentiable g | no |
 | ross-34.3 | consider | easy | computation | integral of a function with a jump: F continuous everywhere, not differentiable at the jump | no |
@@ -539,10 +532,9 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | abbott-7.5.9 | consider | medium | proof | total variation of C^1 function equals ∫\|f'\| | no |
 | cummings-8.29 | consider | medium | construction | integrable f can be approximated from below in L^1 by continuous functions | yes |
 | lebl-5.3.12 | consider | medium | construction | integral of an increasing function with a jump is not differentiable there; continuous F non-differentiable at every rational | no |
-| lebl-5.4.4 | consider | medium | proof | ln(1+x) power series on (-1,1]; alternating harmonic series = ln 2 | no |
 | tao-11.9.1 | consider | medium | proof | integral of monotone function with dense jumps is non-differentiable at each jump | no |
 
-## function-sequences (55)
+## function-sequences (53)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -567,7 +559,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | ross-25.4 | strong | easy | proof | uniformly convergent implies uniformly Cauchy | no |
 | ross-25.5 | strong | easy | proof | uniform limit of bounded functions is bounded | no |
 | ross-25.9 | strong | easy | counterexample | sum x^n converges uniformly on [-a,a] (a<1) but not on (-1,1) | no |
-| ross-26.6 | strong | easy | proof | s(x)^2 + c(x)^2 = 1 from power-series definitions of sine and cosine | no |
 | ross-27.2 | strong | easy | proof | continuous f on R is a limit of polynomials uniformly on bounded sets | no |
 | ross-33.15 | strong | easy | counterexample | tent functions of height n and width 2/n: f_n -> 0 pointwise but integrals = 1 | no |
 | abbott-6.2.10 | strong | hard | proof | Pólya-type theorem: increasing f_n -> continuous f pointwise on [a,b] implies uniform | no |
@@ -595,7 +586,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | ross-24.11 | consider | introductory | counterexample | f_n -> f, g_n -> g uniformly does not imply f_n g_n -> fg uniformly | no |
 | ross-24.2 | consider | introductory | definition | x/n -> 0 uniformly on [0,1] but not on [0,infinity) | no |
 | ross-26.2 | consider | introductory | computation | sum n x^n = x/(1-x)^2 and evaluation of sum n/2^n | no |
-| ross-26.5 | consider | introductory | theorem-application | exponential series satisfies f' = f | no |
 | abbott-6.2.13 | consider | medium | construction | diagonal subsequence: uniformly bounded sequence converges pointwise on countable set | no |
 | abbott-6.3.6 | consider | medium | counterexample | examples around the Differentiable Limit Theorem (Theorem 6.3.3) | no |
 | abbott-6.6.7 | consider | medium | construction | Taylor series convergence vs representation: examples with e^{-1/x^2} | no |

@@ -1044,3 +1044,55 @@
     Prove that $\{f_n\}_n$ converges to $f$ uniformly on $\mathbb{R}$.
   curation:
     why: "Uniform convergence via an x-independent bound — the sup-norm estimate in its simplest form."
+
+- id: mit20-a11-2
+  source:
+    key: mit
+    chapter: "Assignment 11"
+    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+    problemNumber: "Problem 2"
+    page: "1"
+  topic: differentiation
+  subtopics: [taylor]
+  skills: [compute-derivatives]
+  concept: "computing Taylor polynomials"
+  title: Fourth Taylor polynomials of $\sin x$ and $1/(1-x)$
+  difficulty: introductory
+  category: canonical
+  type: computation
+  tags: [Taylor, computation]
+  problemLatex: |
+    Compute the fourth Taylor polynomial for:
+
+    (a) $f(x) = \sin x$ at $x = 0$.
+
+    (b) $f(x) = \frac{1}{1-x}$ at $x = -1$.
+  curation:
+    why: "Routine but sets the notation for Taylor's theorem; (b) checks the expansion point is not 0."
+
+- id: mit20-a11-3
+  source:
+    key: mit
+    chapter: "Assignment 11"
+    section: "Reading: Lebl §4.3; Riemann Integral lecture notes"
+    problemNumber: "Problem 3"
+    page: "1"
+  topic: differentiation
+  subtopics: [taylor]
+  skills: [taylor-remainder-estimate]
+  concept: "limits via Taylor's theorem"
+  title: 'Computing limits with Taylor''s theorem'
+  difficulty: easy
+  category: canonical
+  type: computation
+  tags: [Taylor, limits, computation]
+  problemLatex: |
+    Compute:
+
+    (a)
+    $$\lim_{x \to 0} \frac{x - \sin x}{x^3}$$
+
+    (b)
+    $$\lim_{x \to \frac{\pi}{2}} \frac{1 - \sin x}{\left(x - \frac{\pi}{2}\right)^2}$$
+  curation:
+    why: "Use Taylor's theorem with remainder (not L'Hôpital by rote) to compute limits rigorously."

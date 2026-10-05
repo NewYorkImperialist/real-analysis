@@ -3450,3 +3450,129 @@
   notes: Theorems 4.5.1 (p. 136), 4.5.2 (p. 136) and 3.4.7 (p. 105) quoted verbatim; the book points to 3.4.7 just before the exercise ('In R, a set is connected if and only if it is a (possibly unbounded) interval. This fact, together with Theorem 4.5.2, leads to a short proof of the Intermediate Value Theorem (Exercise 4.5.1)'). Abbott's connectedness is Definition 3.4.4 (separated sets), quoted in abbott-3.4.6. Verified against page images (pdf 117, 147, 150).
   curation:
     why: 'The IVT as a corollary of preservation of connectedness: continuous images of intervals are intervals.'
+
+- id: abbott-1.2.1
+  source:
+    key: abbott
+    chapter: 1 The Real Numbers
+    section: 1.2 Some Preliminaries
+    problemNumber: Exercise 1.2.1
+    page: '11'
+  topic: real-numbers
+  subtopics:
+  - completeness
+  - ordered-fields
+  skills:
+  - contradiction
+  - divisibility-argument
+  concept: sqrt(3) is irrational (gaps in Q)
+  title: '$\sqrt{3}$ is irrational, and the same argument for $\sqrt{6}$ and $\sqrt{4}$'
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - irrational
+  - square-root
+  - rational-numbers
+  - contradiction
+  - gaps-in-Q
+  problemLatex: |
+    (a) Prove that $\sqrt{3}$ is irrational. Does a similar argument work to show $\sqrt{6}$ is irrational?
+
+    (b) Where does the proof of Theorem 1.1.1 break down if we try to use it to prove $\sqrt{4}$ is irrational?
+
+    *(Theorem 1.1.1, quoted: There is no rational number whose square is 2.)*
+
+    *(Proof of Theorem 1.1.1, quoted from its second paragraph on:)* And so assume, for contradiction, that there exist integers $p$ and $q$ satisfying
+    $$(1)\qquad \left(\frac{p}{q}\right)^2 = 2.$$
+    We may also assume that $p$ and $q$ have no common factor, because, if they had one, we could simply cancel it out and rewrite the fraction in lowest terms. Now, equation (1) implies
+    $$(2)\qquad p^2 = 2q^2.$$
+    From this, we can see that the integer $p^2$ is an even number (it is divisible by 2), and hence $p$ must be even as well because the square of an odd number is odd. This allows us to write $p = 2r$, where $r$ is also an integer. If we substitute $2r$ for $p$ in equation (2), then a little algebra yields the relationship
+    $$2r^2 = q^2.$$
+    But now the absurdity is at hand. This last equation implies that $q^2$ is even, and hence $q$ must also be even. Thus, we have shown that $p$ and $q$ are both even (i.e., divisible by 2) when they were originally assumed to have no common factor. From this logical impasse, we can only conclude that equation (1) *cannot* hold for any integers $p$ and $q$, and thus the theorem is proved.
+  notes: Part (b) asks about the proof of Theorem 1.1.1, so the theorem (p. 1) and the substance of its proof (p. 2, from 'And so assume' to the end) are quoted verbatim; the omitted first paragraph only explains what a proof by contradiction is. Verified against page images (pdf 14, 15, 24).
+  curation:
+    why: 'Proof by contradiction in Q: adapting the classic irrationality argument and testing which of its steps carry over.'
+
+- id: abbott-5.2.2
+  source:
+    key: abbott
+    chapter: 5 The Derivative
+    section: 5.2 Derivatives and the Intermediate Value Property
+    problemNumber: Exercise 5.2.2
+    page: '152'
+  topic: differentiation
+  subtopics:
+  - differentiability
+  - derivative-rules
+  skills:
+  - construct-counterexample
+  - contradiction
+  concept: f not differentiable, g differentiable => f+g not differentiable; products can be differentiable; function differentiable at exactly one point
+  title: 'Sums and products of non-differentiable functions'
+  difficulty: medium
+  category: canonical
+  type: counterexample
+  tags:
+  - derivative
+  - counterexample
+  - differentiability
+  - product-rule
+  - Dirichlet-function
+  problemLatex: |
+    Exactly one of the following requests is impossible. Decide which it is, and provide examples for the other three. In each case, let's assume the functions are defined on all of $\mathbb{R}$.
+
+    (a) Functions $f$ and $g$ not differentiable at zero but where $fg$ is differentiable at zero.
+
+    (b) A function $f$ not differentiable at zero and a function $g$ differentiable at zero where $fg$ is differentiable at zero.
+
+    (c) A function $f$ not differentiable at zero and a function $g$ differentiable at zero where $f+g$ is differentiable at zero.
+
+    (d) A function $f$ differentiable at zero but not differentiable at any other point.
+  curation:
+    why: What the sum and product rules do and do not say, tested by constructing examples.
+
+- id: abbott-7.5.8
+  source:
+    key: abbott
+    chapter: 7 The Riemann Integral
+    section: 7.5 The Fundamental Theorem of Calculus
+    problemNumber: Exercise 7.5.8
+    page: '237'
+  topic: integration
+  subtopics:
+  - log-exp
+  - fundamental-theorem
+  skills:
+  - differentiate-and-compare
+  - monotone-convergence
+  - integral-comparison
+  concept: natural logarithm via ∫1/t; Euler's constant exists; alternating harmonic series = log 2
+  title: 'The logarithm as $\int_1^x dt/t$, and Euler''s constant'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - logarithm
+  - Euler-constant
+  - fundamental-theorem-of-calculus
+  - harmonic-series
+  problemLatex: |
+    **(Natural Logarithm and Euler's Constant).** Let
+    $$L(x) = \int_1^x \frac{1}{t}\,dt,$$
+    where we consider only $x > 0$.
+
+    (a) What is $L(1)$? Explain why $L$ is differentiable and find $L'(x)$.
+
+    (b) Show that $L(xy) = L(x) + L(y)$. (Think of $y$ as a constant and differentiate $g(x) = L(xy)$.)
+
+    (c) Show $L(x/y) = L(x) - L(y)$.
+
+    (d) Let
+    $$\gamma_n = \left(1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}\right) - L(n).$$
+    Prove that $(\gamma_n)$ converges. The constant $\gamma = \lim\gamma_n$ is called Euler's constant.
+
+    (e) Show how consideration of the sequence $\gamma_{2n} - \gamma_n$ leads to the interesting identity
+    $$L(2) = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \cdots.$$
+  curation:
+    why: The logarithm defined as an integral, with its laws derived from the FTC.

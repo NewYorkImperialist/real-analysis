@@ -28,6 +28,15 @@
         $(y_n)$ converges and $y_n\to\ell$.
       note: Strict inequalities between terms give only non-strict inequalities between limits.
 
+- before: ross-9.9
+  items:
+    - kind: definition
+      name: Divergence to infinity
+      latex: |
+        A sequence $(a_n)$ **diverges to** $+\infty$ if for every $M\in\mathbb{R}$ there exists
+        $N\in\mathbb{N}$ such that $a_n>M$ for all $n\ge N$; it diverges to $-\infty$ if $(-a_n)$ diverges
+        to $+\infty$.
+
 - before: cummings-3.16
   items:
     - kind: definition
@@ -35,12 +44,6 @@
       latex: |
         A sequence $(a_n)$ is **increasing** if $a_n\le a_{n+1}$ for all $n$, **decreasing** if
         $a_n\ge a_{n+1}$ for all $n$, and **monotone** if it is increasing or decreasing.
-    - kind: definition
-      name: Divergence to infinity
-      latex: |
-        A sequence $(a_n)$ **diverges to** $+\infty$ if for every $M\in\mathbb{R}$ there exists
-        $N\in\mathbb{N}$ such that $a_n>M$ for all $n\ge N$; it diverges to $-\infty$ if $(-a_n)$ diverges
-        to $+\infty$.
 
 - before: cummings-4.3
   items:

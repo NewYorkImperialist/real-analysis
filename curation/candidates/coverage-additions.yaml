@@ -2,7 +2,7 @@ chunk: "coverage-additions"
 book: mixed
 pageOffsetNote: "Abbott: printed page = pdfPage - 11. Lebl: printed page = pdfPage."
 sectionsCovered:
-  - "Coverage audit: book exercises added to fill gaps in the core (infinite limits; IVT from preservation of connectedness)"
+  - "Coverage audit: book exercises added to fill gaps in the core (infinite limits; IVT from preservation of connectedness; irrationality of square roots)"
 candidates:
   - cid: abbott-4.5.1
     chapter: "4 Functional Limits and Continuity"
@@ -88,3 +88,38 @@ candidates:
 
       *[Summary, not verbatim — the previous exercise (3.5.5) asks for the remaining definitions of infinite limits. For example, $\lim_{x\to-\infty} P(x) = \infty$ means: for every $N \in \mathbb{R}$ there exists $M \in \mathbb{R}$ such that $P(x) > N$ whenever $x \leq M$; and $\lim_{x\to-\infty} P(x) = -\infty$ means: for every $N \in \mathbb{R}$ there exists $M \in \mathbb{R}$ such that $P(x) < N$ whenever $x \leq M$.]*
     transcriptionNotes: "Exercise 3.5.5 (definitions of the other infinite limits) is summarized and marked as a summary. Verified against page image (pdf 148)."
+
+  - cid: abbott-1.2.1
+    chapter: "1 The Real Numbers"
+    section: "1.2 Some Preliminaries"
+    number: "Exercise 1.2.1"
+    page: "11"
+    pdfPage: 24
+    audit: ok
+    verdict: core
+    machinery: "Proof by contradiction in Q: adapting the irrationality of the square root of 2 to other square roots, and locating the step that uses primality."
+    standardResult: "sqrt(3) is irrational (gaps in Q)"
+    topic: real-numbers
+    subtopics: [completeness, ordered-fields]
+    skills: [contradiction, divisibility-argument]
+    difficulty: introductory
+    difficultyRationale: "Mimic a worked proof; the only new step is that 3 | p^2 forces 3 | p, and (b) asks where 'p^2 even implies p even' has no analogue for 4."
+    category: canonical
+    type: proof
+    tags: [irrational, square-root, rational-numbers, contradiction, gaps-in-Q]
+    references: ["Theorem 1.1.1 and its proof (quoted)"]
+    problemLatex: |
+      (a) Prove that $\sqrt{3}$ is irrational. Does a similar argument work to show $\sqrt{6}$ is irrational?
+
+      (b) Where does the proof of Theorem 1.1.1 break down if we try to use it to prove $\sqrt{4}$ is irrational?
+
+      *(Theorem 1.1.1, quoted: There is no rational number whose square is 2.)*
+
+      *(Proof of Theorem 1.1.1, quoted from its second paragraph on:)* And so assume, for contradiction, that there exist integers $p$ and $q$ satisfying
+      $$(1)\qquad \left(\frac{p}{q}\right)^2 = 2.$$
+      We may also assume that $p$ and $q$ have no common factor, because, if they had one, we could simply cancel it out and rewrite the fraction in lowest terms. Now, equation (1) implies
+      $$(2)\qquad p^2 = 2q^2.$$
+      From this, we can see that the integer $p^2$ is an even number (it is divisible by 2), and hence $p$ must be even as well because the square of an odd number is odd. This allows us to write $p = 2r$, where $r$ is also an integer. If we substitute $2r$ for $p$ in equation (2), then a little algebra yields the relationship
+      $$2r^2 = q^2.$$
+      But now the absurdity is at hand. This last equation implies that $q^2$ is even, and hence $q$ must also be even. Thus, we have shown that $p$ and $q$ are both even (i.e., divisible by 2) when they were originally assumed to have no common factor. From this logical impasse, we can only conclude that equation (1) cannot hold for any integers $p$ and $q$, and thus the theorem is proved.
+    transcriptionNotes: "Part (b) asks about the proof of Theorem 1.1.1, so the theorem (p. 1) and the substance of its proof (p. 2, from 'And so assume' to the end) are quoted verbatim; the omitted first paragraph only explains what a proof by contradiction is. Verified against page images (pdf 14, 15, 24)."

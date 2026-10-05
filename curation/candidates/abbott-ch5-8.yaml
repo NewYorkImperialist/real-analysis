@@ -48,6 +48,7 @@ candidates:
       (c) A function $f$ not differentiable at zero and a function $g$ differentiable at zero where $f+g$ is differentiable at zero.
 
       (d) A function $f$ differentiable at zero but not differentiable at any other point.
+    audit: ok
 
   - cid: abbott-5.2.4
     chapter: "5 The Derivative"
@@ -1820,6 +1821,7 @@ candidates:
 
       (e) Show how consideration of the sequence $\gamma_{2n} - \gamma_n$ leads to the interesting identity
       $$L(2) = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \cdots.$$
+    audit: ok
 
   - cid: abbott-7.5.9
     chapter: "7 The Riemann Integral"

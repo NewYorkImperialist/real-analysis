@@ -322,3 +322,71 @@ All of these are existing book exercises. None is invented.
   reference-only.
 - **Construction of R; Riemann–Stieltjes; bounded variation; Fourier series; R^k compactness.** These are optional,
   Rudin-specific, or second-course material.
+
+---
+
+## Calculus made rigorous and remaining gaps (added)
+
+Added on 2026-10-05. The core is now **344** problems (381 in all). None of these problems is invented: three were
+restored from `curation/REMOVED.yaml`, ten come from the candidate pool, and one (Abbott 1.2.1) was newly transcribed into
+`curation/candidates/coverage-additions.yaml`. Every new statement was checked against the rendered page and made
+self-contained, with quoted results marked as quotes. AI hints and solutions are in `data/solutions/completeness.yaml`.
+
+| id | source | placement (`data/curriculum.yaml`) | why |
+|---|---|---|---|
+| `abbott-1.2.1` | Abbott Ex. 1.2.1, p. 11 (new transcription; Theorem 1.1.1 and its proof quoted) | real-numbers, new first group *irrational numbers (gaps in Q)* | Proof by contradiction in Q: adapting the classic irrationality argument and testing which of its steps carry over. |
+| `tao-8.1.2` | Tao Ex. 8.1.2, p. 187 (Prop. 8.1.4, Ex. 4.4.2, Thm 5.5.9 quoted) | foundations, *induction*, after `lebl-0.3.12` | The well-ordering principle of N, proved from induction, and why it is special to N. |
+| `ross-9.9` | Ross Ex. 9.9, p. 55 (Def. 9.8 quoted) | sequences, end of *order and limits; testing the laws* | M–N proofs for sequences that diverge to ±∞, and comparison of limits in the extended sense. |
+| `abbott-5.2.2` | Abbott Ex. 5.2.2, p. 152 | differentiation, *derivative rules*, before `abbott-5.2.4` | What the sum and product rules do and do not say, tested by constructing examples. |
+| `tao-10.3.4` | Tao Ex. 10.3.4, p. 261 (Prop. 10.3.3, Cor. 10.2.9 quoted) | differentiation, first in *consequences of the MVT* | The Mean Value Theorem turns the sign of the derivative into monotonicity or constancy. |
+| `ross-29.2` | Ross Ex. 29.2, p. 239 | differentiation, *consequences of the MVT*, after `tao-10.3.4` | The Mean Value Theorem as an inequality: a bound on the derivative gives a Lipschitz estimate. |
+| `mit20-a11-2` | MIT 18.100A F20 A11 P2 (restored) | differentiation, first in *Taylor's theorem* | Computing Taylor polynomials, including at a base point other than 0. |
+| `mit20-a11-3` | MIT 18.100A F20 A11 P3 (restored) | differentiation, *Taylor's theorem*, after `mit20-a11-2` | Limits computed rigorously with Taylor's theorem and an explicit remainder. |
+| `lebl-5.3.1` | Lebl Ex. 5.3.1, p. 205 (restored) | integration, first in *fundamental theorem of calculus* | FTC with variable limits, combined with additivity and the chain rule. |
+| `abbott-7.5.8` | Abbott Ex. 7.5.8, p. 237 | integration, first in *logarithm and exponential* | The logarithm defined as an integral, with its laws derived from the FTC. |
+| `lebl-5.4.5` | Lebl Ex. 5.4.5, p. 212 (Lebl's ln/exp definitions summarized) | integration, *logarithm and exponential*, after `lebl-5.4.6` | A classical limit for the exponential, computed through the logarithm. |
+| `lebl-5.4.4` | Lebl Ex. 5.4.4, p. 212 | integration, *logarithm and exponential*, after `lebl-5.4.5` | The series for ln(1+x) from a finite geometric sum and an explicit integral remainder. |
+| `ross-26.5` | Ross Ex. 26.5, p. 216 (Thm 26.5 quoted) | function-sequences, *power series as functions*, after `abbott-6.5.5` | Term-by-term differentiation: the exponential series is its own derivative. |
+| `ross-26.6` | Ross Ex. 26.6, p. 216 (Thm 26.5 quoted) | function-sequences, after `ross-26.5` | Sine and cosine defined by power series, with identities derived from their derivatives alone. |
+
+**Choices between pairs.**
+- `abbott-5.2.2` was chosen over `ross-28.3`. It is self-contained and tests the algebra of differentiability: one
+  request is impossible because of the sum rule, and the others need constructed examples. `ross-28.3` is a
+  difference-quotient computation, and the core already practises that (`mit20-final-4a`, `lebl-4.1.5`, `ross-28.4`).
+- `lebl-5.4.4` was chosen over `abbott-6.6.4`. Lebl proves the whole series for ln(1+x) on (−1, 1] with an explicit
+  integral remainder. Abbott proves only the value at x = 1, which `abbott-7.5.8`(e) already gives. Also, its quoted
+  remainder theorem is stated on a symmetric interval (−R, R), which does not literally cover log(1+x) at x = 1.
+
+**Already present.** `lebl-4.3.11` (second derivative test) was already in the core, so nothing was added for it.
+
+**Reference moves.** No reference states a result just before a problem that asks to prove it:
+- The *Mean Value Theorem* block now holds only MVT/Rolle. Its monotonicity consequences became a separate theorem
+  placed `before: ross-29.2`, right after `tao-10.3.4` proves them.
+- *Divergence to infinity* moved to `before: ross-9.9`.
+- *FTC* moved to `before: lebl-5.3.1`.
+- *Natural logarithm as an integral* moved to `before: abbott-7.5.8`.
+- *Taylor polynomial / Taylor's Theorem* moved to `before: mit20-a11-2`.
+- *Power series as functions* moved to `before: ross-26.5`.
+
+**Overlap noted.** `abbott-7.5.8`(d) (Euler's constant) repeats `lebl-5.4.6`(b), and `abbott-7.5.8`(e) and the end of
+`lebl-5.4.4` both give log 2. All are kept: Lebl's versions add sharper bounds, the general series and a different
+method.
+
+**Syllabus items now covered.**
+
+| # | item | was | now |
+|---|---|---|---|
+| 7 | Well-ordering principle | M | C (`tao-8.1.2`) |
+| 17 | Irrationality of √2 / √3 | M | C (`abbott-1.2.1`) |
+| 41 | Divergence to ±∞ | C\* | C (`ross-9.9`) |
+| 47 | e as a limit | M | C (`lebl-5.4.5`, eˣ = lim(1+x/n)ⁿ) |
+| 113 | Sum/product/quotient rules | R | C (`abbott-5.2.2`) |
+| 118 | MVT consequences (monotonicity, f′=0 ⇒ constant, Lipschitz) | C\* | C (`tao-10.3.4`, `ross-29.2`) |
+| 125k | FTC with variable limits | M | C (`lebl-5.3.1`) |
+| 125m | Logarithm as an integral: its laws | R | C (`abbott-7.5.8`, `lebl-5.4.4`) |
+| 126l | exp (and sin/cos) from power series | M | C (`ross-26.5`, `ross-26.6`) |
+| 126q | Computational Taylor / Taylor-limit practice | M | C (`mit20-a11-2`, `mit20-a11-3`) |
+
+With these additions all 4 must-have items are covered, and so is every nice-to-have item in the list above.
+Construction of R, Riemann–Stieltjes, bounded variation, Fourier series and Rⁿ compactness remain deliberately out of
+the core, and "continuous ⇒ integrable" remains reference-only.
