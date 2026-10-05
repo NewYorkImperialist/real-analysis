@@ -472,7 +472,7 @@
     - |
       Apply that identity with $U$ the first open set that appears in the chain. It makes a later term equal an earlier one, and from then on the chain repeats periodically. Count how many distinct terms can appear before the repetition starts, in each of the two chains.
     - |
-      To reach $14$, build $S$ from pieces that react differently: two open intervals sharing an endpoint, an isolated point, and the rationals in an interval.
+      To show that the bound is attained, build $S$ from pieces that react differently: two open intervals sharing an endpoint, an isolated point, and the rationals in an interval.
   solution: |
     **Answer.** Each chain contains at most $7$ distinct sets (in particular it is finite), so at most $14$ distinct sets arise in total, and $14$ is attained.
 
