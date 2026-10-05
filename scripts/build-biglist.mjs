@@ -13,6 +13,8 @@ import { tokenize, toBlocks } from '../src/lib/richtext.ts';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const bank = JSON.parse(fs.readFileSync(path.join(root, 'src', 'generated', 'bank.json'), 'utf8'));
+// The site logo (the drawn integral sign), shown on the title page.
+const LOGO = fs.readFileSync(path.join(root, 'public', 'favicon.svg'), 'utf8').replace('<svg ', '<svg class="logo" role="img" aria-label="Real Analysis Problem Bank logo" ');
 const SITE = `https://${fs.readFileSync(path.join(root, 'public', 'CNAME'), 'utf8').trim()}`;
 
 // Difficulty marks, after the MAT327 list's stars and dagger.
@@ -93,18 +95,20 @@ const problemHtml = (sec, p, i) => `
 const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <title>Real Analysis Big List — Jayden Lin</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="big-list-assets/katex.min.css">
 <style>
   @page { size: letter; margin: 0.9in 1in 0.9in 1in; }
   html { font-family: KaTeX_Main, 'Times New Roman', serif; font-size: 11.5pt; line-height: 1.45; color: #111; }
   body { margin: 0; }
   a { color: inherit; }
+  .title .logo { width: 0.6in; height: 0.6in; display: block; margin: 0 auto 0.2in; }
   .title .kicker { font-size: 24pt; margin: 0; }
-  .title .author { font-size: 14pt; margin: 0 0 1.2em; }
-  .title { text-align: center; padding-top: 0.7in; }
+  .title .author { font-size: 14pt; margin: 0 0 0.8em; }
+  .title { text-align: center; padding-top: 0; }
   .title h1 { font-size: 24pt; font-weight: normal; margin: 0 0 0.6em; }
   .title .sub { font-size: 13pt; margin: 0.2em 0; }
-  .intro { margin-top: 0.45in; text-align: justify; }
+  .intro { margin-top: 0.3in; text-align: justify; }
   .intro ul { margin: 0.4em 0 0.8em 1.2em; padding: 0; }
   .legend { text-align: center !important; }
   .intro ul { font-size: 10.5pt; }
@@ -134,6 +138,7 @@ const html = `<!doctype html>
 </style></head><body>
 
 <div class="title">
+  ${LOGO}
   <p class="kicker">Real Analysis</p>
   <h1>Big List</h1>
   <p class="author">Jayden Lin</p>
@@ -144,6 +149,8 @@ const html = `<!doctype html>
     <p>This is the complete problem bank behind <a href="${SITE}">${esc(SITE.replace('https://', ''))}</a>, collected in one
     document for working offline and by hand. It is regenerated every time the bank changes, so this copy is current as of the date above.
     It contains problems only: hints, full solutions and progress tracking are on the site, and every problem ends with a link to its page.</p>
+    <p>The format is inspired by Ivan Khatchatourian’s <a href="https://www.math.toronto.edu/ivan/mat327/docs/biglist.pdf"><em>MAT327 Big List</em></a>
+    for point-set topology at the University of Toronto.</p>
     <p>Every problem is transcribed from one of the following sources and cited to its exact location:</p>
     <ul>${bank.sources.map((s) => `<li>${esc(s.citation)}</li>`).join('')}</ul>
     <p>Problems are divided into sections by topic, in the usual order of a course, and rated by difficulty:</p>
