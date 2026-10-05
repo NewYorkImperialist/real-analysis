@@ -14,17 +14,18 @@ export function About() {
       <section class="stack">
         <h2>Purpose</h2>
         <p>
-          Graduate analysis assumes the undergraduate machinery is automatic: quantifiers, completeness, sequences
-          and series, compactness, continuity, differentiation, Riemann integration, uniform convergence. This bank
-          collects the problems that build that machinery, so it can be rebuilt deliberately rather than
-          rediscovered under pressure.
+          Real analysis runs on a small set of mechanics: quantifiers, completeness, sequences and series,
+          compactness, continuity, differentiation, Riemann integration, uniform convergence. This bank collects the
+          problems that build those mechanics and the technical proof machinery behind them, so you can practise them
+          deliberately, whether you are taking a course, reviewing for an exam, or studying on your own.
         </p>
       </section>
 
       <section class="stack">
         <h2>Core and upper tier</h2>
         <p>
-          The <strong>core</strong> is the finishable bank: the undergraduate machinery a graduate course assumes.
+          The <strong>core</strong> is the finishable bank: the mechanics of real analysis and the technical proof
+          machinery that every later argument relies on.
           The <strong>upper tier</strong> is an optional layer of harder problems, mostly from Pugh, Rudin and
           MIT 18.100B: multi-step synthesis, constructions, hypothesis-necessity counterexamples and classification
           problems, chosen only when they add a problem-solving experience the core lacks. Upper-tier problems are

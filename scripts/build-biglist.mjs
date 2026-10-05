@@ -56,7 +56,7 @@ function citation(p) {
 
 // Sections: Part I = core by topic (course order); Part II = upper tier by topic.
 const parts = [
-  { title: 'Core', blurb: 'The undergraduate machinery a graduate course assumes, in course order.', list: bank.problems.filter((p) => !p.tier) },
+  { title: 'Core', blurb: 'The mechanics of real analysis and the technical proof machinery behind them, in course order.', list: bank.problems.filter((p) => !p.tier) },
   {
     title: 'Upper tier',
     blurb:
@@ -92,7 +92,7 @@ const problemHtml = (sec, p, i) => `
 
 const html = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<title>Undergraduate Real Analysis — Big List</title>
+<title>Real Analysis Big List — Jayden Lin</title>
 <link rel="stylesheet" href="big-list-assets/katex.min.css">
 <style>
   @page { size: letter; margin: 0.9in 1in 0.9in 1in; }
@@ -100,6 +100,7 @@ const html = `<!doctype html>
   body { margin: 0; }
   a { color: inherit; }
   .title .kicker { font-size: 24pt; margin: 0; }
+  .title .author { font-size: 14pt; margin: 0 0 1.2em; }
   .title { text-align: center; padding-top: 0.7in; }
   .title h1 { font-size: 24pt; font-weight: normal; margin: 0 0 0.6em; }
   .title .sub { font-size: 13pt; margin: 0.2em 0; }
@@ -133,8 +134,9 @@ const html = `<!doctype html>
 </style></head><body>
 
 <div class="title">
-  <p class="kicker">Undergraduate Real Analysis</p>
+  <p class="kicker">Real Analysis</p>
   <h1>Big List</h1>
+  <p class="author">Jayden Lin</p>
   <p class="sub">${nCore} core problems · ${nUpper} upper-tier problems</p>
   <p class="sub">${esc(SITE.replace('https://', ''))}</p>
   <p class="sub">${date}</p>
