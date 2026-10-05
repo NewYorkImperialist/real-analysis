@@ -13,8 +13,6 @@ import { tokenize, toBlocks } from '../src/lib/richtext.ts';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const bank = JSON.parse(fs.readFileSync(path.join(root, 'src', 'generated', 'bank.json'), 'utf8'));
-// The site logo (the drawn integral sign), shown on the title page.
-const LOGO = fs.readFileSync(path.join(root, 'public', 'favicon.svg'), 'utf8').replace('<svg ', '<svg class="logo" role="img" aria-label="Real Analysis Problem Bank logo" ');
 const SITE = `https://${fs.readFileSync(path.join(root, 'public', 'CNAME'), 'utf8').trim()}`;
 
 // Difficulty marks, after the MAT327 list's stars and dagger.
@@ -102,10 +100,9 @@ const html = `<!doctype html>
   html { font-family: KaTeX_Main, 'Times New Roman', serif; font-size: 11.5pt; line-height: 1.45; color: #111; }
   body { margin: 0; }
   a { color: inherit; }
-  .title .logo { width: 0.6in; height: 0.6in; display: block; margin: 0 auto 0.2in; }
   .title .kicker { font-size: 24pt; margin: 0; }
   .title .author { font-size: 14pt; margin: 0 0 0.8em; }
-  .title { text-align: center; padding-top: 0; }
+  .title { text-align: center; padding-top: 0.5in; }
   .title h1 { font-size: 24pt; font-weight: normal; margin: 0 0 0.6em; }
   .title .sub { font-size: 13pt; margin: 0.2em 0; }
   .intro { margin-top: 0.3in; text-align: justify; }
@@ -138,7 +135,6 @@ const html = `<!doctype html>
 </style></head><body>
 
 <div class="title">
-  ${LOGO}
   <p class="kicker">Real Analysis</p>
   <h1>Big List</h1>
   <p class="author">Jayden Lin</p>
