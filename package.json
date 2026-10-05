@@ -8,7 +8,8 @@
     "dev": "node scripts/build-data.mjs && vite",
     "build": "node scripts/build-data.mjs && tsc --noEmit && vite build",
     "preview": "vite preview",
-    "check": "node scripts/build-data.mjs --check"
+    "check": "node scripts/build-data.mjs --check",
+    "biglist": "node scripts/build-biglist.mjs --pdf"
   },
   "dependencies": {
     "katex": "^0.19.0",
@@ -19,6 +20,7 @@
     "@preact/preset-vite": "^2.10.6",
     "@types/js-yaml": "^4.0.9",
     "js-yaml": "^5.4.2",
+    "puppeteer-core": "^25.12.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.2"
   }

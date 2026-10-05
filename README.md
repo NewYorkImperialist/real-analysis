@@ -50,6 +50,14 @@ How the bank was built:
   hints, and a few printed by Pugh and Rudin) are labeled as such. All other hints and every solution are
   AI-generated, independently reviewed, and labeled "AI-generated · not verified by a human" on the site.
 
+## Big List PDF
+
+`npm run biglist` (after `npm run build`) renders every problem, without hints or solutions, into
+`dist/big-list.pdf`, in the style of a course "big list": topic sections in course order, the core
+then the upper tier, difficulty marks, and a citation plus a link to the problem's page on each one.
+The deploy workflow runs it on every push, so `/big-list.pdf` always matches the current bank.
+It needs Chrome (`$CHROME_PATH`, or the standard macOS/Linux install).
+
 ## Data layout
 
 ```

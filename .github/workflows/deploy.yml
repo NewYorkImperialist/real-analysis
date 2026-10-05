@@ -26,6 +26,8 @@ jobs:
       - run: npm ci
       # Validates the problem data, type-checks, and builds to dist/.
       - run: npm run build
+      # Every problem in one printable PDF (dist/big-list.pdf), rebuilt on every push.
+      - run: npm run biglist
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
