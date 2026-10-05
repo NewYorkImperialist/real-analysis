@@ -10,6 +10,14 @@
   <link rel="icon" href="../favicon-32.png?v=2" type="image/png" sizes="32x32" />
   <link rel="icon" href="../favicon.svg?v=2" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=2" />
+  <script>
+    // Phones and tablets can't scroll a PDF inside a frame (iOS Safari shows only the first page;
+    // Android Chrome often shows nothing), so send them to the PDF itself, which opens in the
+    // device's own viewer with every page.
+    if (/iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      location.replace('../big-list.pdf');
+    }
+  </script>
   <style>
     html, body { margin: 0; height: 100%; background: #525659; font-family: system-ui, sans-serif; }
     .bar { display: flex; gap: 1rem; align-items: center; padding: 0.45rem 1rem; background: #1f1e1c; color: #fbfaf6; font-size: 0.9rem; }
