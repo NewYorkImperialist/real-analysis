@@ -18,11 +18,11 @@ npm run check     # validate the problem data only
 
 ## The bank
 
-There are **381 problems**: a **core** of 344 and an optional **upper tier** of 37 harder problems.
+There are **380 problems**: a **core** of 343 and an optional **upper tier** of 37 harder problems.
 
 | Source | Core | Upper tier |
 |---|---|---|
-| MIT 18.100A Real Analysis — 2020 (assignments, midterm, final) | 43 original, plus 33 Lebl exercises the course assigned | — |
+| MIT 18.100A Real Analysis — 2020 (assignments, midterm, final) | 42 original, plus 33 Lebl exercises the course assigned | — |
 | Abbott, *Understanding Analysis* (2nd ed.) | 106 | — |
 | Lebl, *Basic Analysis I* (v6.3) | 70 | 1 |
 | Ross, *Elementary Analysis* (2nd ed.) | 42 | — |

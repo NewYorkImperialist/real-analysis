@@ -964,3 +964,61 @@
         By the previous paragraph, $f$ is not increasing on $J$.
 
         **(c)** Corollary 29.7(i) requires $f'(x)>0$ at **every** point of an interval. Here $f'(0)>0$, but $f'$ is not positive on any open interval around $0$. Every neighborhood of $0$ contains points where $f'<0$: by (b), $f'(\frac{1}{2\pi n}) = -\frac12$ for every $n$. (This can happen only because $f'$ is not continuous at $0$; the term $-\cos(1/x)$ oscillates between $-1$ and $1$.) So the corollary does not apply, and there is no contradiction. The example shows that a positive derivative at one point does not make $f$ increasing near that point. If $f'$ were continuous at $0$, then $f'>0$ on a neighborhood of $0$ and Corollary 29.7(i) would give that $f$ is strictly increasing there.
+
+- id: mit20-mid-5b
+  reason: "near-duplicate of mit20-a7-2 (intervals/absolute convergence of power series); removed 2026-10-05 at the owner's request"
+  problem: |
+    - id: mit20-mid-5b
+      source:
+        key: mit
+        chapter: "Midterm Exam (October 16, 2020)"
+        problemNumber: "Problem 5(b)"
+        page: "11"
+      topic: series
+      subtopics: [power-series, absolute-convergence, conditional-convergence]
+      skills: [ratio-test, endpoint-analysis]
+      concept: "convergence vs absolute convergence of power series"
+      title: Convergence and absolute convergence of two power series
+      difficulty: easy
+      category: canonical
+      type: computation
+      tags: [power-series, absolute-convergence, ratio-test, computation]
+      problemLatex: |
+        Find all real numbers $x$ such that the series converges. Find all real numbers $x$ such that the series converges absolutely.
+
+        (i)
+        $$\sum_{n=0}^{\infty} \frac{(-1)^n}{2020n} (x - 10)^n$$
+
+        (ii)
+        $$\sum_{n=0}^{\infty} n!\, x^{n!}$$
+      notes: "Verified against the exam PDF: in (i) the denominator is $2020n$ (not $2020^n$), and the sum is printed from $n=0$ even though the $n=0$ term is undefined — read it as starting at $n=1$. In (ii) the exponent is $n!$."
+      curation:
+        why: '(i) needs a separate check at each endpoint; (ii) is a lacunary series where the usual coefficient-ratio test does not apply directly.'
+  solution: |
+    - id: mit20-mid-5b
+      hints:
+        - |
+          In (i), combine the signs: $(-1)^n (x-10)^n = (10 - x)^n$. With $y = 10 - x$, the series is a constant multiple of a familiar series in $y$. Treat $|y| < 1$, $|y| > 1$ and $y = \pm 1$ separately.
+        - |
+          In (ii), compare the absolute values of the terms with the terms $k|x|^k$ from $\sum k x^k$. For $|x| \ge 1$, look at the size of the terms.
+      solution: |
+        As the problem notes say, in (i) the $n = 0$ term is undefined, so we read the sum as starting at $n = 1$.
+
+        **(i)** Since $(-1)^n(x-10)^n = (10-x)^n$, the series is $\frac{1}{2020}\sum_{n=1}^\infty \frac{y^n}{n}$ with $y = 10 - x$. The factor $\frac{1}{2020}$ does not affect convergence.
+
+        - If $|y| < 1$: for $y \ne 0$, $\left|\frac{y^{n+1}/(n+1)}{y^n/n}\right| = \frac{n}{n+1}|y| \to |y| < 1$, so the series converges absolutely by the ratio test. For $y = 0$ it is trivially absolutely convergent.
+        - If $|y| > 1$: the ratio above tends to $|y| > 1$, so $|y|^n/n$ is eventually increasing. The terms do not tend to $0$, and the series diverges.
+        - If $y = 1$, i.e. $x = 9$: the series is $\sum \frac1n$, the harmonic series, which diverges.
+        - If $y = -1$, i.e. $x = 11$: the series is $\sum \frac{(-1)^n}{n}$. It converges by the alternating series test, since $1/n$ decreases to $0$. Its series of absolute values is the harmonic series, so the convergence is not absolute.
+
+        **Answer (i):** converges for $9 < x \le 11$; converges absolutely for $9 < x < 11$.
+
+        **(ii)** Write $a_n = n!\,x^{n!}$.
+
+        - If $|x| \ge 1$: $|a_n| = n!\,|x|^{n!} \ge n! \to \infty$. The terms do not tend to $0$, so the series diverges.
+        - If $x = 0$: every term is $0$ (since $n! \ge 1$), so the series converges absolutely.
+        - If $0 < |x| < 1$: for $n \ge 1$,
+        $$\frac{|a_{n+1}|}{|a_n|} = (n+1)\,|x|^{(n+1)! - n!} = (n+1)\,|x|^{n \cdot n!} \le (n+1)\,|x|^{n},$$
+        because $n \cdot n! \ge n$ and $|x| < 1$. Now $(n+1)|x|^n \to 0$: its consecutive ratios $\frac{n+2}{n+1}|x|$ tend to $|x| < 1$, so it is the term sequence of a convergent series. Hence $|a_{n+1}/a_n| \to 0$, and $\sum a_n$ converges absolutely by the ratio test.
+
+        **Answer (ii):** converges for $-1 < x < 1$, and converges absolutely on exactly the same set.

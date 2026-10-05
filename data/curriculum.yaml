@@ -180,7 +180,6 @@ series:
   - lebl-2.5.7
   # group: power series
   - mit20-a7-2
-  - mit20-mid-5b
   - lebl-2.6.10
   # group: products of series (Cauchy–Schwarz, Cauchy products)
   - mit20-a7-3

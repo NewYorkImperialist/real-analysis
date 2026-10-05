@@ -805,33 +805,6 @@
   curation:
     why: "Proving the limit comparison test: choose ε = L/2 to sandwich aₙ between multiples of bₙ."
 
-- id: mit20-mid-5b
-  source:
-    key: mit
-    chapter: "Midterm Exam (October 16, 2020)"
-    problemNumber: "Problem 5(b)"
-    page: "11"
-  topic: series
-  subtopics: [power-series, absolute-convergence, conditional-convergence]
-  skills: [ratio-test, endpoint-analysis]
-  concept: "convergence vs absolute convergence of power series"
-  title: Convergence and absolute convergence of two power series
-  difficulty: easy
-  category: canonical
-  type: computation
-  tags: [power-series, absolute-convergence, ratio-test, computation]
-  problemLatex: |
-    Find all real numbers $x$ such that the series converges. Find all real numbers $x$ such that the series converges absolutely.
-
-    (i)
-    $$\sum_{n=0}^{\infty} \frac{(-1)^n}{2020n} (x - 10)^n$$
-
-    (ii)
-    $$\sum_{n=0}^{\infty} n!\, x^{n!}$$
-  notes: "Verified against the exam PDF: in (i) the denominator is $2020n$ (not $2020^n$), and the sum is printed from $n=0$ even though the $n=0$ term is undefined — read it as starting at $n=1$. In (ii) the exponent is $n!$."
-  curation:
-    why: '(i) needs a separate check at each endpoint; (ii) is a lacunary series where the usual coefficient-ratio test does not apply directly.'
-
 - id: mit20-final-1
   source:
     key: mit

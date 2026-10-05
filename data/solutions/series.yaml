@@ -75,34 +75,6 @@
 
     ($\Rightarrow$) If $\sum a_n$ converges, then so does $\sum \tfrac{2}{L} a_n$. Since $0 < b_n < \tfrac{2}{L} a_n$ for $n \ge N$, the comparison test shows that $\sum b_n$ converges. $\blacksquare$
 
-- id: mit20-mid-5b
-  hints:
-    - |
-      In (i), combine the signs: $(-1)^n (x-10)^n = (10 - x)^n$. With $y = 10 - x$, the series is a constant multiple of a familiar series in $y$. Treat $|y| < 1$, $|y| > 1$ and $y = \pm 1$ separately.
-    - |
-      In (ii), compare the absolute values of the terms with the terms $k|x|^k$ from $\sum k x^k$. For $|x| \ge 1$, look at the size of the terms.
-  solution: |
-    As the problem notes say, in (i) the $n = 0$ term is undefined, so we read the sum as starting at $n = 1$.
-
-    **(i)** Since $(-1)^n(x-10)^n = (10-x)^n$, the series is $\frac{1}{2020}\sum_{n=1}^\infty \frac{y^n}{n}$ with $y = 10 - x$. The factor $\frac{1}{2020}$ does not affect convergence.
-
-    - If $|y| < 1$: for $y \ne 0$, $\left|\frac{y^{n+1}/(n+1)}{y^n/n}\right| = \frac{n}{n+1}|y| \to |y| < 1$, so the series converges absolutely by the ratio test. For $y = 0$ it is trivially absolutely convergent.
-    - If $|y| > 1$: the ratio above tends to $|y| > 1$, so $|y|^n/n$ is eventually increasing. The terms do not tend to $0$, and the series diverges.
-    - If $y = 1$, i.e. $x = 9$: the series is $\sum \frac1n$, the harmonic series, which diverges.
-    - If $y = -1$, i.e. $x = 11$: the series is $\sum \frac{(-1)^n}{n}$. It converges by the alternating series test, since $1/n$ decreases to $0$. Its series of absolute values is the harmonic series, so the convergence is not absolute.
-
-    **Answer (i):** converges for $9 < x \le 11$; converges absolutely for $9 < x < 11$.
-
-    **(ii)** Write $a_n = n!\,x^{n!}$.
-
-    - If $|x| \ge 1$: $|a_n| = n!\,|x|^{n!} \ge n! \to \infty$. The terms do not tend to $0$, so the series diverges.
-    - If $x = 0$: every term is $0$ (since $n! \ge 1$), so the series converges absolutely.
-    - If $0 < |x| < 1$: for $n \ge 1$,
-    $$\frac{|a_{n+1}|}{|a_n|} = (n+1)\,|x|^{(n+1)! - n!} = (n+1)\,|x|^{n \cdot n!} \le (n+1)\,|x|^{n},$$
-    because $n \cdot n! \ge n$ and $|x| < 1$. Now $(n+1)|x|^n \to 0$: its consecutive ratios $\frac{n+2}{n+1}|x|$ tend to $|x| < 1$, so it is the term sequence of a convergent series. Hence $|a_{n+1}/a_n| \to 0$, and $\sum a_n$ converges absolutely by the ratio test.
-
-    **Answer (ii):** converges for $-1 < x < 1$, and converges absolutely on exactly the same set.
-
 - id: abbott-2.7.4
   hints:
     - |
@@ -393,17 +365,13 @@
   solution: |
     **(a) The difference in hypotheses.** Abel's Test assumes that $\sum x_k$ *converges* and that $(y_k)$ is decreasing and nonnegative, but not necessarily tending to $0$. Dirichlet's Test weakens the hypothesis on $\sum x_k$ to *bounded partial sums*, and compensates by strengthening the hypothesis on $(y_k)$: it must also tend to $0$.
 
-    **Proof of Dirichlet's Test.** Let $s_n = x_1 + \cdots + x_n$, $s_0 = 0$, and let $M$ satisfy $|s_n| \le M$ for all $n$. Since $x_k = s_k - s_{k-1}$,
-    $$\sum_{k=1}^n x_k y_k = \sum_{k=1}^n s_k y_k - \sum_{k=1}^{n} s_{k-1} y_k = \sum_{k=1}^n s_k y_k - \left(\sum_{k=1}^{n} s_k y_{k+1} - s_n y_{n+1}\right),$$
-    which is the summation-by-parts identity
+    **Proof of Dirichlet's Test.** Let $s_n = x_1 + \cdots + x_n$ and let $M$ satisfy $|s_n| \le M$ for all $n$. Part (a) of Abel's Test (Exercise 2.7.13) gives the summation-by-parts identity, which uses no hypothesis on the series:
     $$\sum_{k=1}^n x_k y_k = s_n y_{n+1} + \sum_{k=1}^n s_k (y_k - y_{k+1}).$$
     We show that both terms on the right converge as $n \to \infty$.
 
     *First term.* $|s_n y_{n+1}| \le M y_{n+1} \to 0$, so $s_n y_{n+1} \to 0$. (In Abel's Test this term converges because both factors converge. Here $(s_n)$ need not converge, but it is bounded and $y_{n+1} \to 0$.)
 
-    *Second term.* Since $(y_k)$ is decreasing, $y_k - y_{k+1} \ge 0$, and
-    $$|s_k(y_k - y_{k+1})| \le M (y_k - y_{k+1}).$$
-    The series $\sum_{k} (y_k - y_{k+1})$ converges because its partial sums telescope: $\sum_{k=1}^n (y_k - y_{k+1}) = y_1 - y_{n+1} \to y_1$. By the Comparison Test, $\sum_k s_k (y_k - y_{k+1})$ converges absolutely, hence converges. This step is exactly the one used for Abel's Test.
+    *Second term.* This is the step of Abel's Test (Exercise 2.7.13(b)) unchanged, since it only uses boundedness of $(s_k)$: $|s_k(y_k - y_{k+1})| \le M(y_k - y_{k+1})$, and $\sum (y_k - y_{k+1})$ telescopes to $y_1 - \lim y_{n+1}$, so by the Comparison Test $\sum_k s_k(y_k - y_{k+1})$ converges absolutely.
 
     So the partial sums of $\sum x_k y_k$ are a sum of two convergent sequences, and they converge. $\blacksquare$
 
