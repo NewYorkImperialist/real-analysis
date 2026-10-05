@@ -137,7 +137,6 @@ const html = `<!doctype html>
   body { margin: 0; padding: 0 0.1in; }
   .nobr { white-space: nowrap; }
   a { color: inherit; }
-  .title .kicker { font-size: 24pt; margin: 0; }
   .title .author { font-size: 14pt; margin: 0 0 0.8em; }
   .title { text-align: center; padding-top: 0.5in; }
   .title h1 { font-size: 24pt; font-weight: normal; margin: 0 0 0.6em; }
@@ -199,11 +198,10 @@ const html = `<!doctype html>
 </script></head><body>
 
 <div class="title">
-  <p class="kicker">Real Analysis</p>
-  <h1>Big List</h1>
+  <h1>Real Analysis Big List</h1>
   <p class="author">Jayden Lin</p>
   <p class="sub">${nCore} core problems · ${nUpper} upper-tier problems</p>
-  <p class="sub">${esc(SITE.replace('https://', ''))}</p>
+  <p class="sub"><a href="${SITE}">${esc(SITE)}</a></p>
   <p class="sub">${date}</p>
   <div class="intro">
     <p>This is the complete problem bank behind <a href="${SITE}">${esc(SITE.replace('https://', ''))}</a>, collected in one
