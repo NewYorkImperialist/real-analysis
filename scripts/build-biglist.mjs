@@ -112,8 +112,11 @@ const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'l
 const nCore = parts[0].list.length;
 const nUpper = parts[1].list.length;
 
+// A statement longer than about a page cannot stay on one page: start it on a fresh page and let it
+// split once, between parts, instead of leaving a gap and breaking anyway.
+const LONG = 1800;
 const problemHtml = (sec, p, i) => `
-<div class="problem" id="${esc(p.id)}">
+<div class="problem${p.problemLatex.length > LONG ? ' long' : ''}" id="${esc(p.id)}">
   <div class="label"><span class="mark" title="${DIFF_LABEL[p.difficulty]}">${MARK[p.difficulty]}</span>${sec.no}.${i + 1}.</div>
   <div class="body">
     ${richHtml(p.problemLatex)}
@@ -167,6 +170,8 @@ const html = `<!doctype html>
   .problem .cite { font-size: 8.5pt; color: #666; text-align: right !important; margin-top: 0.15em !important; }
   .problem .cite a { color: #666; }
   .ref { margin: 0.2em 0 1.2em 3.7em; padding: 0.45em 0 0.45em 0.9em; border-left: 1.5px solid #999; }
+  .problem.long { break-before: page; break-inside: auto; }
+  .problem.long .body p { break-inside: avoid; }
   .ref-group { break-inside: avoid; }
   .ref-item { margin: 0 0 0.6em; break-inside: avoid; }
   .ref-item:last-child { margin-bottom: 0; }

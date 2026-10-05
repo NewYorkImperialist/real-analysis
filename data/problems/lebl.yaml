@@ -1181,7 +1181,7 @@
   - grouping
   concept: alternating series test fails without monotonicity
   title: Monotonicity is needed in the alternating series test
-  difficulty: easy
+  difficulty: medium
   category: canonical
   type: counterexample
   tags:

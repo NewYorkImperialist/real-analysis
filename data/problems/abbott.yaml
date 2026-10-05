@@ -1551,7 +1551,7 @@
 
     (c) Does the result in (a) hold if we only assume $f$ is continuous? How about if we only assume that $g$ is continuous?
   curation:
-    why: 'Why lim g(f(x)) ≠ r in general: the inner function can hit the point q where g misbehaves. Pinpoints which continuity hypothesis is needed.'
+    why: 'Limits of compositions, and exactly which continuity hypothesis makes them behave.'
 - id: abbott-4.3.6
   source:
     key: abbott
@@ -1760,7 +1760,7 @@
 
     (c) Is $h(x) = x\sin(1/x)$ uniformly continuous on $(0, 1)$?
   curation:
-    why: 'Deciding uniform continuity on a bounded open interval: blow-up vs. continuous extension.'
+    why: 'Deciding uniform continuity on a bounded open interval, function by function.'
 - id: abbott-4.4.8
   source:
     key: abbott

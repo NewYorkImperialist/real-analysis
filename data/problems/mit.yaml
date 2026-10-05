@@ -408,8 +408,7 @@
 
     (d) $\sum_{n=0}^{\infty} n!\, x^n$
   curation:
-    why: "Covers the four behaviours of the radius (finite, finite with endpoint check, infinite, zero) in one problem."
-
+    why: 'Intervals of convergence, endpoints included, across very different power series.'
 - id: mit20-a7-3
   source:
     key: mit
