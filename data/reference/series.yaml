@@ -11,8 +11,8 @@
     - kind: definition
       name: Absolute and conditional convergence
       latex: |
-        A series $\sum a_n$ **converges absolutely** if $\sum |a_n|$ converges. It **converges
-        conditionally** if $\sum a_n$ converges but $\sum |a_n|$ diverges.
+        A series $\sum a_n$ **converges absolutely** if $\sum |a_n|$ converges. It
+        **converges conditionally** if $\sum a_n$ converges but $\sum |a_n|$ diverges.
 
 - before: mit20-mid-5a
   items:

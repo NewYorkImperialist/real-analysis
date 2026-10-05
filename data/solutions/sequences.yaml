@@ -517,7 +517,7 @@
     - |
       For (a), suppose a sequence in $[a,b]$ converged to some $s > b$. Choose $\epsilon$ so that the $\epsilon$-neighborhood of $s$ lies entirely to the right of $b$.
     - |
-      For (b), you need a sequence of points in $(0,1)$ whose limit is not in $(0,1)$. Watch the first term: $t_1 = 1$ is not in $(0,1)$.
+      For (b), you need a sequence of points in $(0,1)$ whose limit is not in $(0,1)$. If you try $t_n = 1/n$, watch the first term: $t_1 = 1$ is not in $(0,1)$.
   solution: |
     **(a)** Let $(s_n)$ be a sequence in $[a,b]$ with $s_n \to s$. We show $a \le s \le b$.
 

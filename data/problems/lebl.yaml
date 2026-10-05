@@ -1132,7 +1132,7 @@
     (Challenging) Let $\sum_{n=1}^\infty a_n$ be conditionally convergent. Show that given an arbitrary $x \in \mathbb{R}$ there exists a rearrangement of $\sum_{n=1}^\infty a_n$ such that the rearranged series converges to $x$. Hint: See Example 2.6.4.
 
     *[Summary, not verbatim — Example 2.6.4 rearranges the alternating harmonic series $\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}$, which does not converge absolutely, to converge to an arbitrary $L \in \mathbb{R}$. Its odd terms sum to $\infty$ and its even terms to $-\infty$. With $a_n := \frac{(-1)^{n+1}}{n}$, set $\sigma(1) := 1$; if $\sum_{n=1}^{N} a_{\sigma(n)} \le L$, let $\sigma(N+1)$ be the smallest odd $k \in \mathbb{N}$ not yet used, and otherwise the smallest even $k$ not yet used. Because each kind of term alone diverges, the partial sums cross $L$ infinitely often, so $\sigma$ is a bijection of $\mathbb{N}$. Between consecutive crossings the partial sums stay within $\frac{1}{\min\{\sigma(N), \sigma(N')\}}$ of $L$, where $N, N'$ are the switching indices, and $\sigma(N), \sigma(N') \to \infty$; hence $\sum_{n=1}^\infty a_{\sigma(n)} = L$.]*
-  notes: The hint points to Example 2.6.4 (a rearrangement of the alternating harmonic series, p. 103–104); a labelled summary of that example was added after the hint so the hint is usable on its own.
+  notes: The hint points to Example 2.6.4 (a rearrangement of the alternating harmonic series, pp. 103–104); a labeled summary of that example was added after the hint so the hint is usable on its own.
   curation:
     why: 'The Riemann rearrangement theorem: a conditionally convergent series can be rearranged to sum to anything.'
 - id: lebl-2.6.10
@@ -2391,10 +2391,10 @@
     section: 7.2 Open and closed sets
     problemNumber: Exercise 7.2.11
     page: '272'
-  topic: continuity
+  topic: topology
   subtopics:
-  - continuity-and-topology
-  - continuity-metric-spaces
+  - connectedness
+  - interior-closure-boundary
   skills:
   - construct-counterexample
   - contradiction

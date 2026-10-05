@@ -193,7 +193,7 @@
     - |
       In each part, ask what the missing hypothesis was protecting against: unequal endpoint values in (a), a point where $f'$ fails to exist in (b) (where would Rolle's $c$ have been?), and a break at an endpoint in (c). Then build the simplest function that does exactly that.
   solution: |
-    As the NOTES indicate, in (b) we read "$f'(c)\ne0$" as "$f'(c)$ is never $0$ at points where it exists."
+    As the source notes indicate, in (b) we read "$f'(c)\ne0$" as "$f'(c)$ is never $0$ at points where it exists."
 
     **(a)** Let $[a,b] = [0,1]$ and $f(x) = x$. It is continuous on $[0,1]$ and differentiable on $(0,1)$, but $f(0) = 0 \ne 1 = f(1)$, and $f'(c) = 1 \neq 0$ for every $c\in(0,1)$.
 

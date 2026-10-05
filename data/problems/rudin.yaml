@@ -605,7 +605,7 @@
     prove that $f(x) = 0$ on $[0,1]$. *Hint:* The integral of the product of $f$ with any polynomial is zero. Use the Weierstrass theorem to show that $\int_0^1 f^2(x)\,dx = 0$.
 
     *(Rudin, Theorem 7.26 (Weierstrass approximation theorem), quoted: If $f$ is a continuous complex function on $[a, b]$, there exists a sequence of polynomials $P_n$ such that $$\lim_{n\to\infty} P_n(x) = f(x)$$ uniformly on $[a, b]$. If $f$ is real, the $P_n$ may be taken real.)*
-  notes: 'Transcribed from the page image; hint is Rudin''s own. Theorem 7.26 quoted verbatim from printed p. 159 (pdf 168) so the problem is self-contained; it may be used. Core-gap justification: BANK_INDEX has no vanishing-moments / integral application of Weierstrass approximation (rg ''moment'', ''x^n dx'' found nothing).'
+  notes: 'Transcribed from the page image; hint is Rudin''s own. Theorem 7.26 quoted verbatim from printed p. 159 (pdf 168) so the problem is self-contained; it may be used.'
   curation:
     why: 'A canonical application of the Weierstrass approximation theorem inside an integral.'
 - id: rudin-3.19
@@ -638,7 +638,7 @@
     Prove that the set of all $x(a)$ is precisely the Cantor set described in Sec. 2.44.
 
     *(Sec. 2.44: Let $E_0$ be the interval $[0,1]$. Remove the segment $(\frac13, \frac23)$, and let $E_1$ be the union of the intervals $[0, \frac13]$, $[\frac23, 1]$. Remove the middle thirds of these intervals, and let $E_2$ be the union of the intervals $[0, \frac19]$, $[\frac29, \frac39]$, $[\frac69, \frac79]$, $[\frac89, 1]$. Continuing in this way, we obtain a sequence of compact sets $E_n$, such that (a) $E_1 \supset E_2 \supset E_3 \supset \cdots$; (b) $E_n$ is the union of $2^n$ intervals, each of length $3^{-n}$. The set $P = \bigcap_{n=1}^{\infty} E_n$ is called the Cantor set.)*
-  notes: 'Construction from Sec. 2.44 (p. 41) quoted verbatim. Tier core-gap is a judgment call: modest difficulty, but it supplies the characterization other bank Cantor-set problems quietly rely on.'
+  notes: 'Construction from Sec. 2.44 (p. 41) quoted verbatim.'
   curation:
     why: 'The ternary-digit description of the Cantor set, which other Cantor-set problems rely on.'
 
@@ -674,6 +674,6 @@
     Let $E$ be the set of all $x \in [0,1]$ whose decimal expansion contains only the digits 4 and 7. Is $E$ countable? Is $E$ dense in $[0,1]$? Is $E$ compact? Is $E$ perfect?
 
     *(Rudin, Definition 2.18(h): $E$ is perfect if $E$ is closed and if every point of $E$ is a limit point of $E$.)*
-  notes: 'Verified against the page image (printed p. 44, pdf 53); verbatim. Definition 2.18(h) quoted. Added to the core (not the upper tier) to fill the perfect-set gap: the bank had perfect sets only in upper-tier problems.'
+  notes: 'Verified against the page image (printed p. 44, pdf 53); verbatim. Definition 2.18(h) quoted.'
   curation:
     why: 'A Cantor-type set built from decimal digits: decide countability, density, compactness and perfectness, the core experience with perfect sets.'

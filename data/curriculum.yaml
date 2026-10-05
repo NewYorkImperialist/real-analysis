@@ -187,6 +187,7 @@ series:
   # group: upper tier
   - pugh-prelim-63
   - pugh-3.73
+  - pugh-3.68
 
 topology:
   # group: open sets in R
@@ -238,6 +239,7 @@ topology:
   - lebl-7.4.12
   # group: connectedness in metric spaces
   - lebl-7.2.10
+  - lebl-7.2.11
   # group: forward reference (needs continuity)
   - lebl-7.4.19
   # group: upper tier
@@ -317,7 +319,6 @@ continuity:
   - lebl-7.5.2
   - ross-21.5
   - lebl-7.5.5
-  - lebl-7.2.11
   - ross-22.4
   - lebl-7.5.8
   # group: upper tier
@@ -330,6 +331,7 @@ continuity:
   - pugh-prelim-31
   - pugh-2.78
   - pugh-2.76
+  - pugh-4.20
 
 differentiation:
   # group: the definition; differentiable implies continuous
@@ -380,7 +382,6 @@ differentiation:
   # group: upper tier
   - rudin-5.26
   - pugh-4.27
-  - pugh-4.20
   - pugh-1.32
   - pugh-3.34
   - rudin-5.17
@@ -434,9 +435,9 @@ integration:
   - ross-15.3
   # group: upper tier
   - cummings-8.28
-  - pugh-3.68
   - pugh-prelim-7
   - pugh-prelim-45
+  - pugh-3.50
 
 function-sequences:
   # group: pointwise vs uniform convergence
@@ -503,7 +504,6 @@ function-sequences:
   - rudin-7.13
   - mit18100b-2006-ps10-x1
   - pugh-3.23
-  - pugh-3.50
   - rudin-5.21
   - pugh-4.37
 

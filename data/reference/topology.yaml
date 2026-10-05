@@ -3,7 +3,7 @@
     - kind: definition
       name: 'Open and closed sets in $\mathbb{R}$'
       latex: |
-        For $x\in\mathbb{R}$ and $\varepsilon>0$, the **$\varepsilon$-neighbourhood** of $x$ is
+        For $x\in\mathbb{R}$ and $\varepsilon>0$, the **$\varepsilon$-neighborhood** of $x$ is
         $V_\varepsilon(x)=(x-\varepsilon,x+\varepsilon)$. A set $U\subseteq\mathbb{R}$ is **open** if for
         every $x\in U$ there exists $\varepsilon>0$ such that $V_\varepsilon(x)\subseteq U$. A set
         $F\subseteq\mathbb{R}$ is **closed** if its complement $\mathbb{R}\setminus F$ is open.
@@ -15,7 +15,7 @@
       name: Limit point and isolated point
       latex: |
         Let $A\subseteq\mathbb{R}$. A point $x\in\mathbb{R}$ is a **limit point** of $A$ if for every
-        $\varepsilon>0$ the neighbourhood $V_\varepsilon(x)$ contains a point of $A$ other than $x$. A
+        $\varepsilon>0$ the neighborhood $V_\varepsilon(x)$ contains a point of $A$ other than $x$. A
         point $a\in A$ is an **isolated point** of $A$ if it is not a limit point of $A$, that is, if there
         exists $\varepsilon>0$ with $V_\varepsilon(a)\cap A=\{a\}$.
       note: Lebl and the MIT problems say cluster point for the same notion.

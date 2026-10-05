@@ -593,7 +593,7 @@
     (d) If $(a_n) \to 0$ and $|b_n - b| \le a_n$ for all $n \in \mathbb{N}$, then $(b_n) \to b$.
   notes: 'Source typo: part (c) is printed as "then $(b_n) \to a$" (kept exactly as printed); the letter $a$ is undefined there, and it presumably means $(b_n) \to 0$.'
   curation:
-    why: True/false conjectures about limits (|bₙ| → |b|, etc.); practise finding counterexamples quickly.
+    why: True/false conjectures about limits (|bₙ| → |b|, etc.); practice finding counterexamples quickly.
 - id: abbott-2.3.11
   source:
     key: abbott
@@ -3442,11 +3442,11 @@
   problemLatex: |
     Show how the Intermediate Value Theorem follows as a corollary to Theorem 4.5.2.
 
-    *(Theorem 4.5.1 (Intermediate Value Theorem): Let $f\colon [a, b] \to \mathbf{R}$ be continuous. If $L$ is a real number satisfying $f(a) < L < f(b)$ or $f(a) > L > f(b)$, then there exists a point $c \in (a, b)$ where $f(c) = L$.)*
+    *(Theorem 4.5.1 (Intermediate Value Theorem): Let $f\colon [a, b] \to \mathbb{R}$ be continuous. If $L$ is a real number satisfying $f(a) < L < f(b)$ or $f(a) > L > f(b)$, then there exists a point $c \in (a, b)$ where $f(c) = L$.)*
 
-    *(Theorem 4.5.2 (Preservation of Connected Sets): Let $f\colon G \to \mathbf{R}$ be continuous. If $E \subseteq G$ is connected, then $f(E)$ is connected as well.)*
+    *(Theorem 4.5.2 (Preservation of Connected Sets): Let $f\colon G \to \mathbb{R}$ be continuous. If $E \subseteq G$ is connected, then $f(E)$ is connected as well.)*
 
-    *(Theorem 3.4.7: A set $E \subseteq \mathbf{R}$ is connected if and only if whenever $a < c < b$ with $a, b \in E$, it follows that $c \in E$ as well.)*
+    *(Theorem 3.4.7: A set $E \subseteq \mathbb{R}$ is connected if and only if whenever $a < c < b$ with $a, b \in E$, it follows that $c \in E$ as well.)*
   notes: Theorems 4.5.1 (p. 136), 4.5.2 (p. 136) and 3.4.7 (p. 105) quoted verbatim; the book points to 3.4.7 just before the exercise ('In R, a set is connected if and only if it is a (possibly unbounded) interval. This fact, together with Theorem 4.5.2, leads to a short proof of the Intermediate Value Theorem (Exercise 4.5.1)'). Abbott's connectedness is Definition 3.4.4 (separated sets), quoted in abbott-3.4.6. Verified against page images (pdf 117, 147, 150).
   curation:
     why: 'The IVT as a corollary of preservation of connectedness: continuous images of intervals are intervals.'

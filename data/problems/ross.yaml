@@ -608,7 +608,7 @@
     (c) Show $E^-$ is not path-connected.
 
     *[Summary, not verbatim — Fig. 19.4 (accompanying Example 8 of §19) plots $g(x) = \sin(\frac{1}{x})$ for $x \in (0, \frac{1}{\pi}]$: the graph swings between the dashed lines $y = 1$ and $y = -1$ ever faster as $x \to 0^+$, with the label “Graph oscillates infinitely often near $y$-axis”.]*
-  notes: 'Fig. 19.4 (p. 148) is a plot of sin(1/x) on (0, 1/π]; a labelled one-sentence description (figure label quoted) was added to the statement since the figure is not supplied. Path-connected (Definition 22.4): for each pair s, t of points in E there is a continuous γ: [a,b] → E with γ(a) = s, γ(b) = t. No entry in Selected Hints. Exercise 22.13 (graph-of-a-function version) skipped as near-duplicate. Verified against page image.'
+  notes: 'Fig. 19.4 (p. 148) is a plot of sin(1/x) on (0, 1/π]; a labeled one-sentence description (figure label quoted) was added to the statement since the figure is not supplied. Path-connected (Definition 22.4): for each pair s, t of points in E there is a continuous γ: [a,b] → E with γ(a) = s, γ(b) = t. No entry in Selected Hints. Exercise 22.13 (graph-of-a-function version) skipped as near-duplicate. Verified against page image.'
   curation:
     why: 'The topologist''s sine curve: connected but not path-connected.'
 - id: ross-22.14
