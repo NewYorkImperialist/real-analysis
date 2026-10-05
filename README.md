@@ -58,6 +58,10 @@ then the upper tier, difficulty marks, and a citation plus a link to the problem
 The deploy workflow runs it on every push, so `/big-list.pdf` always matches the current bank.
 It needs Chrome (`$CHROME_PATH`, or the standard macOS/Linux install).
 
+Short definition and theorem statements (`data/reference/<topic>.yaml`, written for the list, not
+transcribed) print just before the first core problem that needs them; `scripts/build-data.mjs`
+validates them. See `PEDAGOGICAL_AUDIT.md` for the ordering audit behind the current learning path.
+
 ## Data layout
 
 ```

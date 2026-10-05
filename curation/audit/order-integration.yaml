@@ -1,0 +1,51 @@
+topic: integration
+order:
+  # group: Darboux sums from the definition
+  - lebl-5.1.15
+  - abbott-7.2.3
+  - ross-32.2
+  # group: first consequences of the criterion
+  - cummings-8.5
+  - lebl-5.2.2
+  - abbott-7.3.7
+  # group: which functions are integrable
+  - lebl-5.2.14
+  - cummings-8.25
+  - lebl-5.2.11
+  - abbott-7.3.9
+  - abbott-7.6.3
+  # group: Riemann sums and the Darboux integral
+  - mit20-a11-5
+  - lebl-5.1.13
+  # group: absolute values, products, inequalities
+  - lebl-5.2.15
+  - ross-33.4
+  - abbott-7.4.6
+  - cummings-8.27
+  - ross-34.12
+  - abbott-7.4.4
+  - abbott-7.4.10
+  # group: fundamental theorem of calculus
+  - lebl-5.3.9
+  - abbott-7.5.2
+  - tao-11.9.3
+  # group: integration by parts and substitution
+  - lebl-5.3.5
+  - abbott-7.5.10
+  - mit20-final-5b
+  - mit20-final-6c
+  - mit20-a12-1
+  # group: logarithm as an integral
+  - lebl-5.4.6
+  # group: improper integrals
+  - ross-36.3
+  - ross-36.8
+  - lebl-5.5.10
+  # group: series and integrals
+  - tao-11.6.3
+  - ross-15.3
+  # group: upper tier
+  - cummings-8.28
+  - pugh-3.68
+  - pugh-prelim-7
+  - pugh-prelim-45

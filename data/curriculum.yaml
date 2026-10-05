@@ -68,9 +68,9 @@ real-numbers:
   - abbott-1.3.11
   - lebl-1.3.5
   - lebl-1.3.7
-  # group: density and roots
-  - abbott-1.4.4
+  # group: Archimedean property, density and roots
   - cummings-1.19
+  - abbott-1.4.4
   - mit20-a2-7
   - mit20-a3-1
   # group: nested intervals
@@ -125,7 +125,6 @@ sequences:
   - lebl-2.4.8
   - abbott-2.6.2
   - ross-10.4
-  - lebl-2.4.3
   # group: Cauchy estimates (telescoping)
   - ross-10.6
   - lebl-2.5.12
@@ -142,6 +141,7 @@ sequences:
   - tao-6.4.3
   - ross-22.14
   # group: upper tier
+  - lebl-2.4.3
   - rudin-3.14
 
 series:
@@ -156,7 +156,6 @@ series:
   - mit20-mid-5a
   - lebl-2.5.3
   - ross-14.12
-  - mit20-a7-3
   # group: the alternating series test
   - abbott-2.7.1
   - lebl-2.6.12
@@ -165,6 +164,7 @@ series:
   - abbott-2.7.8
   - abbott-2.7.4
   # group: summation by parts
+  - abbott-2.7.13
   - abbott-2.7.14
   # group: ratio and root tests
   - abbott-2.7.9
@@ -178,7 +178,8 @@ series:
   - mit20-a7-2
   - mit20-mid-5b
   - lebl-2.6.10
-  # group: Cauchy products
+  # group: products of series (Cauchy–Schwarz, Cauchy products)
+  - mit20-a7-3
   - lebl-2.6.2
   # group: rearrangements
   - cummings-4.18
@@ -202,7 +203,6 @@ topology:
   - abbott-3.2.5
   - abbott-3.2.10
   - abbott-3.2.6
-  - ross-13.7
   # group: compactness in R (sequential, then open covers)
   - cummings-5.7
   - abbott-3.3.5
@@ -217,9 +217,8 @@ topology:
   # group: connectedness in R
   - abbott-3.2.13
   - abbott-3.4.6
-  # group: Baire category in R
-  - abbott-3.5.4
-  - abbott-3.5.6
+  # group: structure of open sets in R
+  - ross-13.7
   # group: metric spaces
   - lebl-7.1.5
   - lebl-7.3.2
@@ -227,6 +226,10 @@ topology:
   - lebl-7.2.13
   # group: completeness
   - lebl-7.4.16
+  # group: Baire category in R (a completeness argument)
+  - abbott-3.5.4
+  - abbott-3.5.5
+  - abbott-3.5.6
   # group: compactness in metric spaces
   - lebl-7.4.6
   - lebl-7.4.10
@@ -265,8 +268,6 @@ continuity:
   # group: extending from a dense set
   - lebl-3.2.10
   - abbott-4.3.13
-  # group: challenge: convex functions
-  - lebl-3.2.19
   # group: continuity and open/closed sets
   - mit20-a8-5
   - abbott-4.3.12
@@ -299,12 +300,14 @@ continuity:
   # group: monotone functions and inverses
   - abbott-4.6.5
   - abbott-4.6.6
-  - lebl-3.6.11
   - abbott-4.5.3
   - lebl-3.6.8
   - abbott-4.5.8
+  - lebl-3.6.11
   # group: IVT/EVT synthesis
   - cummings-6.32
+  # group: challenge: convex functions
+  - lebl-3.2.19
   # group: continuity on metric spaces
   - lebl-7.5.2
   - ross-21.5
@@ -336,19 +339,19 @@ differentiation:
   - abbott-5.2.7
   # group: inverse functions
   - abbott-5.2.12
-  - lebl-4.4.6
   # group: Fermat, Rolle, the MVT
   - tao-10.2.1
   - tao-10.2.5
   - cummings-7.10
   - mit20-a11-1
   - ross-29.4
-  # group: consequences of the MVT
+  # group: consequences of the MVT (and where they fail)
   - mit20-a10-3
   - lebl-4.2.10
   - mit20-a10-1
   - lebl-4.2.13
   - tao-10.3.5
+  - lebl-4.4.6
   - rudin-5.14
   # group: Darboux's theorem
   - abbott-5.2.11
@@ -382,19 +385,21 @@ integration:
   # group: Darboux sums from the definition
   - lebl-5.1.15
   - abbott-7.2.3
-  - mit20-a11-5
-  - lebl-5.1.13
   - ross-32.2
   # group: first consequences of the criterion
   - cummings-8.5
   - lebl-5.2.2
+  - abbott-7.3.7
   # group: which functions are integrable
   - lebl-5.2.14
   - cummings-8.25
-  - abbott-7.3.7
   - lebl-5.2.11
   - abbott-7.3.9
   - abbott-7.6.3
+  # group: Riemann sums and the Darboux integral
+  - mit20-a11-5
+  - lebl-5.1.11
+  - lebl-5.1.13
   # group: absolute values, products, inequalities
   - lebl-5.2.15
   - ross-33.4
@@ -448,8 +453,8 @@ function-sequences:
   - abbott-6.2.11
   # group: limits and integrals
   - ross-23.9
-  - abbott-7.3.5
   - ross-33.9
+  - abbott-7.3.5
   - ross-24.9
   - lebl-6.2.22
   # group: limits and derivatives
@@ -474,15 +479,16 @@ function-sequences:
   - rudin-7.20
   # group: function spaces
   - abbott-8.2.2
-  - lebl-7.4.8
   - abbott-8.2.5
   - mit18100b-f10-ps10-5
   - lebl-7.5.12
+  - lebl-7.4.8
   # group: fixed points and contractions
   - abbott-4.3.11
   - lebl-7.6.6
   # group: constructions and compactness (challenge)
   - abbott-6.2.12
+  - abbott-6.2.13
   - abbott-6.2.15
   # group: upper tier
   - pugh-prelim-28
@@ -494,3 +500,4 @@ function-sequences:
   - pugh-3.50
   - rudin-5.21
   - pugh-4.37
+

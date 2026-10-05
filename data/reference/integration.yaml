@@ -1,0 +1,106 @@
+- before: lebl-5.1.15
+  items:
+    - kind: definition
+      name: Partition and refinement
+      latex: |
+        Let $a<b$. A **partition** of $[a,b]$ is a finite set $P=\{x_0,x_1,\dots,x_n\}$ with
+        $a=x_0<x_1<\dots<x_n=b$; write $\Delta x_i=x_i-x_{i-1}$. A partition $Q$ is a **refinement** of $P$
+        if $P\subseteq Q$. The **common refinement** of $P$ and $Q$ is $P\cup Q$.
+    - kind: definition
+      name: Upper and lower Darboux sums
+      latex: |
+        Let $f\colon[a,b]\to\mathbb{R}$ be bounded and $P=\{x_0,\dots,x_n\}$ a partition. For $i=1,\dots,n$ put
+        $m_i=\inf\{f(x):x\in[x_{i-1},x_i]\}$ and $M_i=\sup\{f(x):x\in[x_{i-1},x_i]\}$. The **lower sum** and
+        **upper sum** are
+        $$L(P,f)=\sum_{i=1}^n m_i\,\Delta x_i,\qquad U(P,f)=\sum_{i=1}^n M_i\,\Delta x_i.$$
+      note: Lebl writes $L(P,f)$, $U(P,f)$; Abbott and Ross write $L(f,P)$, $U(f,P)$.
+    - kind: definition
+      name: Riemann integrable function
+      latex: |
+        For bounded $f\colon[a,b]\to\mathbb{R}$, the **lower integral** is $\underline{\int_a^b} f=\sup_P L(P,f)$
+        and the **upper integral** is $\overline{\int_a^b} f=\inf_P U(P,f)$, both taken over all partitions $P$
+        of $[a,b]$. The function $f$ is **Riemann integrable** on $[a,b]$ if $\underline{\int_a^b} f=\overline{\int_a^b} f$;
+        this common value is $\int_a^b f$.
+      note: Every book here requires $f$ bounded. Lebl writes $f\in\mathscr{R}([a,b])$; Abbott writes $L(f)$, $U(f)$; Tao writes $\int_{[a,b]} f$.
+
+- before: abbott-7.2.3
+  items:
+    - kind: theorem
+      name: Refinement lemma and Riemann's criterion
+      latex: |
+        Let $f\colon[a,b]\to\mathbb{R}$ be bounded.
+        (i) If $Q$ is a refinement of $P$, then $L(P,f)\le L(Q,f)\le U(Q,f)\le U(P,f)$.
+        (ii) For all partitions $P,Q$ of $[a,b]$, $L(P,f)\le U(Q,f)$; hence $\underline{\int_a^b} f\le\overline{\int_a^b} f$.
+        (iii) $f$ is Riemann integrable on $[a,b]$ if and only if for every $\varepsilon>0$ there exists a partition
+        $P$ of $[a,b]$ with $U(P,f)-L(P,f)<\varepsilon$.
+
+- before: abbott-7.3.7
+  items:
+    - kind: theorem
+      name: Linearity, additivity and monotonicity of the integral
+      latex: |
+        Let $f,g$ be Riemann integrable on $[a,b]$ and $c\in\mathbb{R}$.
+        (i) $f+g$ and $cf$ are integrable, with $\int_a^b(f+g)=\int_a^b f+\int_a^b g$ and $\int_a^b cf=c\int_a^b f$.
+        (ii) For every $d\in(a,b)$, a bounded $h\colon[a,b]\to\mathbb{R}$ is integrable on $[a,b]$ if and only if it is
+        integrable on $[a,d]$ and on $[d,b]$, and then $\int_a^b h=\int_a^d h+\int_d^b h$.
+        (iii) If $f(x)\le g(x)$ for all $x\in[a,b]$, then $\int_a^b f\le\int_a^b g$.
+      note: Convention $\int_b^a f=-\int_a^b f$ and $\int_a^a f=0$.
+
+- before: cummings-8.25
+  items:
+    - kind: theorem
+      name: Continuous functions are integrable
+      latex: |
+        If $f\colon[a,b]\to\mathbb{R}$ is continuous on $[a,b]$, then $f$ is Riemann integrable on $[a,b]$.
+
+- before: abbott-7.3.9
+  items:
+    - kind: definition
+      name: Content zero and measure zero
+      latex: |
+        A set $A\subseteq\mathbb{R}$ has **content zero** if for every $\varepsilon>0$ there exist finitely many open
+        intervals $O_1,\dots,O_N$ with $A\subseteq\bigcup_{n=1}^N O_n$ and $\sum_{n=1}^N|O_n|\le\varepsilon$. It has
+        **measure zero** if for every $\varepsilon>0$ there exist countably many open intervals $O_1,O_2,\dots$ with
+        $A\subseteq\bigcup_{n=1}^\infty O_n$ and $\sum_{n=1}^\infty|O_n|\le\varepsilon$.
+      note: Pugh calls measure-zero sets zero sets. Content zero implies measure zero; the converse fails.
+
+- before: mit20-a11-5
+  items:
+    - kind: definition
+      name: Tagged partition, mesh and Riemann sum
+      latex: |
+        A **tagged partition** of $[a,b]$ is a partition $P=\{x_0,\dots,x_n\}$ together with points
+        $c_i\in[x_{i-1},x_i]$ for $i=1,\dots,n$. The **mesh** (or norm) of $P$ is $\|P\|=\max_{1\le i\le n}\Delta x_i$.
+        For $f\colon[a,b]\to\mathbb{R}$ the **Riemann sum** is $S(f;P,c)=\sum_{i=1}^n f(c_i)\,\Delta x_i$.
+      note: For bounded $f$ and any choice of tags, $L(P,f)\le S(f;P,c)\le U(P,f)$. MIT writes $\underline{x}$, $\underline{\xi}$, $S_f(\underline{x},\underline{\xi})$.
+
+- before: lebl-5.3.9
+  items:
+    - kind: theorem
+      name: Fundamental Theorem of Calculus
+      latex: |
+        Let $f\colon[a,b]\to\mathbb{R}$ be Riemann integrable.
+        (i) If $F\colon[a,b]\to\mathbb{R}$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $F'(x)=f(x)$ for
+        all $x\in(a,b)$, then $\int_a^b f=F(b)-F(a)$.
+        (ii) The function $G(x)=\int_a^x f$ is continuous on $[a,b]$. If $f$ is continuous at $c\in[a,b]$, then $G$ is
+        differentiable at $c$ and $G'(c)=f(c)$ (a one-sided derivative if $c\in\{a,b\}$).
+      note: Abbott numbers the parts as here; Tao calls (ii) the first and (i) the second fundamental theorem.
+
+- before: lebl-5.4.6
+  items:
+    - kind: definition
+      name: Natural logarithm as an integral
+      latex: |
+        For $x>0$, the **natural logarithm** is $\ln x=\int_1^x \frac{1}{t}\,dt$.
+      note: Lebl's definition; it agrees with the inverse of $\exp$, so $\ln$ is the usual logarithm.
+
+- before: ross-36.3
+  items:
+    - kind: definition
+      name: Improper integral
+      latex: |
+        Let $a<b\le\infty$ and let $f$ be integrable on $[a,d]$ for every $d\in(a,b)$. The **improper integral** is
+        $\int_a^b f=\lim_{d\to b^-}\int_a^d f$ (with $d\to\infty$ if $b=\infty$), and it **converges** if this limit
+        exists in $\mathbb{R}$; the left endpoint is treated symmetrically. On $(a,b)$ with both endpoints improper,
+        fix $\alpha\in(a,b)$ and set $\int_a^b f=\int_a^\alpha f+\int_\alpha^b f$, convergent if both pieces converge.
+      note: Ross also lets the limit be $+\infty$ or $-\infty$ and writes $\int_a^b |f|<\infty$ for convergence.

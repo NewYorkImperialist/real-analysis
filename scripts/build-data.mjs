@@ -212,6 +212,47 @@ else {
 }
 problems.sort((a, b) => (position.get(a.id) ?? Infinity) - (position.get(b.id) ?? Infinity));
 
+// Reference material for the Big List: concise definitions and theorem statements, written for this
+// bank (NOT transcribed from a source), each block placed just before the first core problem that needs
+// it. One file per topic: data/reference/<topic>.yaml, a list of
+//   { before: <core problem id in this topic>, items: [{ kind: definition|theorem, name, latex, note? }] }
+const refDir = path.join(dataDir, 'reference');
+const reference = [];
+if (fs.existsSync(refDir)) {
+  const topicKeys = new Set(taxonomy.topics.map((t) => t.key));
+  const names = new Map();
+  for (const f of fs.readdirSync(refDir).filter((x) => x.endsWith('.yaml')).sort()) {
+    const topic = f.replace(/\.yaml$/, '');
+    if (!topicKeys.has(topic)) err(`reference/${f}`, `file name must be a topic key`);
+    const list = load(path.join(refDir, f)) ?? [];
+    if (!Array.isArray(list)) {
+      err(`reference/${f}`, 'top level must be a list of blocks');
+      continue;
+    }
+    for (const [bi, b] of list.entries()) {
+      const where = `reference/${f}#${bi + 1}`;
+      const p = byId.get(b?.before);
+      if (!p) err(where, `before: unknown problem id "${b?.before}"`);
+      else {
+        if (p.topic !== topic) err(where, `before: ${p.id} is in ${p.topic}, not ${topic}`);
+        if (p.tier === 'upper') err(where, `before: ${p.id} is upper tier; attach reference to a core problem`);
+      }
+      if (!Array.isArray(b?.items) || !b.items.length) err(where, 'items must be a non-empty list');
+      for (const [ii, it] of (b?.items ?? []).entries()) {
+        const w = `${where} item ${ii + 1}`;
+        if (!['definition', 'theorem'].includes(it?.kind)) err(w, 'kind must be definition or theorem');
+        if (!it?.name) err(w, 'name required');
+        else if (names.has(it.name)) err(w, `duplicate name "${it.name}" (also ${names.get(it.name)})`);
+        else names.set(it.name, w);
+        if (typeof it?.latex !== 'string' || !it.latex.trim()) err(w, 'latex required');
+        else checkLatex(w, it.latex);
+        if (it?.note) checkLatex(`${w} note`, it.note);
+      }
+      reference.push({ topic, before: b?.before, items: b?.items ?? [] });
+    }
+  }
+}
+
 for (const w of warnings) console.warn('warning:', w);
 if (errors.length) {
   for (const e of errors) console.error('error:', e);
@@ -219,10 +260,11 @@ if (errors.length) {
   process.exit(1);
 }
 
+const nRef = reference.reduce((n, b) => n + b.items.length, 0);
 const counts = {};
 for (const p of problems) counts[p.source.key] = (counts[p.source.key] ?? 0) + 1;
 const nUpper = problems.filter((p) => p.tier === 'upper').length;
-console.log(`✓ ${problems.length} problems valid (${problems.length - nUpper} core, ${nUpper} upper tier)`, counts, `· AI hints: ${aiHints}, AI solutions: ${aiSolutions}`);
+console.log(`✓ ${problems.length} problems valid (${problems.length - nUpper} core, ${nUpper} upper tier), ${nRef} reference items`, counts, `· AI hints: ${aiHints}, AI solutions: ${aiSolutions}`);
 
 if (!checkOnly) {
   const bank = {
@@ -236,6 +278,8 @@ if (!checkOnly) {
   };
   const gen = path.join(root, 'src', 'generated');
   fs.mkdirSync(gen, { recursive: true });
+  // Reference blocks for the Big List (not bundled into the site).
+  fs.writeFileSync(path.join(gen, 'reference.json'), JSON.stringify(reference));
   // Full bank: read by the curation scripts.
   const out = path.join(gen, 'bank.json');
   fs.writeFileSync(out, JSON.stringify(bank));

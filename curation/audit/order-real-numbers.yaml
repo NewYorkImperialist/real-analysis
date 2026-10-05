@@ -1,0 +1,30 @@
+topic: real-numbers
+order:
+  # group: ordered-field axioms and absolute value
+  - lebl-1.1.1
+  - abbott-1.2.6
+  - cummings-1.9
+  - lebl-1.2.13
+  # group: sup and inf from the definition (ordered sets)
+  - lebl-1.1.5
+  - lebl-1.1.2
+  - mit20-a3-4
+  - lebl-1.1.6
+  - lebl-1.1.14
+  # group: completeness gives infima; first computations
+  - abbott-1.3.3
+  # group: algebra of suprema and infima
+  - abbott-1.3.5
+  - lebl-1.2.9
+  - abbott-1.3.9
+  - abbott-1.3.11
+  - lebl-1.3.5
+  - lebl-1.3.7
+  # group: Archimedean property, density and roots
+  - cummings-1.19
+  - abbott-1.4.4
+  - mit20-a2-7
+  - mit20-a3-1
+  # group: nested intervals
+  - cummings-1.22
+  - abbott-1.4.8

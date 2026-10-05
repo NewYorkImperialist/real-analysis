@@ -1,0 +1,138 @@
+- before: mit20-a3-5
+  items:
+    - kind: definition
+      name: Open and closed sets in R
+      latex: |
+        For $x\in\mathbb{R}$ and $\varepsilon>0$, the **$\varepsilon$-neighbourhood** of $x$ is
+        $V_\varepsilon(x)=(x-\varepsilon,x+\varepsilon)$. A set $U\subseteq\mathbb{R}$ is **open** if for
+        every $x\in U$ there exists $\varepsilon>0$ such that $V_\varepsilon(x)\subseteq U$. A set
+        $F\subseteq\mathbb{R}$ is **closed** if its complement $\mathbb{R}\setminus F$ is open.
+      note: Abbott defines closed as containing all its limit points, and Ross as containing the limit of every convergent sequence in the set; both are equivalent to this definition (the sequential version is an exercise below).
+
+- before: mit20-a4-7
+  items:
+    - kind: definition
+      name: Limit point and isolated point
+      latex: |
+        Let $A\subseteq\mathbb{R}$. A point $x\in\mathbb{R}$ is a **limit point** of $A$ if for every
+        $\varepsilon>0$ the neighbourhood $V_\varepsilon(x)$ contains a point of $A$ other than $x$. A
+        point $a\in A$ is an **isolated point** of $A$ if it is not a limit point of $A$, that is, if there
+        exists $\varepsilon>0$ with $V_\varepsilon(a)\cap A=\{a\}$.
+      note: Lebl and the MIT problems say cluster point for the same notion.
+    - kind: definition
+      name: Closure of a set in R
+      latex: |
+        Let $A\subseteq\mathbb{R}$ and let $L$ be the set of limit points of $A$. The **closure** of $A$ is
+        $\overline{A}=A\cup L$.
+
+- before: abbott-3.2.6
+  items:
+    - kind: definition
+      name: Cantor set
+      latex: |
+        Let $C_0=[0,1]$ and, for $n\ge 0$, obtain $C_{n+1}$ by removing the open middle third of each of
+        the $2^n$ closed intervals (of length $3^{-n}$) whose union is $C_n$; so
+        $C_1=[0,\frac13]\cup[\frac23,1]$. The **Cantor set** is $C=\bigcap_{n=0}^\infty C_n$.
+
+- before: cummings-5.7
+  items:
+    - kind: definition
+      name: Sequentially compact set
+      latex: |
+        A set $K\subseteq\mathbb{R}$ is **sequentially compact** if every sequence in $K$ has a
+        subsequence that converges to a limit that is also in $K$.
+      note: This is what Abbott, Pugh and the MIT problems call compact (Pugh says covering compact for the open-cover notion); Heine–Borel shows the two notions agree.
+    - kind: definition
+      name: Compact set
+      latex: |
+        An **open cover** of a set $K$ is a collection $\{O_\lambda:\lambda\in\Lambda\}$ of open sets with
+        $K\subseteq\bigcup_{\lambda\in\Lambda}O_\lambda$; a **finite subcover** is a finite subcollection
+        $O_{\lambda_1},\dots,O_{\lambda_n}$ whose union still contains $K$. The set $K$ is **compact** if
+        every open cover of $K$ has a finite subcover.
+      note: Lebl, Rudin and Ross use this definition; it reads the same in any metric space.
+
+- before: rudin-2.17
+  items:
+    - kind: definition
+      name: Dense set
+      latex: |
+        A set $D\subseteq\mathbb{R}$ is **dense** in $\mathbb{R}$ if every nonempty open interval contains
+        a point of $D$; equivalently, $\overline{D}=\mathbb{R}$. A subset $E$ of $[a,b]$ is dense in
+        $[a,b]$ if $[a,b]\subseteq\overline{E}$.
+
+- before: lebl-7.1.5
+  items:
+    - kind: definition
+      name: Metric space
+      latex: |
+        A **metric** on a set $X$ is a function $d:X\times X\to\mathbb{R}$ such that for all
+        $x,y,z\in X$: $d(x,y)\ge 0$; $d(x,y)=0$ if and only if $x=y$; $d(x,y)=d(y,x)$; and
+        $d(x,z)\le d(x,y)+d(y,z)$ (triangle inequality). The pair $(X,d)$ is a **metric space**. On
+        $\mathbb{R}^n$ the standard (Euclidean) metric is
+        $d(x,y)=\big(\sum_{j=1}^n (x_j-y_j)^2\big)^{1/2}$.
+      note: A subset $E\subseteq X$ is a metric space with the restriction of $d$ (the subspace metric).
+    - kind: definition
+      name: Open and closed sets in a metric space
+      latex: |
+        In a metric space $(X,d)$, the **open ball** and **closed ball** of radius $\delta>0$ about $x$
+        are $B(x,\delta)=\{y\in X:d(x,y)<\delta\}$ and $C(x,\delta)=\{y\in X:d(x,y)\le\delta\}$. A set
+        $U\subseteq X$ is **open** if for every $x\in U$ there exists $\delta>0$ with
+        $B(x,\delta)\subseteq U$; a set $E\subseteq X$ is **closed** if $X\setminus E$ is open.
+    - kind: definition
+      name: Convergence and boundedness in a metric space
+      latex: |
+        A sequence $(x_n)$ in $(X,d)$ **converges** to $p\in X$ if for every $\varepsilon>0$ there exists
+        $N\in\mathbb{N}$ such that $d(x_n,p)<\varepsilon$ for all $n\ge N$. A set $E\subseteq X$ (or a
+        sequence) is **bounded** if there exist $p\in X$ and $B>0$ such that $d(p,x)\le B$ for all $x\in E$.
+
+- before: lebl-7.2.7
+  items:
+    - kind: definition
+      name: Interior, closure and boundary
+      latex: |
+        Let $E$ be a subset of a metric space $X$. The **closure** $\overline{E}$ is the intersection of
+        all closed sets containing $E$; the **interior** $E^\circ$ is the union of all open sets contained
+        in $E$; the **boundary** is $\partial E=\overline{E}\setminus E^\circ$.
+      note: $\overline{E}$ is the smallest closed set containing $E$, and $p\in\overline{E}$ if and only if some sequence in $E$ converges to $p$.
+
+- before: lebl-7.4.16
+  items:
+    - kind: definition
+      name: Complete metric space
+      latex: |
+        A sequence $(x_n)$ in a metric space $(X,d)$ is **Cauchy** if for every $\varepsilon>0$ there
+        exists $N\in\mathbb{N}$ such that $d(x_n,x_k)<\varepsilon$ for all $n,k\ge N$. The space $(X,d)$ is
+        **complete** if every Cauchy sequence in $X$ converges to a point of $X$.
+      note: Every convergent sequence is Cauchy; completeness is the converse. $\mathbb{R}$ and $\mathbb{R}^n$ are complete, $\mathbb{Q}$ is not.
+
+- before: lebl-7.4.6
+  items:
+    - kind: theorem
+      name: Heine–Borel theorem
+      latex: |
+        Let $K$ be a subset of a metric space $X$. Then $K$ is compact (every open cover has a finite
+        subcover) if and only if $K$ is sequentially compact (every sequence in $K$ has a subsequence
+        converging to a point of $K$). If $X=\mathbb{R}^n$ with the Euclidean metric, these are also
+        equivalent to: $K$ is closed and bounded.
+      note: Closed and bounded does not imply compact in a general metric space, e.g. $\mathbb{R}$ with the metric $\min\{1,|x-y|\}$.
+
+- before: lebl-7.4.12
+  items:
+    - kind: definition
+      name: Totally bounded set
+      latex: |
+        A subset $K$ of a metric space $X$ is **totally bounded** if for every $\varepsilon>0$ there exist
+        finitely many points $x_1,\dots,x_n\in X$ with $K\subseteq\bigcup_{j=1}^n B(x_j,\varepsilon)$.
+        By contrast, $K$ is **bounded** if $K\subseteq B(x,R)$ for **some** single $x\in X$ and $R>0$.
+      note: Totally bounded implies bounded; the converse holds in $\mathbb{R}^n$ but fails for $\min\{1,|x-y|\}$ on $\mathbb{R}$.
+
+- before: lebl-7.2.10
+  items:
+    - kind: definition
+      name: Connected set
+      latex: |
+        A nonempty metric space $X$ is **connected** if it is not the union of two disjoint nonempty open
+        sets. A nonempty set $A\subseteq X$ is **disconnected** if there exist open sets $U_1,U_2\subseteq X$
+        with $A\subseteq U_1\cup U_2$, $U_1\cap U_2\cap A=\emptyset$, $U_1\cap A\ne\emptyset$ and
+        $U_2\cap A\ne\emptyset$; it is **connected** otherwise.
+      note: Abbott's definition via separated sets is equivalent in $\mathbb{R}$; the connected subsets of $\mathbb{R}$ are exactly the intervals.

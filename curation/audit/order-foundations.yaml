@@ -1,0 +1,33 @@
+topic: foundations
+order:
+  # group: quantifiers and negation
+  - tao-a.5.1
+  - abbott-1.2.11
+  # group: set algebra
+  - lebl-0.3.6
+  # group: images and preimages
+  - lebl-0.3.27
+  # group: injective, surjective, composition
+  - lebl-0.3.10
+  - tao-3.4.5
+  # group: induction
+  - lebl-0.3.11
+  - lebl-0.3.12
+  # group: countable sets
+  - lebl-0.3.19
+  - mit20-a1-6
+  # group: the reals are uncountable
+  - mit20-a3-3
+  - mit20-mid-1bc
+  # group: countable unions and counting arguments
+  - abbott-1.5.3
+  - abbott-1.5.6
+  - abbott-1.5.8
+  - abbott-1.5.9
+  # group: bijections, Cantor, Schröder–Bernstein
+  - lebl-1.4.5
+  - pugh-1.38
+  - tao-8.3.2
+  # group: forward reference (needs monotone convergence and geometric series)
+  - ross-16.8
+  - mit20-a3-2

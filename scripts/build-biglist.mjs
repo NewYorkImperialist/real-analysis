@@ -13,6 +13,21 @@ import { tokenize, toBlocks } from '../src/lib/richtext.ts';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const bank = JSON.parse(fs.readFileSync(path.join(root, 'src', 'generated', 'bank.json'), 'utf8'));
+// Definitions and theorem statements placed before the first core problem that needs them.
+const refPath = path.join(root, 'src', 'generated', 'reference.json');
+const refBefore = new Map();
+for (const b of fs.existsSync(refPath) ? JSON.parse(fs.readFileSync(refPath, 'utf8')) : [])
+  refBefore.set(b.before, [...(refBefore.get(b.before) ?? []), ...b.items]);
+// Reference text is wrapped in the YAML; join single line breaks (keeping blank lines and part labels
+// such as "(i)") so a break before inline math does not start a new paragraph.
+const joinLines = (src) => src.trim().replace(/([^\n])\n(?!\n|\s*\(?(?:[a-h]|[ivx]{1,5}|[0-9]{1,2})\)\s|\s*\$\$)/g, '$1 ');
+const refHtml = (items) =>
+  `<div class="ref">${items
+    .map(
+      (it) =>
+        `<div class="ref-item ${it.kind}"><p class="ref-head"><span class="ref-kind">${it.kind === 'theorem' ? 'Theorem' : 'Definition'}</span> (${esc(it.name)}).</p>${richHtml(joinLines(it.latex))}${it.note ? `<p class="ref-note">${blockHtml(tokenize(it.note))}</p>` : ''}</div>`,
+    )
+    .join('')}</div>`;
 const SITE = `https://${fs.readFileSync(path.join(root, 'public', 'CNAME'), 'utf8').trim()}`;
 
 // Difficulty marks, after the MAT327 list's stars and dagger.
@@ -105,10 +120,10 @@ const html = `<!doctype html>
   .title { text-align: center; padding-top: 0.5in; }
   .title h1 { font-size: 24pt; font-weight: normal; margin: 0 0 0.6em; }
   .title .sub { font-size: 13pt; margin: 0.2em 0; }
-  .intro { margin-top: 0.3in; text-align: justify; }
+  .intro { margin-top: 0.3in; text-align: justify; font-size: 10.5pt; }
   .intro ul { margin: 0.4em 0 0.8em 1.2em; padding: 0; }
   .legend { text-align: center !important; }
-  .intro ul { font-size: 10.5pt; }
+  .intro ul { font-size: 9.5pt; }
   .contents { break-before: page; }
   .contents h2 { font-size: 16pt; font-weight: normal; }
   .toc { list-style: none; padding: 0; margin: 0; }
@@ -130,6 +145,15 @@ const html = `<!doctype html>
   .problem .body p.part { margin-left: 1.6em; text-indent: -1.6em; }
   .problem .cite { font-size: 8.5pt; color: #666; text-align: right !important; margin-top: 0.15em !important; }
   .problem .cite a { color: #666; }
+  .ref { margin: 0.2em 0 1.2em 3.7em; padding: 0.45em 0 0.45em 0.9em; border-left: 1.5px solid #999; }
+  .ref-item { margin: 0 0 0.6em; break-inside: avoid; }
+  .ref-item:last-child { margin-bottom: 0; }
+  .ref-item p { margin: 0 0 0.3em; text-align: justify; }
+  .ref-item p.ref-head { display: inline; margin-right: 0.4em; }
+  .ref-item p.ref-head + p { display: inline; }
+  .ref-kind { font-weight: bold; }
+  .ref-item.theorem p:not(.ref-head):not(.ref-note) { font-style: italic; }
+  .ref-note { font-size: 9.5pt; color: #555; font-style: normal; }
   .katex { font-size: 1.04em; }
   .katex-display { margin: 0.4em 0; overflow: hidden; }
 </style></head><body>
@@ -144,7 +168,8 @@ const html = `<!doctype html>
   <div class="intro">
     <p>This is the complete problem bank behind <a href="${SITE}">${esc(SITE.replace('https://', ''))}</a>, collected in one
     document for working offline and by hand. It is regenerated every time the bank changes, so this copy is current as of the date above.
-    It contains problems only: hints, full solutions and progress tracking are on the site, and every problem ends with a link to its page.</p>
+    It contains no hints or solutions: those, and progress tracking, are on the site, and every problem ends with a link to its page.</p>
+    <p>Short <strong>Definition</strong> and <strong>Theorem</strong> blocks appear just before the first problems that use them. They are written for this list, not transcribed from the sources; where the books’ conventions differ, a note says so. A result is never stated before a problem that asks you to prove it.</p>
     <p>The format is inspired by Ivan Khatchatourian’s <a href="https://www.math.toronto.edu/ivan/mat327/docs/biglist.pdf"><em>MAT327 Big List</em></a>
     for point-set topology at the University of Toronto.</p>
     <p>Every problem is transcribed from one of the following sources and cited to its exact location:</p>
@@ -178,7 +203,7 @@ ${part.sections
     (s) => `
 <section class="topic" id="${s.anchor}">
   <h3><span class="no">${s.no}</span> ${esc(s.title)}${k === 1 ? ' <span style="font-weight:normal">(upper tier)</span>' : ''}</h3>
-  ${s.list.map((p, i) => problemHtml(s, p, i)).join('')}
+  ${s.list.map((p, i) => (refBefore.has(p.id) ? refHtml(refBefore.get(p.id)) : '') + problemHtml(s, p, i)).join('')}
 </section>`,
   )
   .join('')}`,

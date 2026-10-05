@@ -1,0 +1,72 @@
+- before: lebl-0.3.27
+  items:
+    - kind: definition
+      name: Image and preimage
+      latex: |
+        Let $f\colon A\to B$, $C\subseteq A$ and $D\subseteq B$. The **image** of $C$ is
+        $f(C)=\{f(x): x\in C\}$, and the **preimage** of $D$ is $f^{-1}(D)=\{x\in A: f(x)\in D\}$.
+      note: "$f^{-1}(D)$ is defined for every function $f$; it does not assume that $f$ has an inverse."
+
+- before: lebl-0.3.10
+  items:
+    - kind: definition
+      name: Injective, surjective, bijective
+      latex: |
+        A function $f\colon A\to B$ is **injective** if for all $x,y\in A$, $f(x)=f(y)$ implies $x=y$;
+        **surjective** if for every $b\in B$ there exists $a\in A$ with $f(a)=b$; and **bijective** if it is
+        both injective and surjective.
+
+- before: lebl-0.3.12
+  items:
+    - kind: definition
+      name: Power set
+      latex: |
+        The **power set** $\mathcal{P}(A)$ of a set $A$ is the set of all subsets of $A$.
+    - kind: definition
+      name: Cardinality
+      latex: |
+        Sets $A$ and $B$ have the **same cardinality**, $|A|=|B|$, if there exists a bijection $A\to B$.
+        We write $|A|\le|B|$ if there exists an injection $A\to B$, and $|A|<|B|$ if $|A|\le|B|$ but
+        $|A|\ne|B|$. A set $A$ is **finite with $n$ elements**, $|A|=n$, if $A=\emptyset$ ($n=0$) or there
+        is a bijection $\{1,2,\dots,n\}\to A$; otherwise $A$ is **infinite**.
+
+- before: lebl-0.3.19
+  items:
+    - kind: definition
+      name: Countable and uncountable sets
+      latex: |
+        With $\mathbb{N}=\{1,2,3,\dots\}$, a set $A$ is **countably infinite** if $|A|=|\mathbb{N}|$, and
+        **countable** (or at most countable) if it is finite or countably infinite. A set that is not
+        countable is **uncountable**.
+      note: Abbott (and the Abbott problems here) uses "countable" to mean countably infinite and writes "finite or countable" for at most countable.
+
+- before: mit20-a3-3
+  items:
+    - kind: theorem
+      name: Countability of Q, uncountability of R
+      latex: |
+        The set $\mathbb{Q}$ of rational numbers is countably infinite, and the set $\mathbb{R}$ of real
+        numbers is uncountable.
+      note: The uncountability of $\mathbb{R}$ is proved by the diagonal argument at the end of this topic.
+
+- before: abbott-1.5.6
+  items:
+    - kind: theorem
+      name: Archimedean property and density of Q
+      latex: |
+        **Archimedean property:** for every $x\in\mathbb{R}$ there exists $n\in\mathbb{N}$ with $n>x$;
+        equivalently, for every $\varepsilon>0$ there exists $n\in\mathbb{N}$ with $1/n<\varepsilon$.
+        **Density of $\mathbb{Q}$:** for all $a,b\in\mathbb{R}$ with $a<b$ there exists $r\in\mathbb{Q}$
+        with $a<r<b$.
+      note: Both follow from the Axiom of Completeness (Real Numbers topic).
+
+- before: ross-16.8
+  items:
+    - kind: definition
+      name: Decimal expansion
+      latex: |
+        A **decimal expansion** of $x\in[0,1]$ is a sequence of digits $d_1,d_2,d_3,\dots\in\{0,1,\dots,9\}$
+        such that $x=\sum_{k=1}^{\infty} d_k10^{-k}$; we write $x=0.d_1d_2d_3\cdots$. Every $x\in[0,1]$ has a
+        decimal expansion. If $x\in(0,1)$ has the form $m/10^k$ with $k\in\mathbb{N}$ and $m\in\mathbb{Z}$, it has
+        exactly two, one ending in repeated $0$s and one ending in repeated $9$s; every other $x\in(0,1)$ has
+        exactly one.

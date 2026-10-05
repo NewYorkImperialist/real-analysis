@@ -1,0 +1,43 @@
+topic: series
+order:
+  # group: partial sums and the geometric series
+  - tao-7.3.2
+  - lebl-2.5.4
+  # group: Cauchy criterion and absolute convergence
+  - tao-7.2.2
+  - cummings-4.2
+  - lebl-2.5.10
+  # group: comparison
+  - mit20-mid-5a
+  - lebl-2.5.3
+  - ross-14.12
+  # group: the alternating series test
+  - abbott-2.7.1
+  - lebl-2.6.12
+  # group: absolute vs conditional convergence
+  - cummings-4.5
+  - abbott-2.7.8
+  - abbott-2.7.4
+  # group: summation by parts
+  - abbott-2.7.14
+  # group: ratio and root tests
+  - abbott-2.7.9
+  - tao-7.5.1
+  - ross-14.10
+  - lebl-2.6.1
+  # group: condensation and decreasing terms
+  - lebl-2.5.15
+  - lebl-2.5.7
+  # group: power series
+  - mit20-a7-2
+  - mit20-mid-5b
+  - lebl-2.6.10
+  # group: products of series (Cauchy–Schwarz, Cauchy products)
+  - mit20-a7-3
+  - lebl-2.6.2
+  # group: rearrangements
+  - cummings-4.18
+  - lebl-2.6.3
+  # group: upper tier
+  - pugh-prelim-63
+  - pugh-3.73

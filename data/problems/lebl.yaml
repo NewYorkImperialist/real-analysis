@@ -819,6 +819,7 @@
   concept: Cauchy completeness + density of Q ⇒ least-upper-bound property
   title: Cauchy completeness implies the least-upper-bound property
   difficulty: hard
+  tier: upper
   category: challenge
   type: proof
   tags:
@@ -2933,3 +2934,35 @@
     $$\int_a^b F(x)G'(x)\,dx = F(b)G(b) - F(a)G(a) - \int_a^b F'(x)G(x)\,dx.$$
   curation:
     why: Integration by parts proved from the product rule and the FTC, the theorem the MIT final uses without proof.
+
+- id: lebl-5.1.11
+  source:
+    key: lebl
+    chapter: 5 The Riemann Integral
+    section: 5.1 The Riemann integral
+    problemNumber: Exercise 5.1.11
+    page: '189'
+  topic: integration
+  subtopics:
+  - partitions-darboux-sums
+  - integrability-criteria
+  skills:
+  - squeeze
+  - construct-counterexample
+  concept: right-endpoint Riemann sums converge to the integral; converse fails
+  title: Uniform right-hand Riemann sums converge to the integral
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Riemann-integration
+  - Riemann-sums
+  - Dirichlet-function
+  - counterexample
+  problemLatex: |
+    (Challenging) For a bounded function $f\colon [0,1] \to \mathbb{R}$, let $R_n := (1/n)\sum_{i=1}^n f(i/n)$ (the uniform right-hand rule).
+    a) If $f$ is Riemann integrable show $\int_0^1 f = \lim_{n\to\infty} R_n$.
+    b) Find an $f$ that is not Riemann integrable, but $\lim_{n\to\infty} R_n$ exists.
+  notes: Book labels it (Challenging). Statement verified symbol-by-symbol against the page image (printed p. 189, PDF 189); no transcription errors. 'Riemann integrable' is Lebl's Darboux definition ($\underline{\int} f = \overline{\int} f$).
+  curation:
+    why: 'Bridge problem: prepares a later problem''s technique (see PEDAGOGICAL_AUDIT.md).'

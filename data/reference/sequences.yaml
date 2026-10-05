@@ -1,0 +1,102 @@
+- before: abbott-2.2.2
+  items:
+    - kind: definition
+      name: Convergent sequence
+      latex: |
+        A sequence $(a_n)$ of real numbers **converges** to $a\in\mathbb{R}$, written $a_n\to a$ or
+        $\lim a_n=a$, if for every $\varepsilon>0$ there exists $N\in\mathbb{N}$ such that
+        $|a_n-a|<\varepsilon$ for all $n\ge N$. A sequence that converges to no real number **diverges**.
+      note: Ross writes $n>N$ instead of $n\ge N$; the two definitions are equivalent.
+    - kind: definition
+      name: Bounded sequence
+      latex: |
+        A sequence $(a_n)$ is **bounded** if there exists $M>0$ such that $|a_n|\le M$ for all
+        $n\in\mathbb{N}$.
+      note: Every convergent sequence is bounded.
+
+- before: lebl-2.2.3
+  items:
+    - kind: theorem
+      name: Algebraic and Order Limit Theorems; Squeeze Theorem
+      latex: |
+        Let $a_n\to a$ and $b_n\to b$, and let $c\in\mathbb{R}$.
+        **Algebraic:** $ca_n\to ca$, $a_n+b_n\to a+b$, and $a_nb_n\to ab$; if moreover $b\ne 0$ and $b_n\ne 0$
+        for all $n$, then $a_n/b_n\to a/b$.
+        **Order:** if $a_n\le b_n$ for all $n\in\mathbb{N}$, then $a\le b$; in particular, if $c\le a_n$
+        (resp. $a_n\le c$) for all $n$, then $c\le a$ (resp. $a\le c$).
+        **Squeeze:** if $x_n\le y_n\le z_n$ for all $n\in\mathbb{N}$ and $x_n\to \ell$, $z_n\to \ell$, then
+        $(y_n)$ converges and $y_n\to\ell$.
+      note: Strict inequalities between terms give only non-strict inequalities between limits.
+
+- before: cummings-3.16
+  items:
+    - kind: definition
+      name: Monotone sequence
+      latex: |
+        A sequence $(a_n)$ is **increasing** if $a_n\le a_{n+1}$ for all $n$, **decreasing** if
+        $a_n\ge a_{n+1}$ for all $n$, and **monotone** if it is increasing or decreasing.
+    - kind: definition
+      name: Divergence to infinity
+      latex: |
+        A sequence $(a_n)$ **diverges to** $+\infty$ if for every $M\in\mathbb{R}$ there exists
+        $N\in\mathbb{N}$ such that $a_n>M$ for all $n\ge N$; it diverges to $-\infty$ if $(-a_n)$ diverges
+        to $+\infty$.
+
+- before: cummings-4.3
+  items:
+    - kind: theorem
+      name: Monotone Convergence Theorem
+      latex: |
+        A monotone sequence of real numbers converges if and only if it is bounded. If $(a_n)$ is increasing
+        and bounded, then $a_n\to\sup\{a_n:n\in\mathbb{N}\}$; if $(a_n)$ is decreasing and bounded, then
+        $a_n\to\inf\{a_n:n\in\mathbb{N}\}$.
+
+- before: mit20-mid-3b
+  items:
+    - kind: definition
+      name: Subsequence
+      latex: |
+        Given a sequence $(a_n)$ and natural numbers $n_1<n_2<n_3<\cdots$, the sequence
+        $(a_{n_k})_{k=1}^{\infty}=(a_{n_1},a_{n_2},a_{n_3},\dots)$ is a **subsequence** of $(a_n)$.
+      note: If $a_n\to a$, then every subsequence of $(a_n)$ converges to $a$.
+    - kind: definition
+      name: Subsequential limit
+      latex: |
+        A number $x\in\mathbb{R}$ is a **subsequential limit** of $(a_n)$ if some subsequence of $(a_n)$
+        converges to $x$; equivalently, for every $\varepsilon>0$ the set
+        $\{n\in\mathbb{N}:|a_n-x|<\varepsilon\}$ is infinite.
+      note: Ross also allows $\pm\infty$ as subsequential limits; Tao calls a real subsequential limit a limit point of the sequence.
+
+- before: abbott-2.5.2
+  items:
+    - kind: theorem
+      name: Bolzano–Weierstrass Theorem
+      latex: |
+        Every bounded sequence of real numbers has a convergent subsequence.
+
+- before: abbott-2.6.1
+  items:
+    - kind: definition
+      name: Cauchy sequence
+      latex: |
+        A sequence $(a_n)$ is a **Cauchy sequence** if for every $\varepsilon>0$ there exists
+        $N\in\mathbb{N}$ such that $|a_n-a_m|<\varepsilon$ for all $m,n\ge N$. Compare convergence to $a$:
+        for every $\varepsilon>0$ there exists $N$ with $|a_n-a|<\varepsilon$ for all $n\ge N$. The Cauchy
+        condition compares terms with each other and does not mention a limit.
+
+- before: abbott-2.6.2
+  items:
+    - kind: theorem
+      name: Cauchy Criterion
+      latex: |
+        A sequence of real numbers converges if and only if it is a Cauchy sequence.
+
+- before: lebl-2.3.5
+  items:
+    - kind: definition
+      name: Limit superior and limit inferior
+      latex: |
+        For a bounded sequence $(a_n)$ put $y_n=\sup\{a_k:k\ge n\}$ and $z_n=\inf\{a_k:k\ge n\}$. Then
+        $(y_n)$ is decreasing, $(z_n)$ is increasing, and both are bounded; define
+        $$\limsup_{n\to\infty}a_n=\lim_{n\to\infty}y_n=\inf_{n}y_n,\qquad \liminf_{n\to\infty}a_n=\lim_{n\to\infty}z_n=\sup_{n}z_n.$$
+      note: Tao defines these as $\inf_N\sup_{n\ge N}a_n$ and $\sup_N\inf_{n\ge N}a_n$ in the extended reals (Rudin, as the sup and inf of the subsequential limits), so they also exist, possibly $\pm\infty$, for unbounded sequences.

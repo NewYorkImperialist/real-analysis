@@ -1,0 +1,81 @@
+- before: mit20-final-1
+  items:
+    - kind: definition
+      name: Pointwise convergence of functions
+      latex: |
+        Let $f_n,f\colon A\to\mathbb{R}$. The sequence $(f_n)$ **converges pointwise** to $f$ on $A$ if for every
+        $x\in A$ and every $\varepsilon>0$ there exists $N\in\mathbb{N}$ such that $|f_n(x)-f(x)|<\varepsilon$ for
+        all $n\ge N$. Here $N$ may depend on both $\varepsilon$ and $x$.
+    - kind: definition
+      name: Uniform convergence of functions
+      latex: |
+        Let $f_n,f\colon A\to\mathbb{R}$. The sequence $(f_n)$ **converges uniformly** to $f$ on $A$ if for every
+        $\varepsilon>0$ there exists $N\in\mathbb{N}$ such that $|f_n(x)-f(x)|<\varepsilon$ for all $n\ge N$ and all
+        $x\in A$. Here $N$ depends on $\varepsilon$ only. A series $\sum f_n$ converges pointwise or uniformly
+        if its sequence of partial sums $s_N=\sum_{n=1}^N f_n$ does.
+      note: Uniform convergence implies pointwise convergence to the same limit. Pugh writes $f_n\rightrightarrows f$.
+
+- before: cummings-9.12
+  items:
+    - kind: theorem
+      name: Continuous Limit Theorem
+      latex: |
+        Let $f_n\to f$ uniformly on $A\subseteq\mathbb{R}$. If every $f_n$ is continuous at $c\in A$, then $f$ is
+        continuous at $c$. In particular, a uniform limit of continuous functions on $A$ is continuous on $A$.
+
+- before: abbott-6.2.5
+  items:
+    - kind: definition
+      name: Uniformly Cauchy sequence of functions
+      latex: |
+        A sequence of functions $f_n\colon A\to\mathbb{R}$ is **uniformly Cauchy** on $A$ if for every
+        $\varepsilon>0$ there exists $N\in\mathbb{N}$ such that $|f_n(x)-f_m(x)|<\varepsilon$ for all $m,n\ge N$ and
+        all $x\in A$.
+
+- before: abbott-6.4.1
+  items:
+    - kind: theorem
+      name: Differentiable Limit Theorem
+      latex: |
+        Let $f_n\colon[a,b]\to\mathbb{R}$ be differentiable, suppose $(f_n')$ converges uniformly on $[a,b]$ to $g$, and
+        suppose $(f_n(x_0))$ converges for some $x_0\in[a,b]$. Then $(f_n)$ converges uniformly on $[a,b]$ to a
+        differentiable function $f$ with $f'=g$. For series: if $\sum f_n'$ converges uniformly on $[a,b]$ and
+        $\sum f_n(x_0)$ converges, then $\sum f_n$ converges uniformly to a differentiable function and
+        $\bigl(\sum f_n\bigr)'=\sum f_n'$.
+      note: Uniform convergence of $(f_n)$ alone is not enough; the hypothesis is on the derivatives.
+
+- before: ross-26.7
+  items:
+    - kind: theorem
+      name: Power series as functions; Abel's Theorem
+      latex: |
+        Let $\sum_{n=0}^\infty a_nx^n$ have radius of convergence $R\in(0,\infty]$ and $f(x)=\sum_{n=0}^\infty a_nx^n$
+        for $|x|<R$. Then the series converges uniformly on $[-r,r]$ for every $0<r<R$, and $f$ is continuous on
+        $(-R,R)$. Moreover $f$ is differentiable on $(-R,R)$ with $f'(x)=\sum_{n=1}^\infty na_nx^{n-1}$, a series
+        with the same radius of convergence. Consequently $f$ is infinitely differentiable on $(-R,R)$ and
+        $a_n=f^{(n)}(0)/n!$.
+        **Abel's Theorem:** if $0<R<\infty$ and $\sum_{n=0}^\infty a_nR^n$ converges, then the series converges
+        uniformly on $[0,R]$, so $f$ is continuous on $[0,R]$ and $\lim_{x\to R^-}f(x)=\sum_{n=0}^\infty a_nR^n$;
+        likewise on $[-R,0]$ if $\sum a_n(-R)^n$ converges.
+
+- before: abbott-8.2.2
+  items:
+    - kind: definition
+      name: The space C[a,b] and the uniform distance
+      latex: |
+        $C[a,b]$ is the set of continuous functions $f\colon[a,b]\to\mathbb{R}$. For $f\in C[a,b]$ put
+        $\|f\|_\infty=\sup_{x\in[a,b]}|f(x)|$, and for $f,g\in C[a,b]$ put $d_\infty(f,g)=\|f-g\|_\infty$.
+        $C^1[a,b]$ is the set of $f\in C[a,b]$ that are differentiable on $[a,b]$ (one-sided at the endpoints)
+        with $f'\in C[a,b]$.
+      note: Also written $C([a,b],\mathbb{R})$ with $\|\cdot\|_{[a,b]}$ (Lebl) and $\mathscr{C}[a,b]$ (MIT). $d_\infty(f_n,f)\to0$ means $f_n\to f$ uniformly.
+
+- before: abbott-6.2.15
+  items:
+    - kind: definition
+      name: Equicontinuous and uniformly bounded families
+      latex: |
+        A family $\mathcal{F}$ of functions $A\to\mathbb{R}$ is **equicontinuous** on $A$ if for every $\varepsilon>0$
+        there exists $\delta>0$ such that $|f(x)-f(y)|<\varepsilon$ for all $f\in\mathcal{F}$ and all $x,y\in A$ with
+        $|x-y|<\delta$. It is **uniformly bounded** if there exists $M$ with $|f(x)|\le M$ for all $f\in\mathcal{F}$
+        and all $x\in A$.
+      note: One $\delta$ serves every function and every point, as in uniform continuity. Rudin states it on a subset of a metric space.

@@ -3263,3 +3263,115 @@
   notes: Verified against the page text (printed pp. 122–123, pdf 133–134). Definition 4.2.1 quoted verbatim from p. 116. Same content as Exercises 4.6.3–4.6.4 (Theorem 4.6.3), which were skipped as duplicates.
   curation:
     why: Defines one-sided limits and proves a two-sided limit exists iff both one-sided limits exist and agree.
+
+- id: abbott-2.7.13
+  source:
+    key: abbott
+    chapter: 2 Sequences and Series
+    section: 2.7 Properties of Infinite Series
+    problemNumber: Exercise 2.7.13
+    page: '79'
+  topic: series
+  subtopics:
+  - convergence-tests
+  - conditional-convergence
+  skills:
+  - summation-by-parts
+  - comparison-estimate
+  - telescoping
+  concept: Abel's Test via summation by parts
+  title: 'Abel''s test'
+  difficulty: medium
+  category: canonical
+  type: proof
+  tags:
+  - Abel-test
+  - summation-by-parts
+  - series
+  - telescoping
+  problemLatex: |
+    **(Abel's Test).** Abel's Test for convergence states that if the series $\sum_{k=1}^{\infty} x_k$ converges, and if $(y_k)$ is a sequence satisfying
+    $$y_1 \ge y_2 \ge y_3 \ge \cdots \ge 0,$$
+    then the series $\sum_{k=1}^{\infty} x_k y_k$ converges.
+    (a) Use Exercise 2.7.12 to show that
+    $$\sum_{k=1}^{n} x_k y_k = s_n y_{n+1} + \sum_{k=1}^{n} s_k (y_k - y_{k+1}),$$
+    where $s_n = x_1 + x_2 + \cdots + x_n$.
+    (b) Use the Comparison Test to argue that $\sum_{k=1}^{\infty} s_k (y_k - y_{k+1})$ converges absolutely, and show how this leads directly to a proof of Abel's Test.
+
+    *(Exercise 2.7.12 (Summation-by-parts): Let $(x_n)$ and $(y_n)$ be sequences, let $s_n = x_1 + x_2 + \cdots + x_n$ and set $s_0 = 0$. Use the observation that $x_j = s_j - s_{j-1}$ to verify the formula $\sum_{j=m}^{n} x_j y_j = s_n y_{n+1} - s_{m-1} y_m + \sum_{j=m}^{n} s_j (y_j - y_{j+1})$.)*
+  notes: Statement verified symbol-by-symbol against the page image (printed p. 79, PDF 91). Exercise 2.7.12 quoted verbatim from p. 78 (PDF 90); its displayed formula is set inline here so the closing parenthesis and italics wrap correctly (previously the ')' sat inside the display math).
+  curation:
+    why: 'Bridge problem: prepares a later problem''s technique (see PEDAGOGICAL_AUDIT.md).'
+
+- id: abbott-3.5.5
+  source:
+    key: abbott
+    chapter: 3 Basic Topology of R
+    section: 3.5 Baire's Theorem
+    problemNumber: Exercise 3.5.5
+    page: '108'
+  topic: topology
+  subtopics:
+  - baire-category
+  - closed-sets
+  skills:
+  - complement-argument
+  - theorem-application
+  concept: R is not a countable union of closed sets with empty interior
+  title: '$\mathbb{R}$ is not a countable union of closed sets with no intervals'
+  difficulty: easy
+  category: canonical
+  type: theorem-application
+  tags:
+  - Baire-category
+  - closed-set
+  - nowhere-dense
+  problemLatex: |
+    Show that it is impossible to write
+    $$\mathbb{R} = \bigcup_{n=1}^\infty F_n,$$
+    where for each $n \in \mathbb{N}$, $F_n$ is a closed set containing no nonempty open intervals.
+
+    *(Theorem 3.5.2: If $\{G_1, G_2, G_3, \ldots\}$ is a countable collection of dense, open sets, then the intersection $\bigcap_{n=1}^\infty G_n$ is not empty.)*
+
+    *(Recall from p. 107: a set $G \subseteq \mathbb{R}$ is dense in $\mathbb{R}$ if, given any two real numbers $a < b$, it is possible to find a point $x \in G$ with $a < x < b$.)*
+  notes: Statement verified against the page image (printed p. 108, PDF 120); no transcription errors. Added Theorem 3.5.2 and the book's recalled definition of dense, both quoted verbatim from p. 107 (PDF 119); this exercise follows the proof of Theorem 3.5.2 and is meant to be derived from it.
+  curation:
+    why: 'Bridge problem: prepares a later problem''s technique (see PEDAGOGICAL_AUDIT.md).'
+
+- id: abbott-6.2.13
+  source:
+    key: abbott
+    chapter: 6 Sequences and Series of Functions
+    section: 6.2 Uniform Convergence of a Sequence of Functions
+    problemNumber: Exercise 6.2.13
+    page: '182'
+  topic: function-sequences
+  subtopics:
+  - pointwise-convergence
+  skills:
+  - diagonal-argument
+  - subsequence-extraction
+  - bolzano-weierstrass
+  concept: 'diagonal subsequence: uniformly bounded sequence converges pointwise on countable set'
+  title: 'Diagonal subsequence on a countable set'
+  difficulty: medium
+  category: canonical
+  type: construction
+  tags:
+  - diagonal-argument
+  - Bolzano-Weierstrass
+  - subsequence
+  - pointwise-convergence
+  problemLatex: |
+    Recall that the Bolzano–Weierstrass Theorem (Theorem 2.5.5) states that every bounded sequence of real numbers has a convergent subsequence. An analogous statement for bounded sequences of functions is not true in general, but under stronger hypotheses several different conclusions are possible. One avenue is to assume the common domain for all of the functions in the sequence is countable. (Another is explored in the next two exercises.)
+
+    Let $A = \{x_1, x_2, x_3, \ldots\}$ be a countable set. For each $n \in \mathbb{N}$, let $f_n$ be defined on $A$ and assume there exists an $M > 0$ such that $|f_n(x)| \le M$ for all $n \in \mathbb{N}$ and $x \in A$. Follow these steps to show that there exists a subsequence of $(f_n)$ that converges pointwise on $A$.
+
+    (a) Why does the sequence of real numbers $f_n(x_1)$ necessarily contain a convergent subsequence $(f_{n_k})$? To indicate that the subsequence of functions $(f_{n_k})$ is generated by considering the values of the functions at $x_1$, we will use the notation $f_{n_k} = f_{1,k}$.
+
+    (b) Now, explain why the sequence $f_{1,k}(x_2)$ contains a convergent subsequence.
+
+    (c) Carefully construct a nested family of subsequences $(f_{m,k})$, and show how this can be used to produce a single subsequence of $(f_n)$ that converges at every point of $A$.
+  notes: Statement verified symbol-by-symbol against the page images (printed pp. 182–183, PDF 192–193); no transcription errors. Theorem 2.5.5 is already restated in the exercise itself. 'The next two exercises' are 6.2.14 (equicontinuity) and 6.2.15 (Arzelà–Ascoli).
+  curation:
+    why: 'Bridge problem: prepares a later problem''s technique (see PEDAGOGICAL_AUDIT.md).'

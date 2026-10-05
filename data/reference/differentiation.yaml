@@ -1,0 +1,71 @@
+- before: mit20-final-4a
+  items:
+    - kind: definition
+      name: Derivative
+      latex: |
+        Let $I\subseteq\mathbb{R}$ be an interval containing more than one point, $f\colon I\to\mathbb{R}$ and $c\in I$.
+        Then $f$ is **differentiable at** $c$ if the limit
+        $$f'(c)=\lim_{x\to c,\ x\in I\setminus\{c\}}\frac{f(x)-f(c)}{x-c}$$
+        exists in $\mathbb{R}$. It is **differentiable on** $A\subseteq I$ if it is differentiable at every $c\in A$.
+      note: At an endpoint of a closed interval this is a one-sided derivative. Tao allows any domain $X$ and any $c\in X$ that is a limit point of $X$.
+
+- before: abbott-5.2.7
+  items:
+    - kind: definition
+      name: Higher derivatives and the classes C^n
+      latex: |
+        Let $f\colon I\to\mathbb{R}$ on an interval $I$. If $f$ is differentiable on $I$ and $f'$ is differentiable on
+        $I$, then $f$ is **twice differentiable** and $f''=(f')'$; inductively $f^{(n)}=(f^{(n-1)})'$. The function
+        $f$ is of **class** $C^n$ on $I$ (**$n$ times continuously differentiable**) if $f^{(n)}$ exists and is
+        continuous on $I$; $C^1$ is **continuously differentiable**. It is **infinitely differentiable** (smooth,
+        $C^\infty$) if $f^{(n)}$ exists on $I$ for every $n\in\mathbb{N}$.
+
+- before: tao-10.2.1
+  items:
+    - kind: definition
+      name: Local extremum
+      latex: |
+        Let $f\colon X\to\mathbb{R}$ and $c\in X$. Then $f$ has a **local maximum** at $c$ if there exists $\delta>0$
+        such that $f(x)\le f(c)$ for all $x\in X$ with $|x-c|<\delta$, and a **local minimum** at $c$ if
+        $f(x)\ge f(c)$ for all such $x$. The extremum is **strict** if the inequality is strict for all such
+        $x\ne c$.
+      note: Lebl says "relative" for "local".
+
+- before: mit20-a11-1
+  items:
+    - kind: theorem
+      name: Mean Value Theorem and monotonicity
+      latex: |
+        Let $a<b$ and let $f\colon[a,b]\to\mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b)$. Then
+        there exists $c\in(a,b)$ with $f(b)-f(a)=f'(c)(b-a)$. (**Rolle's theorem** is the case $f(a)=f(b)$, giving
+        $f'(c)=0$.) Consequently, if $f\colon I\to\mathbb{R}$ is continuous on an interval $I$ and differentiable at
+        every interior point of $I$: if $f'\ge 0$ there, $f$ is increasing on $I$; if $f'>0$ there, $f$ is strictly
+        increasing on $I$; if $f'=0$ there, $f$ is constant on $I$.
+      note: Abbott and Rudin use "increasing" for non-decreasing.
+
+- before: ross-30.6
+  items:
+    - kind: theorem
+      name: L'Hôpital's Rule
+      latex: |
+        Let $-\infty\le a<b\le\infty$ and let $f,g\colon(a,b)\to\mathbb{R}$ be differentiable with $g'(x)\ne0$ for all
+        $x\in(a,b)$. Suppose $\lim_{x\to a^+}\frac{f'(x)}{g'(x)}=L\in\mathbb{R}\cup\{\pm\infty\}$, and that either
+        $\lim_{x\to a^+}f(x)=\lim_{x\to a^+}g(x)=0$, or $\lim_{x\to a^+}|g(x)|=\infty$. Then
+        $\lim_{x\to a^+}\frac{f(x)}{g(x)}=L$. The same holds with $x\to b^-$ in place of $x\to a^+$.
+      note: Here $x\to a^+$ means $x\to-\infty$ when $a=-\infty$. The second case assumes nothing about $f$ (Ross's Theorem 30.2).
+
+- before: mit20-final-5a
+  items:
+    - kind: definition
+      name: Taylor polynomial and Taylor series
+      latex: |
+        If $f$ is $n$ times differentiable at $x_0$, its **$n$-th Taylor polynomial** at $x_0$ is
+        $P_n(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$. If $f$ is infinitely differentiable at $x_0$, its
+        **Taylor series** at $x_0$ is $\sum_{k=0}^\infty\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$.
+    - kind: theorem
+      name: Taylor's Theorem
+      latex: |
+        Let $I$ be an open interval, $n\ge0$, and $f\colon I\to\mathbb{R}$ be $n+1$ times differentiable on $I$. For
+        all $x_0,x\in I$ with $x\ne x_0$ there exists $\xi$ strictly between $x_0$ and $x$ such that
+        $$f(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}.$$
+      note: Rudin's Theorem 5.15 shifts $n$ by one and assumes only that $f^{(n)}$ is continuous on the closed interval between the points and $f^{(n+1)}$ exists on its interior.

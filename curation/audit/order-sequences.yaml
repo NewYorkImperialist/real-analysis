@@ -1,0 +1,67 @@
+topic: sequences
+order:
+  # group: convergence from the definition
+  - abbott-2.2.2
+  - abbott-2.2.1
+  - abbott-2.2.6
+  - cummings-3.6
+  - mit20-a4-6
+  # group: limit laws
+  - abbott-2.3.2
+  - ross-8.7
+  - cummings-3.8
+  - abbott-2.3.9
+  - lebl-2.2.3
+  - lebl-2.2.5
+  # group: order and limits; testing the laws
+  - abbott-2.3.12
+  - abbott-2.3.10
+  - abbott-2.3.7
+  # group: averages and double limits
+  - abbott-2.3.11
+  - abbott-2.3.13
+  # group: monotone convergence and r^n
+  - cummings-3.16
+  - cummings-4.3
+  - tao-6.3.4
+  - lebl-2.2.9
+  # group: recursive sequences
+  - cummings-3.24
+  - abbott-2.4.5
+  - abbott-2.4.6
+  # group: subsequences
+  - mit20-mid-3b
+  - lebl-2.1.22
+  # group: Bolzano–Weierstrass and subsequential limits
+  - lebl-2.3.10
+  - abbott-2.5.2
+  - abbott-2.5.5
+  - lebl-2.3.9
+  - lebl-2.1.17
+  - ross-11.9
+  - abbott-2.5.4
+  # group: Cauchy sequences
+  - abbott-2.6.1
+  - cummings-3.15
+  - lebl-2.4.7
+  - lebl-2.4.8
+  - abbott-2.6.2
+  - ross-10.4
+  # group: Cauchy estimates (telescoping)
+  - ross-10.6
+  - lebl-2.5.12
+  - lebl-2.4.2
+  - cummings-3.25
+  # group: limsup and liminf
+  - abbott-2.4.7
+  - lebl-2.3.5
+  - mit20-a5-6
+  - mit20-a5-5
+  - lebl-2.3.6
+  - lebl-2.3.7
+  - ross-12.13
+  - tao-6.4.3
+  - ross-22.14
+  # group: upper tier
+  - lebl-2.4.3
+  - rudin-3.14

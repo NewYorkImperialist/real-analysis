@@ -1,0 +1,58 @@
+- before: tao-7.3.2
+  items:
+    - kind: definition
+      name: Convergent series
+      latex: |
+        Let $(a_n)_{n\ge m}$ be a sequence of real numbers. Its **partial sums** are
+        $s_N=\sum_{n=m}^{N}a_n$ for $N\ge m$. The **series** $\sum_{n=m}^\infty a_n$ **converges** to
+        $S\in\mathbb{R}$ if $s_N\to S$; then $S$ is its **sum**, written $\sum_{n=m}^\infty a_n=S$. A series
+        that does not converge **diverges**.
+      note: 'Term test (Tao: zero test): if $\sum a_n$ converges, then $a_n\to 0$; the converse fails, e.g. for $\sum 1/n$. Changing, adding or deleting finitely many terms does not affect convergence (though it may change the sum).'
+    - kind: definition
+      name: Absolute and conditional convergence
+      latex: |
+        A series $\sum a_n$ **converges absolutely** if $\sum |a_n|$ converges. It **converges
+        conditionally** if $\sum a_n$ converges but $\sum |a_n|$ diverges.
+
+- before: mit20-mid-5a
+  items:
+    - kind: theorem
+      name: Comparison test and p-series
+      latex: |
+        **Comparison:** suppose $0\le a_n\le b_n$ for all $n\ge N_0$. If $\sum b_n$ converges, then
+        $\sum a_n$ converges; if $\sum a_n$ diverges, then $\sum b_n$ diverges.
+        **$p$-series:** for $p\in\mathbb{R}$, $\sum_{n=1}^\infty \frac{1}{n^p}$ converges if and only if
+        $p>1$. **Geometric series:** $\sum_{n=0}^\infty x^n$ converges if and only if $|x|<1$, with sum
+        $\frac{1}{1-x}$.
+      note: A series of nonnegative terms converges if and only if its partial sums are bounded (Monotone Convergence Theorem).
+
+- before: ross-14.10
+  items:
+    - kind: theorem
+      name: Root and ratio tests
+      latex: |
+        Let $\sum a_n$ be a series and $\alpha=\limsup |a_n|^{1/n}\in[0,\infty]$.
+        **Root test:** if $\alpha<1$, the series converges absolutely; if $\alpha>1$, it diverges.
+        **Ratio test:** suppose $a_n\ne 0$ for all $n$. If $\limsup\left|\frac{a_{n+1}}{a_n}\right|<1$, the
+        series converges absolutely; if $\liminf\left|\frac{a_{n+1}}{a_n}\right|>1$, it diverges.
+        If $\alpha=1$ (root test), or if $\liminf\left|\frac{a_{n+1}}{a_n}\right|\le 1\le\limsup\left|\frac{a_{n+1}}{a_n}\right|$
+        (ratio test), the test gives no information.
+      note: Abbott and Lebl state the ratio test with $\lim$; the $\limsup$/$\liminf$ form (Ross) is stronger.
+
+- before: mit20-a7-2
+  items:
+    - kind: definition
+      name: Power series and radius of convergence
+      latex: |
+        A **power series** about $x_0\in\mathbb{R}$ is a series $\sum_{n=0}^\infty a_n(x-x_0)^n$. Its
+        **radius of convergence** is $R=\frac{1}{\limsup |a_n|^{1/n}}\in[0,\infty]$ (with $\frac10=\infty$,
+        $\frac1\infty=0$): the series converges absolutely for $|x-x_0|<R$ and diverges for $|x-x_0|>R$.
+      note: At $|x-x_0|=R$ anything can happen; the endpoints must be checked separately.
+
+- before: cummings-4.18
+  items:
+    - kind: definition
+      name: Rearrangement of a series
+      latex: |
+        A **rearrangement** of $\sum_{n=1}^\infty a_n$ is a series $\sum_{k=1}^\infty a_{\sigma(k)}$, where
+        $\sigma:\mathbb{N}\to\mathbb{N}$ is a bijection.

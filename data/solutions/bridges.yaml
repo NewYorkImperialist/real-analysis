@@ -1,0 +1,153 @@
+# Hints and solutions for the bridge problems: each one sets up a technique that a later
+# problem reuses (abbott-2.7.13 -> 2.7.14, abbott-3.5.5 -> 3.5.6, abbott-6.2.13 -> 6.2.15,
+# lebl-5.1.11 -> lebl-5.1.13). The solutions point at the reusable step without solving the
+# later problem.
+
+- id: abbott-2.7.13
+  hints:
+    - |
+      Summation by parts trades the terms $x_k$ for their partial sums $s_k$, and the terms $y_k$ for their differences $y_k - y_{k+1}$. What do you know about $(s_k)$ when $\sum x_k$ converges? What sign do the differences $y_k - y_{k+1}$ have?
+    - |
+      For (a), apply Exercise 2.7.12 with $m = 1$ and remember $s_0 = 0$. For (b), a convergent sequence is bounded, so $|s_k| \le M$ for some $M$. Compare $|s_k(y_k - y_{k+1})|$ with $M(y_k - y_{k+1})$.
+    - |
+      The series $\sum (y_k - y_{k+1})$ telescopes. Its partial sums are $y_1 - y_{n+1}$, and $(y_n)$ converges by the Monotone Convergence Theorem. After the Comparison Test handles the series on the right of (a), check separately that the boundary term $s_n y_{n+1}$ converges.
+  solution: |
+    **(a)** Exercise 2.7.12 with $m = 1$ gives
+    $$\sum_{k=1}^{n} x_k y_k = s_n y_{n+1} - s_0 y_1 + \sum_{k=1}^{n} s_k (y_k - y_{k+1}),$$
+    and $s_0 = 0$, so
+    $$\sum_{k=1}^{n} x_k y_k = s_n y_{n+1} + \sum_{k=1}^{n} s_k (y_k - y_{k+1}). \qquad (\ast)$$
+
+    (Directly: since $x_k = s_k - s_{k-1}$,
+    $\sum_{k=1}^n x_k y_k = \sum_{k=1}^n s_k y_k - \sum_{k=1}^{n} s_{k-1} y_k = \sum_{k=1}^n s_k y_k - \sum_{k=1}^{n-1} s_k y_{k+1}$, using $s_0 = 0$ and shifting the index. Adding and subtracting $s_n y_{n+1}$ gives $(\ast)$.)
+
+    **(b)** Since $\sum x_k$ converges, its sequence of partial sums $(s_n)$ converges, say to $s$. Convergent sequences are bounded, so there is $M > 0$ with $|s_k| \le M$ for all $k$.
+
+    *The series on the right of $(\ast)$.* Because $(y_k)$ is decreasing, $y_k - y_{k+1} \ge 0$, so
+    $$|s_k (y_k - y_{k+1})| \le M (y_k - y_{k+1}) \quad \text{for all } k.$$
+    The partial sums of $\sum_{k} (y_k - y_{k+1})$ telescope:
+    $$\sum_{k=1}^{n} (y_k - y_{k+1}) = y_1 - y_{n+1}.$$
+    The sequence $(y_n)$ is decreasing and bounded below by $0$, so by the Monotone Convergence Theorem it converges, say $y_n \to y \ge 0$. Hence $y_1 - y_{n+1} \to y_1 - y$, and $\sum (y_k - y_{k+1})$ converges, and so does $\sum M(y_k - y_{k+1})$. By the Comparison Test, $\sum_{k=1}^{\infty} |s_k (y_k - y_{k+1})|$ converges. That is, $\sum_{k=1}^\infty s_k (y_k - y_{k+1})$ converges absolutely, and therefore converges (Absolute Convergence Test).
+
+    *The boundary term.* $s_n \to s$ and $y_{n+1} \to y$, so $s_n y_{n+1} \to s y$ by the Algebraic Limit Theorem.
+
+    *Conclusion.* By $(\ast)$, the $n$th partial sum of $\sum x_k y_k$ is the sum of two convergent sequences: $s_n y_{n+1}$ and the $n$th partial sum of $\sum s_k(y_k - y_{k+1})$. Hence it converges, so $\sum_{k=1}^\infty x_k y_k$ converges, with
+    $$\sum_{k=1}^\infty x_k y_k = s y + \sum_{k=1}^\infty s_k (y_k - y_{k+1}). \qquad \blacksquare$$
+
+    **The reusable technique.** Summation by parts splits $\sum x_k y_k$ into a *boundary term* $s_n y_{n+1}$ and a *series* $\sum s_k (y_k - y_{k+1})$. Look at what each piece actually used.
+
+    The series needed only that $(s_k)$ is **bounded** and that $(y_k)$ is monotone, so that $\sum |y_k - y_{k+1}|$ telescopes to something finite. Convergence of $\sum x_k$ played no further role there.
+
+    Only the boundary term used that $(s_n)$ **converges**.
+
+    So any test built on this split has to secure two things: a bound on the partial sums, which feeds the Comparison Test, and a separate reason for the boundary term to converge. Dirichlet's Test (Exercise 2.7.14) runs the same split under different hypotheses.
+
+- id: abbott-3.5.5
+  hints:
+    - |
+      Baire's Theorem (Theorem 3.5.2) is about open, dense sets. Your hypotheses are about closed sets with no intervals. How do you get from one kind of set to the other?
+    - |
+      Suppose, for contradiction, that $\mathbb{R} = \bigcup F_n$. Look at the complements $G_n = F_n^c$. They are open. Are they dense?
+    - |
+      To show $G_n$ is dense, take $a < b$. The interval $(a,b)$ cannot sit inside $F_n$. Then use De Morgan's law to compute $\bigcap G_n$ and compare with Theorem 3.5.2.
+  solution: |
+    **Proof.** Suppose, for contradiction, that $\mathbb{R} = \bigcup_{n=1}^\infty F_n$, where each $F_n$ is closed and contains no nonempty open interval. Set $G_n = F_n^c = \mathbb{R} \setminus F_n$.
+
+    *Each $G_n$ is open*, because the complement of a closed set is open.
+
+    *Each $G_n$ is dense.* Let $a < b$. The interval $(a,b)$ is a nonempty open interval, so $(a,b) \not\subseteq F_n$. Pick $x \in (a,b)$ with $x \notin F_n$. Then $x \in G_n$ and $a < x < b$. This is exactly the definition of density.
+
+    So $\{G_1, G_2, G_3, \ldots\}$ is a countable collection of dense open sets, and by Theorem 3.5.2, $\bigcap_{n=1}^\infty G_n \neq \emptyset$. But by De Morgan's law,
+    $$\bigcap_{n=1}^\infty G_n = \bigcap_{n=1}^\infty F_n^c = \Bigl(\bigcup_{n=1}^\infty F_n\Bigr)^c = \mathbb{R}^c = \emptyset.$$
+    This is a contradiction, so no such $F_n$ exist. $\blacksquare$
+
+    **The reusable technique.** Under complements, "closed with no nonempty open interval" corresponds to "open and dense". This turns Baire's Theorem, a statement about intersections of open sets, into a statement about unions of closed sets:
+
+    *If $\mathbb{R}$ is covered by countably many closed sets, at least one of them contains a nonempty open interval.*
+
+    Used as a black box, this becomes a way to prove that a set is **not** a countable union (or intersection) of a certain kind. Assume it is one. Then manufacture, from that assumption, a countable cover of $\mathbb{R}$ by closed sets that contain no intervals, and invoke this exercise. Exercise 3.5.6 runs exactly this argument on the irrationals and the rationals.
+
+- id: abbott-6.2.13
+  hints:
+    - |
+      Each of (a) and (b) is a single application of the Bolzano–Weierstrass Theorem. What bound do the numbers $f_n(x_1)$ satisfy? And if a sequence of functions already converges at $x_1$, does a subsequence of it still converge there?
+    - |
+      Build rows: row $m$, $(f_{m,k})_{k\ge1}$, is a subsequence of row $m-1$ that also converges at $x_m$. Then row $m$ converges at $x_1, \ldots, x_m$. No single row works for every point, though.
+    - |
+      Take the diagonal $g_k = f_{k,k}$. Check two things: (i) it really is a subsequence of $(f_n)$, meaning the indices strictly increase; (ii) for each fixed $m$, the tail $(g_k)_{k\ge m}$ is a subsequence of row $m$.
+  solution: |
+    Throughout, we use two facts: a subsequence of a convergent sequence converges to the same limit, and convergence of a sequence is unaffected by discarding finitely many terms.
+
+    **(a)** For every $n$, $|f_n(x_1)| \le M$, so $\bigl(f_n(x_1)\bigr)_{n\ge1}$ is a bounded sequence of real numbers. By the Bolzano–Weierstrass Theorem it has a convergent subsequence $\bigl(f_{n_k}(x_1)\bigr)_{k\ge1}$. The corresponding functions $f_{1,k} := f_{n_k}$ form a subsequence of $(f_n)$ that converges at $x_1$.
+
+    **(b)** For every $k$, $|f_{1,k}(x_2)| \le M$, so $\bigl(f_{1,k}(x_2)\bigr)_{k\ge1}$ is bounded. Again by Bolzano–Weierstrass it has a convergent subsequence. This gives a subsequence $(f_{2,k})_{k\ge1}$ of $(f_{1,k})_{k\ge1}$ that converges at $x_2$. Since it is a subsequence of $(f_{1,k})$, it still converges at $x_1$.
+
+    **(c)** *The rows.* Write $f_{m,k} = f_{n(m,k)}$. We construct, by induction on $m$, index sequences $k \mapsto n(m,k)$ such that:
+
+    (1) $n(m,1) < n(m,2) < n(m,3) < \cdots$, so row $m$ is a subsequence of $(f_n)$;
+
+    (2) for $m \ge 2$, row $m$ is a subsequence of row $m-1$: there is a strictly increasing $\varphi_m\colon \mathbb{N}\to\mathbb{N}$ with $n(m,k) = n(m-1, \varphi_m(k))$;
+
+    (3) $\bigl(f_{m,k}(x_m)\bigr)_{k\ge1}$ converges.
+
+    Row $1$ is from (a). Given row $m-1$, the sequence $\bigl(f_{m-1,k}(x_m)\bigr)_{k\ge1}$ is bounded by $M$. Bolzano–Weierstrass gives a strictly increasing $\varphi_m$ such that $\bigl(f_{m-1,\varphi_m(k)}(x_m)\bigr)_k$ converges, and we set $n(m,k) = n(m-1,\varphi_m(k))$. Properties (1)–(3) hold.
+
+    By property (2) and induction, row $m$ is a subsequence of row $j$ for every $j \le m$. So row $m$ converges at each of $x_1, \ldots, x_m$.
+
+    *The diagonal.* Define $g_k = f_{k,k} = f_{n(k,k)}$.
+
+    *(i) $(g_k)$ is a subsequence of $(f_n)$.* A strictly increasing $\varphi\colon\mathbb{N}\to\mathbb{N}$ satisfies $\varphi(k) \ge k$. Since $n(k,\cdot)$ is increasing, $n(k+1,k) = n(k,\varphi_{k+1}(k)) \ge n(k,k)$. Therefore
+    $$n(k+1,k+1) > n(k+1,k) \ge n(k,k),$$
+    so the indices $n(k,k)$ strictly increase.
+
+    *(ii) $(g_k)$ converges at every $x_m$.* Fix $m$. For $k \ge m$, row $k$ is a subsequence of row $m$, so $n(k,k)$ is one of the indices $n(m,1), n(m,2), \ldots$. Say $n(k,k) = n(m,\psi(k))$. Because both $k \mapsto n(k,k)$ and $j \mapsto n(m,j)$ are strictly increasing, $\psi$ is strictly increasing on $\{m, m+1, \ldots\}$. So the tail $(g_k)_{k\ge m}$ is a subsequence of row $m$. Row $m$ converges at $x_m$, so $\bigl(g_k(x_m)\bigr)_{k\ge m}$ converges, and hence so does $\bigl(g_k(x_m)\bigr)_{k\ge1}$.
+
+    So $(g_k)$ is a single subsequence of $(f_n)$ that converges at every point of $A$. $\blacksquare$
+
+    (If $A$ happens to be finite, the construction simply stops after the last point. In Abbott, "countable" means countably infinite anyway.)
+
+    **The reusable technique.** No single row works for all points, since row $m$ is only known to converge at $x_1, \ldots, x_m$. The diagonal works because it eventually lies in every row: the tail starting at $g_m$ sits inside row $m$. This is the standard tool for extracting one subsequence that converges on a countable set.
+
+    Note what it does *not* give. The convergence is pointwise on $A$ only, with no uniformity and no information off $A$. A typical use takes $A$ to be a countable dense set, such as the rationals in an interval, and then needs a separate hypothesis that controls the functions *between* points of $A$ to upgrade the convergence. That is the plan of the Arzelà–Ascoli Theorem in Exercise 6.2.15.
+
+- id: lebl-5.1.11
+  hints:
+    - |
+      $R_n$ is a Riemann sum for the uniform partition $P_n = \{0, \tfrac1n, \ldots, 1\}$, so $L(P_n,f) \le R_n \le U(P_n,f)$. It is enough to show $U(P_n,f)$ and $L(P_n,f)$ both tend to $\int_0^1 f$. Uniform partitions are not refinements of one another, though, so you cannot just "refine".
+    - |
+      Fix $\epsilon$ and one partition $Q = \{y_0, \ldots, y_m\}$ with $U(Q,f)$ and $L(Q,f)$ within $\epsilon$ of $\int_0^1 f$. Compare $U(P_n,f)$ with $U(P_n \cup Q, f) \le U(Q,f)$. Which subintervals of $P_n$ change when the points of $Q$ are added, and how many of them are there?
+    - |
+      At most $m-1$ subintervals of $P_n$ contain a point of $Q$ in their interior. With $|f| \le B$, each changes the upper sum by at most $2B/n$. For (b), think of a function that is badly discontinuous but takes a constant value at every point of the form $i/n$.
+  solution: |
+    Throughout, $f$ is bounded; fix $B > 0$ with $|f(x)| \le B$ on $[0,1]$. For a partition $P$, $U(P,f)$ and $L(P,f)$ are the upper and lower Darboux sums. Recall that refining a partition can only decrease $U$ and increase $L$.
+
+    **(a)** Let $I = \int_0^1 f$ and $P_n = \{0, \frac1n, \frac2n, \ldots, 1\}$. On $[\frac{i-1}{n}, \frac in]$ we have $m_i \le f(\frac in) \le M_i$, so
+    $$L(P_n,f) \le R_n = \sum_{i=1}^n f\bigl(\tfrac in\bigr)\tfrac1n \le U(P_n,f). \qquad (1)$$
+
+    *A fixed good partition.* Let $\epsilon > 0$. Since $I$ is both the infimum of the upper sums and the supremum of the lower sums, there are partitions $Q_1, Q_2$ with $U(Q_1,f) < I + \epsilon$ and $L(Q_2,f) > I - \epsilon$. Their common refinement $Q = Q_1 \cup Q_2 = \{0 = y_0 < y_1 < \cdots < y_m = 1\}$ satisfies
+    $$U(Q,f) < I + \epsilon, \qquad L(Q,f) > I - \epsilon.$$
+    Note that $m$ depends only on $\epsilon$.
+
+    *Comparing $P_n$ with $Q$.* Let $P' = P_n \cup Q$, which refines both. Call a subinterval $J_i = [\frac{i-1}{n}, \frac in]$ of $P_n$ *bad* if some $y_j$ lies in its interior, and *good* otherwise. Only $y_1, \ldots, y_{m-1}$ can be interior points, and distinct $J_i$ have disjoint interiors, so there are at most $m-1$ bad intervals.
+
+    A good $J_i$ is also a subinterval of $P'$, so it contributes the same amount $M_i \cdot \frac1n$ to $U(P_n,f)$ and to $U(P',f)$.
+
+    A bad $J_i$ is cut into pieces by $P'$. It contributes $M_i\frac1n \le \frac Bn$ to $U(P_n,f)$. Its pieces contribute at least $-B$ times their total length, that is at least $-\frac Bn$, to $U(P',f)$. So the difference is at most $\frac{2B}{n}$.
+
+    Hence
+    $$U(P_n,f) \le U(P',f) + \frac{2(m-1)B}{n} \le U(Q,f) + \frac{2mB}{n} < I + \epsilon + \frac{2mB}{n}.$$
+    The same argument with infima gives
+    $$L(P_n,f) \ge L(P',f) - \frac{2(m-1)B}{n} \ge L(Q,f) - \frac{2mB}{n} > I - \epsilon - \frac{2mB}{n}.$$
+
+    *Conclusion.* Choose $N$ with $N > 2mB/\epsilon$. For $n \ge N$, the bounds above together with (1) give
+    $$I - 2\epsilon < L(P_n,f) \le R_n \le U(P_n,f) < I + 2\epsilon,$$
+    so $|R_n - I| < 2\epsilon$. Since $\epsilon > 0$ was arbitrary, $\lim_{n\to\infty} R_n = \int_0^1 f$. $\blacksquare$
+
+    **(b)** Let $f(x) = 1$ if $x \in \mathbb{Q}$ and $f(x) = 0$ if $x \notin \mathbb{Q}$, for $x \in [0,1]$. It is bounded.
+
+    *$\lim R_n$ exists.* Every point $\frac in$ is rational, so $f(\frac in) = 1$ and $R_n = \frac1n \sum_{i=1}^n 1 = 1$ for every $n$. Hence $\lim_{n\to\infty} R_n = 1$.
+
+    *$f$ is not Riemann integrable.* Let $P = \{x_0 < \cdots < x_k\}$ be any partition. Each $[x_{i-1}, x_i]$ has positive length, so it contains a rational and an irrational number (density of $\mathbb{Q}$ and of the irrationals). So $M_i = 1$ and $m_i = 0$, and $U(P,f) = \sum \Delta x_i = 1$ while $L(P,f) = 0$. Therefore the upper integral is $1$ and the lower integral is $0$. They differ, so $f \notin \mathscr{R}([0,1])$.
+
+    **The reusable technique.** Part (a) is a "few bad intervals" estimate. A fixed partition $Q$ with $m+1$ points can disturb at most $m-1$ subintervals of any other partition, and each disturbed subinterval changes an upper or lower sum by at most $2B$ times its length. Look at what the proof actually used about $P_n$: only that its subintervals are short (length $\frac1n$) and that each $f(\frac in)$ is a value of $f$ on its own subinterval. Uniform spacing and right endpoints played no role. The same estimate therefore controls $U(P,f)$, $L(P,f)$, and every Riemann sum over *any* partition with small mesh. That is the engine behind Exercises 5.1.12–5.1.13.
+
+    Part (b) shows why the Riemann-sum characterization in 5.1.13 must quantify over all fine partitions and *all* choices of tags: one fixed choice of tags on uniform partitions cannot detect non-integrability.

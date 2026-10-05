@@ -1,0 +1,123 @@
+- before: mit20-a7-6
+  items:
+    - kind: definition
+      name: Functional limit
+      latex: |
+        Let $f:A\to\mathbb{R}$ and let $c$ be a limit point of $A$. Then $\lim_{x\to c}f(x)=L$ if for every
+        $\varepsilon>0$ there exists $\delta>0$ such that $|f(x)-L|<\varepsilon$ for all $x\in A$ with
+        $0<|x-c|<\delta$.
+      note: The value $f(c)$, if defined, plays no role; Lebl writes cluster point for limit point.
+
+- before: lebl-3.1.3
+  items:
+    - kind: theorem
+      name: Sequential criterion for functional limits
+      latex: |
+        Let $f:A\to\mathbb{R}$, let $c$ be a limit point of $A$ and $L\in\mathbb{R}$. Then
+        $\lim_{x\to c}f(x)=L$ if and only if for every sequence $(x_n)$ with $x_n\in A$, $x_n\ne c$ for
+        all $n$, and $x_n\to c$, we have $f(x_n)\to L$.
+      note: Hence the limit fails to exist if two such sequences give different limits, or one gives a divergent sequence.
+
+- before: abbott-4.3.2
+  items:
+    - kind: definition
+      name: Continuity at a point
+      latex: |
+        A function $f:A\to\mathbb{R}$ is **continuous at** $c\in A$ if for every $\varepsilon>0$ there
+        exists $\delta>0$ such that $|f(x)-f(c)|<\varepsilon$ for all $x\in A$ with $|x-c|<\delta$. It is
+        **continuous on** $A$ if it is continuous at every point of $A$.
+      note: If $c$ is a limit point of $A$, this says $\lim_{x\to c}f(x)=f(c)$; at an isolated point of $A$ every $f$ is continuous.
+
+- before: mit20-a8-2
+  items:
+    - kind: theorem
+      name: Sequential criterion for continuity
+      latex: |
+        A function $f:A\to\mathbb{R}$ is continuous at $c\in A$ if and only if $f(x_n)\to f(c)$ for every
+        sequence $(x_n)$ in $A$ with $x_n\to c$. In particular, if some sequence $x_n\to c$ in $A$ has
+        $f(x_n)\not\to f(c)$, then $f$ is not continuous at $c$.
+      note: Sums, products and quotients (where defined) of functions continuous at $c$ are continuous at $c$.
+
+- before: lebl-3.3.11
+  items:
+    - kind: theorem
+      name: Extreme Value Theorem
+      latex: |
+        If $K\subseteq\mathbb{R}$ is nonempty and compact and $f:K\to\mathbb{R}$ is continuous, then $f(K)$
+        is compact, and there exist $x_0,x_1\in K$ with $f(x_0)\le f(x)\le f(x_1)$ for all $x\in K$.
+      note: In particular this holds on every closed bounded interval $[a,b]$.
+
+- before: ross-19.2
+  items:
+    - kind: definition
+      name: Uniform continuity
+      latex: |
+        A function $f:A\to\mathbb{R}$ is **uniformly continuous** on $A$ if for every $\varepsilon>0$ there
+        exists $\delta>0$ such that $|f(x)-f(y)|<\varepsilon$ for all $x,y\in A$ with $|x-y|<\delta$.
+        Contrast continuity on $A$: for every $y\in A$ and every $\varepsilon>0$ there exists $\delta>0$
+        (which may depend on $y$) such that $|f(x)-f(y)|<\varepsilon$ for all $x\in A$ with $|x-y|<\delta$.
+      note: The only difference is the order of quantifiers; uniformly continuous implies continuous, not conversely ($1/x$ on $(0,1)$).
+    - kind: definition
+      name: Lipschitz function
+      latex: |
+        A function $f:A\to\mathbb{R}$ is **Lipschitz** if there exists $K\ge 0$ such that
+        $|f(x)-f(y)|\le K|x-y|$ for all $x,y\in A$.
+      note: Lipschitz functions are uniformly continuous (take $\delta=\varepsilon/K$ when $K>0$).
+
+- before: abbott-4.4.2
+  items:
+    - kind: theorem
+      name: Uniform continuity on compact sets
+      latex: |
+        If $K\subseteq\mathbb{R}$ is compact and $f:K\to\mathbb{R}$ is continuous on $K$, then $f$ is
+        uniformly continuous on $K$.
+
+- before: abbott-4.5.7
+  items:
+    - kind: definition
+      name: Intermediate value property
+      latex: |
+        A function $f$ has the **intermediate value property** on an interval $I$ if for all $x<y$ in $I$
+        and every $L$ strictly between $f(x)$ and $f(y)$ there exists $c\in(x,y)$ with $f(c)=L$.
+    - kind: theorem
+      name: Intermediate Value Theorem
+      latex: |
+        If $f:[a,b]\to\mathbb{R}$ is continuous and $L$ is a real number strictly between $f(a)$ and
+        $f(b)$, then there exists $c\in(a,b)$ with $f(c)=L$. Consequently every continuous function on an
+        interval has the intermediate value property.
+
+- before: abbott-4.6.5
+  items:
+    - kind: definition
+      name: Monotone function
+      latex: |
+        A function $f:A\to\mathbb{R}$ is **increasing** on $A$ if $f(x)\le f(y)$ for all $x<y$ in $A$,
+        **strictly increasing** if $f(x)<f(y)$ for all $x<y$ in $A$, (strictly) **decreasing** if $-f$ is
+        (strictly) increasing, and (strictly) **monotone** if it is (strictly) increasing or decreasing.
+      note: Some books say nondecreasing for increasing; here increasing allows equality, as in Abbott.
+
+- before: lebl-7.5.2
+  items:
+    - kind: definition
+      name: Continuity between metric spaces
+      latex: |
+        Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f:X\to Y$ is **continuous at** $p\in X$ if
+        for every $\varepsilon>0$ there exists $\delta>0$ such that $d_Y(f(x),f(p))<\varepsilon$ for all
+        $x\in X$ with $d_X(x,p)<\delta$; it is **continuous** if it is continuous at every point of $X$.
+      note: As on $\mathbb{R}$, $f$ is continuous at $p$ if and only if $x_n\to p$ implies $f(x_n)\to f(p)$.
+    - kind: theorem
+      name: Continuity, open sets and compactness
+      latex: |
+        Let $f:X\to Y$ be a function between metric spaces. Then $f$ is continuous if and only if
+        $f^{-1}(U)$ is open in $X$ for every open set $U\subseteq Y$. If $f$ is continuous and $K\subseteq X$
+        is compact, then $f(K)$ is compact.
+
+- before: ross-22.4
+  items:
+    - kind: definition
+      name: Path-connected set
+      latex: |
+        A subset $E$ of a metric space $X$ is **path-connected** if for all $p,q\in E$ there exists a
+        continuous function $\gamma:[0,1]\to X$ with $\gamma(0)=p$, $\gamma(1)=q$ and
+        $\gamma(t)\in E$ for all $t\in[0,1]$.
+      note: Path-connected sets are connected.
