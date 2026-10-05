@@ -156,7 +156,7 @@ main { padding: 2.25rem 0 4rem; min-height: 60vh; }
   font-family: var(--font-ui); font-size: 0.8rem; color: var(--muted); line-height: 1.5;
   display: flex; flex-wrap: wrap; align-items: baseline;
 }
-.meta-line > * + *::before { content: "·"; margin: 0 0.45em; color: var(--rule-strong); }
+.meta-line > * + *::before { content: "·"; margin: 0 0.45em; color: var(--rule-strong); display: inline-block; /* keeps link underlines off the separator */ }
 .meta-line a { color: inherit; }
 .meta-line .tier-badge { color: var(--accent); font-weight: 600; text-decoration: none; }
 .meta-line a.tier-badge:hover { text-decoration: underline; }
@@ -167,6 +167,10 @@ main { padding: 2.25rem 0 4rem; min-height: 60vh; }
 /* ---------- rich (problem) text ---------- */
 .rich { font-family: var(--font-text); line-height: 1.65; overflow-wrap: break-word; min-width: 0; }
 .rich p + p { margin-top: 0.8em; }
+.rich ul { margin: 0.8em 0; padding-left: 1.4em; }
+.rich ul:first-child { margin-top: 0; }
+.rich ul:last-child { margin-bottom: 0; }
+.rich li + li { margin-top: 0.35em; }
 .rich .katex { font-size: 1.05em; }
 .rich .katex-display {
   margin: 0.8em 0; padding: 0.15em 0; overflow-x: auto; overflow-y: hidden; max-width: 100%;

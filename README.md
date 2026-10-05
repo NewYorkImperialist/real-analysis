@@ -18,13 +18,13 @@ npm run check     # validate the problem data only
 
 ## The bank
 
-There are **359 problems**: a **core** of 323 and an optional **upper tier** of 36 harder problems.
+There are **363 problems**: a **core** of 326 and an optional **upper tier** of 37 harder problems.
 
 | Source | Core | Upper tier |
 |---|---|---|
 | MIT 18.100A Real Analysis — 2020 (assignments, midterm, final) | 41 original, plus 32 Lebl exercises the course assigned | — |
-| Abbott, *Understanding Analysis* (2nd ed.) | 98 | — |
-| Lebl, *Basic Analysis I* (v6.3) | 98 | — |
+| Abbott, *Understanding Analysis* (2nd ed.) | 101 | — |
+| Lebl, *Basic Analysis I* (v6.3) | 98 | 1 |
 | Ross, *Elementary Analysis* (2nd ed.) | 38 | — |
 | Cummings, *Real Analysis: A Long-Form Mathematics Textbook* (2019) | 26 | 1 |
 | Tao, *Analysis I* (3rd ed.) | 14 | — |
@@ -44,10 +44,11 @@ How the bank was built:
 - **Curation.** Candidates were compared across sources by the standard result they test (`concept`), so each
   piece of machinery appears in its strongest one or two forms.
 - **Audits.** Every selected problem was checked symbol by symbol against the rendered page images.
-  - Book typos are kept as printed and explained in `notes`.
+  - Book typos are either kept as printed or corrected; every case is explained in `notes`.
   - Any bracketed context that is not a verbatim quote is labeled as a summary.
 - **No invented problems.** Every problem is transcribed from a source. Textbook hints (Ross's back-of-book
-  hints, and a few printed by Pugh and Rudin) are labeled as such. All other hints and every solution are
+  hints, and one each printed by Pugh and Rudin) are labeled as such; other printed hints stay inside the
+  statement, as in the book. All other hints and every solution are
   AI-generated, independently reviewed, and labeled "AI-generated · not verified by a human" on the site.
 
 ## Big List PDF
@@ -69,6 +70,8 @@ data/sources.yaml          approved sources (the validator rejects any other sou
 data/taxonomy.yaml         topics → subtopics, difficulty / category / type definitions
 data/curriculum.yaml       the learning path: the order of every problem (see below)
 data/problems/<source>.yaml   one list of problems per source
+data/solutions/<topic>.yaml   AI-written hints and solutions, keyed by problem id (labeled AI-generated on the site)
+data/reference/<topic>.yaml   short definitions and theorems placed before the problems that need them
 scripts/build-data.mjs     validates everything (schema, enums, ids, provenance, KaTeX) → src/generated/bank.json
 ```
 
@@ -149,5 +152,6 @@ worksheet built from the same LaTeX.
 
 ## Curation materials
 
-`curation/` keeps all 836 candidates (551 not selected, indexed in `curation/UNSELECTED.md`), the
+`curation/` keeps all 836 candidates (551 not selected at curation, indexed in `curation/UNSELECTED.md`;
+four of these were later added as bridge problems), the
 selection decisions, problems later removed (`curation/REMOVED.yaml`), and a safe script for adding more problems later. See `curation/README.md`.

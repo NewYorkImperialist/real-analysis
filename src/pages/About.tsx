@@ -26,8 +26,8 @@ export function About() {
         <p>
           The <strong>core</strong> is the finishable bank: the mechanics of real analysis and the technical proof
           machinery that every later argument relies on.
-          The <strong>upper tier</strong> is an optional layer of harder problems, mostly from Pugh, Rudin and
-          MIT 18.100B: multi-step synthesis, constructions, hypothesis-necessity counterexamples and classification
+          The <strong>upper tier</strong> is an optional layer of harder problems, mostly from Pugh and Rudin:
+          multi-step synthesis, constructions, hypothesis-necessity counterexamples and classification
           problems, chosen only when they add a problem-solving experience the core lacks. Upper-tier problems are
           not counted in core progress and appear in practice sets only when you ask for them (“upper tier”).
           A few, tagged <em>bridge to measure theory</em>, preview ideas from measure theory.
@@ -99,10 +99,11 @@ export function About() {
       <section class="stack">
         <h2>Hints and solutions</h2>
         <p>
-          Hints and solutions are hidden until you ask for them, and each one states where it comes from: an
-          official course solution, the textbook, an instructor, or your own work. Most problems have no solution in
-          the bank; you can write your own in the personal solution editor, where it is always labeled
-          “Personal solution” and never presented as official.
+          Hints and solutions are hidden until you ask for them, and each one states where it comes from. Hints
+          printed in the textbook are labeled as textbook hints. Every other hint, and every solution in the bank,
+          is AI-generated and labeled “AI-generated · not verified by a human”: read it critically. You can also
+          write your own in the personal solution editor, where it is always labeled “Personal solution” and never
+          presented as official.
         </p>
       </section>
 

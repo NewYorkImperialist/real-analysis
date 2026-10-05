@@ -115,7 +115,7 @@ const MANUAL: { label: string; phrases: string[]; topics?: string[]; subtopics?:
     label: 'limsup & liminf',
     phrases: ['limsup', 'lim sup', 'liminf', 'lim inf', 'limit superior', 'limit inferior', 'limsup and liminf'],
     subtopics: ['sequences:limsup-liminf'],
-    tags: ['limsup', 'liminf', 'limsup-characterization', 'tail-sup-argument'],
+    tags: ['limsup', 'liminf', 'limsup-characterization', 'tail-sup', 'tail-sup-comparison'],
   },
   {
     label: 'Uniform continuity',
@@ -163,7 +163,7 @@ const MANUAL: { label: string; phrases: string[]; topics?: string[]; subtopics?:
     label: 'Riemann sums',
     phrases: ['riemann sum', 'darboux sum', 'upper and lower sum', 'partition'],
     subtopics: ['integration:partitions-darboux-sums'],
-    tags: ['Riemann-sum', 'riemann-sum-computation', 'partition'],
+    tags: ['Riemann-sums', 'riemann-sum-computation', 'partition'],
   },
   {
     label: 'Open sets',
@@ -199,7 +199,7 @@ const MANUAL: { label: string; phrases: string[]; topics?: string[]; subtopics?:
     label: 'Cauchy sequences',
     phrases: ['cauchy', 'cauchy sequence', 'cauchy criterion', 'cauchy condition'],
     subtopics: ['sequences:cauchy-sequences', 'function-sequences:uniform-cauchy', 'topology:complete-metric-spaces'],
-    tags: ['Cauchy', 'cauchy-sequence'],
+    tags: ['Cauchy', 'Cauchy-sequence'],
   },
   {
     label: 'Subsequences',

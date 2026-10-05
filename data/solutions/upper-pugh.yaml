@@ -533,7 +533,7 @@
 - id: pugh-4.27
   hints:
     - |
-      For (a) and (b), a contraction needs a ratio $d(fx,fy)/d(x,y)$ bounded away from $1$. For a differentiable map of an interval, that ratio is a value of $f'$ (MVT). Look for $f$ with $|f'| < 1$ everywhere but $\sup|f'| = 1$.
+      For (a) and (b), a contraction needs a ratio $d(fx,fy)/d(x,y)$ bounded away from $1$. For a differentiable map of an interval, that ratio is a value of $f'$ (MVT). Look for $f$ with $|f'| < 1$ except possibly at an endpoint, but $\sup|f'| = 1$.
     - |
       For (a), on a half-line, add to $x$ a positive term that decays at infinity, so that $f'$ creeps up to $1$. For (b), on $[0,1]$ look for a polynomial self-map whose derivative lies in $[0, 1)$ except that it equals $1$ at a single endpoint.
     - |

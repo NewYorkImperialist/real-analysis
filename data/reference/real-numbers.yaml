@@ -53,6 +53,6 @@
     - kind: definition
       name: Supremum of a function
       latex: |
-        For $f\colon D\to\mathbb{R}$ with $D\ne\emptyset$, write
+        For $f\colon D\to\mathbb{R}$ with $D\ne\emptyset$, the **supremum** and **infimum** of $f$ on $D$ are
         $\sup_{x\in D}f(x)=\sup f(D)$ and $\inf_{x\in D}f(x)=\inf f(D)$, where $f(D)=\{f(x):x\in D\}$.
         The function $f$ is **bounded** if $f(D)$ is a bounded set.

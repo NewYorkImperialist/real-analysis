@@ -112,7 +112,7 @@
     (b) Let $e_k = 0$ when $k$ is odd and $e_k = 1$ when $k$ is even. Set $b_k = e_k/k + (-1)^k/\sqrt{k}$. The series $\sum b_k$ diverges while the corresponding product $\prod_{k\ge 2}(1+b_k)$ converges.
 
     *(Exercise 67: An **infinite product** is an expression $\prod c_k$ where $c_k > 0$. The $n$th **partial product** is $C_n = c_1\cdots c_n$. If $C_n$ converges to a limit $C\ne 0$ then the product converges to $C$.)*
-  notes: 'Checked against the page image. The definitions from Exercise 67 are quoted. In (a), 1 + a_1 = 0, so the k = 1 factor violates c_k > 0. That is the book''s own sloppiness; part (b) starts at k >= 2, and (a) is presumably meant from k = 2 as well. Exercise 67 itself (constant-sign a_k: sum converges iff product converges) is canonical and the bank has no infinite products. The curator may want to add it as a core-gap companion (see skipped).'
+  notes: 'Checked against the page image. The definitions from Exercise 67 are quoted. In (a), 1 + a_1 = 0, so the k = 1 factor violates c_k > 0. That is the book''s own sloppiness; part (b) starts at k >= 2, and (a) is presumably meant from k = 2 as well. Exercise 67 itself (for a_k of constant sign, the sum converges iff the product converges) is not in the bank.'
   curation:
     why: 'Infinite products: without a sign condition, convergence of a series and of the matching product are unrelated.'
   tier: upper
@@ -285,14 +285,14 @@
   category: synthesis
   type: proof
   tags:
-  - riemann-integration
+  - Riemann-integration
   - one-sided-limits
   - regulated-function
   - compactness
   - prelim
   problemLatex: |
     Suppose that $f\colon [a,b] \to \mathbb{R}$ and the limits of $f(x)$ from the left and the right exist at all points of $[a,b]$. Prove that $f$ is Riemann integrable.
-  notes: Verbatim. At the endpoints only the relevant one-sided limit makes sense. Pairs naturally with pugh-prelim-47 (same hypothesis).
+  notes: Verbatim. At the endpoints only the relevant one-sided limit makes sense.
   curation:
     why: 'Riemann integrability of functions with one-sided limits everywhere, beyond the bank''s monotone and continuous criteria.'
   tier: upper
@@ -534,7 +534,7 @@
   problemLatex: |
     (a) The intersection of connected sets need not be connected. Give an example.
     (b) Suppose that $S_1, S_2, S_3, \ldots$ is a sequence of connected, closed subsets of the plane and $S_1 \supset S_2 \supset \ldots$. Is $S = \bigcap S_n$ connected? Give a proof or counterexample.
-    *(c) Does the answer change if the sets are compact?
+    (c) Does the answer change if the sets are compact? *(Starred in the book.)*
     (d) What is the situation for a nested decreasing sequence of compact path-connected sets?
   notes: Part (c) is starred in the book.
   curation:
@@ -599,7 +599,7 @@
   category: challenge
   type: proof
   tags:
-  - baire-category
+  - Baire-category
   - closed-intervals
   - countable-union
   - impossibility
@@ -897,4 +897,4 @@
     kind: textbook
   notes: 'Transcribed from the page image (printed p. 51, pdf 63). Part (b) is starred (*) in the book. The bracketed "Hints:" paragraph printed after part (b) is moved verbatim into the hints (shown after the AI hints, since it outlines the proof). Pugh defines equal cardinality (#A = #B) by a bijection but gives no formal definition of "greater"; as the printed hint shows, (b) means that $S \to \mathcal{P}$ is never a bijection. The usual reading of #S < #P (an injection $S \to \mathcal{P}$ exists, but no bijection) is what the solution proves.'
   curation:
-    why: 'The bank used Cantor''s theorem (tao-8.3.4) but never asked for its proof; this is the diagonal-set argument itself, plus the identification of subsets with 0–1 functions.'
+    why: 'Cantor''s theorem proved: the diagonal-set argument itself, plus the identification of subsets with 0–1 functions.'

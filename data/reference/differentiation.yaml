@@ -12,7 +12,7 @@
 - before: abbott-5.2.7
   items:
     - kind: definition
-      name: Higher derivatives and the classes C^n
+      name: 'Higher derivatives and the classes $C^n$'
       latex: |
         Let $f\colon I\to\mathbb{R}$ on an interval $I$. If $f$ is differentiable on $I$ and $f'$ is differentiable on
         $I$, then $f$ is **twice differentiable** and $f''=(f')'$; inductively $f^{(n)}=(f^{(n-1)})'$. The function

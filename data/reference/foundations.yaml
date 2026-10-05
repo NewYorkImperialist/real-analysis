@@ -43,7 +43,7 @@
 - before: mit20-a3-3
   items:
     - kind: theorem
-      name: Countability of Q, uncountability of R
+      name: 'Countability of $\mathbb{Q}$, uncountability of $\mathbb{R}$'
       latex: |
         The set $\mathbb{Q}$ of rational numbers is countably infinite, and the set $\mathbb{R}$ of real
         numbers is uncountable.
@@ -52,7 +52,7 @@
 - before: abbott-1.5.6
   items:
     - kind: theorem
-      name: Archimedean property and density of Q
+      name: 'Archimedean property and density of $\mathbb{Q}$'
       latex: |
         **Archimedean property:** for every $x\in\mathbb{R}$ there exists $n\in\mathbb{N}$ with $n>x$;
         equivalently, for every $\varepsilon>0$ there exists $n\in\mathbb{N}$ with $1/n<\varepsilon$.

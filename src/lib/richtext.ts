@@ -3,7 +3,9 @@
 //
 // Format: LaTeX math in $...$ (inline) and $$...$$ (display); blank lines
 // separate paragraphs; a line beginning with a part label such as "a)", "(b)",
-// "(iii)" or "2)" starts a new line; **bold** and *italic* outside math.
+// "(iii)" or "2)" starts a new line; a line beginning with "- " is a bullet item (consecutive
+// items form one list; following lines without a blank line continue the item);
+// **bold** and *italic* outside math.
 // A literal dollar sign is written \$.
 
 export type Token =
@@ -76,19 +78,24 @@ export function delimiterProblems(src: string): string[] {
 
 const PART_LABEL = /^\s*(\(?[a-h]\)|\(?[ivx]{1,5}\)|\(?[0-9]{1,2}\)|\([a-h]\)|\([ivx]{1,5}\))\s/;
 
-export type Block = { tokens: Token[] };
+const BULLET = /^\s*- /;
 
-// Split tokens into paragraph blocks. Inside text, a blank line ends a block and
-// a newline followed by a part label also ends a block.
+/** item: the block is a bullet-list item (renderers group consecutive items into one list). */
+export type Block = { tokens: Token[]; item?: boolean };
+
+// Split tokens into paragraph blocks. Inside text, a blank line ends a block, and
+// a newline followed by a part label or a bullet ("- ") also ends a block.
 export function toBlocks(tokens: Token[]): Block[] {
   const blocks: Block[] = [];
   let cur: Token[] = [];
+  let item = false;
   const push = () => {
     // trim whitespace-only edge text
     while (cur.length && cur[0].kind === 'text' && !cur[0].value.trim()) cur.shift();
     while (cur.length && cur[cur.length - 1].kind === 'text' && !cur[cur.length - 1].value.trim()) cur.pop();
-    if (cur.length) blocks.push({ tokens: cur });
+    if (cur.length) blocks.push(item ? { tokens: cur, item } : { tokens: cur });
     cur = [];
+    item = false;
   };
   for (const t of tokens) {
     if (t.kind === 'math') {
@@ -100,7 +107,11 @@ export function toBlocks(tokens: Token[]): Block[] {
     for (let k = 0; k < lines.length; k++) {
       const line = lines[k];
       if (k === 0) {
-        acc = line;
+        // A bullet can open the whole text; otherwise the first line continues the preceding math.
+        if (!cur.length && !blocks.length && BULLET.test(line)) {
+          item = true;
+          acc = line.replace(BULLET, '');
+        } else acc = line;
         continue;
       }
       if (!line.trim()) {
@@ -110,11 +121,12 @@ export function toBlocks(tokens: Token[]): Block[] {
         push();
         continue;
       }
-      if (PART_LABEL.test(line)) {
+      if (PART_LABEL.test(line) || BULLET.test(line)) {
         if (acc.trim()) cur.push({ kind: 'text', value: acc });
         acc = '';
         push();
-        acc = line;
+        item = BULLET.test(line);
+        acc = item ? line.replace(BULLET, '') : line;
         continue;
       }
       acc += ' ' + line;

@@ -64,17 +64,24 @@ function SourceStats({ s }: { s: Source }) {
     .filter((x) => x.n > 0);
   const diff = DIFFICULTIES.map((d) => ({ key: d, label: label(d), count: list.filter((p) => p.difficulty === d).length }));
   const cat = CATEGORIES.map((c) => ({ key: c, label: label(c), count: list.filter((p) => p.category === c).length }));
+  // Totals here cover both tiers; say how many are upper tier, since core progress leaves them out.
+  const nUpper = list.filter((p) => p.tier === 'upper').length;
+  const upperNote = nUpper > 0 && (
+    <>
+      {' '}(<a href={href('browse', `tier=upper&source=${s.key}`)}>{nUpper} in the upper tier</a>)
+    </>
+  );
 
   return (
     <div class="source-stats">
       {s.key === 'mit' ? (
         <p class="source-count">
           <strong>{list.length}</strong> selected problems: {ownProblems('mit').length} original problems +{' '}
-          {mitAssignedLebl().length} Lebl exercises assigned in the course
+          {mitAssignedLebl().length} Lebl exercises assigned in the course{upperNote}
         </p>
       ) : (
         <p class="source-count">
-          <strong>{list.length}</strong> selected {list.length === 1 ? 'problem' : 'problems'}
+          <strong>{list.length}</strong> selected {list.length === 1 ? 'problem' : 'problems'}{upperNote}
         </p>
       )}
       {list.length > 0 && (

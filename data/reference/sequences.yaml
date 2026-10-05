@@ -97,6 +97,7 @@
       name: Limit superior and limit inferior
       latex: |
         For a bounded sequence $(a_n)$ put $y_n=\sup\{a_k:k\ge n\}$ and $z_n=\inf\{a_k:k\ge n\}$. Then
-        $(y_n)$ is decreasing, $(z_n)$ is increasing, and both are bounded; define
+        $(y_n)$ is decreasing, $(z_n)$ is increasing, and both are bounded; define the **limit superior** and
+        the **limit inferior** of $(a_n)$ by
         $$\limsup_{n\to\infty}a_n=\lim_{n\to\infty}y_n=\inf_{n}y_n,\qquad \liminf_{n\to\infty}a_n=\lim_{n\to\infty}z_n=\sup_{n}z_n.$$
       note: Tao defines these as $\inf_N\sup_{n\ge N}a_n$ and $\sup_N\inf_{n\ge N}a_n$ in the extended reals (Rudin, as the sup and inf of the subsequential limits), so they also exist, possibly $\pm\infty$, for unbounded sequences.

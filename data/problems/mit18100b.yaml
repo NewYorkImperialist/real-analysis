@@ -45,7 +45,7 @@
     (A possible choice is, for instance, given by $f_n(x) = \sin(n\pi x)$ if $x \in [0, 1/n]$, and $f_n(x) = 0$ if $x \in [1/n, 1]$.) By clever choice of a sequence of real-valued numbers $(c_n)$, prove the claim by considering the sequence $(c_nf_n)$.
 
     *Hint (for proof of Theorem 1).* Assume there is such a metric $d(f,g)$ on $C([0,1])$. Then $f_n \to 0$ if and only if, for every $k \in \mathbb{N}$, we have that $f_n \in N_{1/k}(0) = \{y \in C([0,1]) : d(y, 0) < 1/k\}$, except for finitely many $f_n$. Use this fact and the specific choice $g_n(x) = e^{-n|x - x_0|}$ for suitable $x_0 \in [0,1]$ to show that $g_n \to 0$ pointwise on $[0,1]$, which is false! (Since $g(x_0) = 1$ for all $n$.)
-  notes: 'Verified against the rendered page. Kept as printed: the last hint writes g(x_0) for g_n(x_0), and its ''show that g_n -> 0 pointwise'' means ''derive that a suitable sequence built from the g_n would converge pointwise to 0, which is false''. The hint for Theorem 1 is terse, and the curator may want to trim or rephrase the hints. Extra problem: no posted solution.'
+  notes: 'Verified against the rendered page. Kept as printed: the last hint writes g(x_0) for g_n(x_0), and its ''show that g_n -> 0 pointwise'' means ''derive that a suitable sequence built from the g_n would converge pointwise to 0, which is false''. The hint for Theorem 1 is terse. Extra problem: no posted solution.'
   curation:
     why: 'An impossibility theorem: no metric on C[0,1] gives exactly pointwise convergence.'
   tier: upper
@@ -89,7 +89,7 @@
     key: mit18100b
     chapter: MIT 18.100B Fall 2010
     section: Homework 10 (mit18_100bf10_pset10.pdf)
-    problemNumber: Problem 5 (with the metric d_1 of Problem 4)
+    problemNumber: Problem 5 (with the metric d₁ of Problem 4)
     page: '2'
   assignedIn:
   - MIT 18.100B (Fall 2010) Homework 10, Problem 5
@@ -125,4 +125,4 @@
     (c) Does $f_n$ converge in $\mathscr{C}[-1,1]$? Is this metric space complete?
   notes: 'Verified against the rendered page. The marked parenthetical inlines the definition of d_1 from Problem 4 (formula verbatim) and the conclusion of 4(d) that d_1 is a metric on continuous functions (the bank covers that fact in abbott-8.2.2); the routine parts of Problem 4 about R^1[a,b] and pseudometrics are omitted. Problem 5 itself is verbatim. No solutions posted for F10 homework.'
   curation:
-    why: 'C[−1,1] is not complete under the L¹ metric, a first glimpse of why Lebesgue integration is needed.'
+    why: 'Completeness of C[−1,1] under the L¹ metric, a first glimpse of why Lebesgue integration is needed.'

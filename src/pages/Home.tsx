@@ -28,7 +28,7 @@ export function Home() {
         <a class="btn" href={href('search')}>Search</a>
         <a class="btn btn-quiet" href={href('sources')}>Sources</a>
         <a class="btn btn-quiet" href={href('progress')}>Progress</a>
-        <a class="btn btn-quiet" href="big-list.pdf" title="Every problem in one printable PDF, regenerated whenever the bank changes">Big List (PDF)</a>
+        <a class="btn btn-quiet" href="big-list/" title="Every problem in one printable PDF, regenerated whenever the bank changes">Big List (PDF)</a>
       </nav>
 
       <p>

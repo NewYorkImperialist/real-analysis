@@ -125,7 +125,7 @@ export function Layout({ active, children }: { active: string; children: Compone
             {' · '}
             <a href={href('sources')}>Sources</a>
             {' · '}
-            <a href="big-list.pdf">Big List (PDF)</a>
+            <a href="big-list/">Big List (PDF)</a>
             {' · '}
             <a href={ISSUE_URL} target="_blank" rel="noopener noreferrer">Report an issue</a>
           </span>

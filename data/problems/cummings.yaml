@@ -147,8 +147,8 @@
     Prove the decreasing case of the monotone convergence theorem (Theorem 3.27).
 
     *(Theorem 3.27 (The monotone convergence theorem). Suppose $(a_n)$ is monotone. Then $(a_n)$ converges if and only if it is bounded. Moreover,*
-    *- If $(a_n)$ is increasing then either $(a_n)$ diverges to $\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \sup(\{a_n : n \in \mathbb{N}\})$.*
-    *- If $(a_n)$ is decreasing then either $(a_n)$ diverges to $-\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \inf(\{a_n : n \in \mathbb{N}\})$.)*
+    - *If $(a_n)$ is increasing then either $(a_n)$ diverges to $\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \sup(\{a_n : n \in \mathbb{N}\})$.*
+    - *If $(a_n)$ is decreasing then either $(a_n)$ diverges to $-\infty$ or $\displaystyle\lim_{n\to\infty} a_n = \inf(\{a_n : n \in \mathbb{N}\})$.)*
   notes: Theorem 3.27 quoted verbatim from pdf p.100 (printed p.84).
   curation:
     why: Prove the Monotone Convergence Theorem from the infimum.
@@ -215,7 +215,7 @@
     for all $n \ge 3$. Does $(a_n)$ necessarily converge?
   notes: Verbatim.
   curation:
-    why: 'A two-term averaging recursion: show it converges (Cauchy or subsequences) and find the limit.'
+    why: 'A two-term averaging recursion: decide whether it converges, using a Cauchy or subsequence argument.'
 - id: cummings-4.2
   source:
     key: cummings
@@ -479,7 +479,7 @@
   problemLatex: |
     Is it possible for a continuous function $f\colon \mathbb{R} \to \mathbb{R}$ to have the property that $f(\mathbb{R}) = \mathbb{Q}$?
   curation:
-    why: Continuous images of intervals are intervals; ℚ is not one.
+    why: 'Uses the intermediate value theorem to decide which sets can be the range of a continuous function on ℝ.'
 - id: cummings-7.10
   source:
     key: cummings
@@ -524,7 +524,7 @@
   - rolle-mvt
   skills:
   - auxiliary-function
-  - rolle-application
+  - Rolle-application
   concept: Cauchy mean value theorem
   title: Cauchy mean value theorem
   difficulty: medium
@@ -538,8 +538,8 @@
   problemLatex: |
     Prove the *Cauchy mean value theorem*, which says this:
 
-    > If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that
-    > $$[f(b) - f(a)] \cdot g'(x) = [g(b) - g(a)] \cdot f'(x).$$
+    *If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, then there is a number $x \in (a,b)$ such that*
+    $$[f(b) - f(a)] \cdot g'(x) = [g(b) - g(a)] \cdot f'(x).$$
 
     (Note that the mean value theorem (Theorem 7.22) is a special case of this, in which $g(x) = x$.)
   curation:
@@ -731,7 +731,7 @@
     (c) If $(a_n)$ converges, what can be said about this sequence?
   notes: Verbatim.
   curation:
-    why: 'Convergence with a fixed ε: an integer-valued sequence that converges must be eventually constant.'
+    why: 'Convergence with a fixed ε: what convergence forces on an integer-valued sequence.'
 
 - id: cummings-3.8
   source:
@@ -784,9 +784,9 @@
   category: challenge
   type: proof
   tags:
-  - LHopital
+  - LHospital
   - Cauchy-mean-value-theorem
-  - limits
+  - limit
   - infinity
   problemLatex: |
     Prove the following "$\infty/\infty$" case of l'Hôpital's rule. Prove that if $f\colon (a,b) \to \mathbb{R}$ and $g\colon (a,b) \to \mathbb{R}$ are differentiable functions and $\lim_{x\to a} f(x) = \lim_{x\to a} g(x) = \infty$, then

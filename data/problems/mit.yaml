@@ -104,7 +104,7 @@
     page: "1"
   topic: foundations
   subtopics: [cardinality]
-  skills: [construct-bijection, decimal-expansions]
+  skills: [construct-bijection, decimal-expansion]
   concept: "uncountable sets via a bijection with the power set of N"
   title: Cardinality of decimals using only the digits 1 and 2
   difficulty: medium
@@ -379,7 +379,7 @@
     $$\liminf_{n \to \infty} x_n = -1, \qquad \lim_{n \to \infty} x_n = 0, \qquad \limsup_{n \to \infty} x_n = 1?$$
     Either give an example, or explain why no such example exists.
   curation:
-    why: "Tests whether you know that a convergent sequence has liminf = lim = limsup."
+    why: 'Tests how lim, liminf and limsup are related when a sequence converges.'
 
 - id: mit20-a7-2
   source:
@@ -541,7 +541,7 @@
   difficulty: introductory
   category: canonical
   type: definition
-  tags: [limit-at-infinity, definition, sequences, divergence]
+  tags: [limit-at-infinity, definition, sequence, divergence]
   problemLatex: |
     Let $R \in \mathbb{R}$, and let $f \colon [R, \infty) \to \mathbb{R}$. We say that $f(x)$ *converges to $L$ as $x \to \infty$* if for every $\epsilon > 0$ there exists $M \ge R$ such that for all $x \ge M$ we have $|f(x) - L| < \epsilon$. We write $f(x) \to L$ as $x \to \infty$ or
     $$\lim_{x \to \infty} f(x) = L.$$
@@ -618,7 +618,7 @@
   difficulty: easy
   category: synthesis
   type: theorem-application
-  tags: [IVT, Rolle, mean-value-theorem, polynomial, roots]
+  tags: [IVT, Rolle, mean-value-theorem, polynomials, roots]
   problemLatex: |
     Prove that the polynomial equation $\frac{x^{1121}}{1121} + \frac{x^{2021}}{2021} + x + 1 = 0$ has exactly one real root.
   curation:
@@ -661,7 +661,7 @@
   difficulty: easy
   category: canonical
   type: computation
-  tags: [Riemann-integration, Riemann-sum, partition, computation]
+  tags: [Riemann-integration, Riemann-sums, partition, computation]
   problemLatex: |
     Let $a < b$, and define a sequence of tagged partitions by
     $$\underline{x}^{(r)} := \left\{ a + (b - a)\frac{k}{r} : k = 0, \ldots, r \right\},$$
@@ -712,7 +712,7 @@
   source:
     key: mit
     chapter: "Midterm Exam (October 16, 2020)"
-    problemNumber: "Problem 1(a)–(b)"
+    problemNumber: "Problem 1(b)–(c)"
     page: "3"
   topic: foundations
   subtopics: [cardinality]
@@ -729,7 +729,7 @@
     (c) When $E$ is an uncountable subset of $\mathbb{R}$, is the complement $\mathbb{R} \setminus E$ always countable? Explain why or why not.
   notes: "Parts (b)–(c) of the midterm's Problem 1, with the exam's labels; part (a) of the exam problem is not in the bank."
   curation:
-    why: "Quick check that you can use ‘countable ∪ countable is countable’ and produce a counterexample for the false converse."
+    why: 'Complements of countable and uncountable subsets of ℝ: what ‘countable ∪ countable is countable’ does and does not tell you.'
 
 - id: mit20-mid-2
   source:
@@ -831,7 +831,7 @@
     $$\sum_{n=0}^{\infty} n!\, x^{n!}$$
   notes: "Verified against the exam PDF: in (i) the denominator is $2020n$ (not $2020^n$), and the sum is printed from $n=0$ even though the $n=0$ term is undefined — read it as starting at $n=1$. In (ii) the exponent is $n!$."
   curation:
-    why: "(i) has conditional convergence at one endpoint (alternating harmonic); (ii) is a lacunary series where the usual coefficient-ratio test does not apply directly."
+    why: '(i) needs a separate check at each endpoint; (ii) is a lacunary series where the usual coefficient-ratio test does not apply directly.'
 
 - id: mit20-final-1
   source:

@@ -1,7 +1,7 @@
 - before: mit20-a3-5
   items:
     - kind: definition
-      name: Open and closed sets in R
+      name: 'Open and closed sets in $\mathbb{R}$'
       latex: |
         For $x\in\mathbb{R}$ and $\varepsilon>0$, the **$\varepsilon$-neighbourhood** of $x$ is
         $V_\varepsilon(x)=(x-\varepsilon,x+\varepsilon)$. A set $U\subseteq\mathbb{R}$ is **open** if for
@@ -20,7 +20,7 @@
         exists $\varepsilon>0$ with $V_\varepsilon(a)\cap A=\{a\}$.
       note: Lebl and the MIT problems say cluster point for the same notion.
     - kind: definition
-      name: Closure of a set in R
+      name: 'Closure of a set in $\mathbb{R}$'
       latex: |
         Let $A\subseteq\mathbb{R}$ and let $L$ be the set of limit points of $A$. The **closure** of $A$ is
         $\overline{A}=A\cup L$.

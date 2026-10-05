@@ -63,9 +63,9 @@
     - kind: definition
       name: The space C[a,b] and the uniform distance
       latex: |
-        $C[a,b]$ is the set of continuous functions $f\colon[a,b]\to\mathbb{R}$. For $f\in C[a,b]$ put
-        $\|f\|_\infty=\sup_{x\in[a,b]}|f(x)|$, and for $f,g\in C[a,b]$ put $d_\infty(f,g)=\|f-g\|_\infty$.
-        $C^1[a,b]$ is the set of $f\in C[a,b]$ that are differentiable on $[a,b]$ (one-sided at the endpoints)
+        **$C[a,b]$** is the set of continuous functions $f\colon[a,b]\to\mathbb{R}$. For $f\in C[a,b]$ the
+        **uniform norm** is $\|f\|_\infty=\sup_{x\in[a,b]}|f(x)|$, and for $f,g\in C[a,b]$ the **uniform distance** is
+        $d_\infty(f,g)=\|f-g\|_\infty$. **$C^1[a,b]$** is the set of $f\in C[a,b]$ that are differentiable on $[a,b]$ (one-sided at the endpoints)
         with $f'\in C[a,b]$.
       note: Also written $C([a,b],\mathbb{R})$ with $\|\cdot\|_{[a,b]}$ (Lebl) and $\mathscr{C}[a,b]$ (MIT). $d_\infty(f_n,f)\to0$ means $f_n\to f$ uniformly.
 

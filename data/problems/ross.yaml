@@ -104,7 +104,7 @@
     Prove $(s_n)$ is a Cauchy sequence and hence a convergent sequence.
     (b) Is the result in (a) true if we only assume $|s_{n+1} - s_n| < \frac{1}{n}$ for all $n \in \mathbb{N}$?
   curation:
-    why: Geometric increments give a Cauchy sequence; increments 1/n do not. The prototype of telescoping estimates.
+    why: 'When small successive differences make a sequence Cauchy. The prototype of telescoping estimates.'
 - id: ross-11.9
   source:
     key: ross
@@ -142,7 +142,7 @@
     kind: textbook
   notes: 'Closed-set notion paraphrased from the sentence before Theorem 11.9 (PDF 87: ''the set S of subsequential limits always contains all limits of sequences from S. Such sets are called closed sets.''); Theorem 11.9 quoted verbatim. bookHint from PDF p. 383.'
   curation:
-    why: The set of subsequential limits is closed, so (0,1) cannot be one.
+    why: 'Which sets can be the set of subsequential limits of a sequence, and what closedness has to do with it.'
 - id: ross-12.13
   source:
     key: ross
@@ -400,7 +400,7 @@
     Let $S \subseteq \mathbb{R}$ and suppose there exists a sequence $(x_n)$ in $S$ converging to a number $x_0 \notin S$. Show there exists an unbounded continuous function on $S$.
   notes: No entry in Selected Hints. Compare metric-space version ross-21.5.
   curation:
-    why: 'Closedness is necessary for the EVT: a missing limit point lets 1/|x − x₀| blow up.'
+    why: 'Closedness is necessary for the EVT: a missing limit point lets a continuous function blow up.'
 - id: ross-18.12
   source:
     key: ross
@@ -634,7 +634,7 @@
   - subsequential-limits
   - connectedness
   - limsup
-  - sequences
+  - sequence
   problemLatex: |
     Consider a bounded sequence $(s_n)$ in $\mathbb{R}$ and its set $S$ of subsequential limits as in Theorem 11.8. Show that if $\lim_n (s_{n+1} - s_n) = 0$, then $S$ is a connected interval in $\mathbb{R}$. *Hint*: Consider $a < c < b$ where $a$ and $b$ are in $S$, and show $c$ is in $S$. Use Theorem 11.2.
     *(Theorem 11.8: Let $(s_n)$ be any sequence in $\mathbb{R}$, and let $S$ denote the set of subsequential limits of $(s_n)$. (i) $S$ is nonempty. (ii) $\sup S = \limsup s_n$ and $\inf S = \liminf s_n$. (iii) $\lim s_n$ exists if and only if $S$ has exactly one element, namely $\lim s_n$. Theorem 11.2(i): If $t$ is in $\mathbb{R}$, then there is a subsequence of $(s_n)$ converging to $t$ if and only if the set $\{n \in \mathbb{N} : |s_n - t| < \epsilon\}$ is infinite for all $\epsilon > 0$.)*
@@ -727,7 +727,7 @@
     kind: textbook
   notes: Verified against page image. bookHint verbatim from PDF pp. 395–396 (printed 386–387); it references Remark 24.4 (uniform convergence iff sup|f - f_n| -> 0; see ross-24.12).
   curation:
-    why: 'n xⁿ(1−x) does not converge uniformly, yet the integrals converge: uniform convergence is sufficient, not necessary.'
+    why: 'n xⁿ(1−x): test uniform convergence and convergence of the integrals separately, and see how the two are related.'
 - id: ross-24.12
   source:
     key: ross
@@ -812,7 +812,7 @@
   tags:
   - uniform-convergence
   - continuity
-  - sequences
+  - sequence
   - interchange-of-limits
   problemLatex: |
     Let $(f_n)$ be a sequence of continuous functions on $[a, b]$ that converges uniformly to $f$ on $[a, b]$. Show that if $(x_n)$ is a sequence in $[a, b]$ and if $x_n \to x$, then $\lim_{n\to\infty} f_n(x_n) = f(x)$.
@@ -858,7 +858,7 @@
     kind: textbook
   notes: Verified against page image. bookHint from PDF p. 397 (printed 388) — gives the answer.
   curation:
-    why: '|x| has no power series representation on ℝ.'
+    why: 'Tests what a power series representation on all of ℝ forces on the function it represents.'
 - id: ross-26.8
   source:
     key: ross
@@ -1109,7 +1109,7 @@
       $$g^{(n)}(x) = \sum_{k=1}^n f^{(k)}(x^2)\, p_{kn}(x) \quad \text{for} \quad x \in \mathbb{R},\ n \ge 1.$$
     source: Ross, Elementary Analysis — Selected Hints and Answers (back of book)
     kind: textbook
-  notes: Verified against page image. Example 3 quoted verbatim (opening only). bookHint from PDF p. 400 (printed 391). If the curator wants this self-contained without Example 3, the result that e^{-1/x} (extended by 0) has all derivatives 0 at 0 is what is being used.
+  notes: Verified against page image. Example 3 quoted verbatim (opening only). bookHint from PDF p. 400 (printed 391). The fact used from Example 3 is that e^{-1/x} (extended by 0) has all derivatives 0 at 0.
   curation:
     why: 'e^{−1/x²}: smooth, every derivative vanishes at 0, so its Taylor series converges to the wrong function.'
 - id: ross-32.2
@@ -1144,7 +1144,7 @@
     (b) Is $f$ integrable on $[0, b]$?
   notes: Verified against page image. Ross's Riemann integral is defined via Darboux sums U(f,P), L(f,P) and U(f) = inf U(f,P), L(f) = sup L(f,P). 32.3 (x^2 on Q) is a near-duplicate; skipped. No book hint for 32.2.
   curation:
-    why: 'x on ℚ, 0 elsewhere: compute the upper and lower integrals and watch them disagree.'
+    why: 'x on ℚ, 0 elsewhere: compute the upper and lower Darboux integrals from the definition and compare them.'
 - id: ross-33.4
   source:
     key: ross
@@ -1221,7 +1221,7 @@
   category: canonical
   type: computation
   tags:
-  - improper-integrals
+  - improper-integral
   - p-test
   - power-functions
   problemLatex: |
@@ -1257,7 +1257,7 @@
   category: canonical
   type: proof
   tags:
-  - improper-integrals
+  - improper-integral
   - absolute-convergence
   - comparison-test
   problemLatex: |

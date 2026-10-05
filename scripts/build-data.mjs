@@ -241,6 +241,7 @@ if (fs.existsSync(refDir)) {
       for (const [ii, it] of (b?.items ?? []).entries()) {
         const w = `${where} item ${ii + 1}`;
         if (!['definition', 'theorem'].includes(it?.kind)) err(w, 'kind must be definition or theorem');
+        if (it?.name) checkLatex(`${w} name`, it.name);
         if (!it?.name) err(w, 'name required');
         else if (names.has(it.name)) err(w, `duplicate name "${it.name}" (also ${names.get(it.name)})`);
         else names.set(it.name, w);

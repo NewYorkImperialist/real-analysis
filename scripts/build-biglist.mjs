@@ -19,13 +19,15 @@ const refBefore = new Map();
 for (const b of fs.existsSync(refPath) ? JSON.parse(fs.readFileSync(refPath, 'utf8')) : [])
   refBefore.set(b.before, [...(refBefore.get(b.before) ?? []), ...b.items]);
 // Reference text is wrapped in the YAML; join single line breaks (keeping blank lines and part labels
-// such as "(i)") so a break before inline math does not start a new paragraph.
-const joinLines = (src) => src.trim().replace(/([^\n])\n(?!\n|\s*\(?(?:[a-h]|[ivx]{1,5}|[0-9]{1,2})\)\s|\s*\$\$)/g, '$1 ');
-const refHtml = (items) =>
+// such as "(i)", and "- " bullet items) so a break before inline math does not start a new paragraph.
+const joinLines = (src) => src.trim().replace(/([^\n])\n(?!\n|\s*\(?(?:[a-h]|[ivx]{1,5}|[0-9]{1,2})\)\s|\s*- |\s*\$\$)/g, '$1 ');
+// Items are numbered amsthm-style, one counter per section shared by definitions and theorems
+// ("Definition 6.1", "Theorem 6.2", ...); sec.refNo holds the running count.
+const refHtml = (items, sec) =>
   `<div class="ref">${items
     .map(
       (it) =>
-        `<div class="ref-item ${it.kind}"><p class="ref-head"><span class="ref-kind">${it.kind === 'theorem' ? 'Theorem' : 'Definition'}</span> (${esc(it.name)}).</p>${richHtml(joinLines(it.latex))}${it.note ? `<p class="ref-note">${blockHtml(tokenize(it.note))}</p>` : ''}</div>`,
+        `<div class="ref-item ${it.kind}"><p class="ref-head"><span class="ref-kind">${it.kind === 'theorem' ? 'Theorem' : 'Definition'} ${sec.no}.${(sec.refNo = (sec.refNo ?? 0) + 1)}</span> (${blockHtml(tokenize(it.name))}).</p>${richHtml(joinLines(it.latex))}${it.note ? `<p class="ref-note">${blockHtml(tokenize(it.note))}</p>` : ''}</div>`,
     )
     .join('')}</div>`;
 const SITE = `https://${fs.readFileSync(path.join(root, 'public', 'CNAME'), 'utf8').trim()}`;
@@ -46,15 +48,29 @@ function blockHtml(tokens) {
         ? `\u0000${math.push(katex.renderToString(t.value, { displayMode: t.display, throwOnError: false, strict: 'ignore' })) - 1}\u0000`
         : t.value,
     )
-    .join('');
-  return esc(text)
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/(^|[^*])\*([^*\s][^*]*?)\*/g, '$1<em>$2</em>')
-    .replace(/\u0000(\d+)\u0000/g, (_, i) => math[Number(i)]);
+    .join('')
+    // Typographic double quotes: a straight " prints as a closing quote in KaTeX_Main.
+    .replace(/(^|[\s(\[{\u2014])"/g, '$1\u201c')
+    .replace(/"/g, '\u201d');
+  return (
+    esc(text)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[^*])\*([^*\s][^*]*?)\*/g, '$1<em>$2</em>')
+      // Chrome allows a line break right after inline math, stranding a following "," or "s" at the
+      // start of the next line; glue math to the text it touches.
+      .replace(/\u0000(\d+)\u0000([^\s<\u0000]+)/g, (m, i, after) =>
+        tokens.filter((t) => t.kind === 'math')[i].display ? m : `<span class="nobr">\u0000${i}\u0000${after}</span>`,
+      )
+      .replace(/\u0000(\d+)\u0000/g, (_, i) => math[Number(i)])
+  );
 }
+// Paragraphs, with each run of consecutive bullet items ("- " lines) gathered into one <ul>.
 function richHtml(src) {
-  return toBlocks(tokenize(src))
-    .map((b) => {
+  const blocks = toBlocks(tokenize(src));
+  return blocks
+    .map((b, i) => {
+      if (b.item)
+        return `${blocks[i - 1]?.item ? '' : '<ul class="items">'}<li>${blockHtml(b.tokens)}</li>${blocks[i + 1]?.item ? '' : '</ul>'}`;
       const first = b.tokens[0];
       const isPart = first?.kind === 'text' && PART.test(first.value);
       return `<p${isPart ? ' class="part"' : ''}>${blockHtml(b.tokens)}</p>`;
@@ -111,9 +127,12 @@ const html = `<!doctype html>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="big-list-assets/katex.min.css">
 <style>
-  @page { size: letter; margin: 0.9in 1in 0.9in 1in; }
+  /* 0.9in page margins plus 0.1in body padding: a 6.5in text block, with room for italic overhang
+     that Chrome would otherwise clip at the page-area edge. */
+  @page { size: letter; margin: 0.9in; }
   html { font-family: KaTeX_Main, 'Times New Roman', serif; font-size: 11.5pt; line-height: 1.45; color: #111; }
-  body { margin: 0; }
+  body { margin: 0; padding: 0 0.1in; }
+  .nobr { white-space: nowrap; }
   a { color: inherit; }
   .title .kicker { font-size: 24pt; margin: 0; }
   .title .author { font-size: 14pt; margin: 0 0 0.8em; }
@@ -137,15 +156,18 @@ const html = `<!doctype html>
   section.topic { break-before: page; }
   section.topic > h3 { font-size: 16pt; font-weight: bold; margin: 0 0 0.8em; }
   section.topic > h3 .no { margin-right: 0.8em; }
-  .problem { display: flex; gap: 0.5em; margin: 0 0 1.05em; break-inside: avoid; }
+  .problem { display: flex; align-items: baseline; gap: 0.5em; margin: 0 0 1.05em; break-inside: avoid; }
   .problem .label { flex: 0 0 3.2em; text-align: right; white-space: nowrap; font-weight: bold; }
   .problem .mark { font-weight: normal; margin-right: 0.15em; }
   .problem .body { flex: 1; min-width: 0; }
   .problem .body p { margin: 0 0 0.35em; text-align: justify; }
   .problem .body p.part { margin-left: 1.6em; text-indent: -1.6em; }
+  ul.items { margin: 0 0 0.35em; padding-left: 1.6em; }
+  ul.items li { margin: 0 0 0.2em; text-align: justify; }
   .problem .cite { font-size: 8.5pt; color: #666; text-align: right !important; margin-top: 0.15em !important; }
   .problem .cite a { color: #666; }
   .ref { margin: 0.2em 0 1.2em 3.7em; padding: 0.45em 0 0.45em 0.9em; border-left: 1.5px solid #999; }
+  .ref-group { break-inside: avoid; }
   .ref-item { margin: 0 0 0.6em; break-inside: avoid; }
   .ref-item:last-child { margin-bottom: 0; }
   .ref-item p { margin: 0 0 0.3em; text-align: justify; }
@@ -156,7 +178,20 @@ const html = `<!doctype html>
   .ref-note { font-size: 9.5pt; color: #555; font-style: normal; }
   .katex { font-size: 1.04em; }
   .katex-display { margin: 0.4em 0; overflow: hidden; }
-</style></head><body>
+</style>
+<script>
+  // Shrink any display equation wider than the text block instead of letting overflow:hidden clip it.
+  // The PDF step calls this again at the printed width (6.5in) before printing.
+  function fitMath() {
+    for (const d of document.querySelectorAll('.katex-display')) {
+      const k = d.firstElementChild;
+      k.style.fontSize = '';
+      if (d.scrollWidth > d.clientWidth + 1) k.style.fontSize = (1.04 * 0.99 * d.clientWidth) / d.scrollWidth + 'em';
+    }
+  }
+  document.fonts.ready.then(fitMath);
+  addEventListener('resize', fitMath);
+</script></head><body>
 
 <div class="title">
   <p class="kicker">Real Analysis</p>
@@ -203,7 +238,12 @@ ${part.sections
     (s) => `
 <section class="topic" id="${s.anchor}">
   <h3><span class="no">${s.no}</span> ${esc(s.title)}${k === 1 ? ' <span style="font-weight:normal">(upper tier)</span>' : ''}</h3>
-  ${s.list.map((p, i) => (refBefore.has(p.id) ? refHtml(refBefore.get(p.id)) : '') + problemHtml(s, p, i)).join('')}
+  ${s.list
+    .map((p, i) =>
+      // Keep a reference block on the same page as the problem it introduces.
+      refBefore.has(p.id) ? `<div class="ref-group">${refHtml(refBefore.get(p.id), s)}${problemHtml(s, p, i)}</div>` : problemHtml(s, p, i),
+    )
+    .join('')}
 </section>`,
   )
   .join('')}`,
@@ -236,6 +276,14 @@ if (process.argv.includes('--pdf')) {
     const page = await browser.newPage();
     await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'networkidle0' });
     await page.evaluateHandle('document.fonts.ready');
+    // Lay out at the printed page-area width (8.5in − 1.8in margins = 643 CSS px) so fitMath sees the real widths.
+    await page.emulateMediaType('print');
+    await page.setViewport({ width: 643, height: 1000 });
+    const clipped = await page.evaluate(() => {
+      fitMath();
+      return [...document.querySelectorAll('.katex-display')].filter((d) => d.scrollWidth > d.clientWidth + 1).length;
+    });
+    if (clipped) console.warn(`warning: ${clipped} display equation(s) still wider than the page`);
     await page.pdf({
       path: path.join(dist, 'big-list.pdf'),
       format: 'letter',

@@ -1,6 +1,6 @@
 import katex from 'katex';
 import { useMemo } from 'preact/hooks';
-import { tokenize, toBlocks, type Token } from '../lib/richtext';
+import { tokenize, toBlocks, type Block, type Token } from '../lib/richtext';
 
 const cache = new Map<string, string>();
 
@@ -49,13 +49,27 @@ function previewTokens(blocks: { tokens: Token[] }[]): Token[] {
   return out;
 }
 
+// Paragraphs, with each run of consecutive bullet items gathered into one <ul>.
+function blocksHtml(blocks: Block[]): string {
+  let html = '';
+  blocks.forEach((b, i) => {
+    if (!b.item) html += `<p>${blockHtml(b.tokens)}</p>`;
+    else {
+      if (!blocks[i - 1]?.item) html += '<ul>';
+      html += `<li>${blockHtml(b.tokens)}</li>`;
+      if (!blocks[i + 1]?.item) html += '</ul>';
+    }
+  });
+  return html;
+}
+
 /** Renders the canonical problem-text format (LaTeX in $…$/$$…$$, paragraphs, parts). */
 export function RichText({ src, class: cls, firstBlock }: { src: string; class?: string; firstBlock?: boolean }) {
   const html = useMemo(() => {
     const blocks = toBlocks(tokenize(src));
     // List previews show only the opening paragraph, which keeps long lists light.
     if (firstBlock) return `<p>${blockHtml(previewTokens(blocks))}</p>`;
-    return blocks.map((b) => `<p>${blockHtml(b.tokens)}</p>`).join('');
+    return blocksHtml(blocks);
   }, [src, firstBlock]);
   return <div class={`rich ${cls ?? ''}`} dangerouslySetInnerHTML={{ __html: html }} />;
 }

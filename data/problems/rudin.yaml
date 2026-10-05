@@ -21,11 +21,11 @@
   category: challenge
   type: proof
   tags:
-  - cesaro-means
+  - Cesaro-means
   - tauberian
   - limsup
   - counterexample
-  - sequences
+  - sequence
   problemLatex: |
     If $\{s_n\}$ is a complex sequence, define its arithmetic means $\sigma_n$ by
     $$\sigma_n = \frac{s_0 + s_1 + \cdots + s_n}{n+1} \qquad (n = 0, 1, 2, \ldots).$$
@@ -49,7 +49,7 @@
     Then $(m+1)/(n-m) \le 1/\varepsilon$ and $|s_n - s_i| < M\varepsilon$. Hence
     $$\limsup_{n\to\infty} |s_n - \sigma| \le M\varepsilon.$$
     Since $\varepsilon$ was arbitrary, $\lim s_n = \sigma$.
-  notes: 'Trimmed to Rudin''s parts (c)–(e), keeping Rudin''s labels; Rudin''s (a)–(b) duplicate abbott-2.3.11 and are summarized in the marked parenthetical. The bracketed remark in (b) originally read "a converse of (a)" and was reworded to name the fact. The definitions of sigma_n and a_n are kept verbatim.'
+  notes: 'Trimmed to Rudin''s parts (c)–(e), keeping Rudin''s labels; Rudin''s (a)–(b) duplicate abbott-2.3.11 and are summarized in the marked parenthetical. The bracketed remark in (d) originally read "a converse of (a)" and was reworded to name the fact. The definitions of sigma_n and a_n are kept verbatim.'
   curation:
     why: 'Beyond ''Cesàro means are regular'': how badly Cesàro convergence can fail to imply convergence, and Hardy''s Tauberian theorem.'
   tier: upper
@@ -261,7 +261,7 @@
     *Hint:* Use Theorem 5.15, with $\alpha = 0$ and $\beta = \pm 1$, to show that there exist $s \in (0, 1)$ and $t \in (-1, 0)$ such that
     $$f^{(3)}(s) + f^{(3)}(t) = 6.$$
 
-    *(Theorem 5.15 (Taylor's theorem): Suppose $f$ is a real function on $[a, b]$, $n$ is a positive integer, $f^{(n-1)}$ is continuous on $[a, b]$, $f^{(n)}(t)$ exists for every $t \in (a, b)$. Let $\alpha, \beta$ be distinct points of $[a, b]$, and define $$P(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k.$$ Then there exists a point $x$ between $\alpha$ and $\beta$ such that $$f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!}(\beta - \alpha)^n.$$)*
+    *Theorem 5.15 (Taylor's theorem), quoted:* Suppose $f$ is a real function on $[a, b]$, $n$ is a positive integer, $f^{(n-1)}$ is continuous on $[a, b]$, $f^{(n)}(t)$ exists for every $t \in (a, b)$. Let $\alpha, \beta$ be distinct points of $[a, b]$, and define $$P(t) = \sum_{k=0}^{n-1} \frac{f^{(k)}(\alpha)}{k!}(t - \alpha)^k.$$ Then there exists a point $x$ between $\alpha$ and $\beta$ such that $$f(\beta) = P(\beta) + \frac{f^{(n)}(x)}{n!}(\beta - \alpha)^n.$$
   notes: Theorem 5.15 quoted verbatim from printed pp. 110-111 (pdf 119-120). The book prints '½(x³ + x²)'.
   curation:
     why: 'A sharp lower bound on a third derivative from four conditions on f.'
@@ -398,7 +398,7 @@
   tags:
   - Helly-selection
   - diagonal-argument
-  - monotone-functions
+  - monotone-function
   - pointwise-convergence
   - uniform-convergence
   - compactness
@@ -485,7 +485,7 @@
   - uncountable
   - R^k
   - cantor-bendixson
-  - isolated-points
+  - isolated-point
   problemLatex: |
     Define a point $p$ in a metric space $X$ to be a *condensation point* of a set $E \subset X$ if every neighborhood of $p$ contains uncountably many points of $E$.
 
@@ -628,7 +628,7 @@
   category: canonical
   type: proof
   tags:
-  - cantor-set
+  - Cantor-set
   - ternary-expansion
   - series
   - nested-intervals
@@ -665,7 +665,7 @@
   category: synthesis
   type: conceptual
   tags:
-  - cantor-set
+  - Cantor-set
   - perfect-set
   - decimal-expansion
   - compactness
