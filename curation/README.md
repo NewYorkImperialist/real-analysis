@@ -6,7 +6,7 @@ The site itself only reads `data/`.
 | Path | What it is |
 |---|---|
 | `candidates/*.yaml` | All 836 candidates from the six books. Each has a faithful LaTeX transcription, a classification, a verdict (`core` / `strong` / `consider`), the standard result it tests, and a `skipped` list explaining every exercise that was not recorded. |
-| `UNSELECTED.md` | Readable index of the 551 candidates **not** in the bank, by topic. |
+| `UNSELECTED.md` | Readable index of the 550 candidates **not** in the bank, by topic. |
 | `selections/*.yaml` | The curation decisions: which candidates went into the bank, with the "why this problem" notes and any classification overrides. |
 | `EXTRACTION_BRIEF.md`, `AUDIT_BRIEF.md`, `FINAL_AUDIT.md` | The rules used for extraction, transcription audits and the final fidelity + math check. |
 | `scripts/` | Helper scripts (see below). |

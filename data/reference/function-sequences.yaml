@@ -31,6 +31,10 @@
         A sequence of functions $f_n\colon A\to\mathbb{R}$ is **uniformly Cauchy** on $A$ if for every
         $\varepsilon>0$ there exists $N\in\mathbb{N}$ such that $|f_n(x)-f_m(x)|<\varepsilon$ for all $m,n\ge N$ and
         all $x\in A$.
+        Contrast pointwise Cauchy: for every $x\in A$ the real sequence $(f_n(x))$ is Cauchy, i.e. for every
+        $x\in A$ and every $\varepsilon>0$ there exists $N$ (which may depend on $x$) such that
+        $|f_n(x)-f_m(x)|<\varepsilon$ for all $m,n\ge N$.
+      note: As with uniform continuity, only the order of quantifiers differs; in the uniform version $N$ depends on $\varepsilon$ alone.
 
 - before: abbott-6.4.1
   items:

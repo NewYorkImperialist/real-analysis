@@ -254,7 +254,11 @@ continuity:
   - lebl-3.1.3
   - lebl-3.1.11
   - lebl-3.1.13
+  # group: infinite limits and limits at infinity
+  - abbott-4.2.9
   - mit20-a9-6
+  - lebl-3.5.4
+  - lebl-3.5.6
   # group: ε–δ continuity
   - abbott-4.3.2
   - ross-17.9
@@ -291,6 +295,7 @@ continuity:
   - ross-19.1
   - lebl-3.4.9
   # group: the IVT
+  - abbott-4.5.1
   - abbott-4.5.7
   - mit20-final-2a
   - abbott-4.4.8
@@ -443,13 +448,14 @@ function-sequences:
   - mit20-final-7b
   - lebl-6.1.5
   - lebl-6.1.6
+  # group: uniform Cauchy criterion
+  - abbott-6.2.5
   # group: what passes to the limit
   - cummings-9.12
   - abbott-6.2.6
   - ross-24.13
   - ross-24.17
-  # group: uniform Cauchy criterion and Dini
-  - abbott-6.2.5
+  # group: Dini's theorem
   - abbott-6.2.11
   # group: limits and integrals
   - ross-23.9

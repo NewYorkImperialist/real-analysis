@@ -19,6 +19,23 @@
         all $n$, and $x_n\to c$, we have $f(x_n)\to L$.
       note: Hence the limit fails to exist if two such sequences give different limits, or one gives a divergent sequence.
 
+- before: lebl-3.5.4
+  items:
+    - kind: definition
+      name: Infinite limits and limits at infinity
+      latex: |
+        Let $f:A\to\mathbb{R}$. If $c$ is a limit point of $A$, then $\lim_{x\to c}f(x)=\infty$ if for every
+        $M\in\mathbb{R}$ there exists $\delta>0$ such that $f(x)>M$ for all $x\in A$ with $0<|x-c|<\delta$; and
+        $\lim_{x\to c}f(x)=-\infty$ if for every $M\in\mathbb{R}$ there exists $\delta>0$ such that $f(x)<M$ for all
+        $x\in A$ with $0<|x-c|<\delta$.
+        If $A$ is not bounded above, then $\lim_{x\to\infty}f(x)=L\in\mathbb{R}$ if for every $\varepsilon>0$ there
+        exists $K\in\mathbb{R}$ such that $|f(x)-L|<\varepsilon$ for all $x\in A$ with $x\ge K$; and
+        $\lim_{x\to\infty}f(x)=\infty$ if for every $M\in\mathbb{R}$ there exists $K\in\mathbb{R}$ such that
+        $f(x)>M$ for all $x\in A$ with $x\ge K$ (for $-\infty$, require $f(x)<M$ instead).
+        Limits as $x\to-\infty$ (when $A$ is not bounded below) are defined the same way with $x\le K$ in place
+        of $x\ge K$.
+      note: Abbott takes $M>0$ and Lebl writes $N$ for $M$; the definitions are equivalent. Ross also phrases these limits with sequences.
+
 - before: abbott-4.3.2
   items:
     - kind: definition

@@ -18,7 +18,7 @@ npm run check     # validate the problem data only
 
 ## The bank
 
-There are **363 problems**: a **core** of 326 and an optional **upper tier** of 37 harder problems.
+There are **367 problems**: a **core** of 330 and an optional **upper tier** of 37 harder problems.
 
 | Source | Core | Upper tier |
 |---|---|---|

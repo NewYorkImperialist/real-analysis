@@ -672,6 +672,8 @@ candidates:
 
       (c) What would a rigorous definition for $\lim_{x\to\infty} f(x) = \infty$ look like? Give an example of such a limit.
     transcriptionNotes: "Definition 4.2.1 is the epsilon-delta functional limit definition (quoted in abbott-4.2.5)."
+    audit: ok
+    auditNotes: "Verified against pdf 132-133 (coverage pass); in the bank copy Definition 4.2.1 is quoted verbatim for self-containedness."
 
   - cid: abbott-4.2.10
     chapter: "4 Functional Limits and Continuity"

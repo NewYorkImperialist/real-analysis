@@ -3375,3 +3375,78 @@
   notes: Statement verified symbol-by-symbol against the page images (printed pp. 182–183, PDF 192–193); no transcription errors. Theorem 2.5.5 is already restated in the exercise itself. 'The next two exercises' are 6.2.14 (equicontinuity) and 6.2.15 (Arzelà–Ascoli).
   curation:
     why: 'Bridge problem: the diagonal-extraction step of Arzelà–Ascoli (abbott-6.2.15), whose part (a) uses this exercise.'
+
+- id: abbott-4.2.9
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.2 Functional Limits
+    problemNumber: Exercise 4.2.9
+    page: '121'
+  topic: continuity
+  subtopics:
+  - limits-at-infinity
+  - functional-limits
+  skills:
+  - epsilon-delta-proof
+  - write-definition
+  concept: definitions of infinite limits and limits at infinity
+  title: 'Infinite limits and limits at infinity'
+  difficulty: introductory
+  category: canonical
+  type: definition
+  tags:
+  - infinite-limit
+  - limit-at-infinity
+  - definition
+  problemLatex: |
+    **(Infinite Limits).** The statement $\lim_{x\to 0} 1/x^2 = \infty$ certainly makes intuitive sense. To construct a rigorous definition in the challenge–response style of Definition 4.2.1 for an infinite limit statement of this form, we replace the (arbitrarily small) $\epsilon > 0$ challenge with an (arbitrarily large) $M > 0$ challenge:
+
+    *Definition:* $\lim_{x\to c} f(x) = \infty$ means that for all $M > 0$ we can find a $\delta > 0$ such that whenever $0 < |x - c| < \delta$, it follows that $f(x) > M$.
+
+    (a) Show $\lim_{x\to 0} 1/x^2 = \infty$ in the sense described in the previous definition.
+
+    (b) Now, construct a definition for the statement $\lim_{x\to\infty} f(x) = L$. Show $\lim_{x\to\infty} 1/x = 0$.
+
+    (c) What would a rigorous definition for $\lim_{x\to\infty} f(x) = \infty$ look like? Give an example of such a limit.
+
+    *(Definition 4.2.1 (Functional Limit): Let $f \colon A \to \mathbb{R}$, and let $c$ be a limit point of the domain $A$. We say that $\lim_{x\to c} f(x) = L$ provided that, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$ (and $x \in A$) it follows that $|f(x) - L| < \epsilon$.)*
+  notes: Statement verified against the page images (printed pp. 121–122, PDF 132–133); no transcription errors. Definition 4.2.1 quoted verbatim from p. 116, as in abbott-4.2.10.
+  curation:
+    why: 'Infinite limits and limits at infinity from the definition: the ε-challenge becomes an M-challenge.'
+
+- id: abbott-4.5.1
+  source:
+    key: abbott
+    chapter: 4 Functional Limits and Continuity
+    section: 4.5 The Intermediate Value Theorem
+    problemNumber: Exercise 4.5.1
+    page: '139'
+  topic: continuity
+  subtopics:
+  - IVT
+  - continuity-and-topology
+  skills:
+  - theorem-application
+  - contradiction
+  concept: 'IVT follows from: continuous image of a connected set is connected'
+  title: 'The IVT from preservation of connected sets'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - IVT
+  - connectedness
+  - image
+  - continuity
+  problemLatex: |
+    Show how the Intermediate Value Theorem follows as a corollary to Theorem 4.5.2.
+
+    *(Theorem 4.5.1 (Intermediate Value Theorem): Let $f\colon [a, b] \to \mathbf{R}$ be continuous. If $L$ is a real number satisfying $f(a) < L < f(b)$ or $f(a) > L > f(b)$, then there exists a point $c \in (a, b)$ where $f(c) = L$.)*
+
+    *(Theorem 4.5.2 (Preservation of Connected Sets): Let $f\colon G \to \mathbf{R}$ be continuous. If $E \subseteq G$ is connected, then $f(E)$ is connected as well.)*
+
+    *(Theorem 3.4.7: A set $E \subseteq \mathbf{R}$ is connected if and only if whenever $a < c < b$ with $a, b \in E$, it follows that $c \in E$ as well.)*
+  notes: Theorems 4.5.1 (p. 136), 4.5.2 (p. 136) and 3.4.7 (p. 105) quoted verbatim; the book points to 3.4.7 just before the exercise ('In R, a set is connected if and only if it is a (possibly unbounded) interval. This fact, together with Theorem 4.5.2, leads to a short proof of the Intermediate Value Theorem (Exercise 4.5.1)'). Abbott's connectedness is Definition 3.4.4 (separated sets), quoted in abbott-3.4.6. Verified against page images (pdf 117, 147, 150).
+  curation:
+    why: 'The IVT as a corollary of preservation of connectedness: continuous images of intervals are intervals.'

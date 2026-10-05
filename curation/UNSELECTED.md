@@ -1,6 +1,6 @@
 # Unselected candidates
 
-551 candidates were transcribed and classified but not selected for the bank (66 core, 248 strong, 237 consider). Most "core"/"strong" ones lost only to a near-identical
+550 candidates were transcribed and classified but not selected for the bank (66 core, 248 strong, 236 consider). Most "core"/"strong" ones lost only to a near-identical
 version from another source that is already in the bank. Full text and metadata: `curation/candidates/*.yaml`.
 
 Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see curation/README.md).
@@ -310,7 +310,7 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | lebl-7.4.9 | consider | medium | construction | there is a metric making R compact | no |
 | ross-13.14 | consider | medium | proof | diameter of compact set is attained | no |
 
-## continuity (107)
+## continuity (106)
 
 | id | verdict | difficulty | type | standard result | audited |
 |---|---|---|---|---|---|
@@ -398,7 +398,6 @@ Add any of them with `python3 curation/scripts/add_problems.py <id> …` (see cu
 | tao-9.7.1 | consider | easy | theorem-application | continuous image of a closed bounded interval is a closed bounded interval | no |
 | abbott-4.3.14 | consider | hard | construction | function discontinuous exactly on a given closed set / open set | no |
 | abbott-4.2.5 | consider | introductory | proof | epsilon-delta proofs of polynomial and 1/x limits | no |
-| abbott-4.2.9 | consider | introductory | definition | definitions of infinite limits and limits at infinity | no |
 | abbott-4.3.9 | consider | introductory | proof | zero set of a continuous function is closed | no |
 | cummings-6.2 | consider | introductory | counterexample | epsilon-delta: halving delta need not halve epsilon | yes |
 | lebl-3.2.9 | consider | introductory | counterexample | nowhere continuous f, g with f+g continuous (Dirichlet-type) | yes |

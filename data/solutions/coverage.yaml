@@ -1,0 +1,89 @@
+# Hints and solutions for the problems added by the coverage audit (COVERAGE_AUDIT.md):
+# infinite limits (abbott-4.2.9, lebl-3.5.4, lebl-3.5.6) and the IVT from preservation of
+# connected sets (abbott-4.5.1).
+
+- id: abbott-4.2.9
+  hints:
+    - |
+      In every infinite-limit definition the challenge is a large bound, not a small tolerance: given $M$, you must show $f(x)$ exceeds $M$ for all $x$ close enough to the target. For limits as $x\to\infty$, "close to $\infty$" means "larger than some threshold".
+    - |
+      For (a), solve $1/x^2 > M$ for $|x|$; this tells you which $\delta$ to choose. For (b), decide what plays the role of $\delta$ when $x\to\infty$.
+    - |
+      For (b) and (c), keep the shape "for all (challenge) there exists (threshold) such that whenever $x$ is beyond the threshold, (conclusion)". Only the challenge and the conclusion change between the finite and the infinite case.
+  solution: |
+    **(a)** Let $M > 0$ and set $\delta = 1/\sqrt{M} > 0$. If $0 < |x - 0| < \delta$, then $0 < x^2 < \delta^2 = 1/M$, so
+    $$\frac{1}{x^2} > M.$$
+    Hence $\lim_{x\to 0} 1/x^2 = \infty$.
+
+    **(b)** *Definition.* Let $f\colon A \to \mathbb{R}$, where $A$ is not bounded above. Then $\lim_{x\to\infty} f(x) = L$ means that for all $\epsilon > 0$ there exists $K \in \mathbb{R}$ such that whenever $x \in A$ and $x > K$, it follows that $|f(x) - L| < \epsilon$.
+
+    *Example.* Let $f(x) = 1/x$ on $(0,\infty)$ and let $\epsilon > 0$. Take $K = 1/\epsilon$. If $x > K$, then $x > 0$ and $0 < 1/x < 1/K = \epsilon$, so $|1/x - 0| < \epsilon$. Hence $\lim_{x\to\infty} 1/x = 0$.
+
+    **(c)** *Definition.* Let $f\colon A \to \mathbb{R}$, where $A$ is not bounded above. Then $\lim_{x\to\infty} f(x) = \infty$ means that for all $M > 0$ there exists $K \in \mathbb{R}$ such that whenever $x \in A$ and $x > K$, it follows that $f(x) > M$.
+
+    *Example.* $\lim_{x\to\infty} x = \infty$: given $M > 0$, take $K = M$; then $x > K$ gives $f(x) = x > M$. $\blacksquare$
+
+- id: lebl-3.5.4
+  hints:
+    - |
+      Argue by contradiction: suppose $f(x) \to L$ as $x\to\infty$ for some real number $L$. What do the two definitions say about the values $f(x)$ for large $x$?
+    - |
+      Convergence with a fixed $\epsilon$ (say $\epsilon = 1$) gives an upper bound for $f(x)$ from some point on. Choose $N$ in the definition of diverging to infinity so as to contradict that bound.
+  solution: |
+    Since the domain is $\mathbb{R}$, $\infty$ is a cluster point of it, so both definitions apply.
+
+    **Proof.** Suppose, for contradiction, that $f(x)$ converges to some $L \in \mathbb{R}$ as $x \to \infty$. Applying the definition of convergence with $\epsilon = 1$, there is $M_1 \in \mathbb{R}$ such that $|f(x) - L| < 1$ for all $x \ge M_1$. In particular,
+    $$f(x) < L + 1 \quad\text{for all } x \ge M_1.$$
+    Applying the definition of $\lim_{x\to\infty} f(x) = \infty$ with $N = L + 1$, there is $M_2 \in \mathbb{R}$ such that
+    $$f(x) > L + 1 \quad\text{for all } x \ge M_2.$$
+    Let $x = \max\{M_1, M_2\}$. Then both inequalities hold at $x$, so $L + 1 < f(x) < L + 1$, which is impossible. Hence $f(x)$ converges to no real number as $x \to \infty$; that is, $f(x)$ diverges as $x \to \infty$. $\blacksquare$
+
+- id: lebl-3.5.6
+  hints:
+    - |
+      For large $|x|$ the term $x^n$ should dominate everything else. Try to show that the lower-order part $a_{n-1}x^{n-1} + \cdots + a_0$ is at most half of $|x|^n$ in absolute value once $|x|$ is large enough.
+    - |
+      If $|x| \ge 1$, then $|x|^k \le |x|^{n-1}$ for $0 \le k \le n-1$. So the lower-order part is bounded by $C|x|^{n-1}$ with $C = |a_0| + \cdots + |a_{n-1}|$. When is $C|x|^{n-1} \le \frac12|x|^n$?
+    - |
+      With such an estimate, $P(x)$ lies between $x^n - \frac12|x|^n$ and $x^n + \frac12|x|^n$. Look at the sign of $x^n$ for $x \to \infty$ and for $x \to -\infty$ in the even and odd cases, and finish with $|x|^n \ge |x|$.
+  solution: |
+    **An estimate.** Write $Q(x) = a_{n-1}x^{n-1} + \cdots + a_1x + a_0$, so $P(x) = x^n + Q(x)$, and let $A = 1 + |a_0| + |a_1| + \cdots + |a_{n-1}| \ge 1$. Suppose $|x| \ge 2A$. Then $|x| \ge 2 > 1$, so $|x|^k \le |x|^{n-1}$ for $0 \le k \le n-1$, and
+    $$|Q(x)| \le \sum_{k=0}^{n-1} |a_k|\,|x|^k \le A\,|x|^{n-1} \le \frac{|x|}{2}\,|x|^{n-1} = \frac{|x|^n}{2}.$$
+    Hence, for $|x| \ge 2A$,
+    $$x^n - \frac{|x|^n}{2} \le P(x) \le x^n + \frac{|x|^n}{2}. \tag{$*$}$$
+    Also $|x|^n \ge |x|$ when $|x| \ge 1$ and $n \ge 1$.
+
+    Given $N \in \mathbb{R}$, let $R = \max\{2A,\ 2|N| + 2\}$.
+
+    **$x \to \infty$ (any $n$).** If $x \ge R$, then $x > 0$, so $x^n = |x|^n$ and by $(*)$
+    $$P(x) \ge \frac{x^n}{2} \ge \frac{x}{2} \ge |N| + 1 > N.$$
+    So $M = R$ works in the definition, and $\lim_{x\to\infty} P(x) = \infty$ for every $n \ge 1$.
+
+    **(a) $n$ even, $x \to -\infty$.** If $x \le -R$, then $|x| \ge R$, and $x^n = |x|^n$ because $n$ is even. By $(*)$,
+    $$P(x) \ge \frac{|x|^n}{2} \ge \frac{|x|}{2} \ge |N| + 1 > N.$$
+    So $M = -R$ works, and $\lim_{x\to-\infty} P(x) = \infty$.
+
+    **(b) $n$ odd, $x \to -\infty$.** If $x \le -R$, then $|x| \ge R$, and $x^n = -|x|^n$ because $n$ is odd and $x < 0$. By $(*)$,
+    $$P(x) \le -|x|^n + \frac{|x|^n}{2} = -\frac{|x|^n}{2} \le -\frac{|x|}{2} \le -(|N| + 1) < N.$$
+    So $M = -R$ works, and $\lim_{x\to-\infty} P(x) = -\infty$.
+
+    Together with the case $x \to \infty$, this proves (a) and (b). $\blacksquare$
+
+- id: abbott-4.5.1
+  hints:
+    - |
+      The IVT is a statement about the range $f([a,b])$: it says this set contains every number between two of its elements. Which theorem quoted in the problem describes sets with exactly that property?
+    - |
+      First check that $[a,b]$ is connected, using Theorem 3.4.7. Then apply Theorem 4.5.2 with $E = [a,b]$, and use Theorem 3.4.7 again, now for the set $f([a,b])$.
+    - |
+      At the end you get $L = f(c)$ for some $c \in [a,b]$. Check that $c$ cannot be an endpoint.
+  solution: |
+    **Proof.** Let $f\colon [a,b] \to \mathbf{R}$ be continuous and let $L$ satisfy $f(a) < L < f(b)$ or $f(a) > L > f(b)$.
+
+    *Step 1: $[a,b]$ is connected.* If $x, y \in [a,b]$ and $x < c < y$, then $a \le x < c < y \le b$, so $c \in [a,b]$. By Theorem 3.4.7, $[a,b]$ is connected.
+
+    *Step 2: $f([a,b])$ is connected.* Apply Theorem 4.5.2 with $G = E = [a,b]$: since $f$ is continuous on $[a,b]$ and $[a,b]$ is connected, $f([a,b])$ is connected.
+
+    *Step 3: $L$ is a value of $f$.* Let $u = \min\{f(a), f(b)\}$ and $v = \max\{f(a), f(b)\}$. Both $u$ and $v$ lie in $f([a,b])$, and in either case of the hypothesis $u < L < v$. Since $f([a,b])$ is connected, Theorem 3.4.7 gives $L \in f([a,b])$. So $L = f(c)$ for some $c \in [a,b]$.
+
+    *Step 4: $c$ is interior.* $L \ne f(a)$ and $L \ne f(b)$, because $L$ lies strictly between them. Hence $c \ne a$ and $c \ne b$, so $c \in (a,b)$ and $f(c) = L$. This is the Intermediate Value Theorem. $\blacksquare$

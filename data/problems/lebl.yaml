@@ -2965,3 +2965,72 @@
   notes: Book labels it (Challenging). Statement verified symbol-by-symbol against the page image (printed p. 189, PDF 189); no transcription errors. 'Riemann integrable' is Lebl's Darboux definition ($\underline{\int} f = \overline{\int} f$).
   curation:
     why: 'Bridge problem: control of the tags for uniform partitions, before lebl-5.1.13 controls every tag and every fine partition; (b) shows why it must.'
+
+- id: lebl-3.5.4
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.5 Limits at infinity
+    problemNumber: Exercise 3.5.4
+    page: '148'
+  topic: continuity
+  subtopics:
+  - limits-at-infinity
+  - functional-limits
+  skills:
+  - negate-definition
+  - contradiction
+  concept: f(x) -> infinity as x -> infinity implies f has no finite limit at infinity
+  title: 'Diverging to infinity is not converging'
+  difficulty: introductory
+  category: canonical
+  type: proof
+  tags:
+  - infinite-limit
+  - limit-at-infinity
+  - divergence
+  - negation
+  problemLatex: |
+    Let us justify terminology. Let $f\colon \mathbb{R} \to \mathbb{R}$ be a function such that $\lim_{x\to\infty} f(x) = \infty$ (diverges to infinity). Show that $f(x)$ diverges (i.e. does not converge) as $x \to \infty$.
+
+    *(Definition 3.5.1, convergence part: Let $f\colon S \to \mathbb{R}$ be a function, where $\infty$ is a cluster point of $S$. If there exists an $L \in \mathbb{R}$ with the property that for every $\epsilon > 0$, there is an $M \in \mathbb{R}$ such that $|f(x) - L| < \epsilon$ whenever $x \in S$ and $x \geq M$, then we say $f(x)$ converges to $L$ as $x$ goes to $\infty$.)*
+
+    *(Definition 3.5.6: Let $f\colon S \to \mathbb{R}$ be a function and suppose $S$ has $\infty$ as a cluster point. We say $f(x)$ diverges to infinity as $x$ goes to $\infty$ if for every $N \in \mathbb{R}$ there exists an $M \in \mathbb{R}$ such that $f(x) > N$ whenever $x \in S$ and $x \geq M$. We write $\lim_{x\to\infty} f(x) := \infty$.)*
+  notes: Definitions 3.5.1 (p. 145; the convergence sentence) and 3.5.6 (pp. 146–147) quoted verbatim, the latter's last sentence shortened to the notation. Verified against page images (pdf 145–148).
+  curation:
+    why: 'An infinite limit is a form of divergence: negating convergence at infinity against the definition of diverging to infinity.'
+
+- id: lebl-3.5.6
+  source:
+    key: lebl
+    chapter: 3 Continuous Functions
+    section: 3.5 Limits at infinity
+    problemNumber: Exercise 3.5.6
+    page: '148'
+  topic: continuity
+  subtopics:
+  - limits-at-infinity
+  skills:
+  - comparison-estimate
+  - choose-delta
+  concept: monic polynomials tend to +-infinity at +-infinity
+  title: 'Monic polynomials at $\pm\infty$'
+  difficulty: easy
+  category: canonical
+  type: proof
+  tags:
+  - infinite-limit
+  - limit-at-infinity
+  - polynomial
+  - eventual-inequality
+  problemLatex: |
+    Suppose $P(x) := x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$ is a monic polynomial of degree $n \geq 1$ (monic means that the coefficient of $x^n$ is 1).
+
+    a) Show that if $n$ is even, then $\displaystyle\lim_{x\to\infty} P(x) = \lim_{x\to-\infty} P(x) = \infty$.
+
+    b) Show that if $n$ is odd, then $\displaystyle\lim_{x\to\infty} P(x) = \infty$ and $\displaystyle\lim_{x\to-\infty} P(x) = -\infty$ (see previous exercise).
+
+    *[Summary, not verbatim — the previous exercise (3.5.5) asks for the remaining definitions of infinite limits. For example, $\lim_{x\to-\infty} P(x) = \infty$ means: for every $N \in \mathbb{R}$ there exists $M \in \mathbb{R}$ such that $P(x) > N$ whenever $x \leq M$; and $\lim_{x\to-\infty} P(x) = -\infty$ means: for every $N \in \mathbb{R}$ there exists $M \in \mathbb{R}$ such that $P(x) < N$ whenever $x \leq M$.]*
+  notes: Exercise 3.5.5 (definitions of the other infinite limits) is summarized and marked as a summary. Verified against page image (pdf 148).
+  curation:
+    why: Infinite limits at ±∞ from the definition, by an eventual inequality in which the leading term dominates.

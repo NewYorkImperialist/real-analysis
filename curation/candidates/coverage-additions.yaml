@@ -1,0 +1,90 @@
+chunk: "coverage-additions"
+book: mixed
+pageOffsetNote: "Abbott: printed page = pdfPage - 11. Lebl: printed page = pdfPage."
+sectionsCovered:
+  - "Coverage audit: book exercises added to fill gaps in the core (infinite limits; IVT from preservation of connectedness)"
+candidates:
+  - cid: abbott-4.5.1
+    chapter: "4 Functional Limits and Continuity"
+    section: "4.5 The Intermediate Value Theorem"
+    number: "Exercise 4.5.1"
+    page: "139"
+    pdfPage: 150
+    audit: ok
+    verdict: core
+    machinery: "The IVT as a corollary of preservation of connected sets and the characterization of connected subsets of R as intervals."
+    standardResult: "IVT follows from: continuous image of a connected set is connected"
+    topic: continuity
+    subtopics: [IVT, continuity-and-topology]
+    skills: [theorem-application, contradiction]
+    difficulty: easy
+    difficultyRationale: "Apply Theorem 4.5.2 to E = [a,b] and read off the conclusion with the interval characterization of connected sets."
+    category: canonical
+    type: proof
+    tags: [IVT, connectedness, image, continuity]
+    references: ["Theorem 4.5.1 (quoted)", "Theorem 4.5.2 (quoted)", "Theorem 3.4.7 (quoted)"]
+    problemLatex: |
+      Show how the Intermediate Value Theorem follows as a corollary to Theorem 4.5.2.
+
+      *(Theorem 4.5.1 (Intermediate Value Theorem): Let $f\colon [a, b] \to \mathbf{R}$ be continuous. If $L$ is a real number satisfying $f(a) < L < f(b)$ or $f(a) > L > f(b)$, then there exists a point $c \in (a, b)$ where $f(c) = L$.)*
+
+      *(Theorem 4.5.2 (Preservation of Connected Sets): Let $f\colon G \to \mathbf{R}$ be continuous. If $E \subseteq G$ is connected, then $f(E)$ is connected as well.)*
+
+      *(Theorem 3.4.7: A set $E \subseteq \mathbf{R}$ is connected if and only if whenever $a < c < b$ with $a, b \in E$, it follows that $c \in E$ as well.)*
+    transcriptionNotes: "Theorems 4.5.1 (p. 136), 4.5.2 (p. 136) and 3.4.7 (p. 105) quoted verbatim; the book points to 3.4.7 just before the exercise ('In R, a set is connected if and only if it is a (possibly unbounded) interval. This fact, together with Theorem 4.5.2, leads to a short proof of the Intermediate Value Theorem (Exercise 4.5.1)'). Abbott's connectedness is Definition 3.4.4 (separated sets), quoted in abbott-3.4.6. Verified against page images (pdf 117, 147, 150)."
+
+  - cid: lebl-3.5.4
+    chapter: "3 Continuous Functions"
+    section: "3.5 Limits at infinity"
+    number: "Exercise 3.5.4"
+    page: "148"
+    pdfPage: 148
+    audit: ok
+    verdict: strong
+    machinery: "Negating convergence at infinity: an infinite limit is a form of divergence, not a limit in R."
+    standardResult: "f(x) -> infinity as x -> infinity implies f has no finite limit at infinity"
+    topic: continuity
+    subtopics: [limits-at-infinity, functional-limits]
+    skills: [negate-definition, contradiction]
+    difficulty: introductory
+    difficultyRationale: "Compare the two definitions with one well-chosen epsilon and N."
+    category: canonical
+    type: proof
+    tags: [infinite-limit, limit-at-infinity, divergence, negation]
+    references: ["Definition 3.5.1 (quoted)", "Definition 3.5.6 (quoted)"]
+    problemLatex: |
+      Let us justify terminology. Let $f\colon \mathbb{R} \to \mathbb{R}$ be a function such that $\lim_{x\to\infty} f(x) = \infty$ (diverges to infinity). Show that $f(x)$ diverges (i.e. does not converge) as $x \to \infty$.
+
+      *(Definition 3.5.1, convergence part: Let $f\colon S \to \mathbb{R}$ be a function, where $\infty$ is a cluster point of $S$. If there exists an $L \in \mathbb{R}$ with the property that for every $\epsilon > 0$, there is an $M \in \mathbb{R}$ such that $|f(x) - L| < \epsilon$ whenever $x \in S$ and $x \geq M$, then we say $f(x)$ converges to $L$ as $x$ goes to $\infty$.)*
+
+      *(Definition 3.5.6: Let $f\colon S \to \mathbb{R}$ be a function and suppose $S$ has $\infty$ as a cluster point. We say $f(x)$ diverges to infinity as $x$ goes to $\infty$ if for every $N \in \mathbb{R}$ there exists an $M \in \mathbb{R}$ such that $f(x) > N$ whenever $x \in S$ and $x \geq M$. We write $\lim_{x\to\infty} f(x) := \infty$.)*
+    transcriptionNotes: "Definitions 3.5.1 (p. 145; the convergence sentence) and 3.5.6 (pp. 146–147) quoted verbatim, the latter's last sentence shortened to the notation. Verified against page images (pdf 145–148)."
+
+  - cid: lebl-3.5.6
+    chapter: "3 Continuous Functions"
+    section: "3.5 Limits at infinity"
+    number: "Exercise 3.5.6"
+    page: "148"
+    pdfPage: 148
+    audit: ok
+    verdict: strong
+    machinery: "Proving infinite limits at plus and minus infinity from the definition via an eventual inequality (the leading term dominates)."
+    standardResult: "monic polynomials tend to +-infinity at +-infinity"
+    topic: continuity
+    subtopics: [limits-at-infinity]
+    skills: [comparison-estimate, choose-delta]
+    difficulty: easy
+    difficultyRationale: "Bound the lower-order terms by half the leading term for |x| large; then the definition is immediate."
+    category: canonical
+    type: proof
+    tags: [infinite-limit, limit-at-infinity, polynomial, eventual-inequality]
+    references: ["Exercise 3.5.5 (summarized)"]
+    problemLatex: |
+      Suppose $P(x) := x^n + a_{n-1}x^{n-1} + \cdots + a_1 x + a_0$ is a monic polynomial of degree $n \geq 1$ (monic means that the coefficient of $x^n$ is 1).
+
+      a) Show that if $n$ is even, then $\displaystyle\lim_{x\to\infty} P(x) = \lim_{x\to-\infty} P(x) = \infty$.
+
+      b) Show that if $n$ is odd, then $\displaystyle\lim_{x\to\infty} P(x) = \infty$ and $\displaystyle\lim_{x\to-\infty} P(x) = -\infty$ (see previous exercise).
+
+      *[Summary, not verbatim — the previous exercise (3.5.5) asks for the remaining definitions of infinite limits. For example, $\lim_{x\to-\infty} P(x) = \infty$ means: for every $N \in \mathbb{R}$ there exists $M \in \mathbb{R}$ such that $P(x) > N$ whenever $x \leq M$; and $\lim_{x\to-\infty} P(x) = -\infty$ means: for every $N \in \mathbb{R}$ there exists $M \in \mathbb{R}$ such that $P(x) < N$ whenever $x \leq M$.]*
+    transcriptionNotes: "Exercise 3.5.5 (definitions of the other infinite limits) is summarized and marked as a summary. Verified against page image (pdf 148)."
